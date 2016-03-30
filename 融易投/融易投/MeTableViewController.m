@@ -20,7 +20,8 @@
 
 }
 -(void)setupNavBar {
-    NSLog(@"123");
+    
+    NSLog(@"123456");
     
 }
 
