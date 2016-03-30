@@ -1,0 +1,978 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E2DDB0E81CAB66DB007438E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB0E71CAB66DB007438E4 /* main.m */; };
+		E2DDB0EB1CAB66DB007438E4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB0EA1CAB66DB007438E4 /* AppDelegate.m */; };
+		E2DDB0F31CAB66DB007438E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */; };
+		E2DDB1011CAB66DB007438E4 /* ___Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB1001CAB66DB007438E4 /* ___Tests.m */; };
+		E2DDB10C1CAB66DB007438E4 /* ___UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB10B1CAB66DB007438E4 /* ___UITests.m */; };
+		E2DDB1D41CABACA4007438E4 /* RegController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB1D21CABACA4007438E4 /* RegController.m */; };
+		E2DDB1D51CABACA4007438E4 /* RegController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2DDB1D31CABACA4007438E4 /* RegController.xib */; };
+		E2DDB1E11CABACFD007438E4 /* ForgetController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB1DF1CABACFD007438E4 /* ForgetController.m */; };
+		E2DDB1E21CABACFD007438E4 /* ForgetController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2DDB1E01CABACFD007438E4 /* ForgetController.xib */; };
+		E2DDB1E61CABAD10007438E4 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB1E41CABAD10007438E4 /* LoginController.m */; };
+		E2DDB1E71CABAD10007438E4 /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2DDB1E51CABAD10007438E4 /* LoginController.xib */; };
+		E2DDB1EB1CABAE82007438E4 /* RegSucceedController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB1E91CABAE82007438E4 /* RegSucceedController.m */; };
+		E2DDB1EC1CABAE82007438E4 /* RegSucceedController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2DDB1EA1CABAE82007438E4 /* RegSucceedController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E2DDB0FD1CAB66DB007438E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2DDB0DB1CAB66DB007438E4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2DDB0E21CAB66DB007438E4;
+			remoteInfo = "融易投";
+		};
+		E2DDB1081CAB66DB007438E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2DDB0DB1CAB66DB007438E4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2DDB0E21CAB66DB007438E4;
+			remoteInfo = "融易投";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E2DDB0E31CAB66DB007438E4 /* 融易投.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "融易投.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2DDB0E71CAB66DB007438E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E2DDB0E91CAB66DB007438E4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E2DDB0EA1CAB66DB007438E4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E2DDB0F71CAB66DB007438E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2DDB0FC1CAB66DB007438E4 /* 融易投Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "融易投Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2DDB1001CAB66DB007438E4 /* ___Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "___Tests.m"; sourceTree = "<group>"; };
+		E2DDB1021CAB66DB007438E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2DDB1071CAB66DB007438E4 /* 融易投UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "融易投UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2DDB10B1CAB66DB007438E4 /* ___UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "___UITests.m"; sourceTree = "<group>"; };
+		E2DDB10D1CAB66DB007438E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2DDB1D11CABACA4007438E4 /* RegController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegController.h; sourceTree = "<group>"; };
+		E2DDB1D21CABACA4007438E4 /* RegController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegController.m; sourceTree = "<group>"; };
+		E2DDB1D31CABACA4007438E4 /* RegController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegController.xib; sourceTree = "<group>"; };
+		E2DDB1DE1CABACFD007438E4 /* ForgetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetController.h; sourceTree = "<group>"; };
+		E2DDB1DF1CABACFD007438E4 /* ForgetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetController.m; sourceTree = "<group>"; };
+		E2DDB1E01CABACFD007438E4 /* ForgetController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetController.xib; sourceTree = "<group>"; };
+		E2DDB1E31CABAD10007438E4 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		E2DDB1E41CABAD10007438E4 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		E2DDB1E51CABAD10007438E4 /* LoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginController.xib; sourceTree = "<group>"; };
+		E2DDB1E81CABAE82007438E4 /* RegSucceedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegSucceedController.h; sourceTree = "<group>"; };
+		E2DDB1E91CABAE82007438E4 /* RegSucceedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegSucceedController.m; sourceTree = "<group>"; };
+		E2DDB1EA1CABAE82007438E4 /* RegSucceedController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegSucceedController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E2DDB0E01CAB66DB007438E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2DDB0F91CAB66DB007438E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2DDB1041CAB66DB007438E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E2DDB0DA1CAB66DB007438E4 = {
+			isa = PBXGroup;
+			children = (
+				E2DDB0E51CAB66DB007438E4 /* 融易投 */,
+				E2DDB0FF1CAB66DB007438E4 /* 融易投Tests */,
+				E2DDB10A1CAB66DB007438E4 /* 融易投UITests */,
+				E2DDB0E41CAB66DB007438E4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E2DDB0E41CAB66DB007438E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB0E31CAB66DB007438E4 /* 融易投.app */,
+				E2DDB0FC1CAB66DB007438E4 /* 融易投Tests.xctest */,
+				E2DDB1071CAB66DB007438E4 /* 融易投UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E2DDB0E51CAB66DB007438E4 /* 融易投 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB0E91CAB66DB007438E4 /* AppDelegate.h */,
+				E2DDB0EA1CAB66DB007438E4 /* AppDelegate.m */,
+				E2DDB1B01CABA935007438E4 /* Lib */,
+				E2DDB1AA1CABA76B007438E4 /* Other */,
+				E2DDB19C1CABA664007438E4 /* Model */,
+				E2DDB19B1CABA65E007438E4 /* View */,
+				E2DDB19A1CABA64E007438E4 /* Controller */,
+				E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */,
+				E2DDB0F71CAB66DB007438E4 /* Info.plist */,
+				E2DDB0E61CAB66DB007438E4 /* Supporting Files */,
+			);
+			path = "融易投";
+			sourceTree = "<group>";
+		};
+		E2DDB0E61CAB66DB007438E4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB0E71CAB66DB007438E4 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E2DDB0FF1CAB66DB007438E4 /* 融易投Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1001CAB66DB007438E4 /* ___Tests.m */,
+				E2DDB1021CAB66DB007438E4 /* Info.plist */,
+			);
+			path = "融易投Tests";
+			sourceTree = "<group>";
+		};
+		E2DDB10A1CAB66DB007438E4 /* 融易投UITests */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB10B1CAB66DB007438E4 /* ___UITests.m */,
+				E2DDB10D1CAB66DB007438E4 /* Info.plist */,
+			);
+			path = "融易投UITests";
+			sourceTree = "<group>";
+		};
+		E2DDB19A1CABA64E007438E4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1B51CABA9FB007438E4 /* 支付 */,
+				E2DDB1B11CABA963007438E4 /* 登录/注册 */,
+				E2DDB1A01CABA6B5007438E4 /* 消息 */,
+				E2DDB19F1CABA6AD007438E4 /* 我的 */,
+				E2DDB19E1CABA6A3007438E4 /* 发现 */,
+				E2DDB19D1CABA677007438E4 /* 首页 */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E2DDB19B1CABA65E007438E4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1BD1CABAAA0007438E4 /* 支付 */,
+				E2DDB1BC1CABAA97007438E4 /* 登录/注册 */,
+				E2DDB1BB1CABAA8D007438E4 /* 消息 */,
+				E2DDB1BA1CABAA86007438E4 /* 我的 */,
+				E2DDB1B91CABAA4E007438E4 /* 发现 */,
+				E2DDB1B81CABAA3A007438E4 /* 首页 */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E2DDB19C1CABA664007438E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E2DDB19D1CABA677007438E4 /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1A31CABA6EF007438E4 /* 拍卖 */,
+				E2DDB1A21CABA6DA007438E4 /* 创作 */,
+				E2DDB1A11CABA6D3007438E4 /* 融资 */,
+			);
+			name = "首页";
+			sourceTree = "<group>";
+		};
+		E2DDB19E1CABA6A3007438E4 /* 发现 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "发现";
+			sourceTree = "<group>";
+		};
+		E2DDB19F1CABA6AD007438E4 /* 我的 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1AC1CABA8F2007438E4 /* 设置 */,
+				E2DDB1AB1CABA8DF007438E4 /* 申请艺术家 */,
+			);
+			name = "我的";
+			sourceTree = "<group>";
+		};
+		E2DDB1A01CABA6B5007438E4 /* 消息 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1AF1CABA90B007438E4 /* 动态 */,
+				E2DDB1AE1CABA902007438E4 /* 私信 */,
+				E2DDB1AD1CABA8F8007438E4 /* 通知 */,
+			);
+			name = "消息";
+			sourceTree = "<group>";
+		};
+		E2DDB1A11CABA6D3007438E4 /* 融资 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1A51CABA70E007438E4 /* 非详情 */,
+				E2DDB1A41CABA701007438E4 /* 详情 */,
+			);
+			name = "融资";
+			sourceTree = "<group>";
+		};
+		E2DDB1A21CABA6DA007438E4 /* 创作 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1A71CABA72B007438E4 /* 非详情 */,
+				E2DDB1A61CABA721007438E4 /* 详情 */,
+			);
+			name = "创作";
+			sourceTree = "<group>";
+		};
+		E2DDB1A31CABA6EF007438E4 /* 拍卖 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1A91CABA742007438E4 /* 非详情 */,
+				E2DDB1A81CABA739007438E4 /* 详情 */,
+			);
+			name = "拍卖";
+			sourceTree = "<group>";
+		};
+		E2DDB1A41CABA701007438E4 /* 详情 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "详情";
+			sourceTree = "<group>";
+		};
+		E2DDB1A51CABA70E007438E4 /* 非详情 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "非详情";
+			sourceTree = "<group>";
+		};
+		E2DDB1A61CABA721007438E4 /* 详情 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "详情";
+			sourceTree = "<group>";
+		};
+		E2DDB1A71CABA72B007438E4 /* 非详情 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "非详情";
+			sourceTree = "<group>";
+		};
+		E2DDB1A81CABA739007438E4 /* 详情 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "详情";
+			sourceTree = "<group>";
+		};
+		E2DDB1A91CABA742007438E4 /* 非详情 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "非详情";
+			sourceTree = "<group>";
+		};
+		E2DDB1AA1CABA76B007438E4 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		E2DDB1AB1CABA8DF007438E4 /* 申请艺术家 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "申请艺术家";
+			sourceTree = "<group>";
+		};
+		E2DDB1AC1CABA8F2007438E4 /* 设置 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "设置";
+			sourceTree = "<group>";
+		};
+		E2DDB1AD1CABA8F8007438E4 /* 通知 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "通知";
+			sourceTree = "<group>";
+		};
+		E2DDB1AE1CABA902007438E4 /* 私信 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "私信";
+			sourceTree = "<group>";
+		};
+		E2DDB1AF1CABA90B007438E4 /* 动态 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "动态";
+			sourceTree = "<group>";
+		};
+		E2DDB1B01CABA935007438E4 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		E2DDB1B11CABA963007438E4 /* 登录/注册 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1B41CABA988007438E4 /* 注册 */,
+				E2DDB1B31CABA980007438E4 /* 忘记密码 */,
+				E2DDB1B21CABA979007438E4 /* 登录 */,
+			);
+			name = "登录/注册";
+			sourceTree = "<group>";
+		};
+		E2DDB1B21CABA979007438E4 /* 登录 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1E31CABAD10007438E4 /* LoginController.h */,
+				E2DDB1E41CABAD10007438E4 /* LoginController.m */,
+				E2DDB1E51CABAD10007438E4 /* LoginController.xib */,
+			);
+			name = "登录";
+			sourceTree = "<group>";
+		};
+		E2DDB1B31CABA980007438E4 /* 忘记密码 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1DE1CABACFD007438E4 /* ForgetController.h */,
+				E2DDB1DF1CABACFD007438E4 /* ForgetController.m */,
+				E2DDB1E01CABACFD007438E4 /* ForgetController.xib */,
+			);
+			name = "忘记密码";
+			sourceTree = "<group>";
+		};
+		E2DDB1B41CABA988007438E4 /* 注册 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1D11CABACA4007438E4 /* RegController.h */,
+				E2DDB1D21CABACA4007438E4 /* RegController.m */,
+				E2DDB1D31CABACA4007438E4 /* RegController.xib */,
+				E2DDB1E81CABAE82007438E4 /* RegSucceedController.h */,
+				E2DDB1E91CABAE82007438E4 /* RegSucceedController.m */,
+				E2DDB1EA1CABAE82007438E4 /* RegSucceedController.xib */,
+			);
+			name = "注册";
+			sourceTree = "<group>";
+		};
+		E2DDB1B51CABA9FB007438E4 /* 支付 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1B71CABAA0B007438E4 /* 微信 */,
+				E2DDB1B61CABAA05007438E4 /* 支付宝 */,
+			);
+			name = "支付";
+			sourceTree = "<group>";
+		};
+		E2DDB1B61CABAA05007438E4 /* 支付宝 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "支付宝";
+			sourceTree = "<group>";
+		};
+		E2DDB1B71CABAA0B007438E4 /* 微信 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "微信";
+			sourceTree = "<group>";
+		};
+		E2DDB1B81CABAA3A007438E4 /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1C01CABAAC8007438E4 /* 拍卖 */,
+				E2DDB1BF1CABAABE007438E4 /* 创作 */,
+				E2DDB1BE1CABAAB2007438E4 /* 融资 */,
+			);
+			name = "首页";
+			sourceTree = "<group>";
+		};
+		E2DDB1B91CABAA4E007438E4 /* 发现 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "发现";
+			sourceTree = "<group>";
+		};
+		E2DDB1BA1CABAA86007438E4 /* 我的 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1C81CABAB35007438E4 /* 设置 */,
+				E2DDB1C71CABAB28007438E4 /* 申请艺术家 */,
+			);
+			name = "我的";
+			sourceTree = "<group>";
+		};
+		E2DDB1BB1CABAA8D007438E4 /* 消息 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1CB1CABAB5A007438E4 /* 动态 */,
+				E2DDB1CA1CABAB54007438E4 /* 私信 */,
+				E2DDB1C91CABAB4C007438E4 /* 通知 */,
+			);
+			name = "消息";
+			sourceTree = "<group>";
+		};
+		E2DDB1BC1CABAA97007438E4 /* 登录/注册 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1CE1CABAB8F007438E4 /* 注册 */,
+				E2DDB1CD1CABAB84007438E4 /* 忘记密码 */,
+				E2DDB1CC1CABAB7D007438E4 /* 登录 */,
+			);
+			name = "登录/注册";
+			sourceTree = "<group>";
+		};
+		E2DDB1BD1CABAAA0007438E4 /* 支付 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1D01CABABF3007438E4 /* 微信 */,
+				E2DDB1CF1CABABEA007438E4 /* 支付宝 */,
+			);
+			name = "支付";
+			sourceTree = "<group>";
+		};
+		E2DDB1BE1CABAAB2007438E4 /* 融资 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1C21CABAAF0007438E4 /* 非详情 */,
+				E2DDB1C11CABAAE0007438E4 /* 详情 */,
+			);
+			name = "融资";
+			sourceTree = "<group>";
+		};
+		E2DDB1BF1CABAABE007438E4 /* 创作 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1C41CABAB05007438E4 /* 非详情 */,
+				E2DDB1C31CABAAFB007438E4 /* 详情 */,
+			);
+			name = "创作";
+			sourceTree = "<group>";
+		};
+		E2DDB1C01CABAAC8007438E4 /* 拍卖 */ = {
+			isa = PBXGroup;
+			children = (
+				E2DDB1C61CABAB15007438E4 /* 非详情 */,
+				E2DDB1C51CABAB0E007438E4 /* 详情 */,
+			);
+			name = "拍卖";
+			sourceTree = "<group>";
+		};
+		E2DDB1C11CABAAE0007438E4 /* 详情 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "详情";
+			sourceTree = "<group>";
+		};
+		E2DDB1C21CABAAF0007438E4 /* 非详情 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "非详情";
+			sourceTree = "<group>";
+		};
+		E2DDB1C31CABAAFB007438E4 /* 详情 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "详情";
+			sourceTree = "<group>";
+		};
+		E2DDB1C41CABAB05007438E4 /* 非详情 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "非详情";
+			sourceTree = "<group>";
+		};
+		E2DDB1C51CABAB0E007438E4 /* 详情 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "详情";
+			sourceTree = "<group>";
+		};
+		E2DDB1C61CABAB15007438E4 /* 非详情 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "非详情";
+			sourceTree = "<group>";
+		};
+		E2DDB1C71CABAB28007438E4 /* 申请艺术家 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "申请艺术家";
+			sourceTree = "<group>";
+		};
+		E2DDB1C81CABAB35007438E4 /* 设置 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "设置";
+			sourceTree = "<group>";
+		};
+		E2DDB1C91CABAB4C007438E4 /* 通知 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "通知";
+			sourceTree = "<group>";
+		};
+		E2DDB1CA1CABAB54007438E4 /* 私信 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "私信";
+			sourceTree = "<group>";
+		};
+		E2DDB1CB1CABAB5A007438E4 /* 动态 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "动态";
+			sourceTree = "<group>";
+		};
+		E2DDB1CC1CABAB7D007438E4 /* 登录 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "登录";
+			sourceTree = "<group>";
+		};
+		E2DDB1CD1CABAB84007438E4 /* 忘记密码 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "忘记密码";
+			sourceTree = "<group>";
+		};
+		E2DDB1CE1CABAB8F007438E4 /* 注册 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "注册";
+			sourceTree = "<group>";
+		};
+		E2DDB1CF1CABABEA007438E4 /* 支付宝 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "支付宝";
+			sourceTree = "<group>";
+		};
+		E2DDB1D01CABABF3007438E4 /* 微信 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "微信";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E2DDB0E21CAB66DB007438E4 /* 融易投 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2DDB1101CAB66DB007438E4 /* Build configuration list for PBXNativeTarget "融易投" */;
+			buildPhases = (
+				E2DDB0DF1CAB66DB007438E4 /* Sources */,
+				E2DDB0E01CAB66DB007438E4 /* Frameworks */,
+				E2DDB0E11CAB66DB007438E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "融易投";
+			productName = "融易投";
+			productReference = E2DDB0E31CAB66DB007438E4 /* 融易投.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E2DDB0FB1CAB66DB007438E4 /* 融易投Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2DDB1131CAB66DB007438E4 /* Build configuration list for PBXNativeTarget "融易投Tests" */;
+			buildPhases = (
+				E2DDB0F81CAB66DB007438E4 /* Sources */,
+				E2DDB0F91CAB66DB007438E4 /* Frameworks */,
+				E2DDB0FA1CAB66DB007438E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2DDB0FE1CAB66DB007438E4 /* PBXTargetDependency */,
+			);
+			name = "融易投Tests";
+			productName = "融易投Tests";
+			productReference = E2DDB0FC1CAB66DB007438E4 /* 融易投Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E2DDB1061CAB66DB007438E4 /* 融易投UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2DDB1161CAB66DB007438E4 /* Build configuration list for PBXNativeTarget "融易投UITests" */;
+			buildPhases = (
+				E2DDB1031CAB66DB007438E4 /* Sources */,
+				E2DDB1041CAB66DB007438E4 /* Frameworks */,
+				E2DDB1051CAB66DB007438E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2DDB1091CAB66DB007438E4 /* PBXTargetDependency */,
+			);
+			name = "融易投UITests";
+			productName = "融易投UITests";
+			productReference = E2DDB1071CAB66DB007438E4 /* 融易投UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E2DDB0DB1CAB66DB007438E4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = dongxin;
+				TargetAttributes = {
+					E2DDB0E21CAB66DB007438E4 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 68Y8JTBJWD;
+					};
+					E2DDB0FB1CAB66DB007438E4 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = E2DDB0E21CAB66DB007438E4;
+					};
+					E2DDB1061CAB66DB007438E4 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = E2DDB0E21CAB66DB007438E4;
+					};
+				};
+			};
+			buildConfigurationList = E2DDB0DE1CAB66DB007438E4 /* Build configuration list for PBXProject "融易投" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E2DDB0DA1CAB66DB007438E4;
+			productRefGroup = E2DDB0E41CAB66DB007438E4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E2DDB0E21CAB66DB007438E4 /* 融易投 */,
+				E2DDB0FB1CAB66DB007438E4 /* 融易投Tests */,
+				E2DDB1061CAB66DB007438E4 /* 融易投UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E2DDB0E11CAB66DB007438E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2DDB1E21CABACFD007438E4 /* ForgetController.xib in Resources */,
+				E2DDB1D51CABACA4007438E4 /* RegController.xib in Resources */,
+				E2DDB1EC1CABAE82007438E4 /* RegSucceedController.xib in Resources */,
+				E2DDB1E71CABAD10007438E4 /* LoginController.xib in Resources */,
+				E2DDB0F31CAB66DB007438E4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2DDB0FA1CAB66DB007438E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2DDB1051CAB66DB007438E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E2DDB0DF1CAB66DB007438E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2DDB0EB1CAB66DB007438E4 /* AppDelegate.m in Sources */,
+				E2DDB1E11CABACFD007438E4 /* ForgetController.m in Sources */,
+				E2DDB0E81CAB66DB007438E4 /* main.m in Sources */,
+				E2DDB1EB1CABAE82007438E4 /* RegSucceedController.m in Sources */,
+				E2DDB1D41CABACA4007438E4 /* RegController.m in Sources */,
+				E2DDB1E61CABAD10007438E4 /* LoginController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2DDB0F81CAB66DB007438E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2DDB1011CAB66DB007438E4 /* ___Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2DDB1031CAB66DB007438E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2DDB10C1CAB66DB007438E4 /* ___UITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E2DDB0FE1CAB66DB007438E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E2DDB0E21CAB66DB007438E4 /* 融易投 */;
+			targetProxy = E2DDB0FD1CAB66DB007438E4 /* PBXContainerItemProxy */;
+		};
+		E2DDB1091CAB66DB007438E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E2DDB0E21CAB66DB007438E4 /* 融易投 */;
+			targetProxy = E2DDB1081CAB66DB007438E4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E2DDB10E1CAB66DB007438E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E2DDB10F1CAB66DB007438E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E2DDB1111CAB66DB007438E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "融易投/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.efy.eftryt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E2DDB1121CAB66DB007438E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "融易投/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.efy.eftryt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E2DDB1141CAB66DB007438E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "融易投Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "aaaa.---Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/融易投.app/融易投";
+			};
+			name = Debug;
+		};
+		E2DDB1151CAB66DB007438E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "融易投Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "aaaa.---Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/融易投.app/融易投";
+			};
+			name = Release;
+		};
+		E2DDB1171CAB66DB007438E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "融易投UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "aaaa.---UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "融易投";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		E2DDB1181CAB66DB007438E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "融易投UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "aaaa.---UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "融易投";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E2DDB0DE1CAB66DB007438E4 /* Build configuration list for PBXProject "融易投" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2DDB10E1CAB66DB007438E4 /* Debug */,
+				E2DDB10F1CAB66DB007438E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2DDB1101CAB66DB007438E4 /* Build configuration list for PBXNativeTarget "融易投" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2DDB1111CAB66DB007438E4 /* Debug */,
+				E2DDB1121CAB66DB007438E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2DDB1131CAB66DB007438E4 /* Build configuration list for PBXNativeTarget "融易投Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2DDB1141CAB66DB007438E4 /* Debug */,
+				E2DDB1151CAB66DB007438E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2DDB1161CAB66DB007438E4 /* Build configuration list for PBXNativeTarget "融易投UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2DDB1171CAB66DB007438E4 /* Debug */,
+				E2DDB1181CAB66DB007438E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E2DDB0DB1CAB66DB007438E4 /* Project object */;
+}
