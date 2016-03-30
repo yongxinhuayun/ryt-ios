@@ -1,0 +1,34 @@
+//
+//  PrefixHeader.pch
+//  融易投
+//
+//  Created by efeiyi on 16/3/30.
+//  Copyright © 2016年 dongxin. All rights reserved.
+//
+
+// OC文件
+#ifdef __OBJC__
+
+#import "UIView+Frame.h"
+
+#import "UIImage+Image.h"
+
+#import "UIBarButtonItem+Item.h"
+
+
+//自定义log
+#ifdef DEBUG
+
+// 调试阶段 DEBUG
+#define SSLog(...) NSLog(__VA_ARGS__)
+
+#else
+// 发布阶段
+#define SSLog(...)
+
+#endif
+
+//使用打印方法宏
+#define SSFunc SSLog(@"%s",__func__)
+
+#endif
