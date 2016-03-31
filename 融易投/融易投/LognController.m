@@ -11,6 +11,8 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
 
+#import "HTTPSessionManager.h"
+
 
 @interface LognController ()
 
@@ -21,6 +23,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
+@property (nonatomic ,weak)  AFHTTPSessionManager *mgr;
+
 @end
 
 @implementation LognController
@@ -30,10 +34,12 @@
     
     NSLog(@"1111");
     
+    
+    
 }
 - (IBAction)lognBtnClick:(id)sender {
     
-    [self loadData];
+    [self test];
 }
 - (IBAction)weixinBtnClick:(id)sender {
 }
@@ -104,6 +110,67 @@
         
     }];
     
+    
+    
+}
+
+-(void)test{
+
+    // 1.1 创建请求会话管理者
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    
+    _mgr = mgr;
+    
+    NSString *url = @"http://192.168.1.69:8001/app/login.do";
+    
+    //时间
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval a =[date timeIntervalSince1970] * 1000;
+    NSString *timeString = [NSString stringWithFormat:@"%f", a];
+    
+    NSArray *strArray = [timeString componentsSeparatedByString:@"."];
+    
+    NSLog(@"%@",strArray.firstObject);
+    
+    //参数
+    NSString *username = self.usernameTextField.text;
+    NSString *password = self.passwordTextField.text;
+    NSString *timestamp = strArray.firstObject;
+    NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
+    
+    NSLog(@"username=%@,password=%@,timestamp=%@",username,password,timestamp);
+    
+    NSArray *arra = @[@"username",@"password",@"timestamp"];
+    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
+    NSLog(@"%@",sortArr);
+    
+    NSString *signmsg = [NSString stringWithFormat:@"password=%@&timestamp=%@&username=%@&key=%@",password,timestamp,username,appkey];
+    NSLog(@"%@",signmsg);
+    
+    NSString *signmsgMD5 = [self md5:signmsg];
+
+    
+    // 1.2 拼接请求参数
+    NSDictionary *json = @{
+                           @"username" : username,
+                           @"password" : password,
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5
+                           };
+    
+    //    NSData --> NSDictionary
+    // NSDictionary --> NSData
+    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
+    
+    [mgr POST:url parameters:data progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSString *obj =  [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",obj);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+
 }
 
 

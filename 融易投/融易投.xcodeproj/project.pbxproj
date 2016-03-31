@@ -27,6 +27,7 @@
 		21904CF11CAD3C7800AD7A3F /* CompleteUserInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21904CEF1CAD3C7800AD7A3F /* CompleteUserInfoController.xib */; };
 		21904CF51CAD3C8B00AD7A3F /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21904CF31CAD3C8B00AD7A3F /* ForgetPasswordViewController.m */; };
 		21904CF61CAD3C8B00AD7A3F /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21904CF41CAD3C8B00AD7A3F /* ForgetPasswordViewController.xib */; };
+		21904D2B1CAD4E0700AD7A3F /* HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21904D2A1CAD4E0700AD7A3F /* HTTPSessionManager.m */; };
 		BC4A8BFAB939A8BBE3AF0A2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFB6E4A926D52C7C2AE4F6C /* libPods.a */; };
 		E2D73DC21CAD2CA9004CEFA3 /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D73DC01CAD2CA9004CEFA3 /* RegViewController.m */; };
 		E2D73DC31CAD2CA9004CEFA3 /* RegViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D73DC11CAD2CA9004CEFA3 /* RegViewController.xib */; };
@@ -88,6 +89,9 @@
 		21904CF21CAD3C8B00AD7A3F /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		21904CF31CAD3C8B00AD7A3F /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		21904CF41CAD3C8B00AD7A3F /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordViewController.xib; sourceTree = "<group>"; };
+		21904D291CAD4E0700AD7A3F /* HTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSessionManager.h; sourceTree = "<group>"; };
+		21904D2A1CAD4E0700AD7A3F /* HTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSessionManager.m; sourceTree = "<group>"; };
+		21904D2C1CAD517700AD7A3F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		AC411E3C5CA46BB337E074BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E2D73DBF1CAD2CA9004CEFA3 /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegViewController.h; sourceTree = "<group>"; };
 		E2D73DC01CAD2CA9004CEFA3 /* RegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegViewController.m; sourceTree = "<group>"; };
@@ -140,6 +144,9 @@
 				218D2B391CACB2F9004553B9 /* CommonNavigationController.m */,
 				218D2B3A1CACB2F9004553B9 /* CommonTabBarViewController.h */,
 				218D2B3B1CACB2F9004553B9 /* CommonTabBarViewController.m */,
+				21904D291CAD4E0700AD7A3F /* HTTPSessionManager.h */,
+				21904D2A1CAD4E0700AD7A3F /* HTTPSessionManager.m */,
+				21904D2C1CAD517700AD7A3F /* PrefixHeader.pch */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -895,6 +902,7 @@
 				21904CF51CAD3C8B00AD7A3F /* ForgetPasswordViewController.m in Sources */,
 				218D2B4B1CACB335004553B9 /* MessageTableViewController.m in Sources */,
 				E2DDB0EB1CAB66DB007438E4 /* AppDelegate.m in Sources */,
+				21904D2B1CAD4E0700AD7A3F /* HTTPSessionManager.m in Sources */,
 				E2D73DC21CAD2CA9004CEFA3 /* RegViewController.m in Sources */,
 				218D2B5A1CACB35C004553B9 /* UIView+Frame.m in Sources */,
 				218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */,
@@ -1030,6 +1038,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = YES;
+				GCC_PREFIX_HEADER = "融易投/PrefixHeader.pch";
 				INFOPLIST_FILE = "融易投/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1046,6 +1055,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = YES;
+				GCC_PREFIX_HEADER = "融易投/PrefixHeader.pch";
 				INFOPLIST_FILE = "融易投/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
