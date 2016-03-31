@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-//111
+
 @interface UIImage (Image)
 
 // 提供一个加载原始图片方法

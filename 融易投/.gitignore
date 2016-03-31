@@ -1,0 +1,15 @@
+# Xcode
+.DS_Store
+build/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcworkspace
+xcuserdata
+profile
+*.moved-aside
+DerivedData
+.idea/
+Tests/Pods
+Tests/Podfile.lock

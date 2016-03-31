@@ -9,7 +9,7 @@
 #import "CommonNavigationController.h"
 
 @interface CommonNavigationController ()<UIGestureRecognizerDelegate>
-//111
+
 
 @end
 

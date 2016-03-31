@@ -7,7 +7,7 @@
 //
 
 #import "UIImage+Image.h"
-//111
+
 @implementation UIImage (Image)
 
 

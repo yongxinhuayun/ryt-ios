@@ -15,7 +15,6 @@
 #import "DiscoveryTableViewController.h"
 #import "MainTableViewController.h"
 
-//111
 
 //TabBar的颜色
 #define TabBarColor(r,g,b) [UIColor colorWithRed: (r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:1];
