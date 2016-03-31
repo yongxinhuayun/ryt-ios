@@ -27,8 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSLog(@"111");
+    NSLog(@"1111");
     
 }
 - (IBAction)lognBtnClick:(id)sender {
