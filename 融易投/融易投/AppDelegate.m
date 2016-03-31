@@ -11,8 +11,8 @@
 #import "CommonTabBarViewController.h"
 
 #import "LognController.h"
-//#import "RegisterController.h"
-#import "RegViewController.h"
+#import "ForgetPasswordViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -21,19 +21,20 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    
     //1.创建主窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     //2.设置窗口的根控制器
     
-//    CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
+    //    CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
     LognController *logn = [[LognController alloc] init];
+    ForgetPasswordViewController *forgetPasswordVC = [[ForgetPasswordViewController alloc] init];
     
-    self.window.rootViewController =  [RegViewController new];
+    self.window.rootViewController = logn;
     
     //3.显示窗口
     [self.window makeKeyAndVisible];
-
+    
     return YES;
 }
 

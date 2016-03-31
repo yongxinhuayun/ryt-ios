@@ -8,13 +8,10 @@
 
 #import "LognController.h"
 
-
-
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
 
-/** 全局统一的请求路径 */
-NSString *const baseUrl = @"http://192.168.1.69:8001/app/login.do";
+
 
 @interface LognController ()
 
@@ -23,17 +20,22 @@ NSString *const baseUrl = @"http://192.168.1.69:8001/app/login.do";
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @end
 
 @implementation LognController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    
 }
 - (IBAction)lognBtnClick:(id)sender {
     
     [self loadData];
+}
+- (IBAction)weixinBtnClick:(id)sender {
 }
 
 -(void)loadData
@@ -46,10 +48,10 @@ NSString *const baseUrl = @"http://192.168.1.69:8001/app/login.do";
     NSArray *strArray = [timeString componentsSeparatedByString:@"."];
     
     NSLog(@"%@",strArray.firstObject);
-
+    
     //参数
-    NSString *username = @"13366047553";
-    NSString *password = @"Dx11111111";
+    NSString *username = self.usernameTextField.text;
+    NSString *password = self.passwordTextField.text;
     NSString *timestamp = strArray.firstObject;
     NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
     
@@ -66,9 +68,9 @@ NSString *const baseUrl = @"http://192.168.1.69:8001/app/login.do";
     NSString *signmsgMD5 = [self md5:signmsg];
     
     //对key进行自然排序
-//    for (NSString *s in [dict allKeys]) {
-//        NSLog(@"value: %@", s);
-//    }
+    //    for (NSString *s in [dict allKeys]) {
+    //        NSLog(@"value: %@", s);
+    //    }
     
     NSLog(@"signmsgMD5=%@",signmsgMD5);
     
@@ -95,12 +97,12 @@ NSString *const baseUrl = @"http://192.168.1.69:8001/app/login.do";
     
     // 4.发送请求
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-
+        
         NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"%@",obj);
         
     }];
-
+    
 }
 
 
