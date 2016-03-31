@@ -12,7 +12,6 @@
 #import <CommonCrypto/CommonHMAC.h>
 
 
-
 @interface LognController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *lognButton;
@@ -57,6 +56,7 @@
     
     NSLog(@"username=%@,password=%@,timestamp=%@",username,password,timestamp);
     
+    NSLog(@"111");
     
     NSArray *arra = @[@"username",@"password",@"timestamp"];
     NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
