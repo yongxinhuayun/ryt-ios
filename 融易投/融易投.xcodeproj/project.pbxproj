@@ -25,14 +25,6 @@
 		E2DDB0F31CAB66DB007438E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */; };
 		E2DDB1011CAB66DB007438E4 /* ___Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB1001CAB66DB007438E4 /* ___Tests.m */; };
 		E2DDB10C1CAB66DB007438E4 /* ___UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB10B1CAB66DB007438E4 /* ___UITests.m */; };
-		E2DDB1D41CABACA4007438E4 /* RegController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB1D21CABACA4007438E4 /* RegController.m */; };
-		E2DDB1D51CABACA4007438E4 /* RegController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2DDB1D31CABACA4007438E4 /* RegController.xib */; };
-		E2DDB1E11CABACFD007438E4 /* ForgetController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB1DF1CABACFD007438E4 /* ForgetController.m */; };
-		E2DDB1E21CABACFD007438E4 /* ForgetController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2DDB1E01CABACFD007438E4 /* ForgetController.xib */; };
-		E2DDB1E61CABAD10007438E4 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB1E41CABAD10007438E4 /* LoginController.m */; };
-		E2DDB1E71CABAD10007438E4 /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2DDB1E51CABAD10007438E4 /* LoginController.xib */; };
-		E2DDB1EB1CABAE82007438E4 /* RegSucceedController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB1E91CABAE82007438E4 /* RegSucceedController.m */; };
-		E2DDB1EC1CABAE82007438E4 /* RegSucceedController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2DDB1EA1CABAE82007438E4 /* RegSucceedController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,18 +79,6 @@
 		E2DDB1071CAB66DB007438E4 /* 融易投UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "融易投UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2DDB10B1CAB66DB007438E4 /* ___UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "___UITests.m"; sourceTree = "<group>"; };
 		E2DDB10D1CAB66DB007438E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2DDB1D11CABACA4007438E4 /* RegController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegController.h; sourceTree = "<group>"; };
-		E2DDB1D21CABACA4007438E4 /* RegController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegController.m; sourceTree = "<group>"; };
-		E2DDB1D31CABACA4007438E4 /* RegController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegController.xib; sourceTree = "<group>"; };
-		E2DDB1DE1CABACFD007438E4 /* ForgetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetController.h; sourceTree = "<group>"; };
-		E2DDB1DF1CABACFD007438E4 /* ForgetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetController.m; sourceTree = "<group>"; };
-		E2DDB1E01CABACFD007438E4 /* ForgetController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetController.xib; sourceTree = "<group>"; };
-		E2DDB1E31CABAD10007438E4 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
-		E2DDB1E41CABAD10007438E4 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
-		E2DDB1E51CABAD10007438E4 /* LoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginController.xib; sourceTree = "<group>"; };
-		E2DDB1E81CABAE82007438E4 /* RegSucceedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegSucceedController.h; sourceTree = "<group>"; };
-		E2DDB1E91CABAE82007438E4 /* RegSucceedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegSucceedController.m; sourceTree = "<group>"; };
-		E2DDB1EA1CABAE82007438E4 /* RegSucceedController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegSucceedController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,9 +399,6 @@
 		E2DDB1B21CABA979007438E4 /* 登录 */ = {
 			isa = PBXGroup;
 			children = (
-				E2DDB1E31CABAD10007438E4 /* LoginController.h */,
-				E2DDB1E41CABAD10007438E4 /* LoginController.m */,
-				E2DDB1E51CABAD10007438E4 /* LoginController.xib */,
 			);
 			name = "登录";
 			sourceTree = "<group>";
@@ -429,9 +406,6 @@
 		E2DDB1B31CABA980007438E4 /* 忘记密码 */ = {
 			isa = PBXGroup;
 			children = (
-				E2DDB1DE1CABACFD007438E4 /* ForgetController.h */,
-				E2DDB1DF1CABACFD007438E4 /* ForgetController.m */,
-				E2DDB1E01CABACFD007438E4 /* ForgetController.xib */,
 			);
 			name = "忘记密码";
 			sourceTree = "<group>";
@@ -439,12 +413,6 @@
 		E2DDB1B41CABA988007438E4 /* 注册 */ = {
 			isa = PBXGroup;
 			children = (
-				E2DDB1D11CABACA4007438E4 /* RegController.h */,
-				E2DDB1D21CABACA4007438E4 /* RegController.m */,
-				E2DDB1D31CABACA4007438E4 /* RegController.xib */,
-				E2DDB1E81CABAE82007438E4 /* RegSucceedController.h */,
-				E2DDB1E91CABAE82007438E4 /* RegSucceedController.m */,
-				E2DDB1EA1CABAE82007438E4 /* RegSucceedController.xib */,
 			);
 			name = "注册";
 			sourceTree = "<group>";
@@ -770,12 +738,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2DDB1E21CABACFD007438E4 /* ForgetController.xib in Resources */,
-				E2DDB1D51CABACA4007438E4 /* RegController.xib in Resources */,
 				218D2B421CACB310004553B9 /* DiscoveryTableViewController.xib in Resources */,
 				218D2B4C1CACB335004553B9 /* MessageTableViewController.xib in Resources */,
-				E2DDB1EC1CABAE82007438E4 /* RegSucceedController.xib in Resources */,
-				E2DDB1E71CABAD10007438E4 /* LoginController.xib in Resources */,
 				218D2B471CACB325004553B9 /* MainTableViewController.xib in Resources */,
 				E2DDB0F31CAB66DB007438E4 /* Assets.xcassets in Resources */,
 				218D2B511CACB349004553B9 /* MeTableViewController.xib in Resources */,
@@ -807,17 +771,13 @@
 				218D2B4B1CACB335004553B9 /* MessageTableViewController.m in Sources */,
 				E2DDB0EB1CAB66DB007438E4 /* AppDelegate.m in Sources */,
 				218D2B5A1CACB35C004553B9 /* UIView+Frame.m in Sources */,
-				E2DDB1E11CABACFD007438E4 /* ForgetController.m in Sources */,
 				218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */,
 				218D2B411CACB310004553B9 /* DiscoveryTableViewController.m in Sources */,
 				E2DDB0E81CAB66DB007438E4 /* main.m in Sources */,
 				218D2B581CACB35C004553B9 /* UIBarButtonItem+Item.m in Sources */,
 				218D2B501CACB349004553B9 /* MeTableViewController.m in Sources */,
-				E2DDB1EB1CABAE82007438E4 /* RegSucceedController.m in Sources */,
-				E2DDB1D41CABACA4007438E4 /* RegController.m in Sources */,
 				218D2B591CACB35C004553B9 /* UIImage+Image.m in Sources */,
 				218D2B461CACB325004553B9 /* MainTableViewController.m in Sources */,
-				E2DDB1E61CABAD10007438E4 /* LoginController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
