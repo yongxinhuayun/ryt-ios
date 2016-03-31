@@ -11,7 +11,8 @@
 #import "CommonTabBarViewController.h"
 
 #import "LognController.h"
-
+//#import "RegisterController.h"
+#import "RegViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -28,7 +29,7 @@
 //    CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
     LognController *logn = [[LognController alloc] init];
     
-    self.window.rootViewController = logn;
+    self.window.rootViewController =  [RegViewController new];
     
     //3.显示窗口
     [self.window makeKeyAndVisible];

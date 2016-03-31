@@ -21,10 +21,10 @@
 		218D2B591CACB35C004553B9 /* UIImage+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B551CACB35C004553B9 /* UIImage+Image.m */; };
 		218D2B5A1CACB35C004553B9 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B571CACB35C004553B9 /* UIView+Frame.m */; };
 		218D2B5C1CACB5B9004553B9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218D2B5B1CACB5B9004553B9 /* Launch Screen.storyboard */; };
-		218D2B761CACB9D9004553B9 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B751CACB9D9004553B9 /* RegisterController.m */; };
-		218D2B781CACBB2A004553B9 /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 218D2B771CACBB2A004553B9 /* RegisterController.xib */; };
 		218D2B7C1CACBBC2004553B9 /* LognController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B7A1CACBBC2004553B9 /* LognController.m */; };
 		218D2B7D1CACBBC2004553B9 /* LognController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 218D2B7B1CACBBC2004553B9 /* LognController.xib */; };
+		E2D73DC21CAD2CA9004CEFA3 /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D73DC01CAD2CA9004CEFA3 /* RegViewController.m */; };
+		E2D73DC31CAD2CA9004CEFA3 /* RegViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D73DC11CAD2CA9004CEFA3 /* RegViewController.xib */; };
 		E2DDB0E81CAB66DB007438E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB0E71CAB66DB007438E4 /* main.m */; };
 		E2DDB0EB1CAB66DB007438E4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB0EA1CAB66DB007438E4 /* AppDelegate.m */; };
 		E2DDB0F31CAB66DB007438E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */; };
@@ -73,12 +73,12 @@
 		218D2B561CACB35C004553B9 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		218D2B571CACB35C004553B9 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		218D2B5B1CACB5B9004553B9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		218D2B741CACB9D9004553B9 /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
-		218D2B751CACB9D9004553B9 /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
-		218D2B771CACBB2A004553B9 /* RegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
 		218D2B791CACBBC2004553B9 /* LognController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LognController.h; sourceTree = "<group>"; };
 		218D2B7A1CACBBC2004553B9 /* LognController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LognController.m; sourceTree = "<group>"; };
 		218D2B7B1CACBBC2004553B9 /* LognController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LognController.xib; sourceTree = "<group>"; };
+		E2D73DBF1CAD2CA9004CEFA3 /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegViewController.h; sourceTree = "<group>"; };
+		E2D73DC01CAD2CA9004CEFA3 /* RegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegViewController.m; sourceTree = "<group>"; };
+		E2D73DC11CAD2CA9004CEFA3 /* RegViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegViewController.xib; sourceTree = "<group>"; };
 		E2DDB0E31CAB66DB007438E4 /* 融易投.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "融易投.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2DDB0E71CAB66DB007438E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2DDB0E91CAB66DB007438E4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -429,9 +429,9 @@
 		E2DDB1B41CABA988007438E4 /* 注册 */ = {
 			isa = PBXGroup;
 			children = (
-				218D2B741CACB9D9004553B9 /* RegisterController.h */,
-				218D2B751CACB9D9004553B9 /* RegisterController.m */,
-				218D2B771CACBB2A004553B9 /* RegisterController.xib */,
+				E2D73DBF1CAD2CA9004CEFA3 /* RegViewController.h */,
+				E2D73DC01CAD2CA9004CEFA3 /* RegViewController.m */,
+				E2D73DC11CAD2CA9004CEFA3 /* RegViewController.xib */,
 			);
 			name = "注册";
 			sourceTree = "<group>";
@@ -758,9 +758,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				218D2B5C1CACB5B9004553B9 /* Launch Screen.storyboard in Resources */,
-				218D2B781CACBB2A004553B9 /* RegisterController.xib in Resources */,
 				218D2B421CACB310004553B9 /* DiscoveryTableViewController.xib in Resources */,
 				218D2B4C1CACB335004553B9 /* MessageTableViewController.xib in Resources */,
+				E2D73DC31CAD2CA9004CEFA3 /* RegViewController.xib in Resources */,
 				218D2B471CACB325004553B9 /* MainTableViewController.xib in Resources */,
 				E2DDB0F31CAB66DB007438E4 /* Assets.xcassets in Resources */,
 				218D2B511CACB349004553B9 /* MeTableViewController.xib in Resources */,
@@ -789,11 +789,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				218D2B761CACB9D9004553B9 /* RegisterController.m in Sources */,
 				218D2B7C1CACBBC2004553B9 /* LognController.m in Sources */,
 				218D2B3C1CACB2F9004553B9 /* CommonNavigationController.m in Sources */,
 				218D2B4B1CACB335004553B9 /* MessageTableViewController.m in Sources */,
 				E2DDB0EB1CAB66DB007438E4 /* AppDelegate.m in Sources */,
+				E2D73DC21CAD2CA9004CEFA3 /* RegViewController.m in Sources */,
 				218D2B5A1CACB35C004553B9 /* UIView+Frame.m in Sources */,
 				218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */,
 				218D2B411CACB310004553B9 /* DiscoveryTableViewController.m in Sources */,
@@ -925,6 +925,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = "融易投/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -939,6 +940,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = "融易投/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
