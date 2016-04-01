@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *nicknameTextField;
 @property (weak, nonatomic) IBOutlet UIButton *sexBtn;
 @property (weak, nonatomic) IBOutlet UILabel *sexLabel;
+@property (strong,nonatomic) NSString *createPath;
 
 
 @end
@@ -147,23 +148,46 @@
     [self writeImageToCaches:newImage];
 
 }
+-(void)test{
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    NSString *pathDocuments = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *createPath = [NSString stringWithFormat:@"%@/Image", pathDocuments];
+    NSString *createDir = [NSString stringWithFormat:@"%@/MessageQueueImage", pathDocuments];
+    
+    // 判断文件夹是否存在，如果不存在，则创建
+    if (![[NSFileManager defaultManager] fileExistsAtPath:createPath]) {
+        [fileManager createDirectoryAtPath:createPath withIntermediateDirectories:YES attributes:nil error:nil];
+        [fileManager createDirectoryAtPath:createDir withIntermediateDirectories:YES attributes:nil error:nil];
+    } else {
+        NSLog(@"FileDir is exists.");
+    }
+    self.createPath = createPath;
+}
 
 -(void)writeImageToCaches:(UIImage *)newImage{
 
     // 获取cache文件夹
     NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
     
-    NSString *savePath = [cachePath stringByAppendingPathComponent:@"imageCache/iconImage"];
+    NSString *createPath = [NSString stringWithFormat:@"%@", cachePath];
     
-    NSString *filePath = [savePath stringByAppendingPathComponent:@"icon.png"];
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
     
-    NSLog(@"%@",filePath);
+    // 判断文件夹是否存在，如果不存在，则创建
+    if (![[NSFileManager defaultManager] fileExistsAtPath:createPath]) {
+        [fileManager createDirectoryAtPath:createPath withIntermediateDirectories:YES attributes:nil error:nil];
+        
+        NSLog(@"%@",createPath);
+    } else {
+        NSLog(@"FileDir is exists.");
+    }
     
     NSData *data = UIImagePNGRepresentation(newImage);
     ///Users/Library/Developer/CoreSimulator/Devices/6583B10A-003B-4C06-A734-73D83653D51B/data/Containers/Data/Application/51302A6F-2EE6-407B-A0CF-A26E54941DD3/Library/Caches/imageCache/iconImage/icon.png
-
-    [data writeToFile:filePath atomically:YES];
     
+    [data writeToFile:[NSString stringWithFormat:@"%@.png",createPath] atomically:YES];
+
+    NSLog(@"11111111%@",NSHomeDirectory());
 }
 
 // 将指定图片按照指定的宽度缩放
@@ -205,7 +229,7 @@
     NSString *username = self.usernameTextField.text;
     NSString *nickname = self.nicknameTextField.text;
     
-    NSString *headPortrait = @"http://e.hiphotos.baidu.com/image/pic/item/9825bc315c6034a852fd0096c81349540923768d.jpg";
+    NSString *headPortrait = [NSString stringWithFormat:@"%@.png",self.createPath];
     
     NSString *sex = @"1";
     NSString *timestamp = strArray.firstObject;
@@ -229,8 +253,8 @@
     
     NSLog(@"signmsgMD5=%@",signmsgMD5);
     
-    // 1.创建请求
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/login.do"];
+    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
+    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/completeUserInfo.do"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
     
