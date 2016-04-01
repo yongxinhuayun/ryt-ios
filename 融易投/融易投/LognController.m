@@ -32,14 +32,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"1111");
-    
-    
-    
 }
+
+
 - (IBAction)lognBtnClick:(id)sender {
     
-    [self test];
+    [self loadData];
 }
 - (IBAction)weixinBtnClick:(id)sender {
 }

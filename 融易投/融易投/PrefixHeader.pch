@@ -8,18 +8,49 @@
 
 // OC文件
 #ifdef __OBJC__
-// 自定义Log
 
+#import "URLRequestManager.h"
+
+#import "UIBarButtonItem+Item.h"
+#import "UIImage+Image.h"
+#import "UIView+Frame.h"
+#import "NSString+Extension.h"
+
+
+// 自定义Log
 #ifdef DEBUG
 // 调试阶段 DEBUG
-#define BSLog(...) NSLog(__VA_ARGS__);
+#define SSLog(...) NSLog(__VA_ARGS__);
 
 #else
 // 发布阶段
-#define BSLog(...)
+#define SSLog(...)
 
 #endif
 
-#define BSFunc BSLog(@"%s",__func__);
+#define SSFunc SSLog(@"%s",__func__);
+
+/*屏幕适配*/
+#define iPhone6 ([UIScreen mainScreen].bounds.size.height == 667)
+#define iPhone6P ([UIScreen mainScreen].bounds.size.height == 736)
+#define iPhone5 ([UIScreen mainScreen].bounds.size.height == 568)
+#define iPhone4 ([UIScreen mainScreen].bounds.size.height == 480)
+/*屏幕适配*/
+
+#define SSScreenW [UIScreen mainScreen].bounds.size.width
+#define SSScreenH [UIScreen mainScreen].bounds.size.height
+
+#define SSWeakSelf __weak typeof(self) weakSelf = self
+
+#define SSColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1];
+
+#define SSRandomColor BSColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+
+// 将数据写到桌面的plist
+#define SSWriteToPlist(data, filename) [data writeToFile:[NSString stringWithFormat:@"/Users/Desktop/%@.plist",filename] atomically:YES]
+// 将图片写到桌面
+#define SSWriteToImage(data, filename) [data writeToFile:[NSString stringWithFormat:@"/Users/Desktop/%@.png",filename] atomically:YES]
+// 将图片写到caches
+#define SSWriteImageToCaches(data, filename) [data writeToFile:[NSString stringWithFormat:@"%@.png",filename] atomically:YES]
 
 #endif

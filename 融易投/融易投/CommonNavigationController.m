@@ -23,7 +23,7 @@
     
     NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
     
-    attributes[NSFontAttributeName] = [UIFont boldSystemFontOfSize:20];
+    attributes[NSFontAttributeName] = [UIFont boldSystemFontOfSize:14];
     
     [navigationBar setTitleTextAttributes:attributes];
     

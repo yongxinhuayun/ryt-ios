@@ -10,8 +10,25 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
 
+#import "SVProgressHUD.h"
+#import "MJExtension.h"
+#import "registerModel.h"
 
 @interface RegViewController ()
+
+//控件
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumTextField;
+@property (weak, nonatomic) IBOutlet UITextField *verifyCodeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passWordTextField;
+
+//模型数组
+@property (nonatomic, strong) NSArray *registers;
+
+/** 注册成功 0 为成功 */
+@property (nonatomic ,strong) NSString *resultCode;
+
+/** 注册信息提示 */
+@property (nonatomic ,strong) NSString *resultMsg;
 
 @end
 
@@ -19,23 +36,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    [registerModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"ID":@"id",
+                 };
+    }];
+    
+    //获取doc路径
+    NSArray *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *savePath = [docPath.firstObject stringByAppendingPathComponent:@"userAccount.plist"];
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)regBtn:(id)sender {
     [self loadData];
@@ -62,8 +84,8 @@
     NSLog(@"%@",strArray.firstObject);
     
     //参数
-    NSString *username = @"18513234278";
-    NSString *password = @"Dx11111111";
+    NSString *username = self.phoneNumTextField.text;
+    NSString *password = self.passWordTextField.text;
     NSString *timestamp = strArray.firstObject;
     NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
     
@@ -113,8 +135,42 @@
         NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"%@",obj);
         
+        //字典转模型暂时不需要
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+//
+//        NSArray *registerArray = dict[@"userInfo"];
+//        
+//        self.registers = [registerModel mj_objectArrayWithKeyValuesArray:registerArray];
+        
+        //提示用户信息
+        NSString *resultMsg = dict[@"resultMsg"];
+        
+        [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"%@",resultMsg]];
+        
+        //保存注册信息
+        
+        
+        /*
+         请求报文：
+          {
+         "userInfo":{
+            "id":"imhfp1yr4636pj49","username":"18513234278","name":null,"name2":null,"password":"11111111","status":1,"confirmPassword":null,"oldPassword":null,"enabled":true,"accountExpired":false,"accountLocked":false,"credentialsExpired":false,"utype":null,"lastLoginDatetime":null,"lastLogoutDatetime":null,"createDatetime":1459498453297,"source":null,"fullName":"null[18513234278]","accountNonExpired":true,"accountNonLocked":true,"credentialsNonExpired":true},
+         "resultCode":"0",
+         "resultMsg":"注册成功！"
+         }
+         */
     }];
     
+}
+
+
+
+
+
++(registerModel *)loadUserAccount{
+
+    
+    return nil;
 }
 
 -(void)loadDataget
@@ -129,7 +185,7 @@
     NSLog(@"%@",strArray.firstObject);
     
     //参数
-    NSString *username = @"18513234278";
+    NSString *username = self.phoneNumTextField.text;
 
     NSString *timestamp = strArray.firstObject;
     NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
@@ -194,8 +250,8 @@
     NSLog(@"%@",strArray.firstObject);
     
     //参数
-    NSString *username = @"18513234278";
-    NSString *code = @"654641";
+    NSString *username = self.phoneNumTextField.text;
+    NSString *code = self.verifyCodeTextField.text;
     NSString *timestamp = strArray.firstObject;
     NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
     

@@ -12,6 +12,7 @@
 
 #import "LognController.h"
 #import "ForgetPasswordViewController.h"
+#import "CompleteUserInfoController.h"
 
 @interface AppDelegate ()
 
@@ -26,11 +27,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     //2.设置窗口的根控制器
     
-    //    CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
+        CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
     LognController *logn = [[LognController alloc] init];
     ForgetPasswordViewController *forgetPasswordVC = [[ForgetPasswordViewController alloc] init];
+    CompleteUserInfoController *UserInfoController = [[CompleteUserInfoController alloc] init];
     
-    self.window.rootViewController = logn;
+    self.window.rootViewController = tabBarController;
     
     //3.显示窗口
     [self.window makeKeyAndVisible];

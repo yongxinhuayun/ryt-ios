@@ -11,7 +11,7 @@
 #import "CommonNavigationController.h"
 
 #import "MessageTableViewController.h"
-#import "MeTableViewController.h"
+#import "MyViewController.h"
 #import "DiscoveryTableViewController.h"
 #import "MainTableViewController.h"
 
@@ -90,7 +90,7 @@
     [self addChildViewController:MessageVC];
     
     // 我的
-    MeTableViewController *meVC = [[MeTableViewController alloc] init];
+    MyViewController *meVC = [[MyViewController alloc] init];
     [self addChildViewController:meVC];
 }
 
@@ -120,11 +120,6 @@
     meNaVC.tabBarItem.title = @"我的";
 //    meNaVC.tabBarItem.image = [UIImage imageNamed:@"tabBar_new_icon"];
 //    meNaVC.tabBarItem.selectedImage = [UIImage imageNamedWithOriganlMode:@"tabBar_new_click_icon"];
-    
-    
-
-    
-
     
 }
 
