@@ -80,7 +80,7 @@
     NSLog(@"signmsgMD5=%@",signmsgMD5);
     
     // 1.创建请求
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/login.do"];
+    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/login.do"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
     

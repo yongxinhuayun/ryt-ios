@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface registerModel : NSObject <NSCoding>
+@interface registerModel : NSObject 
 
 /** 用户id */
 @property (nonatomic ,strong) NSString *ID;

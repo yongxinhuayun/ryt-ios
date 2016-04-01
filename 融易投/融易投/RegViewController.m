@@ -44,9 +44,7 @@
                  };
     }];
     
-    //获取doc路径
-    NSArray *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *savePath = [docPath.firstObject stringByAppendingPathComponent:@"userAccount.plist"];
+
     
 }
 
@@ -109,7 +107,7 @@
     NSLog(@"signmsgMD5=%@",signmsgMD5);
     
     // 1.创建请求
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/register.do"];
+    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/register.do"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
     
@@ -138,9 +136,9 @@
         //字典转模型暂时不需要
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
 //
-//        NSArray *registerArray = dict[@"userInfo"];
-//        
-//        self.registers = [registerModel mj_objectArrayWithKeyValuesArray:registerArray];
+        NSArray *registerArray = dict[@"userInfo"];
+//
+        self.registers = [registerModel mj_objectArrayWithKeyValuesArray:registerArray];
         
         //提示用户信息
         NSString *resultMsg = dict[@"resultMsg"];
@@ -148,7 +146,7 @@
         [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"%@",resultMsg]];
         
         //保存注册信息
-        
+        [self saveUserInfo:dict[@"userInfo"]];
         
         /*
          请求报文：
@@ -159,19 +157,24 @@
          "resultMsg":"注册成功！"
          }
          */
+        
     }];
     
 }
 
-
-
-
-
-+(registerModel *)loadUserAccount{
-
+-(void)saveUserInfo:(registerModel *)model{
     
-    return nil;
+    //NSUserDefaults  是个单例,但是取出不是shared
+    [[NSUserDefaults standardUserDefaults] setObject:model.ID forKey:@"id"];
+    [[NSUserDefaults standardUserDefaults] setObject:model.username forKey:@"username"];
 }
+
+-(void)readUserInfo:(registerModel *)model{
+
+    NSString *id = [[NSUserDefaults standardUserDefaults] objectForKey:model.ID];
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:model.username];
+}
+
 
 -(void)loadDataget
 {
@@ -210,7 +213,7 @@
     NSLog(@"signmsgMD5=%@",signmsgMD5);
     
     // 1.创建请求
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/sendCode.do"];
+    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/sendCode.do"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
     
@@ -275,7 +278,7 @@
     NSLog(@"signmsgMD5=%@",signmsgMD5);
     
     // 1.创建请求
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/verifyCode.do"];
+    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/verifyCode.do"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
     
