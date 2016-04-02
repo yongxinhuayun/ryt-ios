@@ -11,7 +11,7 @@
 #import "navTitleButton.h"
 
 #import "FinanceTableViewController.h"
-//#import "CreateTableViewController.h"
+#import "CreationTableViewController.h"
 #import "AuctionTableViewController.h"
 
 @interface MainTableViewController () <UIScrollViewDelegate>
@@ -63,7 +63,7 @@
 - (void)setUpChildVcs
 {
     [self addChildViewController:[[FinanceTableViewController alloc] init]];
-//    [self addChildViewController:[[CreateTableViewController alloc] init]];
+    [self addChildViewController:[[CreationTableViewController alloc] init]];
     [self addChildViewController:[[AuctionTableViewController alloc] init]];
 
 }

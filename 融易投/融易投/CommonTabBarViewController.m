@@ -86,7 +86,10 @@
     [self addChildViewController:DiscoveryVC];
     
     //消息
-    MessageTableViewController *MessageVC = [[MessageTableViewController alloc] init];
+//    MessageTableViewController *MessageVC = [[MessageTableViewController alloc] init];
+//    [self addChildViewController:MessageVC];
+    UIStoryboard *MessageStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([MessageTableViewController class]) bundle:nil];
+    MessageTableViewController *MessageVC = [MessageStoryBoard instantiateInitialViewController];
     [self addChildViewController:MessageVC];
     
     // 我的
@@ -102,7 +105,7 @@
     //    mainNaVC.tabBarItem.image = [UIImage imageNamed:@"tabBar_me_icon"];
     //    mainNaVC.tabBarItem.selectedImage = [UIImage imageNamedWithOriganlMode:@"tabBar_me_click_icon"];
     
-    // 发现
+    // 排行
     UIViewController *rankNaVC = self.childViewControllers[1];
     rankNaVC.tabBarItem.title = @"排行";
     //    discoveryNaVC.tabBarItem.image = [UIImage imageNamed:@"tabBar_friendTrends_icon"];

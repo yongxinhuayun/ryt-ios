@@ -13,6 +13,8 @@
 #import "ForgetPasswordViewController.h"
 #import "CompleteUserInfoController.h"
 
+#import "SettingTableViewController.h"
+
 @interface MyViewController ()
 
 @end
@@ -43,6 +45,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 
+}
+- (IBAction)settingBtnClick:(id)sender {
+    
+    UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([SettingTableViewController class]) bundle:nil];
+    SettingTableViewController *settingVC = [settingStoryBoard instantiateInitialViewController];
+    [self.navigationController pushViewController:settingVC animated:YES];
+    
+//    SettingTableViewController *settingVC = [[SettingTableViewController alloc] init];
+//    [self.navigationController pushViewController:settingVC animated:YES];
 }
 
 - (IBAction)loginBtnClick:(id)sender {

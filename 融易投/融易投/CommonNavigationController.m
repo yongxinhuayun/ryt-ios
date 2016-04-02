@@ -81,7 +81,7 @@
         
         //4.实现全屏左屏返回功能
         //我们先研究一下系统自带的返回手势
-        NSLog(@"%@",self.interactivePopGestureRecognizer);
+//        NSLog(@"%@",self.interactivePopGestureRecognizer);
         /*打印出来的结果,分析结果
          <UIScreenEdgePanGestureRecognizer: 0x7fe260640220; view = <UILayoutContainerView 0x7fe26062bba0>;
          target= <(action=handleNavigationTransition:,
