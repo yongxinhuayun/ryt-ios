@@ -13,6 +13,11 @@
 
 #import "HTTPSessionManager.h"
 
+#import "AFNetworking.h"
+
+#import "RegViewController.h"
+#import "ForgetPasswordViewController.h"
+
 
 @interface LognController ()
 
@@ -32,14 +37,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setUpNavBar];
 }
 
+// 设置导航条
+-(void)setUpNavBar
+{
+    //设置导航条标题
+    self.navigationItem.title = @"登录";
+}
 
 - (IBAction)lognBtnClick:(id)sender {
     
     [self loadData];
 }
 - (IBAction)weixinBtnClick:(id)sender {
+    
+}
+- (IBAction)registerBtnClick:(id)sender {
+    
+    RegViewController *reg = [[RegViewController alloc] init];
+    [self.navigationController pushViewController:reg animated:YES];
+}
+
+- (IBAction)forgetPWDBtnClick:(id)sender {
+    
+    ForgetPasswordViewController *forgetPWD = [[ForgetPasswordViewController alloc] init];
+    [self.navigationController pushViewController:forgetPWD animated:YES];
 }
 
 -(void)loadData
@@ -106,6 +130,14 @@
         NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"%@",obj);
         
+        /*
+         {
+         "userInfo":{"id":"imhipoyk18s4k52u","username":"18513234278","name":null,"name2":null,"password":"11111111","status":1,"confirmPassword":null,"oldPassword":null,"enabled":true,"accountExpired":false,"accountLocked":false,"credentialsExpired":false,"utype":null,"lastLoginDatetime":null,"lastLogoutDatetime":null,"createDatetime":1459503521000,"source":null,"fullName":"null[18513234278]","credentialsNonExpired":true,"accountNonExpired":true,"accountNonLocked":true},
+         "resultCode":"0",
+         "resultMsg":"成功"
+         }
+         */
+        
     }];
     
     
@@ -115,12 +147,9 @@
 -(void)test{
 
     // 1.1 创建请求会话管理者
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    HTTPSessionManager *manger = [HTTPSessionManager shareManager];
     
-    _mgr = mgr;
-    
-    NSString *url = @"http://192.168.1.69:8001/app/login.do";
-    
+    NSString *path = @"app/login.do";
     //时间
     NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
     NSTimeInterval a =[date timeIntervalSince1970] * 1000;
@@ -156,18 +185,36 @@
                            @"signmsg"   : signmsgMD5
                            };
     
+    NSLog(@"%@",json);
+    
     //    NSData --> NSDictionary
     // NSDictionary --> NSData
     NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
     
-    [mgr POST:url parameters:data progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+    
+    NSString *dataJson = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"%@",dataJson);
+
+    [manger POST:path parameters:dataJson progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        NSString *obj =  [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",obj);
+        NSLog(@"%@",responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
+
+    
+    /***********************************************************/
+    
+//    [mgr POST:nil parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//        
+//    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        
+//    }];
 
 }
 

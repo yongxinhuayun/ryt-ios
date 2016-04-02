@@ -6,8 +6,11 @@
 //  Copyright © 2015年 xiaomage. All rights reserved.
 //
 
-#import <AFNetworking/AFNetworking.h>
+#import <Foundation/Foundation.h>
+#import "AFHTTPSessionManager.h"
 
 @interface HTTPSessionManager : AFHTTPSessionManager
+
++(instancetype)shareManager;
 
 @end

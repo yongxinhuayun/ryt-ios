@@ -12,7 +12,7 @@
 
 #import "MessageTableViewController.h"
 #import "MyViewController.h"
-#import "DiscoveryTableViewController.h"
+#import "RankTableViewController.h"
 #import "MainTableViewController.h"
 
 
@@ -81,8 +81,8 @@
     MainTableViewController *mainVC = [[MainTableViewController alloc] init];
     [self addChildViewController:mainVC];
     
-    // 发现
-    DiscoveryTableViewController *DiscoveryVC = [[DiscoveryTableViewController alloc] init];
+    // 排行
+    RankTableViewController *DiscoveryVC = [[RankTableViewController alloc] init];
     [self addChildViewController:DiscoveryVC];
     
     //消息
@@ -103,8 +103,8 @@
     //    mainNaVC.tabBarItem.selectedImage = [UIImage imageNamedWithOriganlMode:@"tabBar_me_click_icon"];
     
     // 发现
-    UIViewController *discoveryNaVC = self.childViewControllers[1];
-    discoveryNaVC.tabBarItem.title = @"发现";
+    UIViewController *rankNaVC = self.childViewControllers[1];
+    rankNaVC.tabBarItem.title = @"排行";
     //    discoveryNaVC.tabBarItem.image = [UIImage imageNamed:@"tabBar_friendTrends_icon"];
     //    discoveryNaVC.tabBarItem.selectedImage = [UIImage imageNamedWithOriganlMode:@"tabBar_friendTrends_click_icon"];
     

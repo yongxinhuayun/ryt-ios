@@ -11,12 +11,16 @@
 		2118F1E31CAE5805003BFC6B /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2118F1E11CAE5805003BFC6B /* MyViewController.m */; };
 		2118F1E41CAE5805003BFC6B /* MyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2118F1E21CAE5805003BFC6B /* MyViewController.xib */; };
 		2118F1E71CAE626F003BFC6B /* registerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2118F1E61CAE626F003BFC6B /* registerModel.m */; };
+		2118F1EA1CAE88B4003BFC6B /* navTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2118F1E91CAE88B4003BFC6B /* navTitleButton.m */; };
+		215EED1D1CB0058D00A5957B /* FinanceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED1C1CB0058D00A5957B /* FinanceTableViewController.m */; };
+		215EED231CB005F100A5957B /* AuctionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED221CB005F100A5957B /* AuctionTableViewController.m */; };
+		215EED261CB00D6100A5957B /* GlobeConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED251CB00D6100A5957B /* GlobeConst.m */; };
+		215EED291CB0108F00A5957B /* InvestorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED281CB0108F00A5957B /* InvestorTableViewController.m */; };
+		215EED2C1CB010A500A5957B /* ArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED2B1CB010A500A5957B /* ArtistTableViewController.m */; };
 		218D2B3C1CACB2F9004553B9 /* CommonNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B391CACB2F9004553B9 /* CommonNavigationController.m */; };
 		218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3B1CACB2F9004553B9 /* CommonTabBarViewController.m */; };
-		218D2B411CACB310004553B9 /* DiscoveryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3F1CACB310004553B9 /* DiscoveryTableViewController.m */; };
-		218D2B421CACB310004553B9 /* DiscoveryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 218D2B401CACB310004553B9 /* DiscoveryTableViewController.xib */; };
+		218D2B411CACB310004553B9 /* RankTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3F1CACB310004553B9 /* RankTableViewController.m */; };
 		218D2B461CACB325004553B9 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B441CACB325004553B9 /* MainTableViewController.m */; };
-		218D2B471CACB325004553B9 /* MainTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 218D2B451CACB325004553B9 /* MainTableViewController.xib */; };
 		218D2B4B1CACB335004553B9 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B491CACB335004553B9 /* MessageTableViewController.m */; };
 		218D2B4C1CACB335004553B9 /* MessageTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 218D2B4A1CACB335004553B9 /* MessageTableViewController.xib */; };
 		218D2B581CACB35C004553B9 /* UIBarButtonItem+Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B531CACB35C004553B9 /* UIBarButtonItem+Item.m */; };
@@ -68,16 +72,26 @@
 		2118F1E21CAE5805003BFC6B /* MyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyViewController.xib; sourceTree = "<group>"; };
 		2118F1E51CAE626F003BFC6B /* registerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registerModel.h; sourceTree = "<group>"; };
 		2118F1E61CAE626F003BFC6B /* registerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = registerModel.m; sourceTree = "<group>"; };
+		2118F1E81CAE88B4003BFC6B /* navTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navTitleButton.h; sourceTree = "<group>"; };
+		2118F1E91CAE88B4003BFC6B /* navTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navTitleButton.m; sourceTree = "<group>"; };
+		215EED1B1CB0058D00A5957B /* FinanceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceTableViewController.h; sourceTree = "<group>"; };
+		215EED1C1CB0058D00A5957B /* FinanceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceTableViewController.m; sourceTree = "<group>"; };
+		215EED211CB005F100A5957B /* AuctionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionTableViewController.h; sourceTree = "<group>"; };
+		215EED221CB005F100A5957B /* AuctionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionTableViewController.m; sourceTree = "<group>"; };
+		215EED241CB00D6100A5957B /* GlobeConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobeConst.h; sourceTree = "<group>"; };
+		215EED251CB00D6100A5957B /* GlobeConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobeConst.m; sourceTree = "<group>"; };
+		215EED271CB0108F00A5957B /* InvestorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorTableViewController.h; sourceTree = "<group>"; };
+		215EED281CB0108F00A5957B /* InvestorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorTableViewController.m; sourceTree = "<group>"; };
+		215EED2A1CB010A500A5957B /* ArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistTableViewController.h; sourceTree = "<group>"; };
+		215EED2B1CB010A500A5957B /* ArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistTableViewController.m; sourceTree = "<group>"; };
 		218D2B381CACB2F9004553B9 /* CommonNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNavigationController.h; sourceTree = "<group>"; };
 		218D2B391CACB2F9004553B9 /* CommonNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNavigationController.m; sourceTree = "<group>"; };
 		218D2B3A1CACB2F9004553B9 /* CommonTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTabBarViewController.h; sourceTree = "<group>"; };
 		218D2B3B1CACB2F9004553B9 /* CommonTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTabBarViewController.m; sourceTree = "<group>"; };
-		218D2B3E1CACB310004553B9 /* DiscoveryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryTableViewController.h; sourceTree = "<group>"; };
-		218D2B3F1CACB310004553B9 /* DiscoveryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryTableViewController.m; sourceTree = "<group>"; };
-		218D2B401CACB310004553B9 /* DiscoveryTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoveryTableViewController.xib; sourceTree = "<group>"; };
+		218D2B3E1CACB310004553B9 /* RankTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankTableViewController.h; sourceTree = "<group>"; };
+		218D2B3F1CACB310004553B9 /* RankTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankTableViewController.m; sourceTree = "<group>"; };
 		218D2B431CACB325004553B9 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
 		218D2B441CACB325004553B9 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
-		218D2B451CACB325004553B9 /* MainTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableViewController.xib; sourceTree = "<group>"; };
 		218D2B481CACB335004553B9 /* MessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewController.h; sourceTree = "<group>"; };
 		218D2B491CACB335004553B9 /* MessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewController.m; sourceTree = "<group>"; };
 		218D2B4A1CACB335004553B9 /* MessageTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewController.xib; sourceTree = "<group>"; };
@@ -159,6 +173,8 @@
 				21904D291CAD4E0700AD7A3F /* HTTPSessionManager.h */,
 				21904D2A1CAD4E0700AD7A3F /* HTTPSessionManager.m */,
 				21904D2C1CAD517700AD7A3F /* PrefixHeader.pch */,
+				215EED241CB00D6100A5957B /* GlobeConst.h */,
+				215EED251CB00D6100A5957B /* GlobeConst.m */,
 				21904D2D1CAD546C00AD7A3F /* URLRequestManager.h */,
 				21904D2E1CAD546C00AD7A3F /* URLRequestManager.m */,
 			);
@@ -268,7 +284,7 @@
 				E2DDB1B11CABA963007438E4 /* 登录/注册 */,
 				E2DDB1A01CABA6B5007438E4 /* 消息 */,
 				E2DDB19F1CABA6AD007438E4 /* 我的 */,
-				E2DDB19E1CABA6A3007438E4 /* 发现 */,
+				E2DDB19E1CABA6A3007438E4 /* 排行 */,
 				E2DDB19D1CABA677007438E4 /* 首页 */,
 			);
 			name = Controller;
@@ -299,7 +315,12 @@
 			children = (
 				218D2B431CACB325004553B9 /* MainTableViewController.h */,
 				218D2B441CACB325004553B9 /* MainTableViewController.m */,
-				218D2B451CACB325004553B9 /* MainTableViewController.xib */,
+				215EED1B1CB0058D00A5957B /* FinanceTableViewController.h */,
+				215EED1C1CB0058D00A5957B /* FinanceTableViewController.m */,
+				215EED211CB005F100A5957B /* AuctionTableViewController.h */,
+				215EED221CB005F100A5957B /* AuctionTableViewController.m */,
+				2118F1E81CAE88B4003BFC6B /* navTitleButton.h */,
+				2118F1E91CAE88B4003BFC6B /* navTitleButton.m */,
 				E2DDB1A31CABA6EF007438E4 /* 拍卖 */,
 				E2DDB1A21CABA6DA007438E4 /* 创作 */,
 				E2DDB1A11CABA6D3007438E4 /* 融资 */,
@@ -307,14 +328,17 @@
 			name = "首页";
 			sourceTree = "<group>";
 		};
-		E2DDB19E1CABA6A3007438E4 /* 发现 */ = {
+		E2DDB19E1CABA6A3007438E4 /* 排行 */ = {
 			isa = PBXGroup;
 			children = (
-				218D2B3E1CACB310004553B9 /* DiscoveryTableViewController.h */,
-				218D2B3F1CACB310004553B9 /* DiscoveryTableViewController.m */,
-				218D2B401CACB310004553B9 /* DiscoveryTableViewController.xib */,
+				218D2B3E1CACB310004553B9 /* RankTableViewController.h */,
+				218D2B3F1CACB310004553B9 /* RankTableViewController.m */,
+				215EED271CB0108F00A5957B /* InvestorTableViewController.h */,
+				215EED281CB0108F00A5957B /* InvestorTableViewController.m */,
+				215EED2A1CB010A500A5957B /* ArtistTableViewController.h */,
+				215EED2B1CB010A500A5957B /* ArtistTableViewController.m */,
 			);
-			name = "发现";
+			name = "排行";
 			sourceTree = "<group>";
 		};
 		E2DDB19F1CABA6AD007438E4 /* 我的 */ = {
@@ -836,11 +860,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				218D2B5C1CACB5B9004553B9 /* Launch Screen.storyboard in Resources */,
-				218D2B421CACB310004553B9 /* DiscoveryTableViewController.xib in Resources */,
 				218D2B4C1CACB335004553B9 /* MessageTableViewController.xib in Resources */,
 				E2D73DC31CAD2CA9004CEFA3 /* RegViewController.xib in Resources */,
 				2118F1E41CAE5805003BFC6B /* MyViewController.xib in Resources */,
-				218D2B471CACB325004553B9 /* MainTableViewController.xib in Resources */,
 				E2DDB0F31CAB66DB007438E4 /* Assets.xcassets in Resources */,
 				21904CF61CAD3C8B00AD7A3F /* ForgetPasswordViewController.xib in Resources */,
 				218D2B7D1CACBBC2004553B9 /* LognController.xib in Resources */,
@@ -920,23 +942,29 @@
 				218D2B7C1CACBBC2004553B9 /* LognController.m in Sources */,
 				218D2B3C1CACB2F9004553B9 /* CommonNavigationController.m in Sources */,
 				21904CF51CAD3C8B00AD7A3F /* ForgetPasswordViewController.m in Sources */,
+				215EED261CB00D6100A5957B /* GlobeConst.m in Sources */,
 				218D2B4B1CACB335004553B9 /* MessageTableViewController.m in Sources */,
 				E2DDB0EB1CAB66DB007438E4 /* AppDelegate.m in Sources */,
 				21904D2B1CAD4E0700AD7A3F /* HTTPSessionManager.m in Sources */,
 				2118F1DF1CAE1D1A003BFC6B /* NSString+Extension.m in Sources */,
 				21904D2F1CAD546C00AD7A3F /* URLRequestManager.m in Sources */,
 				E2D73DC21CAD2CA9004CEFA3 /* RegViewController.m in Sources */,
+				215EED231CB005F100A5957B /* AuctionTableViewController.m in Sources */,
 				218D2B5A1CACB35C004553B9 /* UIView+Frame.m in Sources */,
 				218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */,
-				218D2B411CACB310004553B9 /* DiscoveryTableViewController.m in Sources */,
+				218D2B411CACB310004553B9 /* RankTableViewController.m in Sources */,
 				2118F1E71CAE626F003BFC6B /* registerModel.m in Sources */,
 				E2DDB0E81CAB66DB007438E4 /* main.m in Sources */,
 				218D2B581CACB35C004553B9 /* UIBarButtonItem+Item.m in Sources */,
 				21904CF01CAD3C7800AD7A3F /* CompleteUserInfoController.m in Sources */,
+				215EED2C1CB010A500A5957B /* ArtistTableViewController.m in Sources */,
+				215EED291CB0108F00A5957B /* InvestorTableViewController.m in Sources */,
 				218D2B591CACB35C004553B9 /* UIImage+Image.m in Sources */,
 				21904D321CAE0F4000AD7A3F /* UserAccount.m in Sources */,
+				215EED1D1CB0058D00A5957B /* FinanceTableViewController.m in Sources */,
 				218D2B461CACB325004553B9 /* MainTableViewController.m in Sources */,
 				2118F1E31CAE5805003BFC6B /* MyViewController.m in Sources */,
+				2118F1EA1CAE88B4003BFC6B /* navTitleButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

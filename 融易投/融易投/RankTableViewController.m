@@ -1,20 +1,18 @@
 //
-//  MainTableViewController.h
+//  DiscoveryTableViewController.m
 //  融易投
 //
 //  Created by efeiyi on 16/3/30.
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
-#import "MainTableViewController.h"
-
+#import "RankTableViewController.h"
 #import "navTitleButton.h"
 
-#import "FinanceTableViewController.h"
-//#import "CreateTableViewController.h"
-#import "AuctionTableViewController.h"
+#import "InvestorTableViewController.h"
+#import "ArtistTableViewController.h"
 
-@interface MainTableViewController () <UIScrollViewDelegate>
+@interface RankTableViewController ()
 
 /** 标题栏 */
 @property (nonatomic, strong) UIView *titlesView;
@@ -30,14 +28,16 @@
 
 @end
 
-@implementation MainTableViewController
+@implementation RankTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBarHidden = YES;
-    
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    //把设置导航条的代码抽取到一个方法中
+    //要想到设置统一控件的属性,应该抽取到一个方法中
+    [self setUpNavBar];
     
     //4.添加所有子控制器
     [self setUpChildVcs];
@@ -62,10 +62,9 @@
  */
 - (void)setUpChildVcs
 {
-    [self addChildViewController:[[FinanceTableViewController alloc] init]];
-//    [self addChildViewController:[[CreateTableViewController alloc] init]];
-    [self addChildViewController:[[AuctionTableViewController alloc] init]];
-
+    [self addChildViewController:[[InvestorTableViewController alloc] init]];
+    [self addChildViewController:[[ArtistTableViewController alloc] init]];
+    
 }
 
 //添加scrollView
@@ -77,7 +76,7 @@
     //创建scrollView
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.frame = self.view.bounds;
-//    scrollView.backgroundColor = [UIColor orangeColor];
+    //    scrollView.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:scrollView];
     
     self.scrollView = scrollView;
@@ -121,7 +120,7 @@
     
     self.titlesView = titlesView;
     
-    titlesView.frame = CGRectMake(0, SSStatusMaxH, self.view.width, SSTitlesViewH);
+    titlesView.frame = CGRectMake(0, SSNavMaxY, self.view.width, SSTitlesViewH);
     
     //    titlesView.backgroundColor = [UIColor whiteColor];
     //2.9 设置标题栏为半透明的
@@ -140,7 +139,7 @@
 
 -(void)setUpTitleButtons
 {
-    NSArray *titles = @[@"融资", @"创作", @"拍卖"];
+    NSArray *titles = @[@"投资者排行", @"艺术家排行"];
     NSInteger index = titles.count;
     //2.3 设置按钮尺寸,要想拿到titlesView需设置成成员属性
     //    CGFloat titleButtonW = self.titlesView.width / 5;
@@ -383,6 +382,12 @@
     underlineView.centerX = firstTitleButton.centerX;
     
     self.underlineView = underlineView;
+}
+
+// 设置导航条
+-(void)setUpNavBar
+{
+    self.navigationItem.title = @"排行";
 }
 
 -(void)btnClick:(UIBarButtonItem *)barButton

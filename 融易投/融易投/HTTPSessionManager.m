@@ -24,4 +24,24 @@
     return self;
 }
 
++(instancetype)shareManager
+{
+    
+    static HTTPSessionManager *_instance;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        //斜杠加不加都是可以的
+        //定义一个含有协议头和服务器主机地址的url
+        NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/"];
+        
+        _instance = [[self alloc] initWithBaseURL:url];
+        
+        _instance.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/plain", nil];
+    });
+    
+    return _instance;
+}
+
 @end

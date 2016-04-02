@@ -187,7 +187,7 @@
     
     [data writeToFile:[NSString stringWithFormat:@"%@.png",createPath] atomically:YES];
 
-    NSLog(@"11111111%@",NSHomeDirectory());
+    NSLog(@"%@",NSHomeDirectory());
 }
 
 // 将指定图片按照指定的宽度缩放
@@ -231,6 +231,8 @@
     
     NSString *headPortrait = [NSString stringWithFormat:@"%@.png",self.createPath];
     
+    NSLog(@"%@",headPortrait);
+    
     NSString *sex = @"1";
     NSString *timestamp = strArray.firstObject;
     NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
@@ -241,7 +243,7 @@
     NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
     NSLog(@"%@",sortArr);
     
-    NSString *signmsg = [NSString stringWithFormat:@"headPortrait=%@$nickname=%@$sex=%@&timestamp=%@&username=%@&key=%@",headPortrait,nickname,sex,timestamp,username,appkey];
+    NSString *signmsg = [NSString stringWithFormat:@"nickname=%@&sex=%@&timestamp=%@&username=%@&key=%@",nickname,sex,timestamp,username,appkey];
     NSLog(@"%@",signmsg);
     
     NSString *signmsgMD5 = [self md5:signmsg];
@@ -283,6 +285,28 @@
         NSLog(@"%@",obj);
         
     }];
+    
+//    HTTPSessionManager *mgr = [HTTPSessionManager shareManager];
+//    
+//    NSString *path = @"app/completeUserInfo.do";
+//    
+//    [mgr POST:path parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//        
+//        //        [formData appendPartWithFileURL:[NSURL fileURLWithPath:@"/Users/wangmengsi/Desktop/123.jpg"] name:@"file" error:nil];
+//        
+//        [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"file" fileName:@"aaaa.jpg" mimeType:@"image/jpeg" error:nil];
+//        
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+//        
+//        //responseObject 把服务器返回的响应体转换为了OC得对象
+//        NSLog(@"上传成功---%@---%@",[responseObject class],responseObject); //----__NSCFDictionary字典
+//        
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        
+//        NSLog(@"失败---%@",error);
+//        
+//    }];
 }
 
 -(NSString *)md5:(NSString *)inPutText

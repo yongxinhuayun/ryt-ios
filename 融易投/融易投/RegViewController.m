@@ -44,10 +44,15 @@
                  };
     }];
     
-
-    
+    [self setUpNavBar];
 }
 
+// 设置导航条
+-(void)setUpNavBar
+{
+    //设置导航条标题
+    self.navigationItem.title = @"快速注册";
+}
 
 
 - (void)didReceiveMemoryWarning {

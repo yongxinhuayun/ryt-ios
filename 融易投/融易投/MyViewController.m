@@ -52,18 +52,11 @@
     [self.navigationController pushViewController:login animated:YES];
 }
 
-- (IBAction)registerBtnClick:(id)sender {
-    
-    RegViewController *reg = [[RegViewController alloc] init];
-    [self.navigationController pushViewController:reg animated:YES];
-}
+
 - (IBAction)CompleteUserInfoBtnClick:(id)sender {
     CompleteUserInfoController *userInfo  = [[CompleteUserInfoController alloc] init];
     [self.navigationController pushViewController:userInfo animated:YES];
 }
-- (IBAction)ForgetPasswordBtnClick:(id)sender {
-    ForgetPasswordViewController *forgetPassword = [[ForgetPasswordViewController alloc] init];
-    [self.navigationController pushViewController:forgetPassword animated:YES];
-}
+
 
 @end

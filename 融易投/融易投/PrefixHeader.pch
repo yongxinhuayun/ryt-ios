@@ -15,6 +15,9 @@
 #import "UIImage+Image.h"
 #import "UIView+Frame.h"
 #import "NSString+Extension.h"
+#import "GlobeConst.h"
+
+#import "HTTPSessionManager.h"
 
 
 // 自定义Log
@@ -44,7 +47,7 @@
 
 #define SSColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1];
 
-#define SSRandomColor BSColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+#define SSRandomColor SSColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
 
 // 将数据写到桌面的plist
 #define SSWriteToPlist(data, filename) [data writeToFile:[NSString stringWithFormat:@"/Users/Desktop/%@.plist",filename] atomically:YES]

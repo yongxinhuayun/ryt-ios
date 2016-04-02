@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiscoveryTableViewController : UITableViewController
+@interface RankTableViewController : UIViewController
 
 @end

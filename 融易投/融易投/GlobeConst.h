@@ -1,0 +1,31 @@
+//
+//  GlobeConst.h
+//  融易投
+//
+//  Created by efeiyi on 16/4/2.
+//  Copyright © 2016年 dongxin. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface GlobeConst : NSObject
+
+/** 全局统一的请求路径 */
+UIKIT_EXTERN NSString *const baseUrl;
+
+/** 导航栏最大的Y值 */
+UIKIT_EXTERN CGFloat const SSStatusMaxH;
+
+/** 导航栏最大的Y值 */
+UIKIT_EXTERN CGFloat const SSNavMaxY;
+
+/** 标题栏的高度 */
+UIKIT_EXTERN CGFloat const SSTitlesViewH;
+
+/** 全局统一的间距 */
+UIKIT_EXTERN CGFloat const SSMargin;
+
+/** UITabBar的高度 */
+UIKIT_EXTERN CGFloat const SSTabBarH;
+
+@end

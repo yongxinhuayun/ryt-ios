@@ -22,25 +22,11 @@
                         <action selector="loginBtnClick:" destination="-1" eventType="touchUpInside" id="AiC-RA-ez4"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRK-Og-fYH">
-                    <rect key="frame" x="159" y="167" width="30" height="30"/>
-                    <state key="normal" title="注册"/>
-                    <connections>
-                        <action selector="registerBtnClick:" destination="-1" eventType="touchUpInside" id="7JT-sP-9ls"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaj-0o-TxB">
                     <rect key="frame" x="150" y="258" width="60" height="30"/>
                     <state key="normal" title="信息完善"/>
                     <connections>
                         <action selector="CompleteUserInfoBtnClick:" destination="-1" eventType="touchUpInside" id="LWc-kq-I4U"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nf5-Wi-hPU">
-                    <rect key="frame" x="157" y="339" width="60" height="30"/>
-                    <state key="normal" title="忘记密码"/>
-                    <connections>
-                        <action selector="ForgetPasswordBtnClick:" destination="-1" eventType="touchUpInside" id="pmj-KJ-0Ar"/>
                     </connections>
                 </button>
             </subviews>
