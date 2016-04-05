@@ -13,11 +13,12 @@
 
 #import "HTTPSessionManager.h"
 
-#import "AFNetworking.h"
+//#import "AFNetworking.h"
 
 #import "RegViewController.h"
 #import "ForgetPasswordViewController.h"
 
+#import <SVProgressHUD.h>
 
 @interface LognController ()
 
@@ -28,7 +29,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
-@property (nonatomic ,weak)  AFHTTPSessionManager *mgr;
+//@property (nonatomic ,weak)  AFHTTPSessionManager *mgr;
 
 @end
 
@@ -47,10 +48,47 @@
     self.navigationItem.title = @"登录";
 }
 
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.usernameTextField resignFirstResponder];
+    [self.passwordTextField resignFirstResponder];
+}
+
 - (IBAction)lognBtnClick:(id)sender {
     
-    [self loadData];
+    if ([self isValidateMobile:self.usernameTextField.text] == NO) {
+        
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号"];
+    }
+    
+    if ([self isValidatePWD:self.passwordTextField.text] == NO) {
+        
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的密码格式"];
+    }
+    
+    if ([self isValidateMobile:self.usernameTextField.text] == YES  && [self isValidatePWD:self.passwordTextField.text] == YES) {
+        
+//        [self test];
+        
+        [SVProgressHUD showWithStatus:@"正在登录中..."];
+    }
 }
+
+//手机号码的正则表达式
+- (BOOL)isValidateMobile:(NSString *)mobile{
+    //手机号以13、15、18开头，八个\d数字字符
+    NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
+    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
+    return [phoneTest evaluateWithObject:mobile];
+}
+
+//密码的正则表达式
+- (BOOL)isValidatePWD:(NSString *)pwd{
+    NSString *pwdRegex = @"^[a-zA-Z]|[0-9]{6,18}$";
+    NSPredicate *pwdTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pwdRegex];
+    return [pwdTest evaluateWithObject:pwd];
+}
+
 - (IBAction)weixinBtnClick:(id)sender {
     
 }
@@ -124,11 +162,17 @@
     NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
     request.HTTPBody = data;
     
+    
     // 4.发送请求
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         
-        NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",obj);
+//        NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+//        NSLog(@"%@",obj);
+
+        //5. 解析从服务器获取的JSON数据
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        
+        NSLog(@"%@",dict);
         
         /*
          {
@@ -138,72 +182,92 @@
          }
          */
         
+        NSString *LognInfo = dict[@"resultMsg"];
+        
+        if (dict[@"resultCode"] != 0) {
+            
+             [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"登录%@",LognInfo]];
+            
+            
+            
+        }else { //登录失败
+            
+           [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"%@",LognInfo]];
+        }
+        
+        
     }];
     
     
     
 }
 
--(void)test{
+//
+//-(void)test{
+//
+//    // 1.1 创建请求会话管理者
+//    HTTPSessionManager *manger = [HTTPSessionManager shareManager];
+//    
+//    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    
+//    NSString *path = @"app/login.do";
+//    //时间
+//    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
+//    NSTimeInterval a =[date timeIntervalSince1970] * 1000;
+//    NSString *timeString = [NSString stringWithFormat:@"%f", a];
+//    
+//    NSArray *strArray = [timeString componentsSeparatedByString:@"."];
+//    
+//    NSLog(@"%@",strArray.firstObject);
+//    
+//    //参数
+//    NSString *username = self.usernameTextField.text;
+//    NSString *password = self.passwordTextField.text;
+//    NSString *timestamp = strArray.firstObject;
+//    NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
+//    
+//    NSLog(@"username=%@,password=%@,timestamp=%@",username,password,timestamp);
+//    
+//    NSArray *arra = @[@"username",@"password",@"timestamp"];
+//    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
+//    NSLog(@"%@",sortArr);
+//    
+//    NSString *signmsg = [NSString stringWithFormat:@"password=%@&timestamp=%@&username=%@&key=%@",password,timestamp,username,appkey];
+//    NSLog(@"%@",signmsg);
+//    
+//    NSString *signmsgMD5 = [self md5:signmsg];
+//
+//    
+//    // 1.2 拼接请求参数
+//    NSMutableDictionary *json = @{
+//                           @"username" : username,
+//                           @"password" : password,
+//                           @"timestamp" : timestamp,
+//                           @"signmsg"   : signmsgMD5
+//                           };
+//    
+//    NSLog(@"%@",json);
+//    
+//    //    NSData --> NSDictionary
+//    // NSDictionary --> NSData
+//    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
+//    
+//    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+//    
+//    NSString *dataJson = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+//    
+//    NSLog(@"%@",dataJson);
+//    
+//    [manger POST:path parameters:dataJson progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        
+//        NSString *jsonString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+//        
+//        NSLog(@"------ JSON: ----- %@", jsonString);
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        
+//    }];
 
-    // 1.1 创建请求会话管理者
-    HTTPSessionManager *manger = [HTTPSessionManager shareManager];
-    
-    NSString *path = @"app/login.do";
-    //时间
-    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
-    NSTimeInterval a =[date timeIntervalSince1970] * 1000;
-    NSString *timeString = [NSString stringWithFormat:@"%f", a];
-    
-    NSArray *strArray = [timeString componentsSeparatedByString:@"."];
-    
-    NSLog(@"%@",strArray.firstObject);
-    
-    //参数
-    NSString *username = self.usernameTextField.text;
-    NSString *password = self.passwordTextField.text;
-    NSString *timestamp = strArray.firstObject;
-    NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
-    
-    NSLog(@"username=%@,password=%@,timestamp=%@",username,password,timestamp);
-    
-    NSArray *arra = @[@"username",@"password",@"timestamp"];
-    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
-    NSLog(@"%@",sortArr);
-    
-    NSString *signmsg = [NSString stringWithFormat:@"password=%@&timestamp=%@&username=%@&key=%@",password,timestamp,username,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [self md5:signmsg];
-
-    
-    // 1.2 拼接请求参数
-    NSDictionary *json = @{
-                           @"username" : username,
-                           @"password" : password,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
-                           };
-    
-    NSLog(@"%@",json);
-    
-    //    NSData --> NSDictionary
-    // NSDictionary --> NSData
-    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
-    
-    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
-    
-    NSString *dataJson = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-    
-    NSLog(@"%@",dataJson);
-
-    [manger POST:path parameters:dataJson progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSLog(@"%@",responseObject);
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
 
     
     /***********************************************************/
@@ -216,7 +280,7 @@
 //        
 //    }];
 
-}
+//}
 
 
 -(NSString *) md5: (NSString *) inPutText

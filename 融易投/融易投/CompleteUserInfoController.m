@@ -113,7 +113,7 @@
 }
 - (IBAction)completeBtnClick:(id)sender {
     
-    [self loadData];
+//    [self loadData];
 }
 
 //实现相机的代理方法
@@ -214,6 +214,7 @@
 
 }
 
+/*
 -(void)loadData
 {
     //时间
@@ -229,8 +230,8 @@
     NSString *username = self.usernameTextField.text;
     NSString *nickname = self.nicknameTextField.text;
     
-    NSString *headPortrait = [NSString stringWithFormat:@"%@.png",self.createPath];
-    
+//    NSString *headPortrait = [NSString stringWithFormat:@"%@.png",self.createPath];
+    NSString *headPortrait = @"file:/Users/Desktop/image.png";
     NSLog(@"%@",headPortrait);
     
     NSString *sex = @"1";
@@ -239,9 +240,9 @@
     
     NSLog(@"username=%@,password=%@,timestamp=%@",username,nickname,timestamp);
     
-    NSArray *arra = @[@"username",@"password",@"timestamp"];
-    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
-    NSLog(@"%@",sortArr);
+//    NSArray *arra = @[@"username",@"password",@"timestamp"];
+//    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
+//    NSLog(@"%@",sortArr);
     
     NSString *signmsg = [NSString stringWithFormat:@"nickname=%@&sex=%@&timestamp=%@&username=%@&key=%@",nickname,sex,timestamp,username,appkey];
     NSLog(@"%@",signmsg);
@@ -255,13 +256,13 @@
     
     NSLog(@"signmsgMD5=%@",signmsgMD5);
     
-    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/completeUserInfo.do"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = @"POST";
-    
-    // 2.设置请求头
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
+//    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/completeUserInfo.do"];
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+//    request.HTTPMethod = @"POST";
+//    
+//    // 2.设置请求头
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     // 3.设置请求体
     NSDictionary *json = @{
@@ -275,38 +276,52 @@
     
     //    NSData --> NSDictionary
     // NSDictionary --> NSData
-    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
-    request.HTTPBody = data;
-    
-    // 4.发送请求
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        
-        NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",obj);
-        
-    }];
-    
-//    HTTPSessionManager *mgr = [HTTPSessionManager shareManager];
+//    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
+//    request.HTTPBody = data;
 //    
-//    NSString *path = @"app/completeUserInfo.do";
-//    
-//    [mgr POST:path parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//    // 4.发送请求
+//    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
 //        
-//        //        [formData appendPartWithFileURL:[NSURL fileURLWithPath:@"/Users/wangmengsi/Desktop/123.jpg"] name:@"file" error:nil];
-//        
-//        [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"file" fileName:@"aaaa.jpg" mimeType:@"image/jpeg" error:nil];
-//        
-//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-//        
-//        //responseObject 把服务器返回的响应体转换为了OC得对象
-//        NSLog(@"上传成功---%@---%@",[responseObject class],responseObject); //----__NSCFDictionary字典
-//        
-//        
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        
-//        NSLog(@"失败---%@",error);
+//        NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+//        NSLog(@"%@",obj);
 //        
 //    }];
+    
+    NSLog(@"%@",json);
+    
+    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
+    
+    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+    
+    NSString *dataJson = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"%@",dataJson);
+    
+    
+    HTTPSessionManager *mgr = [HTTPSessionManager shareManager];
+    
+    NSString *path = @"app/completeUserInfo.do";
+    
+    [mgr POST:path parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        //        [formData appendPartWithFileURL:[NSURL fileURLWithPath:@"/Users/wangmengsi/Desktop/123.jpg"] name:@"file" error:nil];
+        
+        [formData appendPartWithFileURL:[NSURL fileURLWithPath:@"/Users/Desktop/image.png"] name:@"file" fileName:@"icon.png" mimeType:@"application/octet-stream" error:nil];
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        //responseObject 把服务器返回的响应体转换为了OC得对象
+//        NSLog(@"上传成功---%@---%@",[responseObject class],responseObject); //----__NSCFDictionary字典
+
+        NSData *data = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
+        
+        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        NSLog(@"失败---%@",error);
+        
+    }];
 }
 
 -(NSString *)md5:(NSString *)inPutText
@@ -322,5 +337,6 @@
              result[12], result[13], result[14], result[15]
              ] lowercaseString];
 }
+ */
 
 @end

@@ -28,14 +28,14 @@
                         <action selector="lognBtnClick:" destination="-1" eventType="touchUpInside" id="ViL-CM-O8l"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18513234278" borderStyle="roundedRect" placeholder="请输入手机号/e飞蚁账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MCy-jv-0h1">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18513234278" borderStyle="roundedRect" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MCy-jv-0h1">
                     <rect key="frame" x="27" y="173" width="320" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="320" id="8rf-iN-BpS"/>
                         <constraint firstAttribute="height" constant="40" id="PJA-Kz-2pU"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="11111111" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WIr-I3-aCW">
                     <rect key="frame" x="27" y="235" width="320" height="40"/>
