@@ -91,10 +91,7 @@
     NSString *password = self.passWordTextField.text;
     NSString *timestamp = strArray.firstObject;
     NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
-    
     NSLog(@"username=%@,password=%@,timestamp=%@",username,password,timestamp);
-    
-    
     NSArray *arra = @[@"username",@"password",@"timestamp"];
     NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
     NSLog(@"%@",sortArr);

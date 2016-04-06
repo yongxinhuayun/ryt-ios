@@ -15,6 +15,10 @@
 
 #import "SettingTableViewController.h"
 
+
+#import "WeiXinController.h"
+#import "ALiController.h"
+
 @interface MyViewController ()
 
 @end
@@ -69,5 +73,15 @@
     [self.navigationController pushViewController:userInfo animated:YES];
 }
 
+
+- (IBAction)WeiXinPayBtnThings:(id)sender {
+    WeiXinController *weiXinController = [[WeiXinController alloc]init];
+    [self.navigationController pushViewController:weiXinController animated:YES];
+}
+
+- (IBAction)ALiPayBtnThings:(id)sender {
+    ALiController *aLiPayController = [[ALiController alloc]init];
+    [self.navigationController pushViewController:aLiPayController animated:YES];
+}
 
 @end

@@ -10,4 +10,7 @@
 
 @interface MyViewController : UIViewController
 
+- (IBAction)WeiXinPayBtnThings:(id)sender;
+- (IBAction)ALiPayBtnThings:(id)sender;
+
 @end
