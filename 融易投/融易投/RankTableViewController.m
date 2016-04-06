@@ -17,6 +17,9 @@
 /** 标题栏 */
 @property (nonatomic, strong) UIView *titlesView;
 
+/** 副标题栏 */
+@property (nonatomic, strong) UIView *subTitlesView;
+
 /** 当前被点中的按钮 */
 @property (nonatomic, weak) navTitleButton *clickedTitleButton;
 
@@ -56,6 +59,9 @@
     //为什么直接调用就行呢?
     //因为默认运行程序,默认scrollView的偏移量是0,所以计算的索引就是0,这样就添加了第一个子控制器的view
     [self addChildVcViewIntoScrollView];
+    
+    //添加副标题栏
+     [self setUpSubTitlesView];
 }
 /**
  * 添加子控制器
@@ -113,6 +119,58 @@
     //并且滚动条也一样
 }
 
+//添加副标题栏
+-(void)setUpSubTitlesView
+{
+    UIView *subTitlesView = [[UIView alloc] init];
+    
+    self.subTitlesView = subTitlesView;
+    
+    subTitlesView.frame = CGRectMake(0, SSNavMaxY + SSTitlesViewH, self.view.width, SSTitlesViewH);
+    
+    subTitlesView.backgroundColor = [UIColor whiteColor];
+    //2.9 设置标题栏为半透明的
+//    subTitlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
+    
+    [self.view addSubview:subTitlesView];
+    
+    //2.1 运行程序,发现titlesView添加到了tableView,但是我们这里需要时用不同的UIViewController,所以把之前的控制器UITableViewController改成UIViewController
+    
+    //2.2 添加所有的标题按钮
+    [self setUpSubTitleLabel];
+}
+
+-(void)setUpSubTitleLabel
+{
+    NSArray *titles = @[@"排行", @"用户昵称",@"回报总金额"];
+    
+    NSInteger index = titles.count;
+    //2.3 设置按钮尺寸,要想拿到titlesView需设置成成员属性
+    //    CGFloat titleButtonW = self.titlesView.width / 5;
+    CGFloat SubTitleLabelW = self.subTitlesView.width / index;
+    CGFloat SubTitleLabelH = self.subTitlesView.height;
+    
+    
+    
+    //2.4 遍历添加所有标题按钮
+    for (NSInteger i = 0; i < index; i++) {
+        
+        
+        UILabel *label = [[UILabel alloc] init];
+        
+        label.frame = CGRectMake(i * SubTitleLabelW, 0, SubTitleLabelW, SubTitleLabelH);
+        
+        label.text = titles[i];
+        
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = [UIFont systemFontOfSize:14];
+        label.textColor = [UIColor grayColor];
+        
+        [self.subTitlesView addSubview:label];
+        
+    }
+}
+
 //添加标题栏
 -(void)setUpTitlesView
 {
@@ -122,9 +180,9 @@
     
     titlesView.frame = CGRectMake(0, SSNavMaxY, self.view.width, SSTitlesViewH);
     
-    //    titlesView.backgroundColor = [UIColor whiteColor];
+        titlesView.backgroundColor = [UIColor whiteColor];
     //2.9 设置标题栏为半透明的
-    titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
+//    titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
     
     [self.view addSubview:titlesView];
     

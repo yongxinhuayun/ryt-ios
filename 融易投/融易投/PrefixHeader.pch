@@ -19,6 +19,10 @@
 
 #import "HTTPSessionManager.h"
 
+#import "UIImage+Antialias.h"
+#import "UIImageView+Header.h"
+
+
 
 // 自定义Log
 #ifdef DEBUG

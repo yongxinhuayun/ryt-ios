@@ -33,7 +33,6 @@
 		211C397F1CB3B86800DAD827 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 211C396E1CB3B86800DAD827 /* UIImageView+WebCache.m */; };
 		211C39801CB3B86800DAD827 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 211C39701CB3B86800DAD827 /* UIView+WebCacheOperation.m */; };
 		215EED1D1CB0058D00A5957B /* FinanceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED1C1CB0058D00A5957B /* FinanceTableViewController.m */; };
-		215EED231CB005F100A5957B /* AuctionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED221CB005F100A5957B /* AuctionTableViewController.m */; };
 		215EED261CB00D6100A5957B /* GlobeConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED251CB00D6100A5957B /* GlobeConst.m */; };
 		215EED291CB0108F00A5957B /* InvestorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED281CB0108F00A5957B /* InvestorTableViewController.m */; };
 		215EED2C1CB010A500A5957B /* ArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED2B1CB010A500A5957B /* ArtistTableViewController.m */; };
@@ -60,7 +59,28 @@
 		21C08BC81CB01BC3002328D3 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */; };
 		21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BCC1CB01F7E002328D3 /* NSObject+FileManager.m */; };
 		21C08BD11CB02521002328D3 /* SettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C08BD01CB02521002328D3 /* SettingTableViewController.storyboard */; };
-		21D54A0D1CB3E93A0088D386 /* ResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54A0C1CB3E93A0088D386 /* ResultModel.m */; };
+		21D54B171CB4C31F0088D386 /* CommonFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B141CB4C31F0088D386 /* CommonFooter.m */; };
+		21D54B181CB4C31F0088D386 /* CommonHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B161CB4C31F0088D386 /* CommonHeader.m */; };
+		21D54B1B1CB4D97C0088D386 /* CreationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B1A1CB4D97C0088D386 /* CreationModel.m */; };
+		21D54B1F1CB4D99E0088D386 /* CreationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B1D1CB4D99E0088D386 /* CreationTableViewCell.m */; };
+		21D54B201CB4D99E0088D386 /* CreationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D54B1E1CB4D99E0088D386 /* CreationTableViewCell.xib */; };
+		21D54B231CB4DF0F0088D386 /* MasterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B221CB4DF0F0088D386 /* MasterModel.m */; };
+		21D54B361CB4F88B0088D386 /* AuctionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B301CB4F88B0088D386 /* AuctionModel.m */; };
+		21D54B371CB4F88B0088D386 /* AuctionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B321CB4F88B0088D386 /* AuctionTableViewCell.m */; };
+		21D54B381CB4F88B0088D386 /* AuctionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D54B331CB4F88B0088D386 /* AuctionTableViewCell.xib */; };
+		21D54B391CB4F88B0088D386 /* AuctionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B351CB4F88B0088D386 /* AuctionTableViewController.m */; };
+		21D54B3C1CB4FA8B0088D386 /* UIImage+Antialias.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B3B1CB4FA8B0088D386 /* UIImage+Antialias.m */; };
+		21D54B521CB51CA00088D386 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B3F1CB51CA00088D386 /* AFHTTPRequestOperation.m */; };
+		21D54B531CB51CA00088D386 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B411CB51CA00088D386 /* AFHTTPRequestOperationManager.m */; };
+		21D54B541CB51CA00088D386 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B431CB51CA00088D386 /* AFHTTPSessionManager.m */; };
+		21D54B551CB51CA00088D386 /* AFNetworking-master.zip in Resources */ = {isa = PBXBuildFile; fileRef = 21D54B441CB51CA00088D386 /* AFNetworking-master.zip */; };
+		21D54B561CB51CA00088D386 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B471CB51CA00088D386 /* AFNetworkReachabilityManager.m */; };
+		21D54B571CB51CA00088D386 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B491CB51CA00088D386 /* AFSecurityPolicy.m */; };
+		21D54B581CB51CA00088D386 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B4B1CB51CA00088D386 /* AFURLConnectionOperation.m */; };
+		21D54B591CB51CA00088D386 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B4D1CB51CA00088D386 /* AFURLRequestSerialization.m */; };
+		21D54B5A1CB51CA00088D386 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B4F1CB51CA00088D386 /* AFURLResponseSerialization.m */; };
+		21D54B5B1CB51CA00088D386 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B511CB51CA00088D386 /* AFURLSessionManager.m */; };
+		21D54B611CB532CF0088D386 /* UIImageView+Header.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B601CB532CF0088D386 /* UIImageView+Header.m */; };
 		BC4A8BFAB939A8BBE3AF0A2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFB6E4A926D52C7C2AE4F6C /* libPods.a */; };
 		E2D73DC21CAD2CA9004CEFA3 /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D73DC01CAD2CA9004CEFA3 /* RegViewController.m */; };
 		E2D73DC31CAD2CA9004CEFA3 /* RegViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D73DC11CAD2CA9004CEFA3 /* RegViewController.xib */; };
@@ -141,8 +161,6 @@
 		211C39701CB3B86800DAD827 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		215EED1B1CB0058D00A5957B /* FinanceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceTableViewController.h; sourceTree = "<group>"; };
 		215EED1C1CB0058D00A5957B /* FinanceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceTableViewController.m; sourceTree = "<group>"; };
-		215EED211CB005F100A5957B /* AuctionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionTableViewController.h; sourceTree = "<group>"; };
-		215EED221CB005F100A5957B /* AuctionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionTableViewController.m; sourceTree = "<group>"; };
 		215EED241CB00D6100A5957B /* GlobeConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobeConst.h; sourceTree = "<group>"; };
 		215EED251CB00D6100A5957B /* GlobeConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobeConst.m; sourceTree = "<group>"; };
 		215EED271CB0108F00A5957B /* InvestorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorTableViewController.h; sourceTree = "<group>"; };
@@ -190,8 +208,48 @@
 		21C08BCB1CB01F7E002328D3 /* NSObject+FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FileManager.h"; sourceTree = "<group>"; };
 		21C08BCC1CB01F7E002328D3 /* NSObject+FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FileManager.m"; sourceTree = "<group>"; };
 		21C08BD01CB02521002328D3 /* SettingTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingTableViewController.storyboard; sourceTree = "<group>"; };
-		21D54A0B1CB3E93A0088D386 /* ResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultModel.h; sourceTree = "<group>"; };
-		21D54A0C1CB3E93A0088D386 /* ResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultModel.m; sourceTree = "<group>"; };
+		21D54B131CB4C31F0088D386 /* CommonFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonFooter.h; sourceTree = "<group>"; };
+		21D54B141CB4C31F0088D386 /* CommonFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonFooter.m; sourceTree = "<group>"; };
+		21D54B151CB4C31F0088D386 /* CommonHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
+		21D54B161CB4C31F0088D386 /* CommonHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonHeader.m; sourceTree = "<group>"; };
+		21D54B191CB4D97C0088D386 /* CreationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreationModel.h; sourceTree = "<group>"; };
+		21D54B1A1CB4D97C0088D386 /* CreationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreationModel.m; sourceTree = "<group>"; };
+		21D54B1C1CB4D99E0088D386 /* CreationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreationTableViewCell.h; sourceTree = "<group>"; };
+		21D54B1D1CB4D99E0088D386 /* CreationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreationTableViewCell.m; sourceTree = "<group>"; };
+		21D54B1E1CB4D99E0088D386 /* CreationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreationTableViewCell.xib; sourceTree = "<group>"; };
+		21D54B211CB4DF0F0088D386 /* MasterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterModel.h; sourceTree = "<group>"; };
+		21D54B221CB4DF0F0088D386 /* MasterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterModel.m; sourceTree = "<group>"; };
+		21D54B2F1CB4F88B0088D386 /* AuctionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionModel.h; sourceTree = "<group>"; };
+		21D54B301CB4F88B0088D386 /* AuctionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionModel.m; sourceTree = "<group>"; };
+		21D54B311CB4F88B0088D386 /* AuctionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionTableViewCell.h; sourceTree = "<group>"; };
+		21D54B321CB4F88B0088D386 /* AuctionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionTableViewCell.m; sourceTree = "<group>"; };
+		21D54B331CB4F88B0088D386 /* AuctionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionTableViewCell.xib; sourceTree = "<group>"; };
+		21D54B341CB4F88B0088D386 /* AuctionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionTableViewController.h; sourceTree = "<group>"; };
+		21D54B351CB4F88B0088D386 /* AuctionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionTableViewController.m; sourceTree = "<group>"; };
+		21D54B3A1CB4FA8B0088D386 /* UIImage+Antialias.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Antialias.h"; sourceTree = "<group>"; };
+		21D54B3B1CB4FA8B0088D386 /* UIImage+Antialias.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Antialias.m"; sourceTree = "<group>"; };
+		21D54B3E1CB51CA00088D386 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		21D54B3F1CB51CA00088D386 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		21D54B401CB51CA00088D386 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		21D54B411CB51CA00088D386 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		21D54B421CB51CA00088D386 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		21D54B431CB51CA00088D386 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		21D54B441CB51CA00088D386 /* AFNetworking-master.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "AFNetworking-master.zip"; sourceTree = "<group>"; };
+		21D54B451CB51CA00088D386 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		21D54B461CB51CA00088D386 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		21D54B471CB51CA00088D386 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		21D54B481CB51CA00088D386 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		21D54B491CB51CA00088D386 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		21D54B4A1CB51CA00088D386 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		21D54B4B1CB51CA00088D386 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		21D54B4C1CB51CA00088D386 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		21D54B4D1CB51CA00088D386 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		21D54B4E1CB51CA00088D386 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		21D54B4F1CB51CA00088D386 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		21D54B501CB51CA00088D386 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		21D54B511CB51CA00088D386 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		21D54B5F1CB532CF0088D386 /* UIImageView+Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Header.h"; sourceTree = "<group>"; };
+		21D54B601CB532CF0088D386 /* UIImageView+Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Header.m"; sourceTree = "<group>"; };
 		AC411E3C5CA46BB337E074BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E2D73DBF1CAD2CA9004CEFA3 /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegViewController.h; sourceTree = "<group>"; };
 		E2D73DC01CAD2CA9004CEFA3 /* RegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegViewController.m; sourceTree = "<group>"; };
@@ -291,6 +349,10 @@
 				215EED251CB00D6100A5957B /* GlobeConst.m */,
 				21904D2D1CAD546C00AD7A3F /* URLRequestManager.h */,
 				21904D2E1CAD546C00AD7A3F /* URLRequestManager.m */,
+				21D54B131CB4C31F0088D386 /* CommonFooter.h */,
+				21D54B141CB4C31F0088D386 /* CommonFooter.m */,
+				21D54B151CB4C31F0088D386 /* CommonHeader.h */,
+				21D54B161CB4C31F0088D386 /* CommonHeader.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -305,6 +367,33 @@
 				21904D311CAE0F4000AD7A3F /* UserAccount.m */,
 			);
 			name = "注册完成完善界面";
+			sourceTree = "<group>";
+		};
+		21D54B3D1CB51CA00088D386 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				21D54B3E1CB51CA00088D386 /* AFHTTPRequestOperation.h */,
+				21D54B3F1CB51CA00088D386 /* AFHTTPRequestOperation.m */,
+				21D54B401CB51CA00088D386 /* AFHTTPRequestOperationManager.h */,
+				21D54B411CB51CA00088D386 /* AFHTTPRequestOperationManager.m */,
+				21D54B421CB51CA00088D386 /* AFHTTPSessionManager.h */,
+				21D54B431CB51CA00088D386 /* AFHTTPSessionManager.m */,
+				21D54B441CB51CA00088D386 /* AFNetworking-master.zip */,
+				21D54B451CB51CA00088D386 /* AFNetworking.h */,
+				21D54B461CB51CA00088D386 /* AFNetworkReachabilityManager.h */,
+				21D54B471CB51CA00088D386 /* AFNetworkReachabilityManager.m */,
+				21D54B481CB51CA00088D386 /* AFSecurityPolicy.h */,
+				21D54B491CB51CA00088D386 /* AFSecurityPolicy.m */,
+				21D54B4A1CB51CA00088D386 /* AFURLConnectionOperation.h */,
+				21D54B4B1CB51CA00088D386 /* AFURLConnectionOperation.m */,
+				21D54B4C1CB51CA00088D386 /* AFURLRequestSerialization.h */,
+				21D54B4D1CB51CA00088D386 /* AFURLRequestSerialization.m */,
+				21D54B4E1CB51CA00088D386 /* AFURLResponseSerialization.h */,
+				21D54B4F1CB51CA00088D386 /* AFURLResponseSerialization.m */,
+				21D54B501CB51CA00088D386 /* AFURLSessionManager.h */,
+				21D54B511CB51CA00088D386 /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
 			sourceTree = "<group>";
 		};
 		B084BF39CB86E631C5631222 /* Pods */ = {
@@ -429,21 +518,6 @@
 			children = (
 				218D2B431CACB325004553B9 /* MainTableViewController.h */,
 				218D2B441CACB325004553B9 /* MainTableViewController.m */,
-				215EED1B1CB0058D00A5957B /* FinanceTableViewController.h */,
-				215EED1C1CB0058D00A5957B /* FinanceTableViewController.m */,
-				21D54A0B1CB3E93A0088D386 /* ResultModel.h */,
-				21D54A0C1CB3E93A0088D386 /* ResultModel.m */,
-				211C39441CB369FC00DAD827 /* FinanceModel.h */,
-				211C39451CB369FC00DAD827 /* FinanceModel.m */,
-				211C394C1CB3961800DAD827 /* authorModel.h */,
-				211C394D1CB3961800DAD827 /* authorModel.m */,
-				211C39471CB36B1500DAD827 /* FinanceTableViewCell.h */,
-				211C39481CB36B1500DAD827 /* FinanceTableViewCell.m */,
-				211C39491CB36B1500DAD827 /* FinanceTableViewCell.xib */,
-				215EED301CB014D400A5957B /* CreationTableViewController.h */,
-				215EED311CB014D400A5957B /* CreationTableViewController.m */,
-				215EED211CB005F100A5957B /* AuctionTableViewController.h */,
-				215EED221CB005F100A5957B /* AuctionTableViewController.m */,
 				2118F1E81CAE88B4003BFC6B /* navTitleButton.h */,
 				2118F1E91CAE88B4003BFC6B /* navTitleButton.m */,
 				E2DDB1A31CABA6EF007438E4 /* 拍卖 */,
@@ -528,6 +602,17 @@
 		E2DDB1A51CABA70E007438E4 /* 非详情 */ = {
 			isa = PBXGroup;
 			children = (
+				215EED1B1CB0058D00A5957B /* FinanceTableViewController.h */,
+				215EED1C1CB0058D00A5957B /* FinanceTableViewController.m */,
+				211C39441CB369FC00DAD827 /* FinanceModel.h */,
+				211C39451CB369FC00DAD827 /* FinanceModel.m */,
+				211C394C1CB3961800DAD827 /* authorModel.h */,
+				211C394D1CB3961800DAD827 /* authorModel.m */,
+				21D54B211CB4DF0F0088D386 /* MasterModel.h */,
+				21D54B221CB4DF0F0088D386 /* MasterModel.m */,
+				211C39471CB36B1500DAD827 /* FinanceTableViewCell.h */,
+				211C39481CB36B1500DAD827 /* FinanceTableViewCell.m */,
+				211C39491CB36B1500DAD827 /* FinanceTableViewCell.xib */,
 			);
 			name = "非详情";
 			sourceTree = "<group>";
@@ -542,6 +627,13 @@
 		E2DDB1A71CABA72B007438E4 /* 非详情 */ = {
 			isa = PBXGroup;
 			children = (
+				215EED301CB014D400A5957B /* CreationTableViewController.h */,
+				215EED311CB014D400A5957B /* CreationTableViewController.m */,
+				21D54B191CB4D97C0088D386 /* CreationModel.h */,
+				21D54B1A1CB4D97C0088D386 /* CreationModel.m */,
+				21D54B1C1CB4D99E0088D386 /* CreationTableViewCell.h */,
+				21D54B1D1CB4D99E0088D386 /* CreationTableViewCell.m */,
+				21D54B1E1CB4D99E0088D386 /* CreationTableViewCell.xib */,
 			);
 			name = "非详情";
 			sourceTree = "<group>";
@@ -556,6 +648,13 @@
 		E2DDB1A91CABA742007438E4 /* 非详情 */ = {
 			isa = PBXGroup;
 			children = (
+				21D54B2F1CB4F88B0088D386 /* AuctionModel.h */,
+				21D54B301CB4F88B0088D386 /* AuctionModel.m */,
+				21D54B311CB4F88B0088D386 /* AuctionTableViewCell.h */,
+				21D54B321CB4F88B0088D386 /* AuctionTableViewCell.m */,
+				21D54B331CB4F88B0088D386 /* AuctionTableViewCell.xib */,
+				21D54B341CB4F88B0088D386 /* AuctionTableViewController.h */,
+				21D54B351CB4F88B0088D386 /* AuctionTableViewController.m */,
 			);
 			name = "非详情";
 			sourceTree = "<group>";
@@ -567,10 +666,14 @@
 				218D2B531CACB35C004553B9 /* UIBarButtonItem+Item.m */,
 				218D2B541CACB35C004553B9 /* UIImage+Image.h */,
 				218D2B551CACB35C004553B9 /* UIImage+Image.m */,
+				21D54B5F1CB532CF0088D386 /* UIImageView+Header.h */,
+				21D54B601CB532CF0088D386 /* UIImageView+Header.m */,
 				218D2B561CACB35C004553B9 /* UIView+Frame.h */,
 				218D2B571CACB35C004553B9 /* UIView+Frame.m */,
 				2118F1DD1CAE1D1A003BFC6B /* NSString+Extension.h */,
 				2118F1DE1CAE1D1A003BFC6B /* NSString+Extension.m */,
+				21D54B3A1CB4FA8B0088D386 /* UIImage+Antialias.h */,
+				21D54B3B1CB4FA8B0088D386 /* UIImage+Antialias.m */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -618,6 +721,7 @@
 		E2DDB1B01CABA935007438E4 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				21D54B3D1CB51CA00088D386 /* AFNetworking */,
 				211C394F1CB3B86800DAD827 /* SDWebImage */,
 			);
 			name = Lib;
@@ -996,7 +1100,10 @@
 				E2D73DC31CAD2CA9004CEFA3 /* RegViewController.xib in Resources */,
 				2118F1E41CAE5805003BFC6B /* MyViewController.xib in Resources */,
 				E2DDB0F31CAB66DB007438E4 /* Assets.xcassets in Resources */,
+				21D54B551CB51CA00088D386 /* AFNetworking-master.zip in Resources */,
 				211C394B1CB36B1500DAD827 /* FinanceTableViewCell.xib in Resources */,
+				21D54B381CB4F88B0088D386 /* AuctionTableViewCell.xib in Resources */,
+				21D54B201CB4D99E0088D386 /* CreationTableViewCell.xib in Resources */,
 				21904CF61CAD3C8B00AD7A3F /* ForgetPasswordViewController.xib in Resources */,
 				218D2B7D1CACBBC2004553B9 /* LognController.xib in Resources */,
 				21904CF11CAD3C7800AD7A3F /* CompleteUserInfoController.xib in Resources */,
@@ -1072,33 +1179,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21D54B3C1CB4FA8B0088D386 /* UIImage+Antialias.m in Sources */,
 				211C397E1CB3B86800DAD827 /* UIImageView+HighlightedWebCache.m in Sources */,
 				218D2B7C1CACBBC2004553B9 /* LognController.m in Sources */,
+				21D54B611CB532CF0088D386 /* UIImageView+Header.m in Sources */,
 				215EED321CB014D400A5957B /* CreationTableViewController.m in Sources */,
 				218D2B3C1CACB2F9004553B9 /* CommonNavigationController.m in Sources */,
 				21904CF51CAD3C8B00AD7A3F /* ForgetPasswordViewController.m in Sources */,
 				215EED261CB00D6100A5957B /* GlobeConst.m in Sources */,
+				21D54B1F1CB4D99E0088D386 /* CreationTableViewCell.m in Sources */,
+				21D54B581CB51CA00088D386 /* AFURLConnectionOperation.m in Sources */,
 				211C397F1CB3B86800DAD827 /* UIImageView+WebCache.m in Sources */,
+				21D54B361CB4F88B0088D386 /* AuctionModel.m in Sources */,
+				21D54B371CB4F88B0088D386 /* AuctionTableViewCell.m in Sources */,
 				218D2B4B1CACB335004553B9 /* MessageTableViewController.m in Sources */,
 				211C39461CB369FC00DAD827 /* FinanceModel.m in Sources */,
 				211C397A1CB3B86800DAD827 /* UIButton+WebCache.m in Sources */,
 				E2DDB0EB1CAB66DB007438E4 /* AppDelegate.m in Sources */,
 				21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */,
 				21904D2B1CAD4E0700AD7A3F /* HTTPSessionManager.m in Sources */,
+				21D54B391CB4F88B0088D386 /* AuctionTableViewController.m in Sources */,
 				211C397B1CB3B86800DAD827 /* UIImage+GIF.m in Sources */,
 				211C39791CB3B86800DAD827 /* SDWebImagePrefetcher.m in Sources */,
-				21D54A0D1CB3E93A0088D386 /* ResultModel.m in Sources */,
 				2118F1DF1CAE1D1A003BFC6B /* NSString+Extension.m in Sources */,
+				21D54B521CB51CA00088D386 /* AFHTTPRequestOperation.m in Sources */,
+				21D54B561CB51CA00088D386 /* AFNetworkReachabilityManager.m in Sources */,
 				21904D2F1CAD546C00AD7A3F /* URLRequestManager.m in Sources */,
 				211C394E1CB3961800DAD827 /* authorModel.m in Sources */,
 				211C39741CB3B86800DAD827 /* SDWebImageCompat.m in Sources */,
+				21D54B181CB4C31F0088D386 /* CommonHeader.m in Sources */,
 				211C39761CB3B86800DAD827 /* SDWebImageDownloader.m in Sources */,
 				211C39771CB3B86800DAD827 /* SDWebImageDownloaderOperation.m in Sources */,
+				21D54B5A1CB51CA00088D386 /* AFURLResponseSerialization.m in Sources */,
 				211C39751CB3B86800DAD827 /* SDWebImageDecoder.m in Sources */,
 				211C39781CB3B86800DAD827 /* SDWebImageManager.m in Sources */,
+				21D54B571CB51CA00088D386 /* AFSecurityPolicy.m in Sources */,
 				E2D73DC21CAD2CA9004CEFA3 /* RegViewController.m in Sources */,
 				211C394A1CB36B1500DAD827 /* FinanceTableViewCell.m in Sources */,
-				215EED231CB005F100A5957B /* AuctionTableViewController.m in Sources */,
 				218D2B5A1CACB35C004553B9 /* UIView+Frame.m in Sources */,
 				218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */,
 				211C39801CB3B86800DAD827 /* UIView+WebCacheOperation.m in Sources */,
@@ -1106,20 +1223,27 @@
 				2118F1E71CAE626F003BFC6B /* registerModel.m in Sources */,
 				21C08BC81CB01BC3002328D3 /* SettingTableViewController.m in Sources */,
 				E2DDB0E81CAB66DB007438E4 /* main.m in Sources */,
+				21D54B541CB51CA00088D386 /* AFHTTPSessionManager.m in Sources */,
 				218D2B581CACB35C004553B9 /* UIBarButtonItem+Item.m in Sources */,
 				211C39711CB3B86800DAD827 /* MKAnnotationView+WebCache.m in Sources */,
 				211C397C1CB3B86800DAD827 /* UIImage+MultiFormat.m in Sources */,
 				21904CF01CAD3C7800AD7A3F /* CompleteUserInfoController.m in Sources */,
 				215EED2C1CB010A500A5957B /* ArtistTableViewController.m in Sources */,
+				21D54B1B1CB4D97C0088D386 /* CreationModel.m in Sources */,
+				21D54B5B1CB51CA00088D386 /* AFURLSessionManager.m in Sources */,
 				211C39721CB3B86800DAD827 /* NSData+ImageContentType.m in Sources */,
 				215EED291CB0108F00A5957B /* InvestorTableViewController.m in Sources */,
 				211C397D1CB3B86800DAD827 /* UIImage+WebP.m in Sources */,
 				218D2B591CACB35C004553B9 /* UIImage+Image.m in Sources */,
 				21904D321CAE0F4000AD7A3F /* UserAccount.m in Sources */,
+				21D54B591CB51CA00088D386 /* AFURLRequestSerialization.m in Sources */,
+				21D54B531CB51CA00088D386 /* AFHTTPRequestOperationManager.m in Sources */,
 				215EED1D1CB0058D00A5957B /* FinanceTableViewController.m in Sources */,
 				218D2B461CACB325004553B9 /* MainTableViewController.m in Sources */,
 				2118F1E31CAE5805003BFC6B /* MyViewController.m in Sources */,
 				2118F1EA1CAE88B4003BFC6B /* navTitleButton.m in Sources */,
+				21D54B171CB4C31F0088D386 /* CommonFooter.m in Sources */,
+				21D54B231CB4DF0F0088D386 /* MasterModel.m in Sources */,
 				211C39731CB3B86800DAD827 /* SDImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,4 +17,7 @@
 
 @property (nonatomic, strong) FinanceModel *model;
 
+
+
+
 @end

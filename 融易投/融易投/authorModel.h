@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MasterModel.h"
+
 @interface authorModel : NSObject
 
 /**
@@ -25,5 +27,8 @@
 
 /** 头像 */
 @property (nonatomic ,strong) NSString *pictureUrl;
+
+/** 创作者信息 */
+@property (nonatomic, strong) MasterModel *master;
 
 @end

@@ -9,7 +9,6 @@
 #import "FinanceTableViewCell.h"
 
 #import "FinanceModel.h"
-#import "ResultModel.h"
 
 #import "UIImageView+WebCache.h"
 
@@ -37,6 +36,7 @@
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
 }
 
+
 -(void)setModel:(FinanceModel *)model{
     
     _model= model;
@@ -52,23 +52,14 @@
      "createDatetime":1454314046000,"artworkAttachment":[],"artworkComments":[],"artworkDraw":null,"picture_url":"http://tenant.efeiyi.com/background/蔡水况.jpg","step":null,"investsMoney":154,"creationEndDatetime":1458285471000,"type":"3","newCreationDate":null,"auctionNum":null,"newBidingPrice":null,"newBiddingDate":null}],
      "resultMsg":"成功"}
      */
-
     
-//    [self.bgImageView sd_setImageWithURL:[NSURL URLWithString:model.picture_url] placeholderImage:[UIImage imageNamed:@"基本资料-未传头像"]];
-//    [self.bgImageView sd_setImageWithURL:[NSURL URLWithString:model.picture_url]];
-    NSLog(@"%@",model.picture_url);
+    NSString *picture_urlStr = [[NSString stringWithFormat:@"%@",model.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-//    [self.bgImageView sd_setImageWithURL:[NSURL URLWithString:model.picture_url] placeholderImage:[UIImage imageNamed:@"基本资料-未传头像"]];
+    NSURL *picture_urlURL = [NSURL URLWithString:picture_urlStr];
     
-    [self.bgImageView sd_setImageWithURL:[NSURL URLWithString:model.picture_url] placeholderImage:[UIImage imageNamed:@"基本资料-未传头像"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        
-        NSLog(@"%@",model.picture_url);
-        NSLog(@"%@",error);
-        NSLog(@"%@",imageURL);
-        
-    }];
+//    NSLog(@"%@",picture_urlURL);
     
-    
+    [self.bgImageView sd_setImageWithURL:picture_urlURL];
     
     self.targetMoney.text = [NSString stringWithFormat:@"%ld元",model.investGoalMoney];
 
@@ -84,19 +75,47 @@
     self.financeTitle.text = model.title;
     self.financeIntroductionLabel.text = model.author.descriptions;
     
-//    [self.userIcon sd_setImageWithURL:[NSURL URLWithString:model.author.pictureUrl] placeholderImage:[UIImage imageNamed:@"基本资料-未传头像"]];
+    NSString *pictureUrlStr = [[NSString stringWithFormat:@"%@",model.author.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    [self.userIcon sd_setImageWithURL:[NSURL URLWithString:model.author.pictureUrl] placeholderImage:[UIImage imageNamed:@"基本资料-未传头像"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    NSURL *pictureUrlURL = [NSURL URLWithString:pictureUrlStr];
+    
+//    NSLog(@"%@",pictureUrlURL);
+    
+    //因为完成之后会返回一个从服务器加载的数据,所以我们这里拿到的就是从服务器获取的最初始的图片
+    [self.userIcon sd_setImageWithURL:pictureUrlURL placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
-        NSLog(@"%@",model.picture_url);
-        NSLog(@"%@",error);
-        NSLog(@"%@",imageURL);
+        //使用裁剪方式
+        //开启上下文
+        //第一个参数:上下文的范围 第二个参数:是否是不透明的 第三个参数;
+        //        UIGraphicsBeginImageContextWithOptions(<#CGSize size#>, <#BOOL opaque#>, <#CGFloat scale#>)
+        UIGraphicsBeginImageContextWithOptions(image.size, NO, 0);
+        
+        //描述圆形路径
+        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
+        
+        //设置裁剪区域
+        [path addClip];
+        
+        //绘制图片
+        [image drawAtPoint:CGPointZero];
+        
+        //从上下文中获取图片
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        
+        //关闭上下文
+        UIGraphicsEndImageContext();
+        
+        //给空间设置图片
+        //        self.iconView.image = image;
+        //这样裁剪会造成图片边缘有锯齿
+        //使用分类处理锯齿
+        self.userIcon.image = [image imageAntialias];
+        
         
     }];
-    
-    NSLog(@"%@",model.author.pictureUrl);
-    
 
+    
+//    [self.userIcon sd_setImageWithURL:pictureUrlURL];
     
     self.userName.text = model.author.name;
     self.userInfo.text = model.author.username;
@@ -104,5 +123,18 @@
 //    self.progressView.progress = nil;
     
 }
+
+//把系统的分割线去除,然后把控制器的的颜色改成要设置分割线的颜色
+//当我们
+-(void)setFrame:(CGRect)frame
+{
+    
+    frame.size.height -= 1;
+    
+    [super setFrame:frame];
+    
+}
+
+
 
 @end
