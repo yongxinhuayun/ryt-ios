@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFHTTPSessionManager.h"
+//#import "AFHTTPSessionManager.h"
 
-@interface HTTPSessionManager : AFHTTPSessionManager
-
-+(instancetype)shareManager;
-
-@end
+//@interface HTTPSessionManager : AFHTTPSessionManager
+//
+//+(instancetype)shareManager;
+//
+//@end

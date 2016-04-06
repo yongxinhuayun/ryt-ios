@@ -35,7 +35,7 @@
                         <constraint firstAttribute="height" constant="40" id="PJA-Kz-2pU"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="11111111" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" background="denglu_shurukuang@x.png" translatesAutoresizingMaskIntoConstraints="NO" id="WIr-I3-aCW">
                     <rect key="frame" x="27" y="235" width="320" height="40"/>

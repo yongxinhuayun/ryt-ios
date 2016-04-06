@@ -8,7 +8,7 @@
 
 #import "SettingTableViewController.h"
 
-#import <UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h"
 
 #import "NSObject+FileManager.h"
 
