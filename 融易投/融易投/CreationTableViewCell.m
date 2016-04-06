@@ -101,6 +101,7 @@
     }];
     
 //    [self.userIcon bs_setHeader:pictureUrlURL];
+    NSLog(@"");
 
     
     self.userName.text = model.author.name;
