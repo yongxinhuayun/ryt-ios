@@ -13,9 +13,13 @@
 
 #import "FinanceModel.h"
 #import "authorModel.h"
+#import "ResultModel.h"
+
 #import <MJExtension.h>
 
 #import "FinanceTableViewCell.h"
+
+#import "UIImageView+WebCache.h"
 
 @interface FinanceTableViewController ()
 
@@ -28,6 +32,7 @@
 static NSString *ID = @"financeCell";
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     //内边距的顶部应该是导航条的最大值64加上标题栏的高度
@@ -43,9 +48,6 @@ static NSString *ID = @"financeCell";
     //运行程序,发现滚动条上部分被标题栏和导航栏挡住了,这样会对会用造成一定的假象,造成对内容的多少判断不准确
     self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSStatusMaxH + SSTitlesViewH, 0, SSTabBarH, 0);
     
-    //加载数据
-    [self loadData];
-    
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"FinanceTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
     
@@ -56,6 +58,18 @@ static NSString *ID = @"financeCell";
                  @"descriptions":@"description",
                  };
     }];
+    
+    //加载数据
+    [self loadData];
+    
+
+}
+
++ (NSDictionary *)mj_objectClassInArray
+{
+    return @{
+             @"author" : @"authorModel"
+             };
 }
 
 -(void)loadData
@@ -86,7 +100,10 @@ static NSString *ID = @"financeCell";
     
     // 1.创建请求
     //http://192.168.1.69:8001/app/login.do
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/investorIndex.do"];
+    //http://192.168.1.57/app-wikiServer/
+    //http://j.efeiyi.com:8080/app-wikiServer/app/
+    //http://j.efeiyi.com:8080/app-wikiServer/app/login.do
+    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/investorIndex.do"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
@@ -123,28 +140,37 @@ static NSString *ID = @"financeCell";
         
         /*
           {"resultCode":"0","
-            objectList":[{"id":"qydeyugqqiugd2",
-                          "title":"测试","brief":"这是一个","description":null,"status":"1","investGoalMoney":1.00,"investStartDatetime":1455005261000,"investEndDatetime":1454314064000,"auctionStartDatetime":1454400455000,"auctionEndDatetime":1454400449000,
-                          "author":
+            objectList":
+                    [{"id":"qydeyugqqiugd2","title":"测试","brief":"这是一   个","description":null,"status":"1","investGoalMoney":1.00,"investStartDatetime":1455005261000,"investEndDatetime":1454314064000,"auctionStartDatetime":1454400455000,"auctionEndDatetime":1454400449000,
+                        "author":
                                     {"id":"icjxkedl0000b6i0","username":"123123","name":"魏立中","pictureUrl":"http://tenant.efeiyi.com/background/蔡水况.jpg","cityId":null,"status":"0","createDatetime":null,"type":"10000","master":{"id":"icjxkedl0000b6i0","brief":"版画家，他使得业已消失数百年的明代印刷业老字号十竹斋重新恢复并焕发生机，成为杭州市文化产业传承创新的亮点。","title":"国家级传承人","favicon":"http://tenant.efeiyi.com/background/蔡水况.jpg","birthday":"1968年","level":"1","content":null,"presentAddress":"浙江","backgroundUrl":"background/魏立中.jpg","provinceName":"浙江","theStatus":"1","logoUrl":"logo/魏立中.jpg","masterSpeech":null,"artCategory":null,"titleCertificate":null}},
-         "createDatetime":1454314046000,"artworkAttachment":[],"artworkComments":[],"artworkDraw":null,"picture_url":"http://tenant.efeiyi.com/background/蔡水况.jpg","step":null,"investsMoney":154,"creationEndDatetime":1458285471000,"type":"3","newCreationDate":null,"auctionNum":null,"newBidingPrice":null,"newBiddingDate":null}],
+                            "createDatetime":1454314046000,"artworkAttachment":[],"artworkComments":[],"artworkDraw":null,"picture_url":"http://tenant.efeiyi.com/background/蔡水况.jpg","step":null,"investsMoney":154,"creationEndDatetime":1458285471000,"type":"3","newCreationDate":null,"auctionNum":null,"newBidingPrice":null,"newBiddingDate":null}],
          "resultMsg":"成功"}
          */
         
-         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         
+        NSLog(@"%@",modelDict);
         
-        //创建一个数组成员属性,保存数据
-//        [FinanceModel mj_setupObjectClassInArray:^NSDictionary *{
-//            return @{@"users" : [userModel class]};
-//        }];
+//        ResultModel *result = [ResultModel mj_objectWithKeyValues:modelDict];
+        self.models = [ResultModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
         
-        self.models = [FinanceModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
-        
-        NSLog(@"%@",self.models);
+        for (FinanceModel *model in self.models) {
+            
+            [self.models addObject:model];
+            
+            NSLog(@"%@",self.models);
+        }
         
         //4. 刷新数据
         [self.tableView reloadData];
+        
+        //在主线程刷新UI数据
+//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//            
+//            [self.tableView reloadData];
+//            
+//        }];
         
     }];
     

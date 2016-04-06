@@ -9,8 +9,9 @@
 #import "FinanceTableViewCell.h"
 
 #import "FinanceModel.h"
+#import "ResultModel.h"
 
-#import <UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h"
 
 @interface FinanceTableViewCell ()
 
@@ -53,7 +54,22 @@
      */
 
     
-    [self.bgImageView sd_setImageWithURL:[NSURL URLWithString:model.picture_url] placeholderImage:[UIImage imageNamed:@"基本资料-未传头像"]];
+//    [self.bgImageView sd_setImageWithURL:[NSURL URLWithString:model.picture_url] placeholderImage:[UIImage imageNamed:@"基本资料-未传头像"]];
+//    [self.bgImageView sd_setImageWithURL:[NSURL URLWithString:model.picture_url]];
+    NSLog(@"%@",model.picture_url);
+    
+//    [self.bgImageView sd_setImageWithURL:[NSURL URLWithString:model.picture_url] placeholderImage:[UIImage imageNamed:@"基本资料-未传头像"]];
+    
+    [self.bgImageView sd_setImageWithURL:[NSURL URLWithString:model.picture_url] placeholderImage:[UIImage imageNamed:@"基本资料-未传头像"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+        NSLog(@"%@",model.picture_url);
+        NSLog(@"%@",error);
+        NSLog(@"%@",imageURL);
+        
+    }];
+    
+    
+    
     self.targetMoney.text = [NSString stringWithFormat:@"%ld元",model.investGoalMoney];
 
     // 求出self和date相差多少秒
@@ -67,7 +83,21 @@
     
     self.financeTitle.text = model.title;
     self.financeIntroductionLabel.text = model.author.descriptions;
-    [self.userIcon sd_setImageWithURL:[NSURL URLWithString:model.author.pictureUrl] placeholderImage:[UIImage imageNamed:@"基本资料-未传头像"]];
+    
+//    [self.userIcon sd_setImageWithURL:[NSURL URLWithString:model.author.pictureUrl] placeholderImage:[UIImage imageNamed:@"基本资料-未传头像"]];
+    
+    [self.userIcon sd_setImageWithURL:[NSURL URLWithString:model.author.pictureUrl] placeholderImage:[UIImage imageNamed:@"基本资料-未传头像"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+        NSLog(@"%@",model.picture_url);
+        NSLog(@"%@",error);
+        NSLog(@"%@",imageURL);
+        
+    }];
+    
+    NSLog(@"%@",model.author.pictureUrl);
+    
+
+    
     self.userName.text = model.author.name;
     self.userInfo.text = model.author.username;
     

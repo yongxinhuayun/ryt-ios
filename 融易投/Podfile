@@ -1,12 +1,8 @@
 
 pod 'MJExtension', '~> 3.0.7'
 
-pod 'SDWebImage', '~> 3.7.5'
-
 pod 'SVProgressHUD', '~> 2.0.2'
 
 pod 'MJRefresh'
 
 pod 'FMDB'
-
-pod "MWPhotoBrowser"

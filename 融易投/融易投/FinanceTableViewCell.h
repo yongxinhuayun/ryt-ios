@@ -10,6 +10,7 @@
 
 @class FinanceModel;
 
+
 @interface FinanceTableViewCell : UITableViewCell
 
 +(instancetype) financeCell;

@@ -14,8 +14,6 @@
  *  objectList里面author这个key对应的数据
  */
 
-
-
 /** 描述 */
 @property (nonatomic ,strong) NSString *descriptions;
 
