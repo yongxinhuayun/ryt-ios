@@ -9,16 +9,23 @@
 #import "AppDelegate.h"
 
 #import "CommonTabBarViewController.h"
-
+#import "NotificationController.h"
 
 #import "CompleteUserInfoController.h"
 #import "WXApi.h"
+#import "JPUSHService.h"
+
+static NSString *appKey = @"d1573e16403c2482826bbd35";
+static NSString *channel = @"Publish channel";
+static BOOL isProduction = FALSE;
+
 @interface AppDelegate ()
 {
     UIBackgroundTaskIdentifier bgStartId;
     BOOL registstatus;
     BOOL startedInBackground;
     enum WXScene _scene;
+    
 }
 @end
 
@@ -126,11 +133,32 @@
     
     //1.创建主窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    //JPush
+    // Required
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        //可以添加自定义categories
+        [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
+                                                          UIUserNotificationTypeSound |
+                                                          UIUserNotificationTypeAlert)
+                                              categories:nil];
+    } else {
+        //categories 必须为nil
+        [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                                          UIRemoteNotificationTypeSound |
+                                                          UIRemoteNotificationTypeAlert)
+                                              categories:nil];
+    }
+    
+    // Required
+    //如需兼容旧版本的方式，请依旧使用[JPUSHService setupWithOption:launchOptions]方式初始化和同时使用pushConfig.plist文件声明appKey等配置内容。
+    [JPUSHService setupWithOption:launchOptions appKey:appKey channel:channel apsForProduction:isProduction];
+    
     //2.设置窗口的根控制器
-    
         CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
-    self.window.rootViewController = tabBarController;
     
+    //self.window.rootViewController = tabBarController;
+      self.window.rootViewController = [NotificationController new];
     //3.显示窗口
     [self.window makeKeyAndVisible];
     
@@ -157,6 +185,82 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+//*******************************JPush********************************
+
+//- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+//    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    [self.window makeKeyAndVisible];
+//    
+//    // Required
+//    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+//        //可以添加自定义categories
+//        [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
+//                                                          UIUserNotificationTypeSound |
+//                                                          UIUserNotificationTypeAlert)
+//                                              categories:nil];
+//    } else {
+//        //categories 必须为nil
+//        [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+//                                                          UIRemoteNotificationTypeSound |
+//                                                          UIRemoteNotificationTypeAlert)
+//                                              categories:nil];
+//    }
+//    
+//    // Required
+//    //如需兼容旧版本的方式，请依旧使用[JPUSHService setupWithOption:launchOptions]方式初始化和同时使用pushConfig.plist文件声明appKey等配置内容。
+//    [JPUSHService setupWithOption:launchOptions appKey:appKey channel:channel apsForProduction:isProduction];
+//    return YES;
+//}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    // Required
+    [JPUSHService registerDeviceToken:deviceToken];
+    NSLog(@"%@", [NSString stringWithFormat:@"Device Token: %@", deviceToken]);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    // Required,For systems with less than or equal to iOS6
+    [JPUSHService handleRemoteNotification:userInfo];
+    NSLog(@">>>>>>>>>2userInfo%@",[self logDic:userInfo]);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    // IOS 7 Support Required
+    completionHandler(UIBackgroundFetchResultNewData);
+    [JPUSHService handleRemoteNotification:userInfo];
+    NSLog(@">>>>>>>>>1userInfo%@",[self logDic:userInfo]);
+    
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    
+    //Optional
+    NSLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
+}
+- (NSString *)logDic:(NSDictionary *)dic {
+    if (![dic count]) {
+        return nil;
+    }
+    NSString *tempStr1 =
+    [[dic description] stringByReplacingOccurrencesOfString:@"\\u"
+                                                 withString:@"\\U"];
+    NSString *tempStr2 =
+    [tempStr1 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+    NSString *tempStr3 =
+    [[@"\"" stringByAppendingString:tempStr2] stringByAppendingString:@"\""];
+    NSData *tempData = [tempStr3 dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *str =
+    [NSPropertyListSerialization propertyListFromData:tempData
+                                     mutabilityOption:NSPropertyListImmutable
+                                               format:NULL
+                                     errorDescription:NULL];
+    return str;
 }
 
 @end

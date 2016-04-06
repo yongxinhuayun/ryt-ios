@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"充值";
-    NSLog(@"111111111111");
+
     
 }
 
