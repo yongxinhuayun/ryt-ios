@@ -79,6 +79,7 @@
 		21D54B5B1CB51CA00088D386 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B511CB51CA00088D386 /* AFURLSessionManager.m */; };
 		21D54B611CB532CF0088D386 /* UIImageView+Header.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B601CB532CF0088D386 /* UIImageView+Header.m */; };
 		BC4A8BFAB939A8BBE3AF0A2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFB6E4A926D52C7C2AE4F6C /* libPods.a */; };
+		E21550E81CB604E20070D5D3 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */; };
 		E236C2961CB4B1B8009DCBF0 /* LognController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E236C2951CB4B1B7009DCBF0 /* LognController.xib */; };
 		E236C2D81CB4B64D009DCBF0 /* jibenziliao_anniu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C29B1CB4B64D009DCBF0 /* jibenziliao_anniu@2x.png */; };
 		E236C2D91CB4B64D009DCBF0 /* jibenziliao_anniu@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C29C1CB4B64D009DCBF0 /* jibenziliao_anniu@3x.png */; };
@@ -88,7 +89,6 @@
 		E236C2DD1CB4B64D009DCBF0 /* jibenziliao_fenggexian750@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2A01CB4B64D009DCBF0 /* jibenziliao_fenggexian750@2x.png */; };
 		E236C2DE1CB4B64D009DCBF0 /* jibenziliao_guanbi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2A11CB4B64D009DCBF0 /* jibenziliao_guanbi@2x.png */; };
 		E236C2DF1CB4B64D009DCBF0 /* jibenziliao_guanbi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2A21CB4B64D009DCBF0 /* jibenziliao_guanbi@3x.png */; };
-		E236C2E01CB4B64D009DCBF0 /* jibenziliao_touxiang@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2A31CB4B64D009DCBF0 /* jibenziliao_touxiang@2x.png */; };
 		E236C2E11CB4B64D009DCBF0 /* jibenziliao_touxiang@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2A41CB4B64D009DCBF0 /* jibenziliao_touxiang@3x.png */; };
 		E236C2E21CB4B64D009DCBF0 /* jibenziliao_weixuanzhong_nan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2A51CB4B64D009DCBF0 /* jibenziliao_weixuanzhong_nan@2x.png */; };
 		E236C2E31CB4B64D009DCBF0 /* jibenziliao_weixuanzhong_nan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2A61CB4B64D009DCBF0 /* jibenziliao_weixuanzhong_nan@3x.png */; };
@@ -99,7 +99,6 @@
 		E236C2E81CB4B64D009DCBF0 /* jibenziliao_xuanzhong_nv@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2AB1CB4B64D009DCBF0 /* jibenziliao_xuanzhong_nv@2x.png */; };
 		E236C2E91CB4B64D009DCBF0 /* jibenziliao_xuanzhong_nv@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2AC1CB4B64D009DCBF0 /* jibenziliao_xuanzhong_nv@3x.png */; };
 		E236C2EA1CB4B64D009DCBF0 /* wangjimima_anniu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2AF1CB4B64D009DCBF0 /* wangjimima_anniu@2x.png */; };
-		E236C2EB1CB4B64D009DCBF0 /* wangjimima_anniu@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2B01CB4B64D009DCBF0 /* wangjimima_anniu@3x.png */; };
 		E236C2EC1CB4B64D009DCBF0 /* wangjimima_fanhui@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2B11CB4B64D009DCBF0 /* wangjimima_fanhui@2x.png */; };
 		E236C2ED1CB4B64D009DCBF0 /* wangjimima_fanhui@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2B21CB4B64D009DCBF0 /* wangjimima_fanhui@3x.png */; };
 		E236C2EE1CB4B64D009DCBF0 /* wangjimima_fenggexian374@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2B31CB4B64D009DCBF0 /* wangjimima_fenggexian374@2x.png */; };
@@ -112,7 +111,6 @@
 		E236C2F51CB4B64D009DCBF0 /* zhuce_fanhui@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2BC1CB4B64D009DCBF0 /* zhuce_fanhui@2x.png */; };
 		E236C2F61CB4B64D009DCBF0 /* zhuce_fanhui@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2BD1CB4B64D009DCBF0 /* zhuce_fanhui@3x.png */; };
 		E236C2F71CB4B64D009DCBF0 /* zhuce_fenggexian244@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2BE1CB4B64D009DCBF0 /* zhuce_fenggexian244@2x.png */; };
-		E236C2F81CB4B64D009DCBF0 /* zhuce_fenggexian374@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2BF1CB4B64D009DCBF0 /* zhuce_fenggexian374@2x.png */; };
 		E236C2F91CB4B64D009DCBF0 /* zhuce_fenggexian750@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2C01CB4B64D009DCBF0 /* zhuce_fenggexian750@2x.png */; };
 		E236C2FA1CB4B64D009DCBF0 /* zhuce_guanbi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2C11CB4B64D009DCBF0 /* zhuce_guanbi@2x.png */; };
 		E236C2FB1CB4B64D009DCBF0 /* zhuce_guanbi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C2C21CB4B64D009DCBF0 /* zhuce_guanbi@3x.png */; };
@@ -143,15 +141,12 @@
 		E236C31A1CB4E0DA009DCBF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E236C3191CB4E0DA009DCBF0 /* Foundation.framework */; };
 		E236C31C1CB4E0E8009DCBF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E236C31B1CB4E0E8009DCBF0 /* UIKit.framework */; };
 		E236C31E1CB4E0F9009DCBF0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E236C31D1CB4E0F9009DCBF0 /* Security.framework */; };
-		E236C3221CB4E1F0009DCBF0 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E236C3201CB4E1F0009DCBF0 /* jpush-ios-2.1.0.a */; };
 		E236C3241CB4E27E009DCBF0 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E236C3231CB4E27E009DCBF0 /* PushConfig.plist */; };
 		E236C3321CB4F653009DCBF0 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E236C3301CB4F653009DCBF0 /* NotificationController.m */; };
 		E236C3331CB4F653009DCBF0 /* NotificationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E236C3311CB4F653009DCBF0 /* NotificationController.xib */; };
 		E236C3371CB4F6D0009DCBF0 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E236C3351CB4F6D0009DCBF0 /* MessageTableViewController.m */; };
 		E236C3381CB4F6D0009DCBF0 /* MessageTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E236C3361CB4F6D0009DCBF0 /* MessageTableViewController.storyboard */; };
-		E2D059DD1CB34F7400B0F690 /* WeiXinController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D059DB1CB34F7400B0F690 /* WeiXinController.m */; };
 		E2D059DE1CB34F7400B0F690 /* WeiXinController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D059DC1CB34F7400B0F690 /* WeiXinController.xib */; };
-		E2D059E21CB34F8300B0F690 /* ALiController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D059E01CB34F8300B0F690 /* ALiController.m */; };
 		E2D059E31CB34F8300B0F690 /* ALiController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D059E11CB34F8300B0F690 /* ALiController.xib */; };
 		E2D05B6F1CB38B7400B0F690 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B6A1CB38B7400B0F690 /* libWeChatSDK.a */; };
 		E2D05B701CB38B7400B0F690 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2D05B6B1CB38B7400B0F690 /* read_me.txt */; };
@@ -325,6 +320,8 @@
 		21D54B5F1CB532CF0088D386 /* UIImageView+Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Header.h"; sourceTree = "<group>"; };
 		21D54B601CB532CF0088D386 /* UIImageView+Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Header.m"; sourceTree = "<group>"; };
 		AC411E3C5CA46BB337E074BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
+		E21550E71CB604E20070D5D3 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		E236C2951CB4B1B7009DCBF0 /* LognController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LognController.xib; sourceTree = "<group>"; };
 		E236C29B1CB4B64D009DCBF0 /* jibenziliao_anniu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jibenziliao_anniu@2x.png"; sourceTree = "<group>"; };
 		E236C29C1CB4B64D009DCBF0 /* jibenziliao_anniu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jibenziliao_anniu@3x.png"; sourceTree = "<group>"; };
@@ -389,8 +386,6 @@
 		E236C3191CB4E0DA009DCBF0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E236C31B1CB4E0E8009DCBF0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E236C31D1CB4E0F9009DCBF0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		E236C3201CB4E1F0009DCBF0 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
-		E236C3211CB4E1F0009DCBF0 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		E236C3231CB4E27E009DCBF0 /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
 		E236C32F1CB4F653009DCBF0 /* NotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
 		E236C3301CB4F653009DCBF0 /* NotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
@@ -437,7 +432,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E236C3221CB4E1F0009DCBF0 /* jpush-ios-2.1.0.a in Frameworks */,
+				E21550E81CB604E20070D5D3 /* jpush-ios-2.1.0.a in Frameworks */,
 				E2D05B761CB38CD000B0F690 /* libz.tbd in Frameworks */,
 				E236C31E1CB4E0F9009DCBF0 /* Security.framework in Frameworks */,
 				E236C31C1CB4E0E8009DCBF0 /* UIKit.framework in Frameworks */,
@@ -600,6 +595,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E21550E51CB604E20070D5D3 /* JPushLIB */ = {
+			isa = PBXGroup;
+			children = (
+				E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */,
+				E21550E71CB604E20070D5D3 /* JPUSHService.h */,
+			);
+			path = JPushLIB;
+			sourceTree = "<group>";
+		};
 		E236C2971CB4B59A009DCBF0 /* Image */ = {
 			isa = PBXGroup;
 			children = (
@@ -732,15 +736,6 @@
 				E236C2D71CB4B64D009DCBF0 /* denglu_weixinweidianji@3x.png */,
 			);
 			path = ios;
-			sourceTree = "<group>";
-		};
-		E236C31F1CB4E1F0009DCBF0 /* JPushlib */ = {
-			isa = PBXGroup;
-			children = (
-				E236C3201CB4E1F0009DCBF0 /* jpush-ios-2.1.0.a */,
-				E236C3211CB4E1F0009DCBF0 /* JPUSHService.h */,
-			);
-			path = JPushlib;
 			sourceTree = "<group>";
 		};
 		E2D05B691CB38B7400B0F690 /* SDKExport */ = {
@@ -1070,6 +1065,7 @@
 		E2DDB1B01CABA935007438E4 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				E21550E51CB604E20070D5D3 /* JPushLIB */,
 				21D54B3D1CB51CA00088D386 /* AFNetworking */,
 				211C394F1CB3B86800DAD827 /* SDWebImage */,
 			);
@@ -1608,7 +1604,6 @@
 				211C397F1CB3B86800DAD827 /* UIImageView+WebCache.m in Sources */,
 				21D54B361CB4F88B0088D386 /* AuctionModel.m in Sources */,
 				21D54B371CB4F88B0088D386 /* AuctionTableViewCell.m in Sources */,
-				218D2B4B1CACB335004553B9 /* MessageTableViewController.m in Sources */,
 				211C39461CB369FC00DAD827 /* FinanceModel.m in Sources */,
 				211C397A1CB3B86800DAD827 /* UIButton+WebCache.m in Sources */,
 				E2DDB0EB1CAB66DB007438E4 /* AppDelegate.m in Sources */,
@@ -1815,11 +1810,12 @@
 					"$(PROJECT_DIR)/融易投/WeiXinPay/SDKExport",
 					"$(PROJECT_DIR)/融易投/SDKExport",
 					"$(PROJECT_DIR)/融易投/JPushlib",
+					"$(PROJECT_DIR)/融易投/JPushLIB",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.efy.eftryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/{JPushlib}";
+				USER_HEADER_SEARCH_PATHS = "/Users/TOM/Desktop/ryt-ios/融易投/融易投/JPushLIB";
 			};
 			name = Debug;
 		};
@@ -1859,11 +1855,12 @@
 					"$(PROJECT_DIR)/融易投/WeiXinPay/SDKExport",
 					"$(PROJECT_DIR)/融易投/SDKExport",
 					"$(PROJECT_DIR)/融易投/JPushlib",
+					"$(PROJECT_DIR)/融易投/JPushLIB",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.efy.eftryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/{JPushlib}";
+				USER_HEADER_SEARCH_PATHS = "/Users/TOM/Desktop/ryt-ios/融易投/融易投/JPushLIB";
 			};
 			name = Release;
 		};

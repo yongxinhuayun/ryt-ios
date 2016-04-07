@@ -153,12 +153,12 @@ static BOOL isProduction = FALSE;
     // Required
     //如需兼容旧版本的方式，请依旧使用[JPUSHService setupWithOption:launchOptions]方式初始化和同时使用pushConfig.plist文件声明appKey等配置内容。
     [JPUSHService setupWithOption:launchOptions appKey:appKey channel:channel apsForProduction:isProduction];
-    
+//
     //2.设置窗口的根控制器
         CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
     
-    //self.window.rootViewController = tabBarController;
-      self.window.rootViewController = [NotificationController new];
+    self.window.rootViewController = tabBarController;
+      //self.window.rootViewController = [NotificationController new];
     //3.显示窗口
     [self.window makeKeyAndVisible];
     
@@ -215,6 +215,11 @@ static BOOL isProduction = FALSE;
 //    [JPUSHService setupWithOption:launchOptions appKey:appKey channel:channel apsForProduction:isProduction];
 //    return YES;
 //}
+
+
+
+
+
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
