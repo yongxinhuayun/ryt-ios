@@ -54,6 +54,12 @@
 		21D54B781CB6405B0088D386 /* NSDate+Interval.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B761CB6405B0088D386 /* NSDate+Interval.m */; };
 		21D54B7B1CB64A510088D386 /* MyMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B7A1CB64A510088D386 /* MyMD5.m */; };
 		21D54B7E1CB64A630088D386 /* HttpRequstTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B7D1CB64A630088D386 /* HttpRequstTool.m */; };
+		21D54B811CB657AE0088D386 /* InvestorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B801CB657AE0088D386 /* InvestorModel.m */; };
+		21D54B851CB6585B0088D386 /* InvestorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B831CB6585B0088D386 /* InvestorTableViewCell.m */; };
+		21D54B861CB6585B0088D386 /* InvestorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D54B841CB6585B0088D386 /* InvestorTableViewCell.xib */; };
+		21D54B8C1CB660970088D386 /* ArtistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B8A1CB660970088D386 /* ArtistTableViewCell.m */; };
+		21D54B8D1CB660970088D386 /* ArtistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D54B8B1CB660970088D386 /* ArtistTableViewCell.xib */; };
+		21D54B901CB660AC0088D386 /* ArtistModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B8F1CB660AC0088D386 /* ArtistModel.m */; };
 		BC4A8BFAB939A8BBE3AF0A2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFB6E4A926D52C7C2AE4F6C /* libPods.a */; };
 		E21550E81CB604E20070D5D3 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */; };
 		E236C2961CB4B1B8009DCBF0 /* LognController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E236C2951CB4B1B7009DCBF0 /* LognController.xib */; };
@@ -250,6 +256,16 @@
 		21D54B7A1CB64A510088D386 /* MyMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMD5.m; sourceTree = "<group>"; };
 		21D54B7C1CB64A630088D386 /* HttpRequstTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequstTool.h; sourceTree = "<group>"; };
 		21D54B7D1CB64A630088D386 /* HttpRequstTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequstTool.m; sourceTree = "<group>"; };
+		21D54B7F1CB657AE0088D386 /* InvestorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorModel.h; sourceTree = "<group>"; };
+		21D54B801CB657AE0088D386 /* InvestorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorModel.m; sourceTree = "<group>"; };
+		21D54B821CB6585B0088D386 /* InvestorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorTableViewCell.h; sourceTree = "<group>"; };
+		21D54B831CB6585B0088D386 /* InvestorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorTableViewCell.m; sourceTree = "<group>"; };
+		21D54B841CB6585B0088D386 /* InvestorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvestorTableViewCell.xib; sourceTree = "<group>"; };
+		21D54B891CB660970088D386 /* ArtistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistTableViewCell.h; sourceTree = "<group>"; };
+		21D54B8A1CB660970088D386 /* ArtistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistTableViewCell.m; sourceTree = "<group>"; };
+		21D54B8B1CB660970088D386 /* ArtistTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistTableViewCell.xib; sourceTree = "<group>"; };
+		21D54B8E1CB660AC0088D386 /* ArtistModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistModel.h; sourceTree = "<group>"; };
+		21D54B8F1CB660AC0088D386 /* ArtistModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistModel.m; sourceTree = "<group>"; };
 		AC411E3C5CA46BB337E074BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
 		E21550E71CB604E20070D5D3 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
@@ -435,6 +451,34 @@
 				21904D311CAE0F4000AD7A3F /* UserAccount.m */,
 			);
 			name = "注册完成完善界面";
+			sourceTree = "<group>";
+		};
+		21D54B871CB65BA60088D386 /* 投资者排行 */ = {
+			isa = PBXGroup;
+			children = (
+				215EED271CB0108F00A5957B /* InvestorTableViewController.h */,
+				215EED281CB0108F00A5957B /* InvestorTableViewController.m */,
+				21D54B7F1CB657AE0088D386 /* InvestorModel.h */,
+				21D54B801CB657AE0088D386 /* InvestorModel.m */,
+				21D54B821CB6585B0088D386 /* InvestorTableViewCell.h */,
+				21D54B831CB6585B0088D386 /* InvestorTableViewCell.m */,
+				21D54B841CB6585B0088D386 /* InvestorTableViewCell.xib */,
+			);
+			name = "投资者排行";
+			sourceTree = "<group>";
+		};
+		21D54B881CB65BD30088D386 /* 艺术家排行 */ = {
+			isa = PBXGroup;
+			children = (
+				215EED2A1CB010A500A5957B /* ArtistTableViewController.h */,
+				215EED2B1CB010A500A5957B /* ArtistTableViewController.m */,
+				21D54B8E1CB660AC0088D386 /* ArtistModel.h */,
+				21D54B8F1CB660AC0088D386 /* ArtistModel.m */,
+				21D54B891CB660970088D386 /* ArtistTableViewCell.h */,
+				21D54B8A1CB660970088D386 /* ArtistTableViewCell.m */,
+				21D54B8B1CB660970088D386 /* ArtistTableViewCell.xib */,
+			);
+			name = "艺术家排行";
 			sourceTree = "<group>";
 		};
 		B084BF39CB86E631C5631222 /* Pods */ = {
@@ -731,9 +775,9 @@
 				218D2B441CACB325004553B9 /* MainTableViewController.m */,
 				2118F1E81CAE88B4003BFC6B /* navTitleButton.h */,
 				2118F1E91CAE88B4003BFC6B /* navTitleButton.m */,
-				E2DDB1A31CABA6EF007438E4 /* 拍卖 */,
-				E2DDB1A21CABA6DA007438E4 /* 创作 */,
 				E2DDB1A11CABA6D3007438E4 /* 融资 */,
+				E2DDB1A21CABA6DA007438E4 /* 创作 */,
+				E2DDB1A31CABA6EF007438E4 /* 拍卖 */,
 			);
 			name = "首页";
 			sourceTree = "<group>";
@@ -743,10 +787,8 @@
 			children = (
 				218D2B3E1CACB310004553B9 /* RankTableViewController.h */,
 				218D2B3F1CACB310004553B9 /* RankTableViewController.m */,
-				215EED271CB0108F00A5957B /* InvestorTableViewController.h */,
-				215EED281CB0108F00A5957B /* InvestorTableViewController.m */,
-				215EED2A1CB010A500A5957B /* ArtistTableViewController.h */,
-				215EED2B1CB010A500A5957B /* ArtistTableViewController.m */,
+				21D54B871CB65BA60088D386 /* 投资者排行 */,
+				21D54B881CB65BD30088D386 /* 艺术家排行 */,
 			);
 			name = "排行";
 			sourceTree = "<group>";
@@ -1339,6 +1381,7 @@
 				E236C2FE1CB4B64D009DCBF0 /* zhuce_weixindianji@3x.png in Resources */,
 				E236C2DE1CB4B64D009DCBF0 /* jibenziliao_guanbi@2x.png in Resources */,
 				E236C3061CB4B64D009DCBF0 /* denglu_fenggexian244@2x.png in Resources */,
+				21D54B861CB6585B0088D386 /* InvestorTableViewCell.xib in Resources */,
 				E236C2F51CB4B64D009DCBF0 /* zhuce_fanhui@2x.png in Resources */,
 				E236C30D1CB4B64D009DCBF0 /* denglu_weixinweidianji@2x.png in Resources */,
 				E236C2F01CB4B64D009DCBF0 /* wangjimima_guanbi@2x.png in Resources */,
@@ -1390,6 +1433,7 @@
 				E236C2E71CB4B64D009DCBF0 /* jibenziliao_xuanzhong_nan@3x.png in Resources */,
 				E2ABF0B71CB63C1E0005571F /* PersonalController.xib in Resources */,
 				E236C2FA1CB4B64D009DCBF0 /* zhuce_guanbi@2x.png in Resources */,
+				21D54B8D1CB660970088D386 /* ArtistTableViewCell.xib in Resources */,
 				E236C3011CB4B64D009DCBF0 /* denglu_anniu@1x.png in Resources */,
 				E236C2E11CB4B64D009DCBF0 /* jibenziliao_touxiang@3x.png in Resources */,
 				E236C2F91CB4B64D009DCBF0 /* zhuce_fenggexian750@2x.png in Resources */,
@@ -1469,6 +1513,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21D54B901CB660AC0088D386 /* ArtistModel.m in Sources */,
 				21D54B3C1CB4FA8B0088D386 /* UIImage+Antialias.m in Sources */,
 				218D2B7C1CACBBC2004553B9 /* LognController.m in Sources */,
 				21D54B611CB532CF0088D386 /* UIImageView+Header.m in Sources */,
@@ -1478,6 +1523,7 @@
 				21904CF51CAD3C8B00AD7A3F /* ForgetPasswordViewController.m in Sources */,
 				215EED261CB00D6100A5957B /* GlobeConst.m in Sources */,
 				21D54B1F1CB4D99E0088D386 /* CreationTableViewCell.m in Sources */,
+				21D54B811CB657AE0088D386 /* InvestorModel.m in Sources */,
 				21D54B361CB4F88B0088D386 /* AuctionModel.m in Sources */,
 				21D54B371CB4F88B0088D386 /* AuctionTableViewCell.m in Sources */,
 				211C39461CB369FC00DAD827 /* FinanceModel.m in Sources */,
@@ -1487,9 +1533,7 @@
 				21D54B771CB6405B0088D386 /* NSCalendar+Init.m in Sources */,
 				21D54B781CB6405B0088D386 /* NSDate+Interval.m in Sources */,
 				21D54B391CB4F88B0088D386 /* AuctionTableViewController.m in Sources */,
-				211C397B1CB3B86800DAD827 /* UIImage+GIF.m in Sources */,
-				E2ABF0B61CB63C1E0005571F /* PersonalController.m in Sources */,
-				211C39791CB3B86800DAD827 /* SDWebImagePrefetcher.m in Sources */,
+				21D54B8C1CB660970088D386 /* ArtistTableViewCell.m in Sources */,
 				2118F1DF1CAE1D1A003BFC6B /* NSString+Extension.m in Sources */,
 				211C394E1CB3961800DAD827 /* authorModel.m in Sources */,
 				21D54B181CB4C31F0088D386 /* CommonHeader.m in Sources */,
@@ -1515,6 +1559,7 @@
 				215EED291CB0108F00A5957B /* InvestorTableViewController.m in Sources */,
 				218D2B591CACB35C004553B9 /* UIImage+Image.m in Sources */,
 				21D54B7B1CB64A510088D386 /* MyMD5.m in Sources */,
+				21D54B851CB6585B0088D386 /* InvestorTableViewCell.m in Sources */,
 				21904D321CAE0F4000AD7A3F /* UserAccount.m in Sources */,
 				215EED1D1CB0058D00A5957B /* FinanceTableViewController.m in Sources */,
 				218D2B461CACB325004553B9 /* MainTableViewController.m in Sources */,

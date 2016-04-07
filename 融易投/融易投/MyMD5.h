@@ -19,4 +19,6 @@
  *****/
 
 +(NSString *) md5: (NSString *) inPutText ;
+
++(NSString *) timestamp;
 @end

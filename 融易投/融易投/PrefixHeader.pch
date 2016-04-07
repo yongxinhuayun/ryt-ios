@@ -63,4 +63,8 @@
 #define SSWriteImageToCaches(data, filename) [data writeToFile:[NSString stringWithFormat:@"%@.png",filename] atomically:YES]
 #define MD5key @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
 
+#define API_BASE_URL(_URL_) [NSURL URLWithString:[@"http://j.efeiyi.com:8080/app-wikiServer/app/mobile.inf?" stringByAppendingString:_URL_]]
+
+#define MD5key @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
+
 #endif

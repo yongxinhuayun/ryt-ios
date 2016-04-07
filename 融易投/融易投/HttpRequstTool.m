@@ -68,12 +68,6 @@ static HttpRequstTool *requstTool=nil ;
             [MBProgressHUD hideHUDForView:view animated:YES];
         }
     }];
-    
-    
-    
-    
-    
-    
 }
 
 -(void)handlerNetworkingGETRequstWithServerUrl:(NSString *)server_url  Parameters:(NSDictionary *)param showHUDView:(UIView *)view  success:(requstSuccessBlock )successBlock

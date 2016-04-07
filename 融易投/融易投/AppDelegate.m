@@ -17,7 +17,7 @@
 
 #import "NotificationController.h"
 #import "CommentsController.h"
-#import "PersonalController.h"
+//#import "PersonalController.h"
 
 
 static NSString *appKey = @"d1573e16403c2482826bbd35";
@@ -162,7 +162,7 @@ static BOOL isProduction = FALSE;
     //2.设置窗口的根控制器
         CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
     
-        self.window.rootViewController = [NotificationController new];
+//        self.window.rootViewController = [NotificationController new];
         //self.window.rootViewController = [CommentsController new];
         //self.window.rootViewController = [PersonalController new];
         //self.window.rootViewController = tabBarController;
