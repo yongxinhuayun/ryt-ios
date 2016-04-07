@@ -55,7 +55,7 @@
     NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&type=%@&userId=%@&key=%@",pageNum,pageSize,timestamp,@"2",@"iijqf1r7apprtab",appkey];
     
     NSLog(@"%@",signmsg);
-    
+    NSLog(@"");
     NSString *signmsgMD5 = [self md5:signmsg];
     
     //对key进行自然排序
