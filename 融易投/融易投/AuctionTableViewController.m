@@ -30,12 +30,23 @@
 /** 用来加载下一页数据 */
 @property (nonatomic, strong) NSString *lastPageNum;
 
+/** 计算高度的cell的工具 */
+@property (nonatomic, strong) AuctionTableViewCell *auctionTableViewCellTool;
+
 @end
 
 @implementation AuctionTableViewController
 
 
 static NSString *ID = @"auctionCell";
+
+-(AuctionTableViewCell *)auctionTableViewCellTool{
+    if (!_auctionTableViewCellTool) {
+        _auctionTableViewCellTool = [self.tableView dequeueReusableCellWithIdentifier:ID];
+    }
+    
+    return _auctionTableViewCellTool;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,7 +65,7 @@ static NSString *ID = @"auctionCell";
     self.tableView.contentInset = UIEdgeInsetsMake(SSStatusMaxH + SSTitlesViewH, 0, SSTabBarH, 0);
     //运行程序,发现滚动条上部分被标题栏和导航栏挡住了,这样会对会用造成一定的假象,造成对内容的多少判断不准确
     self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSStatusMaxH + SSTitlesViewH, 0, SSTabBarH, 0);
-
+    
     
     //我们可以往底部添加额外了滚动区域25,那么整体就向上移动了,但是这样底部离tabbar会有一定的间距了,不好看
     //可以修改顶部的间距,让顶部减25就可以了
@@ -78,7 +89,7 @@ static NSString *ID = @"auctionCell";
     //使用设置setFrame的方法
     //先要把系统的分割线去除,然后把控制器的背景改成要设置分割线的颜色即可,然后在设置cell的setFrame方法中,在系统计算好的cell的高度之前让cell的高度减一,然后在赋值给系统的算好的frame
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    self.view.backgroundColor = [UIColor lightGrayColor];
+    //    self.view.backgroundColor = [UIColor lightGrayColor];
 }
 
 -(void)setUpRefresh
@@ -173,7 +184,7 @@ static NSString *ID = @"auctionCell";
         //5. 解析从服务器获取的JSON数据
         NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         
-        //        NSLog(@"------ JSON: ----- %@", jsonString);
+        NSLog(@"------ JSON: ----- %@", jsonString);
         
         /*
          {"resultCode":"0","
@@ -187,7 +198,7 @@ static NSString *ID = @"auctionCell";
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         
-        //        NSLog(@"%@",modelDict);
+        NSLog(@"%@",modelDict);
         
         //        ResultModel *result = [ResultModel mj_objectWithKeyValues:modelDict];
         self.models = [AuctionModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
@@ -344,22 +355,22 @@ static NSString *ID = @"auctionCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     /*
-    //程序一运行就只加载一次背景颜色,如果不这么写,一滚动就会变颜色
-    static UIColor *cellBgColor = nil;
-    if (cellBgColor == nil) {
-        cellBgColor = SSRandomColor;
-    }
-    
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-        cell.backgroundColor = cellBgColor;
-    }
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %zd", self.class, indexPath.row];
-    
-    return cell;
+     //程序一运行就只加载一次背景颜色,如果不这么写,一滚动就会变颜色
+     static UIColor *cellBgColor = nil;
+     if (cellBgColor == nil) {
+     cellBgColor = SSRandomColor;
+     }
+     
+     static NSString *ID = @"cell";
+     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+     if (cell == nil) {
+     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+     cell.backgroundColor = cellBgColor;
+     }
+     
+     cell.textLabel.text = [NSString stringWithFormat:@"%@ - %zd", self.class, indexPath.row];
+     
+     return cell;
      */
     
     AuctionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
@@ -372,8 +383,17 @@ static NSString *ID = @"auctionCell";
     
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return 312;
+//}
+
+// 10. 确定cell的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 312;
+    
+    return [self.auctionTableViewCellTool cellHeight] + 20;
 }
+
+
 @end

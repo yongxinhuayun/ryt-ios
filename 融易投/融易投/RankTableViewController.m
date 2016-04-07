@@ -61,7 +61,7 @@
     [self addChildVcViewIntoScrollView];
     
     //添加副标题栏
-     [self setUpSubTitlesView];
+    [self setUpSubTitlesView];
 }
 /**
  * 添加子控制器
@@ -130,7 +130,7 @@
     
     subTitlesView.backgroundColor = [UIColor whiteColor];
     //2.9 设置标题栏为半透明的
-//    subTitlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
+    //    subTitlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
     
     [self.view addSubview:subTitlesView];
     
@@ -180,9 +180,9 @@
     
     titlesView.frame = CGRectMake(0, SSNavMaxY, self.view.width, SSTitlesViewH);
     
-        titlesView.backgroundColor = [UIColor whiteColor];
+    titlesView.backgroundColor = [UIColor whiteColor];
     //2.9 设置标题栏为半透明的
-//    titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
+    //    titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
     
     [self.view addSubview:titlesView];
     

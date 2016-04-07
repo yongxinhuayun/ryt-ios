@@ -47,13 +47,27 @@
     [self.bgImageView sd_setImageWithURL:picture_urlURL placeholderImage:[UIImage imageNamed:@"基本资料-未传头像"]];
     
     //最新创作时间
-    NSDate *newCreationEmdTimesp = [NSDate dateWithTimeIntervalSince1970:model.newCreationEmdDatetime];
     
-    self.LastUpdateLabel.text = [NSString stringWithFormat:@"%@",newCreationEmdTimesp];
+    //将时间戳转换成NSData类型，接着将NSData转换为字符串
+    //将时间戳转换为对象类型
+    float timeV= model.newCreationEmdDatetime;
+    
+    //    NSDate *newCreationEmdTimesp = [NSDate dateWithTimeIntervalSince1970:model.newCreationEmdDatetime];
+    //
+    //    self.LastUpdateLabel.text = [NSString stringWithFormat:@"%@",newCreationEmdTimesp];
+    //
+    self.LastUpdateLabel.text = [NSString stringWithFormat:@"%f",timeV];
     
     //创作结束时间
-    NSDate *creationEndTimesp = [NSDate dateWithTimeIntervalSince1970:model.creationEndDatetime];
-    self.scheduleLabel.text = [NSString stringWithFormat:@"%@",creationEndTimesp];
+    NSDate *creationEndDateTimesp = [NSDate dateWithTimeIntervalSince1970:model.creationEndDatetime];
+    //设置时间格式
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MM月dd日"];
+    //将时间转换为字符串
+    NSString *timeStr=[formatter stringFromDate:creationEndDateTimesp];
+    //添加时间
+    self.scheduleLabel.text = timeStr;
+    
     
     //创作标题
     self.creationTitle.text = model.title;
@@ -64,59 +78,26 @@
     
     NSURL *pictureUrlURL = [NSURL URLWithString:pictureUrlStr];
     
-    //    NSLog(@"%@",pictureUrlURL);
+    [self.userIcon ss_setHeader:pictureUrlURL];
     
-//    [self.userIcon sd_setImageWithURL:pictureUrlURL placeholderImage:[UIImage imageNamed:@"基本资料-未传头像"]];
-    //因为完成之后会返回一个从服务器加载的数据,所以我们这里拿到的就是从服务器获取的最初始的图片
-    [self.userIcon sd_setImageWithURL:pictureUrlURL placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        
-        //使用裁剪方式
-        //开启上下文
-        //第一个参数:上下文的范围 第二个参数:是否是不透明的 第三个参数;
-        //        UIGraphicsBeginImageContextWithOptions(<#CGSize size#>, <#BOOL opaque#>, <#CGFloat scale#>)
-        UIGraphicsBeginImageContextWithOptions(image.size, NO, 0);
-        
-        //描述圆形路径
-        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
-        
-        //设置裁剪区域
-        [path addClip];
-        
-        //绘制图片
-        [image drawAtPoint:CGPointZero];
-        
-        //从上下文中获取图片
-        image = UIGraphicsGetImageFromCurrentImageContext();
-        
-        //关闭上下文
-        UIGraphicsEndImageContext();
-        
-        //给空间设置图片
-        //        self.iconView.image = image;
-        //这样裁剪会造成图片边缘有锯齿
-        //使用分类处理锯齿
-        self.userIcon.image = [image imageAntialias];
-        
-        
-    }];
-    
-//    [self.userIcon bs_setHeader:pictureUrlURL];
-    NSLog(@"");
-
     
     self.userName.text = model.author.name;
     self.userInfo.text = model.author.username;
 }
 
 //把系统的分割线去除,然后把控制器的的颜色改成要设置分割线的颜色
-//当我们
 -(void)setFrame:(CGRect)frame
 {
-    
     frame.size.height -= 1;
     
-    [super setFrame:frame];
+    //设置每个cell之间有个10的间距
+    frame.size.height -= SSMargin;
+    //设置每个cell离屏幕间距为10
+    frame.origin.x += SSMargin;
+    //因为x向右移动了10,所以cell的左边距离屏幕为10,但是为了保证cell的右边为10,应该设置为2 * 10.因为cell向右移动了10,所以屏幕的右边还是有10的cell,所以为了保证cell的右边距离屏幕为10,应该为2倍的间距
+    frame.size.width -= 2 * SSMargin;
     
+    [super setFrame:frame];
 }
 
 

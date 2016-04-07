@@ -25,18 +25,18 @@
     [super prepare];
     
     self.stateLabel.textColor = [UIColor blackColor];
-//    self.stateLabel.font
-//    [self setTitle:@"abc" forState:MJRefreshStateIdle];
-//    [self setTitle:@"ddd" forState:MJRefreshStateRefreshing];
+    //    self.stateLabel.font
+    //    [self setTitle:@"abc" forState:MJRefreshStateIdle];
+    //    [self setTitle:@"ddd" forState:MJRefreshStateRefreshing];
     
-//    UIImageView *logo = [[UIImageView alloc] init];
-//    logo.contentMode = UIViewContentModeCenter;
-//    logo.image = [UIImage imageNamed:@"MainTitle"];
-//    [self addSubview:logo];
-//    self.logo = logo;
+    //    UIImageView *logo = [[UIImageView alloc] init];
+    //    logo.contentMode = UIViewContentModeCenter;
+    //    logo.image = [UIImage imageNamed:@"MainTitle"];
+    //    [self addSubview:logo];
+    //    self.logo = logo;
     
     // 关闭自动显示和隐藏的功能(需要开发者自己去显示和隐藏footer)
-//    self.automaticallyHidden = NO;
+    //    self.automaticallyHidden = NO;
 }
 
 // 摆放子控件
@@ -44,7 +44,7 @@
 {
     [super placeSubviews];
     
-//    self.logo.frame = CGRectMake(0, self.height, self.width, 60);
+    //    self.logo.frame = CGRectMake(0, self.height, self.width, 60);
 }
 
 @end

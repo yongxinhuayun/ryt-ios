@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
-
 @interface UIImage (Image)
 
 // 提供一个加载原始图片方法
@@ -22,6 +20,5 @@
 - (instancetype)bs_circleImage;
 
 + (instancetype)bs_circleImageNamed:(NSString *)name;
-
 
 @end
