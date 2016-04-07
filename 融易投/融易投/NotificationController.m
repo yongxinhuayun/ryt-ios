@@ -43,6 +43,80 @@ NSMutableArray *_friendsArray;
     
 }
 // imhipoyk18s4k52u
+//-(void)loadData
+//{
+//    //时间
+//    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
+//    NSTimeInterval a =[date timeIntervalSince1970] * 1000;
+//    NSString *timeString = [NSString stringWithFormat:@"%f", a];
+//    
+//    NSArray *strArray = [timeString componentsSeparatedByString:@"."];
+//    
+//    NSLog(@"%@",strArray.firstObject);
+//    
+//    //参数
+////    NSString *username = self.phoneNumTextField.text;
+////    NSString *password = self.passWordTextField.text;
+//    NSString *timestamp = strArray.firstObject;
+//    
+//    NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
+//    NSArray *arra = @[@"userId",@"timestamp",@"signmsg",@"type",@"pageSize",@"pageNum"];
+//    
+//    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
+//    NSLog(@"%@",sortArr);
+//    
+//    NSInteger pageNum = 1;
+//    NSInteger pageSize = 1;
+//    
+//    NSString *signmsg = [NSString stringWithFormat:@"pageNum=%ld&pageSize=%ld&timestamp=%@&type=%@&userId=%@&key=%@",pageNum,pageSize,timestamp,@"0",@"imhipoyk18s4k52u",appkey];
+//    
+//    NSLog(@"%@",signmsg);
+//    
+//    NSString *signmsgMD5 = [self md5:signmsg];
+//    
+//    //对key进行自然排序
+//    //    for (NSString *s in [dict allKeys]) {
+//    //        NSLog(@"value: %@", s);
+//    //    }
+//    
+//    NSLog(@"signmsgMD5=%@",signmsgMD5);
+//    //http://j.efeiyi.com:8080/app-wikiServer/app/investorIndex.do
+//    //http://219.239.7.163:8080/inf/mobile.inf?
+//    
+//    //http://j.efeiyi.com:8080/app-wikiServer/app/
+//    //http://j.efeiyi.com:8080/app-wikiServer/app/investorIndex.do
+//
+//    // 1.创建请求   'http://192.168.1.69:8001/app/login.do'
+//    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/information.do"];
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+//    request.HTTPMethod = @"POST";
+//    
+//    // 2.设置请求头
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    
+//    // 3.设置请求体
+//    NSDictionary *json = @{
+//                           @"userId" : @"imhipoyk18s4k52u",
+//                           @"timestamp" : timestamp,
+//                           @"signmsg"   : signmsgMD5,
+//                           @"pageNum" : @"1",
+//                           @"pageSize" :@"1",
+//                           @"type"       :@"0"
+//                           };
+//    
+//    //    NSData --> NSDictionary
+//    // NSDictionary --> NSData
+//    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
+//    request.HTTPBody = data;
+//    
+//    // 4.发送请求
+//    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//        
+//        NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+//        NSLog(@"======%@",obj);
+//    }];
+//    
+//}
 -(void)loadData
 {
     //时间
@@ -55,18 +129,21 @@ NSMutableArray *_friendsArray;
     NSLog(@"%@",strArray.firstObject);
     
     //参数
-//    NSString *username = self.phoneNumTextField.text;
-//    NSString *password = self.passWordTextField.text;
+    //    NSString *username = self.phoneNumTextField.text;
+    //    NSString *password = self.passWordTextField.text;
     NSString *timestamp = strArray.firstObject;
     
     NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
-    NSLog(@"userId=%@,timestamp=%@",@"imhipoyk18s4k52u",timestamp);
-    NSArray *arra = @[@"userId",@"timestamp"];
+    NSArray *arra = @[@"userId",@"timestamp",@"signmsg",@"type",@"pageSize",@"pageNum"];
+    
     NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
     NSLog(@"%@",sortArr);
     
-    NSString *signmsg = [NSString stringWithFormat:@"timestamp=%@&userId=%@&key=%@",timestamp,@"imhipoyk18s4k52u"
-                         ,appkey];
+    NSString * pageNum = @"1";
+    NSString* pageSize = @"1";
+    
+    NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&type=%@&userId=%@&key=%@",pageNum,pageSize,timestamp,@"0",@"iijqf1r7apprtab",appkey];
+    
     NSLog(@"%@",signmsg);
     
     NSString *signmsgMD5 = [self md5:signmsg];
@@ -77,9 +154,7 @@ NSMutableArray *_friendsArray;
     //    }
     
     NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
-    // 1.创建请求   'http://192.168.1.69:8001/app/login.do'
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/informationList.do"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/information.do"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
     
@@ -88,9 +163,12 @@ NSMutableArray *_friendsArray;
     
     // 3.设置请求体
     NSDictionary *json = @{
-                           @"userId" : @"imhipoyk18s4k52u",
+                           @"userId" : @"iijqf1r7apprtab",
                            @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
+                           @"signmsg"   : signmsgMD5,
+                           @"pageNum" : @"1",
+                           @"pageSize" :@"1",
+                           @"type"     :@"0"
                            };
     
     //    NSData --> NSDictionary
@@ -105,22 +183,22 @@ NSMutableArray *_friendsArray;
         NSLog(@"%@",obj);
         
         /*
-        
-        //字典转模型暂时不需要
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        //
-        NSArray *registerArray = dict[@"userInfo"];
-        //
-        self.registers = [registerModel mj_objectArrayWithKeyValuesArray:registerArray];
-        
-        //提示用户信息
-        NSString *resultMsg = dict[@"resultMsg"];
-        
-        [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"%@",resultMsg]];
-        
-        //保存注册信息
-        [self saveUserInfo:dict[@"userInfo"]];
-        */
+         
+         //字典转模型暂时不需要
+         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+         //
+         NSArray *registerArray = dict[@"userInfo"];
+         //
+         self.registers = [registerModel mj_objectArrayWithKeyValuesArray:registerArray];
+         
+         //提示用户信息
+         NSString *resultMsg = dict[@"resultMsg"];
+         
+         [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"%@",resultMsg]];
+         
+         //保存注册信息
+         [self saveUserInfo:dict[@"userInfo"]];
+         */
         /*
          */
         
@@ -142,6 +220,7 @@ NSMutableArray *_friendsArray;
 }
 
 
+
 -(void)setUpNavBar
 {
     //设置导航条标题
@@ -161,7 +240,7 @@ NSMutableArray *_friendsArray;
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         
            }
-    
+
     return cell;
 }
 
