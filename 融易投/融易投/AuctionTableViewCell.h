@@ -16,4 +16,7 @@
 
 @property (nonatomic, strong) AuctionModel *model;
 
+//自动计算cell的高度
+-(CGFloat)cellHeight;
+
 @end

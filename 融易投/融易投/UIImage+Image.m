@@ -56,4 +56,5 @@
     return [[UIImage imageNamed:name] bs_circleImage];
 }
 
+
 @end

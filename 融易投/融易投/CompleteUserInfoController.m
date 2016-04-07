@@ -48,7 +48,7 @@
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-
+    
     [self.usernameTextField resignFirstResponder];
     [self.nicknameTextField resignFirstResponder];
 }
@@ -62,7 +62,7 @@
     
     imagePickerController.delegate = self;
     //设置选择图片的截取框
-//    imagePickerController.allowsEditing = YES;
+    //    imagePickerController.allowsEditing = YES;
     
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"从相册选取" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
         
@@ -99,23 +99,23 @@
 }
 
 - (IBAction)uploadSexBtnClick:(id)sender {
-
+    
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"性别" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-
-
+    
+    
     [alertController addAction:[UIAlertAction actionWithTitle:@"男" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         self.sexLabel.text = @"男";
     }]];
-
+    
     [alertController addAction:[UIAlertAction actionWithTitle:@"女" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         self.sexLabel.text = @"女";
     }]];
-
+    
     [self presentViewController:alertController animated:YES completion:nil];
 }
 - (IBAction)completeBtnClick:(id)sender {
     
-    [self loadData];
+    //    [self loadData];
 }
 
 //实现相机的代理方法
@@ -131,24 +131,24 @@
     //取消modal
     [self dismissViewControllerAnimated:self completion:nil];
     
-//    self.drawView.image = selctedImage;
+    //    self.drawView.image = selctedImage;
     NSLog(@"%@",selctedImage);
     
     UIImage *newImage = [self drawImageWith:selctedImage imageWidth:100];
-//    NSLog(@"newImage = %d",);
+    //    NSLog(@"newImage = %d",);
     
     
-//    NSData *data = UIImagePNGRepresentation(newImage);
-//    NSString *filename = @"image";
+    //    NSData *data = UIImagePNGRepresentation(newImage);
+    //    NSString *filename = @"image";
     
     self.imageView.image = newImage;
     
     selctedImage = nil;
     
-//    static let filePath = "userAccount.plist".cachesDir()
+    //    static let filePath = "userAccount.plist".cachesDir()
     
     [self writeImageToCaches:newImage];
-
+    
 }
 -(void)test{
     NSFileManager *fileManager = [[NSFileManager alloc] init];
@@ -167,7 +167,7 @@
 }
 
 -(void)writeImageToCaches:(UIImage *)newImage{
-
+    
     // 获取cache文件夹
     NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
     
@@ -188,13 +188,13 @@
     ///Users/Library/Developer/CoreSimulator/Devices/6583B10A-003B-4C06-A734-73D83653D51B/data/Containers/Data/Application/51302A6F-2EE6-407B-A0CF-A26E54941DD3/Library/Caches/imageCache/iconImage/icon.png
     
     [data writeToFile:[NSString stringWithFormat:@"%@.png",createPath] atomically:YES];
-
+    
     NSLog(@"%@",NSHomeDirectory());
 }
 
 // 将指定图片按照指定的宽度缩放
 -(UIImage *)drawImageWith:(UIImage *)image imageWidth:(CGFloat)imageWidth{
-
+    
     CGFloat imageHeight = (image.size.height / image.size.width) * imageWidth;
     CGSize size = CGSizeMake(imageWidth, imageHeight);
     
@@ -208,117 +208,137 @@
     return newImage;
 }
 
--(void)loadData
-{
-    //时间
-    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
-    NSTimeInterval a =[date timeIntervalSince1970] * 1000;
-    NSString *timeString = [NSString stringWithFormat:@"%f", a];
-    
-    NSArray *strArray = [timeString componentsSeparatedByString:@"."];
-    
-    NSLog(@"%@",strArray.firstObject);
-    
-    //参数
-    NSString *username = self.usernameTextField.text;
-    NSString *nickname = self.nicknameTextField.text;
-    
-//    NSString *headPortrait = [NSString stringWithFormat:@"%@.png",self.createPath];
-    NSString *headPortrait = @"file:/Users/Desktop/image.png";
-    NSLog(@"%@",headPortrait);
-    
-    NSString *sex = @"1";
-    NSString *timestamp = strArray.firstObject;
-    NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
-    
-    NSLog(@"username=%@,password=%@,timestamp=%@",username,nickname,timestamp);
-    
-//    NSArray *arra = @[@"username",@"password",@"timestamp"];
-//    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
-//    NSLog(@"%@",sortArr);
-    
-    NSString *signmsg = [NSString stringWithFormat:@"nickname=%@&sex=%@&timestamp=%@&username=%@&key=%@",nickname,sex,timestamp,username,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [self md5:signmsg];
-    
-    //对key进行自然排序
-    //    for (NSString *s in [dict allKeys]) {
-    //        NSLog(@"value: %@", s);
-    //    }
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
-    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/completeUserInfo.do"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = @"POST";
 
-//    // 2.设置请求头
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
     
-    // 3.设置请求体
-    NSDictionary *json = @{
-                           @"username" : username,
-                           @"nickname" : nickname,
-                           @"headPortrait":headPortrait,
-                           @"sex"      : sex,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
-                           };
     
-    //    NSData --> NSDictionary
-    // NSDictionary --> NSData
-    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
-    request.HTTPBody = data;
     
-    // 4.发送请求
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        
-        NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",obj);
-        
-    }];
-    
-//    HTTPSessionManager *mgr = [HTTPSessionManager shareManager];
-//    
-//    NSString *path = @"app/completeUserInfo.do";
-//    
-//    [mgr POST:path parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-//        
-//        //        [formData appendPartWithFileURL:[NSURL fileURLWithPath:@"/Users/wangmengsi/Desktop/123.jpg"] name:@"file" error:nil];
-//        
-//        [formData appendPartWithFileURL:[NSURL fileURLWithPath:@"/Users/Desktop/image.png"] name:@"file" fileName:@"icon.png" mimeType:@"application/octet-stream" error:nil];
-//        
-//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-//        
-//        //responseObject 把服务器返回的响应体转换为了OC得对象
-////        NSLog(@"上传成功---%@---%@",[responseObject class],responseObject); //----__NSCFDictionary字典
-//
-//        NSData *data = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
-//        
-//        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
-//        
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        
-//        NSLog(@"失败---%@",error);
-//        
-//    }];
 }
 
--(NSString *)md5:(NSString *)inPutText
-{
-    const char *cStr = [inPutText UTF8String];
-    unsigned char result[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(cStr, strlen(cStr), result);
-    
-    return [[NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
-             result[0], result[1], result[2], result[3],
-             result[4], result[5], result[6], result[7],
-             result[8], result[9], result[10], result[11],
-             result[12], result[13], result[14], result[15]
-             ] lowercaseString];
-}
-
+/*
+ -(void)loadData
+ {
+ //时间
+ NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
+ NSTimeInterval a =[date timeIntervalSince1970] * 1000;
+ NSString *timeString = [NSString stringWithFormat:@"%f", a];
+ 
+ NSArray *strArray = [timeString componentsSeparatedByString:@"."];
+ 
+ NSLog(@"%@",strArray.firstObject);
+ 
+ //参数
+ NSString *username = self.usernameTextField.text;
+ NSString *nickname = self.nicknameTextField.text;
+ 
+ //    NSString *headPortrait = [NSString stringWithFormat:@"%@.png",self.createPath];
+ NSString *headPortrait = @"file:/Users/Desktop/image.png";
+ NSLog(@"%@",headPortrait);
+ 
+ NSString *sex = @"1";
+ NSString *timestamp = strArray.firstObject;
+ NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
+ 
+ NSLog(@"username=%@,password=%@,timestamp=%@",username,nickname,timestamp);
+ 
+ //    NSArray *arra = @[@"username",@"password",@"timestamp"];
+ //    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
+ //    NSLog(@"%@",sortArr);
+ 
+ NSString *signmsg = [NSString stringWithFormat:@"nickname=%@&sex=%@&timestamp=%@&username=%@&key=%@",nickname,sex,timestamp,username,appkey];
+ NSLog(@"%@",signmsg);
+ 
+ NSString *signmsgMD5 = [self md5:signmsg];
+ 
+ //对key进行自然排序
+ //    for (NSString *s in [dict allKeys]) {
+ //        NSLog(@"value: %@", s);
+ //    }
+ 
+ NSLog(@"signmsgMD5=%@",signmsgMD5);
+ 
+ //    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
+ //    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/completeUserInfo.do"];
+ //    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+ //    request.HTTPMethod = @"POST";
+ //
+ //    // 2.设置请求头
+ //    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+ 
+ // 3.设置请求体
+ NSDictionary *json = @{
+ @"username" : username,
+ @"nickname" : nickname,
+ @"headPortrait":headPortrait,
+ @"sex"      : sex,
+ @"timestamp" : timestamp,
+ @"signmsg"   : signmsgMD5
+ };
+ 
+ //    NSData --> NSDictionary
+ // NSDictionary --> NSData
+ //    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
+ //    request.HTTPBody = data;
+ //
+ //    // 4.发送请求
+ //    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+ //
+ //        NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+ //        NSLog(@"%@",obj);
+ //
+ //    }];
+ 
+ NSLog(@"%@",json);
+ 
+ NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
+ 
+ NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+ 
+ NSString *dataJson = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+ 
+ NSLog(@"%@",dataJson);
+ 
+ 
+ HTTPSessionManager *mgr = [HTTPSessionManager shareManager];
+ 
+ NSString *path = @"app/completeUserInfo.do";
+ 
+ [mgr POST:path parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+ 
+ //        [formData appendPartWithFileURL:[NSURL fileURLWithPath:@"/Users/wangmengsi/Desktop/123.jpg"] name:@"file" error:nil];
+ 
+ [formData appendPartWithFileURL:[NSURL fileURLWithPath:@"/Users/Desktop/image.png"] name:@"file" fileName:@"icon.png" mimeType:@"application/octet-stream" error:nil];
+ 
+ } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+ 
+ //responseObject 把服务器返回的响应体转换为了OC得对象
+ //        NSLog(@"上传成功---%@---%@",[responseObject class],responseObject); //----__NSCFDictionary字典
+ 
+ NSData *data = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
+ 
+ NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+ 
+ } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+ 
+ NSLog(@"失败---%@",error);
+ 
+ }];
+ }
+ 
+ -(NSString *)md5:(NSString *)inPutText
+ {
+ const char *cStr = [inPutText UTF8String];
+ unsigned char result[CC_MD5_DIGEST_LENGTH];
+ CC_MD5(cStr, strlen(cStr), result);
+ 
+ return [[NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
+ result[0], result[1], result[2], result[3],
+ result[4], result[5], result[6], result[7],
+ result[8], result[9], result[10], result[11],
+ result[12], result[13], result[14], result[15]
+ ] lowercaseString];
+ }
+ */
 
 @end

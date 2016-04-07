@@ -78,6 +78,8 @@
 		21D54B5A1CB51CA00088D386 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B4F1CB51CA00088D386 /* AFURLResponseSerialization.m */; };
 		21D54B5B1CB51CA00088D386 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B511CB51CA00088D386 /* AFURLSessionManager.m */; };
 		21D54B611CB532CF0088D386 /* UIImageView+Header.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B601CB532CF0088D386 /* UIImageView+Header.m */; };
+		21D54B771CB6405B0088D386 /* NSCalendar+Init.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B741CB6405B0088D386 /* NSCalendar+Init.m */; };
+		21D54B781CB6405B0088D386 /* NSDate+Interval.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B761CB6405B0088D386 /* NSDate+Interval.m */; };
 		BC4A8BFAB939A8BBE3AF0A2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFB6E4A926D52C7C2AE4F6C /* libPods.a */; };
 		E21550E81CB604E20070D5D3 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */; };
 		E236C2961CB4B1B8009DCBF0 /* LognController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E236C2951CB4B1B7009DCBF0 /* LognController.xib */; };
@@ -319,6 +321,10 @@
 		21D54B511CB51CA00088D386 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		21D54B5F1CB532CF0088D386 /* UIImageView+Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Header.h"; sourceTree = "<group>"; };
 		21D54B601CB532CF0088D386 /* UIImageView+Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Header.m"; sourceTree = "<group>"; };
+		21D54B731CB6405B0088D386 /* NSCalendar+Init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+Init.h"; sourceTree = "<group>"; };
+		21D54B741CB6405B0088D386 /* NSCalendar+Init.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+Init.m"; sourceTree = "<group>"; };
+		21D54B751CB6405B0088D386 /* NSDate+Interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Interval.h"; sourceTree = "<group>"; };
+		21D54B761CB6405B0088D386 /* NSDate+Interval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Interval.m"; sourceTree = "<group>"; };
 		AC411E3C5CA46BB337E074BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
 		E21550E71CB604E20070D5D3 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
@@ -1015,6 +1021,10 @@
 				2118F1DE1CAE1D1A003BFC6B /* NSString+Extension.m */,
 				21D54B3A1CB4FA8B0088D386 /* UIImage+Antialias.h */,
 				21D54B3B1CB4FA8B0088D386 /* UIImage+Antialias.m */,
+				21D54B731CB6405B0088D386 /* NSCalendar+Init.h */,
+				21D54B741CB6405B0088D386 /* NSCalendar+Init.m */,
+				21D54B751CB6405B0088D386 /* NSDate+Interval.h */,
+				21D54B761CB6405B0088D386 /* NSDate+Interval.m */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -1608,6 +1618,8 @@
 				211C397A1CB3B86800DAD827 /* UIButton+WebCache.m in Sources */,
 				E2DDB0EB1CAB66DB007438E4 /* AppDelegate.m in Sources */,
 				21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */,
+				21D54B771CB6405B0088D386 /* NSCalendar+Init.m in Sources */,
+				21D54B781CB6405B0088D386 /* NSDate+Interval.m in Sources */,
 				21904D2B1CAD4E0700AD7A3F /* HTTPSessionManager.m in Sources */,
 				21D54B391CB4F88B0088D386 /* AuctionTableViewController.m in Sources */,
 				211C397B1CB3B86800DAD827 /* UIImage+GIF.m in Sources */,

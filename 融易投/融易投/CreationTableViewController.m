@@ -74,7 +74,7 @@ static NSString *ID = @"creationCell";
     }];
     
     //加载数据
-//    [self loadData];
+    //    [self loadData];
     
     //设置刷新控件
     [self setUpRefresh];
@@ -83,7 +83,7 @@ static NSString *ID = @"creationCell";
     //使用设置setFrame的方法
     //先要把系统的分割线去除,然后把控制器的背景改成要设置分割线的颜色即可,然后在设置cell的setFrame方法中,在系统计算好的cell的高度之前让cell的高度减一,然后在赋值给系统的算好的frame
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    self.view.backgroundColor = [UIColor lightGrayColor];
+    //    self.view.backgroundColor = [UIColor lightGrayColor];
 }
 
 -(void)setUpRefresh
@@ -104,7 +104,7 @@ static NSString *ID = @"creationCell";
     
     //同样,自定义上拉刷新
     self.tableView.mj_footer = [CommonFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-
+    
 }
 
 -(void)loadNewData
@@ -170,7 +170,7 @@ static NSString *ID = @"creationCell";
     
     NSLog(@"%@",dataJson);
     
-//    NSString *urlStr = @"http://j.efeiyi.com:8080/app-wikiServer/app/investorIndex.do";
+    //    NSString *urlStr = @"http://j.efeiyi.com:8080/app-wikiServer/app/investorIndex.do";
     
     // 4.发送请求
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -178,7 +178,7 @@ static NSString *ID = @"creationCell";
         //5. 解析从服务器获取的JSON数据
         NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         
-//        NSLog(@"------ JSON: ----- %@", jsonString);
+        //        NSLog(@"------ JSON: ----- %@", jsonString);
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         
@@ -266,9 +266,9 @@ static NSString *ID = @"creationCell";
     NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
     request.HTTPBody = data;
     
-//    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+    //    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
     
-//    NSString *dataJson = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    //    NSString *dataJson = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     
     //    NSLog(@"%@",dataJson);
     
@@ -276,7 +276,7 @@ static NSString *ID = @"creationCell";
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         
         //5. 解析从服务器获取的JSON数据
-//        NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        //        NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         
@@ -343,7 +343,7 @@ static NSString *ID = @"creationCell";
     CreationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
     CreationModel *model = self.models[indexPath.section];
-        
+    
     cell.model = model;
     
     return cell;

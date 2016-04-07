@@ -26,11 +26,11 @@
     self.stateLabel.textColor = [UIColor blackColor];
     self.lastUpdatedTimeLabel.hidden = NO;
     
-//    UIImageView *logo = [[UIImageView alloc] init];
-//    logo.contentMode = UIViewContentModeCenter;
-//    logo.image = [UIImage imageNamed:@"MainTitle"];
-//    [self addSubview:logo];
-//    self.logo = logo;
+    //    UIImageView *logo = [[UIImageView alloc] init];
+    //    logo.contentMode = UIViewContentModeCenter;
+    //    logo.image = [UIImage imageNamed:@"MainTitle"];
+    //    [self addSubview:logo];
+    //    self.logo = logo;
 }
 
 // 摆放子控件
@@ -39,8 +39,8 @@
     [super placeSubviews];
     
     self.frame = CGRectMake(0, -61 , self.width, self.height);
-
-//    self.logo.frame = CGRectMake(0, -60, self.width, 60);
+    
+    //    self.logo.frame = CGRectMake(0, -60, self.width, 60);
 }
 
 

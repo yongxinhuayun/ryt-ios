@@ -20,12 +20,26 @@
 /** 创作简介 */
 @property (nonatomic ,strong) NSString *descriptions;
 
+/** 大阶段 */
+@property (nonatomic ,copy) NSString *type;
+
+/** 小阶段 */
+@property (nonatomic ,copy) NSString *step;
+
 /** 拍卖开始时间 */
 @property (nonatomic ,assign) NSInteger auctionStartDatetime;
 
 /** 拍卖结束时间 */
 @property (nonatomic ,assign) NSInteger auctionEndDatetime;
 
+/** 最新竞价价格 */
+@property (nonatomic ,assign) NSInteger newBidingPrice;
+
+/** 最新出价时间 */
+@property (nonatomic ,assign) NSInteger bewBiddingDate;
+
 /** 作者信息 */
 @property (nonatomic, strong) authorModel *author;
+
+
 @end

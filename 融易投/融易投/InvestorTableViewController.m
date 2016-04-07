@@ -125,9 +125,9 @@
         //            return @{@"users" : [userModel class]};
         //        }];
         
-//        self.models = [FinanceModel mj_objectArrayWithKeyValuesArray:modelArray];
-//        
-//        NSLog(@"%@",self.models);
+        //        self.models = [FinanceModel mj_objectArrayWithKeyValuesArray:modelArray];
+        //
+        //        NSLog(@"%@",self.models);
         
         //4. 刷新数据
         //        [self.tableView reloadData];
