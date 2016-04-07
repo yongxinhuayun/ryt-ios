@@ -165,7 +165,7 @@ static BOOL isProduction = FALSE;
         self.window.rootViewController = [NotificationController new];
         //self.window.rootViewController = [CommentsController new];
         //self.window.rootViewController = [PersonalController new];
-    //self.window.rootViewController = tabBarController;
+        //self.window.rootViewController = tabBarController;
       //self.window.rootViewController = [MessageController new];
     //3.显示窗口
     [self.window makeKeyAndVisible];

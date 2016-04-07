@@ -10,6 +10,7 @@
 
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
+
 @interface CommentsController ()
 
 @end
@@ -126,7 +127,50 @@
              result[12], result[13], result[14], result[15]
              ] lowercaseString];
 }
-
+-(void)test{
+    
+//    NSString *timestamp = [MyMD5 timestamp];
+//    NSString *appkey = MD5key;
+//    
+//    NSLog(@"pageSize=%@,pageNum=%@,timestamp=%@",pageNum,pageNum,timestamp);
+//    
+//    NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&key=%@",pageNum,pageSize,timestamp,appkey];
+//    NSLog(@"%@",signmsg);
+//    
+//    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+//    
+//    NSLog(@"signmsgMD5=%@",signmsgMD5);
+//    
+//    // 3.设置请求体
+//    NSDictionary *json = @{
+//                           @"pageSize" : pageSize,
+//                           @"pageNum" : pageNum,
+//                           @"timestamp" : timestamp,
+//                           @"signmsg"   : signmsgMD5
+//                           };
+//    
+//    NSString *url = @"http://192.168.1.69:8001/app/getArtistTopList.do";
+//    
+//    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+//        
+//        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        //        NSLog(@"返回结果:%@",jsonStr);
+//        
+//        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+//        
+//        NSArray *moreModels = [ArtistModel mj_objectArrayWithKeyValuesArray:modelDict[@"InvestorTopList"]];
+//        //拼接数据
+//        [self.models addObjectsFromArray:moreModels];
+//        
+//        //在主线程刷新UI数据
+//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//            
+//            [self.tableView reloadData];
+//            
+//        }];
+//        
+//    }];
+}
 /*
 #pragma mark - Navigation
 
