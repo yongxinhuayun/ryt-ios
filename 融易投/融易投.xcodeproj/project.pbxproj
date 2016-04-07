@@ -146,6 +146,10 @@
 		E236C3331CB4F653009DCBF0 /* NotificationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E236C3311CB4F653009DCBF0 /* NotificationController.xib */; };
 		E236C3371CB4F6D0009DCBF0 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E236C3351CB4F6D0009DCBF0 /* MessageTableViewController.m */; };
 		E236C3381CB4F6D0009DCBF0 /* MessageTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E236C3361CB4F6D0009DCBF0 /* MessageTableViewController.storyboard */; };
+		E2ABF0B11CB63C090005571F /* CommentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ABF0AF1CB63C090005571F /* CommentsController.m */; };
+		E2ABF0B21CB63C090005571F /* CommentsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2ABF0B01CB63C090005571F /* CommentsController.xib */; };
+		E2ABF0B61CB63C1E0005571F /* PersonalController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ABF0B41CB63C1E0005571F /* PersonalController.m */; };
+		E2ABF0B71CB63C1E0005571F /* PersonalController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2ABF0B51CB63C1E0005571F /* PersonalController.xib */; };
 		E2D059DE1CB34F7400B0F690 /* WeiXinController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D059DC1CB34F7400B0F690 /* WeiXinController.xib */; };
 		E2D059E31CB34F8300B0F690 /* ALiController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D059E11CB34F8300B0F690 /* ALiController.xib */; };
 		E2D05B6F1CB38B7400B0F690 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B6A1CB38B7400B0F690 /* libWeChatSDK.a */; };
@@ -393,6 +397,12 @@
 		E236C3341CB4F6D0009DCBF0 /* MessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewController.h; sourceTree = "<group>"; };
 		E236C3351CB4F6D0009DCBF0 /* MessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewController.m; sourceTree = "<group>"; };
 		E236C3361CB4F6D0009DCBF0 /* MessageTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessageTableViewController.storyboard; sourceTree = "<group>"; };
+		E2ABF0AE1CB63C090005571F /* CommentsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsController.h; sourceTree = "<group>"; };
+		E2ABF0AF1CB63C090005571F /* CommentsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsController.m; sourceTree = "<group>"; };
+		E2ABF0B01CB63C090005571F /* CommentsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsController.xib; sourceTree = "<group>"; };
+		E2ABF0B31CB63C1E0005571F /* PersonalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalController.h; sourceTree = "<group>"; };
+		E2ABF0B41CB63C1E0005571F /* PersonalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalController.m; sourceTree = "<group>"; };
+		E2ABF0B51CB63C1E0005571F /* PersonalController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalController.xib; sourceTree = "<group>"; };
 		E2D059DA1CB34F7400B0F690 /* WeiXinController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiXinController.h; sourceTree = "<group>"; };
 		E2D059DB1CB34F7400B0F690 /* WeiXinController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiXinController.m; sourceTree = "<group>"; };
 		E2D059DC1CB34F7400B0F690 /* WeiXinController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeiXinController.xib; sourceTree = "<group>"; };
@@ -1051,6 +1061,9 @@
 		E2DDB1AE1CABA902007438E4 /* 私信 */ = {
 			isa = PBXGroup;
 			children = (
+				E2ABF0B31CB63C1E0005571F /* PersonalController.h */,
+				E2ABF0B41CB63C1E0005571F /* PersonalController.m */,
+				E2ABF0B51CB63C1E0005571F /* PersonalController.xib */,
 			);
 			name = "私信";
 			sourceTree = "<group>";
@@ -1058,6 +1071,9 @@
 		E2DDB1AF1CABA90B007438E4 /* 动态 */ = {
 			isa = PBXGroup;
 			children = (
+				E2ABF0AE1CB63C090005571F /* CommentsController.h */,
+				E2ABF0AF1CB63C090005571F /* CommentsController.m */,
+				E2ABF0B01CB63C090005571F /* CommentsController.xib */,
 			);
 			name = "动态";
 			sourceTree = "<group>";
@@ -1471,6 +1487,7 @@
 				E236C2ED1CB4B64D009DCBF0 /* wangjimima_fanhui@3x.png in Resources */,
 				E236C3041CB4B64D009DCBF0 /* denglu_fanhui@2x.png in Resources */,
 				E236C2EC1CB4B64D009DCBF0 /* wangjimima_fanhui@2x.png in Resources */,
+				E2ABF0B21CB63C090005571F /* CommentsController.xib in Resources */,
 				E2D73DC31CAD2CA9004CEFA3 /* RegViewController.xib in Resources */,
 				E236C3331CB4F653009DCBF0 /* NotificationController.xib in Resources */,
 				E236C30B1CB4B64D009DCBF0 /* denglu_weixindianji@2x.png in Resources */,
@@ -1510,6 +1527,7 @@
 				E236C30C1CB4B64D009DCBF0 /* denglu_weixindianji@3x.png in Resources */,
 				E236C2961CB4B1B8009DCBF0 /* LognController.xib in Resources */,
 				E236C2E71CB4B64D009DCBF0 /* jibenziliao_xuanzhong_nan@3x.png in Resources */,
+				E2ABF0B71CB63C1E0005571F /* PersonalController.xib in Resources */,
 				E236C2FA1CB4B64D009DCBF0 /* zhuce_guanbi@2x.png in Resources */,
 				E236C3011CB4B64D009DCBF0 /* denglu_anniu@1x.png in Resources */,
 				E236C2E11CB4B64D009DCBF0 /* jibenziliao_touxiang@3x.png in Resources */,
@@ -1611,6 +1629,7 @@
 				21904D2B1CAD4E0700AD7A3F /* HTTPSessionManager.m in Sources */,
 				21D54B391CB4F88B0088D386 /* AuctionTableViewController.m in Sources */,
 				211C397B1CB3B86800DAD827 /* UIImage+GIF.m in Sources */,
+				E2ABF0B61CB63C1E0005571F /* PersonalController.m in Sources */,
 				211C39791CB3B86800DAD827 /* SDWebImagePrefetcher.m in Sources */,
 				2118F1DF1CAE1D1A003BFC6B /* NSString+Extension.m in Sources */,
 				21D54B521CB51CA00088D386 /* AFHTTPRequestOperation.m in Sources */,
@@ -1619,6 +1638,7 @@
 				211C394E1CB3961800DAD827 /* authorModel.m in Sources */,
 				211C39741CB3B86800DAD827 /* SDWebImageCompat.m in Sources */,
 				21D54B181CB4C31F0088D386 /* CommonHeader.m in Sources */,
+				E2ABF0B11CB63C090005571F /* CommentsController.m in Sources */,
 				211C39761CB3B86800DAD827 /* SDWebImageDownloader.m in Sources */,
 				211C39771CB3B86800DAD827 /* SDWebImageDownloaderOperation.m in Sources */,
 				21D54B5A1CB51CA00088D386 /* AFURLResponseSerialization.m in Sources */,

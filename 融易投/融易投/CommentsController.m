@@ -1,41 +1,30 @@
 //
-//  MessageTableViewController.m
+//  CommentsController.m
 //  融易投
 //
-//  Created by efeiyi on 16/3/30.
+//  Created by dongxin on 16/4/7.
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
-#import "MessageTableViewController.h"
+#import "CommentsController.h"
+
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
+@interface CommentsController ()
 
-#import "CommentsController.h"
-#import "PersonalController.h"
-#import "NotificationController.h"
-
-@interface MessageTableViewController ()
-- (IBAction)NaThings:(id)sender;
-
-
-- (IBAction)pingLunThings:(id)sender;
-- (IBAction)singxinThings:(id)sender;
 @end
 
-@implementation MessageTableViewController
+@implementation CommentsController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self setUpNavBar];
+    [self loadData];
+    // Do any additional setup after loading the view from its nib.
 }
 
-// 设置导航条
--(void)setUpNavBar
-{
-    //设置导航条标题
-    self.navigationItem.title = @"消息";
-    
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 -(void)loadData
 {
@@ -54,13 +43,16 @@
     NSString *timestamp = strArray.firstObject;
     
     NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
-    NSLog(@"userId=%@,timestamp=%@",@"imhipoyk18s4k52u",timestamp);
-    NSArray *arra = @[@"userId",@"timestamp"];
+    NSArray *arra = @[@"userId",@"timestamp",@"signmsg",@"type",@"pageSize",@"pageNum"];
+    
     NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
     NSLog(@"%@",sortArr);
     
-    NSString *signmsg = [NSString stringWithFormat:@"timestamp=%@&userId=%@&key=%@",timestamp,@"imhipoyk18s4k52u"
-                         ,appkey];
+    NSString * pageNum = @"1";
+    NSString* pageSize = @"1";
+    
+    NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&type=%@&userId=%@&key=%@",pageNum,pageSize,timestamp,@"1",@"iijqf1r7apprtab",appkey];
+    
     NSLog(@"%@",signmsg);
     
     NSString *signmsgMD5 = [self md5:signmsg];
@@ -71,9 +63,7 @@
     //    }
     
     NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
-    // 1.创建请求   'http://192.168.1.69:8001/app/login.do'
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/informationList.do"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/information.do"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
     
@@ -82,9 +72,12 @@
     
     // 3.设置请求体
     NSDictionary *json = @{
-                           @"userId" : @"imhipoyk18s4k52u",
+                           @"userId" : @"iijqf1r7apprtab",
                            @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
+                           @"signmsg"   : signmsgMD5,
+                           @"pageNum" : @"1",
+                           @"pageSize" :@"1",
+                           @"type"     :@"1"
                            };
     
     //    NSData --> NSDictionary
@@ -99,6 +92,7 @@
         NSLog(@"%@",obj);
         
         /*
+         
          //字典转模型暂时不需要
          NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
          //
@@ -115,14 +109,11 @@
          [self saveUserInfo:dict[@"userInfo"]];
          */
         /*
-          personal letter
-          Comments
          */
         
     }];
-}
-
--(NSString *) md5: (NSString *) inPutText
+    
+}-(NSString *) md5: (NSString *) inPutText
 {
     const char *cStr = [inPutText UTF8String];
     unsigned char result[CC_MD5_DIGEST_LENGTH];
@@ -136,18 +127,14 @@
              ] lowercaseString];
 }
 
+/*
+#pragma mark - Navigation
 
-- (IBAction)NaThings:(id)sender {
-    NotificationController *NoController = [NotificationController new];
-    [self.navigationController pushViewController:NoController animated:YES];
-    
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
-- (IBAction)pingLunThings:(id)sender {
-    CommentsController *commentsController = [CommentsController new];
-    [self.navigationController pushViewController:commentsController animated:YES];
-}
+*/
 
-- (IBAction)singxinThings:(id)sender {
-    PersonalController *personalThings = [PersonalController new];
-    [self.navigationController pushViewController:personalThings animated:YES];}
 @end
