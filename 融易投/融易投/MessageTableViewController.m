@@ -11,7 +11,7 @@
 #import <CommonCrypto/CommonHMAC.h>
 
 #import "CommentsController.h"
-#import "PersonalController.h"
+//#import "PersonalController.h"
 #import "NotificationController.h"
 
 @interface MessageTableViewController ()
@@ -148,6 +148,7 @@
 }
 
 - (IBAction)singxinThings:(id)sender {
-    PersonalController *personalThings = [PersonalController new];
-    [self.navigationController pushViewController:personalThings animated:YES];}
+//    PersonalController *personalThings = [PersonalController new];
+//    [self.navigationController pushViewController:personalThings animated:YES];
+}
 @end
