@@ -8,7 +8,6 @@
 
 #import "AuctionTableViewCell.h"
 
-
 #import "AuctionModel.h"
 
 #import "UIImageView+WebCache.h"

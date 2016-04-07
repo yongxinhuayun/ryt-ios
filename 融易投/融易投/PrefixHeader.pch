@@ -9,7 +9,8 @@
 // OC文件
 #ifdef __OBJC__
 
-#import "URLRequestManager.h"
+#import "HttpRequstTool.h"
+#import "MyMD5.h"
 
 #import "UIBarButtonItem+Item.h"
 #import "UIImage+Image.h"
@@ -17,7 +18,6 @@
 #import "NSString+Extension.h"
 #import "GlobeConst.h"
 
-#import "HTTPSessionManager.h"
 
 #import "UIImage+Antialias.h"
 #import "UIImageView+Header.h"

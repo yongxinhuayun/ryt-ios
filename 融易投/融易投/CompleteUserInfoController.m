@@ -12,7 +12,6 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
 
-#import "HTTPSessionManager.h"
 
 @interface CompleteUserInfoController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 

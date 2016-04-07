@@ -11,14 +11,12 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
 
-#import "HTTPSessionManager.h"
-
-//#import "AFNetworking.h"
-
 #import "RegViewController.h"
 #import "ForgetPasswordViewController.h"
 
 #import <SVProgressHUD.h>
+
+#define serverULR @"http://j.efeiyi.com:8080/app-wikiServer/app/login.do"
 
 @interface LognController ()
 
@@ -56,22 +54,24 @@
 
 - (IBAction)lognBtnClick:(id)sender {
     
-    if ([self isValidateMobile:self.usernameTextField.text] == NO) {
-        
-        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号"];
-    }
+//    if ([self isValidateMobile:self.usernameTextField.text] == NO) {
+//        
+//        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号"];
+//    }
+//    
+//    if ([self isValidatePWD:self.passwordTextField.text] == NO) {
+//        
+//        [SVProgressHUD showErrorWithStatus:@"请输入正确的密码格式"];
+//    }
+//    
+//    if ([self isValidateMobile:self.usernameTextField.text] == YES  && [self isValidatePWD:self.passwordTextField.text] == YES) {
+//        
+////        [self test];
+//        
+//        [SVProgressHUD showWithStatus:@"正在登录中..."];
+//    }
     
-    if ([self isValidatePWD:self.passwordTextField.text] == NO) {
-        
-        [SVProgressHUD showErrorWithStatus:@"请输入正确的密码格式"];
-    }
-    
-    if ([self isValidateMobile:self.usernameTextField.text] == YES  && [self isValidatePWD:self.passwordTextField.text] == YES) {
-        
-//        [self test];
-        
-        [SVProgressHUD showWithStatus:@"正在登录中..."];
-    }
+    [self test];
 }
 
 //手机号码的正则表达式
@@ -103,6 +103,8 @@
     ForgetPasswordViewController *forgetPWD = [[ForgetPasswordViewController alloc] init];
     [self.navigationController pushViewController:forgetPWD animated:YES];
 }
+
+
 
 -(void)loadData
 {
@@ -197,97 +199,53 @@
         
         
     }];
-    
-    
-    
 }
 
-//
-//-(void)test{
-//
-//    // 1.1 创建请求会话管理者
-//    HTTPSessionManager *manger = [HTTPSessionManager shareManager];
-//    
-//    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    
-//    NSString *path = @"app/login.do";
-//    //时间
-//    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
-//    NSTimeInterval a =[date timeIntervalSince1970] * 1000;
-//    NSString *timeString = [NSString stringWithFormat:@"%f", a];
-//    
-//    NSArray *strArray = [timeString componentsSeparatedByString:@"."];
-//    
-//    NSLog(@"%@",strArray.firstObject);
-//    
-//    //参数
-//    NSString *username = self.usernameTextField.text;
-//    NSString *password = self.passwordTextField.text;
-//    NSString *timestamp = strArray.firstObject;
-//    NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
-//    
-//    NSLog(@"username=%@,password=%@,timestamp=%@",username,password,timestamp);
-//    
-//    NSArray *arra = @[@"username",@"password",@"timestamp"];
-//    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
-//    NSLog(@"%@",sortArr);
-//    
-//    NSString *signmsg = [NSString stringWithFormat:@"password=%@&timestamp=%@&username=%@&key=%@",password,timestamp,username,appkey];
-//    NSLog(@"%@",signmsg);
-//    
-//    NSString *signmsgMD5 = [self md5:signmsg];
-//
-//    
-//    // 1.2 拼接请求参数
-//    NSMutableDictionary *json = @{
-//                           @"username" : username,
-//                           @"password" : password,
-//                           @"timestamp" : timestamp,
-//                           @"signmsg"   : signmsgMD5
-//                           };
-//    
-//    NSLog(@"%@",json);
-//    
-//    //    NSData --> NSDictionary
-//    // NSDictionary --> NSData
-//    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
-//    
-//    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
-//    
-//    NSString *dataJson = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-//    
-//    NSLog(@"%@",dataJson);
-//    
-//    [manger POST:path parameters:dataJson progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        
-//        NSString *jsonString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-//        
-//        NSLog(@"------ JSON: ----- %@", jsonString);
-//        
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        
-//    }];
+-(void)test {
 
-//    [manger POST:path parameters:dataJson progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        
-//        NSLog(@"%@",responseObject);
-//        
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        
-//    }];
-//
+    //时间
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval a =[date timeIntervalSince1970] * 1000;
+    NSString *timeString = [NSString stringWithFormat:@"%f", a];
     
-    /***********************************************************/
+    NSArray *strArray = [timeString componentsSeparatedByString:@"."];
     
-//    [mgr POST:nil parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-//        
-//    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        
-//    }];
-
-//}
+    NSLog(@"%@",strArray.firstObject);
+    
+    //参数
+    NSString *username = self.usernameTextField.text;
+    NSString *password = self.passwordTextField.text;
+    NSString *timestamp = strArray.firstObject;
+    NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
+    
+    
+    NSArray *arra = @[@"username",@"password",@"timestamp"];
+    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
+    NSLog(@"%@",sortArr);
+    
+    NSString *signmsg = [NSString stringWithFormat:@"password=%@&timestamp=%@&username=%@&key=%@",password,timestamp,username,appkey];
+    NSLog(@"%@",signmsg);
+    
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+    NSLog(@"signmsgMD5=%@",signmsgMD5);
+    
+    
+    
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"username" : username,
+                           @"password" : password,
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5
+                           };
+    
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:serverULR Parameters:json showHUDView:self.view success:^(id respondObj) {
+        
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+    }];
+    
+}
 
 
 -(NSString *) md5: (NSString *) inPutText
