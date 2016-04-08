@@ -11,7 +11,7 @@
 
 @interface ArtistTableViewCell ()
 
-@property (weak, nonatomic) IBOutlet UILabel *RankLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *userIcon;
@@ -43,10 +43,10 @@
         self.usernameLabel.text = model.truename;
         
         //设置项目总金额
-        self.priceLabel.text = [NSString stringWithFormat:@"%ld",model.bidding_rate];
+        self.priceLabel.text = [NSString stringWithFormat:@"%ld元",model.bidding_rate];
     
         //设置总成交价
-        self.totalPriceLabel.text = [NSString stringWithFormat:@"%ld",model.bidding_rate];
+        self.totalPriceLabel.text = [NSString stringWithFormat:@"%ld元",model.bidding_rate];
     }
     
 //把系统的分割线去除,然后把控制器的的颜色改成要设置分割线的颜色

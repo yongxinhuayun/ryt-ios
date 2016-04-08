@@ -13,12 +13,13 @@
 
 @interface InvestorTableViewCell ()
 
-@property (weak, nonatomic) IBOutlet UILabel *RankLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *userIcon;
 
-
+/** 用来记录设置了几次数据 */
+//@property (nonatomic, copy) NSString *modelNum;
 @end
 
 @implementation InvestorTableViewCell
@@ -39,14 +40,16 @@
 //    NSURL *picture_urlURL = [NSURL URLWithString:picture_urlStr];
 //
 //    [self.userIcon sd_setImageWithURL:picture_urlURL];
+
     
     //设置排名
+//    self.RankLabel.text = self.modelNum;
     
     //设置投资者
     self.usernameLabel.text = model.truename;
     
     //设置金额
-    self.priceLabel.text = [NSString stringWithFormat:@"%ld",model.price];
+    self.priceLabel.text = [NSString stringWithFormat:@"%ld元",model.price];
 
     
 }

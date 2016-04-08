@@ -15,4 +15,7 @@
 
 @property (nonatomic, strong) ArtistModel *model;
 
+//排行控件
+@property (weak, nonatomic) IBOutlet UILabel *RankLabel;
+
 @end

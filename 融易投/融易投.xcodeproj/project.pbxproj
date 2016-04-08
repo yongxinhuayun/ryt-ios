@@ -46,7 +46,6 @@
 		21D54B231CB4DF0F0088D386 /* MasterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B221CB4DF0F0088D386 /* MasterModel.m */; };
 		21D54B361CB4F88B0088D386 /* AuctionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B301CB4F88B0088D386 /* AuctionModel.m */; };
 		21D54B371CB4F88B0088D386 /* AuctionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B321CB4F88B0088D386 /* AuctionTableViewCell.m */; };
-		21D54B381CB4F88B0088D386 /* AuctionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D54B331CB4F88B0088D386 /* AuctionTableViewCell.xib */; };
 		21D54B391CB4F88B0088D386 /* AuctionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B351CB4F88B0088D386 /* AuctionTableViewController.m */; };
 		21D54B3C1CB4FA8B0088D386 /* UIImage+Antialias.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B3B1CB4FA8B0088D386 /* UIImage+Antialias.m */; };
 		21D54B611CB532CF0088D386 /* UIImageView+Header.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B601CB532CF0088D386 /* UIImageView+Header.m */; };
@@ -60,6 +59,7 @@
 		21D54B8C1CB660970088D386 /* ArtistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B8A1CB660970088D386 /* ArtistTableViewCell.m */; };
 		21D54B8D1CB660970088D386 /* ArtistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D54B8B1CB660970088D386 /* ArtistTableViewCell.xib */; };
 		21D54B901CB660AC0088D386 /* ArtistModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B8F1CB660AC0088D386 /* ArtistModel.m */; };
+		21D54B921CB739E60088D386 /* AuctionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D54B911CB739E60088D386 /* AuctionTableViewCell.xib */; };
 		BC4A8BFAB939A8BBE3AF0A2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFB6E4A926D52C7C2AE4F6C /* libPods.a */; };
 		E21550E81CB604E20070D5D3 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */; };
 		E236C2961CB4B1B8009DCBF0 /* LognController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E236C2951CB4B1B7009DCBF0 /* LognController.xib */; };
@@ -130,7 +130,6 @@
 		E236C3381CB4F6D0009DCBF0 /* MessageTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E236C3361CB4F6D0009DCBF0 /* MessageTableViewController.storyboard */; };
 		E2ABF0B11CB63C090005571F /* CommentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ABF0AF1CB63C090005571F /* CommentsController.m */; };
 		E2ABF0B21CB63C090005571F /* CommentsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2ABF0B01CB63C090005571F /* CommentsController.xib */; };
-		E2ABF0B61CB63C1E0005571F /* PersonalController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ABF0B41CB63C1E0005571F /* PersonalController.m */; };
 		E2ABF0B71CB63C1E0005571F /* PersonalController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2ABF0B51CB63C1E0005571F /* PersonalController.xib */; };
 		E2D059DE1CB34F7400B0F690 /* WeiXinController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D059DC1CB34F7400B0F690 /* WeiXinController.xib */; };
 		E2D059E31CB34F8300B0F690 /* ALiController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D059E11CB34F8300B0F690 /* ALiController.xib */; };
@@ -241,7 +240,6 @@
 		21D54B301CB4F88B0088D386 /* AuctionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionModel.m; sourceTree = "<group>"; };
 		21D54B311CB4F88B0088D386 /* AuctionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionTableViewCell.h; sourceTree = "<group>"; };
 		21D54B321CB4F88B0088D386 /* AuctionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionTableViewCell.m; sourceTree = "<group>"; };
-		21D54B331CB4F88B0088D386 /* AuctionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionTableViewCell.xib; sourceTree = "<group>"; };
 		21D54B341CB4F88B0088D386 /* AuctionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionTableViewController.h; sourceTree = "<group>"; };
 		21D54B351CB4F88B0088D386 /* AuctionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionTableViewController.m; sourceTree = "<group>"; };
 		21D54B3A1CB4FA8B0088D386 /* UIImage+Antialias.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Antialias.h"; sourceTree = "<group>"; };
@@ -266,6 +264,7 @@
 		21D54B8B1CB660970088D386 /* ArtistTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistTableViewCell.xib; sourceTree = "<group>"; };
 		21D54B8E1CB660AC0088D386 /* ArtistModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistModel.h; sourceTree = "<group>"; };
 		21D54B8F1CB660AC0088D386 /* ArtistModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistModel.m; sourceTree = "<group>"; };
+		21D54B911CB739E60088D386 /* AuctionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionTableViewCell.xib; sourceTree = "<group>"; };
 		AC411E3C5CA46BB337E074BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
 		E21550E71CB604E20070D5D3 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
@@ -905,7 +904,7 @@
 				21D54B301CB4F88B0088D386 /* AuctionModel.m */,
 				21D54B311CB4F88B0088D386 /* AuctionTableViewCell.h */,
 				21D54B321CB4F88B0088D386 /* AuctionTableViewCell.m */,
-				21D54B331CB4F88B0088D386 /* AuctionTableViewCell.xib */,
+				21D54B911CB739E60088D386 /* AuctionTableViewCell.xib */,
 				21D54B341CB4F88B0088D386 /* AuctionTableViewController.h */,
 				21D54B351CB4F88B0088D386 /* AuctionTableViewController.m */,
 			);
@@ -1406,7 +1405,7 @@
 				E236C3031CB4B64D009DCBF0 /* denglu_anniu@3x.png in Resources */,
 				E2DDB0F31CAB66DB007438E4 /* Assets.xcassets in Resources */,
 				211C394B1CB36B1500DAD827 /* FinanceTableViewCell.xib in Resources */,
-				21D54B381CB4F88B0088D386 /* AuctionTableViewCell.xib in Resources */,
+				21D54B921CB739E60088D386 /* AuctionTableViewCell.xib in Resources */,
 				21D54B201CB4D99E0088D386 /* CreationTableViewCell.xib in Resources */,
 				21904CF61CAD3C8B00AD7A3F /* ForgetPasswordViewController.xib in Resources */,
 				E236C2F41CB4B64D009DCBF0 /* zhuce_anniu@3x.png in Resources */,
@@ -1538,12 +1537,6 @@
 				211C394E1CB3961800DAD827 /* authorModel.m in Sources */,
 				21D54B181CB4C31F0088D386 /* CommonHeader.m in Sources */,
 				E2ABF0B11CB63C090005571F /* CommentsController.m in Sources */,
-				211C39761CB3B86800DAD827 /* SDWebImageDownloader.m in Sources */,
-				211C39771CB3B86800DAD827 /* SDWebImageDownloaderOperation.m in Sources */,
-				21D54B5A1CB51CA00088D386 /* AFURLResponseSerialization.m in Sources */,
-				211C39751CB3B86800DAD827 /* SDWebImageDecoder.m in Sources */,
-				211C39781CB3B86800DAD827 /* SDWebImageManager.m in Sources */,
-				21D54B571CB51CA00088D386 /* AFSecurityPolicy.m in Sources */,
 				E2D73DC21CAD2CA9004CEFA3 /* RegViewController.m in Sources */,
 				211C394A1CB36B1500DAD827 /* FinanceTableViewCell.m in Sources */,
 				218D2B5A1CACB35C004553B9 /* UIView+Frame.m in Sources */,

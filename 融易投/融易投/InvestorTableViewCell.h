@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) InvestorModel *model;
 
+@property (weak, nonatomic) IBOutlet UILabel *RankLabel;
+
 @end
