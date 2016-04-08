@@ -10,7 +10,7 @@
 
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
-
+#import "MyMD5.h"
 @interface CommentsController ()
 
 @end
@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadData];
+    [self test];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -114,7 +114,8 @@
         
     }];
     
-}-(NSString *) md5: (NSString *) inPutText
+}
+-(NSString *) md5: (NSString *) inPutText
 {
     const char *cStr = [inPutText UTF8String];
     unsigned char result[CC_MD5_DIGEST_LENGTH];
@@ -129,47 +130,52 @@
 }
 -(void)test{
     
-//    NSString *timestamp = [MyMD5 timestamp];
-//    NSString *appkey = MD5key;
-//    
-//    NSLog(@"pageSize=%@,pageNum=%@,timestamp=%@",pageNum,pageNum,timestamp);
-//    
-//    NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&key=%@",pageNum,pageSize,timestamp,appkey];
-//    NSLog(@"%@",signmsg);
-//    
-//    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-//    
-//    NSLog(@"signmsgMD5=%@",signmsgMD5);
-//    
-//    // 3.设置请求体
-//    NSDictionary *json = @{
-//                           @"pageSize" : pageSize,
-//                           @"pageNum" : pageNum,
-//                           @"timestamp" : timestamp,
-//                           @"signmsg"   : signmsgMD5
-//                           };
-//    
-//    NSString *url = @"http://192.168.1.69:8001/app/getArtistTopList.do";
-//    
-//    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
-//        
-//        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        //        NSLog(@"返回结果:%@",jsonStr);
-//        
-//        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-//        
-//        NSArray *moreModels = [ArtistModel mj_objectArrayWithKeyValuesArray:modelDict[@"InvestorTopList"]];
-//        //拼接数据
-//        [self.models addObjectsFromArray:moreModels];
-//        
-//        //在主线程刷新UI数据
-//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//            
-//            [self.tableView reloadData];
-//            
-//        }];
-//        
-//    }];
+    NSString *timestamp = [MyMD5 timestamp];
+    NSString *appkey = MD5key;
+    
+    NSString * pageNum = @"1";
+    NSString* pageSize = @"1";
+    
+    NSLog(@"pageSize=%@,pageNum=%@,timestamp=%@",pageNum,pageNum,timestamp);
+    
+    NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&type=%@&userId=%@&key=%@",pageNum,pageSize,timestamp,@"1",@"iijqf1r7apprtab",appkey];
+    
+    NSLog(@"%@",signmsg);
+    
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+    
+    NSLog(@"signmsgMD5=%@",signmsgMD5);
+    
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"userId" : @"iijqf1r7apprtab",
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5,
+                           @"pageNum" : @"1",
+                           @"pageSize" :@"1",
+                           @"type"     :@"1"
+                           };
+    
+    NSString *url = @"http://192.168.1.69:8001/app/information.do";
+    
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+        
+        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        //        NSLog(@"返回结果:%@",jsonStr);
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        
+        NSLog(@"%@",modelDict);
+        //拼接数据
+
+        
+        //在主线程刷新UI数据
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            
+        }];
+        
+    }];
 }
 /*
 #pragma mark - Navigation

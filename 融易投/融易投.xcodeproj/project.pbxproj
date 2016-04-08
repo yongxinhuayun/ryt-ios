@@ -125,12 +125,10 @@
 		E236C31E1CB4E0F9009DCBF0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E236C31D1CB4E0F9009DCBF0 /* Security.framework */; };
 		E236C3241CB4E27E009DCBF0 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E236C3231CB4E27E009DCBF0 /* PushConfig.plist */; };
 		E236C3321CB4F653009DCBF0 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E236C3301CB4F653009DCBF0 /* NotificationController.m */; };
-		E236C3331CB4F653009DCBF0 /* NotificationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E236C3311CB4F653009DCBF0 /* NotificationController.xib */; };
 		E236C3371CB4F6D0009DCBF0 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E236C3351CB4F6D0009DCBF0 /* MessageTableViewController.m */; };
 		E236C3381CB4F6D0009DCBF0 /* MessageTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E236C3361CB4F6D0009DCBF0 /* MessageTableViewController.storyboard */; };
 		E2ABF0B11CB63C090005571F /* CommentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ABF0AF1CB63C090005571F /* CommentsController.m */; };
 		E2ABF0B21CB63C090005571F /* CommentsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2ABF0B01CB63C090005571F /* CommentsController.xib */; };
-		E2ABF0B61CB63C1E0005571F /* PersonalController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ABF0B41CB63C1E0005571F /* PersonalController.m */; };
 		E2ABF0B71CB63C1E0005571F /* PersonalController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2ABF0B51CB63C1E0005571F /* PersonalController.xib */; };
 		E2D059DE1CB34F7400B0F690 /* WeiXinController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D059DC1CB34F7400B0F690 /* WeiXinController.xib */; };
 		E2D059E31CB34F8300B0F690 /* ALiController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D059E11CB34F8300B0F690 /* ALiController.xib */; };
@@ -141,6 +139,11 @@
 		E2D05B761CB38CD000B0F690 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B751CB38CD000B0F690 /* libz.tbd */; };
 		E2D05B781CB38CEA00B0F690 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B771CB38CEA00B0F690 /* libsqlite3.0.tbd */; };
 		E2D05B7A1CB38D5800B0F690 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B791CB38D5800B0F690 /* libc++.tbd */; };
+		E2D099151CB796B00009B990 /* wode-weixuanzhong@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2D099141CB796B00009B990 /* wode-weixuanzhong@2x.png */; };
+		E2D46C0A1CB77ABA000DEE84 /* NotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D46C091CB77ABA000DEE84 /* NotificationModel.m */; };
+		E2D46C0E1CB77EF5000DEE84 /* NotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D46C0C1CB77EF5000DEE84 /* NotificationTableViewCell.m */; };
+		E2D46C0F1CB77EF5000DEE84 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D46C0D1CB77EF5000DEE84 /* NotificationTableViewCell.xib */; };
+		E2D46C121CB78850000DEE84 /* FromUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D46C111CB78850000DEE84 /* FromUserModel.m */; };
 		E2D73DC21CAD2CA9004CEFA3 /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D73DC01CAD2CA9004CEFA3 /* RegViewController.m */; };
 		E2D73DC31CAD2CA9004CEFA3 /* RegViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D73DC11CAD2CA9004CEFA3 /* RegViewController.xib */; };
 		E2DDB0E81CAB66DB007438E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB0E71CAB66DB007438E4 /* main.m */; };
@@ -336,7 +339,6 @@
 		E236C3231CB4E27E009DCBF0 /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
 		E236C32F1CB4F653009DCBF0 /* NotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
 		E236C3301CB4F653009DCBF0 /* NotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
-		E236C3311CB4F653009DCBF0 /* NotificationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationController.xib; sourceTree = "<group>"; };
 		E236C3341CB4F6D0009DCBF0 /* MessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewController.h; sourceTree = "<group>"; };
 		E236C3351CB4F6D0009DCBF0 /* MessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewController.m; sourceTree = "<group>"; };
 		E236C3361CB4F6D0009DCBF0 /* MessageTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessageTableViewController.storyboard; sourceTree = "<group>"; };
@@ -362,6 +364,14 @@
 		E2D05B751CB38CD000B0F690 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E2D05B771CB38CEA00B0F690 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		E2D05B791CB38D5800B0F690 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		E2D099141CB796B00009B990 /* wode-weixuanzhong@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wode-weixuanzhong@2x.png"; sourceTree = "<group>"; };
+		E2D46C081CB77ABA000DEE84 /* NotificationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationModel.h; sourceTree = "<group>"; };
+		E2D46C091CB77ABA000DEE84 /* NotificationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationModel.m; sourceTree = "<group>"; };
+		E2D46C0B1CB77EF5000DEE84 /* NotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationTableViewCell.h; sourceTree = "<group>"; };
+		E2D46C0C1CB77EF5000DEE84 /* NotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationTableViewCell.m; sourceTree = "<group>"; };
+		E2D46C0D1CB77EF5000DEE84 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
+		E2D46C101CB78850000DEE84 /* FromUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FromUserModel.h; sourceTree = "<group>"; };
+		E2D46C111CB78850000DEE84 /* FromUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FromUserModel.m; sourceTree = "<group>"; };
 		E2D73DBF1CAD2CA9004CEFA3 /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegViewController.h; sourceTree = "<group>"; };
 		E2D73DC01CAD2CA9004CEFA3 /* RegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegViewController.m; sourceTree = "<group>"; };
 		E2D73DC11CAD2CA9004CEFA3 /* RegViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegViewController.xib; sourceTree = "<group>"; };
@@ -691,6 +701,7 @@
 			children = (
 				E2DDB0E91CAB66DB007438E4 /* AppDelegate.h */,
 				E2DDB0EA1CAB66DB007438E4 /* AppDelegate.m */,
+				E2D099141CB796B00009B990 /* wode-weixuanzhong@2x.png */,
 				E236C3111CB4C18C009DCBF0 /* denglu_yanzhengmashurukuang@2x.png */,
 				E236C30F1CB4BD7F009DCBF0 /* denglu_shurukuang@x.png */,
 				E236C2971CB4B59A009DCBF0 /* Image */,
@@ -959,7 +970,13 @@
 			children = (
 				E236C32F1CB4F653009DCBF0 /* NotificationController.h */,
 				E236C3301CB4F653009DCBF0 /* NotificationController.m */,
-				E236C3311CB4F653009DCBF0 /* NotificationController.xib */,
+				E2D46C0B1CB77EF5000DEE84 /* NotificationTableViewCell.h */,
+				E2D46C0C1CB77EF5000DEE84 /* NotificationTableViewCell.m */,
+				E2D46C0D1CB77EF5000DEE84 /* NotificationTableViewCell.xib */,
+				E2D46C081CB77ABA000DEE84 /* NotificationModel.h */,
+				E2D46C091CB77ABA000DEE84 /* NotificationModel.m */,
+				E2D46C101CB78850000DEE84 /* FromUserModel.h */,
+				E2D46C111CB78850000DEE84 /* FromUserModel.m */,
 			);
 			name = "通知";
 			sourceTree = "<group>";
@@ -1394,7 +1411,6 @@
 				E236C2EC1CB4B64D009DCBF0 /* wangjimima_fanhui@2x.png in Resources */,
 				E2ABF0B21CB63C090005571F /* CommentsController.xib in Resources */,
 				E2D73DC31CAD2CA9004CEFA3 /* RegViewController.xib in Resources */,
-				E236C3331CB4F653009DCBF0 /* NotificationController.xib in Resources */,
 				E236C30B1CB4B64D009DCBF0 /* denglu_weixindianji@2x.png in Resources */,
 				E236C2E61CB4B64D009DCBF0 /* jibenziliao_xuanzhong_nan@2x.png in Resources */,
 				E236C3071CB4B64D009DCBF0 /* denglu_fenggexian374@2x.png in Resources */,
@@ -1417,6 +1433,7 @@
 				E236C2FD1CB4B64D009DCBF0 /* zhuce_weixindianji@2x.png in Resources */,
 				E236C2E41CB4B64D009DCBF0 /* jibenziliao_weixuanzhong_nv@2x.png in Resources */,
 				E236C30E1CB4B64D009DCBF0 /* denglu_weixinweidianji@3x.png in Resources */,
+				E2D46C0F1CB77EF5000DEE84 /* NotificationTableViewCell.xib in Resources */,
 				E236C2E91CB4B64D009DCBF0 /* jibenziliao_xuanzhong_nv@3x.png in Resources */,
 				E2D05B701CB38B7400B0F690 /* read_me.txt in Resources */,
 				E236C2F31CB4B64D009DCBF0 /* zhuce_anniu@2x.png in Resources */,
@@ -1434,6 +1451,7 @@
 				E2ABF0B71CB63C1E0005571F /* PersonalController.xib in Resources */,
 				E236C2FA1CB4B64D009DCBF0 /* zhuce_guanbi@2x.png in Resources */,
 				21D54B8D1CB660970088D386 /* ArtistTableViewCell.xib in Resources */,
+				E2D099151CB796B00009B990 /* wode-weixuanzhong@2x.png in Resources */,
 				E236C3011CB4B64D009DCBF0 /* denglu_anniu@1x.png in Resources */,
 				E236C2E11CB4B64D009DCBF0 /* jibenziliao_touxiang@3x.png in Resources */,
 				E236C2F91CB4B64D009DCBF0 /* zhuce_fenggexian750@2x.png in Resources */,
@@ -1525,12 +1543,14 @@
 				21D54B1F1CB4D99E0088D386 /* CreationTableViewCell.m in Sources */,
 				21D54B811CB657AE0088D386 /* InvestorModel.m in Sources */,
 				21D54B361CB4F88B0088D386 /* AuctionModel.m in Sources */,
+				E2D46C0A1CB77ABA000DEE84 /* NotificationModel.m in Sources */,
 				21D54B371CB4F88B0088D386 /* AuctionTableViewCell.m in Sources */,
 				211C39461CB369FC00DAD827 /* FinanceModel.m in Sources */,
 				E2DDB0EB1CAB66DB007438E4 /* AppDelegate.m in Sources */,
 				21D54B7E1CB64A630088D386 /* HttpRequstTool.m in Sources */,
 				21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */,
 				21D54B771CB6405B0088D386 /* NSCalendar+Init.m in Sources */,
+				E2D46C0E1CB77EF5000DEE84 /* NotificationTableViewCell.m in Sources */,
 				21D54B781CB6405B0088D386 /* NSDate+Interval.m in Sources */,
 				21D54B391CB4F88B0088D386 /* AuctionTableViewController.m in Sources */,
 				21D54B8C1CB660970088D386 /* ArtistTableViewCell.m in Sources */,
@@ -1538,12 +1558,6 @@
 				211C394E1CB3961800DAD827 /* authorModel.m in Sources */,
 				21D54B181CB4C31F0088D386 /* CommonHeader.m in Sources */,
 				E2ABF0B11CB63C090005571F /* CommentsController.m in Sources */,
-				211C39761CB3B86800DAD827 /* SDWebImageDownloader.m in Sources */,
-				211C39771CB3B86800DAD827 /* SDWebImageDownloaderOperation.m in Sources */,
-				21D54B5A1CB51CA00088D386 /* AFURLResponseSerialization.m in Sources */,
-				211C39751CB3B86800DAD827 /* SDWebImageDecoder.m in Sources */,
-				211C39781CB3B86800DAD827 /* SDWebImageManager.m in Sources */,
-				21D54B571CB51CA00088D386 /* AFSecurityPolicy.m in Sources */,
 				E2D73DC21CAD2CA9004CEFA3 /* RegViewController.m in Sources */,
 				211C394A1CB36B1500DAD827 /* FinanceTableViewCell.m in Sources */,
 				218D2B5A1CACB35C004553B9 /* UIView+Frame.m in Sources */,
@@ -1559,6 +1573,7 @@
 				215EED291CB0108F00A5957B /* InvestorTableViewController.m in Sources */,
 				218D2B591CACB35C004553B9 /* UIImage+Image.m in Sources */,
 				21D54B7B1CB64A510088D386 /* MyMD5.m in Sources */,
+				E2D46C121CB78850000DEE84 /* FromUserModel.m in Sources */,
 				21D54B851CB6585B0088D386 /* InvestorTableViewCell.m in Sources */,
 				21904D321CAE0F4000AD7A3F /* UserAccount.m in Sources */,
 				215EED1D1CB0058D00A5957B /* FinanceTableViewController.m in Sources */,

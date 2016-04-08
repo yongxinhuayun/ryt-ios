@@ -17,7 +17,6 @@
 @interface MessageTableViewController ()
 - (IBAction)NaThings:(id)sender;
 
-
 - (IBAction)pingLunThings:(id)sender;
 - (IBAction)singxinThings:(id)sender;
 @end
@@ -98,27 +97,7 @@
         NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"%@",obj);
         
-        /*
-         //字典转模型暂时不需要
-         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-         //
-         NSArray *registerArray = dict[@"userInfo"];
-         //
-         self.registers = [registerModel mj_objectArrayWithKeyValuesArray:registerArray];
-         
-         //提示用户信息
-         NSString *resultMsg = dict[@"resultMsg"];
-         
-         [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"%@",resultMsg]];
-         
-         //保存注册信息
-         [self saveUserInfo:dict[@"userInfo"]];
-         */
-        /*
-          personal letter
-          Comments
-         */
-        
+                
     }];
 }
 

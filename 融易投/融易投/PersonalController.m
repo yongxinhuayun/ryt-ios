@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadData];
+    [self test];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -78,7 +78,7 @@
                            @"signmsg"   : signmsgMD5,
                            @"pageNum" : @"1",
                            @"pageSize" :@"1",
-                           @"type"     :@"2"
+                           @"type"     :@"0"
                            };
     
     //    NSData --> NSDictionary
@@ -92,29 +92,61 @@
         NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"%@",obj);
         
-        /*
-         
-         //字典转模型暂时不需要
-         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-         //
-         NSArray *registerArray = dict[@"userInfo"];
-         //
-         self.registers = [registerModel mj_objectArrayWithKeyValuesArray:registerArray];
-         
-         //提示用户信息
-         NSString *resultMsg = dict[@"resultMsg"];
-         
-         [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"%@",resultMsg]];
-         
-         //保存注册信息
-         [self saveUserInfo:dict[@"userInfo"]];
-         */
-        /*
-         */
-        
+               
     }];
     
-}-(NSString *) md5: (NSString *) inPutText
+}
+-(void)test{
+    
+    NSString *timestamp = [MyMD5 timestamp];
+    NSString *appkey = MD5key;
+    
+    NSString * pageNum = @"1";
+    NSString* pageSize = @"1";
+    
+    NSLog(@"pageSize=%@,pageNum=%@,timestamp=%@",pageNum,pageNum,timestamp);
+    
+    NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&type=%@&userId=%@&key=%@",pageNum,pageSize,timestamp,@"1",@"iijqf1r7apprtab",appkey];
+    
+    NSLog(@"%@",signmsg);
+    
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+    
+    NSLog(@"signmsgMD5=%@",signmsgMD5);
+    
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"userId" : @"iijqf1r7apprtab",
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5,
+                           @"pageNum" : @"1",
+                           @"pageSize" :@"1",
+                           @"type"     :@"0"
+                           };
+    
+    NSString *url = @"http://192.168.1.69:8001/app/information.do";
+    
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+        
+        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        //        NSLog(@"返回结果:%@",jsonStr);
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        
+        NSLog(@"%@",modelDict);
+        //拼接数据
+        
+        
+        //在主线程刷新UI数据
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            
+        }];
+        
+    }];
+}
+
+-(NSString *) md5: (NSString *) inPutText
 {
     const char *cStr = [inPutText UTF8String];
     unsigned char result[CC_MD5_DIGEST_LENGTH];

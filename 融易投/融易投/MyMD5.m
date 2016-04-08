@@ -34,8 +34,9 @@
     
     NSArray *strArray = [timeString componentsSeparatedByString:@"."];
     
-    //    NSLog(@"%@",strArray.firstObject);
-    
+//    NSLog(@"%@",strArray.firstObject);
+
     return strArray.firstObject;
 }
+
 @end

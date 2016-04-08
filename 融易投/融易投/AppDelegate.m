@@ -17,8 +17,9 @@
 
 #import "NotificationController.h"
 #import "CommentsController.h"
+#import "RegViewController.h"
 //#import "PersonalController.h"
-
+#import "MessageTableViewController.h"
 
 static NSString *appKey = @"d1573e16403c2482826bbd35";
 static NSString *channel = @"Publish channel";
@@ -162,14 +163,14 @@ static BOOL isProduction = FALSE;
     //2.设置窗口的根控制器
         CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
     
-//        self.window.rootViewController = [NotificationController new];
-        //self.window.rootViewController = [CommentsController new];
+        //self.window.rootViewController = [MessageTableViewController new];
+        //self.window.rootViewController = [RegViewController new];
         //self.window.rootViewController = [PersonalController new];
-        //self.window.rootViewController = tabBarController;
+    
+    self.window.rootViewController = tabBarController;
       //self.window.rootViewController = [MessageController new];
     //3.显示窗口
     [self.window makeKeyAndVisible];
-    
     return YES;
 }
 
@@ -246,6 +247,7 @@ static BOOL isProduction = FALSE;
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     // IOS 7 Support Required
     completionHandler(UIBackgroundFetchResultNewData);
+    
     [JPUSHService handleRemoteNotification:userInfo];
     NSLog(@">>>>>>>>>1userInfo%@",[self logDic:userInfo]);
     
