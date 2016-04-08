@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NotificationController : UIViewController<UITableViewDelegate,UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UITableView *NotificationTbaleView;
+@interface NotificationController : UITableViewController
 
 @end

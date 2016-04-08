@@ -8,216 +8,42 @@
 
 #import "NotificationController.h"
 
-#import <CommonCrypto/CommonDigest.h>
-#import <CommonCrypto/CommonHMAC.h>
+
+#import "NotificationModel.h"
+#import "NotificationTableViewCell.h"
+#import <MJExtension.h>
 
 @interface NotificationController ()
-{
-NSMutableArray *_friendsArray;
-   
-}
-@property (nonatomic,strong) UITableView *notification;
+
+@property (nonatomic, strong) NSMutableArray *models;
+
 @end
 
 @implementation NotificationController
+
+static NSString *cellID = @"cellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self setUpNavBar];
-//    CGFloat heightT = [UIScreen mainScreen].bounds.size.height;
-//    NSLog(@"%f",heightT);
-//    
-//    CGFloat height = self.view.height;
-//    NSLog(@"%f",height);
-    
-    self.notification = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
-    
-    self.notification.dataSource = self;
-    self.notification.delegate =self;
-    self.notification.backgroundColor = [UIColor redColor];
-    [self.view addSubview:self.notification];
-    
-    _friendsArray = [[NSMutableArray alloc]init];
+
+    //加载数据
     [self loadData];
     
-}
-// imhipoyk18s4k52u
-//-(void)loadData
-//{
-//    //时间
-//    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
-//    NSTimeInterval a =[date timeIntervalSince1970] * 1000;
-//    NSString *timeString = [NSString stringWithFormat:@"%f", a];
-//    
-//    NSArray *strArray = [timeString componentsSeparatedByString:@"."];
-//    
-//    NSLog(@"%@",strArray.firstObject);
-//    
-//    //参数
-////    NSString *username = self.phoneNumTextField.text;
-////    NSString *password = self.passWordTextField.text;
-//    NSString *timestamp = strArray.firstObject;
-//    
-//    NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
-//    NSArray *arra = @[@"userId",@"timestamp",@"signmsg",@"type",@"pageSize",@"pageNum"];
-//    
-//    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
-//    NSLog(@"%@",sortArr);
-//    
-//    NSInteger pageNum = 1;
-//    NSInteger pageSize = 1;
-//    
-//    NSString *signmsg = [NSString stringWithFormat:@"pageNum=%ld&pageSize=%ld&timestamp=%@&type=%@&userId=%@&key=%@",pageNum,pageSize,timestamp,@"0",@"imhipoyk18s4k52u",appkey];
-//    
-//    NSLog(@"%@",signmsg);
-//    
-//    NSString *signmsgMD5 = [self md5:signmsg];
-//    
-//    //对key进行自然排序
-//    //    for (NSString *s in [dict allKeys]) {
-//    //        NSLog(@"value: %@", s);
-//    //    }
-//    
-//    NSLog(@"signmsgMD5=%@",signmsgMD5);
-//    //http://j.efeiyi.com:8080/app-wikiServer/app/investorIndex.do
-//    //http://219.239.7.163:8080/inf/mobile.inf?
-//    
-//    //http://j.efeiyi.com:8080/app-wikiServer/app/
-//    //http://j.efeiyi.com:8080/app-wikiServer/app/investorIndex.do
-//
-//    // 1.创建请求   'http://192.168.1.69:8001/app/login.do'
-//    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/information.do"];
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-//    request.HTTPMethod = @"POST";
-//    
-//    // 2.设置请求头
-//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    
-//    // 3.设置请求体
-//    NSDictionary *json = @{
-//                           @"userId" : @"imhipoyk18s4k52u",
-//                           @"timestamp" : timestamp,
-//                           @"signmsg"   : signmsgMD5,
-//                           @"pageNum" : @"1",
-//                           @"pageSize" :@"1",
-//                           @"type"       :@"0"
-//                           };
-//    
-//    //    NSData --> NSDictionary
-//    // NSDictionary --> NSData
-//    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
-//    request.HTTPBody = data;
-//    
-//    // 4.发送请求
-//    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-//        
-//        NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-//        NSLog(@"======%@",obj);
-//    }];
-//    
-//}
--(void)loadData
-{
-    //时间
-    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
-    NSTimeInterval a =[date timeIntervalSince1970] * 1000;
-    NSString *timeString = [NSString stringWithFormat:@"%f", a];
-    
-    NSArray *strArray = [timeString componentsSeparatedByString:@"."];
-    
-    NSLog(@"%@",strArray.firstObject);
-    
-    //参数
-    //    NSString *username = self.phoneNumTextField.text;
-    //    NSString *password = self.passWordTextField.text;
-    NSString *timestamp = strArray.firstObject;
-    
-    NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
-    NSArray *arra = @[@"userId",@"timestamp",@"signmsg",@"type",@"pageSize",@"pageNum"];
-    
-    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
-    NSLog(@"%@",sortArr);
-    
-    NSString * pageNum = @"1";
-    NSString* pageSize = @"1";
-    
-    NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&type=%@&userId=%@&key=%@",pageNum,pageSize,timestamp,@"0",@"iijqf1r7apprtab",appkey];
-    
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [self md5:signmsg];
-    
-    //对key进行自然排序
-    //    for (NSString *s in [dict allKeys]) {
-    //        NSLog(@"value: %@", s);
-    //    }
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/information.do"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = @"POST";
-    
-    // 2.设置请求头
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    // 3.设置请求体
-    NSDictionary *json = @{
-                           @"userId" : @"iijqf1r7apprtab",
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5,
-                           @"pageNum" : @"1",
-                           @"pageSize" :@"1",
-                           @"type"     :@"0"
-                           };
-    
-    //    NSData --> NSDictionary
-    // NSDictionary --> NSData
-    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
-    request.HTTPBody = data;
-    
-    // 4.发送请求
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    //修改模型中的id为ID
+    [NotificationModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         
-        NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",obj);
-        
-        /*
-         
-         //字典转模型暂时不需要
-         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-         //
-         NSArray *registerArray = dict[@"userInfo"];
-         //
-         self.registers = [registerModel mj_objectArrayWithKeyValuesArray:registerArray];
-         
-         //提示用户信息
-         NSString *resultMsg = dict[@"resultMsg"];
-         
-         [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"%@",resultMsg]];
-         
-         //保存注册信息
-         [self saveUserInfo:dict[@"userInfo"]];
-         */
-        /*
-         */
-        
+        return @{
+                 @"ID":@"id",
+                 };
     }];
     
+    //注册创建cell ,这样注册就不用在XIB设置ID
+    [self.tableView registerNib:[UINib nibWithNibName:@"NotificationTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
 }
--(NSString *) md5: (NSString *) inPutText
-{
-    const char *cStr = [inPutText UTF8String];
-    unsigned char result[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(cStr, strlen(cStr), result);
-    
-    return [[NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
-             result[0], result[1], result[2], result[3],
-             result[4], result[5], result[6], result[7],
-             result[8], result[9], result[10], result[11],
-             result[12], result[13], result[14], result[15]
-             ] lowercaseString];
-}
+
+
 
 
 
@@ -229,34 +55,65 @@ NSMutableArray *_friendsArray;
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _friendsArray.count;
+    return self.models.count;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellID = @"cellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-
-    if (cell==nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        
-           }
-
+   
+    NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    
+    NotificationModel *model = self.models[indexPath.section];
+    
+    cell.model = model;
+    
     return cell;
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)loadData{
+    
+    NSString *timestamp = [MyMD5 timestamp];
+    NSString *appkey = MD5key;
+    
+    NSString * pageNum = @"1";
+    NSString* pageSize = @"99";
+    
+    NSLog(@"pageSize=%@,pageNum=%@,timestamp=%@",pageNum,pageNum,timestamp);
+    
+    NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&type=%@&userId=%@&key=%@",pageNum,pageSize,timestamp,@"0",@"iijq9f1r7apprtab",appkey];
+    
+    NSLog(@"%@",signmsg);
+    
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+    
+    NSLog(@"signmsgMD5=%@",signmsgMD5);
+    
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"userId" : @"iijq9f1r7apprtab",
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5,
+                           @"pageNum" : pageNum,
+                           @"pageSize" :pageSize,
+                           @"type"     :@"0"
+                           };
+    
+    NSString *url = @"http://192.168.1.69:8001/app/information.do";
+    
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        NSLog(@"%@",modelDict);
+        self.models = [NotificationModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
+        
+        
+        
+        //在主线程刷新UI数据
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            [self.tableView reloadData];
+            
+        }];
+    }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
