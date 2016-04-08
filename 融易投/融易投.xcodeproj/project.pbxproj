@@ -151,7 +151,6 @@
 		E236C31E1CB4E0F9009DCBF0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E236C31D1CB4E0F9009DCBF0 /* Security.framework */; };
 		E236C3241CB4E27E009DCBF0 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E236C3231CB4E27E009DCBF0 /* PushConfig.plist */; };
 		E236C3321CB4F653009DCBF0 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E236C3301CB4F653009DCBF0 /* NotificationController.m */; };
-		E236C3331CB4F653009DCBF0 /* NotificationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E236C3311CB4F653009DCBF0 /* NotificationController.xib */; };
 		E236C3371CB4F6D0009DCBF0 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E236C3351CB4F6D0009DCBF0 /* MessageTableViewController.m */; };
 		E236C3381CB4F6D0009DCBF0 /* MessageTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E236C3361CB4F6D0009DCBF0 /* MessageTableViewController.storyboard */; };
 		E2ABF0B11CB63C090005571F /* CommentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ABF0AF1CB63C090005571F /* CommentsController.m */; };
@@ -394,7 +393,6 @@
 		E236C3231CB4E27E009DCBF0 /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
 		E236C32F1CB4F653009DCBF0 /* NotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
 		E236C3301CB4F653009DCBF0 /* NotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
-		E236C3311CB4F653009DCBF0 /* NotificationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationController.xib; sourceTree = "<group>"; };
 		E236C3341CB4F6D0009DCBF0 /* MessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewController.h; sourceTree = "<group>"; };
 		E236C3351CB4F6D0009DCBF0 /* MessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewController.m; sourceTree = "<group>"; };
 		E236C3361CB4F6D0009DCBF0 /* MessageTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessageTableViewController.storyboard; sourceTree = "<group>"; };
@@ -1044,7 +1042,6 @@
 			children = (
 				E236C32F1CB4F653009DCBF0 /* NotificationController.h */,
 				E236C3301CB4F653009DCBF0 /* NotificationController.m */,
-				E236C3311CB4F653009DCBF0 /* NotificationController.xib */,
 			);
 			name = "通知";
 			sourceTree = "<group>";
@@ -1495,7 +1492,6 @@
 				E2ABF0B21CB63C090005571F /* CommentsController.xib in Resources */,
 				21D54BBF1CB796B40088D386 /* chat_bottom_keyboard_press.png in Resources */,
 				E2D73DC31CAD2CA9004CEFA3 /* RegViewController.xib in Resources */,
-				E236C3331CB4F653009DCBF0 /* NotificationController.xib in Resources */,
 				E236C30B1CB4B64D009DCBF0 /* denglu_weixindianji@2x.png in Resources */,
 				E236C2E61CB4B64D009DCBF0 /* jibenziliao_xuanzhong_nan@2x.png in Resources */,
 				E236C3071CB4B64D009DCBF0 /* denglu_fenggexian374@2x.png in Resources */,
