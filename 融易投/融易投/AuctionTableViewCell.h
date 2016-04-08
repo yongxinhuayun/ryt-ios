@@ -16,6 +16,15 @@
 
 @property (nonatomic, strong) AuctionModel *model;
 
+/** 拍卖后-整体 */
+@property (weak, nonatomic) IBOutlet UIView *auctionAfterView;
+
+/** 拍卖中-整体 */
+@property (weak, nonatomic) IBOutlet UIView *auctingView;
+
+/** 拍卖前-整体 */
+@property (weak, nonatomic) IBOutlet UIView *auctionBeforeView;
+
 //自动计算cell的高度
 -(CGFloat)cellHeight;
 

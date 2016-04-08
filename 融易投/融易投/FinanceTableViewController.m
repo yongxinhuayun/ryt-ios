@@ -225,7 +225,7 @@ static NSString *ID = @"financeCell";
     NSLog(@"%@",strArray.firstObject);
     
     //参数
-    NSString *pageSize = @"1";
+    NSString *pageSize = @"20";
     
     int newPageNum = self.lastPageNum.intValue + 1;
     

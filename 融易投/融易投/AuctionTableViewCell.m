@@ -21,23 +21,17 @@
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *userInfo;
 
-/** 拍卖-整体 */
-@property (weak, nonatomic) IBOutlet UIView *auctionView;
-
 /** 拍卖前-整体 */
-@property (weak, nonatomic) IBOutlet UIView *auctionBeforeView;
 @property (weak, nonatomic) IBOutlet UILabel *auctionTimeLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *auctionTimeLabel2;
 
 /** 拍卖中-整体 */
-@property (weak, nonatomic) IBOutlet UIView *auctingView;
 @property (weak, nonatomic) IBOutlet UILabel *auctionMoney;
 @property (weak, nonatomic) IBOutlet UILabel *auctionNum;
 @property (weak, nonatomic) IBOutlet UILabel *auctionUpdateTime;
 
 
 /** 拍卖后-整体 */
-@property (weak, nonatomic) IBOutlet UIView *auctionAfterView;
 @property (weak, nonatomic) IBOutlet UILabel *auctionUser;
 @property (weak, nonatomic) IBOutlet UILabel *strikePrice;
 
@@ -62,10 +56,11 @@
     
     [self.bgImageView sd_setImageWithURL:picture_urlURL placeholderImage:[UIImage imageNamed:@"基本资料-未传头像"]];
     
-    model.step = @"31";
+    model.step = @"30";
     
     if ([model.step isEqualToString:@"30"]) {
         
+        self.auctionBeforeView.hidden = NO;
         self.auctingView.hidden = YES;
         self.auctionAfterView.hidden = YES;
         
@@ -92,6 +87,7 @@
         
     }else if ([model.step isEqualToString:@"31"]){
         
+        self.auctingView.hidden = NO;
         self.auctionBeforeView.hidden = YES;
         self.auctionAfterView.hidden = YES;
         
@@ -101,6 +97,7 @@
         
     }else if ([model.step isEqualToString:@"32"]) {
         
+        self.auctionAfterView.hidden = NO;
         self.auctionBeforeView.hidden = YES;
         self.auctingView.hidden = YES;
         
@@ -109,7 +106,9 @@
         
     }else {
         
-        self.auctionView.hidden = YES;
+        self.auctionAfterView.hidden = YES;
+        self.auctionBeforeView.hidden = YES;
+        self.auctingView.hidden = YES;
     }
     
     //创作标题
@@ -131,10 +130,8 @@
 //把系统的分割线去除,然后把控制器的的颜色改成要设置分割线的颜色
 -(void)setFrame:(CGRect)frame
 {
-    frame.size.height -= 1;
+    frame.size.height -= SSMargin * 2;
     
-    //设置每个cell之间有个10的间距
-    frame.size.height -= SSMargin;
     //设置每个cell离屏幕间距为10
     frame.origin.x += SSMargin;
     //因为x向右移动了10,所以cell的左边距离屏幕为10,但是为了保证cell的右边为10,应该设置为2 * 10.因为cell向右移动了10,所以屏幕的右边还是有10的cell,所以为了保证cell的右边距离屏幕为10,应该为2倍的间距
@@ -144,11 +141,28 @@
 }
 
 -(CGFloat)cellHeight{
+    
+    
     // 重新调用内部布局
     [self layoutIfNeeded];
     
+    if (self.auctionBeforeView.hidden == YES) {
+        
+        return self.auctionBeforeView.height;
+        
+    }else if(self.auctingView.hidden == YES){
     
-    return SSMargin + 200 + 20 + 50 +20 + self.auctingView.frame.size.height;
+        return SSMargin * 12 + self.auctingView.height;
+        
+    }else if(self.auctionAfterView.hidden == YES){
+        
+        return self.auctionAfterView.height;
+        
+    }else {
+    
+        return SSMargin;
+    }
+    
 }
 
 
