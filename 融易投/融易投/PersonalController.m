@@ -27,94 +27,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)loadData
-{
-    //时间
-    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
-    NSTimeInterval a =[date timeIntervalSince1970] * 1000;
-    NSString *timeString = [NSString stringWithFormat:@"%f", a];
+
+-(void)loadData{
     
-    NSArray *strArray = [timeString componentsSeparatedByString:@"."];
     
-    NSLog(@"%@",strArray.firstObject);
     
-    //参数
-    //    NSString *username = self.phoneNumTextField.text;
-    //    NSString *password = self.passWordTextField.text;
-    NSString *timestamp = strArray.firstObject;
-    
-    NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
-    NSArray *arra = @[@"userId",@"timestamp",@"signmsg",@"type",@"pageSize",@"pageNum"];
-    
-    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
-    NSLog(@"%@",sortArr);
-    
-    NSString * pageNum = @"1";
-    NSString* pageSize = @"1";
-    
-    NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&type=%@&userId=%@&key=%@",pageNum,pageSize,timestamp,@"2",@"iijqf1r7apprtab",appkey];
-    
-    NSLog(@"%@",signmsg);
-    NSLog(@"");
-    NSString *signmsgMD5 = [self md5:signmsg];
-    
-    //对key进行自然排序
-    //    for (NSString *s in [dict allKeys]) {
-    //        NSLog(@"value: %@", s);
-    //    }
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/information.do"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = @"POST";
-    
-    // 2.设置请求头
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    // 3.设置请求体
-    NSDictionary *json = @{
-                           @"userId" : @"iijqf1r7apprtab",
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5,
-                           @"pageNum" : @"1",
-                           @"pageSize" :@"1",
-                           @"type"     :@"2"
-                           };
-    
-    //    NSData --> NSDictionary
-    // NSDictionary --> NSData
-    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
-    request.HTTPBody = data;
-    
-    // 4.发送请求
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        
-        NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",obj);
-        
-        /*
-         
-         //字典转模型暂时不需要
-         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-         //
-         NSArray *registerArray = dict[@"userInfo"];
-         //
-         self.registers = [registerModel mj_objectArrayWithKeyValuesArray:registerArray];
-         
-         //提示用户信息
-         NSString *resultMsg = dict[@"resultMsg"];
-         
-         [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"%@",resultMsg]];
-         
-         //保存注册信息
-         [self saveUserInfo:dict[@"userInfo"]];
-         */
-        /*
-         */
-        
-    }];
-    
-}-(NSString *) md5: (NSString *) inPutText
+}
+
+-(NSString *) md5: (NSString *) inPutText
 {
     const char *cStr = [inPutText UTF8String];
     unsigned char result[CC_MD5_DIGEST_LENGTH];

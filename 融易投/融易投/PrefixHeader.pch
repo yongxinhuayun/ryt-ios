@@ -25,6 +25,9 @@
 #import "NSCalendar+Init.h"
 #import "NSDate+Interval.h"
 
+#import "UIImage+StrethImage.h"
+#import "NSString+DocumentPath.h"
+
 
 // 自定义Log
 #ifdef DEBUG
