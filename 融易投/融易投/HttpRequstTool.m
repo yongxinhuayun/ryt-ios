@@ -70,6 +70,44 @@ static HttpRequstTool *requstTool=nil ;
     }];
 }
 
+-(void)handlerNetworkingPOSTRequstWithServerUrl:(NSString *)server_url  Parameters:(id )param constructingBodyWithBlock:(id)constructingBodyWithBlock showHUDView:(UIView *)view  success:(requstSuccessBlock )successBlock{
+
+    if (!server_url)
+    {
+        return;
+    }
+    if (view) {
+        
+        [MBProgressHUD showHUDAddedTo:view animated:YES];
+    }
+    
+    //    __weak HttpRequstTool *weakself=self;
+    NSURL *requstURL=[NSURL URLWithString: server_url];
+    NSLog(@"参数:%@",param);
+    NSLog(@"%@",requstURL);
+    
+    // 设置请求格式
+    self.sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
+    // 设置返回格式
+    self.sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+
+    [self.sessionManager POST:requstURL.absoluteString parameters:param constructingBodyWithBlock:constructingBodyWithBlock progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        [MBProgressHUD hideHUDForView:view animated:YES];
+        successBlock(responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        NSLog(@"%@",error);
+        if (view) {
+            
+            [MBProgressHUD hideHUDForView:view animated:YES];
+        }
+        
+    }];
+}
+
 -(void)handlerNetworkingGETRequstWithServerUrl:(NSString *)server_url  Parameters:(NSDictionary *)param showHUDView:(UIView *)view  success:(requstSuccessBlock )successBlock
 {
     
