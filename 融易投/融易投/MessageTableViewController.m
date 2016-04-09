@@ -7,14 +7,16 @@
 //
 
 #import "MessageTableViewController.h"
-#import <CommonCrypto/CommonDigest.h>
-#import <CommonCrypto/CommonHMAC.h>
+
 
 #import "CommentsController.h"
-//#import "PersonalController.h"
+
 #import "NotificationController.h"
 
+#import "PrivateLetterViewController.h"
+
 @interface MessageTableViewController ()
+
 - (IBAction)NaThings:(id)sender;
 
 - (IBAction)pingLunThings:(id)sender;
@@ -62,7 +64,7 @@
                          ,appkey];
     NSLog(@"%@",signmsg);
     
-    NSString *signmsgMD5 = [self md5:signmsg];
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
     
     //对key进行自然排序
     //    for (NSString *s in [dict allKeys]) {
@@ -101,33 +103,21 @@
     }];
 }
 
--(NSString *) md5: (NSString *) inPutText
-{
-    const char *cStr = [inPutText UTF8String];
-    unsigned char result[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(cStr, strlen(cStr), result);
-    
-    return [[NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
-             result[0], result[1], result[2], result[3],
-             result[4], result[5], result[6], result[7],
-             result[8], result[9], result[10], result[11],
-             result[12], result[13], result[14], result[15]
-             ] lowercaseString];
-}
-
-
 - (IBAction)NaThings:(id)sender {
+    
     NotificationController *NoController = [NotificationController new];
     [self.navigationController pushViewController:NoController animated:YES];
     
 }
 - (IBAction)pingLunThings:(id)sender {
+    
     CommentsController *commentsController = [CommentsController new];
     [self.navigationController pushViewController:commentsController animated:YES];
 }
 
 - (IBAction)singxinThings:(id)sender {
-//    PersonalController *personalThings = [PersonalController new];
-//    [self.navigationController pushViewController:personalThings animated:YES];
+
+    PrivateLetterViewController *privateLetterVC = [[PrivateLetterViewController alloc] init];
+    [self.navigationController pushViewController:privateLetterVC animated:YES];
 }
 @end
