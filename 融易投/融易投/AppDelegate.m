@@ -169,8 +169,8 @@ static BOOL isProduction = FALSE;
         //self.window.rootViewController = [RegViewController new];
         //self.window.rootViewController = [PersonalController new];
     
-    //self.window.rootViewController = tabBarController;
-      self.window.rootViewController = [AliPayController new];
+    self.window.rootViewController = tabBarController;
+//      self.window.rootViewController = [AliPayController new];
     //3.显示窗口
     [self.window makeKeyAndVisible];
     return YES;
@@ -260,6 +260,7 @@ static BOOL isProduction = FALSE;
     //Optional
     NSLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
 }
+
 - (NSString *)logDic:(NSDictionary *)dic {
     if (![dic count]) {
         return nil;

@@ -69,6 +69,7 @@
 
 
 - (IBAction)CompleteUserInfoBtnClick:(id)sender {
+    
     CompleteUserInfoController *userInfo  = [[CompleteUserInfoController alloc] init];
     [self.navigationController pushViewController:userInfo animated:YES];
 }

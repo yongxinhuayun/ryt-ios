@@ -7,63 +7,78 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompleteUserInfoController">
             <connections>
-                <outlet property="imageView" destination="B2v-tD-uGZ" id="enU-SF-VWu"/>
-                <outlet property="nicknameTextField" destination="23Q-gA-wBO" id="I71-vE-nPD"/>
-                <outlet property="sexBtn" destination="ZGt-yQ-QfQ" id="GTT-jb-Gtt"/>
-                <outlet property="sexLabel" destination="S8D-sO-0Mj" id="Yqr-bb-4RD"/>
-                <outlet property="usernameTextField" destination="IM9-Yn-OzN" id="U3V-sv-lKU"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="imageView" destination="qp1-N4-VQg" id="fYk-um-lL2"/>
+                <outlet property="nicknameTextField" destination="RuK-CY-fRw" id="Xfk-ks-8dt"/>
+                <outlet property="view" destination="tMa-eL-7Mp" id="5HF-CX-vKK"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="tMa-eL-7Mp">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18513234278" borderStyle="roundedRect" placeholder="请输入账号:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IM9-Yn-OzN">
-                    <rect key="frame" x="61" y="230" width="203" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGt-yQ-QfQ">
-                    <rect key="frame" x="71" y="346" width="206" height="30"/>
-                    <state key="normal" title="  性别:"/>
-                    <connections>
-                        <action selector="uploadSexBtnClick:" destination="-1" eventType="touchUpInside" id="l4K-IK-8yr"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="女" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8D-sO-0Mj">
-                    <rect key="frame" x="252" y="350" width="17" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="女" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djo-eR-iG8">
+                    <rect key="frame" x="269" y="374" width="17" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxc-s5-Atf">
-                    <rect key="frame" x="144" y="168" width="60" height="30"/>
-                    <state key="normal" title="上传头像"/>
-                    <connections>
-                        <action selector="uploadIconBtnClick:" destination="-1" eventType="touchUpInside" id="TgP-TA-zKK"/>
-                    </connections>
-                </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B2v-tD-uGZ">
-                    <rect key="frame" x="119" y="51" width="100" height="100"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="男" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5q-dA-ZgZ">
+                    <rect key="frame" x="170" y="368" width="17" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qp1-N4-VQg">
+                    <rect key="frame" x="147.5" y="150" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="BDu-sv-cwg"/>
+                        <constraint firstAttribute="height" constant="80" id="Hp6-pG-aJP"/>
+                    </constraints>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="王梦思" borderStyle="roundedRect" placeholder="请输入昵称:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="23Q-gA-wBO">
-                    <rect key="frame" x="61" y="288" width="203" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称" minimumFontSize="17" background="denglu_shurukuang@x.png" translatesAutoresizingMaskIntoConstraints="NO" id="RuK-CY-fRw">
+                    <rect key="frame" x="71" y="240" width="187" height="44"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgb-rH-LSf">
-                    <rect key="frame" x="61" y="397" width="203" height="30"/>
-                    <state key="normal" title="完成"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="性别" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkv-cp-p5F">
+                    <rect key="frame" x="79" y="304" width="34" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jibenziliao_xuanzhong_nan" translatesAutoresizingMaskIntoConstraints="NO" id="jql-TH-YUV">
+                    <rect key="frame" x="150" y="292" width="57" height="55"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jibenziliao_xuanzhong_nv" translatesAutoresizingMaskIntoConstraints="NO" id="ecU-c5-ovI">
+                    <rect key="frame" x="244" y="292" width="57" height="55"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3e6-bj-2bf">
+                    <rect key="frame" x="71" y="434" width="259" height="47"/>
+                    <state key="normal" title="完成" backgroundImage="jibenziliao_anniu">
+                        <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="72" y="317" width="187" height="44"/>
+                    </variation>
                     <connections>
-                        <action selector="completeBtnClick:" destination="-1" eventType="touchUpInside" id="gZb-dH-Gv4"/>
+                        <action selector="completeBtnClick:" destination="-1" eventType="touchUpInside" id="zUH-Xu-xOn"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="qp1-N4-VQg" firstAttribute="top" secondItem="tMa-eL-7Mp" secondAttribute="top" constant="150" id="1ec-5t-prK"/>
+                <constraint firstItem="qp1-N4-VQg" firstAttribute="centerX" secondItem="tMa-eL-7Mp" secondAttribute="centerX" id="UXn-Az-ZAA"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="184.5" y="225.5"/>
+            <point key="canvasLocation" x="202.5" y="224.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="denglu_shurukuang@x.png" width="374" height="80"/>
+        <image name="jibenziliao_anniu" width="187" height="47"/>
+        <image name="jibenziliao_xuanzhong_nan" width="41" height="41"/>
+        <image name="jibenziliao_xuanzhong_nv" width="41" height="41"/>
+    </resources>
 </document>
