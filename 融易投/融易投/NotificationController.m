@@ -104,8 +104,6 @@ static NSString *cellID = @"cellID";
         NSLog(@"%@",modelDict);
         self.models = [NotificationModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
         
-        
-        
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             

@@ -13,7 +13,7 @@
 
 
 @interface NotificationTableViewCell ()
-@property (weak, nonatomic) IBOutlet UILabel *idLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *createDatetimeLabel;
 //@property (weak, nonatomic) IBOutlet UIImageView *userIcon;
@@ -32,7 +32,7 @@
     [formatter setDateFormat:@"yyyy-MM-dd HH-mm"];
     NSString *timeStr=[formatter stringFromDate:newCreationEmdTimesp];
     
-    self.idLabel.text = model.ID;
+//    self.idLabel.text = model.ID;
     self.contentLabel.text = model.content;
     self.createDatetimeLabel.text = timeStr;
     

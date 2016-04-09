@@ -14,6 +14,7 @@
 /** 通知内容 */
 @property (nonatomic ,strong) NSString *content;
 
+
 /** 通知时间 */
 @property (nonatomic ,strong) NSString *createDatetime;
 
