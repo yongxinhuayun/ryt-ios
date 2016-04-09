@@ -91,14 +91,14 @@
     self.navigationItem.title = @"基本资料";
     
     //设置导航条按钮
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"jibenziliao_guanbi"] highImage:nil target:self action:@selector(dismissVc)];
+//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"jibenziliao_guanbi"] highImage:nil target:self action:@selector(dismissVc)];
 }
 
 // 点击标签按钮,进入标签界面
-- (void)dismissVc {
-    
-    [self.navigationController popViewControllerAnimated:YES];
-}
+//- (void)dismissVc {
+//    
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     

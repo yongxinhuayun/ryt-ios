@@ -7,14 +7,12 @@
 //
 
 #import "RegViewController.h"
-#import <CommonCrypto/CommonDigest.h>
-#import <CommonCrypto/CommonHMAC.h>
 
 #import "SVProgressHUD.h"
 #import "MJExtension.h"
 #import "registerModel.h"
 
-@interface RegViewController ()
+@interface RegViewController () <UITextFieldDelegate>
 
 //控件
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumTextField;
@@ -44,14 +42,23 @@
                  };
     }];
     
+    //设置导航条
     [self setUpNavBar];
+    
+    //监听验证输入框的状态
+    self.verifyCodeTextField.delegate = self;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+
+    [self loadDataAuth];
 }
 
 // 设置导航条
 -(void)setUpNavBar
 {
     //设置导航条标题
-    self.navigationItem.title = @"快速注册";
+    self.navigationItem.title = @"加入融艺投";
 }
 
 
@@ -61,18 +68,17 @@
 }
 
 
-
+//注册
 - (IBAction)regBtn:(id)sender {
     [self loadData];
 }
 
+//发送验证码
 - (IBAction)geName:(id)sender {
     [self loadDataget];
 }
 
-- (IBAction)authBtb:(id)sender {
-    [self loadDataAuth];
-}
+
 
 
 -(void)loadData
@@ -99,12 +105,8 @@
     NSString *signmsg = [NSString stringWithFormat:@"password=%@&timestamp=%@&username=%@&key=%@",password,timestamp,username,appkey];
     NSLog(@"%@",signmsg);
     
-    NSString *signmsgMD5 = [self md5:signmsg];
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
     
-    //对key进行自然排序
-    //    for (NSString *s in [dict allKeys]) {
-    //        NSLog(@"value: %@", s);
-    //    }
     
     NSLog(@"signmsgMD5=%@",signmsgMD5);
     
@@ -205,7 +207,7 @@
     NSString *signmsg = [NSString stringWithFormat:@"timestamp=%@&username=%@&key=%@",timestamp,username,appkey];
     NSLog(@"%@",signmsg);
     
-    NSString *signmsgMD5 = [self md5:signmsg];
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
     
     //对key进行自然排序
     //    for (NSString *s in [dict allKeys]) {
@@ -270,7 +272,7 @@
     NSString *signmsg = [NSString stringWithFormat:@"code=%@&timestamp=%@&username=%@&key=%@",code,timestamp,username,appkey];
     NSLog(@"%@",signmsg);
     
-    NSString *signmsgMD5 = [self md5:signmsg];
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
     
     //对key进行自然排序
     //    for (NSString *s in [dict allKeys]) {
@@ -310,18 +312,6 @@
     
 }
 
--(NSString *) md5: (NSString *) inPutText
-{
-    const char *cStr = [inPutText UTF8String];
-    unsigned char result[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(cStr, strlen(cStr), result);
-    
-    return [[NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
-             result[0], result[1], result[2], result[3],
-             result[4], result[5], result[6], result[7],
-             result[8], result[9], result[10], result[11],
-             result[12], result[13], result[14], result[15]
-             ] lowercaseString];
-}
+
 
 @end

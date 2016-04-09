@@ -24,7 +24,7 @@
     
     NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
     
-    attributes[NSFontAttributeName] = [UIFont boldSystemFontOfSize:15];
+    attributes[NSFontAttributeName] = [UIFont boldSystemFontOfSize:17];
     
     [navigationBar setTitleTextAttributes:attributes];
     
@@ -61,7 +61,7 @@
         // 不是根控制器
         // 设置返回按钮
         // 设置返回按钮,左边按钮
-        UIBarButtonItem *backItem = [UIBarButtonItem backItemWithImage:[UIImage imageNamed:@"基本资料-返回"] highImage:[UIImage imageNamed:@"基本资料-返回"] target:self action:@selector(back) norColor:[UIColor blackColor] highColor:[UIColor redColor] title:@""];
+        UIBarButtonItem *backItem = [UIBarButtonItem backItemWithImage:[UIImage imageNamed:@"jibenziliao_fanhui"] highImage:nil target:self action:@selector(back) norColor:[UIColor blackColor] highColor:[UIColor redColor] title:@""];
         
         //        NSLog(@"覆盖之前---%@",self.interactivePopGestureRecognizer);
         //        NSLog(@"覆盖之前---%@",self.interactivePopGestureRecognizer.delegate);
