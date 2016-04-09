@@ -18,8 +18,9 @@
 #import "NotificationController.h"
 #import "CommentsController.h"
 #import "RegViewController.h"
-//#import "PersonalController.h"
 #import "MessageTableViewController.h"
+
+#import "AliPayController.h"
 
 static NSString *appKey = @"d1573e16403c2482826bbd35";
 static NSString *channel = @"Publish channel";
@@ -168,8 +169,8 @@ static BOOL isProduction = FALSE;
         //self.window.rootViewController = [RegViewController new];
         //self.window.rootViewController = [PersonalController new];
     
-    self.window.rootViewController = tabBarController;
-      //self.window.rootViewController = [MessageController new];
+    //self.window.rootViewController = tabBarController;
+      self.window.rootViewController = [AliPayController new];
     //3.显示窗口
     [self.window makeKeyAndVisible];
     return YES;

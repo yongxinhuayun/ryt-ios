@@ -30,6 +30,7 @@
     NSDate *newCreationEmdTimesp = [NSDate dateWithTimeIntervalSince1970:investInteral];
     NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"yyyy-MM-dd HH-mm"];
+    NSLog(@"nimei");
     NSString *timeStr=[formatter stringFromDate:newCreationEmdTimesp];
     
     self.idLabel.text = model.ID;
