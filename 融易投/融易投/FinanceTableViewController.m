@@ -23,6 +23,8 @@
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 
+#import "FinanceDetailViewController.h"
+
 @interface FinanceTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray *models;
@@ -381,6 +383,17 @@ static NSString *ID = @"financeCell";
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 378;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+//    FinanceModel *model = self.models[indexPath.row];
+    
+    FinanceDetailViewController *financeDetailVC = [[FinanceDetailViewController alloc] init];
+    
+    [self.navigationController pushViewController:financeDetailVC animated:YES];
+    
 }
 
 @end

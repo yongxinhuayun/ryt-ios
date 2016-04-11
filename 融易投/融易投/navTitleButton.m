@@ -18,7 +18,7 @@
         self.titleLabel.font = [UIFont systemFontOfSize:15];
         
         //设置选中颜色
-        [self setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        [self setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
         //设置正常状态下的颜色
         [self setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         

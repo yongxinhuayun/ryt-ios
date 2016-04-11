@@ -17,10 +17,7 @@
 
 @interface MessageTableViewController ()
 
-- (IBAction)NaThings:(id)sender;
 
-- (IBAction)pingLunThings:(id)sender;
-- (IBAction)singxinThings:(id)sender;
 @end
 
 @implementation MessageTableViewController
@@ -103,21 +100,26 @@
     }];
 }
 
-- (IBAction)NaThings:(id)sender {
-    
-    NotificationController *NoController = [NotificationController new];
-    [self.navigationController pushViewController:NoController animated:YES];
-    
-}
-- (IBAction)pingLunThings:(id)sender {
-    
-    CommentsController *commentsController = [CommentsController new];
-    [self.navigationController pushViewController:commentsController animated:YES];
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        
+        NotificationController *NoController = [NotificationController new];
+        [self.navigationController pushViewController:NoController animated:YES];
+        
+    } else if (indexPath.section == 1) {
+        
+        CommentsController *commentsController = [CommentsController new];
+        [self.navigationController pushViewController:commentsController animated:YES];
+        
+    } else if (indexPath.section == 2) {
+        
+        PrivateLetterViewController *privateLetterVC = [[PrivateLetterViewController alloc] init];
+        [self.navigationController pushViewController:privateLetterVC animated:YES];
+
+    }
+
 }
 
-- (IBAction)singxinThings:(id)sender {
-
-    PrivateLetterViewController *privateLetterVC = [[PrivateLetterViewController alloc] init];
-    [self.navigationController pushViewController:privateLetterVC animated:YES];
-}
 @end

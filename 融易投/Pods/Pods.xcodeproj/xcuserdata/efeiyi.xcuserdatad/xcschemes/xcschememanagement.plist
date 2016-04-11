@@ -23,22 +23,21 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>0</integer>
 		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
+		</dict>
+		<key>SCRecorder.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
@@ -49,23 +48,26 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
+		</dict>
+		<key>WechatShortVideo.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4559D280BEDED8FF4BBA057ADA070512</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>8F74D9EA91F4C43190670066BAC37D44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>998A74E6FF3C625E8B0D891DE6356BBB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -80,12 +82,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D7BB889525DF6EF9A01BA2DAD992D28A</key>
+		<key>CCB90C4880A6D8F140E114CB98BE645F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FE20FED1DBD8182E054199CEBDEF6B94</key>
+		<key>D255649623271D5A2CAC9A0C3429F71C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E41CD1104DAA455A733D45F854629D1C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EAE473AC027F507E4350494402E3FC67</key>
 		<dict>
 			<key>primary</key>
 			<true/>

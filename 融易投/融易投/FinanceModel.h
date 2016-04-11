@@ -25,6 +25,9 @@
 /** 主题 */
 @property (nonatomic ,strong) NSString *title;
 
+/** 项目描述 */
+@property (nonatomic ,strong) NSString *brief;
+
 /** 融资目标金额 */
 @property (nonatomic ,assign) NSInteger investGoalMoney;
 

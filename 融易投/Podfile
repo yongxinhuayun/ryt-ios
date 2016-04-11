@@ -9,4 +9,5 @@ pod 'MJExtension', '~> 3.0.7'
 pod 'SVProgressHUD', '~> 2.0.2'
 
 pod 'FMDB'
+pod 'WechatShortVideo'
 

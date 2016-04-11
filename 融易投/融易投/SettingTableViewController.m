@@ -31,17 +31,14 @@
     
     [self setUpNavBar];
     
-
-//    [SVProgressHUD showWithStatus:@"正在计算缓存尺寸..."];
+    [SVProgressHUD showWithStatus:@"正在计算缓存尺寸..."];
     
     // 获取cachePath文件缓存
     [self getFileCacheSizeWithPath:self.cachePath completion:^(NSInteger total) {
         
         _total = total;
         
-
-//        
-//        [SVProgressHUD dismiss];
+        [SVProgressHUD dismiss];
         
         self.cachesTotalLabel.text = [self getSizeStr];
         
@@ -61,7 +58,7 @@
 
 - (NSString *)getSizeStr
 {
-    NSString *cacheStr = @"清除缓存";
+    NSString *cacheStr = @"";
     if (_total) {
         CGFloat totalF = _total;
         NSString *unit = @"B";
@@ -73,7 +70,8 @@
             totalF = _total / 1000.0 ;
         }
         
-        cacheStr = [NSString stringWithFormat:@"%@(%.1f%@)",cacheStr,totalF,unit];
+//        cacheStr = [NSString stringWithFormat:@"%@(%.1f%@)",cacheStr,totalF,unit];
+        cacheStr = [NSString stringWithFormat:@"%.1f%@",totalF,unit];
     }
     
     return cacheStr;
@@ -81,28 +79,40 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.section == 3) {
-        [self removeCacheBtnClick:nil];
+    if (indexPath.section == 0) {
+        
+        
+        
+    } else if (indexPath.section == 1) {
+        
+        
+        
+    } else if (indexPath.section == 2) {
+        
+        
+    }else if (indexPath.section == 3) {
+        
+        [SVProgressHUD showWithStatus:@"正在删除..."];
+        
+        // 清空缓存,就是把Cache文件夹直接删掉
+        // 删除比较耗时
+        [self removeCacheWithCompletion:^{
+            
+            _total = 0;
+            
+            [self.tableView reloadData];
+            
+            [SVProgressHUD dismiss];
+            
+            self.cachesTotalLabel.text = @"";
+            
+        }];
+
     }
 
+
 }
 
-- (IBAction)removeCacheBtnClick:(id)sender {
-    
-    [SVProgressHUD showWithStatus:@"正在删除..."];
-    
-    // 清空缓存,就是把Cache文件夹直接删掉
-    // 删除比较耗时
-    [self removeCacheWithCompletion:^{
-        
-        _total = 0;
-        
-        [self.tableView reloadData];
-        
-        [SVProgressHUD dismiss];
-    }];
-    
-}
 
 
 @end

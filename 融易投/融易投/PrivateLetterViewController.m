@@ -163,6 +163,10 @@ static NSString *const cellIdentifier=@"QQChart";
     cellFrame.chartMessage=chartMessage;
     
     [self.cellFrames addObject:cellFrame];
+    
+    //发送给后台
+    [self sendPrivateLetter:textFiled];
+    
     [self.tableView reloadData];
     
     //滚动到当前行
@@ -170,11 +174,15 @@ static NSString *const cellIdentifier=@"QQChart";
     
     //在此处调用服务器的接口
 //    textFiled.text = @"";
+}
+
+-(void)sendPrivateLetter:(UITextField *)textFiled {
+
     
     //参数
     NSString *content = textFiled.text;
-    NSString *targetUserId = @"1";
-    NSString *fromUserId = @"";
+    NSString *targetUserId = @"imhipoyk18s4k52u";
+    NSString *fromUserId = @"imhipoyk18s4k52u";
     NSString *timestamp = [MyMD5 timestamp];
     NSString *appkey = MD5key;
     
@@ -196,21 +204,15 @@ static NSString *const cellIdentifier=@"QQChart";
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.69:8001/app/pushMessage.do";
+//    NSString *url = @"http://192.168.1.69:8001/app/pushMessage.do";
+   
+     NSString *url = @"http://j.efeiyi.com:8080/app-wikiServer/app/pushMessage.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
         
-//        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-//        
-//        self.models = [InvestorModel mj_objectArrayWithKeyValuesArray:modelDict[@"InvestorTopList"]];
-//        
-//        NSLog(@"11111111111111%@",self.models);
-        
-        //4. 刷新数据
-        //        [self.tableView reloadData];
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -220,8 +222,9 @@ static NSString *const cellIdentifier=@"QQChart";
         }];
     }];
 
-    
+
 }
+
 -(void)KeyBordView:(KeyBordVIew *)keyBoardView textFiledBegin:(UITextField *)textFiled
 {
     [self tableViewScrollCurrentIndexPath];
@@ -279,11 +282,16 @@ static NSString *const cellIdentifier=@"QQChart";
 }
 -(void)tableViewScrollCurrentIndexPath
 {
-    if (self.cellFrames.count > 1) {
-        
-        NSIndexPath *indexPath=[NSIndexPath indexPathForRow:self.cellFrames.count-1 inSection:0];
-        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-    }
+//    if (self.cellFrames.count > 1) {
+//        
+//        NSIndexPath *indexPath=[NSIndexPath indexPathForRow:self.cellFrames.count-1 inSection:0];
+//        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+//    }
+    
+    if(self.cellFrames.count == 0) return;
+    
+    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:self.cellFrames.count-1 inSection:0];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 -(void)initPlayer{

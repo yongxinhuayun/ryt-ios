@@ -60,10 +60,28 @@ install_resource()
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
+  install_resource "WechatShortVideo/WechatShortVideo/WechatShortVideoController.xib"
+  install_resource "WechatShortVideo/WechatShortVideo/Resources/WechatShortVideo_37x-Checkmark.png"
+  install_resource "WechatShortVideo/WechatShortVideo/Resources/WechatShortVideo_37x-Checkmark@2x.png"
+  install_resource "WechatShortVideo/WechatShortVideo/Resources/WechatShortVideo_close.png"
+  install_resource "WechatShortVideo/WechatShortVideo/Resources/WechatShortVideo_close@2x.png"
+  install_resource "WechatShortVideo/WechatShortVideo/Resources/WechatShortVideo_close@3x.png"
+  install_resource "WechatShortVideo/WechatShortVideo/Resources/WechatShortVideo_scan_focus.png"
+  install_resource "WechatShortVideo/WechatShortVideo/Resources/WechatShortVideo_scan_focus@2x.png"
+  install_resource "WechatShortVideo/WechatShortVideo/Resources/WechatShortVideo_scan_focus@3x.png"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
+  install_resource "WechatShortVideo/WechatShortVideo/WechatShortVideoController.xib"
+  install_resource "WechatShortVideo/WechatShortVideo/Resources/WechatShortVideo_37x-Checkmark.png"
+  install_resource "WechatShortVideo/WechatShortVideo/Resources/WechatShortVideo_37x-Checkmark@2x.png"
+  install_resource "WechatShortVideo/WechatShortVideo/Resources/WechatShortVideo_close.png"
+  install_resource "WechatShortVideo/WechatShortVideo/Resources/WechatShortVideo_close@2x.png"
+  install_resource "WechatShortVideo/WechatShortVideo/Resources/WechatShortVideo_close@3x.png"
+  install_resource "WechatShortVideo/WechatShortVideo/Resources/WechatShortVideo_scan_focus.png"
+  install_resource "WechatShortVideo/WechatShortVideo/Resources/WechatShortVideo_scan_focus@2x.png"
+  install_resource "WechatShortVideo/WechatShortVideo/Resources/WechatShortVideo_scan_focus@3x.png"
 fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

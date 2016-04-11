@@ -15,11 +15,13 @@
 
 #import "SettingTableViewController.h"
 
+#import <WechatShortVideoController.h>
+
 
 //#import "WeiXinController.h"
 //#import "ALiController.h"
 
-@interface MyViewController ()
+@interface MyViewController () <WechatShortVideoDelegate>
 
 @end
 
@@ -83,6 +85,14 @@
 - (IBAction)ALiPayBtnThings:(id)sender {
 //    ALiController *aLiPayController = [[ALiController alloc]init];
 //    [self.navigationController pushViewController:aLiPayController animated:YES];
+}
+
+- (IBAction)shortVideo:(id)sender {
+    
+    WechatShortVideoController *wechatShortVideoController = [[WechatShortVideoController alloc] init];
+    wechatShortVideoController.delegate = self;
+    [self presentViewController:wechatShortVideoController animated:YES completion:^{}];
+
 }
 
 @end

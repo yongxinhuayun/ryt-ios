@@ -86,7 +86,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快速登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKI-go-9Mc">
                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zhuce_fenggexian244" translatesAutoresizingMaskIntoConstraints="NO" id="vyt-JN-imb">
@@ -195,32 +195,32 @@
                     <exclude reference="lV2-DC-ZTb"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="0Qf-Tt-L5l"/>
-                    <exclude reference="4vL-pa-fMm"/>
-                    <exclude reference="GHa-ZE-ddB"/>
-                    <exclude reference="tU5-Rg-jfe"/>
                     <exclude reference="IVG-Qk-vzB"/>
                     <exclude reference="MoL-Qf-jwN"/>
                     <exclude reference="eaQ-Mk-Ywo"/>
                     <exclude reference="wLg-IC-61I"/>
-                    <exclude reference="OvY-Pn-zLa"/>
-                    <exclude reference="UY2-Zo-vJe"/>
+                    <exclude reference="0Qf-Tt-L5l"/>
+                    <exclude reference="4vL-pa-fMm"/>
+                    <exclude reference="GHa-ZE-ddB"/>
+                    <exclude reference="tU5-Rg-jfe"/>
                     <exclude reference="28c-gt-wzr"/>
                     <exclude reference="E8G-KU-XaY"/>
                     <exclude reference="EpM-61-FNB"/>
                     <exclude reference="gu4-hN-I8x"/>
                     <exclude reference="md1-9T-W7R"/>
+                    <exclude reference="OvY-Pn-zLa"/>
+                    <exclude reference="UY2-Zo-vJe"/>
                     <exclude reference="13G-sq-1nz"/>
                     <exclude reference="1BT-5t-RVN"/>
                     <exclude reference="eMk-41-HRs"/>
+                    <exclude reference="5jV-p0-n8m"/>
+                    <exclude reference="RZT-Yz-KzK"/>
                     <exclude reference="143-0J-JwU"/>
                     <exclude reference="eQe-Fs-ki2"/>
                     <exclude reference="him-9D-Bjr"/>
                     <exclude reference="pFL-Iz-VAh"/>
                     <exclude reference="YgE-0b-4af"/>
                     <exclude reference="lOg-C9-guI"/>
-                    <exclude reference="5jV-p0-n8m"/>
-                    <exclude reference="RZT-Yz-KzK"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -236,32 +236,32 @@
                     <include reference="lV2-DC-ZTb"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="0Qf-Tt-L5l"/>
-                    <exclude reference="4vL-pa-fMm"/>
-                    <include reference="GHa-ZE-ddB"/>
-                    <include reference="tU5-Rg-jfe"/>
                     <include reference="IVG-Qk-vzB"/>
                     <include reference="MoL-Qf-jwN"/>
                     <include reference="eaQ-Mk-Ywo"/>
                     <include reference="wLg-IC-61I"/>
-                    <include reference="OvY-Pn-zLa"/>
-                    <include reference="UY2-Zo-vJe"/>
+                    <include reference="0Qf-Tt-L5l"/>
+                    <exclude reference="4vL-pa-fMm"/>
+                    <include reference="GHa-ZE-ddB"/>
+                    <include reference="tU5-Rg-jfe"/>
                     <include reference="28c-gt-wzr"/>
                     <include reference="E8G-KU-XaY"/>
                     <exclude reference="EpM-61-FNB"/>
                     <include reference="gu4-hN-I8x"/>
                     <include reference="md1-9T-W7R"/>
+                    <include reference="OvY-Pn-zLa"/>
+                    <include reference="UY2-Zo-vJe"/>
                     <include reference="13G-sq-1nz"/>
                     <include reference="1BT-5t-RVN"/>
                     <include reference="eMk-41-HRs"/>
+                    <include reference="5jV-p0-n8m"/>
+                    <include reference="RZT-Yz-KzK"/>
                     <include reference="143-0J-JwU"/>
                     <include reference="eQe-Fs-ki2"/>
                     <include reference="him-9D-Bjr"/>
                     <include reference="pFL-Iz-VAh"/>
                     <include reference="YgE-0b-4af"/>
                     <include reference="lOg-C9-guI"/>
-                    <include reference="5jV-p0-n8m"/>
-                    <include reference="RZT-Yz-KzK"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="260.5" y="313.5"/>

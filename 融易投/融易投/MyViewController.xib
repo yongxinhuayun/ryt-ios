@@ -50,6 +50,13 @@
                         <action selector="ALiPayBtnThings:" destination="-1" eventType="touchUpInside" id="KZa-wo-aor"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3EM-o9-oee">
+                    <rect key="frame" x="165" y="531" width="45" height="30"/>
+                    <state key="normal" title="小视频"/>
+                    <connections>
+                        <action selector="shortVideo:" destination="-1" eventType="touchUpInside" id="kvW-8V-W9L"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

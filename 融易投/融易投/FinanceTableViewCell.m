@@ -84,7 +84,7 @@
     //设置投资标题
     self.financeTitle.text = model.title;
     //设置投资描述
-    self.financeIntroductionLabel.text = model.author.descriptions;
+    self.financeIntroductionLabel.text = model.brief;
     
     NSString *pictureUrlStr = [[NSString stringWithFormat:@"%@",model.author.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     

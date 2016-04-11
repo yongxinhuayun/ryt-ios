@@ -16,6 +16,10 @@
 		211C394A1CB36B1500DAD827 /* FinanceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 211C39481CB36B1500DAD827 /* FinanceTableViewCell.m */; };
 		211C394B1CB36B1500DAD827 /* FinanceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 211C39491CB36B1500DAD827 /* FinanceTableViewCell.xib */; };
 		211C394E1CB3961800DAD827 /* authorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 211C394D1CB3961800DAD827 /* authorModel.m */; };
+		2134E3781CBB571B00D6E662 /* FinanceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134E3771CBB571B00D6E662 /* FinanceDetailViewController.m */; };
+		2134E37B1CBB5D1D00D6E662 /* ProjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134E37A1CBB5D1D00D6E662 /* ProjectDetailViewController.m */; };
+		2134E37E1CBB5D3800D6E662 /* ProjectScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */; };
+		2134E3811CBB5D5700D6E662 /* UserCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134E3801CBB5D5700D6E662 /* UserCommentViewController.m */; };
 		215E73601CB7BB4500A67690 /* FromUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 215E735F1CB7BB4500A67690 /* FromUserModel.m */; };
 		215E73661CB7BC1000A67690 /* NotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 215E73621CB7BC1000A67690 /* NotificationModel.m */; };
 		215E73671CB7BC1000A67690 /* NotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 215E73641CB7BC1000A67690 /* NotificationTableViewCell.m */; };
@@ -145,6 +149,14 @@
 		211C39491CB36B1500DAD827 /* FinanceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceTableViewCell.xib; sourceTree = "<group>"; };
 		211C394C1CB3961800DAD827 /* authorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authorModel.h; sourceTree = "<group>"; };
 		211C394D1CB3961800DAD827 /* authorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = authorModel.m; sourceTree = "<group>"; };
+		2134E3761CBB571B00D6E662 /* FinanceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceDetailViewController.h; sourceTree = "<group>"; };
+		2134E3771CBB571B00D6E662 /* FinanceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceDetailViewController.m; sourceTree = "<group>"; };
+		2134E3791CBB5D1D00D6E662 /* ProjectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailViewController.h; sourceTree = "<group>"; };
+		2134E37A1CBB5D1D00D6E662 /* ProjectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailViewController.m; sourceTree = "<group>"; };
+		2134E37C1CBB5D3800D6E662 /* ProjectScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectScheduleViewController.h; sourceTree = "<group>"; };
+		2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectScheduleViewController.m; sourceTree = "<group>"; };
+		2134E37F1CBB5D5700D6E662 /* UserCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCommentViewController.h; sourceTree = "<group>"; };
+		2134E3801CBB5D5700D6E662 /* UserCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCommentViewController.m; sourceTree = "<group>"; };
 		215E735E1CB7BB4500A67690 /* FromUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FromUserModel.h; sourceTree = "<group>"; };
 		215E735F1CB7BB4500A67690 /* FromUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FromUserModel.m; sourceTree = "<group>"; };
 		215E73611CB7BC1000A67690 /* NotificationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationModel.h; sourceTree = "<group>"; };
@@ -652,6 +664,14 @@
 		E2DDB1A41CABA701007438E4 /* 详情 */ = {
 			isa = PBXGroup;
 			children = (
+				2134E3761CBB571B00D6E662 /* FinanceDetailViewController.h */,
+				2134E3771CBB571B00D6E662 /* FinanceDetailViewController.m */,
+				2134E3791CBB5D1D00D6E662 /* ProjectDetailViewController.h */,
+				2134E37A1CBB5D1D00D6E662 /* ProjectDetailViewController.m */,
+				2134E37C1CBB5D3800D6E662 /* ProjectScheduleViewController.h */,
+				2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */,
+				2134E37F1CBB5D5700D6E662 /* UserCommentViewController.h */,
+				2134E3801CBB5D5700D6E662 /* UserCommentViewController.m */,
 			);
 			name = "详情";
 			sourceTree = "<group>";
@@ -1307,6 +1327,7 @@
 				21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */,
 				21D54B771CB6405B0088D386 /* NSCalendar+Init.m in Sources */,
 				21D54B781CB6405B0088D386 /* NSDate+Interval.m in Sources */,
+				2134E37B1CBB5D1D00D6E662 /* ProjectDetailViewController.m in Sources */,
 				21D54B391CB4F88B0088D386 /* AuctionTableViewController.m in Sources */,
 				21D54B8C1CB660970088D386 /* ArtistTableViewCell.m in Sources */,
 				2118F1DF1CAE1D1A003BFC6B /* NSString+Extension.m in Sources */,
@@ -1334,6 +1355,7 @@
 				218D2B591CACB35C004553B9 /* UIImage+Image.m in Sources */,
 				21D54B7B1CB64A510088D386 /* MyMD5.m in Sources */,
 				215E73601CB7BB4500A67690 /* FromUserModel.m in Sources */,
+				2134E3781CBB571B00D6E662 /* FinanceDetailViewController.m in Sources */,
 				21D54B851CB6585B0088D386 /* InvestorTableViewCell.m in Sources */,
 				21904D321CAE0F4000AD7A3F /* UserAccount.m in Sources */,
 				215EED1D1CB0058D00A5957B /* FinanceTableViewController.m in Sources */,
@@ -1342,7 +1364,9 @@
 				2118F1E31CAE5805003BFC6B /* MyViewController.m in Sources */,
 				E2D3870B1CB8E4E900F735F9 /* PrivateLetterViewController.m in Sources */,
 				E236C3321CB4F653009DCBF0 /* NotificationController.m in Sources */,
+				2134E3811CBB5D5700D6E662 /* UserCommentViewController.m in Sources */,
 				2118F1EA1CAE88B4003BFC6B /* navTitleButton.m in Sources */,
+				2134E37E1CBB5D3800D6E662 /* ProjectScheduleViewController.m in Sources */,
 				21D54B171CB4C31F0088D386 /* CommonFooter.m in Sources */,
 				21D54B231CB4DF0F0088D386 /* MasterModel.m in Sources */,
 			);
