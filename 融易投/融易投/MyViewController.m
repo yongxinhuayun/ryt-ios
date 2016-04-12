@@ -17,11 +17,16 @@
 
 #import <WechatShortVideoController.h>
 
+#import "ReleaseProjectViewController.h"
+
 
 //#import "WeiXinController.h"
 //#import "ALiController.h"
 
-@interface MyViewController () <WechatShortVideoDelegate>
+@interface MyViewController () <WechatShortVideoDelegate,UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *subTableView;
+
+
 
 @end
 
@@ -30,7 +35,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    //设置导航条
     [self setUpNavBar];
+    
+    //设置详细视图
+    [self setUpTableView];
 }
 
 // 设置导航条
@@ -48,19 +57,89 @@
     
 //    self.navigationItem.rightBarButtonItems = @[settingItem,nightItem];
 }
+
+-(void)setUpTableView{
+
+    self.subTableView.scrollEnabled = NO;
+    
+    self.subTableView.dataSource = self;
+    self.subTableView.delegate = self;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return 5;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
+    return 1;
+}
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    if (indexPath.section == 0) { //第0组
+       
+            cell.textLabel.text = @"我的主页";
+
+    }else if (indexPath.section == 1){
+    cell.textLabel.text = @"钱包";
+    }else if (indexPath.section == 2){
+        cell.textLabel.text = @"拍卖订单";
+    }else if (indexPath.section == 3){
+        cell.textLabel.text = @"设置";
+    }else if (indexPath.section == 4){
+        cell.textLabel.text = @"意见反馈";
+    }
+       return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    if (indexPath.section == 0) { //第0组
+        
+
+        
+    }else if (indexPath.section == 1){
+
+    }else if (indexPath.section == 2){
+
+    }else if (indexPath.section == 3){
+        
+        
+        UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([SettingTableViewController class]) bundle:nil];
+        SettingTableViewController *settingVC = [settingStoryBoard instantiateInitialViewController];
+        [self.navigationController pushViewController:settingVC animated:YES];
+        
+        //    SettingTableViewController *settingVC = [[SettingTableViewController alloc] init];
+        //    [self.navigationController pushViewController:settingVC animated:YES];
+
+
+    }else if (indexPath.section == 4){
+
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 20;//section头部高度
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 
 }
-- (IBAction)settingBtnClick:(id)sender {
-    
-    UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([SettingTableViewController class]) bundle:nil];
-    SettingTableViewController *settingVC = [settingStoryBoard instantiateInitialViewController];
-    [self.navigationController pushViewController:settingVC animated:YES];
-    
-//    SettingTableViewController *settingVC = [[SettingTableViewController alloc] init];
-//    [self.navigationController pushViewController:settingVC animated:YES];
-}
+
 
 - (IBAction)loginBtnClick:(id)sender {
     
@@ -92,6 +171,14 @@
     WechatShortVideoController *wechatShortVideoController = [[WechatShortVideoController alloc] init];
     wechatShortVideoController.delegate = self;
     [self presentViewController:wechatShortVideoController animated:YES completion:^{}];
+
+}
+- (IBAction)releaseProject:(id)sender {
+
+    // 弹出发微博控制器
+    ReleaseProjectViewController *releaseProject = [[ReleaseProjectViewController alloc] init];
+   
+    [self.navigationController pushViewController:releaseProject animated:YES];
 
 }
 

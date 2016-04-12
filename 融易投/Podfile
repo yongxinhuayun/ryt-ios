@@ -10,4 +10,5 @@ pod 'SVProgressHUD', '~> 2.0.2'
 
 pod 'FMDB'
 pod 'WechatShortVideo'
+pod 'Masonry'
 
