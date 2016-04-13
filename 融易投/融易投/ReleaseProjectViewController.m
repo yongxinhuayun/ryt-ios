@@ -18,6 +18,8 @@
 #import "ArtWorkIdModel.h"
 #import <MJExtension.h>
 
+#import "ReleaseViewController.h"
+
 
 @interface ReleaseProjectViewController ()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -135,14 +137,21 @@
     
     [self loadData];
     
+    //这个暂时不用
+    //    ComposeViewController *compose = [[ComposeViewController alloc] init];
+    //    [self.navigationController pushViewController:compose animated:YES];
+    
     // 弹出发微博控制器
-    HMComposeViewController *compose = [[HMComposeViewController alloc] init];
-    
-    [self.navigationController pushViewController:compose animated:YES];
-    
-//    ComposeViewController *compose = [[ComposeViewController alloc] init];
+//    HMComposeViewController *compose = [[HMComposeViewController alloc] init];
 //    [self.navigationController pushViewController:compose animated:YES];
+    
+
+    UIStoryboard *releaseStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
+    ReleaseViewController *releaseVC = [releaseStoryBoard instantiateInitialViewController];
+    [self.navigationController popToViewController:releaseVC animated:YES];
 }
+
+
 
 
 -(void)loadData

@@ -13,9 +13,16 @@
 #import "ProjectDetailViewController.h"
 #import "ProjectScheduleViewController.h"
 #import "UserCommentViewController.h"
+#import<QuartzCore/QuartzCore.h>
 
-@interface FinanceDetailViewController ()
-
+@interface FinanceDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    UITableView *DxTableView;
+    UITableViewCell *cell;
+    UIImageView *cellImageView;
+    NSArray *_arr;
+    
+}
 /** 标题栏 */
 @property (nonatomic, strong) UIView *titlesView;
 
@@ -28,6 +35,9 @@
 /** 用来显示所有子控制器view的scrollView */
 @property (nonatomic, weak) UIScrollView *scrollView;
 
+@property (nonatomic,strong)NSArray *arrIndexPath;
+
+@property (nonatomic,strong)UIScrollView *scrollCellView;
 @end
 
 @implementation FinanceDetailViewController
@@ -38,86 +48,60 @@ static NSString *ID2 = @"projectScheduleCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationController.navigationBarHidden = NO;
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID1];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID2];
     
-    self.tableView.sectionIndexColor = [UIColor lightGrayColor];
     
-    //4.添加所有子控制器
-    [self setUpChildVcs];
-    
-    //设置精华界面的骨架
-    //1. 添加scrollView
-    [self setUpScrollView];
-    
-    //2. 添加标题栏
-    [self setUpTitlesView];
-    
-    //    //4.添加所有子控制器 ---注意;添加子控制器应该写在前面,因为我们在添加scrollView的时候必须先创建好子控制器才能将子控制器的view加到scrollView中
-    //    [self setUpChildVcs];
-    
-    //10. 默认选中第0个按钮,然后添加按钮对应的子控制器的view到scrollView中
-    //为什么直接调用就行呢?
-    //因为默认运行程序,默认scrollView的偏移量是0,所以计算的索引就是0,这样就添加了第一个子控制器的view
-    [self addChildVcViewIntoScrollView];
+    [self setUpNav];
+    NSLog(@"");
+    //    DxTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,self.view.bounds.size.width,self.view.bounds.size.height+1000) style:UITableViewStylePlain];
+    //    DxTableView.delegate = self;
+    //    DxTableView.dataSource =self;
+    //    //DxTableView.backgroundColor = [UIColor grayColor];
+    //    [self.view addSubview:DxTableView];
 }
+
+-(void)setUpNav
+{
+    //    UIButton *releaseButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    //    [releaseButton setTitle:@"分享" forState:normal];
+    //    [releaseButton addTarget:self action:@selector(releaseInfo:) forControlEvents:UIControlEventTouchUpInside];
+    //    UIBarButtonItem *releaseButtonItem = [[UIBarButtonItem alloc] initWithCustomView:releaseButton];
+    //    self.navigationItem.rightBarButtonItem = releaseButtonItem;
+    //
+    //    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    //    [leftButton setTitle:@"返回" forState:normal];
+    //    [leftButton addTarget:self action:@selector(leftInfo:) forControlEvents:UIControlEventTouchUpInside];
+    //    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    //    self.navigationItem.leftBarButtonItem = leftButtonItem;
+    
+    self.navigationItem.title = @"项目详情";
+}
+
+-(void)releaseInfo:(id)send_id
+{
+    NSLog(@"详情界面的导航按钮");
+}
+-(void)leftInfo:(id)send_id
+{
+    NSLog(@"详情界面的导航按钮牛");
+}
+
 /**
  * 添加子控制器
  */
 - (void)setUpChildVcs
 {
-    [self addChildViewController:[[ProjectDetailViewController alloc] init]];
-    [self addChildViewController:[[ProjectScheduleViewController alloc] init]];
-    [self addChildViewController:[[UserCommentViewController alloc] init]];
+    //    [self addChildViewController:[[ProjectDetailViewController alloc] init]];
+    //    [self addChildViewController:[[ProjectScheduleViewController alloc] init]];
+    //    [self addChildViewController:[[UserCommentViewController alloc] init]];
     
 }
 
 //添加scrollView
 -(void)setUpScrollView
 {
-    //5.1 不要自动调整scrollView的内边距
-    self.automaticallyAdjustsScrollViewInsets = NO;
     
-    //创建scrollView
-    UIScrollView *scrollView = [[UIScrollView alloc] init];
-    scrollView.frame = self.view.bounds;
-    //    scrollView.backgroundColor = [UIColor orangeColor];
-    [self.view addSubview:scrollView];
-    
-    self.scrollView = scrollView;
-    
-    //4.4 设置分页
-    scrollView.pagingEnabled = YES;
-    
-    //7.1 设置代理
-    scrollView.delegate = self;
-    
-    //4.1 添加子控制器的view到scrollView中
-    NSInteger count = self.childViewControllers.count;
-    
-    //    for (NSInteger i = 0; i < count; i++) {
-    //
-    //        UIViewController *childVC = self.childViewControllers[i];
-    //
-    //       //4.2 设置frame
-    //        childVC.view.x = i * scrollView.width;
-    //        childVC.view.y = 0;
-    //        childVC.view.width = scrollView.width;
-    //        childVC.view.height = scrollView.height;
-    //
-    //        [scrollView addSubview:childVC.view];
-    //
-    //    }
-    
-    //4.3 设置scrollView的滚动范围
-    scrollView.contentSize = CGSizeMake(count * scrollView.width, 0);
-    
-    //运行程序,发现每个子控制器的view都是独立处理自己的滚动,互不干扰
-    
-    //5. 我们发现,子控制器的view的顶部是在导航条的下面,而我们需要设置成在标题栏的下面,所以我们在每个子控制器中设置额外的内边距
-    //并且滚动条也一样
 }
 
 //添加标题栏
@@ -133,7 +117,7 @@ static NSString *ID2 = @"projectScheduleCell";
     //2.9 设置标题栏为半透明的
     //    titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
     
-    [self.view addSubview:titlesView];
+    [cell addSubview:titlesView];
     
     //2.1 运行程序,发现titlesView添加到了tableView,但是我们这里需要时用不同的UIViewController,所以把之前的控制器UITableViewController改成UIViewController
     
@@ -142,6 +126,8 @@ static NSString *ID2 = @"projectScheduleCell";
     
     //3. 添加底部的下划线
     [self setUpUnderline];
+    
+    
 }
 
 -(void)setUpTitleButtons
@@ -172,10 +158,8 @@ static NSString *ID2 = @"projectScheduleCell";
         //2.6 设置按钮的选中状态
         [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
         
-        //        titleButton.titleLabel.backgroundColor = BSRandomColor;
-        
+        // titleButton.titleLabel.backgroundColor = BSRandomColor;
         [self.titlesView addSubview:titleButton];
-        
     }
 }
 
@@ -237,62 +221,6 @@ static NSString *ID2 = @"projectScheduleCell";
 
 -(void)addChildVcViewIntoScrollView
 {
-    /*
-     //方法一:我们是传递按钮可同样能拿到按钮的索引
-     //方法二:也可以直接计算scrollView的偏移量除以scrollView的宽度,就是按钮对应的tag值
-     NSInteger index = self.scrollView.contentOffset.x / self.scrollView.width;
-     
-     UIViewController *childVC = self.childViewControllers[index];
-     
-     //这句话可写可不写,因为即使多次调用,子控制器的view也是同一个view,并不会创建多个view
-     // 如果子控制器的view已经添加过了,就直接返回
-     //    if (childVC.view.superview) return;
-     //    if (childVC.view.window) return;
-     //    if (childVC.isViewLoaded) return;
-     if ([self.scrollView.subviews containsObject:childVC.view]) return;
-     
-     //4.2 设置frame
-     childVC.view.x = i * self.scrollView.width;
-     childVC.view.y = 0;
-     childVC.view.width = self.scrollView.width;
-     childVC.view.height = self.scrollView.height;
-     
-     [self.scrollView addSubview:childVC.view];
-     */
-    
-    //13. 取出对应位置的子控制器
-    NSUInteger index = self.scrollView.contentOffset.x / self.scrollView.width;
-    UIViewController *childVc = self.childViewControllers[index];
-    
-    if (childVc.view.superview) return;
-    
-    // 13.5 设置子控制器view的frame
-    childVc.view.frame = self.scrollView.bounds;
-    
-    // 添加子控制器view到scrollView
-    [self.scrollView addSubview:childVc.view];
-    
-    //13.4
-    //    childVc.view.frame = CGRectMake(self.scrollView.bounds.origin.x, self.scrollView.bounds.origin.y, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
-    
-    //13.3
-    //    childVc.view.x = self.scrollView.bounds.origin.x; //本质上scrollView的contentOffset偏移量是bounds在移动,所以这两个值是相等的
-    //    childVc.view.y = self.scrollView.bounds.origin.y;
-    //    childVc.view.width = self.scrollView.bounds.size.width;
-    //    childVc.view.height = self.scrollView.bounds.size.height;
-    
-    //13.2
-    //    childVc.view.x = self.scrollView.contentOffset.x;
-    //    childVc.view.y = self.scrollView.contentOffset.y; //注意:scrollView没有y方法的偏移量,所以这里这样写,也没错
-    //    childVc.view.width = self.scrollView.width;
-    //    childVc.view.height = self.scrollView.height;
-    
-    //13.1
-    //    childVc.view.y = 0;
-    //    childVc.view.x = self.scrollView.contentOffset.x;
-    //    childVc.view.width = self.scrollView.width;
-    //    childVc.view.height = self.scrollView.height;
-    
     
     
 }
@@ -404,56 +332,278 @@ static NSString *ID2 = @"projectScheduleCell";
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-
+    
     return 2;
-
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     return 1;
+    
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.section == 0) {
-        
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID1];
-        cell.textLabel.text = @"111111111111";
-        
-        return cell;
-    }else {
+    static NSString *cellID = @"cellID";
+    cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    NSLog(@"=====%lu",indexPath.row);
     
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID2];
-        cell.textLabel.text = @"2222222222";
-        return cell;
+    if (cell==nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         
     }
+    if (indexPath.section == 1) {
+        
+        cell.textLabel.text = @"我爱你董鑫";
+        
+    }else if(indexPath.section == 0){
+        cell.textLabel.text = @"董鑫我爱你";
+    }
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section ==0) {
+        return 650;
+    }else if (indexPath.section == 1){
+        return 900;
+    }
+    return 0;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-
-//        UIView *view = [[UIView alloc] init];
-//        view.backgroundColor = [UIColor orangeColor];
-//        view.frame = CGRectMake(0, 0, 300, 300);
-//        
-//        return view;
-        return self.scrollView;
+    
+    UIView *view = [[UIView alloc] init];//我在sectionHeader中建立了一个View
+    // view.frame= CGRectMake(0, 0, 320, 30);
+    if (section ==0){               //判断为哪个section
+        [self sectionView];
+    }
+    
+    if (section == 1){       //这个和上一个一样，我没写全
+        
+        UITapGestureRecognizer *tapg1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sj_tap:)];
+        UIButton *label1 =[[UIButton alloc] initWithFrame:CGRectMake(10, 0, 40, 30)];
+        UIButton *label2 =[[UIButton alloc] initWithFrame:CGRectMake(60, 0,  50, 30)];
+        UIButton *label3 =[[UIButton alloc] initWithFrame:CGRectMake(130, 0, 50, 30)];
+        UIButton *label4 =[[UIButton alloc] initWithFrame:CGRectMake(200, 0, 50, 30)];
+        UIButton *label5 =[[UIButton alloc] initWithFrame:CGRectMake(270, 0,  50, 30)];
+        
+        [label1 setTitle:@"1111" forState:UIControlStateNormal];
+        [label2 setTitle:@"2222" forState:UIControlStateNormal];
+        [label3 setTitle:@"3333" forState:UIControlStateNormal];
+        [label4 setTitle:@"4444" forState:UIControlStateNormal];
+        [label5 setTitle:@"5555" forState:UIControlStateNormal];
+        
+        [label1 addTarget:self action:@selector(lable1View) forControlEvents:UIControlEventTouchUpInside];
+        [label2 addTarget:self action:@selector(lable2View) forControlEvents:UIControlEventTouchUpInside];
+        [label3 addTarget:self action:@selector(lable3View) forControlEvents:UIControlEventTouchUpInside];
+        [label4 addTarget:self action:@selector(lable4View) forControlEvents:UIControlEventTouchUpInside];
+        [label5 addTarget:self action:@selector(lable5View) forControlEvents:UIControlEventTouchUpInside];
+        
+        [view addGestureRecognizer:tapg1];
+        view.backgroundColor = [UIColor greenColor];
+        
+        [view addSubview:label1];
+        [view addSubview:label2];
+        [view addSubview:label3];
+        [view addSubview:label4];
+        [view addSubview:label5];
+    }
+    return view;
 }
 
+/**********************************  不要删除：根据文字的个数调整 label 的高度
+ 
+ NSString *text =[[NSString alloc]init];
+ text = @"输入文本内容";
+ CGSize size = CGSizeMake(280, 180);
+ UIFont *fonts = [UIFont systemFontOfSize:14.0];
+ CGSize msgSie = [text sizeWithFont:fonts constrainedToSize:size lineBreakMode: NSLineBreakByCharWrapping];
+ UILabel *textLabel  = [[UILabel alloc] init];
+ [textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+ textLabel.frame = CGRectMake(20,70, 280,msgSie.height);
+ textLabel.text = text;
+ textLabel.lineBreakMode = NSLineBreakByCharWrapping;//实现文字多行显示
+ textLabel.numberOfLines = 0;
+ [self.view addSubview:textLabel];
+ ********************************************************/
+
+-(void)lable1View
+{
+    UIView *view1 = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 900)];
+    //view1.backgroundColor = [UIColor redColor];
+    [cell addSubview:view1];
+    UILabel *Introducelable = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, self.view.bounds.size.width, 30)];
+    Introducelable.text = @"项目介绍";
+    Introducelable.layer.borderWidth = 2;
+    Introducelable.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    [view1 addSubview:Introducelable];
+    
+    UILabel *lableIntroduce = [[UILabel alloc]initWithFrame:CGRectMake(10, 50, self.view.bounds.size.width-20, 300)];
+    lableIntroduce.layer.borderWidth = 2;
+    lableIntroduce.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    lableIntroduce.text = @"苍茫之境，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿，拥有这样一款精巧绝伦的雕，若是自己把玩，则个人的品位和气质更加凸显，若是送于他人，也显得别出心裁，诚意十足！";
+    lableIntroduce.numberOfLines=0;
+    lableIntroduce.backgroundColor = [UIColor redColor];
+    [view1 addSubview:lableIntroduce];
+    
+    UILabel *makeIntroduces = [[UILabel alloc]initWithFrame:CGRectMake(10, 380, self.view.bounds.size.width, 30)];
+    makeIntroduces.text = @"制作说明";
+    
+    makeIntroduces.layer.borderWidth = 2;
+    makeIntroduces.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
+    //makeIntroduces.backgroundColor = [UIColor blueColor];
+    [view1 addSubview:makeIntroduces];
+    
+    UILabel *makeIntroduce = [[UILabel alloc]initWithFrame:CGRectMake(10, 410, self.view.bounds.size.width-20, 200)];
+    makeIntroduce.text = @"苍茫之境，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿，拥有这样一款精巧绝伦的雕，若是自己把玩，则个人的品位和气质更加凸显，若是送于他人，也显得别出心裁，诚意十足！";
+    makeIntroduce.numberOfLines=0;
+    makeIntroduce.layer.borderWidth = 2;
+    makeIntroduce.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    makeIntroduce.backgroundColor = [UIColor blueColor];
+    [view1 addSubview:makeIntroduce];
+    
+    UILabel *makeDiploma = [[UILabel alloc]initWithFrame:CGRectMake(10, 670, self.view.bounds.size.width, 30)];
+    //makeDiploma.backgroundColor = [UIColor yellowColor];
+    
+    makeDiploma.layer.borderWidth = 2;
+    makeDiploma.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
+    makeDiploma.text = @"融资解惑";
+    [view1 addSubview:makeDiploma];
+    
+    UILabel *makeDiplomas = [[UILabel alloc]initWithFrame:CGRectMake(10, 710, self.view.bounds.size.width-20, 300)];
+    makeDiplomas.text = @"苍茫之境，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿，拥有这样一款精巧绝伦的雕，若是自己把玩，则个人的品位和气质更加凸显，若是送于他人，也显得别出心裁，诚意十足！";
+    makeDiplomas.numberOfLines=0;
+    makeDiplomas.layer.borderWidth = 2;
+    makeDiplomas.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
+    makeDiplomas.backgroundColor = [UIColor yellowColor];
+    [view1 addSubview:makeDiplomas];
+    NSLog(@"1111");
+}
+
+-(void)lable2View
+{
+    UIView *view2 = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 320)];
+    view2.backgroundColor = [UIColor greenColor];
+    [cell addSubview:view2];
+    NSLog(@"2222");
+}
+
+-(void)lable3View
+{
+    UIView * view3 = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 320)];
+    view3.backgroundColor = [UIColor blueColor];
+    [cell addSubview:view3];
+    
+    NSLog(@"3333");
+}
+-(void)lable4View
+{
+    UIView *view4 = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 320)];
+    view4.backgroundColor = [UIColor brownColor];
+    [cell addSubview:view4];
+    NSLog(@"4444");
+}
+-(void)lable5View
+{
+    UIView *view5 = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 320)];
+    view5.backgroundColor = [UIColor grayColor];
+    [cell addSubview:view5];
+    NSLog(@"5555");
+}
+- (void)sj_tap:(UIGestureRecognizer*)sender //注意与平时的不同
+
+{
+    NSLog(@"dddddddd");
+    
+    
+}
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
-        
-        return nil;
-        
+        return @"涿州";
     }else {
-        
-         return @"222";
+        return @"222";
     }
-//    return @"111";
-   
 }
+-(void)sectionView
+{
+    UIImageView *section0Image = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height/2)];
+    section0Image.backgroundColor = [UIColor redColor];
+    [section0Image setImage:[UIImage imageNamed:@"1.png"]];
+    [self.view addSubview:section0Image];
+    
+    UIImageView *IconIamge = [[UIImageView alloc]initWithFrame:CGRectMake(20,self.view.bounds.size.height/2+20,30,30)];
+    IconIamge.backgroundColor = [UIColor redColor];
+    [self.view addSubview:IconIamge];
+    
+    
+    UILabel *labelName = [[UILabel alloc]initWithFrame:CGRectMake(70, self.view.bounds.size.height/2+20, 50, 30)];
+    labelName.text = @"董鑫1233";
+    labelName.backgroundColor = [UIColor redColor];
+    [self.view addSubview:labelName];
+    
+    
+    UILabel *labelExplaue = [[UILabel alloc]initWithFrame:CGRectMake(110, self.view.bounds.size.height/2+20, 200, 30)];
+    labelExplaue.text = @"| 铜雕技艺国家级传承人";
+    labelExplaue.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:labelExplaue];
+    
+    
+    UILabel *lableDetailed = [[UILabel alloc]initWithFrame:CGRectMake(10, self.view.bounds.size.height/2,self.view.bounds.size.width-20,200)];
+    lableDetailed.numberOfLines = 0;
+    //lableDetailed.backgroundColor = [UIColor blueColor];
+    lableDetailed.text =@"苍茫之境，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿，拥有这样一款精巧绝伦的雕，若是自己把玩，则个人的品位和气质更加凸显，若是送于他人，也显得别出心裁，诚意十足！";
+    [self.view addSubview:lableDetailed];
+    
+    UILabel *numberInvestment = [[UILabel alloc]initWithFrame:CGRectMake(10, self.view.bounds.size.height/2+150, 50, 30)];
+    numberInvestment.text = @"100";
+    numberInvestment.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:numberInvestment];
+    
+    UILabel *numberInvestments = [[UILabel alloc]initWithFrame:CGRectMake(10, self.view.bounds.size.height/2+170, 70, 30)];
+    numberInvestments.text = @"投资人数";
+    numberInvestments.backgroundColor = [UIColor redColor];
+    [self.view addSubview:numberInvestments];
+    
+    UILabel *remianHour = [[UILabel alloc]initWithFrame:CGRectMake(100, self.view.bounds.size.height/2+150, 70, 30)];
+    remianHour.text = @"23时24分24秒";
+    remianHour.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:remianHour];
+    
+    UILabel *remianHours = [[UILabel alloc]initWithFrame:CGRectMake(100, self.view.bounds.size.height/2+170, 70, 30)];
+    remianHours.text = @"投资人数";
+    remianHours.backgroundColor = [UIColor redColor];
+    [self.view addSubview:remianHours];
+    
+    UILabel *remiaprojectScheduleHour = [[UILabel alloc]initWithFrame:CGRectMake(180, self.view.bounds.size.height/2+150, 70, 30)];
+    remiaprojectScheduleHour.text = @"======";
+    remiaprojectScheduleHour.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:remiaprojectScheduleHour];
+    
+    UILabel *remiaprojectScheduleHours = [[UILabel alloc]initWithFrame:CGRectMake(180, self.view.bounds.size.height/2+170, 70, 30)];
+    remiaprojectScheduleHours.text = @"项目进度";
+    remiaprojectScheduleHours.backgroundColor = [UIColor redColor];
+    [self.view addSubview:remiaprojectScheduleHours];
+    
+    UILabel *goalMoneny = [[UILabel alloc]initWithFrame:CGRectMake(270, self.view.bounds.size.height/2+150, 70, 30)];
+    goalMoneny.text = @"1000";
+    goalMoneny.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:goalMoneny];
+    
+    UILabel *goalMonenys = [[UILabel alloc]initWithFrame:CGRectMake(270, self.view.bounds.size.height/2+170, 70, 30)];
+    goalMonenys.text = @"目标金额";
+    goalMonenys.backgroundColor = [UIColor redColor];
+    [self.view addSubview:goalMonenys];
+}
+-(void)loadData
+{
+    
+}
+
 
 @end

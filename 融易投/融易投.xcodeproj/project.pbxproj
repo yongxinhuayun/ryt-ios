@@ -659,17 +659,13 @@
 		219AC5BE1CBC87FD0052146E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				219AC9FC1CBDF44A0052146E /* ArtWorkIdModel.h */,
+				219AC9FD1CBDF44A0052146E /* ArtWorkIdModel.m */,
+				21E52C4D1CBE5C8A004A68C4 /* 发布项目 */,
 				219ACA041CBE3F100052146E /* 发布动态 */,
 				219AC9FF1CBE3EE40052146E /* ReleaseViewController.h */,
 				219ACA001CBE3EE40052146E /* ReleaseViewController.m */,
 				219ACA011CBE3EE40052146E /* ReleaseViewController.storyboard */,
-				219AC9FC1CBDF44A0052146E /* ArtWorkIdModel.h */,
-				219AC9FD1CBDF44A0052146E /* ArtWorkIdModel.m */,
-				219AC9BA1CBCA5A40052146E /* ReleaseProjectViewController.h */,
-				219AC9BB1CBCA5A40052146E /* ReleaseProjectViewController.m */,
-				219AC9BC1CBCA5A40052146E /* ReleaseProjectViewController.xib */,
-				219AC5BF1CBC87FD0052146E /* HMComposeViewController.h */,
-				219AC5C01CBC87FD0052146E /* HMComposeViewController.m */,
 				219AC9D31CBDE1EC0052146E /* ComposeViewController.h */,
 				219AC9D41CBDE1EC0052146E /* ComposeViewController.m */,
 				219AC9FA1CBDE86F0052146E /* ComposeViewController.xib */,
@@ -925,6 +921,18 @@
 			children = (
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		21E52C4D1CBE5C8A004A68C4 /* 发布项目 */ = {
+			isa = PBXGroup;
+			children = (
+				219AC9BA1CBCA5A40052146E /* ReleaseProjectViewController.h */,
+				219AC9BB1CBCA5A40052146E /* ReleaseProjectViewController.m */,
+				219AC9BC1CBCA5A40052146E /* ReleaseProjectViewController.xib */,
+				219AC5BF1CBC87FD0052146E /* HMComposeViewController.h */,
+				219AC5C01CBC87FD0052146E /* HMComposeViewController.m */,
+			);
+			name = "发布项目";
 			sourceTree = "<group>";
 		};
 		B084BF39CB86E631C5631222 /* Pods */ = {
