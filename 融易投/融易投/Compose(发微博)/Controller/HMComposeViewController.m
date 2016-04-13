@@ -10,25 +10,25 @@
 #import "HMEmotionTextView.h"
 #import "HMComposeToolbar.h"
 #import "HMComposePhotosView.h"
-//#import "HMAccountTool.h"
-//#import "HMAccount.h"
+
 #import "MBProgressHUD+MJ.h"
-//#import "HMStatusTool.h"
+
 #import "HMEmotion.h"
 #import "HMEmotionKeyboard.h"
 
 #import "DSComposePhotosView.h"
 #import "JKImagePickerController.h"
 //#import <Masonry.h>
+#import <SVProgressHUD.h>
 
 @interface HMComposeViewController () <HMComposeToolbarDelegate, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate,JKImagePickerControllerDelegate>
 
 @property (nonatomic, weak) HMEmotionTextView *textView;
 @property (nonatomic, weak) HMComposeToolbar *toolbar;
-@property (nonatomic, weak) HMComposePhotosView *photosView;
+
 @property (nonatomic, strong) HMEmotionKeyboard *kerboard;
 
-
+@property (nonatomic, weak) HMComposePhotosView *photosView;
 @property (nonatomic , weak) DSComposePhotosView *photosView2;
 
 
@@ -73,9 +73,9 @@
     [self setupTextView];
     
     //设置其他输入框
-    [self setupProduceText];
-    //
-    [self setupDisabuseText];
+//    [self setupProduceText];
+//
+//    [self setupDisabuseText];
 
     
     // 添加工具条
@@ -101,11 +101,13 @@
     
     completeBtn.backgroundColor = [UIColor orangeColor];
     
-    [completeBtn addTarget:self action:@selector(completeBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    
     [completeBtn setTitle:@"完成" forState:UIControlStateNormal];
     
     completeBtn.frame = CGRectMake(SSScreenW * 0.5, 500, 50, 50);
+    
+    [completeBtn addTarget:self action:@selector(completeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+
 //    [completeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.left.equalTo(self.view.mas_left).offset(30);
 //        make.bottom.equalTo(self.view.mas_bottom).offset(-30);
@@ -117,20 +119,25 @@
     
 }
 
--(void)completeBtnClick{
-
-    SSLog(@"完成");
+-(void)completeBtnClick {
     
     [self loadData];
+    
+    SSLog(@"完成");
+
 
 }
 
 -(void)loadData
 {
+    NSLog(@"%ld",self.photosView2.selectedPhotos.count);
     
-    if (self.photosView.images.count) {
+    if (self.photosView2.selectedPhotos.count) {
+        
         [self sendStatusWithImage];
+        
     } else {
+        
         [self sendStatusWithoutImage];
     }
     
@@ -158,7 +165,7 @@
     DSComposePhotosView *photosView = [[DSComposePhotosView alloc] init];
     photosView.width = self.textView.width;
     photosView.height = self.textView.height;
-    photosView.y = 70;
+    photosView.y = 10;
     [photosView.addButton addTarget:self action:@selector(addButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     
 //    photosView.addButton.hidden = YES;
@@ -235,9 +242,9 @@
     
     self.produceText = produceText;
     
-    produceText.frame = CGRectMake(0, 300, self.view.width, 50);
+    produceText.frame = CGRectMake(0, 350, self.view.width, 50);
     //    produceText.frame = self.view.bounds;
-    produceText.delegate = self;
+
     [self.view addSubview:produceText];
     self.textView = produceText;
     
@@ -258,9 +265,9 @@
     
     self.disabuseText = disabuseText;
     
-    disabuseText.frame = CGRectMake(0, 350, self.view.width, 50);
+    disabuseText.frame = CGRectMake(0, 400, self.view.width, 50);
     //    textView.frame = self.view.bounds;
-    disabuseText.delegate = self;
+
     [self.view addSubview:disabuseText];
     self.textView = disabuseText;
     
@@ -334,9 +341,15 @@
 - (void)send
 {
     // 1.发表微博
+    
+    NSLog(@"%ld",self.photosView.images.count);
+    
     if (self.photosView.images.count) {
+        
         [self sendStatusWithImage];
+        
     } else {
+        
         [self sendStatusWithoutImage];
     }
     
@@ -349,86 +362,97 @@
  */
 - (void)sendStatusWithImage
 {
-//    // 1.获得请求管理者
-//    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-//    
-//    // 2.封装请求参数
-//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-//    params[@"access_token"] = [HMAccountTool account].access_token;
-//    params[@"status"] = self.textView.text;
-//    
-//    // 3.发送POST请求
-//    [mgr POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-//        
-//#warning 目前新浪开放的发微博接口 最多 只能上传一张图片
-//        UIImage *image = [self.photosView.images firstObject];
-//        
-//        NSData *data = UIImageJPEGRepresentation(image, 1.0);
-//        
-//        // 拼接文件参数
-//        [formData appendPartWithFileData:data name:@"pic" fileName:@"status.jpg" mimeType:@"image/jpeg"];
-//        
-//    } success:^(AFHTTPRequestOperation *operation, NSDictionary *statusDict) {
-//        [MBProgressHUD showSuccess:@"发表成功"];
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        [MBProgressHUD showError:@"发表失败"];
-//    }];
-    
     //参数
-//    NSString *title = @"123";
-//    NSString *brief = @"间谍飞哥那就搞公安人";
-//    NSString *duration = @"24";
-//    NSString *userId = @"";
-//    NSString *picture_url = @"";
-//    NSString *investGoalMoney = @"";
-//    
-//    NSString *timestamp = [MyMD5 timestamp];
-//    NSString *appkey = MD5key;
-//    
-//    NSString *signmsg = [NSString stringWithFormat:@"title=%@&sex=%@&timestamp=%@&username=%@&key=%@",title,sex,timestamp,username,appkey];
-//    
-//    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-//    
+//    NSString *projectDescription = @"和发货速度加快结构记得分别居";
+//    NSString *description = [projectDescription stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+//    NSString *projectDescription =  self.textView.text;
+    NSString *description = @"和发货速度加快结构记得分别居";
+    
+    NSArray *file = self.photosView2.selectedPhotos;
+    
+    
+    
+//    NSString *make_instruDescription = @"和发货速度加快结构记得分别居";
+//    NSString *make_instru = [make_instruDescription stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+     NSString *make_instru = @"和发货速度加快结构记得分别居";
+    
+//    NSString *financing_aqDescription = @"和发货速度加快结构记得分别居";
+//    NSString *financing_aq = [financing_aqDescription stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *financing_aq = @"和发货速度加快结构记得分别居";
+    
+    NSString *artworkId = [[NSUserDefaults standardUserDefaults]objectForKey:@"artworkId"];
+    
+    NSString *timestamp = [MyMD5 timestamp];
+    
+    NSString *appkey = MD5key;
+
+
+    NSString *signmsg = [NSString stringWithFormat:@"artworkId=%@&timestamp=%@&key=%@",artworkId,timestamp,appkey];
+
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
 //    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-//    NSString *url = @"http://192.168.1.69:8001/app/completeUserInfo.do";
-//    
-//    // 3.设置请求体
-//    NSDictionary *json = @{
-//                           @"username" : @"18513234278",
-//                           @"nickname" : nickname,
-//                           @"headPortrait":headPortrait,
-//                           @"sex"      : sex,
-//                           @"timestamp" : timestamp,
-//                           @"signmsg"   : signmsgMD5
-//                           };
-//    
-//    //     [HttpRequstTool shareInstance];
-//    
-//    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
-//    
-//    // 设置请求格式
-//    manger.requestSerializer = [AFJSONRequestSerializer serializer];
-//    // 设置返回格式
-//    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    
-//    
-//    [manger POST:url parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-//        
-//        [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"headPortrait" fileName:@"headPortrait.jpg" mimeType:@"application/octet-stream" error:nil];
-//        
-//        
-//    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        
-//        
-//        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-//        
-//        SSLog(@"上传成功---%@---%@",[responseObject class],aString);
-//        
-//        
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        
-//        SSLog(@"%@",error);
-//    }];
+    NSString *url = @"http://192.168.1.69:8001/app/initNewArtWork2.do";
+
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"description" : description,
+                           @"make_instru" : make_instru,
+                           @"financing_aq":financing_aq,
+                           @"file"        :file,
+                           @"artworkId"   : artworkId,
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5
+                           };
+    
+    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
+    
+    // 设置请求格式
+    manger.requestSerializer = [AFJSONRequestSerializer serializer];
+    // 设置返回格式
+    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    
+    [manger POST:url parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+
+        NSInteger imgCount = 0;
+        
+        for (UIImage *image in self.photosView2.selectedPhotos) {
+            
+            NSData *data = UIImageJPEGRepresentation(image, 1.0);
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            
+            formatter.dateFormat = @"yyyyMMddHHmmssSSS";
+            
+            NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(imgCount)];
+            
+            NSLog(@"%@",fileName);
+            
+            [formData appendPartWithFileData:data name:@"file" fileName:fileName mimeType:@"application/octet-stream"];
+            
+            imgCount++;
+        
+            NSLog(@"%ld",imgCount);
+        
+        }
+        
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    
+        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        
+        SSLog(@"---%@---%@",[responseObject class],aString);
+        
+        [SVProgressHUD showSuccessWithStatus:@"发布成功" maskType:SVProgressHUDMaskTypeBlack];
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        SSLog(@"%@",error);
+        
+        [SVProgressHUD showSuccessWithStatus:@"发布失败" maskType:SVProgressHUDMaskTypeBlack];
+    }];
 
 }
 
@@ -440,16 +464,7 @@
  */
 - (void)sendStatusWithoutImage
 {
-//    // 1.封装请求参数
-//    HMSendStatusParam *param = [HMSendStatusParam param];
-//    param.status = self.textView.realText;
-//    
-//    // 2.发微博
-//    [HMStatusTool sendStatusWithParam:param success:^(HMSendStatusResult *result) {
-//        [MBProgressHUD showSuccess:@"发表成功"];
-//    } failure:^(NSError *error) {
-//        [MBProgressHUD showError:@"发表失败"];
-//    }];
+    
 }
 
 #pragma mark - 键盘处理

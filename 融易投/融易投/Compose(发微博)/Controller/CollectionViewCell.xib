@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="gTV-IL-0wX" customClass="CollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="88" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="88" height="90"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AA7-73-AOg">
+                        <rect key="frame" x="0.0" y="0.0" width="88" height="90"/>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="AA7-73-AOg" secondAttribute="bottom" id="74H-Tt-e0y"/>
+                <constraint firstItem="AA7-73-AOg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Dsl-Ei-hic"/>
+                <constraint firstAttribute="trailing" secondItem="AA7-73-AOg" secondAttribute="trailing" id="HZr-Zk-WmS"/>
+                <constraint firstItem="AA7-73-AOg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="LSc-xU-bsH"/>
+            </constraints>
+            <size key="customSize" width="88" height="90"/>
+            <connections>
+                <outlet property="imageV" destination="AA7-73-AOg" id="CMj-pJ-h6U"/>
+            </connections>
+            <point key="canvasLocation" x="324" y="390"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArtistViewController">
             <connections>
-                <outlet property="subTableView" destination="i9s-fC-wRi" id="kRs-Vs-tFu"/>
                 <outlet property="view" destination="Sds-Pv-DSY" id="PH0-fG-owU"/>
             </connections>
         </placeholder>
@@ -102,20 +101,37 @@
                         <constraint firstAttribute="height" constant="300" id="TYU-3l-ato"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i9s-fC-wRi">
-                    <rect key="frame" x="0.0" y="300" width="375" height="367"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBp-82-9hr">
+                    <rect key="frame" x="35" y="401" width="60" height="30"/>
+                    <state key="normal" title="发布动态"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OfJ-wn-BhL">
+                    <rect key="frame" x="139" y="401" width="45" height="30"/>
+                    <state key="normal" title="小视频"/>
+                    <connections>
+                        <action selector="shortVideo:" destination="-1" eventType="touchUpInside" id="EAz-T9-tvy"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ak2-Pt-D9b">
+                    <rect key="frame" x="229" y="401" width="75" height="30"/>
+                    <state key="normal" title="上传服务器"/>
+                    <connections>
+                        <action selector="updata:" destination="-1" eventType="touchUpInside" id="f9t-vS-V7U"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20q-Em-1OT">
+                    <rect key="frame" x="132" y="354" width="60" height="30"/>
+                    <state key="normal" title="发布图片"/>
+                    <connections>
+                        <action selector="updataPic:" destination="-1" eventType="touchUpInside" id="wVY-wL-LUn"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="JeW-dC-elu" secondAttribute="trailing" id="Fko-JN-h0M"/>
                 <constraint firstItem="JeW-dC-elu" firstAttribute="leading" secondItem="Sds-Pv-DSY" secondAttribute="leading" id="UxQ-Ef-YcE"/>
-                <constraint firstAttribute="bottom" secondItem="i9s-fC-wRi" secondAttribute="bottom" id="hcs-3f-aCC"/>
-                <constraint firstItem="i9s-fC-wRi" firstAttribute="top" secondItem="JeW-dC-elu" secondAttribute="bottom" id="lce-Xa-GUD"/>
-                <constraint firstAttribute="trailing" secondItem="i9s-fC-wRi" secondAttribute="trailing" id="m9L-GF-8SC"/>
                 <constraint firstItem="JeW-dC-elu" firstAttribute="top" secondItem="Sds-Pv-DSY" secondAttribute="top" id="pnh-Zj-1NE"/>
-                <constraint firstItem="i9s-fC-wRi" firstAttribute="leading" secondItem="Sds-Pv-DSY" secondAttribute="leading" id="qJ5-83-bhJ"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>

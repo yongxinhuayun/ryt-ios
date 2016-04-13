@@ -10,9 +10,16 @@
 
 #import "SettingTableViewController.h"
 
-@interface ArtistViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UITableView *subTableView;
+#import <WechatShortVideoController.h>
+
+#import "ReleaseViewController.h"
+
+@interface ArtistViewController ()<WechatShortVideoDelegate>
+{
+    NSURL *urlVideo;
+}
+
 
 @end
 
@@ -23,9 +30,6 @@
     
     //设置导航条
     [self setUpNavBar];
-    
-    //设置详细视图
-    [self setUpTableView];
 }
 
 // 设置导航条
@@ -34,91 +38,123 @@
     //设置导航条标题
     self.navigationItem.title = @"我的";
     
-    //    UIBarButtonItem *settingItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"mine-setting-icon"] highImage:[UIImage imageNamed:@"mine-setting-icon-click"] target:self action:@selector(settting)];
-    
-    //    UIBarButtonItem *nightItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"mine-moon-icon"] selImage:[UIImage imageNamed:@"mine-moon-icon-click"] target:self action:@selector(night:)];
-    //运行程序,发现点击还是不能实现保持选中状态
-    // 按钮达到选中状态,必须通过代码实现,所以我们在按钮的点击方法中进行设置
-    
-    
-    //    self.navigationItem.rightBarButtonItems = @[settingItem,nightItem];
-}
-
--(void)setUpTableView{
-    
-    self.subTableView.scrollEnabled = NO;
-    
-    self.subTableView.dataSource = self;
-    self.subTableView.delegate = self;
-}
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    
-    return 5;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    return 1;
-}
-
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-    if (indexPath.section == 0) { //第0组
-        
-        cell.textLabel.text = @"我的主页";
-        
-    }else if (indexPath.section == 1){
-        cell.textLabel.text = @"钱包";
-    }else if (indexPath.section == 2){
-        cell.textLabel.text = @"拍卖订单";
-    }else if (indexPath.section == 3){
-        cell.textLabel.text = @"设置";
-    }else if (indexPath.section == 4){
-        cell.textLabel.text = @"意见反馈";
-    }
-    return cell;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if (indexPath.section == 0) { //第0组
-        
-        
-        
-    }else if (indexPath.section == 1){
-        
-    }else if (indexPath.section == 2){
-        
-    }else if (indexPath.section == 3){
-        
-        
-        UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([SettingTableViewController class]) bundle:nil];
-        SettingTableViewController *settingVC = [settingStoryBoard instantiateInitialViewController];
-        [self.navigationController pushViewController:settingVC animated:YES];
-        
-        //    SettingTableViewController *settingVC = [[SettingTableViewController alloc] init];
-        //    [self.navigationController pushViewController:settingVC animated:YES];
-        
-        
-    }else if (indexPath.section == 4){
-        
-    }
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+
+- (IBAction)shortVideo:(id)sender {
+    
+    WechatShortVideoController *wechatShortVideoController = [[WechatShortVideoController alloc] init];
+    wechatShortVideoController.delegate = self;
+    [self presentViewController:wechatShortVideoController animated:YES completion:^{}];
+    
+}
+- (IBAction)updataPic:(id)sender {
+    
+    UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
+    ReleaseViewController *settingVC = [settingStoryBoard instantiateInitialViewController];
+    [self presentViewController:settingVC animated:YES completion:nil];
+}
+
+
+- (IBAction)updata:(id)sender {
+    
+    [self loadData];
+}
+
+-(void)loadData
 {
-    return 20;//section头部高度
+    //参数
+    
+    NSString *projectTitle = @"你妹";
+    
+    NSString *title = [projectTitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    NSString *userId = @"imhfp1yr4636pj49";
+    NSString *picture_url = urlVideo;
+    
+    NSLog(@"%@",picture_url);
+    
+    NSString *artworkId = @"imyj2dw936qyh35t";
+    
+    NSString *timestamp = [MyMD5 timestamp];
+    
+    NSString *appkey = MD5key;
+    
+    NSString *signmsg = [NSString stringWithFormat:@"artworkId=%@&timestamp=%@&key=%@",artworkId,timestamp,appkey];
+    
+    NSLog(@"%@",signmsg);
+    
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+    
+    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
+    NSString *url = @"http://192.168.1.69:8001/app/releaseArtworkDynamic.do";
+    
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"content" : title,
+                           @"file" : picture_url,
+                           @"type": @"1",
+                           @"artworkId"   : artworkId,
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5
+                           };
+    
+    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
+    
+    // 设置请求格式
+    manger.requestSerializer = [AFJSONRequestSerializer serializer];
+    // 设置返回格式
+    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    
+    [manger POST:url parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        
+        //_fileName = [NSString stringWithFormat:@"output-%@.mp4",[formater stringFromDate:[NSDate date]]];
+        
+        // [formData appendPartWithFileURL:_filePathURL name:@"file" fileName:_fileName mimeType:dict[@"contenttype"] error:nil];
+        
+        NSDateFormatter* formater = [[NSDateFormatter alloc] init];
+        [formater setDateFormat:@"yyyyMMddHHmmss"];
+        NSString*_fileName = [NSString stringWithFormat:@"output-%@.mp4",[formater stringFromDate:[NSDate date]]];
+        //NSURL *urlStr = [NSURL URLWithString:]
+        
+        [formData appendPartWithFileURL:urlVideo name:@"file" fileName:@"ii.mov" mimeType:@"application/octet-stream" error:nil];
+        
+        
+        
+        //          [formData appendPartWithFileURL:[NSURL URLWithString:picture_url] name:@"file" fileName:@"ii.mov" mimeType:@"application/octet-stream" error:nil];
+        
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        
+        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        
+        SSLog(@"%@---%@",[responseObject class],aString);
+        
+        //        [SVProgressHUD showSuccessWithStatus:@"发布成功" maskType:SVProgressHUDMaskTypeBlack];
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        SSLog(@"%@",error);
+        
+        //        [SVProgressHUD showSuccessWithStatus:@"发布失败 " maskType:SVProgressHUDMaskTypeBlack];
+    }];
+    
+    
 }
+
+-(void)finishWechatShortVideoCapture:(NSURL *)filePath{
+    urlVideo = filePath;
+    NSLog(@"urlVideo%@ ",urlVideo);
+    NSLog(@"1111111111$%@",filePath);
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

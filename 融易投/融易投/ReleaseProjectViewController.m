@@ -13,6 +13,12 @@
 #import <SVProgressHUD.h>
 
 
+#import "ComposeViewController.h"
+
+#import "ArtWorkIdModel.h"
+#import <MJExtension.h>
+
+
 @interface ReleaseProjectViewController ()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet HMEmotionTextView *progectTextView;
@@ -127,12 +133,15 @@
 }
 - (IBAction)nextBtnClick:(id)sender {
     
-//    [self loadData];
+    [self loadData];
     
     // 弹出发微博控制器
     HMComposeViewController *compose = [[HMComposeViewController alloc] init];
     
     [self.navigationController pushViewController:compose animated:YES];
+    
+//    ComposeViewController *compose = [[ComposeViewController alloc] init];
+//    [self.navigationController pushViewController:compose animated:YES];
 }
 
 
@@ -140,9 +149,12 @@
 {
     //参数
     
-    NSString *projectTitle =  self.projectTextField.text;
+//    NSString *projectTitle =  self.projectTextField.text;
+//    
+//    NSString *title = [projectTitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    NSString *title = [projectTitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *title =  self.projectTextField.text;
+    
     NSString *brief = self.progectTextView.text;
     NSString *duration = self.projectTimeTextField.text;
     NSString *userId = @"imhfp1yr4636pj49";
@@ -191,8 +203,16 @@
         
         NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         
-        SSLog(@"%@---%@",[responseObject class],aString);
+        SSLog(@"%@",aString);
+        //{"artworkId":"imyapayc1rttrjbz","resultCode":"0","resultMsg":"成功"}
         
+        ArtWorkIdModel *artWorkId = [ArtWorkIdModel mj_objectWithKeyValues:responseObject];
+        
+        // 3.打印MJUser模型的属性
+        NSLog(@"artworkId = %@",artWorkId.artworkId);
+        
+        [[NSUserDefaults standardUserDefaults] setObject:artWorkId.artworkId forKey:@"artworkId"];
+
         [SVProgressHUD showSuccessWithStatus:@"发布成功" maskType:SVProgressHUDMaskTypeBlack];
 
         
