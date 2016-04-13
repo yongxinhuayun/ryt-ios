@@ -15,6 +15,9 @@
 
 @property (nonatomic , strong) JKAssets *asset;
 @property (nonatomic , weak) UIButton *deletePhotoButton;
+
+@property (nonatomic , weak) UIButton *addPhotoButton;
+
 @property (nonatomic , strong) NSIndexPath *indexpath;
 @property (nonatomic , strong) UIImageView *imageView;
 @end

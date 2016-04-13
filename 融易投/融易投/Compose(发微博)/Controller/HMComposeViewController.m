@@ -40,6 +40,8 @@
  *  是否正在切换键盘
  */
 @property (nonatomic, assign, getter = isChangingKeyboard) BOOL changingKeyboard;
+
+
 @end
 
 @implementation HMComposeViewController
@@ -67,27 +69,26 @@
     label.frame = CGRectMake(10, -250, self.view.width, self.view.height);
     [self.view addSubview:label];
     
+    // 添加输入控件
+    [self setupTextView];
+    
+    //设置其他输入框
+    [self setupProduceText];
+    //
+    [self setupDisabuseText];
+
+    
     // 添加工具条
     [self setupToolbar];
-    
     
     // 添加显示图片的相册控件
 //    [self setupPhotosView];
     [self setupPhotosView2];
     
-    [self setupProduceText];
-    
-    [self setupDisabuseText];
-    
-    // 添加输入控件
-    [self setupTextView];
-    
+
     //设置完成按钮
     [self setupCompleteBtn];
 
-    
-
-    
     // 监听表情选中的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSelected:) name:HMEmotionDidSelectedNotification object:nil];
     // 监听删除按钮点击的通知
@@ -120,127 +121,36 @@
 
     SSLog(@"完成");
     
-//    [self loadData];
+    [self loadData];
 
 }
 
-//-(void)loadData
-//{
-//    //参数
-//    NSString *username = @"18513234278";
-//    NSString *nickname = self.nicknameTextField.text;
-//    
-//    NSString *headPortrait = self.createPath;
-//    NSLog(@"%@",headPortrait);
-//    
-//    NSString *sex = @"1";
-//    NSString *timestamp = [MyMD5 timestamp];
-//    NSString *appkey = MD5key;
-//    
-//    NSString *signmsg = [NSString stringWithFormat:@"nickname=%@&sex=%@&timestamp=%@&username=%@&key=%@",nickname,sex,timestamp,username,appkey];
-//    
-//    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-//    
-//    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-//    NSString *url = @"http://192.168.1.69:8001/app/completeUserInfo.do";
-//    
-//    // 3.设置请求体
-//    NSDictionary *json = @{
-//                           @"username" : @"18513234278",
-//                           @"nickname" : nickname,
-//                           @"headPortrait":headPortrait,
-//                           @"sex"      : sex,
-//                           @"timestamp" : timestamp,
-//                           @"signmsg"   : signmsgMD5
-//                           };
-//    
-//    //     [HttpRequstTool shareInstance];
-//    
-//    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
-//    
-//    // 设置请求格式
-//    manger.requestSerializer = [AFJSONRequestSerializer serializer];
-//    // 设置返回格式
-//    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    
-//    
-//    [manger POST:url parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-//        
-//        [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"headPortrait" fileName:@"headPortrait.jpg" mimeType:@"application/octet-stream" error:nil];
-//        
-//        
-//    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        
-//        
-//        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-//        
-//        SSLog(@"上传成功---%@---%@",[responseObject class],aString);
-//        
-//        
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        
-//        SSLog(@"%@",error);
-//    }];
-//    
-//    
-//}
-
-
--(void)setupProduceText{
-    
-    // 1.创建输入控件
-    HMEmotionTextView *produceText = [[HMEmotionTextView alloc] init];
-    produceText.alwaysBounceVertical = YES; // 垂直方向上拥有有弹簧效果
-    
-    self.produceText = produceText;
-    
-    produceText.frame = CGRectMake(0, 200, self.view.width, self.view.height - 200);
-    //    textView.frame = self.view.bounds;
-    produceText.delegate = self;
-    [self.view addSubview:produceText];
-    self.textView = produceText;
-    
-    // 2.设置提醒文字（占位文字）
-    produceText.placehoder = @"制作过程说明";
-    
-    // 3.设置字体
-    produceText.font = [UIFont systemFontOfSize:15];
-}
-
--(void)setupDisabuseText{
-
-    // 1.创建输入控件
-    HMEmotionTextView *disabuseText = [[HMEmotionTextView alloc] init];
-    disabuseText.alwaysBounceVertical = YES; // 垂直方向上拥有有弹簧效果
-    
-    self.disabuseText = disabuseText;
-    
-    disabuseText.frame = CGRectMake(0, 300, self.view.width, self.view.height - 300);
-    //    textView.frame = self.view.bounds;
-    disabuseText.delegate = self;
-    [self.view addSubview:disabuseText];
-    self.textView = disabuseText;
-    
-    // 2.设置提醒文字（占位文字）
-    disabuseText.placehoder = @"融资解惑";
-    
-    // 3.设置字体
-    disabuseText.font = [UIFont systemFontOfSize:15];
-}
-
-
-
-
-// 添加显示图片的相册控件
-- (void)setupPhotosView
+-(void)loadData
 {
-    HMComposePhotosView *photosView = [[HMComposePhotosView alloc] init];
-    photosView.width = self.textView.width;
-    photosView.height = self.textView.height;
-    photosView.y = 70;
-    [self.textView addSubview:photosView];
-    self.photosView = photosView;
+    
+    if (self.photosView.images.count) {
+        [self sendStatusWithImage];
+    } else {
+        [self sendStatusWithoutImage];
+    }
+    
+    // 2.关闭控制器
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+
+
+//// 添加显示图片的相册控件
+//- (void)setupPhotosView
+//{
+//    HMComposePhotosView *photosView = [[HMComposePhotosView alloc] init];
+//    photosView.width = self.textView.width;
+//    photosView.height = self.textView.height;
+//    photosView.y = 70;
+//    [self.textView addSubview:photosView];
+//    self.photosView = photosView;
+//}
 
 // 添加显示图片的相册控件
 - (void)setupPhotosView2 {
@@ -251,7 +161,7 @@
     photosView.y = 70;
     [photosView.addButton addTarget:self action:@selector(addButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     
-    photosView.addButton.hidden = YES;
+//    photosView.addButton.hidden = YES;
     [self.textView addSubview:photosView];
     self.photosView2 = photosView;
 }
@@ -293,7 +203,9 @@
     HMEmotionTextView *textView = [[HMEmotionTextView alloc] init];
     textView.alwaysBounceVertical = YES; // 垂直方向上拥有有弹簧效果
     
-    textView.frame = CGRectMake(0, 100, self.view.width, self.view.height - 100);
+    textView.backgroundColor = [UIColor redColor];
+    
+    textView.frame = CGRectMake(0, 100, self.view.width, 200);
 //    textView.frame = self.view.bounds;
     textView.delegate = self;
     [self.view addSubview:textView];
@@ -312,6 +224,54 @@
     // 键盘即将隐藏, 就会发出UIKeyboardWillHideNotification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
+
+-(void)setupProduceText{
+    
+    // 1.创建输入控件
+    HMEmotionTextView *produceText = [[HMEmotionTextView alloc] init];
+    //    produceText.alwaysBounceVertical = YES; // 垂直方向上拥有有弹簧效果
+    
+    produceText.backgroundColor = [UIColor blueColor];
+    
+    self.produceText = produceText;
+    
+    produceText.frame = CGRectMake(0, 300, self.view.width, 50);
+    //    produceText.frame = self.view.bounds;
+    produceText.delegate = self;
+    [self.view addSubview:produceText];
+    self.textView = produceText;
+    
+    // 2.设置提醒文字（占位文字）
+    produceText.placehoder = @"制作过程说明";
+    
+    // 3.设置字体
+    produceText.font = [UIFont systemFontOfSize:15];
+}
+
+-(void)setupDisabuseText{
+    
+    // 1.创建输入控件
+    HMEmotionTextView *disabuseText = [[HMEmotionTextView alloc] init];
+    //    disabuseText.alwaysBounceVertical = YES; // 垂直方向上拥有有弹簧效果
+    
+    disabuseText.backgroundColor = [UIColor greenColor];
+    
+    self.disabuseText = disabuseText;
+    
+    disabuseText.frame = CGRectMake(0, 350, self.view.width, 50);
+    //    textView.frame = self.view.bounds;
+    disabuseText.delegate = self;
+    [self.view addSubview:disabuseText];
+    self.textView = disabuseText;
+    
+    // 2.设置提醒文字（占位文字）
+    disabuseText.placehoder = @"融资解惑";
+    
+    // 3.设置字体
+    disabuseText.font = [UIFont systemFontOfSize:15];
+}
+
+
 
 - (void)dealloc
 {
@@ -353,20 +313,20 @@
 //        self.title = @"发微博";
 //    }
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleBordered target:self action:@selector(send)];
-    self.navigationItem.rightBarButtonItem.enabled = NO;
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回上一步" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleBordered target:self action:@selector(send)];
+//    self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
 #pragma mark - 私有方法
 /**
  *  取消
  */
-- (void)cancel
-{
-    // 2.关闭控制器
-    [self.navigationController popViewControllerAnimated:YES];
-}
+//- (void)cancel
+//{
+//    // 2.关闭控制器
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 
 /**
  *  发送
@@ -413,6 +373,63 @@
 //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 //        [MBProgressHUD showError:@"发表失败"];
 //    }];
+    
+    //参数
+//    NSString *title = @"123";
+//    NSString *brief = @"间谍飞哥那就搞公安人";
+//    NSString *duration = @"24";
+//    NSString *userId = @"";
+//    NSString *picture_url = @"";
+//    NSString *investGoalMoney = @"";
+//    
+//    NSString *timestamp = [MyMD5 timestamp];
+//    NSString *appkey = MD5key;
+//    
+//    NSString *signmsg = [NSString stringWithFormat:@"title=%@&sex=%@&timestamp=%@&username=%@&key=%@",title,sex,timestamp,username,appkey];
+//    
+//    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+//    
+//    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
+//    NSString *url = @"http://192.168.1.69:8001/app/completeUserInfo.do";
+//    
+//    // 3.设置请求体
+//    NSDictionary *json = @{
+//                           @"username" : @"18513234278",
+//                           @"nickname" : nickname,
+//                           @"headPortrait":headPortrait,
+//                           @"sex"      : sex,
+//                           @"timestamp" : timestamp,
+//                           @"signmsg"   : signmsgMD5
+//                           };
+//    
+//    //     [HttpRequstTool shareInstance];
+//    
+//    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
+//    
+//    // 设置请求格式
+//    manger.requestSerializer = [AFJSONRequestSerializer serializer];
+//    // 设置返回格式
+//    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    
+//    
+//    [manger POST:url parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//        
+//        [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"headPortrait" fileName:@"headPortrait.jpg" mimeType:@"application/octet-stream" error:nil];
+//        
+//        
+//    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        
+//        
+//        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+//        
+//        SSLog(@"上传成功---%@---%@",[responseObject class],aString);
+//        
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        
+//        SSLog(@"%@",error);
+//    }];
+
 }
 
 
@@ -457,8 +474,6 @@
  */
 - (void)keyboardWillShow:(NSNotification *)note
 {
-    
-        
         // 1.键盘弹出需要的时间
         CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
         
@@ -610,8 +625,27 @@
     // 1.取出选中的图片
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
+    UIImage *newImage = [self drawImageWith:image imageWidth:100];
+    
     // 2.添加图片到相册中
-    [self.photosView addImage:image];
+    [self.photosView addImage:newImage];
+}
+
+
+// 将指定图片按照指定的宽度缩放
+-(UIImage *)drawImageWith:(UIImage *)image imageWidth:(CGFloat)imageWidth{
+    
+    CGFloat imageHeight = (image.size.height / image.size.width) * imageWidth;
+    CGSize size = CGSizeMake(imageWidth, imageHeight);
+    
+    // 1.开启图形上下文
+    UIGraphicsBeginImageContext(size);
+    // 2.绘制图片
+    [image drawInRect:CGRectMake(0, 0, imageWidth, imageHeight)];
+    // 3.从上下文中取出图片
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    // 4.关闭上下文
+    return newImage;
 }
 
 #pragma mark - JKImagePickerControllerDelegate

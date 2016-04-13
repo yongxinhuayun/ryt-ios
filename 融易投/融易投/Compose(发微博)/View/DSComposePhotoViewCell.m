@@ -77,8 +77,6 @@
         
         buttonClose.frame = CGRectMake(_imageView.frame.origin.x, 0, 25, 25);
         
-        
-        
         self.deletePhotoButton = buttonClose;
 
         [self.contentView addSubview:_imageView];

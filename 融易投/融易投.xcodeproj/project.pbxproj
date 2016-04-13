@@ -80,6 +80,8 @@
 		219AC9B91CBC9B060052146E /* UIView+JKPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 219AC9AA1CBC9B060052146E /* UIView+JKPicker.m */; };
 		219AC9BD1CBCA5A40052146E /* ReleaseProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219AC9BB1CBCA5A40052146E /* ReleaseProjectViewController.m */; };
 		219AC9BE1CBCA5A40052146E /* ReleaseProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219AC9BC1CBCA5A40052146E /* ReleaseProjectViewController.xib */; };
+		219AC9D11CBD1B890052146E /* ArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219AC9CF1CBD1B890052146E /* ArtistViewController.m */; };
+		219AC9D21CBD1B890052146E /* ArtistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219AC9D01CBD1B890052146E /* ArtistViewController.xib */; };
 		21C08BC81CB01BC3002328D3 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */; };
 		21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BCC1CB01F7E002328D3 /* NSObject+FileManager.m */; };
 		21C08BD11CB02521002328D3 /* SettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C08BD01CB02521002328D3 /* SettingTableViewController.storyboard */; };
@@ -304,9 +306,12 @@
 		219AC9A81CBC9B060052146E /* PhotoAlbumManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoAlbumManager.m; sourceTree = "<group>"; };
 		219AC9A91CBC9B060052146E /* UIView+JKPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JKPicker.h"; sourceTree = "<group>"; };
 		219AC9AA1CBC9B060052146E /* UIView+JKPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JKPicker.m"; sourceTree = "<group>"; };
-		219AC9BA1CBCA5A40052146E /* ReleaseProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseProjectViewController.h; sourceTree = "<group>"; };
-		219AC9BB1CBCA5A40052146E /* ReleaseProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseProjectViewController.m; sourceTree = "<group>"; };
-		219AC9BC1CBCA5A40052146E /* ReleaseProjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReleaseProjectViewController.xib; sourceTree = "<group>"; };
+		219AC9BA1CBCA5A40052146E /* ReleaseProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReleaseProjectViewController.h; path = ../../ReleaseProjectViewController.h; sourceTree = "<group>"; };
+		219AC9BB1CBCA5A40052146E /* ReleaseProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReleaseProjectViewController.m; path = ../../ReleaseProjectViewController.m; sourceTree = "<group>"; };
+		219AC9BC1CBCA5A40052146E /* ReleaseProjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReleaseProjectViewController.xib; path = ../../ReleaseProjectViewController.xib; sourceTree = "<group>"; };
+		219AC9CE1CBD1B890052146E /* ArtistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistViewController.h; sourceTree = "<group>"; };
+		219AC9CF1CBD1B890052146E /* ArtistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistViewController.m; sourceTree = "<group>"; };
+		219AC9D01CBD1B890052146E /* ArtistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistViewController.xib; sourceTree = "<group>"; };
 		21C08BC61CB01BC3002328D3 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		21C08BCB1CB01F7E002328D3 /* NSObject+FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FileManager.h"; sourceTree = "<group>"; };
@@ -500,7 +505,7 @@
 			name = "注册完成完善界面";
 			sourceTree = "<group>";
 		};
-		219AC5BD1CBC87FD0052146E /* Compose(发微博) */ = {
+		219AC5BD1CBC87FD0052146E /* Compose(发项目) */ = {
 			isa = PBXGroup;
 			children = (
 				219AC5BE1CBC87FD0052146E /* Controller */,
@@ -508,12 +513,16 @@
 				219AC5C61CBC87FD0052146E /* Tool */,
 				219AC5C91CBC87FD0052146E /* View */,
 			);
+			name = "Compose(发项目)";
 			path = "Compose(发微博)";
 			sourceTree = "<group>";
 		};
 		219AC5BE1CBC87FD0052146E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				219AC9BA1CBCA5A40052146E /* ReleaseProjectViewController.h */,
+				219AC9BB1CBCA5A40052146E /* ReleaseProjectViewController.m */,
+				219AC9BC1CBCA5A40052146E /* ReleaseProjectViewController.xib */,
 				219AC5BF1CBC87FD0052146E /* HMComposeViewController.h */,
 				219AC5C01CBC87FD0052146E /* HMComposeViewController.m */,
 			);
@@ -857,10 +866,10 @@
 				2118F1E01CAE5805003BFC6B /* MyViewController.h */,
 				2118F1E11CAE5805003BFC6B /* MyViewController.m */,
 				2118F1E21CAE5805003BFC6B /* MyViewController.xib */,
-				219AC9BA1CBCA5A40052146E /* ReleaseProjectViewController.h */,
-				219AC9BB1CBCA5A40052146E /* ReleaseProjectViewController.m */,
-				219AC9BC1CBCA5A40052146E /* ReleaseProjectViewController.xib */,
-				219AC5BD1CBC87FD0052146E /* Compose(发微博) */,
+				219AC9CE1CBD1B890052146E /* ArtistViewController.h */,
+				219AC9CF1CBD1B890052146E /* ArtistViewController.m */,
+				219AC9D01CBD1B890052146E /* ArtistViewController.xib */,
+				219AC5BD1CBC87FD0052146E /* Compose(发项目) */,
 				E2DDB1AC1CABA8F2007438E4 /* 设置 */,
 				E2DDB1AB1CABA8DF007438E4 /* 申请艺术家 */,
 			);
@@ -1483,6 +1492,7 @@
 				E236C3381CB4F6D0009DCBF0 /* MessageTableViewController.storyboard in Resources */,
 				E2D059DE1CB34F7400B0F690 /* WeiXinController.xib in Resources */,
 				E236C2961CB4B1B8009DCBF0 /* LognController.xib in Resources */,
+				219AC9D21CBD1B890052146E /* ArtistViewController.xib in Resources */,
 				219AC9AB1CBC9B060052146E /* JKImagePickerController.strings in Resources */,
 				21D54BCF1CB796CD0088D386 /* messages.plist in Resources */,
 				21D54B8D1CB660970088D386 /* ArtistTableViewCell.xib in Resources */,
@@ -1641,6 +1651,7 @@
 				219AC9AD1CBC9B060052146E /* JKAssets.m in Sources */,
 				215E73671CB7BC1000A67690 /* NotificationTableViewCell.m in Sources */,
 				219AC9B81CBC9B060052146E /* PhotoAlbumManager.m in Sources */,
+				219AC9D11CBD1B890052146E /* ArtistViewController.m in Sources */,
 				218D2B461CACB325004553B9 /* MainTableViewController.m in Sources */,
 				219AC5E41CBC87FD0052146E /* HMEmotionGridView.m in Sources */,
 				219AC9891CBC99670052146E /* DSComposePhotoViewCell.m in Sources */,

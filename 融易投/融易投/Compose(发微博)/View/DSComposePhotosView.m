@@ -31,7 +31,7 @@
         button.frame = CGRectMake(15, 200, img.size.width, img.size.height);
         [button setBackgroundImage:img forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"compose_pic_add_highlighted"] forState:UIControlStateHighlighted];
-        button.hidden = YES;
+//        button.hidden = YES;
         self.addButton = button;
         [self addSubview:button];
     }
@@ -66,6 +66,17 @@ static NSString *kPhotoCellIdentifier = @"kPhotoCellIdentifier";
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return [self.assetsArray count];
+    
+//    if (self.assetsArray.count == 0) {
+//        return 1;
+//    }else if (self.assetsArray.count == 9)
+//    {
+//        return self.assetsArray.count;
+//    }else
+//    {
+//        return self.assetsArray.count + 1;
+//    }
+
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

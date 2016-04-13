@@ -10,6 +10,7 @@
 
 #import "HMEmotionTextView.h"
 #import "HMComposeViewController.h"
+#import <SVProgressHUD.h>
 
 
 @interface ReleaseProjectViewController ()<UITextViewDelegate>
@@ -19,6 +20,9 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *projecTotaltTextField;
 @property (weak, nonatomic) IBOutlet UITextField *projectTimeTextField;
+
+
+@property (strong,nonatomic) NSString *createPath;
 
 @end
 
@@ -123,11 +127,164 @@
 }
 - (IBAction)nextBtnClick:(id)sender {
     
+//    [self loadData];
+    
     // 弹出发微博控制器
     HMComposeViewController *compose = [[HMComposeViewController alloc] init];
     
     [self.navigationController pushViewController:compose animated:YES];
 }
+
+
+-(void)loadData
+{
+    //参数
+    
+    NSString *projectTitle =  self.projectTextField.text;
+    
+    NSString *title = [projectTitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *brief = self.progectTextView.text;
+    NSString *duration = self.projectTimeTextField.text;
+    NSString *userId = @"imhfp1yr4636pj49";
+    NSString *picture_url = self.createPath;
+    NSString *investGoalMoney = self.projecTotaltTextField.text;
+    
+    NSString *timestamp = [MyMD5 timestamp];
+    NSString *appkey = MD5key;
+    
+    NSString *signmsg = [NSString stringWithFormat:@"duration=%@&investGoalMoney=%@&timestamp=%@&title=%@&userId=%@&key=%@",duration,investGoalMoney,timestamp,title,userId,appkey];
+    
+    NSLog(@"%@",signmsg);
+    
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+    
+    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
+    NSString *url = @"http://192.168.1.69:8001/app/initNewArtWork.do";
+    
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"title" : title,
+                           @"brief" : brief,
+                           @"duration":duration,
+                           @"userId"   : userId,
+                           @"picture_url":picture_url,
+                           @"investGoalMoney"  : investGoalMoney,
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5
+                           };
+    
+    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
+    
+    // 设置请求格式
+    manger.requestSerializer = [AFJSONRequestSerializer serializer];
+    // 设置返回格式
+    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    
+    [manger POST:url parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"picture_url" fileName:@"picture_url.jpg" mimeType:@"application/octet-stream" error:nil];
+        
+        
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        
+        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        
+        SSLog(@"%@---%@",[responseObject class],aString);
+        
+        [SVProgressHUD showSuccessWithStatus:@"发布成功" maskType:SVProgressHUDMaskTypeBlack];
+
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        SSLog(@"%@",error);
+        
+         [SVProgressHUD showSuccessWithStatus:@"发布失败 " maskType:SVProgressHUDMaskTypeBlack];
+    }];
+    
+    
+}
+
+//实现相机的代理方法
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    //移除原来的图片
+    self.imageView.image = nil;
+    
+    //保存被选中图片
+    //UIImagePickerControllerEditedImage
+    UIImage *selctedImage = info[UIImagePickerControllerOriginalImage];
+    
+    //取消modal
+    [self dismissViewControllerAnimated:self completion:nil];
+    
+    //    self.drawView.image = selctedImage;
+    //    SSLog(@"%@",selctedImage);
+    
+    UIImage *newImage = [self drawImageWith:selctedImage imageWidth:100];
+    //    NSLog(@"newImage = %d",);
+    
+    
+    //    NSData *data = UIImagePNGRepresentation(newImage);
+    //    NSString *filename = @"image";
+    
+    self.imageView.image = newImage;
+    
+    selctedImage = nil;
+    
+    self.createPath = [self writeImageToCaches:newImage];
+    
+    //    SSLog(@"%@",self.createPath);
+}
+
+-(NSString *)writeImageToCaches:(UIImage *)newImage{
+    
+    // 获取cache文件夹
+    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    
+    NSString *createPath = [NSString stringWithFormat:@"%@/", cachePath];
+    
+    NSString *iconName = @"picture_url.png";
+    NSString *path = [NSString stringWithFormat:@"%@%@",createPath,iconName];
+    
+    SSLog(@"%@",path);
+    
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    
+    // 判断文件夹是否存在，如果不存在，则创建
+    if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        [fileManager createDirectoryAtPath:createPath withIntermediateDirectories:YES attributes:nil error:nil];
+        
+        SSLog(@"%@",path);
+        
+    } else {
+        SSLog(@"FileDir is exists.");
+    }
+    
+    NSData *data = UIImagePNGRepresentation(newImage);
+    
+    [data writeToFile:[NSString stringWithFormat:@"%@",path] atomically:YES];
+    
+    return path;
+}
+
+// 将指定图片按照指定的宽度缩放
+-(UIImage *)drawImageWith:(UIImage *)image imageWidth:(CGFloat)imageWidth{
+    
+    CGFloat imageHeight = (image.size.height / image.size.width) * imageWidth;
+    CGSize size = CGSizeMake(imageWidth, imageHeight);
+    
+    // 1.开启图形上下文
+    UIGraphicsBeginImageContext(size);
+    // 2.绘制图片
+    [image drawInRect:CGRectMake(0, 0, imageWidth, imageHeight)];
+    // 3.从上下文中取出图片
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    // 4.关闭上下文
+    return newImage;
+}
+
 
 
 

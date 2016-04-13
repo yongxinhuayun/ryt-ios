@@ -19,6 +19,8 @@
 
 #import "ReleaseProjectViewController.h"
 
+#import "ArtistViewController.h"
+
 
 //#import "WeiXinController.h"
 //#import "ALiController.h"
@@ -180,6 +182,13 @@
    
     [self.navigationController pushViewController:releaseProject animated:YES];
 
+}
+- (IBAction)artistBtnClick:(id)sender {
+    
+    // 弹出发微博控制器
+    ArtistViewController *releaseProject = [[ArtistViewController alloc] init];
+    
+    [self.navigationController pushViewController:releaseProject animated:YES];
 }
 
 @end

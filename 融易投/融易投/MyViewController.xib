@@ -134,6 +134,13 @@
                                 <action selector="releaseProject:" destination="-1" eventType="touchUpInside" id="hne-CZ-psu"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fhb-qt-Gzk">
+                            <rect key="frame" x="9" y="161" width="90" height="30"/>
+                            <state key="normal" title="艺术家的界面"/>
+                            <connections>
+                                <action selector="artistBtnClick:" destination="-1" eventType="touchUpInside" id="d8G-YG-0c6"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
