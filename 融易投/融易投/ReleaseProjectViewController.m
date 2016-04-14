@@ -20,6 +20,8 @@
 
 #import "ReleaseViewController.h"
 
+#import "TestViewController.h"
+
 
 @interface ReleaseProjectViewController ()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -145,13 +147,16 @@
 //    HMComposeViewController *compose = [[HMComposeViewController alloc] init];
 //    [self.navigationController pushViewController:compose animated:YES];
     
-
+//
     UIStoryboard *releaseStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
     ReleaseViewController *releaseVC = [releaseStoryBoard instantiateInitialViewController];
-    [self.navigationController popToViewController:releaseVC animated:YES];
+    [self presentViewController:releaseVC animated:YES completion:nil];
+    
+    
+//    TestViewController *test = [[TestViewController alloc] init];
+//    [self.navigationController pushViewController:test animated:YES];
+
 }
-
-
 
 
 -(void)loadData

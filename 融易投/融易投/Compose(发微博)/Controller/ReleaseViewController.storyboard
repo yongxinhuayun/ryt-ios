@@ -5,37 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--发表状态-->
-        <scene sceneID="X8J-cI-xyR">
-            <objects>
-                <tableViewController id="37X-Ud-6Ei" customClass="ReleaseViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ofh-qV-gQi">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReportStateCell" id="zom-Ga-1VL">
-                                <rect key="frame" x="0.0" y="86" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zom-Ga-1VL" id="TBO-HT-Uyn">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="37X-Ud-6Ei" id="u6c-3s-RfJ"/>
-                            <outlet property="delegate" destination="37X-Ud-6Ei" id="3ug-lA-J43"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="发表状态" id="1GB-8c-uil">
-                        <barButtonItem key="rightBarButtonItem" title="发送" id="Zfr-9g-E1C"/>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZcW-NO-5il" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3082" y="-242"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="CzT-rj-Tsz">
             <objects>
@@ -45,12 +14,40 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="37X-Ud-6Ei" kind="relationship" relationship="rootViewController" id="iHj-RY-8Lb"/>
+                        <segue destination="3mb-Tx-kFe" kind="relationship" relationship="rootViewController" id="dlG-8l-NOP"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ah4-HC-hLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2344" y="-242"/>
+        </scene>
+        <!--Release View Controller-->
+        <scene sceneID="4xs-BM-T5D">
+            <objects>
+                <viewController id="3mb-Tx-kFe" customClass="ReleaseViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TGK-hX-EVC"/>
+                        <viewControllerLayoutGuide type="bottom" id="3bG-Wm-6uu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z9V-4S-zzC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rzp-Fv-7E7">
+                        <barButtonItem key="leftBarButtonItem" title="返回" id="gKv-e9-q7V">
+                            <connections>
+                                <action selector="dismissVc:" destination="3mb-Tx-kFe" id="KM6-QW-Sqk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dismissVC" destination="gKv-e9-q7V" id="huX-fn-D3b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jT8-5N-g5L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3012" y="-276"/>
         </scene>
         <!--Who Can See View Controller-->
         <scene sceneID="Ueo-Cn-DwS">

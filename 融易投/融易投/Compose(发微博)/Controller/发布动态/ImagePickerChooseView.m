@@ -47,7 +47,7 @@
 #define IPCViewHeight 120
 -(void)disappear
 {
-    ((UITableView *)self.superview).scrollEnabled = YES;
+//    ((UITableView *)self.superview).scrollEnabled = YES;
     [self.tapView removeFromSuperview];
     self.tapView = nil;
     [UIView animateWithDuration:0.25f animations:^{

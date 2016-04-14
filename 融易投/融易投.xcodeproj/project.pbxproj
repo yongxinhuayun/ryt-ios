@@ -29,6 +29,25 @@
 		215EED291CB0108F00A5957B /* InvestorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED281CB0108F00A5957B /* InvestorTableViewController.m */; };
 		215EED2C1CB010A500A5957B /* ArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED2B1CB010A500A5957B /* ArtistTableViewController.m */; };
 		215EED321CB014D400A5957B /* CreationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED311CB014D400A5957B /* CreationTableViewController.m */; };
+		2168EA7E1CBE882700B7E037 /* BBFlashCtntLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EA7D1CBE882700B7E037 /* BBFlashCtntLabel.m */; };
+		2168EABF1CBFA01800B7E037 /* CollectViewTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EAB61CBFA01800B7E037 /* CollectViewTestVC.m */; };
+		2168EAC01CBFA01800B7E037 /* CollectViewTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2168EAB71CBFA01800B7E037 /* CollectViewTestVC.xib */; };
+		2168EAC11CBFA01800B7E037 /* JPBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EAB91CBFA01800B7E037 /* JPBaseTableViewController.m */; };
+		2168EAC21CBFA01800B7E037 /* JPBaseTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2168EABA1CBFA01800B7E037 /* JPBaseTableViewController.xib */; };
+		2168EAC31CBFA01800B7E037 /* JPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EABC1CBFA01800B7E037 /* JPTableViewCell.m */; };
+		2168EAC41CBFA01800B7E037 /* ScrollTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EABE1CBFA01800B7E037 /* ScrollTestVC.m */; };
+		2168EACF1CBFA02700B7E037 /* JPSlideBar+ScrollViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EAC71CBFA02700B7E037 /* JPSlideBar+ScrollViewDelegate.m */; };
+		2168EAD01CBFA02700B7E037 /* JPSlideBarConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EACA1CBFA02700B7E037 /* JPSlideBarConst.m */; };
+		2168EAD11CBFA02700B7E037 /* JPSlideNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EACC1CBFA02700B7E037 /* JPSlideNavigationBar.m */; };
+		2168EAD21CBFA02700B7E037 /* UIColor+JPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EACE1CBFA02700B7E037 /* UIColor+JPExtension.m */; };
+		2168EAE11CBFA05000B7E037 /* ArtWorkListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EAD41CBFA05000B7E037 /* ArtWorkListModel.m */; };
+		2168EAE21CBFA05000B7E037 /* AuthorDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EAD61CBFA05000B7E037 /* AuthorDetailModel.m */; };
+		2168EAE31CBFA05000B7E037 /* FinanceDetailFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EAD81CBFA05000B7E037 /* FinanceDetailFirstCell.m */; };
+		2168EAE41CBFA05000B7E037 /* FinanceDetailFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2168EAD91CBFA05000B7E037 /* FinanceDetailFirstCell.xib */; };
+		2168EAE51CBFA05000B7E037 /* FinanceDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EADB1CBFA05000B7E037 /* FinanceDetailModel.m */; };
+		2168EAE61CBFA05000B7E037 /* FinanceDetailSecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EADD1CBFA05000B7E037 /* FinanceDetailSecondCell.m */; };
+		2168EAE71CBFA05000B7E037 /* FinanceDetailSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2168EADE1CBFA05000B7E037 /* FinanceDetailSecondCell.xib */; };
+		2168EAE81CBFA05000B7E037 /* MasterDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EAE01CBFA05000B7E037 /* MasterDetailModel.m */; };
 		218D2B3C1CACB2F9004553B9 /* CommonNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B391CACB2F9004553B9 /* CommonNavigationController.m */; };
 		218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3B1CACB2F9004553B9 /* CommonTabBarViewController.m */; };
 		218D2B411CACB310004553B9 /* RankTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3F1CACB310004553B9 /* RankTableViewController.m */; };
@@ -166,6 +185,8 @@
 		21D54B9E1CB791E10088D386 /* UIImage+StrethImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B9C1CB791E10088D386 /* UIImage+StrethImage.m */; };
 		21D54BA11CB791F60088D386 /* ChartMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54BA01CB791F60088D386 /* ChartMessage.m */; };
 		21D54BCF1CB796CD0088D386 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21D54BCE1CB796CD0088D386 /* messages.plist */; };
+		21E52C511CBE70BC004A68C4 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E52C4F1CBE70BC004A68C4 /* TestViewController.m */; };
+		21E52C521CBE70BC004A68C4 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21E52C501CBE70BC004A68C4 /* TestViewController.xib */; };
 		BC4A8BFAB939A8BBE3AF0A2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFB6E4A926D52C7C2AE4F6C /* libPods.a */; };
 		E21550E81CB604E20070D5D3 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */; };
 		E236C2961CB4B1B8009DCBF0 /* LognController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E236C2951CB4B1B7009DCBF0 /* LognController.xib */; };
@@ -266,6 +287,41 @@
 		215EED2B1CB010A500A5957B /* ArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistTableViewController.m; sourceTree = "<group>"; };
 		215EED301CB014D400A5957B /* CreationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreationTableViewController.h; sourceTree = "<group>"; };
 		215EED311CB014D400A5957B /* CreationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreationTableViewController.m; sourceTree = "<group>"; };
+		2168EA7C1CBE882700B7E037 /* BBFlashCtntLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBFlashCtntLabel.h; sourceTree = "<group>"; };
+		2168EA7D1CBE882700B7E037 /* BBFlashCtntLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBFlashCtntLabel.m; sourceTree = "<group>"; };
+		2168EAB51CBFA01800B7E037 /* CollectViewTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectViewTestVC.h; sourceTree = "<group>"; };
+		2168EAB61CBFA01800B7E037 /* CollectViewTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectViewTestVC.m; sourceTree = "<group>"; };
+		2168EAB71CBFA01800B7E037 /* CollectViewTestVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectViewTestVC.xib; sourceTree = "<group>"; };
+		2168EAB81CBFA01800B7E037 /* JPBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPBaseTableViewController.h; sourceTree = "<group>"; };
+		2168EAB91CBFA01800B7E037 /* JPBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPBaseTableViewController.m; sourceTree = "<group>"; };
+		2168EABA1CBFA01800B7E037 /* JPBaseTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JPBaseTableViewController.xib; sourceTree = "<group>"; };
+		2168EABB1CBFA01800B7E037 /* JPTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPTableViewCell.h; sourceTree = "<group>"; };
+		2168EABC1CBFA01800B7E037 /* JPTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPTableViewCell.m; sourceTree = "<group>"; };
+		2168EABD1CBFA01800B7E037 /* ScrollTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollTestVC.h; sourceTree = "<group>"; };
+		2168EABE1CBFA01800B7E037 /* ScrollTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollTestVC.m; sourceTree = "<group>"; };
+		2168EAC61CBFA02700B7E037 /* JPSlideBar+ScrollViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JPSlideBar+ScrollViewDelegate.h"; sourceTree = "<group>"; };
+		2168EAC71CBFA02700B7E037 /* JPSlideBar+ScrollViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JPSlideBar+ScrollViewDelegate.m"; sourceTree = "<group>"; };
+		2168EAC81CBFA02700B7E037 /* JPSlideBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPSlideBar.h; sourceTree = "<group>"; };
+		2168EAC91CBFA02700B7E037 /* JPSlideBarConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPSlideBarConst.h; sourceTree = "<group>"; };
+		2168EACA1CBFA02700B7E037 /* JPSlideBarConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPSlideBarConst.m; sourceTree = "<group>"; };
+		2168EACB1CBFA02700B7E037 /* JPSlideNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPSlideNavigationBar.h; sourceTree = "<group>"; };
+		2168EACC1CBFA02700B7E037 /* JPSlideNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPSlideNavigationBar.m; sourceTree = "<group>"; };
+		2168EACD1CBFA02700B7E037 /* UIColor+JPExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JPExtension.h"; sourceTree = "<group>"; };
+		2168EACE1CBFA02700B7E037 /* UIColor+JPExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JPExtension.m"; sourceTree = "<group>"; };
+		2168EAD31CBFA05000B7E037 /* ArtWorkListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtWorkListModel.h; sourceTree = "<group>"; };
+		2168EAD41CBFA05000B7E037 /* ArtWorkListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtWorkListModel.m; sourceTree = "<group>"; };
+		2168EAD51CBFA05000B7E037 /* authorDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authorDetailModel.h; sourceTree = "<group>"; };
+		2168EAD61CBFA05000B7E037 /* AuthorDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorDetailModel.m; sourceTree = "<group>"; };
+		2168EAD71CBFA05000B7E037 /* FinanceDetailFirstCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceDetailFirstCell.h; sourceTree = "<group>"; };
+		2168EAD81CBFA05000B7E037 /* FinanceDetailFirstCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceDetailFirstCell.m; sourceTree = "<group>"; };
+		2168EAD91CBFA05000B7E037 /* FinanceDetailFirstCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceDetailFirstCell.xib; sourceTree = "<group>"; };
+		2168EADA1CBFA05000B7E037 /* FinanceDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceDetailModel.h; sourceTree = "<group>"; };
+		2168EADB1CBFA05000B7E037 /* FinanceDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceDetailModel.m; sourceTree = "<group>"; };
+		2168EADC1CBFA05000B7E037 /* FinanceDetailSecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceDetailSecondCell.h; sourceTree = "<group>"; };
+		2168EADD1CBFA05000B7E037 /* FinanceDetailSecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceDetailSecondCell.m; sourceTree = "<group>"; };
+		2168EADE1CBFA05000B7E037 /* FinanceDetailSecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceDetailSecondCell.xib; sourceTree = "<group>"; };
+		2168EADF1CBFA05000B7E037 /* masterDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = masterDetailModel.h; sourceTree = "<group>"; };
+		2168EAE01CBFA05000B7E037 /* MasterDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterDetailModel.m; sourceTree = "<group>"; };
 		218D2B381CACB2F9004553B9 /* CommonNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNavigationController.h; sourceTree = "<group>"; };
 		218D2B391CACB2F9004553B9 /* CommonNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNavigationController.m; sourceTree = "<group>"; };
 		218D2B3A1CACB2F9004553B9 /* CommonTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTabBarViewController.h; sourceTree = "<group>"; };
@@ -509,6 +565,9 @@
 		21D54BA41CB792010088D386 /* KeyBordVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyBordVIew.h; sourceTree = "<group>"; };
 		21D54BA51CB792010088D386 /* KeyBordVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyBordVIew.m; sourceTree = "<group>"; };
 		21D54BCE1CB796CD0088D386 /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
+		21E52C4E1CBE70BC004A68C4 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		21E52C4F1CBE70BC004A68C4 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		21E52C501CBE70BC004A68C4 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		AC411E3C5CA46BB337E074BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
 		E21550E71CB604E20070D5D3 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
@@ -610,6 +669,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2168EAB41CBFA01800B7E037 /* SlideBarController */ = {
+			isa = PBXGroup;
+			children = (
+				2168EAB51CBFA01800B7E037 /* CollectViewTestVC.h */,
+				2168EAB61CBFA01800B7E037 /* CollectViewTestVC.m */,
+				2168EAB71CBFA01800B7E037 /* CollectViewTestVC.xib */,
+				2168EAB81CBFA01800B7E037 /* JPBaseTableViewController.h */,
+				2168EAB91CBFA01800B7E037 /* JPBaseTableViewController.m */,
+				2168EABA1CBFA01800B7E037 /* JPBaseTableViewController.xib */,
+				2168EABB1CBFA01800B7E037 /* JPTableViewCell.h */,
+				2168EABC1CBFA01800B7E037 /* JPTableViewCell.m */,
+				2168EABD1CBFA01800B7E037 /* ScrollTestVC.h */,
+				2168EABE1CBFA01800B7E037 /* ScrollTestVC.m */,
+			);
+			path = SlideBarController;
+			sourceTree = "<group>";
+		};
+		2168EAC51CBFA02700B7E037 /* JPSlideBar */ = {
+			isa = PBXGroup;
+			children = (
+				2168EAC61CBFA02700B7E037 /* JPSlideBar+ScrollViewDelegate.h */,
+				2168EAC71CBFA02700B7E037 /* JPSlideBar+ScrollViewDelegate.m */,
+				2168EAC81CBFA02700B7E037 /* JPSlideBar.h */,
+				2168EAC91CBFA02700B7E037 /* JPSlideBarConst.h */,
+				2168EACA1CBFA02700B7E037 /* JPSlideBarConst.m */,
+				2168EACB1CBFA02700B7E037 /* JPSlideNavigationBar.h */,
+				2168EACC1CBFA02700B7E037 /* JPSlideNavigationBar.m */,
+				2168EACD1CBFA02700B7E037 /* UIColor+JPExtension.h */,
+				2168EACE1CBFA02700B7E037 /* UIColor+JPExtension.m */,
+			);
+			path = JPSlideBar;
+			sourceTree = "<group>";
+		};
 		218D2B371CACB2E3004553B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -931,6 +1023,11 @@
 				219AC9BC1CBCA5A40052146E /* ReleaseProjectViewController.xib */,
 				219AC5BF1CBC87FD0052146E /* HMComposeViewController.h */,
 				219AC5C01CBC87FD0052146E /* HMComposeViewController.m */,
+				21E52C4E1CBE70BC004A68C4 /* TestViewController.h */,
+				21E52C4F1CBE70BC004A68C4 /* TestViewController.m */,
+				21E52C501CBE70BC004A68C4 /* TestViewController.xib */,
+				2168EA7C1CBE882700B7E037 /* BBFlashCtntLabel.h */,
+				2168EA7D1CBE882700B7E037 /* BBFlashCtntLabel.m */,
 			);
 			name = "发布项目";
 			sourceTree = "<group>";
@@ -1178,12 +1275,28 @@
 			children = (
 				2134E3761CBB571B00D6E662 /* FinanceDetailViewController.h */,
 				2134E3771CBB571B00D6E662 /* FinanceDetailViewController.m */,
+				2168EAD31CBFA05000B7E037 /* ArtWorkListModel.h */,
+				2168EAD41CBFA05000B7E037 /* ArtWorkListModel.m */,
+				2168EAD51CBFA05000B7E037 /* authorDetailModel.h */,
+				2168EAD61CBFA05000B7E037 /* AuthorDetailModel.m */,
+				2168EAD71CBFA05000B7E037 /* FinanceDetailFirstCell.h */,
+				2168EAD81CBFA05000B7E037 /* FinanceDetailFirstCell.m */,
+				2168EAD91CBFA05000B7E037 /* FinanceDetailFirstCell.xib */,
+				2168EADA1CBFA05000B7E037 /* FinanceDetailModel.h */,
+				2168EADB1CBFA05000B7E037 /* FinanceDetailModel.m */,
+				2168EADC1CBFA05000B7E037 /* FinanceDetailSecondCell.h */,
+				2168EADD1CBFA05000B7E037 /* FinanceDetailSecondCell.m */,
+				2168EADE1CBFA05000B7E037 /* FinanceDetailSecondCell.xib */,
+				2168EADF1CBFA05000B7E037 /* masterDetailModel.h */,
+				2168EAE01CBFA05000B7E037 /* MasterDetailModel.m */,
 				2134E3791CBB5D1D00D6E662 /* ProjectDetailViewController.h */,
 				2134E37A1CBB5D1D00D6E662 /* ProjectDetailViewController.m */,
 				2134E37C1CBB5D3800D6E662 /* ProjectScheduleViewController.h */,
 				2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */,
 				2134E37F1CBB5D5700D6E662 /* UserCommentViewController.h */,
 				2134E3801CBB5D5700D6E662 /* UserCommentViewController.m */,
+				2168EAC51CBFA02700B7E037 /* JPSlideBar */,
+				2168EAB41CBFA01800B7E037 /* SlideBarController */,
 			);
 			name = "详情";
 			sourceTree = "<group>";
@@ -1739,7 +1852,9 @@
 				219ACA031CBE3EE40052146E /* ReleaseViewController.storyboard in Resources */,
 				21D54B861CB6585B0088D386 /* InvestorTableViewCell.xib in Resources */,
 				E236C3101CB4BD7F009DCBF0 /* denglu_shurukuang@x.png in Resources */,
+				2168EAE41CBFA05000B7E037 /* FinanceDetailFirstCell.xib in Resources */,
 				E2ABF0B21CB63C090005571F /* CommentsController.xib in Resources */,
+				2168EAC01CBFA01800B7E037 /* CollectViewTestVC.xib in Resources */,
 				E2D73DC31CAD2CA9004CEFA3 /* RegViewController.xib in Resources */,
 				219ACA4C1CBE3F100052146E /* buttonSend@2x.png in Resources */,
 				E2D387051CB8B1B000F735F9 /* AliPayController.xib in Resources */,
@@ -1753,12 +1868,15 @@
 				219AC9F91CBDE4980052146E /* WHC_PictureListVC.xib in Resources */,
 				21904CF61CAD3C8B00AD7A3F /* ForgetPasswordViewController.xib in Resources */,
 				219ACA4E1CBE3F100052146E /* deletePhoto.png in Resources */,
+				2168EAC21CBFA01800B7E037 /* JPBaseTableViewController.xib in Resources */,
 				21904CF11CAD3C7800AD7A3F /* CompleteUserInfoController.xib in Resources */,
+				21E52C521CBE70BC004A68C4 /* TestViewController.xib in Resources */,
 				219ACA511CBE3F100052146E /* location.png in Resources */,
 				219AC9FB1CBDE86F0052146E /* ComposeViewController.xib in Resources */,
 				219AC5E81CBC87FD0052146E /* HMEmotionPopView.xib in Resources */,
 				219ACA531CBE3F100052146E /* picture1.png in Resources */,
 				E236C3241CB4E27E009DCBF0 /* PushConfig.plist in Resources */,
+				2168EAE71CBFA05000B7E037 /* FinanceDetailSecondCell.xib in Resources */,
 				219ACA4D1CBE3F100052146E /* choose.png in Resources */,
 				E2D05B701CB38B7400B0F690 /* read_me.txt in Resources */,
 				219AC9BE1CBCA5A40052146E /* ReleaseProjectViewController.xib in Resources */,
@@ -1855,23 +1973,29 @@
 				219AC9B91CBC9B060052146E /* UIView+JKPicker.m in Sources */,
 				E2D3870C1CB8E56100F735F9 /* KeyBordVIew.m in Sources */,
 				21D54B901CB660AC0088D386 /* ArtistModel.m in Sources */,
+				2168EAE11CBFA05000B7E037 /* ArtWorkListModel.m in Sources */,
 				215E73661CB7BC1000A67690 /* NotificationModel.m in Sources */,
 				21D54B3C1CB4FA8B0088D386 /* UIImage+Antialias.m in Sources */,
 				218D2B7C1CACBBC2004553B9 /* LognController.m in Sources */,
+				2168EAE31CBFA05000B7E037 /* FinanceDetailFirstCell.m in Sources */,
 				219AC5F11CBC89970052146E /* MBProgressHUD+MJ.m in Sources */,
 				219ACA4F1CBE3F100052146E /* ImagePickerChooseCell.m in Sources */,
 				219ACA591CBE3F100052146E /* ShowImageView.m in Sources */,
+				21E52C511CBE70BC004A68C4 /* TestViewController.m in Sources */,
+				2168EAE51CBFA05000B7E037 /* FinanceDetailModel.m in Sources */,
 				219AC5B91CBC839F0052146E /* NSString+Emoji.m in Sources */,
 				21D54B611CB532CF0088D386 /* UIImageView+Header.m in Sources */,
 				215EED321CB014D400A5957B /* CreationTableViewController.m in Sources */,
 				219AC9B41CBC9B060052146E /* JKPhotoBrowser.m in Sources */,
 				219AC5ED1CBC87FD0052146E /* HMComposeToolbar.m in Sources */,
 				218D2B3C1CACB2F9004553B9 /* CommonNavigationController.m in Sources */,
+				2168EAC31CBFA01800B7E037 /* JPTableViewCell.m in Sources */,
 				219AC9F41CBDE4980052146E /* WHC_CameraVC.m in Sources */,
 				E236C3371CB4F6D0009DCBF0 /* MessageTableViewController.m in Sources */,
 				21904CF51CAD3C8B00AD7A3F /* ForgetPasswordViewController.m in Sources */,
 				E2D387081CB8E49F00F735F9 /* ChartContentView.m in Sources */,
 				219AC5EA1CBC87FD0052146E /* HMEmotionToolbar.m in Sources */,
+				2168EAE21CBFA05000B7E037 /* AuthorDetailModel.m in Sources */,
 				219ACA4B1CBE3F100052146E /* ALAsset+AGIPC.m in Sources */,
 				215EED261CB00D6100A5957B /* GlobeConst.m in Sources */,
 				21D54B1F1CB4D99E0088D386 /* CreationTableViewCell.m in Sources */,
@@ -1886,10 +2010,13 @@
 				219AC9DF1CBDE47D0052146E /* imageViewController.m in Sources */,
 				E2D387041CB8B1B000F735F9 /* AliPayController.m in Sources */,
 				219AC9D61CBDE1EC0052146E /* ComposeViewController.m in Sources */,
+				2168EABF1CBFA01800B7E037 /* CollectViewTestVC.m in Sources */,
+				2168EACF1CBFA02700B7E037 /* JPSlideBar+ScrollViewDelegate.m in Sources */,
 				219AC9B01CBC9B060052146E /* JKAssetsGroupsView.m in Sources */,
 				219AC9BD1CBCA5A40052146E /* ReleaseProjectViewController.m in Sources */,
 				219ACA421CBE3F100052146E /* AGImagePickerController.m in Sources */,
 				219AC9B51CBC9B060052146E /* JKPhotoBrowserCell.m in Sources */,
+				2168EAC11CBFA01800B7E037 /* JPBaseTableViewController.m in Sources */,
 				E2DDB0EB1CAB66DB007438E4 /* AppDelegate.m in Sources */,
 				21D54B7E1CB64A630088D386 /* HttpRequstTool.m in Sources */,
 				219AC5E01CBC87FD0052146E /* HMComposeViewController.m in Sources */,
@@ -1909,16 +2036,20 @@
 				219AC5E31CBC87FD0052146E /* HMEmotionTool.m in Sources */,
 				219AC9DD1CBDE47D0052146E /* CollectionViewCell.m in Sources */,
 				219AC9AF1CBC9B060052146E /* JKAssetsGroupCell.m in Sources */,
+				2168EAE61CBFA05000B7E037 /* FinanceDetailSecondCell.m in Sources */,
 				21D54B8C1CB660970088D386 /* ArtistTableViewCell.m in Sources */,
 				219AC5E11CBC87FD0052146E /* HMEmotion.m in Sources */,
 				219ACA401CBE3F100052146E /* AGImagePickerController+Helper.m in Sources */,
 				2118F1DF1CAE1D1A003BFC6B /* NSString+Extension.m in Sources */,
 				21D54B981CB791D00088D386 /* ChartCellFrame.m in Sources */,
 				21D54B971CB791D00088D386 /* ChartCell.m in Sources */,
+				2168EAD21CBFA02700B7E037 /* UIColor+JPExtension.m in Sources */,
 				211C394E1CB3961800DAD827 /* authorModel.m in Sources */,
 				21D54B181CB4C31F0088D386 /* CommonHeader.m in Sources */,
 				219AC9B31CBC9B060052146E /* JKImagePickerController.m in Sources */,
+				2168EAE81CBFA05000B7E037 /* MasterDetailModel.m in Sources */,
 				E2ABF0B11CB63C090005571F /* CommentsController.m in Sources */,
+				2168EA7E1CBE882700B7E037 /* BBFlashCtntLabel.m in Sources */,
 				E2D73DC21CAD2CA9004CEFA3 /* RegViewController.m in Sources */,
 				219AC9AE1CBC9B060052146E /* JKAssetsCollectionFooterView.m in Sources */,
 				211C394A1CB36B1500DAD827 /* FinanceTableViewCell.m in Sources */,
@@ -1937,6 +2068,7 @@
 				21D54B9E1CB791E10088D386 /* UIImage+StrethImage.m in Sources */,
 				215EED291CB0108F00A5957B /* InvestorTableViewController.m in Sources */,
 				219AC5EE1CBC87FD0052146E /* HMTextView.m in Sources */,
+				2168EAD01CBFA02700B7E037 /* JPSlideBarConst.m in Sources */,
 				21D54BA11CB791F60088D386 /* ChartMessage.m in Sources */,
 				218D2B591CACB35C004553B9 /* UIImage+Image.m in Sources */,
 				21D54B7B1CB64A510088D386 /* MyMD5.m in Sources */,
@@ -1945,8 +2077,10 @@
 				219AC9F81CBDE4980052146E /* WHC_PictureListVC.m in Sources */,
 				2134E3781CBB571B00D6E662 /* FinanceDetailViewController.m in Sources */,
 				219ACA5C1CBE3F100052146E /* UIImage+ReSize.m in Sources */,
+				2168EAD11CBFA02700B7E037 /* JPSlideNavigationBar.m in Sources */,
 				219ACA5B1CBE3F100052146E /* UIButton+AGIPC.m in Sources */,
 				21D54B851CB6585B0088D386 /* InvestorTableViewCell.m in Sources */,
+				2168EAC41CBFA01800B7E037 /* ScrollTestVC.m in Sources */,
 				21904D321CAE0F4000AD7A3F /* UserAccount.m in Sources */,
 				219ACA5E1CBE3F100052146E /* WhoCanSeeViewController.m in Sources */,
 				219ACA521CBE3F100052146E /* LocationViewController.m in Sources */,

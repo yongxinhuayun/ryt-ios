@@ -1,10 +1,12 @@
 //
-//  ReleaseViewController.m
+//  TestViewController.m
 //  融易投
 //
-//  Created by dongxin on 16/4/13.
+//  Created by efeiyi on 16/4/13.
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
+
+#import "TestViewController.h"
 
 #import "ReleaseViewController.h"
 #import "UITableView+Improve.h"
@@ -14,24 +16,37 @@
 #import "AGImagePickerController.h"
 #import "ShowImageViewController.h"
 
-//#import "ReleaseProjectViewController.h"
 
-@interface ReleaseViewController ()
-<UITextViewDelegate,UIGestureRecognizerDelegate>
+#import "HMEmotionTextView.h"
+#import "HMComposeToolbar.h"
+#import "HMComposePhotosView.h"
+
+#import "MBProgressHUD+MJ.h"
+
+#import "HMEmotion.h"
+#import "HMEmotionKeyboard.h"
+
+#import "DSComposePhotosView.h"
+#import "JKImagePickerController.h"
+//#import <Masonry.h>
+#import <SVProgressHUD.h>
+
+@interface TestViewController () <UITextViewDelegate,UIGestureRecognizerDelegate,HMComposeToolbarDelegate, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate,JKImagePickerControllerDelegate>
+
 @property (nonatomic,weak)UITextView *reportStateTextView;
 @property (nonatomic,weak)UILabel *pLabel;
 @property (nonatomic,weak)UIButton *addPictureButton;
 @property (nonatomic,weak)ImagePickerChooseView *IPCView;
 @property (nonatomic,strong)AGImagePickerController *imagePicker;
 
+@property (nonatomic , weak) DSComposePhotosView *photosView2;
+
 //imagePicker队列
 @property (nonatomic,strong)NSMutableArray *imagePickerArray;
 
-
-
 @end
 
-@implementation ReleaseViewController
+@implementation TestViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,11 +54,11 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0/255 green:149.0/255 blue:135.0/255 alpha:1];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//    [self.tableView improveTableView];
+    //    [self.tableView improveTableView];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(keyboardDismiss:)];
     tap.delegate = self;
-//    [self.tableView addGestureRecognizer:tap];
+    //    [self.tableView addGestureRecognizer:tap];
     [self.view addGestureRecognizer:tap];
     
     [self initHeaderView];
@@ -58,7 +73,9 @@
 -(void)initHeaderView
 {
     UIView *headView = [[UIView alloc]initWithFrame:CGRectZero];
-    UITextView *reportStateTextView = [[UITextView alloc]initWithFrame:CGRectMake(padding, padding, screenWidth - 2*padding, textViewHeight)];
+    headView.backgroundColor = [UIColor orangeColor];
+    
+    UITextView *reportStateTextView = [[UITextView alloc]initWithFrame:CGRectMake(padding, padding + 64, screenWidth - 2*padding, textViewHeight)];
     reportStateTextView.text = self.reportStateTextView.text;  //防止用户已经输入了文字状态
     reportStateTextView.returnKeyType = UIReturnKeyDone;
     reportStateTextView.font = [UIFont systemFontOfSize:15];
@@ -66,8 +83,10 @@
     self.reportStateTextView.delegate = self;
     [headView addSubview:reportStateTextView];
     
-    UILabel *pLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding, padding, screenWidth, 10)];
+    UILabel *pLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding+5, 2 * padding+ 64, screenWidth, 10)];
     pLabel.text = @"这一刻的想法...";
+    pLabel.backgroundColor = [UIColor redColor];
+    
     pLabel.hidden = [self.reportStateTextView.text length];
     pLabel.font = [UIFont systemFontOfSize:15];
     pLabel.textColor = [UIColor colorWithRed:152/255.0 green:152/255.0 blue:152/255.0 alpha:1];
@@ -103,7 +122,7 @@
     
     NSInteger headViewHeight = 120 + (10 + pictureHW)*([self.imagePickerArray count]/4 + 1);
     headView.frame = CGRectMake(0, 0, screenWidth, headViewHeight);
-//    self.tableView.tableHeaderView = headView;
+    //    self.tableView.tableHeaderView = headView;
     [self.view addSubview:headView];
 }
 
@@ -113,21 +132,24 @@
     if ([self.reportStateTextView isFirstResponder]) {
         [self.reportStateTextView resignFirstResponder];
     }
-//    self.tableView.scrollEnabled = NO;
-    [self initImagePickerChooseView];
+    //    self.tableView.scrollEnabled = NO;
+//    [self initImagePickerChooseView];
+    
+    [self openAlbum];
 }
 
 #pragma mark - gesture method
 -(void)tapImageView:(UITapGestureRecognizer *)tap
 {
-    self.navigationController.navigationBarHidden = YES;
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    ShowImageViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ShowImage"];
-    vc.clickTag = tap.view.tag;
-    vc.imageViews = self.imagePickerArray;
-    [self.navigationController pushViewController:vc animated:YES];
     
+//    self.navigationController.navigationBarHidden = YES;
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+//    ShowImageViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ShowImage"];
+//    vc.clickTag = tap.view.tag;
+//    vc.imageViews = self.imagePickerArray;
+//    [self.navigationController pushViewController:vc animated:YES];
     
+    [self openAlbum];
 }
 
 #pragma mark - keyboard method
@@ -191,7 +213,6 @@
     } completion:^(BOOL finished) {
     }];
     [self.view addSubview:IPCView];
-    
     self.IPCView = IPCView;
     
     
@@ -250,18 +271,66 @@
 }
 
 
-- (IBAction)dismissVc:(id)sender {
+/**
+ *  打开照相机
+ */
+- (void)openCamera
+{
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) return;
     
-//    ReleaseProjectViewController *res = [[ReleaseProjectViewController alloc] init];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+    ipc.delegate = self;
+    [self presentViewController:ipc animated:YES completion:nil];
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+/**
+ *  打开相册
+ */
+- (void)openAlbum
+{
+    
+    JKImagePickerController *imagePickerController = [[JKImagePickerController alloc] init];
+    imagePickerController.delegate = self;
+    imagePickerController.showsCancelButton = YES;
+    imagePickerController.allowsMultipleSelection = YES;
+    imagePickerController.minimumNumberOfSelection = 1;
+    imagePickerController.maximumNumberOfSelection = 9;
+    imagePickerController.selectedAssetArray = self.photosView2.assetsArray;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:imagePickerController];
+    [self presentViewController:navigationController animated:YES completion:NULL];
 }
+
+#pragma mark - JKImagePickerControllerDelegate
+- (void)imagePickerController:(JKImagePickerController *)imagePicker didSelectAsset:(JKAssets *)asset isSource:(BOOL)source
+{
+    [imagePicker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+- (void)imagePickerController:(JKImagePickerController *)imagePicker didSelectAssets:(NSArray *)assets isSource:(BOOL)source
+{
+    self.photosView2.assetsArray = [NSMutableArray arrayWithArray:assets];
+    
+    [imagePicker dismissViewControllerAnimated:YES completion:^{
+        if ([self.photosView2.assetsArray count] > 0){
+            
+            self.photosView2.addButton.hidden = NO;
+        }
+        
+        [self.photosView2.collectionView reloadData];
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(JKImagePickerController *)imagePicker
+{
+    [imagePicker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
 
 
 @end
