@@ -40,6 +40,10 @@
 
 static NSString *ID = @"financeCell";
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
 
 - (void)viewDidLoad {
     
@@ -57,7 +61,6 @@ static NSString *ID = @"financeCell";
     //设置tableView的内边距---实现全局穿透让tableView向上移动64 + 标题栏的高度35/向下移动tabBar的高度49
     //运行程序,发现底部一致到了tabBar的最下面,我们应该设置成子控制器的view的显示范围为tabBar的上面
     //同样,tabBar的高度我们也可能项目中都会用到,写在常量文件中
-    self.tableView.contentInset = UIEdgeInsetsMake(SSStatusMaxH + SSTitlesViewH, 0, SSTabBarH, 0);
     //运行程序,发现滚动条上部分被标题栏和导航栏挡住了,这样会对会用造成一定的假象,造成对内容的多少判断不准确
     self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSStatusMaxH + SSTitlesViewH, 0, SSTabBarH, 0);
     
@@ -397,8 +400,6 @@ static NSString *ID = @"financeCell";
     
     
     [self.navigationController pushViewController:financeDetailVC animated:YES];
-    
-    
 }
 
 @end

@@ -129,7 +129,6 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="bgImageView" destination="cuV-xC-U08" id="tBR-EO-kNA"/>
                 <outlet property="endTime" destination="QKL-ND-3uO" id="Kwn-Qs-QZu"/>

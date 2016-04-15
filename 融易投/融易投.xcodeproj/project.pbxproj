@@ -41,7 +41,6 @@
 		2168EAD11CBFA02700B7E037 /* JPSlideNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EACC1CBFA02700B7E037 /* JPSlideNavigationBar.m */; };
 		2168EAD21CBFA02700B7E037 /* UIColor+JPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EACE1CBFA02700B7E037 /* UIColor+JPExtension.m */; };
 		2168EAE11CBFA05000B7E037 /* ArtWorkListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EAD41CBFA05000B7E037 /* ArtWorkListModel.m */; };
-		2168EAE21CBFA05000B7E037 /* AuthorDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EAD61CBFA05000B7E037 /* AuthorDetailModel.m */; };
 		2168EAE31CBFA05000B7E037 /* FinanceDetailFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EAD81CBFA05000B7E037 /* FinanceDetailFirstCell.m */; };
 		2168EAE41CBFA05000B7E037 /* FinanceDetailFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2168EAD91CBFA05000B7E037 /* FinanceDetailFirstCell.xib */; };
 		2168EAE51CBFA05000B7E037 /* FinanceDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EADB1CBFA05000B7E037 /* FinanceDetailModel.m */; };
@@ -159,6 +158,7 @@
 		21AB0A071CC0A5C400B7BA03 /* XMGPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0A031CC0A5C400B7BA03 /* XMGPlayer.bundle */; };
 		21AB0A081CC0A5C400B7BA03 /* XMGPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A051CC0A5C400B7BA03 /* XMGPlayerView.m */; };
 		21AB0A091CC0A5C400B7BA03 /* XMGPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0A061CC0A5C400B7BA03 /* XMGPlayerView.xib */; };
+		21AB0A0D1CC0F71900B7BA03 /* AuthorDetailModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A0C1CC0F71900B7BA03 /* AuthorDetailModels.m */; };
 		21C08BC81CB01BC3002328D3 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */; };
 		21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BCC1CB01F7E002328D3 /* NSObject+FileManager.m */; };
 		21C08BD11CB02521002328D3 /* SettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C08BD01CB02521002328D3 /* SettingTableViewController.storyboard */; };
@@ -315,8 +315,6 @@
 		2168EACE1CBFA02700B7E037 /* UIColor+JPExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JPExtension.m"; sourceTree = "<group>"; };
 		2168EAD31CBFA05000B7E037 /* ArtWorkListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtWorkListModel.h; sourceTree = "<group>"; };
 		2168EAD41CBFA05000B7E037 /* ArtWorkListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtWorkListModel.m; sourceTree = "<group>"; };
-		2168EAD51CBFA05000B7E037 /* authorDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authorDetailModel.h; sourceTree = "<group>"; };
-		2168EAD61CBFA05000B7E037 /* AuthorDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorDetailModel.m; sourceTree = "<group>"; };
 		2168EAD71CBFA05000B7E037 /* FinanceDetailFirstCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceDetailFirstCell.h; sourceTree = "<group>"; };
 		2168EAD81CBFA05000B7E037 /* FinanceDetailFirstCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceDetailFirstCell.m; sourceTree = "<group>"; };
 		2168EAD91CBFA05000B7E037 /* FinanceDetailFirstCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceDetailFirstCell.xib; sourceTree = "<group>"; };
@@ -519,6 +517,8 @@
 		21AB0A041CC0A5C400B7BA03 /* XMGPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGPlayerView.h; sourceTree = "<group>"; };
 		21AB0A051CC0A5C400B7BA03 /* XMGPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGPlayerView.m; sourceTree = "<group>"; };
 		21AB0A061CC0A5C400B7BA03 /* XMGPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGPlayerView.xib; sourceTree = "<group>"; };
+		21AB0A0B1CC0F71900B7BA03 /* AuthorDetailModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorDetailModels.h; sourceTree = "<group>"; };
+		21AB0A0C1CC0F71900B7BA03 /* AuthorDetailModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorDetailModels.m; sourceTree = "<group>"; };
 		21C08BC61CB01BC3002328D3 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		21C08BCB1CB01F7E002328D3 /* NSObject+FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FileManager.h"; sourceTree = "<group>"; };
@@ -1311,20 +1311,20 @@
 			children = (
 				2134E3761CBB571B00D6E662 /* FinanceDetailViewController.h */,
 				2134E3771CBB571B00D6E662 /* FinanceDetailViewController.m */,
+				2168EADA1CBFA05000B7E037 /* FinanceDetailModel.h */,
+				2168EADB1CBFA05000B7E037 /* FinanceDetailModel.m */,
 				2168EAD31CBFA05000B7E037 /* ArtWorkListModel.h */,
 				2168EAD41CBFA05000B7E037 /* ArtWorkListModel.m */,
-				2168EAD51CBFA05000B7E037 /* authorDetailModel.h */,
-				2168EAD61CBFA05000B7E037 /* AuthorDetailModel.m */,
+				21AB0A0B1CC0F71900B7BA03 /* AuthorDetailModels.h */,
+				21AB0A0C1CC0F71900B7BA03 /* AuthorDetailModels.m */,
+				2168EADF1CBFA05000B7E037 /* masterDetailModel.h */,
+				2168EAE01CBFA05000B7E037 /* MasterDetailModel.m */,
 				2168EAD71CBFA05000B7E037 /* FinanceDetailFirstCell.h */,
 				2168EAD81CBFA05000B7E037 /* FinanceDetailFirstCell.m */,
 				2168EAD91CBFA05000B7E037 /* FinanceDetailFirstCell.xib */,
-				2168EADA1CBFA05000B7E037 /* FinanceDetailModel.h */,
-				2168EADB1CBFA05000B7E037 /* FinanceDetailModel.m */,
 				2168EADC1CBFA05000B7E037 /* FinanceDetailSecondCell.h */,
 				2168EADD1CBFA05000B7E037 /* FinanceDetailSecondCell.m */,
 				2168EADE1CBFA05000B7E037 /* FinanceDetailSecondCell.xib */,
-				2168EADF1CBFA05000B7E037 /* masterDetailModel.h */,
-				2168EAE01CBFA05000B7E037 /* MasterDetailModel.m */,
 				2134E3791CBB5D1D00D6E662 /* ProjectDetailViewController.h */,
 				2134E37A1CBB5D1D00D6E662 /* ProjectDetailViewController.m */,
 				2134E37C1CBB5D3800D6E662 /* ProjectScheduleViewController.h */,
@@ -2035,7 +2035,6 @@
 				21904CF51CAD3C8B00AD7A3F /* ForgetPasswordViewController.m in Sources */,
 				E2D387081CB8E49F00F735F9 /* ChartContentView.m in Sources */,
 				219AC5EA1CBC87FD0052146E /* HMEmotionToolbar.m in Sources */,
-				2168EAE21CBFA05000B7E037 /* AuthorDetailModel.m in Sources */,
 				219ACA4B1CBE3F100052146E /* ALAsset+AGIPC.m in Sources */,
 				215EED261CB00D6100A5957B /* GlobeConst.m in Sources */,
 				21D54B1F1CB4D99E0088D386 /* CreationTableViewCell.m in Sources */,
@@ -2105,6 +2104,7 @@
 				21904CF01CAD3C7800AD7A3F /* CompleteUserInfoController.m in Sources */,
 				21D54B9D1CB791E10088D386 /* NSString+DocumentPath.m in Sources */,
 				215EED2C1CB010A500A5957B /* ArtistTableViewController.m in Sources */,
+				21AB0A0D1CC0F71900B7BA03 /* AuthorDetailModels.m in Sources */,
 				21D54B1B1CB4D97C0088D386 /* CreationModel.m in Sources */,
 				21D54B9E1CB791E10088D386 /* UIImage+StrethImage.m in Sources */,
 				215EED291CB0108F00A5957B /* InvestorTableViewController.m in Sources */,
