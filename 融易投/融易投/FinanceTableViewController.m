@@ -27,8 +27,9 @@
 
 @interface FinanceTableViewController ()
 
-@property (nonatomic, strong) NSMutableArray *models;
 
+//存放模型的数组
+@property (nonatomic, strong) NSMutableArray *models;
 
 /** 用来加载下一页数据 */
 @property (nonatomic, strong) NSString *lastPageNum;
@@ -43,6 +44,7 @@ static NSString *ID = @"financeCell";
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
     
     self.lastPageNum = @"1";
     
@@ -85,6 +87,7 @@ static NSString *ID = @"financeCell";
     //先要把系统的分割线去除,然后把控制器的背景改成要设置分割线的颜色即可,然后在设置cell的setFrame方法中,在系统计算好的cell的高度之前让cell的高度减一,然后在赋值给系统的算好的frame
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //    self.view.backgroundColor = [UIColor lightGrayColor];
+    
 }
 
 -(void)setUpRefresh
@@ -308,14 +311,12 @@ static NSString *ID = @"financeCell";
         //        ResultModel *result = [ResultModel mj_objectWithKeyValues:modelDict];
         //        self.models = [FinanceModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
         
-        //13. 字典数组 -> 模型数组
+        //字典数组 -> 模型数组
         NSArray *moreModels = [FinanceModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
-        //14. 拼接数据
+        
+        //拼接数据
         [self.models addObjectsFromArray:moreModels];
         
-        
-        //4. 刷新数据
-        //        [self.tableView reloadData];
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -372,7 +373,7 @@ static NSString *ID = @"financeCell";
     
     FinanceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
-    FinanceModel *model = self.models[indexPath.section];
+    FinanceModel *model = self.models[indexPath.row];
     
     cell.model = model;
     
@@ -388,11 +389,15 @@ static NSString *ID = @"financeCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-//    FinanceModel *model = self.models[indexPath.row];
+    //    FinanceModel *model = self.models[indexPath.row];
     
     FinanceDetailViewController *financeDetailVC = [[FinanceDetailViewController alloc] init];
     
+    financeDetailVC.modelsArray = self.models;
+    
+    
     [self.navigationController pushViewController:financeDetailVC animated:YES];
+    
     
 }
 

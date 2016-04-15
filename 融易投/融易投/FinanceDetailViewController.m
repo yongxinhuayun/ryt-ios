@@ -31,6 +31,8 @@
 #import "JPSlideBar.h"
 #import "JPBaseTableViewController.h"
 
+#import "FinanceTableViewController.h"
+
 @interface FinanceDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>
 {
     UITableView *DxTableView;
@@ -115,6 +117,7 @@ static NSString *ID2 = @"Cell2";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     //    self.navigationController.navigationBarHidden = NO;
     
     [self setUpNav];
@@ -127,11 +130,19 @@ static NSString *ID2 = @"Cell2";
     [self.tableView registerNib:[UINib nibWithNibName:@"FinanceDetailSecondCell" bundle:nil] forCellReuseIdentifier:ID2];
 }
 
+
+
 -(void)setUpNav
 {
     
+    
+    
     self.navigationItem.title = @"项目详情";
 }
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -157,6 +168,8 @@ static NSString *ID2 = @"Cell2";
     if (indexPath.section == 0) {
         
         FinanceDetailFirstCell *cell1 = [tableView dequeueReusableCellWithIdentifier:ID1];
+        
+        cell1.model = self.modelsArray[indexPath.section];
         
         return cell1;
         
@@ -213,7 +226,10 @@ static NSString *ID2 = @"Cell2";
         self.slideBar = [JPSlideNavigationBar slideBarWithObservableScrollView:self.scrollView
                                                                 viewController:self
                                                                   frameOriginY:0
-                                                           slideBarSliderStyle:JPSlideBarStyleTransformationAndGradientColor];
+                                                           slideBarSliderStyle:JPSlideBarStyleChangeColorOnly];
+        
+        self.slideBar.backgroundColor = [UIColor whiteColor];
+        
         
         [self.headerView addSubview:self.slideBar];
         
@@ -277,6 +293,8 @@ static NSString *ID2 = @"Cell2";
 
 
 - (void)setupScrollViewSubViewsWithNumber:(NSInteger)count{
+    
+    
     for (NSInteger index = 0; index < count; index ++) {
         
         JPBaseTableViewController * subVC = [[JPBaseTableViewController alloc]init];
@@ -286,7 +304,10 @@ static NSString *ID2 = @"Cell2";
         [self addChildViewController:subVC];
         [self.scrollView addSubview:subVC.view];
     }
+    
+    
 }
+
 
 
 - (void)dealloc{
@@ -384,6 +405,12 @@ static NSString *ID2 = @"Cell2";
         NSLog(@"返回结果:%@",jsonStr);
         
         
+        //        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        
+        // 字典数组 -> 模型数组
+        //        NSArray *moreModels = [FinanceModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
+        //        // 拼接数据
+        //        [self.models addObjectsFromArray:moreModels];
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -391,6 +418,7 @@ static NSString *ID2 = @"Cell2";
             [self.tableView reloadData];
             
         }];
+        
         
     }];
     

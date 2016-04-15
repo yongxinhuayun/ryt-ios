@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface FinanceDetailViewController : UITableViewController
+
+//存放非详情模型的数组
+@property (nonatomic, strong) NSMutableArray *modelsArray;
 
 @end

@@ -14,7 +14,8 @@
 #import "AGImagePickerController.h"
 #import "ShowImageViewController.h"
 
-//#import "ReleaseProjectViewController.h"
+#import <CommonCrypto/CommonDigest.h>
+#import <CommonCrypto/CommonHMAC.h>
 
 @interface ReleaseViewController ()
 <UITextViewDelegate,UIGestureRecognizerDelegate>
@@ -27,6 +28,7 @@
 //imagePicker队列
 @property (nonatomic,strong)NSMutableArray *imagePickerArray;
 
+- (IBAction)promuThings:(id)sender;
 
 
 @end
@@ -36,15 +38,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [super viewDidLoad];
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0/255 green:149.0/255 blue:135.0/255 alpha:1];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//    [self.tableView improveTableView];
+//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0/255 green:149.0/255 blue:135.0/255 alpha:1];
     
+   self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.tableView improveTableView];
+    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(keyboardDismiss:)];
     tap.delegate = self;
-//    [self.tableView addGestureRecognizer:tap];
-    [self.view addGestureRecognizer:tap];
+    [self.tableView addGestureRecognizer:tap];
     
     [self initHeaderView];
 }
@@ -66,7 +69,7 @@
     self.reportStateTextView.delegate = self;
     [headView addSubview:reportStateTextView];
     
-    UILabel *pLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding, padding, screenWidth, 10)];
+    UILabel *pLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding+5, 2 * padding, screenWidth, 10)];
     pLabel.text = @"这一刻的想法...";
     pLabel.hidden = [self.reportStateTextView.text length];
     pLabel.font = [UIFont systemFontOfSize:15];
@@ -103,8 +106,7 @@
     
     NSInteger headViewHeight = 120 + (10 + pictureHW)*([self.imagePickerArray count]/4 + 1);
     headView.frame = CGRectMake(0, 0, screenWidth, headViewHeight);
-//    self.tableView.tableHeaderView = headView;
-    [self.view addSubview:headView];
+    self.tableView.tableHeaderView = headView;
 }
 
 #pragma mark - addPicture
@@ -113,7 +115,7 @@
     if ([self.reportStateTextView isFirstResponder]) {
         [self.reportStateTextView resignFirstResponder];
     }
-//    self.tableView.scrollEnabled = NO;
+    self.tableView.scrollEnabled = NO;
     [self initImagePickerChooseView];
 }
 
@@ -126,8 +128,6 @@
     vc.clickTag = tap.view.tag;
     vc.imageViews = self.imagePickerArray;
     [self.navigationController pushViewController:vc animated:YES];
-    
-    
 }
 
 #pragma mark - keyboard method
@@ -191,7 +191,6 @@
     } completion:^(BOOL finished) {
     }];
     [self.view addSubview:IPCView];
-    
     self.IPCView = IPCView;
     
     
@@ -216,6 +215,14 @@
         _imagePickerArray = [[NSMutableArray alloc]init];
     }
     return _imagePickerArray;
+}
+
+- (IBAction)promuThings:(id)sender {
+    
+    NSLog(@"打印发布");
+    //url :assets-library://asset/
+    [self sendStatusWithImage];
+    NSLog(@" self.imageArr%@,",self.imagePickerArray);
 }
 #pragma mark - UIGesture Delegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
@@ -248,20 +255,334 @@
     }
     return YES;
 }
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return 1;
+}
 
 
-- (IBAction)dismissVc:(id)sender {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *identifier = @"ReportStateCell";
     
-//    ReleaseProjectViewController *res = [[ReleaseProjectViewController alloc] init];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //缓存中取
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    
+    //创建
+    if (!cell)
+    {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    
+    // Configure the cell...
+    if (indexPath.section == 0) {
+        //        UIImage *headIcon = [UIImage imageNamed:@"location"];
+        //        cell.imageView.image = [headIcon reSizeImagetoSize:CGSizeMake(20, 20)];
+        //        cell.textLabel.text = @"所在位置";
+        //        cell.textLabel.textColor = [UIColor colorWithRed:76/255.0 green:76/255.0 blue:76/255.0 alpha:1];
+        //        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        
+        
+        
+        UITextView *processDescription = [[UITextView alloc]initWithFrame:CGRectMake(10, 10, self.view.bounds.size.width-20, 220)];
+        
+        processDescription.backgroundColor = [UIColor redColor];
+        [cell addSubview:processDescription];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    else
+    {
+        //不用自定义cell，但是可以设置cell的imageview中image的大小
+        //        UIImage *headIcon = [UIImage imageNamed:@"seen"];
+        //        cell.imageView.image = [headIcon reSizeImagetoSize:CGSizeMake(20, 20)];
+        //        cell.textLabel.text = @"对谁可见";
+        //        cell.textLabel.textColor = [UIColor colorWithRed:76/255.0 green:76/255.0 blue:76/255.0 alpha:1];
+        //        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        
+        UITextView *processDescription = [[UITextView alloc]initWithFrame:CGRectMake(10, 10, self.view.bounds.size.width-20, 190)];
+        processDescription.backgroundColor = [UIColor redColor];
+        [cell addSubview:processDescription];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.backgroundColor = [UIColor blackColor];
+        btn.frame = CGRectMake(110, 220, 200, 30);
+        [cell addSubview:btn];
+        
+    }
+    
+    
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 1) {
+        return 5;
+    }
+    else
+    {
+        return 1;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //    if (indexPath.section==1&&indexPath.row == 1) {
+    //        return 300;
+    //    }
+    //    if (indexPath.section==1&&indexPath.row == 2)
+    //    {
+    //        return 350;
+    //    }else{
+    //        return 100 ;
+    //    }
+    return 250;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //所在位置
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    if (indexPath.section == 0) {
+        UIViewController *locationVC = [storyboard instantiateViewControllerWithIdentifier:@"Location"];
+        [self.navigationController pushViewController:locationVC animated:YES];
+        
+    }
+    //对谁可见
+    else
+    {
+        UIViewController *locationVC = [storyboard instantiateViewControllerWithIdentifier:@"WhoCanSee"];
+        [self.navigationController pushViewController:locationVC animated:YES];
+    }
+}
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    //所在位置
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+//    if (indexPath.section == 0) {
+//        UIViewController *locationVC = [storyboard instantiateViewControllerWithIdentifier:@"Location"];
+//        [self.navigationController pushViewController:locationVC animated:YES];
+//    }
+//    //对谁可见
+//    else
+//    {
+//        UIViewController *locationVC = [storyboard instantiateViewControllerWithIdentifier:@"WhoCanSee"];
+//        [self.navigationController pushViewController:locationVC animated:YES];
+//    }
+//}
+-(void)loadData
+{
+    //参数
+    NSString *projectTitle = @"你妹";
+    
+    NSString *title = [projectTitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSArray *picture_url = @[@"1",@[@"2"],@[@"3"]];
+    
+    NSLog(@"%@",picture_url);
+    
+    NSString *artworkId = @"imyj2dw936qyh35t";
+    
+    NSString *timestamp = [MyMD5 timestamp];
+    
+    NSString *appkey = MD5key;
+    
+    NSString *signmsg = [NSString stringWithFormat:@"artworkId=%@&timestamp=%@&key=%@",artworkId,timestamp,appkey];
+    
+    NSLog(@"%@",signmsg);
+    
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+    
+    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
+    NSString *url = @"http://192.168.1.69:8001/app/releaseArtworkDynamic.do";
+    
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"content" : title,
+                           @"file" : picture_url,
+                           @"type": @"0",
+                           @"artworkId"   : artworkId,
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5
+                           };
+    
+    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
+    
+    // 设置请求格式
+    manger.requestSerializer = [AFJSONRequestSerializer serializer];
+    // 设置返回格式
+    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    
+    [manger POST:url parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        
+        //_fileName = [NSString stringWithFormat:@"output-%@.mp4",[formater stringFromDate:[NSDate date]]];
+        
+        // [formData appendPartWithFileURL:_filePathURL name:@"file" fileName:_fileName mimeType:dict[@"contenttype"] error:nil];
+        
+        NSDateFormatter* formater = [[NSDateFormatter alloc] init];
+        [formater setDateFormat:@"yyyyMMddHHmmss"];
+        NSString*_fileName = [NSString stringWithFormat:@"output-%@.mp4",[formater stringFromDate:[NSDate date]]];
+        //NSURL *urlStr = [NSURL URLWithString:]
+        
+        [formData appendPartWithFileURL:[NSURL URLWithString:@"assets-library://asset"] name:@"file" fileName:@"ii.mov" mimeType:@"application/octet-stream" error:nil];
+        
+        
+        
+        //          [formData appendPartWithFileURL:[NSURL URLWithString:picture_url] name:@"file" fileName:@"ii.mov" mimeType:@"application/octet-stream" error:nil];
+        
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        
+        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        
+        SSLog(@"%@---%@",[responseObject class],aString);
+        
+        //        [SVProgressHUD showSuccessWithStatus:@"发布成功" maskType:SVProgressHUDMaskTypeBlack];
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        SSLog(@"%@",error);
+        
+        //        [SVProgressHUD showSuccessWithStatus:@"发布失败 " maskType:SVProgressHUDMaskTypeBlack];
+    }];
+    
+    
+}
+- (void)sendStatusWithImage
+{
+    //参数
+    //    NSString *projectDescription = @"和发货速度加快结构记得分别居";
+    //    NSString *description = [projectDescription stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    //    NSString *projectDescription =  self.textView.text;
+    NSString *description = @"和发货速度加快结构记得分别居";
+    
+   // NSArray *file = self.photosView2.selectedPhotos;
+    NSArray *file = @[@"1",@"2",@"3"];
+    
+    
+    //    NSString *make_instruDescription = @"和发货速度加快结构记得分别居";
+    //    NSString *make_instru = [make_instruDescription stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *make_instru = @"和发货速度加快结构记得分别居";
+    
+    //    NSString *financing_aqDescription = @"和发货速度加快结构记得分别居";
+    //    NSString *financing_aq = [financing_aqDescription stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *financing_aq = @"和发货速度加快结构记得分别居";
+    
+    NSString *artworkId = [[NSUserDefaults standardUserDefaults]objectForKey:@"artworkId"];
+    
+    NSString *timestamp = [MyMD5 timestamp];
+    
+    NSString *appkey = MD5key;
+    
+    
+    NSString *signmsg = [NSString stringWithFormat:@"artworkId=%@&timestamp=%@&key=%@",artworkId,timestamp,appkey];
+    
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+    //    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
+    NSString *url = @"http://192.168.1.69:8001/app/releaseArtworkDynamic.do";
+    
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"content" : description,
+                           @"file"        :file,
+                           @"type": @"0",
+                           @"artworkId"   : artworkId,
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5
+                           };
+    
+    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
+    
+    // 设置请求格式
+    manger.requestSerializer = [AFJSONRequestSerializer serializer];
+    // 设置返回格式
+    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    
+    [manger POST:url parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        NSInteger imgCount = 0;
+        
+//        for (UIImage *image in self.photosView2.selectedPhotos) {
+        for (UIImage *image in self.imagePickerArray) {
+            NSData *data = UIImageJPEGRepresentation(image, 1.0);
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            
+            formatter.dateFormat = @"yyyyMMddHHmmssSSS";
+            
+            NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(imgCount)];
+            
+            NSLog(@"%@",fileName);
+            
+            [formData appendPartWithFileData:data name:@"file" fileName:fileName mimeType:@"application/octet-stream"];
+            
+            imgCount++;
+            
+            NSLog(@"%ld",imgCount);
+            
+        }
+        
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        
+        SSLog(@"---%@---%@",[responseObject class],aString);
+        
+        //[SVProgressHUD showSuccessWithStatus:@"发布成功" maskType:SVProgressHUDMaskTypeBlack];
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        SSLog(@"%@",error);
+        
+        //[SVProgressHUD showSuccessWithStatus:@"发布失败" maskType:SVProgressHUDMaskTypeBlack];
+    }];
     
 }
 
+-(NSString *) md5: (NSString *) inPutText
+{
+    const char *cStr = [inPutText UTF8String];
+    unsigned char result[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(cStr, strlen(cStr), result);
+    
+    return [[NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
+             result[0], result[1], result[2], result[3],
+             result[4], result[5], result[6], result[7],
+             result[8], result[9], result[10], result[11],
+             result[12], result[13], result[14], result[15]
+             ] lowercaseString];
+}
+
+- (IBAction)disGoBlack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

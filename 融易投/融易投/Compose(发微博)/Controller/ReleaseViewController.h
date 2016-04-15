@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReleaseViewController : UIViewController
-
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *dismissVC;
+@interface ReleaseViewController : UITableViewController
 
 @end
