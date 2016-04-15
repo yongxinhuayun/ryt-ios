@@ -154,6 +154,11 @@
 		219ACA601CBE3F100052146E /* 范冰冰.png in Resources */ = {isa = PBXBuildFile; fileRef = 219ACA3C1CBE3F100052146E /* 范冰冰.png */; };
 		219ACA611CBE3F100052146E /* 高圆圆.png in Resources */ = {isa = PBXBuildFile; fileRef = 219ACA3D1CBE3F100052146E /* 高圆圆.png */; };
 		219ACA621CBE3F100052146E /* 麦粒-app-30.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 219ACA3E1CBE3F100052146E /* 麦粒-app-30.jpg */; };
+		21AB0A001CC0A17600B7BA03 /* ReleaseVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB09FE1CC0A17600B7BA03 /* ReleaseVideoViewController.m */; };
+		21AB0A011CC0A17600B7BA03 /* ReleaseVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AB09FF1CC0A17600B7BA03 /* ReleaseVideoViewController.xib */; };
+		21AB0A071CC0A5C400B7BA03 /* XMGPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0A031CC0A5C400B7BA03 /* XMGPlayer.bundle */; };
+		21AB0A081CC0A5C400B7BA03 /* XMGPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A051CC0A5C400B7BA03 /* XMGPlayerView.m */; };
+		21AB0A091CC0A5C400B7BA03 /* XMGPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0A061CC0A5C400B7BA03 /* XMGPlayerView.xib */; };
 		21C08BC81CB01BC3002328D3 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */; };
 		21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BCC1CB01F7E002328D3 /* NSObject+FileManager.m */; };
 		21C08BD11CB02521002328D3 /* SettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C08BD01CB02521002328D3 /* SettingTableViewController.storyboard */; };
@@ -421,15 +426,15 @@
 		219AC9CE1CBD1B890052146E /* ArtistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistViewController.h; sourceTree = "<group>"; };
 		219AC9CF1CBD1B890052146E /* ArtistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistViewController.m; sourceTree = "<group>"; };
 		219AC9D01CBD1B890052146E /* ArtistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistViewController.xib; sourceTree = "<group>"; };
-		219AC9D31CBDE1EC0052146E /* ComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
-		219AC9D41CBDE1EC0052146E /* ComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
-		219AC9D81CBDE47D0052146E /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
-		219AC9D91CBDE47D0052146E /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
-		219AC9DA1CBDE47D0052146E /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
-		219AC9DB1CBDE47D0052146E /* imageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageViewController.h; sourceTree = "<group>"; };
-		219AC9DC1CBDE47D0052146E /* imageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = imageViewController.m; sourceTree = "<group>"; };
-		219AC9E01CBDE48D0052146E /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
-		219AC9E11CBDE48D0052146E /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
+		219AC9D31CBDE1EC0052146E /* ComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComposeViewController.h; path = ../ComposeViewController.h; sourceTree = "<group>"; };
+		219AC9D41CBDE1EC0052146E /* ComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComposeViewController.m; path = ../ComposeViewController.m; sourceTree = "<group>"; };
+		219AC9D81CBDE47D0052146E /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionViewCell.h; path = ../CollectionViewCell.h; sourceTree = "<group>"; };
+		219AC9D91CBDE47D0052146E /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionViewCell.m; path = ../CollectionViewCell.m; sourceTree = "<group>"; };
+		219AC9DA1CBDE47D0052146E /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CollectionViewCell.xib; path = ../CollectionViewCell.xib; sourceTree = "<group>"; };
+		219AC9DB1CBDE47D0052146E /* imageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imageViewController.h; path = ../imageViewController.h; sourceTree = "<group>"; };
+		219AC9DC1CBDE47D0052146E /* imageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = imageViewController.m; path = ../imageViewController.m; sourceTree = "<group>"; };
+		219AC9E01CBDE48D0052146E /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+Add.h"; path = "../MBProgressHUD+Add.h"; sourceTree = "<group>"; };
+		219AC9E11CBDE48D0052146E /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+Add.m"; path = "../MBProgressHUD+Add.m"; sourceTree = "<group>"; };
 		219AC9E51CBDE4980052146E /* WHC_Asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHC_Asset.h; sourceTree = "<group>"; };
 		219AC9E61CBDE4980052146E /* WHC_Asset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHC_Asset.m; sourceTree = "<group>"; };
 		219AC9E71CBDE4980052146E /* WHC_PhotoListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHC_PhotoListCell.h; sourceTree = "<group>"; };
@@ -443,12 +448,12 @@
 		219AC9EF1CBDE4980052146E /* WHC_PictureListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHC_PictureListVC.h; sourceTree = "<group>"; };
 		219AC9F01CBDE4980052146E /* WHC_PictureListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHC_PictureListVC.m; sourceTree = "<group>"; };
 		219AC9F11CBDE4980052146E /* WHC_PictureListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WHC_PictureListVC.xib; sourceTree = "<group>"; };
-		219AC9FA1CBDE86F0052146E /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
+		219AC9FA1CBDE86F0052146E /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ComposeViewController.xib; path = ../ComposeViewController.xib; sourceTree = "<group>"; };
 		219AC9FC1CBDF44A0052146E /* ArtWorkIdModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtWorkIdModel.h; sourceTree = "<group>"; };
 		219AC9FD1CBDF44A0052146E /* ArtWorkIdModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtWorkIdModel.m; sourceTree = "<group>"; };
-		219AC9FF1CBE3EE40052146E /* ReleaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseViewController.h; sourceTree = "<group>"; };
-		219ACA001CBE3EE40052146E /* ReleaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseViewController.m; sourceTree = "<group>"; };
-		219ACA011CBE3EE40052146E /* ReleaseViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReleaseViewController.storyboard; sourceTree = "<group>"; };
+		219AC9FF1CBE3EE40052146E /* ReleaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReleaseViewController.h; path = ../ReleaseViewController.h; sourceTree = "<group>"; };
+		219ACA001CBE3EE40052146E /* ReleaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReleaseViewController.m; path = ../ReleaseViewController.m; sourceTree = "<group>"; };
+		219ACA011CBE3EE40052146E /* ReleaseViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ReleaseViewController.storyboard; path = ../ReleaseViewController.storyboard; sourceTree = "<group>"; };
 		219ACA051CBE3F100052146E /* addPictures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addPictures.png; sourceTree = "<group>"; };
 		219ACA061CBE3F100052146E /* AGImagePickerController+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGImagePickerController+Helper.h"; sourceTree = "<group>"; };
 		219ACA071CBE3F100052146E /* AGImagePickerController+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AGImagePickerController+Helper.m"; sourceTree = "<group>"; };
@@ -507,6 +512,13 @@
 		219ACA3C1CBE3F100052146E /* 范冰冰.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "范冰冰.png"; sourceTree = "<group>"; };
 		219ACA3D1CBE3F100052146E /* 高圆圆.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "高圆圆.png"; sourceTree = "<group>"; };
 		219ACA3E1CBE3F100052146E /* 麦粒-app-30.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "麦粒-app-30.jpg"; sourceTree = "<group>"; };
+		21AB09FD1CC0A17600B7BA03 /* ReleaseVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseVideoViewController.h; sourceTree = "<group>"; };
+		21AB09FE1CC0A17600B7BA03 /* ReleaseVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseVideoViewController.m; sourceTree = "<group>"; };
+		21AB09FF1CC0A17600B7BA03 /* ReleaseVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReleaseVideoViewController.xib; sourceTree = "<group>"; };
+		21AB0A031CC0A5C400B7BA03 /* XMGPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XMGPlayer.bundle; sourceTree = "<group>"; };
+		21AB0A041CC0A5C400B7BA03 /* XMGPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGPlayerView.h; sourceTree = "<group>"; };
+		21AB0A051CC0A5C400B7BA03 /* XMGPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGPlayerView.m; sourceTree = "<group>"; };
+		21AB0A061CC0A5C400B7BA03 /* XMGPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGPlayerView.xib; sourceTree = "<group>"; };
 		21C08BC61CB01BC3002328D3 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		21C08BCB1CB01F7E002328D3 /* NSObject+FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FileManager.h"; sourceTree = "<group>"; };
@@ -755,20 +767,6 @@
 				219AC9FD1CBDF44A0052146E /* ArtWorkIdModel.m */,
 				21E52C4D1CBE5C8A004A68C4 /* 发布项目 */,
 				219ACA041CBE3F100052146E /* 发布动态 */,
-				219AC9FF1CBE3EE40052146E /* ReleaseViewController.h */,
-				219ACA001CBE3EE40052146E /* ReleaseViewController.m */,
-				219ACA011CBE3EE40052146E /* ReleaseViewController.storyboard */,
-				219AC9D31CBDE1EC0052146E /* ComposeViewController.h */,
-				219AC9D41CBDE1EC0052146E /* ComposeViewController.m */,
-				219AC9FA1CBDE86F0052146E /* ComposeViewController.xib */,
-				219AC9D81CBDE47D0052146E /* CollectionViewCell.h */,
-				219AC9D91CBDE47D0052146E /* CollectionViewCell.m */,
-				219AC9DA1CBDE47D0052146E /* CollectionViewCell.xib */,
-				219AC9DB1CBDE47D0052146E /* imageViewController.h */,
-				219AC9DC1CBDE47D0052146E /* imageViewController.m */,
-				219AC9E01CBDE48D0052146E /* MBProgressHUD+Add.h */,
-				219AC9E11CBDE48D0052146E /* MBProgressHUD+Add.m */,
-				219AC9E31CBDE4980052146E /* WHCLib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -901,7 +899,8 @@
 				219AC9F01CBDE4980052146E /* WHC_PictureListVC.m */,
 				219AC9F11CBDE4980052146E /* WHC_PictureListVC.xib */,
 			);
-			path = WHCLib;
+			name = WHCLib;
+			path = ../WHCLib;
 			sourceTree = "<group>";
 		};
 		219AC9E41CBDE4980052146E /* cell */ = {
@@ -916,6 +915,43 @@
 			sourceTree = "<group>";
 		};
 		219ACA041CBE3F100052146E /* 发布动态 */ = {
+			isa = PBXGroup;
+			children = (
+				219AC9FF1CBE3EE40052146E /* ReleaseViewController.h */,
+				219ACA001CBE3EE40052146E /* ReleaseViewController.m */,
+				219ACA011CBE3EE40052146E /* ReleaseViewController.storyboard */,
+				21AB09FD1CC0A17600B7BA03 /* ReleaseVideoViewController.h */,
+				21AB09FE1CC0A17600B7BA03 /* ReleaseVideoViewController.m */,
+				21AB09FF1CC0A17600B7BA03 /* ReleaseVideoViewController.xib */,
+				219AC9D31CBDE1EC0052146E /* ComposeViewController.h */,
+				219AC9D41CBDE1EC0052146E /* ComposeViewController.m */,
+				219AC9FA1CBDE86F0052146E /* ComposeViewController.xib */,
+				219AC9D81CBDE47D0052146E /* CollectionViewCell.h */,
+				219AC9D91CBDE47D0052146E /* CollectionViewCell.m */,
+				219AC9DA1CBDE47D0052146E /* CollectionViewCell.xib */,
+				219AC9DB1CBDE47D0052146E /* imageViewController.h */,
+				219AC9DC1CBDE47D0052146E /* imageViewController.m */,
+				219AC9E01CBDE48D0052146E /* MBProgressHUD+Add.h */,
+				219AC9E11CBDE48D0052146E /* MBProgressHUD+Add.m */,
+				219AC9E31CBDE4980052146E /* WHCLib */,
+				21AB0A0A1CC0B0BF00B7BA03 /* photo */,
+				21AB0A021CC0A5C400B7BA03 /* Player */,
+			);
+			path = "发布动态";
+			sourceTree = "<group>";
+		};
+		21AB0A021CC0A5C400B7BA03 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				21AB0A031CC0A5C400B7BA03 /* XMGPlayer.bundle */,
+				21AB0A041CC0A5C400B7BA03 /* XMGPlayerView.h */,
+				21AB0A051CC0A5C400B7BA03 /* XMGPlayerView.m */,
+				21AB0A061CC0A5C400B7BA03 /* XMGPlayerView.xib */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		21AB0A0A1CC0B0BF00B7BA03 /* photo */ = {
 			isa = PBXGroup;
 			children = (
 				219ACA051CBE3F100052146E /* addPictures.png */,
@@ -977,7 +1013,7 @@
 				219ACA3D1CBE3F100052146E /* 高圆圆.png */,
 				219ACA3E1CBE3F100052146E /* 麦粒-app-30.jpg */,
 			);
-			path = "发布动态";
+			name = photo;
 			sourceTree = "<group>";
 		};
 		21D54B871CB65BA60088D386 /* 投资者排行 */ = {
@@ -1844,6 +1880,7 @@
 				21C08BD11CB02521002328D3 /* SettingTableViewController.storyboard in Resources */,
 				219ACA601CBE3F100052146E /* 范冰冰.png in Resources */,
 				219ACA621CBE3F100052146E /* 麦粒-app-30.jpg in Resources */,
+				21AB0A091CC0A5C400B7BA03 /* XMGPlayerView.xib in Resources */,
 				219ACA561CBE3F100052146E /* picture4.png in Resources */,
 				218D2B5C1CACB5B9004553B9 /* Launch Screen.storyboard in Resources */,
 				219ACA541CBE3F100052146E /* picture2.png in Resources */,
@@ -1866,6 +1903,7 @@
 				21D54B921CB739E60088D386 /* AuctionTableViewCell.xib in Resources */,
 				21D54B201CB4D99E0088D386 /* CreationTableViewCell.xib in Resources */,
 				219AC9F91CBDE4980052146E /* WHC_PictureListVC.xib in Resources */,
+				21AB0A011CC0A17600B7BA03 /* ReleaseVideoViewController.xib in Resources */,
 				21904CF61CAD3C8B00AD7A3F /* ForgetPasswordViewController.xib in Resources */,
 				219ACA4E1CBE3F100052146E /* deletePhoto.png in Resources */,
 				2168EAC21CBFA01800B7E037 /* JPBaseTableViewController.xib in Resources */,
@@ -1877,6 +1915,7 @@
 				219ACA531CBE3F100052146E /* picture1.png in Resources */,
 				E236C3241CB4E27E009DCBF0 /* PushConfig.plist in Resources */,
 				2168EAE71CBFA05000B7E037 /* FinanceDetailSecondCell.xib in Resources */,
+				21AB0A071CC0A5C400B7BA03 /* XMGPlayer.bundle in Resources */,
 				219ACA4D1CBE3F100052146E /* choose.png in Resources */,
 				E2D05B701CB38B7400B0F690 /* read_me.txt in Resources */,
 				219AC9BE1CBCA5A40052146E /* ReleaseProjectViewController.xib in Resources */,
@@ -1974,6 +2013,7 @@
 				E2D3870C1CB8E56100F735F9 /* KeyBordVIew.m in Sources */,
 				21D54B901CB660AC0088D386 /* ArtistModel.m in Sources */,
 				2168EAE11CBFA05000B7E037 /* ArtWorkListModel.m in Sources */,
+				21AB0A001CC0A17600B7BA03 /* ReleaseVideoViewController.m in Sources */,
 				215E73661CB7BC1000A67690 /* NotificationModel.m in Sources */,
 				21D54B3C1CB4FA8B0088D386 /* UIImage+Antialias.m in Sources */,
 				218D2B7C1CACBBC2004553B9 /* LognController.m in Sources */,
@@ -2026,6 +2066,7 @@
 				219AC9B11CBC9B060052146E /* JKAssetsThumbnailView.m in Sources */,
 				21D54B771CB6405B0088D386 /* NSCalendar+Init.m in Sources */,
 				21D54B781CB6405B0088D386 /* NSDate+Interval.m in Sources */,
+				21AB0A081CC0A5C400B7BA03 /* XMGPlayerView.m in Sources */,
 				219ACA481CBE3F100052146E /* AGIPCPreviewController.m in Sources */,
 				219ACA471CBE3F100052146E /* AGIPCGridItem.m in Sources */,
 				219ACA461CBE3F100052146E /* AGIPCGridCell.m in Sources */,

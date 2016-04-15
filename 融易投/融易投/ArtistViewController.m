@@ -15,7 +15,9 @@
 
 #import "ReleaseViewController.h"
 
-@interface ArtistViewController ()<WechatShortVideoDelegate>
+#import "ReleaseVideoViewController.h"
+
+@interface ArtistViewController ()<WechatShortVideoDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
     NSURL *urlVideo;
 }
@@ -42,25 +44,74 @@
 }
 
 
-- (IBAction)shortVideo:(id)sender {
-    
-    WechatShortVideoController *wechatShortVideoController = [[WechatShortVideoController alloc] init];
-    wechatShortVideoController.delegate = self;
-    [self presentViewController:wechatShortVideoController animated:YES completion:^{}];
-    
-}
-- (IBAction)updataPic:(id)sender {
-    
-    UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
-    ReleaseViewController *settingVC = [settingStoryBoard instantiateInitialViewController];
-    [self presentViewController:settingVC animated:YES completion:nil];
-}
 
 
 - (IBAction)updata:(id)sender {
     
     [self loadData];
 }
+
+- (IBAction)publishStateBtnClick:(id)sender {
+    
+    
+    //创建UIAlertController是为了让用户去选择照片来源,拍照或者相册.
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:0];
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    
+    imagePickerController.delegate = self;
+    //设置选择图片的截取框
+    //    imagePickerController.allowsEditing = YES;
+    
+    UIAlertAction *videoAction = [UIAlertAction actionWithTitle:@"视频" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+        
+//        WechatShortVideoController *wechatShortVideoController = [[WechatShortVideoController alloc] init];
+//        wechatShortVideoController.delegate = self;
+//        [self presentViewController:wechatShortVideoController animated:YES completion:^{}];
+        
+        ReleaseVideoViewController *videoVc = [[ReleaseVideoViewController alloc] init];
+        
+        [self presentViewController:videoVc animated:YES completion:^{}];
+    }];
+    
+    UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"拍照" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+        
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+        [self presentViewController:imagePickerController animated:YES completion:nil];
+    }];
+    
+    UIAlertAction *picAction = [UIAlertAction actionWithTitle:@"从手机相册选择" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+
+        UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
+        ReleaseViewController *settingVC = [settingStoryBoard instantiateInitialViewController];
+        [self presentViewController:settingVC animated:YES completion:nil];
+
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action)
+                                   {
+                                       //这里可以不写代码
+                                   }];
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    //用来判断来源 Xcode中的模拟器是没有拍摄功能的,当用模拟器的时候我们不需要把拍照功能加速
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        [alertController addAction:videoAction];
+        [alertController addAction:cancelAction];
+        [alertController addAction:photoAction];
+        [alertController addAction:picAction];
+    }
+    
+    else {
+        [alertController addAction:videoAction];
+        [alertController addAction:picAction];
+        [alertController addAction:cancelAction];
+    }
+
+    
+}
+
 
 -(void)loadData
 {

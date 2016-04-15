@@ -101,17 +101,6 @@
                         <constraint firstAttribute="height" constant="300" id="TYU-3l-ato"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBp-82-9hr">
-                    <rect key="frame" x="35" y="401" width="60" height="30"/>
-                    <state key="normal" title="发布动态"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OfJ-wn-BhL">
-                    <rect key="frame" x="139" y="401" width="45" height="30"/>
-                    <state key="normal" title="小视频"/>
-                    <connections>
-                        <action selector="shortVideo:" destination="-1" eventType="touchUpInside" id="EAz-T9-tvy"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ak2-Pt-D9b">
                     <rect key="frame" x="229" y="401" width="75" height="30"/>
                     <state key="normal" title="上传服务器"/>
@@ -119,11 +108,11 @@
                         <action selector="updata:" destination="-1" eventType="touchUpInside" id="f9t-vS-V7U"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20q-Em-1OT">
-                    <rect key="frame" x="132" y="354" width="60" height="30"/>
-                    <state key="normal" title="发布图片"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBp-82-9hr">
+                    <rect key="frame" x="157" y="455" width="60" height="30"/>
+                    <state key="normal" title="发布动态"/>
                     <connections>
-                        <action selector="updataPic:" destination="-1" eventType="touchUpInside" id="wVY-wL-LUn"/>
+                        <action selector="publishStateBtnClick:" destination="-1" eventType="touchUpInside" id="Yo9-cn-FER"/>
                     </connections>
                 </button>
             </subviews>

@@ -71,7 +71,11 @@
 }
 
 - (IBAction)closeAction:(UIButton *)sender {
+    
     [self dismissViewControllerAnimated:YES completion:^{}];
+    
+    
+    
 }
 
 #pragma mark - Life Cycle

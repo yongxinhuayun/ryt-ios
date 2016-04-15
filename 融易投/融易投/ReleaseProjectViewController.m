@@ -23,7 +23,7 @@
 #import "TestViewController.h"
 
 
-@interface ReleaseProjectViewController ()<UITextViewDelegate>
+@interface ReleaseProjectViewController ()<UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet HMEmotionTextView *progectTextView;
 @property (weak, nonatomic) IBOutlet UITextField *projectTextField;
