@@ -24,6 +24,7 @@
 #import "CommonFooter.h"
 
 #import "FinanceDetailViewController.h"
+#import "FinanceViewController.h"
 
 @interface FinanceTableViewController ()
 
@@ -42,7 +43,13 @@ static NSString *ID = @"financeCell";
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
+-(void)viewWillDisppear:(BOOL)animated{
+
+    self.navigationController.navigationBarHidden = NO;
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidLoad {
@@ -394,7 +401,14 @@ static NSString *ID = @"financeCell";
     
     //    FinanceModel *model = self.models[indexPath.row];
     
-    FinanceDetailViewController *financeDetailVC = [[FinanceDetailViewController alloc] init];
+//    FinanceDetailViewController *financeDetailVC = [[FinanceDetailViewController alloc] init];
+//    
+//    financeDetailVC.modelsArray = self.models;
+//    
+//    
+//    [self.navigationController pushViewController:financeDetailVC animated:YES];
+    
+    FinanceViewController *financeDetailVC = [[FinanceViewController alloc] init];
     
     financeDetailVC.modelsArray = self.models;
     

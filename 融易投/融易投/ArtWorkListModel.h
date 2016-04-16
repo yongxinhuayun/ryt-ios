@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "AuthorDetailModel.h"
+#import "AuthorDetailModels.h"
 
 @interface ArtWorkListModel : NSObject
 
@@ -31,7 +31,7 @@
 @property (nonatomic ,assign) NSInteger auctionEndDatetime;
 
 /** 作者信息 */
-@property (nonatomic, strong) AuthorDetailModel *author;
+@property (nonatomic, strong) AuthorDetailModels *author;
 
 
 

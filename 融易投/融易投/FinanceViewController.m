@@ -1,12 +1,12 @@
 //
-//  FinanceDetailViewController.m
+//  FinanceViewController.m
 //  融易投
 //
-//  Created by efeiyi on 16/4/11.
+//  Created by efeiyi on 16/4/16.
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
-#import "FinanceDetailViewController.h"
+#import "FinanceViewController.h"
 
 #import "navTitleButton.h"
 
@@ -31,32 +31,19 @@
 #import "JPSlideBar.h"
 #import "JPBaseTableViewController.h"
 
-#import "FinanceTableViewController.h"
-
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 
 
-@interface FinanceDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>
+
+@interface FinanceViewController () <UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>
 {
     NSArray * titles;
     
 }
 
-
-
-/** 当前被点中的按钮 */
-@property (nonatomic, weak) navTitleButton *clickedTitleButton;
-
-/** 下划线 */
-@property (nonatomic, strong) UIView *underlineView;
-
-/** 用来显示所有子控制器view的scrollView */
-//@property (nonatomic, weak) UIScrollView *scrollView;
-
-@property (nonatomic,strong)NSArray *arrIndexPath;
-
-@property (nonatomic,strong)UIScrollView *scrollCellView;
+/** 嵌套tableView */
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
 /** 存放所有数据(artWorkList)的数组 */
@@ -103,104 +90,40 @@
 
 @property (nonatomic, strong)FinanceDetailSecondCell *cell2;
 
-/** 嵌套tableView */
-@property (nonatomic, strong) UITableView *tableView;
+
 
 /** 底部栏 */
 @property (nonatomic, strong) UIView *bottomView;
 
 @end
 
-@implementation FinanceDetailViewController
-
+@implementation FinanceViewController
 
 static NSString *ID1 = @"Cell1";
 static NSString *ID2 = @"Cell2";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
     
     [self setUpNav];
     
     self.navigationController.navigationBarHidden = NO;
-
+    
     
     //设置刷新控件
 //    [self setUpRefresh];
     
-//    [self loadData];
-
+    //    [self loadData];
+    
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"FinanceDetailFirstCell" bundle:nil] forCellReuseIdentifier:ID1];
     [self.tableView registerNib:[UINib nibWithNibName:@"FinanceDetailSecondCell" bundle:nil] forCellReuseIdentifier:ID2];
     
-    
-//    [self setupBottomView];
 }
-
--(void)setupBottomView{
-
-    UIView *bottomView = [[UIView alloc] init];
-    
-    self.bottomView = bottomView;
-    
-    bottomView.frame = CGRectMake(0, 200, self.view.width, SSTitlesViewH);
-    bottomView.backgroundColor = [UIColor blackColor];
-    //2.9 设置标题栏为半透明的
-    //    titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
-    
-    [self.view insertSubview:self.bottomView aboveSubview:self.tableView];
-
-    //2.1 运行程序,发现titlesView添加到了tableView,但是我们这里需要时用不同的UIViewController,所以把之前的控制器UITableViewController改成UIViewController
-    
-    //2.2 添加所有的标题按钮
-    [self setUpBottomTitleButtons];
-    
-}
-
-
--(void)setUpBottomTitleButtons
-{
-    NSArray *bottomtitles = @[@"点赞", @"评论", @"投资"];
-    
-    NSInteger index = bottomtitles.count;
-    //2.3 设置按钮尺寸,要想拿到titlesView需设置成成员属性
-    //    CGFloat titleButtonW = self.titlesView.width / 5;
-    CGFloat titleButtonW = self.bottomView.width / index;
-    CGFloat titleButtonH = self.bottomView.height;
-    
-    //2.4 遍历添加所有标题按钮
-    for (NSInteger i = 0; i < index; i++) {
-        
-        navTitleButton *titleButton = [navTitleButton buttonWithType:UIButtonTypeCustom];
-        
-        //6.2给标题按钮绑定tag
-        titleButton.tag= i;
-        
-        titleButton.frame = CGRectMake(i * titleButtonW, 0, titleButtonW, titleButtonH);
-        
-        //2.5 设置标题按钮的标题
-        //因为标题是已知的,所以我们可以把标题保存到数组中,然后根据数组中的索引去一一对应各个按钮的标题
-        //这样我们就不会把按钮的个数写死了
-        [titleButton setTitle:bottomtitles[i] forState:UIControlStateNormal];
-        [titleButton setTintColor:[UIColor whiteColor]];
-        
-        //2.6 设置按钮的选中状态
-        [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
-        
-        //        titleButton.titleLabel.backgroundColor = BSRandomColor;
-        
-        [self.bottomView addSubview:titleButton];
-        
-    }
-}
-
--(void)titleClick:(navTitleButton *)titleButton
-{
-    SSLog(@"1111");
-
-}
-
 
 
 
@@ -212,7 +135,7 @@ static NSString *ID2 = @"Cell2";
     CommonHeader *header = [CommonHeader headerWithRefreshingBlock:^{
         
         
-//    [self loadData];
+        //    [self loadData];
         
     }];
     
@@ -228,23 +151,13 @@ static NSString *ID2 = @"Cell2";
 
 -(void)setUpNav
 {
-    
     self.navigationItem.title = @"项目详情";
     
-//    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(80, 0, 0, 0);
-////
-////    //我们可以往底部添加额外了滚动区域25,那么整体就向上移动了,但是这样底部离tabbar会有一定的间距了,不好看
-////    //可以修改顶部的间距,让顶部减25就可以了
-//    self.tableView.contentInset = UIEdgeInsetsMake(80, 0, 0, 0);
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(44, 0, 44, 0);
+    
+    //我们可以往底部添加额外了滚动区域25,那么整体就向上移动了,但是这样底部离tabbar会有一定的间距了,不好看
+    //可以修改顶部的间距,让顶部减25就可以了
+    self.tableView.contentInset = UIEdgeInsetsMake(44, 0, 44, 0);}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
@@ -276,6 +189,7 @@ static NSString *ID2 = @"Cell2";
         self.cell2 = cell2;
         
         return cell2;
+
         
     }
 }
@@ -426,15 +340,6 @@ static NSString *ID2 = @"Cell2";
  [self.view addSubview:textLabel];
  ********************************************************/
 
-
-
-- (void)sj_tap:(UIGestureRecognizer*)sender //注意与平时的不同
-
-{
-    NSLog(@"dddddddd");
-    
-    
-}
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
@@ -491,11 +396,11 @@ static NSString *ID2 = @"Cell2";
          {"artworkInvestTopList":null,"artworkInvestList":null,
          "artworkAttachmentList":[],
          "artworkCommentList":null,"investNum":0,"resultCode":"0","isPraise":false,"artworkdirection":null,"time":"66日1时2分35秒","resultMsg":"成功",
-            "object":{"id":"qydeyugqqiugd7","title":"测试6","brief":"这是一个","description":null,"status":"0","investGoalMoney":1.00,"investStartDatetime":1455005261000,"investEndDatetime":1454314064000,"auctionStartDatetime":1454400455000,"auctionEndDatetime":1462003649000,
-                    "author":{"id":"icjxkedl0000b6i0","username":"123123","name":"魏立中","pictureUrl":"http://tenant.efeiyi.com/background/蔡水况.jpg","cityId":null,"status":"0","createDatetime":null,"type":"10000",                 "master":
-                                {"id":"icjxkedl0000b6i0","brief":"版画家，他使得业已消失数百年的明代印刷业老字号十竹斋重新恢复并焕发生机，成为杭州市文化产业传承创新的亮点。","title":"国家级传承人","favicon":"http://tenant.efeiyi.com/background/蔡水况.jpg","birthday":"1968年","level":"1","content":null,"presentAddress":"浙江","backgroundUrl":"background/魏立中.jpg","provinceName":"浙江","theStatus":"1","logoUrl":"logo/魏立中.jpg","masterSpeech":null,"artCategory":null,"titleCertificate":null,"feedback":null,"identityFront":null,"identityBack":null}},
+         "object":{"id":"qydeyugqqiugd7","title":"测试6","brief":"这是一个","description":null,"status":"0","investGoalMoney":1.00,"investStartDatetime":1455005261000,"investEndDatetime":1454314064000,"auctionStartDatetime":1454400455000,"auctionEndDatetime":1462003649000,
+         "author":{"id":"icjxkedl0000b6i0","username":"123123","name":"魏立中","pictureUrl":"http://tenant.efeiyi.com/background/蔡水况.jpg","cityId":null,"status":"0","createDatetime":null,"type":"10000",                 "master":
+         {"id":"icjxkedl0000b6i0","brief":"版画家，他使得业已消失数百年的明代印刷业老字号十竹斋重新恢复并焕发生机，成为杭州市文化产业传承创新的亮点。","title":"国家级传承人","favicon":"http://tenant.efeiyi.com/background/蔡水况.jpg","birthday":"1968年","level":"1","content":null,"presentAddress":"浙江","backgroundUrl":"background/魏立中.jpg","provinceName":"浙江","theStatus":"1","logoUrl":"logo/魏立中.jpg","masterSpeech":null,"artCategory":null,"titleCertificate":null,"feedback":null,"identityFront":null,"identityBack":null}},
          "createDatetime":1454314046000,"picture_url":"http://tenant.efeiyi.com/background/蔡水况.jpg","step":"31","investsMoney":0,"creationEndDatetime":1458285492000,"type":"3","newCreationDate":null,"auctionNum":null,"newBidingPrice":500.00,"newBiddingDate":null,"sorts":"6","winner":null,"feedback":null,"duration":null,"startingPrice":1000}}
-
+         
          */
         
         //        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
@@ -512,11 +417,8 @@ static NSString *ID2 = @"Cell2";
             
         }];
     }];
-    
-  
-   
-    
 }
+
 
 
 @end

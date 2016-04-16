@@ -159,6 +159,8 @@
 		21AB0A081CC0A5C400B7BA03 /* XMGPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A051CC0A5C400B7BA03 /* XMGPlayerView.m */; };
 		21AB0A091CC0A5C400B7BA03 /* XMGPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0A061CC0A5C400B7BA03 /* XMGPlayerView.xib */; };
 		21AB0A0D1CC0F71900B7BA03 /* AuthorDetailModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A0C1CC0F71900B7BA03 /* AuthorDetailModels.m */; };
+		21AB0A111CC1DD8000B7BA03 /* FinanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A0F1CC1DD8000B7BA03 /* FinanceViewController.m */; };
+		21AB0A121CC1DD8000B7BA03 /* FinanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0A101CC1DD8000B7BA03 /* FinanceViewController.xib */; };
 		21C08BC81CB01BC3002328D3 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */; };
 		21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BCC1CB01F7E002328D3 /* NSObject+FileManager.m */; };
 		21C08BD11CB02521002328D3 /* SettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C08BD01CB02521002328D3 /* SettingTableViewController.storyboard */; };
@@ -519,6 +521,9 @@
 		21AB0A061CC0A5C400B7BA03 /* XMGPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGPlayerView.xib; sourceTree = "<group>"; };
 		21AB0A0B1CC0F71900B7BA03 /* AuthorDetailModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorDetailModels.h; sourceTree = "<group>"; };
 		21AB0A0C1CC0F71900B7BA03 /* AuthorDetailModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorDetailModels.m; sourceTree = "<group>"; };
+		21AB0A0E1CC1DD8000B7BA03 /* FinanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceViewController.h; sourceTree = "<group>"; };
+		21AB0A0F1CC1DD8000B7BA03 /* FinanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceViewController.m; sourceTree = "<group>"; };
+		21AB0A101CC1DD8000B7BA03 /* FinanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceViewController.xib; sourceTree = "<group>"; };
 		21C08BC61CB01BC3002328D3 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		21C08BCB1CB01F7E002328D3 /* NSObject+FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FileManager.h"; sourceTree = "<group>"; };
@@ -1309,6 +1314,9 @@
 		E2DDB1A41CABA701007438E4 /* 详情 */ = {
 			isa = PBXGroup;
 			children = (
+				21AB0A0E1CC1DD8000B7BA03 /* FinanceViewController.h */,
+				21AB0A0F1CC1DD8000B7BA03 /* FinanceViewController.m */,
+				21AB0A101CC1DD8000B7BA03 /* FinanceViewController.xib */,
 				2134E3761CBB571B00D6E662 /* FinanceDetailViewController.h */,
 				2134E3771CBB571B00D6E662 /* FinanceDetailViewController.m */,
 				2168EADA1CBFA05000B7E037 /* FinanceDetailModel.h */,
@@ -1894,6 +1902,7 @@
 				2168EAC01CBFA01800B7E037 /* CollectViewTestVC.xib in Resources */,
 				E2D73DC31CAD2CA9004CEFA3 /* RegViewController.xib in Resources */,
 				219ACA4C1CBE3F100052146E /* buttonSend@2x.png in Resources */,
+				21AB0A121CC1DD8000B7BA03 /* FinanceViewController.xib in Resources */,
 				E2D387051CB8B1B000F735F9 /* AliPayController.xib in Resources */,
 				219AC9AC1CBC9B060052146E /* ImagesPicker.xcassets in Resources */,
 				2118F1E41CAE5805003BFC6B /* MyViewController.xib in Resources */,
@@ -2101,6 +2110,7 @@
 				21C08BC81CB01BC3002328D3 /* SettingTableViewController.m in Sources */,
 				E2DDB0E81CAB66DB007438E4 /* main.m in Sources */,
 				218D2B581CACB35C004553B9 /* UIBarButtonItem+Item.m in Sources */,
+				21AB0A111CC1DD8000B7BA03 /* FinanceViewController.m in Sources */,
 				21904CF01CAD3C7800AD7A3F /* CompleteUserInfoController.m in Sources */,
 				21D54B9D1CB791E10088D386 /* NSString+DocumentPath.m in Sources */,
 				215EED2C1CB010A500A5957B /* ArtistTableViewController.m in Sources */,
