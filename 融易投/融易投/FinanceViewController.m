@@ -35,6 +35,8 @@
 #import "UserCommentViewController.h"
 #import "InvestRecordViewController.h"
 
+#import "ArtworkModel.h"
+
 
 
 @interface FinanceViewController () <UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>
@@ -48,27 +50,7 @@
 
 
 /** 存放所有数据(artWorkList)的数组 */
-@property (nonatomic, strong) NSMutableArray *models;
-
-
-
-
-/** 项目背景图 */
-@property (nonatomic ,strong) NSString *picture_url;
-
-
-/** 融资目标金额 */
-@property (nonatomic ,assign) NSInteger investGoalMoney;
-
-/** 融资开始时间 */
-@property (nonatomic ,assign) NSInteger investStartDatetime;
-/** 融资结束时间/创作开始时间 */
-@property (nonatomic ,assign) NSInteger investEndDatetime;
-
-/** 拍卖开始时间 */
-@property (nonatomic ,assign) NSInteger auctionStartDatetime;
-/** 拍卖结束时间 */
-@property (nonatomic ,assign) NSInteger auctionEndDatetime;
+@property (nonatomic, strong) NSArray *models;
 
 
 @property (nonatomic ,strong) NSArray *titleArray;
@@ -434,6 +416,12 @@ static NSString *ID2 = @"Cell2";
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
+        ArtworkModel *models = [ArtworkModel mj_objectWithKeyValues:modelDict];
+        
+        NSLog(@"%@",models);
+        
+        NSLog(@"%@",models.artworkAttachmentList.fileName);
+        NSLog(@"%@",models.object.author.name);
         
     
         //在主线程刷新UI数据
