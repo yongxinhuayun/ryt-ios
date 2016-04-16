@@ -18,10 +18,6 @@
 
 #import <MJExtension.h>
 
-#import "FinanceDetailModel.h"
-#import "ArtWorkListModel.h"
-#import "AuthorDetailModels.h"
-#import "masterDetailModel.h"
 
 #import "FinanceDetailFirstCell.h"
 #import "FinanceDetailSecondCell.h"
@@ -54,12 +50,6 @@
 /** 存放所有数据(artWorkList)的数组 */
 @property (nonatomic, strong) NSMutableArray *models;
 
-/** 存放第一层数据 */
-@property (nonatomic, strong) FinanceDetailModel *financeDetailModel;
-/** 存放第二层数据(author) */
-@property (nonatomic, strong) AuthorDetailModels *authorDetailModel;
-/** 存放第三层数据(master) */
-@property (nonatomic, strong) MasterDetailModel *masterDetailModel;
 
 
 
@@ -154,11 +144,11 @@ static NSString *ID2 = @"Cell2";
 {
     self.navigationItem.title = @"项目详情";
     
-    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(44, 0, 50, 0);
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, 50, 0);
     
     //我们可以往底部添加额外了滚动区域25,那么整体就向上移动了,但是这样底部离tabbar会有一定的间距了,不好看
     //可以修改顶部的间距,让顶部减25就可以了
-    self.tableView.contentInset = UIEdgeInsetsMake(44, 0, 50, 0);}
+    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 50, 0);}
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -198,13 +188,14 @@ static NSString *ID2 = @"Cell2";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //设置cell1的高度,注意;需要根据cell空间的高度来设置,这里只是测试,写的是固定值
     if (indexPath.section ==0) {
         
-        return 374;
+        return 407;
         
     }else if (indexPath.section == 1){
         
-        return 1000;  //这个返回高度决定下面cell2的滚动范围
+        return SSScreenH;  //这个返回高度决定下面cell2的滚动范围
     }
     
     return 0;
@@ -392,12 +383,14 @@ static NSString *ID2 = @"Cell2";
 
 
 //加载数据
+
 -(void)loadData
 {
     //参数
     NSString *artWorkId = @"qydeyugqqiugd7";
     NSString *currentUserId = @"imhipoyk18s4k52u";
     
+    //注意:刷新最新数据的时候,是全部刷新,包括4个tab里面的数据所以应该判断当前tab为哪个选项
     NSString *tab = @"view";
     
     NSString *timestamp = [MyMD5 timestamp];
@@ -440,12 +433,9 @@ static NSString *ID2 = @"Cell2";
         
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-
-        //字典数组 -> 模型数组
-//        NSArray *moreModels = [FinanceModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
-//        // 拼接数据
-//        [self.models addObjectsFromArray:moreModels];
         
+        
+    
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             

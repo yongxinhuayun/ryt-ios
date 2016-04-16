@@ -1,20 +1,28 @@
 //
-//  ArtWorkListModel.h
+//  ArtworkobjectModel.h
 //  融易投
 //
-//  Created by efeiyi on 16/4/14.
+//  Created by efeiyi on 16/4/16.
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-#import "AuthorDetailModels.h"
+#import "AuthorDetailModel.h"
 
-@interface ArtWorkListModel : NSObject
-
+@interface ArtworkobjectModel : NSObject
 
 /** 项目背景图 */
 @property (nonatomic ,strong) NSString *picture_url;
+
+/** 主题 */
+@property (nonatomic ,strong) NSString *title;
+
+/** 简介 */
+@property (nonatomic ,strong) NSString *brief;
+
+/** 描述  这个需要改变一下key值*/
+@property (nonatomic ,strong) NSString *descriptions;
 
 
 /** 融资目标金额 */
@@ -31,8 +39,6 @@
 @property (nonatomic ,assign) NSInteger auctionEndDatetime;
 
 /** 作者信息 */
-@property (nonatomic, strong) AuthorDetailModels *author;
-
-
+@property (nonatomic, strong) AuthorDetailModel *author;
 
 @end

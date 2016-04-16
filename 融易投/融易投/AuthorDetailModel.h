@@ -1,20 +1,24 @@
 //
-//  AuthorDetailModels.h
+//  authorDetailModel.h
 //  融易投
 //
-//  Created by efeiyi on 16/4/15.
+//  Created by efeiyi on 16/4/14.
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "MasterDetailModel.h"
 
-@interface AuthorDetailModels : NSObject
+#import "MasterDetailsModel.h"
+
+@interface AuthorDetailModel : NSObject
+
 
 /** 项目作者名字 */
 @property (nonatomic ,strong) NSString *name;
 
 /** 作者信息 */
-@property (nonatomic, strong) MasterDetailModel *master;
+@property (nonatomic, strong) MasterDetailsModel *master;
+
+
 
 @end

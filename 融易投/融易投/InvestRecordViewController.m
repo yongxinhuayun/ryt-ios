@@ -8,6 +8,9 @@
 
 #import "InvestRecordViewController.h"
 
+#import "CommonHeader.h"
+#import "CommonFooter.h"
+
 @interface InvestRecordViewController ()
 
 @end
@@ -17,12 +20,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.tableView.bounces = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self setUpRefresh];
 }
+
+-(void)setUpRefresh
+{
+    //自定义上拉加载更多
+    self.tableView.mj_footer = [CommonFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    
+    //要是其他控制器也需要,直接把上面的拷贝到其他控制器就可以了
+}
+
+-(void)loadMoreData{
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

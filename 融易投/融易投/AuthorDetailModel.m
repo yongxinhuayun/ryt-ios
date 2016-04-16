@@ -1,13 +1,13 @@
 //
-//  ArtWorkListModel.m
+//  authorDetailModel.m
 //  融易投
 //
 //  Created by efeiyi on 16/4/14.
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
-#import "ArtWorkListModel.h"
+#import "AuthorDetailModel.h"
 
-@implementation ArtWorkListModel
+@implementation AuthorDetailModel
 
 @end
