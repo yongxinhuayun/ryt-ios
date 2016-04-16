@@ -16,7 +16,6 @@
 		211C394A1CB36B1500DAD827 /* FinanceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 211C39481CB36B1500DAD827 /* FinanceTableViewCell.m */; };
 		211C394B1CB36B1500DAD827 /* FinanceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 211C39491CB36B1500DAD827 /* FinanceTableViewCell.xib */; };
 		211C394E1CB3961800DAD827 /* authorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 211C394D1CB3961800DAD827 /* authorModel.m */; };
-		2134E3781CBB571B00D6E662 /* FinanceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134E3771CBB571B00D6E662 /* FinanceDetailViewController.m */; };
 		2134E37B1CBB5D1D00D6E662 /* ProjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134E37A1CBB5D1D00D6E662 /* ProjectDetailViewController.m */; };
 		2134E37E1CBB5D3800D6E662 /* ProjectScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */; };
 		2134E3811CBB5D5700D6E662 /* UserCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134E3801CBB5D5700D6E662 /* UserCommentViewController.m */; };
@@ -161,6 +160,7 @@
 		21AB0A0D1CC0F71900B7BA03 /* AuthorDetailModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A0C1CC0F71900B7BA03 /* AuthorDetailModels.m */; };
 		21AB0A111CC1DD8000B7BA03 /* FinanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A0F1CC1DD8000B7BA03 /* FinanceViewController.m */; };
 		21AB0A121CC1DD8000B7BA03 /* FinanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0A101CC1DD8000B7BA03 /* FinanceViewController.xib */; };
+		21AB0A1C1CC2070200B7BA03 /* InvestRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A1B1CC2070200B7BA03 /* InvestRecordViewController.m */; };
 		21C08BC81CB01BC3002328D3 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */; };
 		21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BCC1CB01F7E002328D3 /* NSObject+FileManager.m */; };
 		21C08BD11CB02521002328D3 /* SettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C08BD01CB02521002328D3 /* SettingTableViewController.storyboard */; };
@@ -269,8 +269,6 @@
 		211C39491CB36B1500DAD827 /* FinanceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceTableViewCell.xib; sourceTree = "<group>"; };
 		211C394C1CB3961800DAD827 /* authorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authorModel.h; sourceTree = "<group>"; };
 		211C394D1CB3961800DAD827 /* authorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = authorModel.m; sourceTree = "<group>"; };
-		2134E3761CBB571B00D6E662 /* FinanceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceDetailViewController.h; sourceTree = "<group>"; };
-		2134E3771CBB571B00D6E662 /* FinanceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceDetailViewController.m; sourceTree = "<group>"; };
 		2134E3791CBB5D1D00D6E662 /* ProjectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailViewController.h; sourceTree = "<group>"; };
 		2134E37A1CBB5D1D00D6E662 /* ProjectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailViewController.m; sourceTree = "<group>"; };
 		2134E37C1CBB5D3800D6E662 /* ProjectScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectScheduleViewController.h; sourceTree = "<group>"; };
@@ -524,6 +522,8 @@
 		21AB0A0E1CC1DD8000B7BA03 /* FinanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceViewController.h; sourceTree = "<group>"; };
 		21AB0A0F1CC1DD8000B7BA03 /* FinanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceViewController.m; sourceTree = "<group>"; };
 		21AB0A101CC1DD8000B7BA03 /* FinanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceViewController.xib; sourceTree = "<group>"; };
+		21AB0A1A1CC2070200B7BA03 /* InvestRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestRecordViewController.h; sourceTree = "<group>"; };
+		21AB0A1B1CC2070200B7BA03 /* InvestRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestRecordViewController.m; sourceTree = "<group>"; };
 		21C08BC61CB01BC3002328D3 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		21C08BCB1CB01F7E002328D3 /* NSObject+FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FileManager.h"; sourceTree = "<group>"; };
@@ -1021,6 +1021,84 @@
 			name = photo;
 			sourceTree = "<group>";
 		};
+		21AB0A131CC1E91D00B7BA03 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				2168EADA1CBFA05000B7E037 /* FinanceDetailModel.h */,
+				2168EADB1CBFA05000B7E037 /* FinanceDetailModel.m */,
+				2168EAD31CBFA05000B7E037 /* ArtWorkListModel.h */,
+				2168EAD41CBFA05000B7E037 /* ArtWorkListModel.m */,
+				21AB0A0B1CC0F71900B7BA03 /* AuthorDetailModels.h */,
+				21AB0A0C1CC0F71900B7BA03 /* AuthorDetailModels.m */,
+				2168EADF1CBFA05000B7E037 /* masterDetailModel.h */,
+				2168EAE01CBFA05000B7E037 /* MasterDetailModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		21AB0A141CC1E92300B7BA03 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2168EAD71CBFA05000B7E037 /* FinanceDetailFirstCell.h */,
+				2168EAD81CBFA05000B7E037 /* FinanceDetailFirstCell.m */,
+				2168EAD91CBFA05000B7E037 /* FinanceDetailFirstCell.xib */,
+				2168EADC1CBFA05000B7E037 /* FinanceDetailSecondCell.h */,
+				2168EADD1CBFA05000B7E037 /* FinanceDetailSecondCell.m */,
+				2168EADE1CBFA05000B7E037 /* FinanceDetailSecondCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		21AB0A151CC1E92A00B7BA03 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				21AB0A0E1CC1DD8000B7BA03 /* FinanceViewController.h */,
+				21AB0A0F1CC1DD8000B7BA03 /* FinanceViewController.m */,
+				21AB0A101CC1DD8000B7BA03 /* FinanceViewController.xib */,
+				2134E3791CBB5D1D00D6E662 /* ProjectDetailViewController.h */,
+				2134E37A1CBB5D1D00D6E662 /* ProjectDetailViewController.m */,
+				2134E37C1CBB5D3800D6E662 /* ProjectScheduleViewController.h */,
+				2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */,
+				2134E37F1CBB5D5700D6E662 /* UserCommentViewController.h */,
+				2134E3801CBB5D5700D6E662 /* UserCommentViewController.m */,
+				21AB0A1A1CC2070200B7BA03 /* InvestRecordViewController.h */,
+				21AB0A1B1CC2070200B7BA03 /* InvestRecordViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		21AB0A161CC1EA0700B7BA03 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				211C39471CB36B1500DAD827 /* FinanceTableViewCell.h */,
+				211C39481CB36B1500DAD827 /* FinanceTableViewCell.m */,
+				211C39491CB36B1500DAD827 /* FinanceTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		21AB0A171CC1EA0D00B7BA03 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				211C39441CB369FC00DAD827 /* FinanceModel.h */,
+				211C39451CB369FC00DAD827 /* FinanceModel.m */,
+				211C394C1CB3961800DAD827 /* authorModel.h */,
+				211C394D1CB3961800DAD827 /* authorModel.m */,
+				21D54B211CB4DF0F0088D386 /* MasterModel.h */,
+				21D54B221CB4DF0F0088D386 /* MasterModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		21AB0A181CC1EA1200B7BA03 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				215EED1B1CB0058D00A5957B /* FinanceTableViewController.h */,
+				215EED1C1CB0058D00A5957B /* FinanceTableViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		21D54B871CB65BA60088D386 /* 投资者排行 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1314,31 +1392,9 @@
 		E2DDB1A41CABA701007438E4 /* 详情 */ = {
 			isa = PBXGroup;
 			children = (
-				21AB0A0E1CC1DD8000B7BA03 /* FinanceViewController.h */,
-				21AB0A0F1CC1DD8000B7BA03 /* FinanceViewController.m */,
-				21AB0A101CC1DD8000B7BA03 /* FinanceViewController.xib */,
-				2134E3761CBB571B00D6E662 /* FinanceDetailViewController.h */,
-				2134E3771CBB571B00D6E662 /* FinanceDetailViewController.m */,
-				2168EADA1CBFA05000B7E037 /* FinanceDetailModel.h */,
-				2168EADB1CBFA05000B7E037 /* FinanceDetailModel.m */,
-				2168EAD31CBFA05000B7E037 /* ArtWorkListModel.h */,
-				2168EAD41CBFA05000B7E037 /* ArtWorkListModel.m */,
-				21AB0A0B1CC0F71900B7BA03 /* AuthorDetailModels.h */,
-				21AB0A0C1CC0F71900B7BA03 /* AuthorDetailModels.m */,
-				2168EADF1CBFA05000B7E037 /* masterDetailModel.h */,
-				2168EAE01CBFA05000B7E037 /* MasterDetailModel.m */,
-				2168EAD71CBFA05000B7E037 /* FinanceDetailFirstCell.h */,
-				2168EAD81CBFA05000B7E037 /* FinanceDetailFirstCell.m */,
-				2168EAD91CBFA05000B7E037 /* FinanceDetailFirstCell.xib */,
-				2168EADC1CBFA05000B7E037 /* FinanceDetailSecondCell.h */,
-				2168EADD1CBFA05000B7E037 /* FinanceDetailSecondCell.m */,
-				2168EADE1CBFA05000B7E037 /* FinanceDetailSecondCell.xib */,
-				2134E3791CBB5D1D00D6E662 /* ProjectDetailViewController.h */,
-				2134E37A1CBB5D1D00D6E662 /* ProjectDetailViewController.m */,
-				2134E37C1CBB5D3800D6E662 /* ProjectScheduleViewController.h */,
-				2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */,
-				2134E37F1CBB5D5700D6E662 /* UserCommentViewController.h */,
-				2134E3801CBB5D5700D6E662 /* UserCommentViewController.m */,
+				21AB0A151CC1E92A00B7BA03 /* Controller */,
+				21AB0A141CC1E92300B7BA03 /* View */,
+				21AB0A131CC1E91D00B7BA03 /* model */,
 				2168EAC51CBFA02700B7E037 /* JPSlideBar */,
 				2168EAB41CBFA01800B7E037 /* SlideBarController */,
 			);
@@ -1348,17 +1404,9 @@
 		E2DDB1A51CABA70E007438E4 /* 非详情 */ = {
 			isa = PBXGroup;
 			children = (
-				215EED1B1CB0058D00A5957B /* FinanceTableViewController.h */,
-				215EED1C1CB0058D00A5957B /* FinanceTableViewController.m */,
-				211C39441CB369FC00DAD827 /* FinanceModel.h */,
-				211C39451CB369FC00DAD827 /* FinanceModel.m */,
-				211C394C1CB3961800DAD827 /* authorModel.h */,
-				211C394D1CB3961800DAD827 /* authorModel.m */,
-				21D54B211CB4DF0F0088D386 /* MasterModel.h */,
-				21D54B221CB4DF0F0088D386 /* MasterModel.m */,
-				211C39471CB36B1500DAD827 /* FinanceTableViewCell.h */,
-				211C39481CB36B1500DAD827 /* FinanceTableViewCell.m */,
-				211C39491CB36B1500DAD827 /* FinanceTableViewCell.xib */,
+				21AB0A181CC1EA1200B7BA03 /* Controller */,
+				21AB0A171CC1EA0D00B7BA03 /* Model */,
+				21AB0A161CC1EA0700B7BA03 /* View */,
 			);
 			name = "非详情";
 			sourceTree = "<group>";
@@ -2095,6 +2143,7 @@
 				2168EAD21CBFA02700B7E037 /* UIColor+JPExtension.m in Sources */,
 				211C394E1CB3961800DAD827 /* authorModel.m in Sources */,
 				21D54B181CB4C31F0088D386 /* CommonHeader.m in Sources */,
+				21AB0A1C1CC2070200B7BA03 /* InvestRecordViewController.m in Sources */,
 				219AC9B31CBC9B060052146E /* JKImagePickerController.m in Sources */,
 				2168EAE81CBFA05000B7E037 /* MasterDetailModel.m in Sources */,
 				E2ABF0B11CB63C090005571F /* CommentsController.m in Sources */,
@@ -2126,7 +2175,6 @@
 				215E73601CB7BB4500A67690 /* FromUserModel.m in Sources */,
 				219ACA5D1CBE3F100052146E /* UITableView+Improve.m in Sources */,
 				219AC9F81CBDE4980052146E /* WHC_PictureListVC.m in Sources */,
-				2134E3781CBB571B00D6E662 /* FinanceDetailViewController.m in Sources */,
 				219ACA5C1CBE3F100052146E /* UIImage+ReSize.m in Sources */,
 				2168EAD11CBFA02700B7E037 /* JPSlideNavigationBar.m in Sources */,
 				219ACA5B1CBE3F100052146E /* UIButton+AGIPC.m in Sources */,

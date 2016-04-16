@@ -34,6 +34,11 @@
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 
+#import "ProjectDetailViewController.h"
+#import "ProjectScheduleViewController.h"
+#import "UserCommentViewController.h"
+#import "InvestRecordViewController.h"
+
 
 
 @interface FinanceViewController () <UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>
@@ -76,8 +81,6 @@
 @property (nonatomic ,assign) NSInteger auctionEndDatetime;
 
 
-
-
 @property (nonatomic ,strong) NSArray *titleArray;
 
 @property (nonatomic, strong)UIScrollView * scrollView;
@@ -117,7 +120,7 @@ static NSString *ID2 = @"Cell2";
     //设置刷新控件
 //    [self setUpRefresh];
     
-    //    [self loadData];
+    [self loadData];
     
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"FinanceDetailFirstCell" bundle:nil] forCellReuseIdentifier:ID1];
@@ -147,17 +150,16 @@ static NSString *ID2 = @"Cell2";
 }
 
 
-
-
 -(void)setUpNav
 {
     self.navigationItem.title = @"项目详情";
     
-    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(44, 0, 44, 0);
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(44, 0, 50, 0);
     
     //我们可以往底部添加额外了滚动区域25,那么整体就向上移动了,但是这样底部离tabbar会有一定的间距了,不好看
     //可以修改顶部的间距,让顶部减25就可以了
-    self.tableView.contentInset = UIEdgeInsetsMake(44, 0, 44, 0);}
+    self.tableView.contentInset = UIEdgeInsetsMake(44, 0, 50, 0);}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
@@ -198,21 +200,45 @@ static NSString *ID2 = @"Cell2";
 {
     if (indexPath.section ==0) {
         
-        return 367;
+        return 374;
         
     }else if (indexPath.section == 1){
-        return 190;
+        
+        return 1000;  //这个返回高度决定下面cell2的滚动范围
     }
+    
     return 0;
 }
 
+//去除第一个表头
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return 0.1;;
+    }else {
+        return 30;
+    }
+   
+}
+
+//让表头出现
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return nil;
+    }else {
+        return @"222";
+    }
+}
+
+
+
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    self.headerView = [[UIView alloc] init];//我在sectionHeader中建立了一个View
-    // view.frame= CGRectMake(0, 0, 320, 30);
+  
     
     if (section == 1){
         
+        self.headerView = [[UIView alloc] init];
         
         titles = @[@"项目进度",@"投资流程",@"用户评论",@"投资记录"];
         
@@ -244,7 +270,7 @@ static NSString *ID2 = @"Cell2";
         
         Weak(self); //避免循环引用
         [self.slideBar configureSlideBarWithTitles:titles
-                                         titleFont:[UIFont systemFontOfSize:18]
+                                         titleFont:[UIFont systemFontOfSize:15]
                                          itemSpace:30
                                normalTitleRGBColor:JColor_RGB(0,0,0)
                              selectedTitleRGBColor:JColor_RGB(255,255,255)
@@ -257,14 +283,13 @@ static NSString *ID2 = @"Cell2";
         // 可以监听每次翻页的通知。(比如刷新数据)
         [JPNotificationCenter addObserver:self selector:@selector(doSomeThingWhenScrollViewChangePage:) name:JPSlideBarChangePageNotification object:nil];
         
-        
-        
         return self.headerView;
         
     }
     
     return nil;
 }
+
 
 - (void)doSomeThingWhenScrollViewChangePage:(NSNotification *)notification{
     CGFloat offsetX = [notification.userInfo[JPSlideBarScrollViewContentOffsetX] floatValue];
@@ -279,17 +304,17 @@ static NSString *ID2 = @"Cell2";
     //    self.navigationItem.title = @"JPSlideBar";
     //    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor redColor]}];
     
-    [self initializeScrollViewWithStatusBarHeight:(0)];
+    [self initializeScrollViewWithStatusBarHeight:(44)];
     
     [self setupScrollViewSubViewsWithNumber:titles.count];
     
-    self.scrollView.contentSize = CGSizeMake(titles.count * JPScreen_Width, 200);
+    self.scrollView.contentSize = CGSizeMake(titles.count * SSScreenW, 200);
 }
 
 
 - (void)initializeScrollViewWithStatusBarHeight:(CGFloat)statusBarHeight{
     
-    self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, JPScreen_Width, JPScreen_Height)];
+    self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, SSScreenW, SSScreenH)];
     
     self.scrollView.showsHorizontalScrollIndicator= NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
@@ -303,19 +328,43 @@ static NSString *ID2 = @"Cell2";
 
 - (void)setupScrollViewSubViewsWithNumber:(NSInteger)count{
     
+//    for (NSInteger index = 0; index < count; index ++) {
+//        
+//        JPBaseTableViewController * subVC = [[JPBaseTableViewController alloc]init];
+//        subVC.dataSourceArray = [titles mutableCopy];
+//        subVC.view.frame = CGRectMake(self.scrollView.bounds.size.width * index, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
+//        
+//        [self addChildViewController:subVC];
+//        [self.scrollView addSubview:subVC.view];
+//        
+//    }
     
-    for (NSInteger index = 0; index < count; index ++) {
-        
-        JPBaseTableViewController * subVC = [[JPBaseTableViewController alloc]init];
-        subVC.dataSourceArray = [titles mutableCopy];
-        subVC.view.frame = CGRectMake(self.scrollView.bounds.size.width * index, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
-        
-        [self addChildViewController:subVC];
-        [self.scrollView addSubview:subVC.view];
-        
-    }
+            
+    ProjectDetailViewController * subVC1 = [[ProjectDetailViewController alloc]init];
+    subVC1.view.backgroundColor = [UIColor redColor];
+    subVC1.view.frame = CGRectMake(0, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
+    [self addChildViewController:subVC1];
+    [self.scrollView addSubview:subVC1.view];
     
+    ProjectScheduleViewController * subVC2 = [[ProjectScheduleViewController alloc]init];
+    subVC2.view.backgroundColor = [UIColor greenColor];
+    subVC2.view.frame = CGRectMake(self.scrollView.bounds.size.width * 1, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
+    [self addChildViewController:subVC2];
+    [self.scrollView addSubview:subVC2.view];
     
+    UserCommentViewController * subVC3 = [[UserCommentViewController alloc]init];
+    subVC3.view.backgroundColor = [UIColor blueColor];
+    subVC3.view.frame = CGRectMake(self.scrollView.bounds.size.width * 2, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
+    
+    [self addChildViewController:subVC3];
+    [self.scrollView addSubview:subVC3.view];
+    
+    InvestRecordViewController * subVC4 = [[InvestRecordViewController alloc]init];
+     subVC4.view.backgroundColor = [UIColor orangeColor];
+    subVC4.view.frame = CGRectMake(self.scrollView.bounds.size.width * 3, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
+    [self addChildViewController:subVC4];
+    [self.scrollView addSubview:subVC4.view];
+
 }
 
 
@@ -340,26 +389,12 @@ static NSString *ID2 = @"Cell2";
  [self.view addSubview:textLabel];
  ********************************************************/
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    if (section == 0) {
-        return nil;
-    }else {
-        return @"222";
-    }
-}
 
 
 //加载数据
 -(void)loadData
 {
     //参数
-    
-    //ibxgyqc000006eb2
-    //ieatht97wfw30hfd
-    //qydeyugqqiugd7
-    
-    
     NSString *artWorkId = @"qydeyugqqiugd7";
     NSString *currentUserId = @"imhipoyk18s4k52u";
     
@@ -390,7 +425,7 @@ static NSString *ID2 = @"Cell2";
         
         
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
+//        NSLog(@"返回结果:%@",jsonStr);
         
         /*
          {"artworkInvestTopList":null,"artworkInvestList":null,
@@ -403,12 +438,13 @@ static NSString *ID2 = @"Cell2";
          
          */
         
-        //        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
-        // 字典数组 -> 模型数组
-        //        NSArray *moreModels = [FinanceModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
-        //        // 拼接数据
-        //        [self.models addObjectsFromArray:moreModels];
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+
+        //字典数组 -> 模型数组
+//        NSArray *moreModels = [FinanceModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
+//        // 拼接数据
+//        [self.models addObjectsFromArray:moreModels];
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -419,6 +455,15 @@ static NSString *ID2 = @"Cell2";
     }];
 }
 
+- (IBAction)dianzan:(id)sender {
+    
+}
+- (IBAction)commentBtnClick:(id)sender {
+    
+}
+- (IBAction)finanaceBtnClick:(id)sender {
+    
+}
 
 
 @end

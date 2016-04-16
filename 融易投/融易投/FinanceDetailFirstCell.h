@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class ArtWorkListModel;
+@class FinanceModel;
 
 @interface FinanceDetailFirstCell : UITableViewCell
 
 
-@property (nonatomic, strong) ArtWorkListModel *model;
+@property (nonatomic, strong) FinanceModel *model;
 
 @end

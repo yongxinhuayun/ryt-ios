@@ -76,8 +76,7 @@
     
     self.userName.text = model.author.name;
     self.userInfo.text = model.author.username;
-    
-    
+
 }
 
 @end

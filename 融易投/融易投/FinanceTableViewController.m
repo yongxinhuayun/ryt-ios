@@ -23,7 +23,6 @@
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 
-#import "FinanceDetailViewController.h"
 #import "FinanceViewController.h"
 
 @interface FinanceTableViewController ()

@@ -1,58 +1,28 @@
 //
-//  ProjectDetailViewController.m
+//  InvestRecordViewController.m
 //  融易投
 //
-//  Created by efeiyi on 16/4/11.
+//  Created by efeiyi on 16/4/16.
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
-#import "ProjectDetailViewController.h"
+#import "InvestRecordViewController.h"
 
-#import "CommonHeader.h"
-#import "CommonFooter.h"
-
-@interface ProjectDetailViewController ()
+@interface InvestRecordViewController ()
 
 @end
 
-@implementation ProjectDetailViewController
+@implementation InvestRecordViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.backgroundColor = [UIColor redColor];
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
     
-//    [self setUpRefresh];
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
--(void)setUpRefresh
-{
-    //但是如果我们想整个项目都要用到上拉刷新和下拉刷新呢,不能把这上面的代码一个个拷贝了吧
-    //这样,我们可以使用继承,自定义刷新控件然后继承自MJRefreshNormalHeader,这里是自定义下拉刷新
-    
-    CommonHeader *header = [CommonHeader headerWithRefreshingBlock:^{
-        
-//        [self loadNewData];
-        
-    }];
-    
-    self.tableView.mj_header = header;
-    
-    //让程序一开始就加载数据
-    [self.tableView.mj_header beginRefreshing];
-    
-    
-    //同样,自定义上拉刷新
-    self.tableView.mj_footer = [CommonFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-    
-    //要是其他控制器也需要,直接把上面的拷贝到其他控制器就可以了
-}
-
--(void)loadMoreData{
-
-    
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
