@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   self.tableView.backgroundColor = [UIColor yellowColor];
+//   self.tableView.backgroundColor = [UIColor yellowColor];
     
     self.tableView.bounces = NO;
     

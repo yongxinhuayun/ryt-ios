@@ -32,7 +32,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.98932391405105591" green="0.99998968839645386" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VDL-bn-duh">
                         <rect key="frame" x="0.0" y="0.0" width="381" height="253.5"/>
@@ -67,7 +66,6 @@
                                 <color key="backgroundColor" red="1" green="0.13713025249999999" blue="0.95569611830000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.96280592679977417" green="0.35038354992866516" blue="0.0089947953820228577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W5w-WB-WIe">
                         <rect key="frame" x="0.0" y="374" width="365" height="111.5"/>
@@ -87,7 +85,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.66571205854415894" green="0.65676659345626831" blue="0.92609512805938721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </subviews>
             </tableViewCellContentView>

@@ -82,6 +82,7 @@ static NSString *ID2 = @"Cell2";
 
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     
     [self setUpNav];
@@ -90,9 +91,9 @@ static NSString *ID2 = @"Cell2";
     
     
     //设置刷新控件
-//    [self setUpRefresh];
+    [self setUpRefresh];
     
-    [self loadData];
+//    [self loadData];
     
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"FinanceDetailFirstCell" bundle:nil] forCellReuseIdentifier:ID1];
@@ -107,17 +108,20 @@ static NSString *ID2 = @"Cell2";
     //但是如果我们想整个项目都要用到上拉刷新和下拉刷新呢,不能把这上面的代码一个个拷贝了吧
     //这样,我们可以使用继承,自定义刷新控件然后继承自MJRefreshNormalHeader,这里是自定义下拉刷新
     
-    CommonHeader *header = [CommonHeader headerWithRefreshingBlock:^{
-        
-        
-        //    [self loadData];
-        
-    }];
-    
-    self.tableView.mj_header = header;
+//    CommonHeader *header = [CommonHeader headerWithRefreshingBlock:^{
+//        
+//        
+//        //    [self loadData];
+//        
+//    }];
+//    
+//    self.tableView.mj_header = header;
     
     //让程序一开始就加载数据
-    [self.tableView.mj_header beginRefreshing];
+//    [self.tableView.mj_header beginRefreshing];
+    
+    //同样,自定义上拉刷新
+//    self.tableView.mj_footer = [CommonFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
     
 }
 
@@ -177,7 +181,7 @@ static NSString *ID2 = @"Cell2";
         
     }else if (indexPath.section == 1){
         
-        return SSScreenH;  //这个返回高度决定下面cell2的滚动范围
+        return 487;  //这个返回高度决定下面cell2的滚动范围
     }
     
     return 0;
@@ -300,40 +304,28 @@ static NSString *ID2 = @"Cell2";
 
 
 - (void)setupScrollViewSubViewsWithNumber:(NSInteger)count{
+
     
-//    for (NSInteger index = 0; index < count; index ++) {
-//        
-//        JPBaseTableViewController * subVC = [[JPBaseTableViewController alloc]init];
-//        subVC.dataSourceArray = [titles mutableCopy];
-//        subVC.view.frame = CGRectMake(self.scrollView.bounds.size.width * index, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
-//        
-//        [self addChildViewController:subVC];
-//        [self.scrollView addSubview:subVC.view];
-//        
-//    }
-    
-            
     ProjectDetailViewController * subVC1 = [[ProjectDetailViewController alloc]init];
-    subVC1.view.backgroundColor = [UIColor redColor];
+//    subVC1.view.backgroundColor = [UIColor redColor];
     subVC1.view.frame = CGRectMake(0, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
     [self addChildViewController:subVC1];
     [self.scrollView addSubview:subVC1.view];
     
     ProjectScheduleViewController * subVC2 = [[ProjectScheduleViewController alloc]init];
-    subVC2.view.backgroundColor = [UIColor greenColor];
+//    subVC2.view.backgroundColor = [UIColor greenColor];
     subVC2.view.frame = CGRectMake(self.scrollView.bounds.size.width * 1, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
     [self addChildViewController:subVC2];
     [self.scrollView addSubview:subVC2.view];
     
     UserCommentViewController * subVC3 = [[UserCommentViewController alloc]init];
-    subVC3.view.backgroundColor = [UIColor blueColor];
+//    subVC3.view.backgroundColor = [UIColor blueColor];
     subVC3.view.frame = CGRectMake(self.scrollView.bounds.size.width * 2, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
-    
     [self addChildViewController:subVC3];
     [self.scrollView addSubview:subVC3.view];
     
     InvestRecordViewController * subVC4 = [[InvestRecordViewController alloc]init];
-     subVC4.view.backgroundColor = [UIColor orangeColor];
+//     subVC4.view.backgroundColor = [UIColor orangeColor];
     subVC4.view.frame = CGRectMake(self.scrollView.bounds.size.width * 3, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
     [self addChildViewController:subVC4];
     [self.scrollView addSubview:subVC4.view];
@@ -362,10 +354,7 @@ static NSString *ID2 = @"Cell2";
  [self.view addSubview:textLabel];
  ********************************************************/
 
-
-
 //加载数据
-
 -(void)loadData
 {
     //参数
@@ -435,11 +424,16 @@ static NSString *ID2 = @"Cell2";
 
 - (IBAction)dianzan:(id)sender {
     
-}
-- (IBAction)commentBtnClick:(id)sender {
     
 }
+
+- (IBAction)commentBtnClick:(id)sender {
+    
+    
+}
+
 - (IBAction)finanaceBtnClick:(id)sender {
+    
     
 }
 
