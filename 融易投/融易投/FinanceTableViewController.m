@@ -25,6 +25,7 @@
 
 #import "FinanceViewController.h"
 
+#import "XiangqingViewController.h"
 @interface FinanceTableViewController ()
 
 
@@ -33,6 +34,8 @@
 
 /** 用来加载下一页数据 */
 @property (nonatomic, strong) NSString *lastPageNum;
+
+
 
 @end
 
@@ -403,16 +406,18 @@ static NSString *ID = @"financeCell";
 //    FinanceDetailViewController *financeDetailVC = [[FinanceDetailViewController alloc] init];
 //    
 //    financeDetailVC.modelsArray = self.models;
-//    
-//    
 //    [self.navigationController pushViewController:financeDetailVC animated:YES];
     
     FinanceViewController *financeDetailVC = [[FinanceViewController alloc] init];
     
     financeDetailVC.modelsArray = self.models;
     
-    
     [self.navigationController pushViewController:financeDetailVC animated:YES];
+    
+//    UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([XiangqingViewController class]) bundle:nil];
+//    XiangqingViewController *settingVC = [settingStoryBoard instantiateInitialViewController];
+//    [self.navigationController pushViewController:settingVC animated:YES];
+    
 }
 
 @end

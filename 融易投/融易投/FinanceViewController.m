@@ -18,54 +18,27 @@
 
 #import <MJExtension.h>
 
-
-#import "FinanceDetailFirstCell.h"
-#import "FinanceDetailSecondCell.h"
-
 #import "UIImageView+WebCache.h"
-
-#import "JPSlideBar.h"
-#import "JPBaseTableViewController.h"
 
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 
-#import "ProjectDetailViewController.h"
+#import "ProjectDetailView.h"
 #import "ProjectScheduleViewController.h"
 #import "UserCommentViewController.h"
 #import "InvestRecordViewController.h"
 
 #import "ArtworkModel.h"
 
+#import "HHHorizontalPagingView.h"
+#import "HHHeaderView.h"
+#import "HHContentTableView.h"
+#import "HHContentCollectionView.h"
+#import "HHContentScrollView.h"
 
 
-@interface FinanceViewController () <UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>
-{
-    NSArray * titles;
-    
-}
 
-/** 嵌套tableView */
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
-
-/** 存放所有数据(artWorkList)的数组 */
-@property (nonatomic, strong) NSArray *models;
-
-
-@property (nonatomic ,strong) NSArray *titleArray;
-
-@property (nonatomic, strong)UIScrollView * scrollView;
-@property (nonatomic, strong)JPSlideNavigationBar * slideBar;
-
-//头部视图
-@property (nonatomic, strong)UIView *headerView;
-//子视图
-@property (nonatomic, strong)UIView *subViews;
-
-@property (nonatomic, strong)FinanceDetailSecondCell *cell2;
-
-
+@interface FinanceViewController ()
 
 /** 底部栏 */
 @property (nonatomic, strong) UIView *bottomView;
@@ -74,55 +47,67 @@
 
 @implementation FinanceViewController
 
-static NSString *ID1 = @"Cell1";
-static NSString *ID2 = @"Cell2";
-
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    
+    //设置导航条
     [self setUpNav];
     
-    self.navigationController.navigationBarHidden = NO;
+    //设置子视图
+    [self setupSubViews];
     
+    self.view.backgroundColor = [UIColor whiteColor];
     
-    //设置刷新控件
-    [self setUpRefresh];
-    
-//    [self loadData];
-    
-    //注册创建cell ,这样注册就不用在XIB设置ID
-    [self.tableView registerNib:[UINib nibWithNibName:@"FinanceDetailFirstCell" bundle:nil] forCellReuseIdentifier:ID1];
-    [self.tableView registerNib:[UINib nibWithNibName:@"FinanceDetailSecondCell" bundle:nil] forCellReuseIdentifier:ID2];
+    //设置底部试图
+    [self setupBottomView];
     
 }
 
+-(void)setupSubViews{
 
+    //设置tab子视图
+    HHHeaderView *headerView                 = [HHHeaderView headerView];
+    
+    HHContentScrollView *v1 = [HHContentScrollView contentScrollView];
+    HHContentScrollView *v2 = [HHContentScrollView contentScrollView];
+    HHContentTableView *tableView3           = [HHContentTableView contentTableView];
+    HHContentTableView *tableView4           = [HHContentTableView contentTableView];
+    
+    
+    NSMutableArray *buttonArray = [NSMutableArray array];
+    
+    NSArray *bottomtitles = @[@"项目详情", @"投资流程", @"用户评论",@"投资记录"];
+    
+    NSInteger index = bottomtitles.count;
 
--(void)setUpRefresh
-{
-    //但是如果我们想整个项目都要用到上拉刷新和下拉刷新呢,不能把这上面的代码一个个拷贝了吧
-    //这样,我们可以使用继承,自定义刷新控件然后继承自MJRefreshNormalHeader,这里是自定义下拉刷新
+    for(int i = 0; i < index; i++) {
+        
+        UIButton *segmentButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [segmentButton setBackgroundImage:[UIImage imageNamed:@"button_normal"] forState:UIControlStateNormal];
+        [segmentButton setBackgroundImage:[UIImage imageNamed:@"button_selected"] forState:UIControlStateSelected];
+        [segmentButton setTitle:bottomtitles[i] forState:UIControlStateNormal];
+        [segmentButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        
+        [buttonArray addObject:segmentButton];
+    }
     
-//    CommonHeader *header = [CommonHeader headerWithRefreshingBlock:^{
-//        
-//        
-//        //    [self loadData];
-//        
-//    }];
-//    
-//    self.tableView.mj_header = header;
+    HHHorizontalPagingView *pagingView = [HHHorizontalPagingView pagingViewWithHeaderView:headerView headerHeight:282.5 segmentButtons:buttonArray segmentHeight:44 contentViews:@[v1, v2, tableView3,tableView4]];
     
-    //让程序一开始就加载数据
-//    [self.tableView.mj_header beginRefreshing];
+//    pagingView.segmentTopSpace = 0.0;
     
-    //同样,自定义上拉刷新
-//    self.tableView.mj_footer = [CommonFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    //    pagingView.segmentButtonSize = CGSizeMake(60., 30.);              //自定义segmentButton的大小
+    //    pagingView.segmentView.backgroundColor = [UIColor grayColor];     //设置segmentView的背景色
     
+    //设置需放大头图的top约束
+    /*
+     pagingView.magnifyTopConstraint = headerView.headerTopConstraint;
+     [headerView.headerImageView setImage:[UIImage imageNamed:@"headerImage"]];
+     [headerView.headerImageView setContentMode:UIViewContentModeScaleAspectFill];
+     */
+    
+    [self.view addSubview:pagingView];
+
 }
 
 
@@ -130,213 +115,74 @@ static NSString *ID2 = @"Cell2";
 {
     self.navigationItem.title = @"项目详情";
     
-    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, 50, 0);
-    
-    //我们可以往底部添加额外了滚动区域25,那么整体就向上移动了,但是这样底部离tabbar会有一定的间距了,不好看
-    //可以修改顶部的间距,让顶部减25就可以了
-    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 50, 0);}
-
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    
-    return 2;
+    self.navigationController.navigationBarHidden = NO;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(void)setupBottomView{
     
-    return 1;
+    UIView *bottomView = [[UIView alloc] init];
+    
+    self.bottomView = bottomView;
+    
+    bottomView.frame = CGRectMake(0, SSScreenH - 44, self.view.width, 44);
+    bottomView.backgroundColor = [UIColor blackColor];
+    //2.9 设置标题栏为半透明的
+    //    titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
+    
+    [self.view addSubview:bottomView];
+    
+    //2.1 运行程序,发现titlesView添加到了tableView,但是我们这里需要时用不同的UIViewController,所以把之前的控制器UITableViewController改成UIViewController
+    
+    //2.2 添加所有的标题按钮
+    [self setUpTitleButtons];
     
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
-    if (indexPath.section == 0) {
-        
-        FinanceDetailFirstCell *cell1 = [tableView dequeueReusableCellWithIdentifier:ID1];
-        
-        cell1.model = self.modelsArray[indexPath.section];
-        
-        return cell1;
-        
-    }else {
-        
-        
-        FinanceDetailSecondCell *cell2 = [tableView dequeueReusableCellWithIdentifier:ID2];
-        
-        self.cell2 = cell2;
-        
-        return cell2;
 
-        
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)setUpTitleButtons
 {
-    //设置cell1的高度,注意;需要根据cell空间的高度来设置,这里只是测试,写的是固定值
-    if (indexPath.section ==0) {
-        
-        return 407;
-        
-    }else if (indexPath.section == 1){
-        
-        return 487;  //这个返回高度决定下面cell2的滚动范围
-    }
+    NSArray *bottomtitles = @[@"点赞", @"评论", @"投资"];
     
-    return 0;
-}
-
-//去除第一个表头
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        return 0.1;;
-    }else {
-        return 30;
+    NSInteger index = bottomtitles.count;
+    //2.3 设置按钮尺寸,要想拿到titlesView需设置成成员属性
+    //    CGFloat titleButtonW = self.titlesView.width / 5;
+    CGFloat titleButtonW = self.bottomView.width / index;
+    CGFloat titleButtonH = self.bottomView.height;
+    
+    //2.4 遍历添加所有标题按钮
+    for (NSInteger i = 0; i < index; i++) {
+        
+        navTitleButton *titleButton = [navTitleButton buttonWithType:UIButtonTypeCustom];
+        
+        //6.2给标题按钮绑定tag
+        titleButton.tag= i;
+        
+        titleButton.frame = CGRectMake(i * titleButtonW, 0, titleButtonW, titleButtonH);
+        
+        //2.5 设置标题按钮的标题
+        //因为标题是已知的,所以我们可以把标题保存到数组中,然后根据数组中的索引去一一对应各个按钮的标题
+        //这样我们就不会把按钮的个数写死了
+        [titleButton setTitle:bottomtitles[i] forState:UIControlStateNormal];
+        [titleButton setTintColor:[UIColor whiteColor]];
+        
+        //2.6 设置按钮的选中状态
+        [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        //        titleButton.titleLabel.backgroundColor = BSRandomColor;
+        
+        [self.bottomView addSubview:titleButton];
+        
     }
-   
 }
 
-//让表头出现
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+-(void)titleClick:(navTitleButton *)titleButton
 {
-    if (section == 0) {
-        return nil;
-    }else {
-        return @"222";
-    }
+    SSLog(@"1111");
+    
 }
 
 
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-  
-    
-    if (section == 1){
-        
-        self.headerView = [[UIView alloc] init];
-        
-        titles = @[@"项目进度",@"投资流程",@"用户评论",@"投资记录"];
-        
-        [self initializeUI];
-        
-        self.scrollView.decelerationRate = 1.0;
-        
-        self.navigationController.interactivePopGestureRecognizer.delegate = self;
-        
-        // 解决scrollView的pan手势和侧滑返回手势冲突
-        NSArray *gestureArray = self.navigationController.view.gestureRecognizers;
-        
-        for (UIGestureRecognizer *gesture in gestureArray) {
-            if ([gesture isKindOfClass:[UIScreenEdgePanGestureRecognizer class]]) {
-                [self.scrollView.panGestureRecognizer requireGestureRecognizerToFail:gesture];
-                break;
-            }
-        }
-        
-        self.slideBar = [JPSlideNavigationBar slideBarWithObservableScrollView:self.scrollView
-                                                                viewController:self
-                                                                  frameOriginY:0
-                                                           slideBarSliderStyle:JPSlideBarStyleChangeColorOnly];
-        
-        self.slideBar.backgroundColor = [UIColor whiteColor];
-        
-        
-        [self.headerView addSubview:self.slideBar];
-        
-        Weak(self); //避免循环引用
-        [self.slideBar configureSlideBarWithTitles:titles
-                                         titleFont:[UIFont systemFontOfSize:15]
-                                         itemSpace:30
-                               normalTitleRGBColor:JColor_RGB(0,0,0)
-                             selectedTitleRGBColor:JColor_RGB(255,255,255)
-                                     selectedBlock:^(NSInteger index) {
-                                         Strong(self);
-                                         CGFloat scrollX = CGRectGetWidth(self.scrollView.bounds) * index;
-                                         [self.scrollView setContentOffset:CGPointMake(scrollX, 0)];
-                                     }];
-        
-        // 可以监听每次翻页的通知。(比如刷新数据)
-        [JPNotificationCenter addObserver:self selector:@selector(doSomeThingWhenScrollViewChangePage:) name:JPSlideBarChangePageNotification object:nil];
-        
-        return self.headerView;
-        
-    }
-    
-    return nil;
-}
-
-
-- (void)doSomeThingWhenScrollViewChangePage:(NSNotification *)notification{
-    CGFloat offsetX = [notification.userInfo[JPSlideBarScrollViewContentOffsetX] floatValue];
-    NSInteger index = [notification.userInfo[JPSlideBarCurrentIndex] integerValue];
-    
-    JKLog(@"offsetX:%f    index:%ld",offsetX,index);
-}
-
-- (void)initializeUI{
-    
-    //    self.view.backgroundColor = [UIColor whiteColor];
-    //    self.navigationItem.title = @"JPSlideBar";
-    //    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor redColor]}];
-    
-    [self initializeScrollViewWithStatusBarHeight:(44)];
-    
-    [self setupScrollViewSubViewsWithNumber:titles.count];
-    
-    self.scrollView.contentSize = CGSizeMake(titles.count * SSScreenW, 200);
-}
-
-
-- (void)initializeScrollViewWithStatusBarHeight:(CGFloat)statusBarHeight{
-    
-    self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, SSScreenW, SSScreenH)];
-    
-    self.scrollView.showsHorizontalScrollIndicator= NO;
-    self.scrollView.showsVerticalScrollIndicator = NO;
-    self.scrollView.pagingEnabled = YES;
-    self.scrollView.delegate = self;
-    
-    [self.cell2 addSubview:self.scrollView];
-}
-
-
-
-- (void)setupScrollViewSubViewsWithNumber:(NSInteger)count{
-
-    
-    ProjectDetailViewController * subVC1 = [[ProjectDetailViewController alloc]init];
-//    subVC1.view.backgroundColor = [UIColor redColor];
-    subVC1.view.frame = CGRectMake(0, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
-    [self addChildViewController:subVC1];
-    [self.scrollView addSubview:subVC1.view];
-    
-    ProjectScheduleViewController * subVC2 = [[ProjectScheduleViewController alloc]init];
-//    subVC2.view.backgroundColor = [UIColor greenColor];
-    subVC2.view.frame = CGRectMake(self.scrollView.bounds.size.width * 1, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
-    [self addChildViewController:subVC2];
-    [self.scrollView addSubview:subVC2.view];
-    
-    UserCommentViewController * subVC3 = [[UserCommentViewController alloc]init];
-//    subVC3.view.backgroundColor = [UIColor blueColor];
-    subVC3.view.frame = CGRectMake(self.scrollView.bounds.size.width * 2, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
-    [self addChildViewController:subVC3];
-    [self.scrollView addSubview:subVC3.view];
-    
-    InvestRecordViewController * subVC4 = [[InvestRecordViewController alloc]init];
-//     subVC4.view.backgroundColor = [UIColor orangeColor];
-    subVC4.view.frame = CGRectMake(self.scrollView.bounds.size.width * 3, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
-    [self addChildViewController:subVC4];
-    [self.scrollView addSubview:subVC4.view];
-
-}
-
-
-
-- (void)dealloc{
-    NSLog(@"%@被释放",[self class]);
-}
 
 /**********************************  不要删除：根据文字的个数调整 label 的高度
  
@@ -389,7 +235,7 @@ static NSString *ID2 = @"Cell2";
         
         
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
+        NSLog(@"返回结果:%@",jsonStr);
         
         /*
          {"artworkInvestTopList":null,"artworkInvestList":null,
@@ -403,39 +249,26 @@ static NSString *ID2 = @"Cell2";
          */
         
         
-        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-        
-        ArtworkModel *models = [ArtworkModel mj_objectWithKeyValues:modelDict];
-        
-        NSLog(@"%@",models);
-        
-        NSLog(@"%@",models.artworkAttachmentList.fileName);
-        NSLog(@"%@",models.object.author.name);
+//        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+//        
+//        ArtworkModel *models = [ArtworkModel mj_objectWithKeyValues:modelDict];
+//        
+//        NSLog(@"%@",models);
+//        
+//        NSLog(@"%@",models.artworkAttachmentList.fileName);
+//        NSLog(@"%@",models.object.author.name);
         
     
-        //在主线程刷新UI数据
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
-            [self.tableView reloadData];
-            
-        }];
+//        //在主线程刷新UI数据
+//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//            
+//            [self.tableView reloadData];
+//            
+//        }];
     }];
 }
 
-- (IBAction)dianzan:(id)sender {
-    
-    
-}
 
-- (IBAction)commentBtnClick:(id)sender {
-    
-    
-}
-
-- (IBAction)finanaceBtnClick:(id)sender {
-    
-    
-}
 
 
 @end
