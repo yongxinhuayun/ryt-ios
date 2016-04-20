@@ -422,7 +422,6 @@ static NSString *ID = @"financeCell";
 //    [self.navigationController pushViewController:settingVC animated:YES];
     
     XIBDemoViewController *controller = [[XIBDemoViewController alloc] init];
-    
     [self.navigationController pushViewController:controller animated:YES];
     
 }
