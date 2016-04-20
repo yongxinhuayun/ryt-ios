@@ -26,6 +26,9 @@
 #import "FinanceViewController.h"
 
 #import "XiangqingViewController.h"
+
+#import "XIBDemoViewController.h"
+
 @interface FinanceTableViewController ()
 
 
@@ -408,15 +411,18 @@ static NSString *ID = @"financeCell";
 //    financeDetailVC.modelsArray = self.models;
 //    [self.navigationController pushViewController:financeDetailVC animated:YES];
     
-    FinanceViewController *financeDetailVC = [[FinanceViewController alloc] init];
-    
-    financeDetailVC.modelsArray = self.models;
-    
-    [self.navigationController pushViewController:financeDetailVC animated:YES];
+//    FinanceViewController *financeDetailVC = [[FinanceViewController alloc] init];
+//    
+//    financeDetailVC.modelsArray = self.models;
+//    
+//    [self.navigationController pushViewController:financeDetailVC animated:YES];
     
 //    UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([XiangqingViewController class]) bundle:nil];
 //    XiangqingViewController *settingVC = [settingStoryBoard instantiateInitialViewController];
 //    [self.navigationController pushViewController:settingVC animated:YES];
+    
+    XIBDemoViewController *controller = [[XIBDemoViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
     
 }
 
