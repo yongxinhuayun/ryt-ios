@@ -13,6 +13,7 @@
 #import "XCLPageView.h"
 #import "XCLSegmentView.h"
 
+
 @interface XIBDemoViewController () <XCLPageViewDelegate, XCLSegmentViewDelegate>
 
 @property (weak  , nonatomic) IBOutlet XCLPageView *pageView;
@@ -23,13 +24,14 @@
 @implementation XIBDemoViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     self.navigationItem.title = @"项目详情";
     
     self.navigationController.navigationBarHidden = NO;
 
-    DemoTableViewController *controller1 = [[DemoTableViewController alloc] initWithItemCount:30];
+    DemoTableViewController *controller1 = [[DemoTableViewController alloc] initWithItemCount:40];
     DemoTableViewController *controller2 = [[DemoTableViewController alloc] initWithItemCount:100];
     
     DemoTableViewController *controller3 = [[DemoTableViewController alloc] initWithItemCount:100];
@@ -45,7 +47,7 @@
     self.headerView.segmentView.selectedColor = [UIColor blackColor];
     self.headerView.segmentView.indicator.backgroundColor = self.headerView.segmentView.selectedColor;
     self.headerView.segmentView.indicatorEdgeInsets = UIEdgeInsetsMake(self.headerView.segmentView.bounds.size.height - 2, 10, 0, 10);
-    self.headerView.segmentView.selectedSegmentIndex = 1;
+    self.headerView.segmentView.selectedSegmentIndex = 0;
     
     self.pageView.delegate = self;
     [self.pageView setParentViewController:self childViewControllers:@[controller1, controller2,controller3,controller4]];

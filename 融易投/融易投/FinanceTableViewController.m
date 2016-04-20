@@ -23,7 +23,6 @@
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 
-#import "FinanceViewController.h"
 
 #import "XiangqingViewController.h"
 

@@ -21,7 +21,6 @@
 #import "JPSlideBar.h"
 #import "JPBaseTableViewController.h"
 
-#import "ProjectDetailViewController.h"
 #import "ProjectScheduleViewController.h"
 #import "UserCommentViewController.h"
 #import "InvestRecordViewController.h"

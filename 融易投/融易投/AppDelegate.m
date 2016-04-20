@@ -22,7 +22,7 @@
 
 #import "AliPayController.h"
 
-#import "FinanceViewController.h"
+#import "XIBDemoViewController.h"
 
 static NSString *appKey = @"d1573e16403c2482826bbd35";
 static NSString *channel = @"Publish channel";
@@ -165,7 +165,7 @@ static BOOL isProduction = FALSE;
     [JPUSHService setupWithOption:launchOptions appKey:appKey channel:channel apsForProduction:isProduction];
 //
     //2.设置窗口的根控制器
-        CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
+//        CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
     
         //self.window.rootViewController = [MessageTableViewController new];
         //self.window.rootViewController = [RegViewController new];
@@ -173,7 +173,9 @@ static BOOL isProduction = FALSE;
     
 //    FinanceViewController *vc = [[FinanceViewController alloc] init];
     
-    self.window.rootViewController = tabBarController;
+    XIBDemoViewController *xib = [[XIBDemoViewController alloc] init];
+    
+    self.window.rootViewController = xib;
 //      self.window.rootViewController = [AliPayController new];
     //3.显示窗口
     [self.window makeKeyAndVisible];
