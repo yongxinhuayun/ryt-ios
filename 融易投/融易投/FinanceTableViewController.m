@@ -144,7 +144,7 @@ static NSString *ID = @"financeCell";
     NSLog(@"%@",strArray.firstObject);
     
     //参数
-    NSString *pageSize = @"1";
+    NSString *pageSize = @"20";
     NSString *pageNum = @"1";
     NSString *timestamp = strArray.firstObject;
     NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";

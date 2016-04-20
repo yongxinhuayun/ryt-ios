@@ -8,23 +8,42 @@
 
 #import <Foundation/Foundation.h>
 
-#import "ArtworkAttachmentListModel.h"
-#import "ArtworkCommentListModel.h"
-#import "ArtworkdirectionModel.h"
-#import "ArtworkobjectModel.h"
+#import "AuthorDetailModel.h"
+#import "MasterDetailsModel.h"
+
 
 @interface ArtworkModel : NSObject
 
-/** 用户上传项目图片附件 */
-@property (nonatomic ,strong) ArtworkAttachmentListModel *artworkAttachmentList;
 
-/** 用户上传项目图片附件 */
-@property (nonatomic ,strong) ArtworkCommentListModel *artworkCommentList;
+/** 项目背景图 */
+@property (nonatomic ,strong) NSString *picture_url;
 
-/** 用户上传项目图片附件 */
-@property (nonatomic ,strong) ArtworkdirectionModel *fileName;
+/** 主题 */
+@property (nonatomic ,strong) NSString *title;
 
-/** 用户上传项目图片附件 */
-@property (nonatomic ,strong) ArtworkobjectModel *object;
+/** 简介 */
+@property (nonatomic ,strong) NSString *brief;
+
+/** 描述  这个需要改变一下key值*/
+@property (nonatomic ,strong) NSString *descriptions;
+
+/** 融资目标金额 */
+@property (nonatomic ,assign) NSInteger investGoalMoney;
+
+/** 融资开始时间 */
+@property (nonatomic ,assign) NSInteger investStartDatetime;
+/** 融资结束时间/创作开始时间 */
+@property (nonatomic ,assign) NSInteger investEndDatetime;
+
+/** 拍卖开始时间 */
+@property (nonatomic ,assign) NSInteger auctionStartDatetime;
+/** 拍卖结束时间 */
+@property (nonatomic ,assign) NSInteger auctionEndDatetime;
+
+/** author信息 */
+@property (nonatomic, strong) AuthorDetailModel *author;
+
+/** master信息 */
+@property (nonatomic, strong) MasterDetailsModel *master;
 
 @end

@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XIBDemoViewController">
             <connections>
+                <outlet property="bottomView" destination="mny-kE-AP6" id="v1k-ru-wVM"/>
                 <outlet property="pageView" destination="UCV-Gr-ju5" id="BBh-rH-Y6F"/>
                 <outlet property="view" destination="iN0-l3-epB" id="oY4-uN-pr3"/>
             </connections>

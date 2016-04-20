@@ -145,16 +145,10 @@
 		21AB0A091CC0A5C400B7BA03 /* XMGPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0A061CC0A5C400B7BA03 /* XMGPlayerView.xib */; };
 		21AB0A1C1CC2070200B7BA03 /* InvestRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A1B1CC2070200B7BA03 /* InvestRecordViewController.m */; };
 		21AB0A1F1CC2384C00B7BA03 /* ArtworkAttachmentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A1E1CC2384B00B7BA03 /* ArtworkAttachmentListModel.m */; };
-		21AB0A221CC2386100B7BA03 /* ArtworkCommentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A211CC2386100B7BA03 /* ArtworkCommentListModel.m */; };
 		21AB0A251CC238D200B7BA03 /* ArtworkdirectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A241CC238D200B7BA03 /* ArtworkdirectionModel.m */; };
 		21AB0A281CC23A0000B7BA03 /* ArtworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A271CC23A0000B7BA03 /* ArtworkModel.m */; };
-		21AB0A2B1CC23AE900B7BA03 /* ArtworkobjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A2A1CC23AE900B7BA03 /* ArtworkobjectModel.m */; };
 		21AB0A2E1CC23CDD00B7BA03 /* AuthorDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A2D1CC23CDD00B7BA03 /* AuthorDetailModel.m */; };
 		21AB0A341CC23D3D00B7BA03 /* MasterDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A331CC23D3D00B7BA03 /* MasterDetailsModel.m */; };
-		21AB0A5A1CC48E2100B7BA03 /* HHContentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A501CC48E2100B7BA03 /* HHContentScrollView.m */; };
-		21AB0A611CC4BDD600B7BA03 /* ProjectDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A601CC4BDD600B7BA03 /* ProjectDetailView.m */; };
-		21AB0A631CC4BDEA00B7BA03 /* ProjectDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0A621CC4BDEA00B7BA03 /* ProjectDetailView.xib */; };
-		21AB0A671CC4CE9E00B7BA03 /* HHHorizontalPagingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A661CC4CE9E00B7BA03 /* HHHorizontalPagingView.m */; };
 		21AB0AA31CC4F69C00B7BA03 /* XiangqingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0AA21CC4F69C00B7BA03 /* XiangqingViewController.m */; };
 		21AB0AA51CC4F6AE00B7BA03 /* XiangqingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0AA41CC4F6AE00B7BA03 /* XiangqingViewController.storyboard */; };
 		21AB0ABF1CC50A4D00B7BA03 /* JPSlideBar+ScrollViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0AAC1CC50A4D00B7BA03 /* JPSlideBar+ScrollViewDelegate.m */; };
@@ -178,6 +172,16 @@
 		21AB0B511CC6056500B7BA03 /* XIBHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0B401CC6056500B7BA03 /* XIBHeaderView.xib */; };
 		21AB0B581CC605F500B7BA03 /* XCLSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B571CC605F500B7BA03 /* XCLSegmentView.m */; };
 		21AB0B5C1CC6084F00B7BA03 /* XIBDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0B5B1CC6084F00B7BA03 /* XIBDemoViewController.xib */; };
+		21AB0B601CC720A800B7BA03 /* ProjectDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B5F1CC720A800B7BA03 /* ProjectDetailsViewController.m */; };
+		21AB0B641CC722CC00B7BA03 /* ProjectDetailsCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B621CC722CC00B7BA03 /* ProjectDetailsCell1.m */; };
+		21AB0B651CC722CC00B7BA03 /* ProjectDetailsCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0B631CC722CC00B7BA03 /* ProjectDetailsCell1.xib */; };
+		21AB0B731CC72B3900B7BA03 /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B711CC72B3900B7BA03 /* ImageCollectionViewCell.m */; };
+		21AB0B741CC72B3900B7BA03 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0B721CC72B3900B7BA03 /* ImageCollectionViewCell.xib */; };
+		21AB0B771CC72BBA00B7BA03 /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B761CC72BBA00B7BA03 /* ImageModel.m */; };
+		21AB0B7A1CC7590F00B7BA03 /* ProjectDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B791CC7590F00B7BA03 /* ProjectDetailsModel.m */; };
+		21AB0B7D1CC77B5400B7BA03 /* ProjectDetailsResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B7C1CC77B5400B7BA03 /* ProjectDetailsResultModel.m */; };
+		21AB0B811CC787C700B7BA03 /* InvestorArtWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B7F1CC787C700B7BA03 /* InvestorArtWorkViewController.m */; };
+		21AB0B821CC787C700B7BA03 /* InvestorArtWorkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0B801CC787C700B7BA03 /* InvestorArtWorkViewController.xib */; };
 		21C08BC81CB01BC3002328D3 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */; };
 		21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BCC1CB01F7E002328D3 /* NSObject+FileManager.m */; };
 		21C08BD11CB02521002328D3 /* SettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C08BD01CB02521002328D3 /* SettingTableViewController.storyboard */; };
@@ -511,26 +515,14 @@
 		21AB0A1B1CC2070200B7BA03 /* InvestRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestRecordViewController.m; sourceTree = "<group>"; };
 		21AB0A1D1CC2384B00B7BA03 /* ArtworkAttachmentListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkAttachmentListModel.h; sourceTree = "<group>"; };
 		21AB0A1E1CC2384B00B7BA03 /* ArtworkAttachmentListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkAttachmentListModel.m; sourceTree = "<group>"; };
-		21AB0A201CC2386100B7BA03 /* ArtworkCommentListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkCommentListModel.h; sourceTree = "<group>"; };
-		21AB0A211CC2386100B7BA03 /* ArtworkCommentListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkCommentListModel.m; sourceTree = "<group>"; };
 		21AB0A231CC238D200B7BA03 /* ArtworkdirectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkdirectionModel.h; sourceTree = "<group>"; };
 		21AB0A241CC238D200B7BA03 /* ArtworkdirectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkdirectionModel.m; sourceTree = "<group>"; };
 		21AB0A261CC23A0000B7BA03 /* ArtworkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkModel.h; sourceTree = "<group>"; };
 		21AB0A271CC23A0000B7BA03 /* ArtworkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkModel.m; sourceTree = "<group>"; };
-		21AB0A291CC23AE900B7BA03 /* ArtworkobjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkobjectModel.h; sourceTree = "<group>"; };
-		21AB0A2A1CC23AE900B7BA03 /* ArtworkobjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkobjectModel.m; sourceTree = "<group>"; };
 		21AB0A2C1CC23CDD00B7BA03 /* AuthorDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorDetailModel.h; sourceTree = "<group>"; };
 		21AB0A2D1CC23CDD00B7BA03 /* AuthorDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorDetailModel.m; sourceTree = "<group>"; };
 		21AB0A321CC23D3D00B7BA03 /* MasterDetailsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterDetailsModel.h; sourceTree = "<group>"; };
 		21AB0A331CC23D3D00B7BA03 /* MasterDetailsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterDetailsModel.m; sourceTree = "<group>"; };
-		21AB0A4F1CC48E2100B7BA03 /* HHContentScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHContentScrollView.h; sourceTree = "<group>"; };
-		21AB0A501CC48E2100B7BA03 /* HHContentScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHContentScrollView.m; sourceTree = "<group>"; };
-		21AB0A511CC48E2100B7BA03 /* HHContentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHContentTableView.h; sourceTree = "<group>"; };
-		21AB0A5F1CC4BDD600B7BA03 /* ProjectDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailView.h; sourceTree = "<group>"; };
-		21AB0A601CC4BDD600B7BA03 /* ProjectDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailView.m; sourceTree = "<group>"; };
-		21AB0A621CC4BDEA00B7BA03 /* ProjectDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectDetailView.xib; sourceTree = "<group>"; };
-		21AB0A651CC4CE9E00B7BA03 /* HHHorizontalPagingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHHorizontalPagingView.h; sourceTree = "<group>"; };
-		21AB0A661CC4CE9E00B7BA03 /* HHHorizontalPagingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHHorizontalPagingView.m; sourceTree = "<group>"; };
 		21AB0AA11CC4F69C00B7BA03 /* XiangqingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XiangqingViewController.h; sourceTree = "<group>"; };
 		21AB0AA21CC4F69C00B7BA03 /* XiangqingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiangqingViewController.m; sourceTree = "<group>"; };
 		21AB0AA41CC4F6AE00B7BA03 /* XiangqingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = XiangqingViewController.storyboard; sourceTree = "<group>"; };
@@ -574,6 +566,23 @@
 		21AB0B561CC605F500B7BA03 /* XCLSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCLSegmentView.h; sourceTree = "<group>"; };
 		21AB0B571CC605F500B7BA03 /* XCLSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCLSegmentView.m; sourceTree = "<group>"; };
 		21AB0B5B1CC6084F00B7BA03 /* XIBDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XIBDemoViewController.xib; sourceTree = "<group>"; };
+		21AB0B5E1CC720A800B7BA03 /* ProjectDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailsViewController.h; sourceTree = "<group>"; };
+		21AB0B5F1CC720A800B7BA03 /* ProjectDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailsViewController.m; sourceTree = "<group>"; };
+		21AB0B611CC722CC00B7BA03 /* ProjectDetailsCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailsCell1.h; sourceTree = "<group>"; };
+		21AB0B621CC722CC00B7BA03 /* ProjectDetailsCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailsCell1.m; sourceTree = "<group>"; };
+		21AB0B631CC722CC00B7BA03 /* ProjectDetailsCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectDetailsCell1.xib; sourceTree = "<group>"; };
+		21AB0B701CC72B3900B7BA03 /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewCell.h; sourceTree = "<group>"; };
+		21AB0B711CC72B3900B7BA03 /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionViewCell.m; sourceTree = "<group>"; };
+		21AB0B721CC72B3900B7BA03 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		21AB0B751CC72BBA00B7BA03 /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
+		21AB0B761CC72BBA00B7BA03 /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
+		21AB0B781CC7590F00B7BA03 /* ProjectDetailsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailsModel.h; sourceTree = "<group>"; };
+		21AB0B791CC7590F00B7BA03 /* ProjectDetailsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailsModel.m; sourceTree = "<group>"; };
+		21AB0B7B1CC77B5400B7BA03 /* ProjectDetailsResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailsResultModel.h; sourceTree = "<group>"; };
+		21AB0B7C1CC77B5400B7BA03 /* ProjectDetailsResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailsResultModel.m; sourceTree = "<group>"; };
+		21AB0B7E1CC787C700B7BA03 /* InvestorArtWorkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorArtWorkViewController.h; sourceTree = "<group>"; };
+		21AB0B7F1CC787C700B7BA03 /* InvestorArtWorkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorArtWorkViewController.m; sourceTree = "<group>"; };
+		21AB0B801CC787C700B7BA03 /* InvestorArtWorkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvestorArtWorkViewController.xib; sourceTree = "<group>"; };
 		21C08BC61CB01BC3002328D3 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		21C08BCB1CB01F7E002328D3 /* NSObject+FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FileManager.h"; sourceTree = "<group>"; };
@@ -1041,20 +1050,23 @@
 		21AB0A131CC1E91D00B7BA03 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				21AB0A261CC23A0000B7BA03 /* ArtworkModel.h */,
-				21AB0A271CC23A0000B7BA03 /* ArtworkModel.m */,
+				21AB0B7B1CC77B5400B7BA03 /* ProjectDetailsResultModel.h */,
+				21AB0B7C1CC77B5400B7BA03 /* ProjectDetailsResultModel.m */,
+				21AB0B781CC7590F00B7BA03 /* ProjectDetailsModel.h */,
+				21AB0B791CC7590F00B7BA03 /* ProjectDetailsModel.m */,
 				21AB0A1D1CC2384B00B7BA03 /* ArtworkAttachmentListModel.h */,
 				21AB0A1E1CC2384B00B7BA03 /* ArtworkAttachmentListModel.m */,
-				21AB0A201CC2386100B7BA03 /* ArtworkCommentListModel.h */,
-				21AB0A211CC2386100B7BA03 /* ArtworkCommentListModel.m */,
 				21AB0A231CC238D200B7BA03 /* ArtworkdirectionModel.h */,
 				21AB0A241CC238D200B7BA03 /* ArtworkdirectionModel.m */,
-				21AB0A291CC23AE900B7BA03 /* ArtworkobjectModel.h */,
-				21AB0A2A1CC23AE900B7BA03 /* ArtworkobjectModel.m */,
+				21AB0A261CC23A0000B7BA03 /* ArtworkModel.h */,
+				21AB0A271CC23A0000B7BA03 /* ArtworkModel.m */,
 				21AB0A2C1CC23CDD00B7BA03 /* AuthorDetailModel.h */,
 				21AB0A2D1CC23CDD00B7BA03 /* AuthorDetailModel.m */,
 				21AB0A321CC23D3D00B7BA03 /* MasterDetailsModel.h */,
 				21AB0A331CC23D3D00B7BA03 /* MasterDetailsModel.m */,
+				21AB0B751CC72BBA00B7BA03 /* ImageModel.h */,
+				21AB0B761CC72BBA00B7BA03 /* ImageModel.m */,
+				21AB0A151CC1E92A00B7BA03 /* Controller */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1115,15 +1127,6 @@
 				215EED1C1CB0058D00A5957B /* FinanceTableViewController.m */,
 			);
 			name = Controller;
-			sourceTree = "<group>";
-		};
-		21AB0A641CC4CE9E00B7BA03 /* HHHorizontalPagingView */ = {
-			isa = PBXGroup;
-			children = (
-				21AB0A651CC4CE9E00B7BA03 /* HHHorizontalPagingView.h */,
-				21AB0A661CC4CE9E00B7BA03 /* HHHorizontalPagingView.m */,
-			);
-			path = HHHorizontalPagingView;
 			sourceTree = "<group>";
 		};
 		21AB0AAA1CC50A4D00B7BA03 /* JPSlideBar */ = {
@@ -1196,12 +1199,12 @@
 		21AB0B5D1CC70E1400B7BA03 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				21AB0A4F1CC48E2100B7BA03 /* HHContentScrollView.h */,
-				21AB0A501CC48E2100B7BA03 /* HHContentScrollView.m */,
-				21AB0A641CC4CE9E00B7BA03 /* HHHorizontalPagingView */,
 				21AB0AA11CC4F69C00B7BA03 /* XiangqingViewController.h */,
 				21AB0AA21CC4F69C00B7BA03 /* XiangqingViewController.m */,
 				21AB0AA41CC4F6AE00B7BA03 /* XiangqingViewController.storyboard */,
+				21AB0B7E1CC787C700B7BA03 /* InvestorArtWorkViewController.h */,
+				21AB0B7F1CC787C700B7BA03 /* InvestorArtWorkViewController.m */,
+				21AB0B801CC787C700B7BA03 /* InvestorArtWorkViewController.xib */,
 				21AB0AD71CC5152C00B7BA03 /* TopTabControl */,
 				21AB0AAA1CC50A4D00B7BA03 /* JPSlideBar */,
 				21AB0AB41CC50A4D00B7BA03 /* SlideBarController */,
@@ -1506,18 +1509,21 @@
 				21AB0B3C1CC6056500B7BA03 /* XIBDemoViewController.h */,
 				21AB0B3D1CC6056500B7BA03 /* XIBDemoViewController.m */,
 				21AB0B5B1CC6084F00B7BA03 /* XIBDemoViewController.xib */,
-				21AB0B1F1CC6056500B7BA03 /* DemoTableViewController.h */,
-				21AB0B201CC6056500B7BA03 /* DemoTableViewController.m */,
 				21AB0B3E1CC6056500B7BA03 /* XIBHeaderView.h */,
 				21AB0B3F1CC6056500B7BA03 /* XIBHeaderView.m */,
 				21AB0B401CC6056500B7BA03 /* XIBHeaderView.xib */,
-				21AB0A5F1CC4BDD600B7BA03 /* ProjectDetailView.h */,
-				21AB0A601CC4BDD600B7BA03 /* ProjectDetailView.m */,
-				21AB0A621CC4BDEA00B7BA03 /* ProjectDetailView.xib */,
-				21AB0A511CC48E2100B7BA03 /* HHContentTableView.h */,
+				21AB0B5E1CC720A800B7BA03 /* ProjectDetailsViewController.h */,
+				21AB0B5F1CC720A800B7BA03 /* ProjectDetailsViewController.m */,
+				21AB0B611CC722CC00B7BA03 /* ProjectDetailsCell1.h */,
+				21AB0B621CC722CC00B7BA03 /* ProjectDetailsCell1.m */,
+				21AB0B631CC722CC00B7BA03 /* ProjectDetailsCell1.xib */,
+				21AB0B701CC72B3900B7BA03 /* ImageCollectionViewCell.h */,
+				21AB0B711CC72B3900B7BA03 /* ImageCollectionViewCell.m */,
+				21AB0B721CC72B3900B7BA03 /* ImageCollectionViewCell.xib */,
+				21AB0B1F1CC6056500B7BA03 /* DemoTableViewController.h */,
+				21AB0B201CC6056500B7BA03 /* DemoTableViewController.m */,
 				21AB0B551CC605F500B7BA03 /* XCLSegmentView */,
 				21AB0B211CC6056500B7BA03 /* XCLPageView */,
-				21AB0A151CC1E92A00B7BA03 /* Controller */,
 				21AB0A141CC1E92300B7BA03 /* View */,
 				21AB0A131CC1E91D00B7BA03 /* model */,
 			);
@@ -2074,13 +2080,16 @@
 				21AB0B511CC6056500B7BA03 /* XIBHeaderView.xib in Resources */,
 				E2ABF0B21CB63C090005571F /* CommentsController.xib in Resources */,
 				E2D73DC31CAD2CA9004CEFA3 /* RegViewController.xib in Resources */,
+				21AB0B651CC722CC00B7BA03 /* ProjectDetailsCell1.xib in Resources */,
 				219ACA4C1CBE3F100052146E /* buttonSend@2x.png in Resources */,
 				E2D387051CB8B1B000F735F9 /* AliPayController.xib in Resources */,
+				21AB0B741CC72B3900B7BA03 /* ImageCollectionViewCell.xib in Resources */,
 				21AB0AA51CC4F6AE00B7BA03 /* XiangqingViewController.storyboard in Resources */,
 				219AC9AC1CBC9B060052146E /* ImagesPicker.xcassets in Resources */,
 				2118F1E41CAE5805003BFC6B /* MyViewController.xib in Resources */,
 				219ACA3F1CBE3F100052146E /* addPictures.png in Resources */,
 				E2DDB0F31CAB66DB007438E4 /* Assets.xcassets in Resources */,
+				21AB0B821CC787C700B7BA03 /* InvestorArtWorkViewController.xib in Resources */,
 				211C394B1CB36B1500DAD827 /* FinanceTableViewCell.xib in Resources */,
 				21D54B921CB739E60088D386 /* AuctionTableViewCell.xib in Resources */,
 				21D54B201CB4D99E0088D386 /* CreationTableViewCell.xib in Resources */,
@@ -2114,7 +2123,6 @@
 				219AC9AB1CBC9B060052146E /* JKImagePickerController.strings in Resources */,
 				21D54BCF1CB796CD0088D386 /* messages.plist in Resources */,
 				21D54B8D1CB660970088D386 /* ArtistTableViewCell.xib in Resources */,
-				21AB0A631CC4BDEA00B7BA03 /* ProjectDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2203,6 +2211,7 @@
 				218D2B7C1CACBBC2004553B9 /* LognController.m in Sources */,
 				2168EAE31CBFA05000B7E037 /* FinanceDetailFirstCell.m in Sources */,
 				219AC5F11CBC89970052146E /* MBProgressHUD+MJ.m in Sources */,
+				21AB0B731CC72B3900B7BA03 /* ImageCollectionViewCell.m in Sources */,
 				21AB0B581CC605F500B7BA03 /* XCLSegmentView.m in Sources */,
 				219ACA4F1CBE3F100052146E /* ImagePickerChooseCell.m in Sources */,
 				219ACA591CBE3F100052146E /* ShowImageView.m in Sources */,
@@ -2228,7 +2237,6 @@
 				219ACA4A1CBE3F100052146E /* AGPreviewScrollView.m in Sources */,
 				21D54B811CB657AE0088D386 /* InvestorModel.m in Sources */,
 				219AC5EB1CBC87FD0052146E /* HMEmotionView.m in Sources */,
-				21AB0A2B1CC23AE900B7BA03 /* ArtworkobjectModel.m in Sources */,
 				21D54B361CB4F88B0088D386 /* AuctionModel.m in Sources */,
 				21D54B371CB4F88B0088D386 /* AuctionTableViewCell.m in Sources */,
 				211C39461CB369FC00DAD827 /* FinanceModel.m in Sources */,
@@ -2237,6 +2245,7 @@
 				219AC5E91CBC87FD0052146E /* HMEmotionTextView.m in Sources */,
 				219AC9DF1CBDE47D0052146E /* imageViewController.m in Sources */,
 				E2D387041CB8B1B000F735F9 /* AliPayController.m in Sources */,
+				21AB0B771CC72BBA00B7BA03 /* ImageModel.m in Sources */,
 				219AC9D61CBDE1EC0052146E /* ComposeViewController.m in Sources */,
 				219AC9B01CBC9B060052146E /* JKAssetsGroupsView.m in Sources */,
 				219AC9BD1CBCA5A40052146E /* ReleaseProjectViewController.m in Sources */,
@@ -2245,9 +2254,9 @@
 				21AB0B421CC6056500B7BA03 /* XCLPageView.m in Sources */,
 				E2DDB0EB1CAB66DB007438E4 /* AppDelegate.m in Sources */,
 				21D54B7E1CB64A630088D386 /* HttpRequstTool.m in Sources */,
+				21AB0B641CC722CC00B7BA03 /* ProjectDetailsCell1.m in Sources */,
 				219AC5E01CBC87FD0052146E /* HMComposeViewController.m in Sources */,
 				21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */,
-				21AB0A221CC2386100B7BA03 /* ArtworkCommentListModel.m in Sources */,
 				219AC9B61CBC9B060052146E /* JKPromptView.m in Sources */,
 				219AC9861CBC99530052146E /* DSComposePhotosView.m in Sources */,
 				219AC9B11CBC9B060052146E /* JKAssetsThumbnailView.m in Sources */,
@@ -2282,6 +2291,7 @@
 				21AB0A2E1CC23CDD00B7BA03 /* AuthorDetailModel.m in Sources */,
 				E2ABF0B11CB63C090005571F /* CommentsController.m in Sources */,
 				2168EA7E1CBE882700B7E037 /* BBFlashCtntLabel.m in Sources */,
+				21AB0B601CC720A800B7BA03 /* ProjectDetailsViewController.m in Sources */,
 				E2D73DC21CAD2CA9004CEFA3 /* RegViewController.m in Sources */,
 				219AC9AE1CBC9B060052146E /* JKAssetsCollectionFooterView.m in Sources */,
 				211C394A1CB36B1500DAD827 /* FinanceTableViewCell.m in Sources */,
@@ -2289,13 +2299,14 @@
 				218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */,
 				218D2B411CACB310004553B9 /* RankTableViewController.m in Sources */,
 				2118F1E71CAE626F003BFC6B /* registerModel.m in Sources */,
-				21AB0A5A1CC48E2100B7BA03 /* HHContentScrollView.m in Sources */,
 				219ACA431CBE3F100052146E /* AGImagePreviewController.m in Sources */,
 				21C08BC81CB01BC3002328D3 /* SettingTableViewController.m in Sources */,
 				E2DDB0E81CAB66DB007438E4 /* main.m in Sources */,
 				218D2B581CACB35C004553B9 /* UIBarButtonItem+Item.m in Sources */,
 				21904CF01CAD3C7800AD7A3F /* CompleteUserInfoController.m in Sources */,
+				21AB0B811CC787C700B7BA03 /* InvestorArtWorkViewController.m in Sources */,
 				21AB0B501CC6056500B7BA03 /* XIBHeaderView.m in Sources */,
+				21AB0B7D1CC77B5400B7BA03 /* ProjectDetailsResultModel.m in Sources */,
 				21AB0AE41CC5152C00B7BA03 /* UIColor+RandomColor.m in Sources */,
 				21D54B9D1CB791E10088D386 /* NSString+DocumentPath.m in Sources */,
 				215EED2C1CB010A500A5957B /* ArtistTableViewController.m in Sources */,
@@ -2313,7 +2324,6 @@
 				219AC9F81CBDE4980052146E /* WHC_PictureListVC.m in Sources */,
 				219ACA5C1CBE3F100052146E /* UIImage+ReSize.m in Sources */,
 				219ACA5B1CBE3F100052146E /* UIButton+AGIPC.m in Sources */,
-				21AB0A611CC4BDD600B7BA03 /* ProjectDetailView.m in Sources */,
 				21D54B851CB6585B0088D386 /* InvestorTableViewCell.m in Sources */,
 				21904D321CAE0F4000AD7A3F /* UserAccount.m in Sources */,
 				219ACA5E1CBE3F100052146E /* WhoCanSeeViewController.m in Sources */,
@@ -2321,7 +2331,6 @@
 				215EED1D1CB0058D00A5957B /* FinanceTableViewController.m in Sources */,
 				219AC9AD1CBC9B060052146E /* JKAssets.m in Sources */,
 				215E73671CB7BC1000A67690 /* NotificationTableViewCell.m in Sources */,
-				21AB0A671CC4CE9E00B7BA03 /* HHHorizontalPagingView.m in Sources */,
 				219AC9B81CBC9B060052146E /* PhotoAlbumManager.m in Sources */,
 				219AC9D11CBD1B890052146E /* ArtistViewController.m in Sources */,
 				21AB0AA31CC4F69C00B7BA03 /* XiangqingViewController.m in Sources */,
@@ -2332,6 +2341,7 @@
 				219ACA491CBE3F100052146E /* AGIPCToolbarItem.m in Sources */,
 				2118F1E31CAE5805003BFC6B /* MyViewController.m in Sources */,
 				219AC9E21CBDE48D0052146E /* MBProgressHUD+Add.m in Sources */,
+				21AB0B7A1CC7590F00B7BA03 /* ProjectDetailsModel.m in Sources */,
 				219AC9B71CBC9B060052146E /* JKUtil.m in Sources */,
 				219AC9F31CBDE4980052146E /* WHC_PhotoListCell.m in Sources */,
 				E2D3870B1CB8E4E900F735F9 /* PrivateLetterViewController.m in Sources */,
