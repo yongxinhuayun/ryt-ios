@@ -151,7 +151,7 @@ static NSString *ID = @"auctionCell";
     //http://192.168.1.57/app-wikiServer/
     //http://j.efeiyi.com:8080/app-wikiServer/app/
     //http://j.efeiyi.com:8080/app-wikiServer/app/login.do
-    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/investorIndex.do"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/investorIndex.do"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
@@ -261,7 +261,7 @@ static NSString *ID = @"auctionCell";
     //http://192.168.1.57/app-wikiServer/
     //http://j.efeiyi.com:8080/app-wikiServer/app/
     //http://j.efeiyi.com:8080/app-wikiServer/app/login.do
-    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/investorIndex.do"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/investorIndex.do"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";

@@ -124,7 +124,7 @@ static NSString *ID = @"creationCell";
     NSLog(@"%@",strArray.firstObject);
     
     //参数
-    NSString *pageSize = @"1";
+    NSString *pageSize = @"20";
     NSString *pageNum = @"1";
     NSString *timestamp = strArray.firstObject;
     NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
@@ -143,7 +143,7 @@ static NSString *ID = @"creationCell";
     //http://192.168.1.57/app-wikiServer/
     //http://j.efeiyi.com:8080/app-wikiServer/app/
     //http://j.efeiyi.com:8080/app-wikiServer/app/login.do
-    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/investorIndex.do"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/investorIndex.do"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
@@ -216,7 +216,7 @@ static NSString *ID = @"creationCell";
     NSLog(@"%@",strArray.firstObject);
     
     //参数
-    NSString *pageSize = @"1";
+    NSString *pageSize = @"20";
     
     int newPageNum = self.lastPageNum.intValue + 1;
     
@@ -245,7 +245,7 @@ static NSString *ID = @"creationCell";
     //http://192.168.1.57/app-wikiServer/
     //http://j.efeiyi.com:8080/app-wikiServer/app/
     //http://j.efeiyi.com:8080/app-wikiServer/app/login.do
-    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/investorIndex.do"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/investorIndex.do"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";

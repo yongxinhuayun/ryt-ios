@@ -149,7 +149,7 @@ static NSString *ID = @"financeCell";
     NSString *timestamp = strArray.firstObject;
     NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
     
-    NSLog(@"pageSize=%@,pageNum=%@,timestamp=%@",pageNum,pageNum,timestamp);
+//    NSLog(@"pageSize=%@,pageNum=%@,timestamp=%@",pageNum,pageNum,timestamp);
     
     NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&key=%@",pageNum,pageSize,timestamp,appkey];
     //    NSLog(@"%@",signmsg);
@@ -163,7 +163,7 @@ static NSString *ID = @"financeCell";
     //http://192.168.1.57/app-wikiServer/
     //http://j.efeiyi.com:8080/app-wikiServer/app/
     //http://j.efeiyi.com:8080/app-wikiServer/app/login.do
-    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/investorIndex.do"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/investorIndex.do"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
@@ -184,7 +184,7 @@ static NSString *ID = @"financeCell";
     NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
     request.HTTPBody = data;
     
-    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+//    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
     
     NSString *dataJson = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     
@@ -194,7 +194,7 @@ static NSString *ID = @"financeCell";
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         
         //5. 解析从服务器获取的JSON数据
-        NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//        NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         
         //        NSLog(@"------ JSON: ----- %@", jsonString);
         
@@ -215,6 +215,8 @@ static NSString *ID = @"financeCell";
         //        ResultModel *result = [ResultModel mj_objectWithKeyValues:modelDict];
         self.models = [FinanceModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
         
+        
+//        NSLog(@"%ld",self.models.count);
         
         //4. 刷新数据
         //        [self.tableView reloadData];
@@ -241,7 +243,7 @@ static NSString *ID = @"financeCell";
     
     NSArray *strArray = [timeString componentsSeparatedByString:@"."];
     
-    NSLog(@"%@",strArray.firstObject);
+//    NSLog(@"%@",strArray.firstObject);
     
     //参数
     NSString *pageSize = @"20";
@@ -250,16 +252,16 @@ static NSString *ID = @"financeCell";
     
     self.lastPageNum = [NSString stringWithFormat:@"%d",newPageNum];
     
-    NSLog(@"self.lastPageNum%@",self.lastPageNum);
+//    NSLog(@"self.lastPageNum%@",self.lastPageNum);
     
-    NSLog(@"%d",newPageNum);
+//    NSLog(@"%d",newPageNum);
     
     NSString *pageNum = [NSString stringWithFormat:@"%d",newPageNum];
     
     NSString *timestamp = strArray.firstObject;
     NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
     
-    NSLog(@"pageSize=%@,pageNum=%@,timestamp=%@",pageNum,pageNum,timestamp);
+    NSLog(@"pageSize=%@,pageNum=%@,timestamp=%@",pageSize,pageNum,timestamp);
     
     NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&key=%@",pageNum,pageSize,timestamp,appkey];
     //    NSLog(@"%@",signmsg);
@@ -273,7 +275,7 @@ static NSString *ID = @"financeCell";
     //http://192.168.1.57/app-wikiServer/
     //http://j.efeiyi.com:8080/app-wikiServer/app/
     //http://j.efeiyi.com:8080/app-wikiServer/app/login.do
-    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/investorIndex.do"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/investorIndex.do"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
@@ -294,7 +296,7 @@ static NSString *ID = @"financeCell";
     NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
     request.HTTPBody = data;
     
-    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+//    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
     
     NSString *dataJson = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     
@@ -328,9 +330,12 @@ static NSString *ID = @"financeCell";
         //字典数组 -> 模型数组
         NSArray *moreModels = [FinanceModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
         
+//         NSLog(@"moreModels-------%ld",moreModels.count);
+        
         //拼接数据
         [self.models addObjectsFromArray:moreModels];
         
+//         NSLog(@"models-----%ld",self.models.count);
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -421,6 +426,9 @@ static NSString *ID = @"financeCell";
 //    [self.navigationController pushViewController:settingVC animated:YES];
     
     XIBDemoViewController *controller = [[XIBDemoViewController alloc] init];
+    
+    
+    
     [self.navigationController pushViewController:controller animated:YES];
     
 }
