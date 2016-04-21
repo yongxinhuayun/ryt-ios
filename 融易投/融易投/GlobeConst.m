@@ -28,4 +28,13 @@ CGFloat const SSMargin = 10;
 /** UITabBar的高度 */
 CGFloat const SSTabBarH = 49;
 
+
+/** 通知：点击融资项目跳转对应融资项目的详情页  */
+NSString * const ProjectDetailsArtWorkIdNotification = @"ProjectDetailsArtWorkIdNotification";
+
+
+
+
+
+
 @end

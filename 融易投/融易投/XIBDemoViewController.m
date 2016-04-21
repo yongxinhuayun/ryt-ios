@@ -17,12 +17,19 @@
 
 #import "InvestorArtWorkViewController.h"
 
+#import "FinanceModel.h"
+
+
+#import "UserCommentViewController.h"
 
 @interface XIBDemoViewController () <XCLPageViewDelegate, XCLSegmentViewDelegate>
 
 @property (weak  , nonatomic) IBOutlet XCLPageView *pageView;
 @property (strong, nonatomic) XIBHeaderView *headerView;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
+
+
+@property (strong, nonatomic) FinanceModel *model;
 
 @end
 
@@ -37,11 +44,20 @@
     self.navigationItem.title = @"项目详情";
     
     self.navigationController.navigationBarHidden = NO;
+    
+     NSString *account = [[NSUserDefaults standardUserDefaults] objectForKey:@"artWorkId"];
+    
+//    NSLog(@"------------------%@",account);
+    
+//    //注册通知
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acceprArtWorkID:) name:ProjectDetailsArtWorkIdNotification object:nil];
 
     ProjectDetailsViewController *controller1 = [[ProjectDetailsViewController alloc] init];
+    
     DemoTableViewController *controller2 = [[DemoTableViewController alloc] initWithItemCount:100];
     
-    DemoTableViewController *controller3 = [[DemoTableViewController alloc] initWithItemCount:100];
+    UserCommentViewController *controller3 = [[UserCommentViewController alloc] init];
+    
     DemoTableViewController *controller4 = [[DemoTableViewController alloc] initWithItemCount:100];
     
     self.headerView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([XIBHeaderView class]) owner:self options:nil] firstObject];
@@ -68,6 +84,13 @@
     [self setUpBottomTitleButtons];
     
 }
+
+//-(void)acceprArtWorkID:(NSNotification *)note {
+//
+//     NSLog(@"%@",note.userInfo[@"artWordID"]);
+//
+//    
+//}
 
 
 -(void)setUpBottomTitleButtons
@@ -111,6 +134,65 @@
     SSLog(@"1111");
     
 }
+
+-(void)pinglunBtnClick{
+    
+    
+    //参数
+    NSString *artWorkId = [[NSUserDefaults standardUserDefaults] objectForKey:@"artWorkId"];
+    
+    NSLog(@"-----%@",artWorkId); //imyuxey8ze7lp8h5 ---in5z7r5f2w2f73so
+    
+    
+    NSString *currentUserId = @"imhipoyk18s4k52u";
+    
+    NSString *messageId = @"";
+    NSString *content = @"你好";
+    NSString *fatherCommentId = @"Hello";
+    
+    NSString *timestamp = [MyMD5 timestamp];
+    NSString *appkey = MD5key;
+    
+    NSString *signmsg = [NSString stringWithFormat:@"artWorkId=%@&content=%@&currentUserId=%@&fatherCommentId=%@&messageId=%@&timestamp=%@&key=%@",artWorkId,content,currentUserId,fatherCommentId,messageId,timestamp,appkey];
+    
+    NSLog(@"%@",signmsg);
+    
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+    
+    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
+    NSString *url = @"http://192.168.1.69:8001/app/artworkComment.do";
+    
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"artWorkId" : artWorkId,
+                           @"currentUserId":currentUserId,
+                           @"messageId":messageId,
+                           @"content":content,
+                           @"fatherCommentId":fatherCommentId,
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5
+                           };
+    
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+        
+        
+        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        //        NSLog(@"返回结果:%@",jsonStr);
+        
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        
+        
+        //在主线程刷新UI数据
+//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//            
+//            [self.tableView reloadData];
+//            
+//        }];
+        }];
+    
+}
+
 
 #pragma mark - XCLSegmentViewDelegate
 

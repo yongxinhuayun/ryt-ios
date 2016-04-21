@@ -9,8 +9,12 @@
 #import "ProjectDetailsCell1.h"
 #import "ProjectDetailsModel.h"
 #import "ProjectDetailsResultModel.h"
+#import "ArtworkAttachmentListModel.h"
 
 #import "ImageCollectionViewCell.h"
+
+#import "UIImageView+WebCache.h"
+
 
 @interface ProjectDetailsCell1 () //<UICollectionViewDataSource,UICollectionViewDelegate>
 
@@ -24,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *label1;
 @property (weak, nonatomic) IBOutlet UILabel *label2;
 @property (weak, nonatomic) IBOutlet UILabel *label3;
+@property (weak, nonatomic) IBOutlet UIView *imagesView;
+@property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 
 
 /** 所有照片 */
@@ -50,11 +56,55 @@ static CGFloat const margin = 10;
     self.label2.text = model.object.artworkdirection.make_instru;
     self.label3.text = model.object.artworkdirection.financing_aq;
     
-    NSLog(@"%@",model.object.artWork.brief);
+    //    NSLog(@"%@",model.object.artWork.brief);
     
-    self.imagesList = model.object.artworkAttachmentList;
+//    [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:model.object.artworkAttachmentList.fileName] placeholderImage:nil];
     
-    NSLog(@"%ld",self.imagesList.count);
+//    self.imagesList = model.object.artworkAttachmentList;
+//    
+//    NSLog(@"%ld",self.imagesList.count);
+//    
+//    [self createSquares];
+    
+
+}
+
+/**
+ * 创建照片数组
+ */
+- (void)createSquares
+{
+    // 每行的列数
+    int colsCount = cols;
+    
+    // 按钮尺寸
+    CGFloat imageW =
+    SSScreenW - 2 * margin/ colsCount;
+    CGFloat imageH = imageW;
+    
+    // 遍历所有的模型
+    NSUInteger count = self.imagesList.count;
+    
+    for (NSUInteger i = 0; i < count; i++) {
+        // 创建按钮
+        UIImageView *imageView = [[UIImageView alloc] init];
+        
+        [self.imagesView addSubview:imageView];
+        
+        // frame
+        CGFloat imageX = (i % colsCount) * imageW;
+        CGFloat imageY = (i / colsCount) * imageH;
+        imageView.frame = CGRectMake(imageX, imageY, imageW, imageH);
+        
+        // 设置照片数据
+
+        for (ArtworkAttachmentListModel *model in self.imagesList) {
+            
+            NSLog(@"--------%@",model.fileName);
+            
+//            [imageView sd_setImageWithURL:[NSURL URLWithString:model.fileName] placeholderImage:nil];
+        }
+    }
 }
 
 

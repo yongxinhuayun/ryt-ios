@@ -18,7 +18,7 @@
 #import "ImageCollectionViewCell.h"
 
 
-@interface ProjectDetailsViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface ProjectDetailsViewController () //<UICollectionViewDataSource,UICollectionViewDelegate>
 
 //存放模型的数组
 @property (nonatomic, strong) NSMutableArray *models;
@@ -37,8 +37,8 @@ static NSString *ID1 = @"projectDetailsCell1";
 
 static NSString *ID4 = @"imageCell";
 
-static NSInteger const cols = 4;
-static CGFloat const margin = 10;
+//static NSInteger const cols = 4;
+//static CGFloat const margin = 10;
 
 #define  cellWH  ((SSScreenW - (cols - 1) * margin) / cols)
 
@@ -47,8 +47,7 @@ static CGFloat const margin = 10;
     
     [super viewDidLoad];
     
-    [self loadData];
-    
+     [self loadData];
     
     [ProjectDetailsModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         
@@ -57,21 +56,29 @@ static CGFloat const margin = 10;
                  };
     }];
     
+//    //注册通知
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(acceprArtWorkID:) name:ProjectDetailsArtWorkIdNotification object:nil];
+    
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"ProjectDetailsCell1" bundle:nil] forCellReuseIdentifier:ID1];
 }
+
+//-(void)acceprArtWorkID:(NSNotification *)note {
+//    
+//    NSLog(@"%@",note.userInfo[@"artWordID"]);
+//    
+//    
+//}
 
 //加载数据
 -(void)loadData
 {
     //参数
+    NSString *artWorkId = [[NSUserDefaults standardUserDefaults] objectForKey:@"artWorkId"];
     
-    //ibxgyqc000006eb2
-    //ieatht97wfw30hfd
-    //qydeyugqqiugd7
+    NSLog(@"-----%@",artWorkId); //imyuxey8ze7lp8h5 ---in5z7r5f2w2f73so
     
     
-    NSString *artWorkId = @"qydeyugqqiugd7";
     NSString *currentUserId = @"imhipoyk18s4k52u";
     
     NSString *timestamp = [MyMD5 timestamp];
@@ -97,8 +104,8 @@ static CGFloat const margin = 10;
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
         
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
         
         /*
          {"resultCode":"0",
@@ -120,18 +127,18 @@ static CGFloat const margin = 10;
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
-        NSLog(@"%@",modelDict);
+//        NSLog(@"%@",modelDict);
 
         //字典数组 -> 模型数组
-
-        
         ProjectDetailsResultModel *dict = [ProjectDetailsResultModel mj_objectWithKeyValues:modelDict];
 
         self.dict = dict;
         
-        self.imagesList = dict.object.artworkAttachmentList;
-        
-        NSLog(@"%ld",self.imagesList.count);
+//        NSLog(@"%@",self.dict);
+//        
+//        self.imagesList = dict.object.artworkAttachmentList;
+//        
+//        NSLog(@"%ld",self.imagesList.count);
         
         
         //在主线程刷新UI数据
@@ -142,9 +149,6 @@ static CGFloat const margin = 10;
         }];
     }];
 }
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -164,8 +168,11 @@ static CGFloat const margin = 10;
     
     ProjectDetailsResultModel *model = self.dict;
     
+    
+    
     cell1.model = model;
     
+    /*
     //设置cell中每个按钮的此存
     cell1.collectionViewFlowLayout.itemSize = CGSizeMake(cellWH, cellWH);
     
@@ -189,7 +196,7 @@ static CGFloat const margin = 10;
     //        self.collectionView.bounces = NO;
     //设置collectionView不能滚动 ---- 直接跳进collectionView的头文件搜索scroll,发现并没有相关属性,跳进父类UIScrollView中搜素发现scrollEnabled属性
     cell1.collectionView.scrollEnabled = NO;
-
+     */
 
    
     return cell1;
@@ -204,17 +211,17 @@ static CGFloat const margin = 10;
 //    return topic.cellHeight;
     
     
-    return 550;
+    return 650;
         
 }
 
 /********************************UICollectionView*******************************************/
 
+/*
 //实现UICollectionView数据源方法
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    
-    NSLog(@"%ld",self.imagesList.count);
+   
     
     return 8;
     
@@ -238,6 +245,7 @@ static CGFloat const margin = 10;
     
     return cell;
 }
+*/
 
 
 @end

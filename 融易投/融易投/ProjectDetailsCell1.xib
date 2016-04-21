@@ -7,55 +7,62 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="projectDetailsCell1" rowHeight="569" id="l51-aN-6kk" customClass="ProjectDetailsCell1">
-            <rect key="frame" x="0.0" y="0.0" width="374" height="569"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="projectDetailsCell1" rowHeight="499" id="l51-aN-6kk" customClass="ProjectDetailsCell1">
+            <rect key="frame" x="0.0" y="0.0" width="374" height="499"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l51-aN-6kk" id="KRn-cS-xrF">
-                <rect key="frame" x="0.0" y="0.0" width="374" height="568.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="374" height="498.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JSq-eA-2zU">
-                        <rect key="frame" x="0.0" y="151.5" width="374" height="205"/>
-                        <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gk1-92-UG7">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                    </collectionView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目介绍" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szL-Hu-mlN">
                         <rect key="frame" x="10" y="10" width="68" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="苍茫之境，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿，拥有这样一款精巧绝伦的铜雕，若是自己把玩，则个人的品位和气质更加凸显，若是送于他人，也显得别出心裁，诚意十足。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yJ-CA-Udg">
-                        <rect key="frame" x="10" y="38" width="342" height="101.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="苍茫之境，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿，拥有这样一款精巧绝伦的铜雕，若是自己把玩，则个人的品位和气质更加凸显，若是送于他人，也显得别出心裁，诚意十足。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yJ-CA-Udg">
+                        <rect key="frame" x="10" y="40.5" width="342" height="101.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="创作过程说明" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNf-NU-Zak">
-                        <rect key="frame" x="10" y="368" width="102" height="20.5"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQj-ce-xQv">
+                        <rect key="frame" x="10" y="152" width="354" height="134"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerImage" translatesAutoresizingMaskIntoConstraints="NO" id="1mp-WX-CU6">
+                                <rect key="frame" x="10" y="10" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Fsf-X5-fHy"/>
+                                    <constraint firstAttribute="height" constant="100" id="tgI-8V-e33"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="1mp-WX-CU6" firstAttribute="leading" secondItem="BQj-ce-xQv" secondAttribute="leading" constant="10" id="XLe-yg-8jv"/>
+                            <constraint firstItem="1mp-WX-CU6" firstAttribute="top" secondItem="BQj-ce-xQv" secondAttribute="top" constant="10" id="aDP-oT-AlY"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创作过程说明" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNf-NU-Zak">
+                        <rect key="frame" x="10" y="296" width="102" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="融资解惑" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNO-Ac-qHq">
-                        <rect key="frame" x="10" y="510" width="68" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="融资解惑" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNO-Ac-qHq">
+                        <rect key="frame" x="10" y="438" width="68" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="苍茫之境，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿，拥有这样一款精巧绝伦的铜雕，若是自己把玩，则个人的品位和气质更加凸显，若是送于他人，也显得别出心裁，诚意十足。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kb4-bT-X2W">
-                        <rect key="frame" x="10" y="540" width="1547" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="苍茫之境，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿，拥有这样一款精巧绝伦的铜雕，若是自己把玩，则个人的品位和气质更加凸显，若是送于他人，也显得别出心裁，诚意十足。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kb4-bT-X2W">
+                        <rect key="frame" x="10" y="468" width="1547" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="苍茫之境，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿，拥有这样一款精巧绝伦的铜雕，若是自己把玩，则个人的品位和气质更加凸显，若是送于他人，也显得别出心裁，诚意十足。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MwU-fv-5dC">
-                        <rect key="frame" x="10" y="398" width="354" height="101.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="苍茫之境，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿，拥有这样一款精巧绝伦的铜雕，若是自己把玩，则个人的品位和气质更加凸显，若是送于他人，也显得别出心裁，诚意十足。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MwU-fv-5dC">
+                        <rect key="frame" x="10" y="326" width="354" height="101.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -63,17 +70,16 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="kb4-bT-X2W" secondAttribute="bottom" constant="10" id="3LW-MQ-Khh"/>
-                    <constraint firstAttribute="bottom" secondItem="JSq-eA-2zU" secondAttribute="bottom" id="J7J-8w-O2a"/>
-                    <constraint firstItem="JSq-eA-2zU" firstAttribute="leading" secondItem="KRn-cS-xrF" secondAttribute="leading" id="JA8-UN-WuJ"/>
                     <constraint firstItem="szL-Hu-mlN" firstAttribute="top" secondItem="KRn-cS-xrF" secondAttribute="top" constant="10" id="ObR-we-Hi5"/>
+                    <constraint firstItem="mNf-NU-Zak" firstAttribute="top" secondItem="BQj-ce-xQv" secondAttribute="bottom" constant="10" id="OuT-k6-1JR"/>
+                    <constraint firstItem="BQj-ce-xQv" firstAttribute="top" secondItem="5yJ-CA-Udg" secondAttribute="bottom" constant="10" id="SYa-oZ-kHH"/>
                     <constraint firstAttribute="trailing" secondItem="mNf-NU-Zak" secondAttribute="trailing" constant="286" id="WCL-Tn-lry"/>
                     <constraint firstAttribute="trailing" secondItem="5yJ-CA-Udg" secondAttribute="trailing" constant="22" id="Xl0-gZ-7b1"/>
                     <constraint firstItem="MwU-fv-5dC" firstAttribute="leading" secondItem="KRn-cS-xrF" secondAttribute="leading" constant="10" id="YFQ-Ir-nOc"/>
                     <constraint firstItem="kb4-bT-X2W" firstAttribute="leading" secondItem="KRn-cS-xrF" secondAttribute="leading" constant="10" id="bEk-if-8oe"/>
-                    <constraint firstItem="JSq-eA-2zU" firstAttribute="top" secondItem="5yJ-CA-Udg" secondAttribute="bottom" constant="10" id="d10-SU-7od"/>
+                    <constraint firstItem="BQj-ce-xQv" firstAttribute="leading" secondItem="KRn-cS-xrF" secondAttribute="leading" constant="10" id="dCO-33-JTC"/>
                     <constraint firstItem="szL-Hu-mlN" firstAttribute="leading" secondItem="KRn-cS-xrF" secondAttribute="leading" constant="10" id="gwQ-oH-qc7"/>
-                    <constraint firstItem="mNf-NU-Zak" firstAttribute="top" secondItem="JSq-eA-2zU" secondAttribute="bottom" constant="10" id="jVU-wA-ChV"/>
-                    <constraint firstAttribute="trailing" secondItem="JSq-eA-2zU" secondAttribute="trailing" id="jyC-8Y-Ahf"/>
+                    <constraint firstAttribute="trailing" secondItem="BQj-ce-xQv" secondAttribute="trailing" constant="10" id="gxi-bd-L23"/>
                     <constraint firstItem="MwU-fv-5dC" firstAttribute="top" secondItem="mNf-NU-Zak" secondAttribute="bottom" constant="10" id="lhP-0J-7II"/>
                     <constraint firstAttribute="trailing" secondItem="MwU-fv-5dC" secondAttribute="trailing" constant="10" id="r2n-BV-QvH"/>
                     <constraint firstItem="fNO-Ac-qHq" firstAttribute="leading" secondItem="KRn-cS-xrF" secondAttribute="leading" constant="10" id="s7c-6U-iMJ"/>
@@ -85,22 +91,24 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
-                        <exclude reference="J7J-8w-O2a"/>
                         <exclude reference="WCL-Tn-lry"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="collectionView" destination="JSq-eA-2zU" id="EqH-H6-aql"/>
-                <outlet property="collectionViewFlowLayout" destination="Gk1-92-UG7" id="reC-ya-eFx"/>
+                <outlet property="imagesView" destination="BQj-ce-xQv" id="Q8o-jQ-YyV"/>
                 <outlet property="label1" destination="5yJ-CA-Udg" id="qPN-Um-tba"/>
                 <outlet property="label2" destination="MwU-fv-5dC" id="5It-pq-Vdd"/>
                 <outlet property="label3" destination="kb4-bT-X2W" id="Zwm-MB-0wc"/>
                 <outlet property="labelInfo1" destination="szL-Hu-mlN" id="TOW-6i-eAS"/>
                 <outlet property="labelInfo2" destination="mNf-NU-Zak" id="XOh-kK-lkx"/>
                 <outlet property="labelInfo3" destination="fNO-Ac-qHq" id="uLP-Wa-OmS"/>
+                <outlet property="photoImageView" destination="1mp-WX-CU6" id="mNz-0T-bJR"/>
             </connections>
-            <point key="canvasLocation" x="264" y="570.5"/>
+            <point key="canvasLocation" x="233" y="503.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="headerImage" width="214" height="221"/>
+    </resources>
 </document>

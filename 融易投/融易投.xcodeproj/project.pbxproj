@@ -32,6 +32,8 @@
 		2168EAE41CBFA05000B7E037 /* FinanceDetailFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2168EAD91CBFA05000B7E037 /* FinanceDetailFirstCell.xib */; };
 		2168EAE61CBFA05000B7E037 /* FinanceDetailSecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2168EADD1CBFA05000B7E037 /* FinanceDetailSecondCell.m */; };
 		2168EAE71CBFA05000B7E037 /* FinanceDetailSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2168EADE1CBFA05000B7E037 /* FinanceDetailSecondCell.xib */; };
+		2187B8FD1CC8DBE800B92435 /* UserCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B8FB1CC8DBE800B92435 /* UserCommonCell.m */; };
+		2187B8FE1CC8DBE800B92435 /* UserCommonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187B8FC1CC8DBE800B92435 /* UserCommonCell.xib */; };
 		218D2B3C1CACB2F9004553B9 /* CommonNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B391CACB2F9004553B9 /* CommonNavigationController.m */; };
 		218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3B1CACB2F9004553B9 /* CommonTabBarViewController.m */; };
 		218D2B411CACB310004553B9 /* RankTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3F1CACB310004553B9 /* RankTableViewController.m */; };
@@ -182,6 +184,11 @@
 		21AB0B7D1CC77B5400B7BA03 /* ProjectDetailsResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B7C1CC77B5400B7BA03 /* ProjectDetailsResultModel.m */; };
 		21AB0B811CC787C700B7BA03 /* InvestorArtWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B7F1CC787C700B7BA03 /* InvestorArtWorkViewController.m */; };
 		21AB0B821CC787C700B7BA03 /* InvestorArtWorkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0B801CC787C700B7BA03 /* InvestorArtWorkViewController.xib */; };
+		21AB0B8E1CC8BDF600B7BA03 /* ArtworkCommentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B8D1CC8BDF600B7BA03 /* ArtworkCommentListModel.m */; };
+		21AB0B911CC8BE0F00B7BA03 /* ArtworkMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B901CC8BE0F00B7BA03 /* ArtworkMessageModel.m */; };
+		21AB0B941CC8BE2400B7BA03 /* ArtworkMessageCreatorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B931CC8BE2400B7BA03 /* ArtworkMessageCreatorModel.m */; };
+		21AB0B971CC8BEB800B7BA03 /* CreatorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B961CC8BEB800B7BA03 /* CreatorModel.m */; };
+		21AB0B9A1CC8CF5200B7BA03 /* UserCommentObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B991CC8CF5200B7BA03 /* UserCommentObjectModel.m */; };
 		21C08BC81CB01BC3002328D3 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */; };
 		21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BCC1CB01F7E002328D3 /* NSObject+FileManager.m */; };
 		21C08BD11CB02521002328D3 /* SettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C08BD01CB02521002328D3 /* SettingTableViewController.storyboard */; };
@@ -319,6 +326,9 @@
 		2168EADC1CBFA05000B7E037 /* FinanceDetailSecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceDetailSecondCell.h; sourceTree = "<group>"; };
 		2168EADD1CBFA05000B7E037 /* FinanceDetailSecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceDetailSecondCell.m; sourceTree = "<group>"; };
 		2168EADE1CBFA05000B7E037 /* FinanceDetailSecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceDetailSecondCell.xib; sourceTree = "<group>"; };
+		2187B8FA1CC8DBE800B92435 /* UserCommonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCommonCell.h; sourceTree = "<group>"; };
+		2187B8FB1CC8DBE800B92435 /* UserCommonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCommonCell.m; sourceTree = "<group>"; };
+		2187B8FC1CC8DBE800B92435 /* UserCommonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCommonCell.xib; sourceTree = "<group>"; };
 		218D2B381CACB2F9004553B9 /* CommonNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNavigationController.h; sourceTree = "<group>"; };
 		218D2B391CACB2F9004553B9 /* CommonNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNavigationController.m; sourceTree = "<group>"; };
 		218D2B3A1CACB2F9004553B9 /* CommonTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTabBarViewController.h; sourceTree = "<group>"; };
@@ -583,6 +593,16 @@
 		21AB0B7E1CC787C700B7BA03 /* InvestorArtWorkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorArtWorkViewController.h; sourceTree = "<group>"; };
 		21AB0B7F1CC787C700B7BA03 /* InvestorArtWorkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorArtWorkViewController.m; sourceTree = "<group>"; };
 		21AB0B801CC787C700B7BA03 /* InvestorArtWorkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvestorArtWorkViewController.xib; sourceTree = "<group>"; };
+		21AB0B8C1CC8BDF600B7BA03 /* ArtworkCommentListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkCommentListModel.h; sourceTree = "<group>"; };
+		21AB0B8D1CC8BDF600B7BA03 /* ArtworkCommentListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkCommentListModel.m; sourceTree = "<group>"; };
+		21AB0B8F1CC8BE0F00B7BA03 /* ArtworkMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkMessageModel.h; sourceTree = "<group>"; };
+		21AB0B901CC8BE0F00B7BA03 /* ArtworkMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkMessageModel.m; sourceTree = "<group>"; };
+		21AB0B921CC8BE2400B7BA03 /* ArtworkMessageCreatorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkMessageCreatorModel.h; sourceTree = "<group>"; };
+		21AB0B931CC8BE2400B7BA03 /* ArtworkMessageCreatorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkMessageCreatorModel.m; sourceTree = "<group>"; };
+		21AB0B951CC8BEB800B7BA03 /* CreatorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatorModel.h; sourceTree = "<group>"; };
+		21AB0B961CC8BEB800B7BA03 /* CreatorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatorModel.m; sourceTree = "<group>"; };
+		21AB0B981CC8CF5200B7BA03 /* UserCommentObjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCommentObjectModel.h; sourceTree = "<group>"; };
+		21AB0B991CC8CF5200B7BA03 /* UserCommentObjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCommentObjectModel.m; sourceTree = "<group>"; };
 		21C08BC61CB01BC3002328D3 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		21C08BCB1CB01F7E002328D3 /* NSObject+FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FileManager.h"; sourceTree = "<group>"; };
@@ -1047,28 +1067,11 @@
 			name = photo;
 			sourceTree = "<group>";
 		};
-		21AB0A131CC1E91D00B7BA03 /* model */ = {
+		21AB0A131CC1E91D00B7BA03 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				21AB0B7B1CC77B5400B7BA03 /* ProjectDetailsResultModel.h */,
-				21AB0B7C1CC77B5400B7BA03 /* ProjectDetailsResultModel.m */,
-				21AB0B781CC7590F00B7BA03 /* ProjectDetailsModel.h */,
-				21AB0B791CC7590F00B7BA03 /* ProjectDetailsModel.m */,
-				21AB0A1D1CC2384B00B7BA03 /* ArtworkAttachmentListModel.h */,
-				21AB0A1E1CC2384B00B7BA03 /* ArtworkAttachmentListModel.m */,
-				21AB0A231CC238D200B7BA03 /* ArtworkdirectionModel.h */,
-				21AB0A241CC238D200B7BA03 /* ArtworkdirectionModel.m */,
-				21AB0A261CC23A0000B7BA03 /* ArtworkModel.h */,
-				21AB0A271CC23A0000B7BA03 /* ArtworkModel.m */,
-				21AB0A2C1CC23CDD00B7BA03 /* AuthorDetailModel.h */,
-				21AB0A2D1CC23CDD00B7BA03 /* AuthorDetailModel.m */,
-				21AB0A321CC23D3D00B7BA03 /* MasterDetailsModel.h */,
-				21AB0A331CC23D3D00B7BA03 /* MasterDetailsModel.m */,
-				21AB0B751CC72BBA00B7BA03 /* ImageModel.h */,
-				21AB0B761CC72BBA00B7BA03 /* ImageModel.m */,
-				21AB0A151CC1E92A00B7BA03 /* Controller */,
 			);
-			name = model;
+			name = Model;
 			sourceTree = "<group>";
 		};
 		21AB0A141CC1E92300B7BA03 /* View */ = {
@@ -1089,8 +1092,6 @@
 			children = (
 				2134E37C1CBB5D3800D6E662 /* ProjectScheduleViewController.h */,
 				2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */,
-				2134E37F1CBB5D5700D6E662 /* UserCommentViewController.h */,
-				2134E3801CBB5D5700D6E662 /* UserCommentViewController.m */,
 				21AB0A1A1CC2070200B7BA03 /* InvestRecordViewController.h */,
 				21AB0A1B1CC2070200B7BA03 /* InvestRecordViewController.m */,
 			);
@@ -1210,6 +1211,101 @@
 				21AB0AB41CC50A4D00B7BA03 /* SlideBarController */,
 			);
 			name = Test;
+			sourceTree = "<group>";
+		};
+		21AB0B831CC8BC5E00B7BA03 /* 项目详情 */ = {
+			isa = PBXGroup;
+			children = (
+				21AB0B551CC605F500B7BA03 /* XCLSegmentView */,
+				21AB0B211CC6056500B7BA03 /* XCLPageView */,
+				21AB0B861CC8BC9F00B7BA03 /* Controller */,
+				21AB0B851CC8BC9100B7BA03 /* Model */,
+				21AB0B841CC8BC8200B7BA03 /* View */,
+			);
+			name = "项目详情";
+			sourceTree = "<group>";
+		};
+		21AB0B841CC8BC8200B7BA03 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		21AB0B851CC8BC9100B7BA03 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				21AB0B7B1CC77B5400B7BA03 /* ProjectDetailsResultModel.h */,
+				21AB0B7C1CC77B5400B7BA03 /* ProjectDetailsResultModel.m */,
+				21AB0B781CC7590F00B7BA03 /* ProjectDetailsModel.h */,
+				21AB0B791CC7590F00B7BA03 /* ProjectDetailsModel.m */,
+				21AB0A1D1CC2384B00B7BA03 /* ArtworkAttachmentListModel.h */,
+				21AB0A1E1CC2384B00B7BA03 /* ArtworkAttachmentListModel.m */,
+				21AB0A231CC238D200B7BA03 /* ArtworkdirectionModel.h */,
+				21AB0A241CC238D200B7BA03 /* ArtworkdirectionModel.m */,
+				21AB0A261CC23A0000B7BA03 /* ArtworkModel.h */,
+				21AB0A271CC23A0000B7BA03 /* ArtworkModel.m */,
+				21AB0A2C1CC23CDD00B7BA03 /* AuthorDetailModel.h */,
+				21AB0A2D1CC23CDD00B7BA03 /* AuthorDetailModel.m */,
+				21AB0A321CC23D3D00B7BA03 /* MasterDetailsModel.h */,
+				21AB0A331CC23D3D00B7BA03 /* MasterDetailsModel.m */,
+				21AB0B751CC72BBA00B7BA03 /* ImageModel.h */,
+				21AB0B761CC72BBA00B7BA03 /* ImageModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		21AB0B861CC8BC9F00B7BA03 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				21AB0B3C1CC6056500B7BA03 /* XIBDemoViewController.h */,
+				21AB0B3D1CC6056500B7BA03 /* XIBDemoViewController.m */,
+				21AB0B5B1CC6084F00B7BA03 /* XIBDemoViewController.xib */,
+				21AB0B3E1CC6056500B7BA03 /* XIBHeaderView.h */,
+				21AB0B3F1CC6056500B7BA03 /* XIBHeaderView.m */,
+				21AB0B401CC6056500B7BA03 /* XIBHeaderView.xib */,
+				21AB0B5E1CC720A800B7BA03 /* ProjectDetailsViewController.h */,
+				21AB0B5F1CC720A800B7BA03 /* ProjectDetailsViewController.m */,
+				21AB0B611CC722CC00B7BA03 /* ProjectDetailsCell1.h */,
+				21AB0B621CC722CC00B7BA03 /* ProjectDetailsCell1.m */,
+				21AB0B631CC722CC00B7BA03 /* ProjectDetailsCell1.xib */,
+				21AB0B701CC72B3900B7BA03 /* ImageCollectionViewCell.h */,
+				21AB0B711CC72B3900B7BA03 /* ImageCollectionViewCell.m */,
+				21AB0B721CC72B3900B7BA03 /* ImageCollectionViewCell.xib */,
+				21AB0B1F1CC6056500B7BA03 /* DemoTableViewController.h */,
+				21AB0B201CC6056500B7BA03 /* DemoTableViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		21AB0B871CC8BD2800B7BA03 /* 用户评论 */ = {
+			isa = PBXGroup;
+			children = (
+				2134E37F1CBB5D5700D6E662 /* UserCommentViewController.h */,
+				2134E3801CBB5D5700D6E662 /* UserCommentViewController.m */,
+				2187B8FA1CC8DBE800B92435 /* UserCommonCell.h */,
+				2187B8FB1CC8DBE800B92435 /* UserCommonCell.m */,
+				2187B8FC1CC8DBE800B92435 /* UserCommonCell.xib */,
+				21AB0B881CC8BD5400B7BA03 /* Model */,
+			);
+			name = "用户评论";
+			sourceTree = "<group>";
+		};
+		21AB0B881CC8BD5400B7BA03 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				21AB0B981CC8CF5200B7BA03 /* UserCommentObjectModel.h */,
+				21AB0B991CC8CF5200B7BA03 /* UserCommentObjectModel.m */,
+				21AB0B8C1CC8BDF600B7BA03 /* ArtworkCommentListModel.h */,
+				21AB0B8D1CC8BDF600B7BA03 /* ArtworkCommentListModel.m */,
+				21AB0B951CC8BEB800B7BA03 /* CreatorModel.h */,
+				21AB0B961CC8BEB800B7BA03 /* CreatorModel.m */,
+				21AB0B8F1CC8BE0F00B7BA03 /* ArtworkMessageModel.h */,
+				21AB0B901CC8BE0F00B7BA03 /* ArtworkMessageModel.m */,
+				21AB0B921CC8BE2400B7BA03 /* ArtworkMessageCreatorModel.h */,
+				21AB0B931CC8BE2400B7BA03 /* ArtworkMessageCreatorModel.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		21D54B871CB65BA60088D386 /* 投资者排行 */ = {
@@ -1506,26 +1602,11 @@
 			isa = PBXGroup;
 			children = (
 				21AB0B5D1CC70E1400B7BA03 /* Test */,
-				21AB0B3C1CC6056500B7BA03 /* XIBDemoViewController.h */,
-				21AB0B3D1CC6056500B7BA03 /* XIBDemoViewController.m */,
-				21AB0B5B1CC6084F00B7BA03 /* XIBDemoViewController.xib */,
-				21AB0B3E1CC6056500B7BA03 /* XIBHeaderView.h */,
-				21AB0B3F1CC6056500B7BA03 /* XIBHeaderView.m */,
-				21AB0B401CC6056500B7BA03 /* XIBHeaderView.xib */,
-				21AB0B5E1CC720A800B7BA03 /* ProjectDetailsViewController.h */,
-				21AB0B5F1CC720A800B7BA03 /* ProjectDetailsViewController.m */,
-				21AB0B611CC722CC00B7BA03 /* ProjectDetailsCell1.h */,
-				21AB0B621CC722CC00B7BA03 /* ProjectDetailsCell1.m */,
-				21AB0B631CC722CC00B7BA03 /* ProjectDetailsCell1.xib */,
-				21AB0B701CC72B3900B7BA03 /* ImageCollectionViewCell.h */,
-				21AB0B711CC72B3900B7BA03 /* ImageCollectionViewCell.m */,
-				21AB0B721CC72B3900B7BA03 /* ImageCollectionViewCell.xib */,
-				21AB0B1F1CC6056500B7BA03 /* DemoTableViewController.h */,
-				21AB0B201CC6056500B7BA03 /* DemoTableViewController.m */,
-				21AB0B551CC605F500B7BA03 /* XCLSegmentView */,
-				21AB0B211CC6056500B7BA03 /* XCLPageView */,
+				21AB0B831CC8BC5E00B7BA03 /* 项目详情 */,
+				21AB0B871CC8BD2800B7BA03 /* 用户评论 */,
 				21AB0A141CC1E92300B7BA03 /* View */,
-				21AB0A131CC1E91D00B7BA03 /* model */,
+				21AB0A151CC1E92A00B7BA03 /* Controller */,
+				21AB0A131CC1E91D00B7BA03 /* Model */,
 			);
 			name = "详情";
 			sourceTree = "<group>";
@@ -2101,6 +2182,7 @@
 				21904CF11CAD3C7800AD7A3F /* CompleteUserInfoController.xib in Resources */,
 				21E52C521CBE70BC004A68C4 /* TestViewController.xib in Resources */,
 				219ACA511CBE3F100052146E /* location.png in Resources */,
+				2187B8FE1CC8DBE800B92435 /* UserCommonCell.xib in Resources */,
 				219AC9FB1CBDE86F0052146E /* ComposeViewController.xib in Resources */,
 				219AC5E81CBC87FD0052146E /* HMEmotionPopView.xib in Resources */,
 				219ACA531CBE3F100052146E /* picture1.png in Resources */,
@@ -2232,6 +2314,7 @@
 				21AB0B411CC6056500B7BA03 /* DemoTableViewController.m in Sources */,
 				219ACA4B1CBE3F100052146E /* ALAsset+AGIPC.m in Sources */,
 				21AB0AE31CC5152C00B7BA03 /* TopTabPage.m in Sources */,
+				2187B8FD1CC8DBE800B92435 /* UserCommonCell.m in Sources */,
 				215EED261CB00D6100A5957B /* GlobeConst.m in Sources */,
 				21D54B1F1CB4D99E0088D386 /* CreationTableViewCell.m in Sources */,
 				219ACA4A1CBE3F100052146E /* AGPreviewScrollView.m in Sources */,
@@ -2282,6 +2365,7 @@
 				21AB0AC01CC50A4D00B7BA03 /* JPSlideBarConst.m in Sources */,
 				21D54B981CB791D00088D386 /* ChartCellFrame.m in Sources */,
 				21D54B971CB791D00088D386 /* ChartCell.m in Sources */,
+				21AB0B8E1CC8BDF600B7BA03 /* ArtworkCommentListModel.m in Sources */,
 				21AB0AE21CC5152C00B7BA03 /* TopTabMenuItem.m in Sources */,
 				21AB0A251CC238D200B7BA03 /* ArtworkdirectionModel.m in Sources */,
 				211C394E1CB3961800DAD827 /* authorModel.m in Sources */,
@@ -2297,6 +2381,7 @@
 				211C394A1CB36B1500DAD827 /* FinanceTableViewCell.m in Sources */,
 				218D2B5A1CACB35C004553B9 /* UIView+Frame.m in Sources */,
 				218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */,
+				21AB0B911CC8BE0F00B7BA03 /* ArtworkMessageModel.m in Sources */,
 				218D2B411CACB310004553B9 /* RankTableViewController.m in Sources */,
 				2118F1E71CAE626F003BFC6B /* registerModel.m in Sources */,
 				219ACA431CBE3F100052146E /* AGImagePreviewController.m in Sources */,
@@ -2312,16 +2397,19 @@
 				215EED2C1CB010A500A5957B /* ArtistTableViewController.m in Sources */,
 				21D54B1B1CB4D97C0088D386 /* CreationModel.m in Sources */,
 				21D54B9E1CB791E10088D386 /* UIImage+StrethImage.m in Sources */,
+				21AB0B971CC8BEB800B7BA03 /* CreatorModel.m in Sources */,
 				215EED291CB0108F00A5957B /* InvestorTableViewController.m in Sources */,
 				21AB0A281CC23A0000B7BA03 /* ArtworkModel.m in Sources */,
 				219AC5EE1CBC87FD0052146E /* HMTextView.m in Sources */,
 				21D54BA11CB791F60088D386 /* ChartMessage.m in Sources */,
 				218D2B591CACB35C004553B9 /* UIImage+Image.m in Sources */,
 				21D54B7B1CB64A510088D386 /* MyMD5.m in Sources */,
+				21AB0B9A1CC8CF5200B7BA03 /* UserCommentObjectModel.m in Sources */,
 				215E73601CB7BB4500A67690 /* FromUserModel.m in Sources */,
 				21AB0AC71CC50A4D00B7BA03 /* JPTableViewCell.m in Sources */,
 				219ACA5D1CBE3F100052146E /* UITableView+Improve.m in Sources */,
 				219AC9F81CBDE4980052146E /* WHC_PictureListVC.m in Sources */,
+				21AB0B941CC8BE2400B7BA03 /* ArtworkMessageCreatorModel.m in Sources */,
 				219ACA5C1CBE3F100052146E /* UIImage+ReSize.m in Sources */,
 				219ACA5B1CBE3F100052146E /* UIButton+AGIPC.m in Sources */,
 				21D54B851CB6585B0088D386 /* InvestorTableViewCell.m in Sources */,

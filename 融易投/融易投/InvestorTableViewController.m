@@ -288,7 +288,7 @@ static NSString *ID = @"investorCell";
      */
     InvestorTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
-    InvestorModel *model = self.models[indexPath.section];
+    InvestorModel *model = self.models[indexPath.row];
     
     cell.model = model;
     

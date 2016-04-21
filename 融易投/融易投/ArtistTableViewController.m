@@ -283,7 +283,7 @@ static NSString *ID = @"artistCell";
     
     ArtistTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
-    ArtistModel *model = self.models[indexPath.section];
+    ArtistModel *model = self.models[indexPath.row];
     
     cell.model = model;
     

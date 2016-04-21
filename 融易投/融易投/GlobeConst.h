@@ -28,4 +28,7 @@ UIKIT_EXTERN CGFloat const SSMargin;
 /** UITabBar的高度 */
 UIKIT_EXTERN CGFloat const SSTabBarH;
 
+/** 通知：点击融资项目跳转对应融资项目的详情页 */
+UIKIT_EXTERN NSString * const ProjectDetailsArtWorkIdNotification;
+
 @end

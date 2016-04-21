@@ -22,6 +22,9 @@
 /** 项目背景图 */
 @property (nonatomic ,strong) NSString *picture_url;
 
+/** 项目id */
+@property (nonatomic ,strong) NSString *ID;
+
 /** 主题 */
 @property (nonatomic ,strong) NSString *title;
 

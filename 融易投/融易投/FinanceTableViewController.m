@@ -38,6 +38,8 @@
 @property (nonatomic, strong) NSString *lastPageNum;
 
 
+/** 保存模型数据 */
+@property (nonatomic, strong) FinanceModel *model;
 
 @end
 
@@ -87,6 +89,7 @@ static NSString *ID = @"financeCell";
         
         return @{
                  @"descriptions":@"description",
+                 @"ID"          :@"id",
                  };
     }];
     
@@ -394,6 +397,8 @@ static NSString *ID = @"financeCell";
     
     FinanceModel *model = self.models[indexPath.row];
     
+    self.model = model;
+    
     cell.model = model;
     
     return cell;
@@ -427,8 +432,19 @@ static NSString *ID = @"financeCell";
     
     XIBDemoViewController *controller = [[XIBDemoViewController alloc] init];
     
+//    // 告诉其他人（全世界）吧非详情页的数据传递给详情页
+//    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:self.model.ID,@"artWordID", nil];
+//    
+//    //创建通知
+//    NSNotification *notification =[NSNotification notificationWithName:ProjectDetailsArtWorkIdNotification object:nil userInfo:dict];
+//    
+//    //通过通知中心发送通知
+//    [[NSNotificationCenter defaultCenter] postNotification:notification];
     
-    
+    //使用归档进行保存id
+    //NSUserDefaults  是个单例,但是取出不是shared
+    [[NSUserDefaults standardUserDefaults] setObject:self.model.ID forKey:@"artWorkId"];
+
     [self.navigationController pushViewController:controller animated:YES];
     
 }
