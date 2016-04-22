@@ -167,6 +167,15 @@ static BOOL isProduction = FALSE;
     //2.设置窗口的根控制器
         CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
     
+    
+    CGRect frame = CGRectMake(0, 0, SSScreenW, 48);
+    UIView *v = [[UIView alloc] initWithFrame:frame];
+    [v setBackgroundColor:[[UIColor alloc] initWithRed:0/255.0
+                                                 green:0/255.0
+                                                  blue:0/255.0
+                                                 alpha:1.0]];
+    [tabBarController.tabBar insertSubview:v atIndex:0];
+    
         //self.window.rootViewController = [MessageTableViewController new];
         //self.window.rootViewController = [RegViewController new];
         //self.window.rootViewController = [PersonalController new];

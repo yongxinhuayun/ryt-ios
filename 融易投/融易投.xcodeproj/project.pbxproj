@@ -34,6 +34,16 @@
 		2168EAE71CBFA05000B7E037 /* FinanceDetailSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2168EADE1CBFA05000B7E037 /* FinanceDetailSecondCell.xib */; };
 		2187B8FD1CC8DBE800B92435 /* UserCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B8FB1CC8DBE800B92435 /* UserCommonCell.m */; };
 		2187B8FE1CC8DBE800B92435 /* UserCommonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187B8FC1CC8DBE800B92435 /* UserCommonCell.xib */; };
+		2187B9011CC8E74100B92435 /* UserCommonResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9001CC8E74100B92435 /* UserCommonResultModel.m */; };
+		2187B9041CC9DF2700B92435 /* ApplyforArtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9031CC9DF2700B92435 /* ApplyforArtViewController.m */; };
+		2187B9071CC9F33200B92435 /* ArtistViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9061CC9F33200B92435 /* ArtistViewHeaderView.m */; };
+		2187B9091CC9F34100B92435 /* ArtistViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187B9081CC9F34100B92435 /* ArtistViewHeaderView.xib */; };
+		2187B90C1CC9F9CB00B92435 /* FocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B90B1CC9F9CB00B92435 /* FocusViewController.m */; };
+		2187B90F1CC9FA6300B92435 /* FocusArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B90E1CC9FA6300B92435 /* FocusArtistTableViewController.m */; };
+		2187B9121CC9FA7500B92435 /* FocusUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9111CC9FA7500B92435 /* FocusUserTableViewController.m */; };
+		2187B9161CCA051A00B92435 /* FocusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9141CCA051A00B92435 /* FocusTableViewCell.m */; };
+		2187B9171CCA051A00B92435 /* FocusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187B9151CCA051A00B92435 /* FocusTableViewCell.xib */; };
+		2187B91A1CCA075400B92435 /* FocusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9191CCA075400B92435 /* FocusModel.m */; };
 		218D2B3C1CACB2F9004553B9 /* CommonNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B391CACB2F9004553B9 /* CommonNavigationController.m */; };
 		218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3B1CACB2F9004553B9 /* CommonTabBarViewController.m */; };
 		218D2B411CACB310004553B9 /* RankTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3F1CACB310004553B9 /* RankTableViewController.m */; };
@@ -329,6 +339,24 @@
 		2187B8FA1CC8DBE800B92435 /* UserCommonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCommonCell.h; sourceTree = "<group>"; };
 		2187B8FB1CC8DBE800B92435 /* UserCommonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCommonCell.m; sourceTree = "<group>"; };
 		2187B8FC1CC8DBE800B92435 /* UserCommonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCommonCell.xib; sourceTree = "<group>"; };
+		2187B8FF1CC8E74100B92435 /* UserCommonResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCommonResultModel.h; sourceTree = "<group>"; };
+		2187B9001CC8E74100B92435 /* UserCommonResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCommonResultModel.m; sourceTree = "<group>"; };
+		2187B9021CC9DF2700B92435 /* ApplyforArtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyforArtViewController.h; sourceTree = "<group>"; };
+		2187B9031CC9DF2700B92435 /* ApplyforArtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyforArtViewController.m; sourceTree = "<group>"; };
+		2187B9051CC9F33200B92435 /* ArtistViewHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistViewHeaderView.h; sourceTree = "<group>"; };
+		2187B9061CC9F33200B92435 /* ArtistViewHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistViewHeaderView.m; sourceTree = "<group>"; };
+		2187B9081CC9F34100B92435 /* ArtistViewHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistViewHeaderView.xib; sourceTree = "<group>"; };
+		2187B90A1CC9F9CB00B92435 /* FocusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusViewController.h; sourceTree = "<group>"; };
+		2187B90B1CC9F9CB00B92435 /* FocusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusViewController.m; sourceTree = "<group>"; };
+		2187B90D1CC9FA6300B92435 /* FocusArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusArtistTableViewController.h; sourceTree = "<group>"; };
+		2187B90E1CC9FA6300B92435 /* FocusArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusArtistTableViewController.m; sourceTree = "<group>"; };
+		2187B9101CC9FA7500B92435 /* FocusUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusUserTableViewController.h; sourceTree = "<group>"; };
+		2187B9111CC9FA7500B92435 /* FocusUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusUserTableViewController.m; sourceTree = "<group>"; };
+		2187B9131CCA051A00B92435 /* FocusTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusTableViewCell.h; sourceTree = "<group>"; };
+		2187B9141CCA051A00B92435 /* FocusTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusTableViewCell.m; sourceTree = "<group>"; };
+		2187B9151CCA051A00B92435 /* FocusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FocusTableViewCell.xib; sourceTree = "<group>"; };
+		2187B9181CCA075400B92435 /* FocusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusModel.h; sourceTree = "<group>"; };
+		2187B9191CCA075400B92435 /* FocusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusModel.m; sourceTree = "<group>"; };
 		218D2B381CACB2F9004553B9 /* CommonNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNavigationController.h; sourceTree = "<group>"; };
 		218D2B391CACB2F9004553B9 /* CommonNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNavigationController.m; sourceTree = "<group>"; };
 		218D2B3A1CACB2F9004553B9 /* CommonTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTabBarViewController.h; sourceTree = "<group>"; };
@@ -1294,6 +1322,8 @@
 		21AB0B881CC8BD5400B7BA03 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2187B8FF1CC8E74100B92435 /* UserCommonResultModel.h */,
+				2187B9001CC8E74100B92435 /* UserCommonResultModel.m */,
 				21AB0B981CC8CF5200B7BA03 /* UserCommentObjectModel.h */,
 				21AB0B991CC8CF5200B7BA03 /* UserCommentObjectModel.m */,
 				21AB0B8C1CC8BDF600B7BA03 /* ArtworkCommentListModel.h */,
@@ -1548,9 +1578,25 @@
 				2118F1E01CAE5805003BFC6B /* MyViewController.h */,
 				2118F1E11CAE5805003BFC6B /* MyViewController.m */,
 				2118F1E21CAE5805003BFC6B /* MyViewController.xib */,
+				2187B9021CC9DF2700B92435 /* ApplyforArtViewController.h */,
+				2187B9031CC9DF2700B92435 /* ApplyforArtViewController.m */,
 				219AC9CE1CBD1B890052146E /* ArtistViewController.h */,
 				219AC9CF1CBD1B890052146E /* ArtistViewController.m */,
 				219AC9D01CBD1B890052146E /* ArtistViewController.xib */,
+				2187B9051CC9F33200B92435 /* ArtistViewHeaderView.h */,
+				2187B9061CC9F33200B92435 /* ArtistViewHeaderView.m */,
+				2187B9081CC9F34100B92435 /* ArtistViewHeaderView.xib */,
+				2187B90A1CC9F9CB00B92435 /* FocusViewController.h */,
+				2187B90B1CC9F9CB00B92435 /* FocusViewController.m */,
+				2187B90D1CC9FA6300B92435 /* FocusArtistTableViewController.h */,
+				2187B90E1CC9FA6300B92435 /* FocusArtistTableViewController.m */,
+				2187B9101CC9FA7500B92435 /* FocusUserTableViewController.h */,
+				2187B9111CC9FA7500B92435 /* FocusUserTableViewController.m */,
+				2187B9131CCA051A00B92435 /* FocusTableViewCell.h */,
+				2187B9141CCA051A00B92435 /* FocusTableViewCell.m */,
+				2187B9151CCA051A00B92435 /* FocusTableViewCell.xib */,
+				2187B9181CCA075400B92435 /* FocusModel.h */,
+				2187B9191CCA075400B92435 /* FocusModel.m */,
 				219AC5BD1CBC87FD0052146E /* Compose(发项目) */,
 				E2DDB1AC1CABA8F2007438E4 /* 设置 */,
 				E2DDB1AB1CABA8DF007438E4 /* 申请艺术家 */,
@@ -2166,6 +2212,7 @@
 				E2D387051CB8B1B000F735F9 /* AliPayController.xib in Resources */,
 				21AB0B741CC72B3900B7BA03 /* ImageCollectionViewCell.xib in Resources */,
 				21AB0AA51CC4F6AE00B7BA03 /* XiangqingViewController.storyboard in Resources */,
+				2187B9091CC9F34100B92435 /* ArtistViewHeaderView.xib in Resources */,
 				219AC9AC1CBC9B060052146E /* ImagesPicker.xcassets in Resources */,
 				2118F1E41CAE5805003BFC6B /* MyViewController.xib in Resources */,
 				219ACA3F1CBE3F100052146E /* addPictures.png in Resources */,
@@ -2192,6 +2239,7 @@
 				219ACA4D1CBE3F100052146E /* choose.png in Resources */,
 				E2D05B701CB38B7400B0F690 /* read_me.txt in Resources */,
 				219AC9BE1CBCA5A40052146E /* ReleaseProjectViewController.xib in Resources */,
+				2187B9171CCA051A00B92435 /* FocusTableViewCell.xib in Resources */,
 				219ACA551CBE3F100052146E /* picture3.png in Resources */,
 				219AC9DE1CBDE47D0052146E /* CollectionViewCell.xib in Resources */,
 				215E73681CB7BC1000A67690 /* NotificationTableViewCell.xib in Resources */,
@@ -2278,6 +2326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				219AC9B21CBC9B060052146E /* JKAssetsViewCell.m in Sources */,
+				2187B9041CC9DF2700B92435 /* ApplyforArtViewController.m in Sources */,
 				219AC5E51CBC87FD0052146E /* HMEmotionKeyboard.m in Sources */,
 				21AB0AC21CC50A4D00B7BA03 /* UIColor+JPExtension.m in Sources */,
 				21AB0AC81CC50A4D00B7BA03 /* ScrollTestVC.m in Sources */,
@@ -2286,6 +2335,7 @@
 				219ACA451CBE3F100052146E /* AGIPCAssetsController.m in Sources */,
 				219AC9B91CBC9B060052146E /* UIView+JKPicker.m in Sources */,
 				E2D3870C1CB8E56100F735F9 /* KeyBordVIew.m in Sources */,
+				2187B90F1CC9FA6300B92435 /* FocusArtistTableViewController.m in Sources */,
 				21D54B901CB660AC0088D386 /* ArtistModel.m in Sources */,
 				21AB0A001CC0A17600B7BA03 /* ReleaseVideoViewController.m in Sources */,
 				215E73661CB7BC1000A67690 /* NotificationModel.m in Sources */,
@@ -2313,6 +2363,7 @@
 				219AC5EA1CBC87FD0052146E /* HMEmotionToolbar.m in Sources */,
 				21AB0B411CC6056500B7BA03 /* DemoTableViewController.m in Sources */,
 				219ACA4B1CBE3F100052146E /* ALAsset+AGIPC.m in Sources */,
+				2187B91A1CCA075400B92435 /* FocusModel.m in Sources */,
 				21AB0AE31CC5152C00B7BA03 /* TopTabPage.m in Sources */,
 				2187B8FD1CC8DBE800B92435 /* UserCommonCell.m in Sources */,
 				215EED261CB00D6100A5957B /* GlobeConst.m in Sources */,
@@ -2330,8 +2381,10 @@
 				E2D387041CB8B1B000F735F9 /* AliPayController.m in Sources */,
 				21AB0B771CC72BBA00B7BA03 /* ImageModel.m in Sources */,
 				219AC9D61CBDE1EC0052146E /* ComposeViewController.m in Sources */,
+				2187B9011CC8E74100B92435 /* UserCommonResultModel.m in Sources */,
 				219AC9B01CBC9B060052146E /* JKAssetsGroupsView.m in Sources */,
 				219AC9BD1CBCA5A40052146E /* ReleaseProjectViewController.m in Sources */,
+				2187B9071CC9F33200B92435 /* ArtistViewHeaderView.m in Sources */,
 				219ACA421CBE3F100052146E /* AGImagePickerController.m in Sources */,
 				219AC9B51CBC9B060052146E /* JKPhotoBrowserCell.m in Sources */,
 				21AB0B421CC6056500B7BA03 /* XCLPageView.m in Sources */,
@@ -2391,6 +2444,7 @@
 				21904CF01CAD3C7800AD7A3F /* CompleteUserInfoController.m in Sources */,
 				21AB0B811CC787C700B7BA03 /* InvestorArtWorkViewController.m in Sources */,
 				21AB0B501CC6056500B7BA03 /* XIBHeaderView.m in Sources */,
+				2187B90C1CC9F9CB00B92435 /* FocusViewController.m in Sources */,
 				21AB0B7D1CC77B5400B7BA03 /* ProjectDetailsResultModel.m in Sources */,
 				21AB0AE41CC5152C00B7BA03 /* UIColor+RandomColor.m in Sources */,
 				21D54B9D1CB791E10088D386 /* NSString+DocumentPath.m in Sources */,
@@ -2447,6 +2501,8 @@
 				21AB0AC51CC50A4D00B7BA03 /* JPBaseTableViewController.m in Sources */,
 				219AC5E71CBC87FD0052146E /* HMEmotionPopView.m in Sources */,
 				21D54B231CB4DF0F0088D386 /* MasterModel.m in Sources */,
+				2187B9161CCA051A00B92435 /* FocusTableViewCell.m in Sources */,
+				2187B9121CC9FA7500B92435 /* FocusUserTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

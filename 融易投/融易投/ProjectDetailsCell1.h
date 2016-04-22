@@ -15,6 +15,18 @@
 
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionViewFlowLayout;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *labelInfo1;
+@property (weak, nonatomic) IBOutlet UILabel *labelInfo2;
+@property (weak, nonatomic) IBOutlet UILabel *labelInfo3;
+
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+@property (weak, nonatomic) IBOutlet UILabel *label2;
+@property (weak, nonatomic) IBOutlet UILabel *label3;
+@property (weak, nonatomic) IBOutlet UIView *imagesView;
+@property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 
 @end

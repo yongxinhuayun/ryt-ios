@@ -18,20 +18,6 @@
 
 @interface ProjectDetailsCell1 () //<UICollectionViewDataSource,UICollectionViewDelegate>
 
-
-
-
-@property (weak, nonatomic) IBOutlet UILabel *labelInfo1;
-@property (weak, nonatomic) IBOutlet UILabel *labelInfo2;
-@property (weak, nonatomic) IBOutlet UILabel *labelInfo3;
-
-@property (weak, nonatomic) IBOutlet UILabel *label1;
-@property (weak, nonatomic) IBOutlet UILabel *label2;
-@property (weak, nonatomic) IBOutlet UILabel *label3;
-@property (weak, nonatomic) IBOutlet UIView *imagesView;
-@property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
-
-
 /** 所有照片 */
 @property (nonatomic ,strong) NSMutableArray *imagesList;
 
@@ -47,27 +33,29 @@ static CGFloat const margin = 10;
 
 #define  cellWH  ((SSScreenW - (cols - 1) * margin) / cols)
 
--(void)setModel:(ProjectDetailsResultModel *)model{
-
-
-    _model = model;
-    
-    self.label1.text = model.object.artWork.brief;
-    self.label2.text = model.object.artworkdirection.make_instru;
-    self.label3.text = model.object.artworkdirection.financing_aq;
-    
-    //    NSLog(@"%@",model.object.artWork.brief);
-    
-//    [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:model.object.artworkAttachmentList.fileName] placeholderImage:nil];
-    
-//    self.imagesList = model.object.artworkAttachmentList;
+//-(void)setModel:(ProjectDetailsResultModel *)model{
+//
+//
+//    _model = model;
 //    
-//    NSLog(@"%ld",self.imagesList.count);
+//    self.label1.text = model.object.artWork.brief;
+//    self.label2.text = model.object.artworkdirection.make_instru;
+//    self.label3.text = model.object.artworkdirection.financing_aq;
 //    
-//    [self createSquares];
-    
-
-}
+//    NSLog(@"%@",model.object.artWork.brief);
+//    
+////    NSLog(@"%@",model.object.artworkAttachmentList.fileName);
+////    
+////    [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:model.object.artworkAttachmentList.fileName] placeholderImage:nil];
+//    
+////    self.imagesList = model.object.artworkAttachmentList;
+////    
+////    NSLog(@"%ld",self.imagesList.count);
+////    
+////    [self createSquares];
+//    
+//
+//}
 
 /**
  * 创建照片数组

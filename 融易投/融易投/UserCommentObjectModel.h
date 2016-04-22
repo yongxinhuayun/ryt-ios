@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "ArtworkCommentListModel.h"
-
 @interface UserCommentObjectModel : NSObject
 
 @property(nonatomic,strong) NSMutableArray *artworkCommentList;

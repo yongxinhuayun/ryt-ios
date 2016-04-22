@@ -12,7 +12,7 @@
 
 
 /** id */
-@property (nonatomic ,strong) NSString *ID;
+@property (nonatomic ,assign) NSInteger ID;
 
 /**评论内容 */
 @property (nonatomic ,strong) NSString *name;

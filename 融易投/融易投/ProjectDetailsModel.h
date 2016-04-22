@@ -8,14 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "ArtworkAttachmentListModel.h"
-#import "ArtworkModel.h"
-#import "ArtworkdirectionModel.h"
+
+@class ArtworkModel,ArtworkdirectionModel;
 
 @interface ProjectDetailsModel : NSObject
 
 /** 项目文件列表 */
-@property (nonatomic ,strong) ArtworkAttachmentListModel *artworkAttachmentList;
+@property (nonatomic ,strong) NSMutableArray *artworkAttachmentList;
 
 /** 项目详情 */
 @property (nonatomic ,strong) ArtworkModel *artWork;

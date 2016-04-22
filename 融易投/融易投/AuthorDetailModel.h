@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MasterDetailsModel.h"
+
+@class MasterDetailsModel;
 
 @interface AuthorDetailModel : NSObject
 

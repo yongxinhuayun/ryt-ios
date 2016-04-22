@@ -7,11 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="projectDetailsCell1" rowHeight="499" id="l51-aN-6kk" customClass="ProjectDetailsCell1">
-            <rect key="frame" x="0.0" y="0.0" width="374" height="499"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="projectDetailsCell1" rowHeight="578" id="l51-aN-6kk" customClass="ProjectDetailsCell1">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="578"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l51-aN-6kk" id="KRn-cS-xrF">
-                <rect key="frame" x="0.0" y="0.0" width="374" height="498.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="390" height="577.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目介绍" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szL-Hu-mlN">
@@ -21,48 +21,56 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="苍茫之境，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿，拥有这样一款精巧绝伦的铜雕，若是自己把玩，则个人的品位和气质更加凸显，若是送于他人，也显得别出心裁，诚意十足。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yJ-CA-Udg">
-                        <rect key="frame" x="10" y="40.5" width="342" height="101.5"/>
+                        <rect key="frame" x="10" y="40.5" width="358" height="101.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQj-ce-xQv">
-                        <rect key="frame" x="10" y="152" width="354" height="134"/>
+                        <rect key="frame" x="10" y="152" width="370" height="221"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerImage" translatesAutoresizingMaskIntoConstraints="NO" id="1mp-WX-CU6">
-                                <rect key="frame" x="10" y="10" width="100" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="370" height="221"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Fsf-X5-fHy"/>
                                     <constraint firstAttribute="height" constant="100" id="tgI-8V-e33"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Fsf-X5-fHy"/>
+                                        <exclude reference="tgI-8V-e33"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="1mp-WX-CU6" firstAttribute="leading" secondItem="BQj-ce-xQv" secondAttribute="leading" constant="10" id="XLe-yg-8jv"/>
-                            <constraint firstItem="1mp-WX-CU6" firstAttribute="top" secondItem="BQj-ce-xQv" secondAttribute="top" constant="10" id="aDP-oT-AlY"/>
+                            <constraint firstAttribute="bottom" secondItem="1mp-WX-CU6" secondAttribute="bottom" id="Ji8-au-pT5"/>
+                            <constraint firstAttribute="trailing" secondItem="1mp-WX-CU6" secondAttribute="trailing" id="wSj-g0-mq4"/>
+                            <constraint firstItem="1mp-WX-CU6" firstAttribute="top" secondItem="BQj-ce-xQv" secondAttribute="top" id="zBN-jy-Jd0"/>
+                            <constraint firstItem="1mp-WX-CU6" firstAttribute="leading" secondItem="BQj-ce-xQv" secondAttribute="leading" id="zCn-5b-ykV"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创作过程说明" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNf-NU-Zak">
-                        <rect key="frame" x="10" y="296" width="102" height="20.5"/>
+                        <rect key="frame" x="10" y="375" width="102" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="融资解惑" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNO-Ac-qHq">
-                        <rect key="frame" x="10" y="438" width="68" height="20.5"/>
+                        <rect key="frame" x="10" y="517" width="68" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="苍茫之境，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿，拥有这样一款精巧绝伦的铜雕，若是自己把玩，则个人的品位和气质更加凸显，若是送于他人，也显得别出心裁，诚意十足。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kb4-bT-X2W">
-                        <rect key="frame" x="10" y="468" width="1547" height="20.5"/>
+                        <rect key="frame" x="10" y="547" width="1547" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="苍茫之境，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿，拥有这样一款精巧绝伦的铜雕，若是自己把玩，则个人的品位和气质更加凸显，若是送于他人，也显得别出心裁，诚意十足。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MwU-fv-5dC">
-                        <rect key="frame" x="10" y="326" width="354" height="101.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="苍茫之境，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿，拥有这样一款精巧绝伦的铜雕，若是自己把玩，则个人的品位和气质更加凸显，若是送于他人，也显得别出心裁，诚意十足。-----------------------------" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MwU-fv-5dC">
+                        <rect key="frame" x="10" y="405" width="370" height="101.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -91,6 +99,7 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="OuT-k6-1JR"/>
                         <exclude reference="WCL-Tn-lry"/>
                     </mask>
                 </variation>
@@ -105,7 +114,7 @@
                 <outlet property="labelInfo3" destination="fNO-Ac-qHq" id="uLP-Wa-OmS"/>
                 <outlet property="photoImageView" destination="1mp-WX-CU6" id="mNz-0T-bJR"/>
             </connections>
-            <point key="canvasLocation" x="233" y="503.5"/>
+            <point key="canvasLocation" x="241" y="543"/>
         </tableViewCell>
     </objects>
     <resources>

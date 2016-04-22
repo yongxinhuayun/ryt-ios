@@ -20,7 +20,7 @@ CGFloat const SSStatusMaxH = 22;
 CGFloat const SSNavMaxY = 64;
 
 /** 标题栏的高度 */
-CGFloat const SSTitlesViewH = 35;
+CGFloat const SSTitlesViewH = 49;
 
 /** 全局统一的间距 */
 CGFloat const SSMargin = 10;

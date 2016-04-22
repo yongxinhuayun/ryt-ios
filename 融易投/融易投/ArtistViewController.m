@@ -17,11 +17,21 @@
 
 #import "ReleaseVideoViewController.h"
 
-@interface ArtistViewController ()<WechatShortVideoDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+#import "DemoTableViewController.h"
+#import "XIBHeaderView.h"
+
+#import "XCLPageView.h"
+#import "XCLSegmentView.h"
+#import "ArtistViewHeaderView.h"
+
+@interface ArtistViewController ()<WechatShortVideoDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,XCLPageViewDelegate, XCLSegmentViewDelegate>
 {
     NSURL *urlVideo;
 }
 
+
+@property (weak  , nonatomic) IBOutlet XCLPageView *pageView;
+@property (strong, nonatomic) XIBHeaderView *headerView;
 
 @end
 
@@ -32,6 +42,30 @@
     
     //设置导航条
     [self setUpNavBar];
+    
+    DemoTableViewController *controller1 = [[DemoTableViewController alloc] initWithItemCount:50];
+    
+    DemoTableViewController *controller2 = [[DemoTableViewController alloc] initWithItemCount:100];
+    
+    DemoTableViewController *controller3 = [[DemoTableViewController alloc] initWithItemCount:100];
+    
+    self.headerView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ArtistViewHeaderView class]) owner:self options:nil] firstObject];
+    
+    
+    [self.headerView.segmentView setTitles:@[@"投过的", @"赞过的",@"简介"]];
+    self.headerView.segmentView.delegate = self;
+    self.headerView.segmentView.font = [UIFont systemFontOfSize:14];
+    self.headerView.segmentView.normalColor = [UIColor blackColor];
+    self.headerView.segmentView.selectedColor = [UIColor blackColor];
+    self.headerView.segmentView.indicator.backgroundColor = self.headerView.segmentView.selectedColor;
+    self.headerView.segmentView.indicatorEdgeInsets = UIEdgeInsetsMake(self.headerView.segmentView.bounds.size.height - 2, 10, 0, 10);
+    self.headerView.segmentView.selectedSegmentIndex = 0;
+    
+    self.pageView.delegate = self;
+    [self.pageView setParentViewController:self childViewControllers:@[controller1, controller2,controller3]];
+    [self.pageView setHeaderView:self.headerView defaultHeight:352 minHeight:self.headerView.segmentView.bounds.size.height];
+    [self.pageView setIndex:0];
+
 }
 
 // 设置导航条
@@ -43,14 +77,13 @@
     
 }
 
-
-
-
+//上传视频
 - (IBAction)updata:(id)sender {
     
     [self loadData];
 }
 
+//发布动态
 - (IBAction)publishStateBtnClick:(id)sender {
     
     
@@ -116,7 +149,6 @@
 -(void)loadData
 {
     //参数
-    
     NSString *projectTitle = @"你妹";
     
     NSString *title = [projectTitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -204,6 +236,26 @@
     NSLog(@"1111111111$%@",filePath);
 }
 
+
+#pragma mark - XCLSegmentViewDelegate
+
+- (void)segmentView:(XCLSegmentView *)segmentView clickedAtIndex:(NSUInteger)index
+{
+    [self.pageView setIndex:index];
+}
+
+#pragma mark - XCLPageViewDelegate
+
+- (void)pageViewDidScroll:(XCLPageView *)pageView
+{
+    CGFloat pageWidth = pageView.scrollView.contentSize.width/self.headerView.segmentView.titles.count;
+    self.headerView.segmentView.indicatorPosition = pageView.scrollView.contentOffset.x / (pageWidth * (self.headerView.segmentView.titles.count - 1));
+}
+
+- (void)pageView:(XCLPageView *)pageView scrollDidEndAtIndex:(NSUInteger)index
+{
+    self.headerView.segmentView.selectedSegmentIndex = index;
+}
 
 
 

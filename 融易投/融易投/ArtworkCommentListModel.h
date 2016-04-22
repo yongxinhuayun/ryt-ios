@@ -8,27 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
-#import "CreatorModel.h"
-#import "ArtworkMessageModel.h"
+@class  CreatorModel;
 
 
 @interface ArtworkCommentListModel : NSObject
 
-
 /** id */
-@property (nonatomic ,strong) NSString *ID;
+@property (nonatomic ,copy) NSString *ID;
 
 
-@property (nonatomic ,strong) NSString *content;
+@property (nonatomic ,copy) NSString *content;
 
 
-@property (nonatomic ,strong) NSString *fatherComment;
+@property (nonatomic ,copy) NSString *fatherComment;
 
 /** 创建时间 */
 @property (nonatomic ,strong) CreatorModel *creator;
 
 @property (nonatomic ,assign) NSInteger createDatetime;
-
-
 
 @end

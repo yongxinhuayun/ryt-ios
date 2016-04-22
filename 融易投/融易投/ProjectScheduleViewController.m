@@ -22,7 +22,6 @@
     
 //   self.tableView.backgroundColor = [UIColor yellowColor];
     
-    self.tableView.bounces = NO;
     
     [self setUpRefresh];
 }

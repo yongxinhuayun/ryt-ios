@@ -48,10 +48,11 @@
     // 获取整个app中tabBarItem
     UITabBarItem *item =  [UITabBarItem appearanceWhenContainedIn:self, nil];
     
+    
     NSMutableDictionary *attrsNor = [NSMutableDictionary dictionary];
     
     //NSForegroundColorAttributeName 在UIKIT框架的第一个头文件中
-    attrsNor[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+    attrsNor[NSForegroundColorAttributeName] = TabBarColor(191, 191, 191);
     attrsNor[NSFontAttributeName] = TabButtonTitleFont;
     
     [item setTitleTextAttributes:attrsNor forState:UIControlStateNormal];
@@ -59,10 +60,12 @@
     
     NSMutableDictionary *attrsSel = [NSMutableDictionary dictionary];
     
-    attrsSel[NSForegroundColorAttributeName] = TabBarColor(64, 64, 64);
+    attrsSel[NSForegroundColorAttributeName] = TabBarColor(255, 255, 255);
     attrsSel[NSFontAttributeName] = TabButtonTitleFont;
     
     [item setTitleTextAttributes:attrsSel forState:UIControlStateSelected];
+    
+    
 }
 
 //重写addChildViewController方法
@@ -102,27 +105,27 @@
     // 首页
     UIViewController *mainNaVC = self.childViewControllers[0];
     mainNaVC.tabBarItem.title = @"首页";
-    //    mainNaVC.tabBarItem.image = [UIImage imageNamed:@"tabBar_me_icon"];
-    //    mainNaVC.tabBarItem.selectedImage = [UIImage imageNamedWithOriganlMode:@"tabBar_me_click_icon"];
+    mainNaVC.tabBarItem.image = [UIImage imageNamed:@"shouye_weixuanze"];
+    mainNaVC.tabBarItem.selectedImage = [UIImage imageNamedWithOriganlMode:@"shouye_yixuanze"];
     
     // 排行
     UIViewController *rankNaVC = self.childViewControllers[1];
     rankNaVC.tabBarItem.title = @"排行";
-    //    discoveryNaVC.tabBarItem.image = [UIImage imageNamed:@"tabBar_friendTrends_icon"];
-    //    discoveryNaVC.tabBarItem.selectedImage = [UIImage imageNamedWithOriganlMode:@"tabBar_friendTrends_click_icon"];
+    rankNaVC.tabBarItem.image = [UIImage imageNamed:@"paihang_weixuanze"];
+    rankNaVC.tabBarItem.selectedImage = [UIImage imageNamedWithOriganlMode:@"paihang_yixuanze"];
     
     //消息
     UIViewController *messageNaVC = self.childViewControllers[2];
     messageNaVC.tabBarItem.title = @"消息";
-//    messageNaVC.tabBarItem.image = [UIImage imageNamed:@"tabBar_essence_icon"];
-//    messageNaVC.tabBarItem.selectedImage = [UIImage imageNamedWithOriganlMode:@"tabBar_essence_click_icon"];
+    messageNaVC.tabBarItem.image = [UIImage imageNamed:@"xiaoxi_weixuanze"];
+    messageNaVC.tabBarItem.selectedImage = [UIImage imageNamedWithOriganlMode:@"xiaoxi_yixuanze"];
     
     
     // 我的
     UIViewController *meNaVC = self.childViewControllers[3];
     meNaVC.tabBarItem.title = @"我的";
-//    meNaVC.tabBarItem.image = [UIImage imageNamed:@"tabBar_new_icon"];
-//    meNaVC.tabBarItem.selectedImage = [UIImage imageNamedWithOriganlMode:@"tabBar_new_click_icon"];
+    meNaVC.tabBarItem.image = [UIImage imageNamed:@"wode_weixuanze"];
+    meNaVC.tabBarItem.selectedImage = [UIImage imageNamedWithOriganlMode:@"wode_yixuanze"];
     
 }
 

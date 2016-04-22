@@ -39,6 +39,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
+    
     //4.添加所有子控制器
     [self setUpChildVcs];
     

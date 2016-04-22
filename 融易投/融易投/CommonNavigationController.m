@@ -61,7 +61,7 @@
         // 不是根控制器
         // 设置返回按钮
         // 设置返回按钮,左边按钮
-        UIBarButtonItem *backItem = [UIBarButtonItem backItemWithImage:[UIImage imageNamed:@"jibenziliao_fanhui"] highImage:nil target:self action:@selector(back) norColor:[UIColor blackColor] highColor:[UIColor redColor] title:@""];
+        UIBarButtonItem *backItem = [UIBarButtonItem backItemWithImage:[UIImage imageNamed:@"fanhui"] highImage:nil target:self action:@selector(back) norColor:[UIColor blackColor] highColor:[UIColor redColor] title:@""];
         
         //        NSLog(@"覆盖之前---%@",self.interactivePopGestureRecognizer);
         //        NSLog(@"覆盖之前---%@",self.interactivePopGestureRecognizer.delegate);
@@ -155,6 +155,7 @@
     }
 }
 
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -181,5 +182,7 @@
     
     
 }
+
+
 
 @end

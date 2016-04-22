@@ -26,7 +26,9 @@
 
     _model = model;
     
-    NSLog(@"%@",model.creator.pictureUrl);
+//    NSLog(@"%@",model);
+//    
+//    NSLog(@"%@",model.content);
     
 //    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.creator.pictureUrl] placeholderImage:nil];
 //    self.userNameLabel.text = model.creator.name;

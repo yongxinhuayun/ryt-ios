@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "ProjectDetailsModel.h"
+@class ProjectDetailsModel;
 
 @interface ProjectDetailsResultModel : NSObject
 

@@ -13,6 +13,7 @@
 
 #import <MJExtension.h>
 
+#import "UserCommonResultModel.h"
 #import "UserCommentObjectModel.h"
 #import "ArtworkCommentListModel.h"
 #import "CreatorModel.h"
@@ -35,15 +36,6 @@ static NSString *ID = @"userCommentCell";
     
 //   self.tableView.backgroundColor = [UIColor blueColor];
     
-    self.tableView.bounces = NO;
-    
-    [self loadData];
-    
-    [self setUpRefresh];
-    
-    //注册创建cell ,这样注册就不用在XIB设置ID
-    [self.tableView registerNib:[UINib nibWithNibName:@"UserCommonCell" bundle:nil] forCellReuseIdentifier:ID];
-    
     
     [ArtworkCommentListModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         
@@ -58,6 +50,16 @@ static NSString *ID = @"userCommentCell";
                  @"ID"          :@"id",
                  };
     }];
+    
+    [self loadData];
+    
+    [self setUpRefresh];
+    
+    //注册创建cell ,这样注册就不用在XIB设置ID
+    [self.tableView registerNib:[UINib nibWithNibName:@"UserCommonCell" bundle:nil] forCellReuseIdentifier:ID];
+    
+    
+
 }
 
 -(void)setUpRefresh
@@ -108,8 +110,27 @@ static NSString *ID = @"userCommentCell";
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
         
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
+        
+        /*
+         {"resultCode":"0","resultMsg":"成功",
+         "object":
+                {"artworkCommentList":
+                        [
+                            {"id":"3",
+                            "content":"地方",
+                            "creator":{"id":"iijq9f1r7apprtab","username":"18510251819","name":"杜锐","pictureUrl":"http://rongyitou2.efeiyi.com/headPortrait/18510251819.jpeg@!ryt_head_portrai","cityId":null,"status":"1","createDatetime":1450930002000,"type":null,"master":null},
+                            "createDatetime"1460194750000,
+                             "status":"1",
+                             "isWatch":"0",
+                             "fatherComment":null},
+                            {"id":"1","content":"阿凡达","creator":{"id":"imhfp1yr4636pj49","username":"18513234278","name":null,"pictureUrl":"http://rongyitou2.efeiyi.com/headPortrait/18513234278","cityId":null,"status":"1","createDatetime":1459498453000,"type":null,"master":null},"createDatetime":1455861042000,"status":"1","isWatch":"0","fatherComment":{"id":"3","content":"地方","creator":{"id":"iijq9f1r7apprtab","username":"18510251819","name":"杜锐","pictureUrl":"http://rongyitou2.efeiyi.com/headPortrait/18510251819.jpeg@!ryt_head_portrai","cityId":null,"status":"1","createDatetime":1450930002000,"type":null,"master":null},"createDatetime":1460194750000,"status":"1","isWatch":"0","fatherComment":null}}
+                            ]
+                }
+        }
+         
+         */
         
         /*
          {"resultCode":"0",
@@ -131,12 +152,43 @@ static NSString *ID = @"userCommentCell";
 
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
-        UserCommentObjectModel *userCommentObject = [UserCommentObjectModel mj_objectWithKeyValues:modelDict[@"object"]];
+        UserCommonResultModel *userCommentObject = [UserCommonResultModel mj_objectWithKeyValues:modelDict];
         
-        self.models = userCommentObject.artworkCommentList;
-
+        self.models = userCommentObject.object.artworkCommentList;
+        
         NSLog(@"11111111111111----%ld",self.models.count);
         NSLog(@"%@",self.models);
+        
+        for (ArtworkCommentListModel *model in self.models) {
+            
+//            NSLog(@"%@",model.ID);
+        }
+
+
+//        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+//        
+//        NSLog(@"%@",modelDict);
+//        
+//        UserCommentObjectModel *model = [UserCommentObjectModel mj_objectWithKeyValues:modelDict[@"object"]];
+//        
+//        NSLog(@"%@",model);
+//        
+//        
+//        self.models = model.artworkCommentList;
+//        
+//        NSLog(@"------%@",[self.models class]);
+//        
+//        NSLog(@"------%@",self.models);
+//        
+//        NSLog(@"--------%ld",self.models.count);
+//        
+//        for (ArtworkCommentListModel *model in self.models) {
+//            
+//            NSLog(@"%@",model);
+//            
+//            NSLog(@"%ld",model.createDatetime);
+//        }
+        
         
         //4. 刷新数据
         //        [self.tableView reloadData];

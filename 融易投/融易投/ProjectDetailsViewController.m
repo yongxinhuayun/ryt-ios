@@ -14,8 +14,13 @@
 
 #import "ProjectDetailsResultModel.h"
 #import "ProjectDetailsModel.h"
+#import "ArtworkAttachmentListModel.h"
+#import "ArtworkdirectionModel.h"
+#import "ArtworkModel.h"
 
 #import "ImageCollectionViewCell.h"
+
+#import "UIImageView+WebCache.h"
 
 
 @interface ProjectDetailsViewController () //<UICollectionViewDataSource,UICollectionViewDelegate>
@@ -134,13 +139,8 @@ static NSString *ID4 = @"imageCell";
 
         self.dict = dict;
         
-//        NSLog(@"%@",self.dict);
-//        
-//        self.imagesList = dict.object.artworkAttachmentList;
-//        
-//        NSLog(@"%ld",self.imagesList.count);
-        
-        
+        self.imagesList = dict.object.artworkAttachmentList;
+
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
@@ -166,11 +166,30 @@ static NSString *ID4 = @"imageCell";
 
     ProjectDetailsCell1 *cell1 = [tableView dequeueReusableCellWithIdentifier:ID1];
     
-    ProjectDetailsResultModel *model = self.dict;
+    ProjectDetailsResultModel *modelDict = self.dict;
+    
+    NSLog(@"%@",modelDict.object.artWork.brief);
+    
+    NSLog(@"%@",modelDict.object.artworkdirection.make_instru);
+    
+    cell1.label1.text = modelDict.object.artWork.brief;
+    cell1.label2.text = modelDict.object.artworkdirection.make_instru;
+    cell1.label3.text = modelDict.object.artworkdirection.financing_aq;
+
+    
+    //    NSLog(@"%@",model.object.artworkAttachmentList.fileName);
+    
+    for (ArtworkAttachmentListModel *artworkAttachmentList in modelDict.object.artworkAttachmentList) {
+        
+        NSLog(@"%@",artworkAttachmentList);
+        
+//        NSLog(@"%@",artworkAttachmentList.fileName);
+        
+//        [cell1.photoImageView sd_setImageWithURL:[NSURL URLWithString:artworkAttachmentList.fileName] placeholderImage:nil];
+        
+    }
     
     
-    
-    cell1.model = model;
     
     /*
     //设置cell中每个按钮的此存
@@ -211,7 +230,7 @@ static NSString *ID4 = @"imageCell";
 //    return topic.cellHeight;
     
     
-    return 650;
+    return 750;
         
 }
 
