@@ -45,9 +45,9 @@
     
     DemoTableViewController *controller1 = [[DemoTableViewController alloc] initWithItemCount:50];
     
-    DemoTableViewController *controller2 = [[DemoTableViewController alloc] initWithItemCount:100];
+    DemoTableViewController *controller2 = [[DemoTableViewController alloc] initWithItemCount:10];
     
-    DemoTableViewController *controller3 = [[DemoTableViewController alloc] initWithItemCount:100];
+    DemoTableViewController *controller3 = [[DemoTableViewController alloc] initWithItemCount:10];
     
     self.headerView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ArtistViewHeaderView class]) owner:self options:nil] firstObject];
     

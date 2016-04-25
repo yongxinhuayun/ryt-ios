@@ -25,7 +25,7 @@
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 
-
+#import "CreationDetailsViewController.h"
 
 @interface CreationTableViewController ()
 
@@ -39,6 +39,17 @@
 @implementation CreationTableViewController
 
 static NSString *ID = @"creationCell";
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
+-(void)viewWillDisppear:(BOOL)animated{
+    
+    self.navigationController.navigationBarHidden = NO;
+    [super viewWillDisappear:animated];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -352,6 +363,12 @@ static NSString *ID = @"creationCell";
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 335;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CreationDetailsViewController *creationDetailsVC = [[CreationDetailsViewController alloc] init];
+    [self.navigationController pushViewController:creationDetailsVC animated:YES];
 }
 
 @end

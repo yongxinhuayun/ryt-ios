@@ -14,4 +14,6 @@
 
 @property (weak, nonatomic) IBOutlet XCLSegmentView *segmentView;
 
++(instancetype)artistViewHeaderView;
+
 @end

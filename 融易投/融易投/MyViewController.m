@@ -27,6 +27,8 @@
 
 #import "EditingInfoViewController.h"
 
+#import "ArtistMyViewController.h"
+
 
 //#import "WeiXinController.h"
 //#import "ALiController.h"
@@ -224,8 +226,12 @@
 - (IBAction)artistBtnClick:(id)sender {
     
     // 弹出发微博控制器
-    ArtistViewController *releaseProject = [[ArtistViewController alloc] init];
+//    ArtistViewController *releaseProject = [[ArtistViewController alloc] init];
+//    
+//    [self.navigationController pushViewController:releaseProject animated:YES];
     
+    ArtistMyViewController *releaseProject = [[ArtistMyViewController alloc] init];
+
     [self.navigationController pushViewController:releaseProject animated:YES];
 }
 

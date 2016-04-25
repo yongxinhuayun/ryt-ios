@@ -50,6 +50,21 @@
 		2187B9291CCDAD6700B92435 /* EditingNickNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187B9271CCDAD6700B92435 /* EditingNickNameViewController.xib */; };
 		2187B92D1CCDAD9C00B92435 /* EditingSignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B92B1CCDAD9C00B92435 /* EditingSignatureViewController.m */; };
 		2187B92E1CCDAD9C00B92435 /* EditingSignatureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187B92C1CCDAD9C00B92435 /* EditingSignatureViewController.xib */; };
+		2187B9331CCDF12400B92435 /* ArtistMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9321CCDF12400B92435 /* ArtistMyViewController.m */; };
+		2187B93F1CCDF14000B92435 /* TYBasePageTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9361CCDF14000B92435 /* TYBasePageTabBar.m */; };
+		2187B9401CCDF14000B92435 /* TYSlidePageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9381CCDF14000B92435 /* TYSlidePageScrollView.m */; };
+		2187B9411CCDF14000B92435 /* TYSlidePageScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B93A1CCDF14000B92435 /* TYSlidePageScrollViewController.m */; };
+		2187B9421CCDF14000B92435 /* TYTitlePageTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B93C1CCDF14000B92435 /* TYTitlePageTabBar.m */; };
+		2187B9431CCDF14000B92435 /* UIScrollView+ty_swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B93E1CCDF14000B92435 /* UIScrollView+ty_swizzle.m */; };
+		2187B9461CCDF15100B92435 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9451CCDF15100B92435 /* UINavigationBar+Awesome.m */; };
+		2187B9491CCDF24700B92435 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9481CCDF24700B92435 /* TableViewController.m */; };
+		2187B94C1CCDF25C00B92435 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B94B1CCDF25C00B92435 /* CollectionViewController.m */; };
+		2187B94F1CCDF7D500B92435 /* ArtistMyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B94E1CCDF7D500B92435 /* ArtistMyHeaderView.m */; };
+		2187B9511CCDF7E100B92435 /* ArtistMyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187B9501CCDF7E100B92435 /* ArtistMyHeaderView.xib */; };
+		2187B9541CCDFCE500B92435 /* MyArtworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9531CCDFCE500B92435 /* MyArtworkViewController.m */; };
+		2187B9581CCDFE3100B92435 /* MyArtworkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9561CCDFE3100B92435 /* MyArtworkCell.m */; };
+		2187B9591CCDFE3100B92435 /* MyArtworkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187B9571CCDFE3100B92435 /* MyArtworkCell.xib */; };
+		2187B95C1CCE083500B92435 /* CreationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B95B1CCE083500B92435 /* CreationDetailsViewController.m */; };
 		218D2B3C1CACB2F9004553B9 /* CommonNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B391CACB2F9004553B9 /* CommonNavigationController.m */; };
 		218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3B1CACB2F9004553B9 /* CommonTabBarViewController.m */; };
 		218D2B411CACB310004553B9 /* RankTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3F1CACB310004553B9 /* RankTableViewController.m */; };
@@ -372,6 +387,34 @@
 		2187B92A1CCDAD9C00B92435 /* EditingSignatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingSignatureViewController.h; sourceTree = "<group>"; };
 		2187B92B1CCDAD9C00B92435 /* EditingSignatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingSignatureViewController.m; sourceTree = "<group>"; };
 		2187B92C1CCDAD9C00B92435 /* EditingSignatureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditingSignatureViewController.xib; sourceTree = "<group>"; };
+		2187B9311CCDF12400B92435 /* ArtistMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistMyViewController.h; sourceTree = "<group>"; };
+		2187B9321CCDF12400B92435 /* ArtistMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistMyViewController.m; sourceTree = "<group>"; };
+		2187B9351CCDF14000B92435 /* TYBasePageTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBasePageTabBar.h; sourceTree = "<group>"; };
+		2187B9361CCDF14000B92435 /* TYBasePageTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBasePageTabBar.m; sourceTree = "<group>"; };
+		2187B9371CCDF14000B92435 /* TYSlidePageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYSlidePageScrollView.h; sourceTree = "<group>"; };
+		2187B9381CCDF14000B92435 /* TYSlidePageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYSlidePageScrollView.m; sourceTree = "<group>"; };
+		2187B9391CCDF14000B92435 /* TYSlidePageScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYSlidePageScrollViewController.h; sourceTree = "<group>"; };
+		2187B93A1CCDF14000B92435 /* TYSlidePageScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYSlidePageScrollViewController.m; sourceTree = "<group>"; };
+		2187B93B1CCDF14000B92435 /* TYTitlePageTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTitlePageTabBar.h; sourceTree = "<group>"; };
+		2187B93C1CCDF14000B92435 /* TYTitlePageTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTitlePageTabBar.m; sourceTree = "<group>"; };
+		2187B93D1CCDF14000B92435 /* UIScrollView+ty_swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+ty_swizzle.h"; sourceTree = "<group>"; };
+		2187B93E1CCDF14000B92435 /* UIScrollView+ty_swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+ty_swizzle.m"; sourceTree = "<group>"; };
+		2187B9441CCDF15100B92435 /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
+		2187B9451CCDF15100B92435 /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
+		2187B9471CCDF24700B92435 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		2187B9481CCDF24700B92435 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		2187B94A1CCDF25C00B92435 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		2187B94B1CCDF25C00B92435 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		2187B94D1CCDF7D500B92435 /* ArtistMyHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistMyHeaderView.h; sourceTree = "<group>"; };
+		2187B94E1CCDF7D500B92435 /* ArtistMyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistMyHeaderView.m; sourceTree = "<group>"; };
+		2187B9501CCDF7E100B92435 /* ArtistMyHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistMyHeaderView.xib; sourceTree = "<group>"; };
+		2187B9521CCDFCE500B92435 /* MyArtworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyArtworkViewController.h; sourceTree = "<group>"; };
+		2187B9531CCDFCE500B92435 /* MyArtworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyArtworkViewController.m; sourceTree = "<group>"; };
+		2187B9551CCDFE3100B92435 /* MyArtworkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyArtworkCell.h; sourceTree = "<group>"; };
+		2187B9561CCDFE3100B92435 /* MyArtworkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyArtworkCell.m; sourceTree = "<group>"; };
+		2187B9571CCDFE3100B92435 /* MyArtworkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyArtworkCell.xib; sourceTree = "<group>"; };
+		2187B95A1CCE083500B92435 /* CreationDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreationDetailsViewController.h; sourceTree = "<group>"; };
+		2187B95B1CCE083500B92435 /* CreationDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreationDetailsViewController.m; sourceTree = "<group>"; };
 		218D2B381CACB2F9004553B9 /* CommonNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNavigationController.h; sourceTree = "<group>"; };
 		218D2B391CACB2F9004553B9 /* CommonNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNavigationController.m; sourceTree = "<group>"; };
 		218D2B3A1CACB2F9004553B9 /* CommonTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTabBarViewController.h; sourceTree = "<group>"; };
@@ -822,6 +865,47 @@
 				2187B92C1CCDAD9C00B92435 /* EditingSignatureViewController.xib */,
 			);
 			name = "编辑资料";
+			sourceTree = "<group>";
+		};
+		2187B9301CCDF07200B92435 /* 艺术家的界面 */ = {
+			isa = PBXGroup;
+			children = (
+				2187B9341CCDF14000B92435 /* TYSlidePageScrollView */,
+				2187B9311CCDF12400B92435 /* ArtistMyViewController.h */,
+				2187B9321CCDF12400B92435 /* ArtistMyViewController.m */,
+				2187B94D1CCDF7D500B92435 /* ArtistMyHeaderView.h */,
+				2187B94E1CCDF7D500B92435 /* ArtistMyHeaderView.m */,
+				2187B9501CCDF7E100B92435 /* ArtistMyHeaderView.xib */,
+				2187B9521CCDFCE500B92435 /* MyArtworkViewController.h */,
+				2187B9531CCDFCE500B92435 /* MyArtworkViewController.m */,
+				2187B9551CCDFE3100B92435 /* MyArtworkCell.h */,
+				2187B9561CCDFE3100B92435 /* MyArtworkCell.m */,
+				2187B9571CCDFE3100B92435 /* MyArtworkCell.xib */,
+			);
+			name = "艺术家的界面";
+			sourceTree = "<group>";
+		};
+		2187B9341CCDF14000B92435 /* TYSlidePageScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				2187B9471CCDF24700B92435 /* TableViewController.h */,
+				2187B9481CCDF24700B92435 /* TableViewController.m */,
+				2187B9441CCDF15100B92435 /* UINavigationBar+Awesome.h */,
+				2187B9451CCDF15100B92435 /* UINavigationBar+Awesome.m */,
+				2187B9351CCDF14000B92435 /* TYBasePageTabBar.h */,
+				2187B9361CCDF14000B92435 /* TYBasePageTabBar.m */,
+				2187B9371CCDF14000B92435 /* TYSlidePageScrollView.h */,
+				2187B9381CCDF14000B92435 /* TYSlidePageScrollView.m */,
+				2187B9391CCDF14000B92435 /* TYSlidePageScrollViewController.h */,
+				2187B93A1CCDF14000B92435 /* TYSlidePageScrollViewController.m */,
+				2187B93B1CCDF14000B92435 /* TYTitlePageTabBar.h */,
+				2187B93C1CCDF14000B92435 /* TYTitlePageTabBar.m */,
+				2187B93D1CCDF14000B92435 /* UIScrollView+ty_swizzle.h */,
+				2187B93E1CCDF14000B92435 /* UIScrollView+ty_swizzle.m */,
+				2187B94A1CCDF25C00B92435 /* CollectionViewController.h */,
+				2187B94B1CCDF25C00B92435 /* CollectionViewController.m */,
+			);
+			path = TYSlidePageScrollView;
 			sourceTree = "<group>";
 		};
 		218D2B371CACB2E3004553B9 /* Main */ = {
@@ -1606,6 +1690,7 @@
 		E2DDB19F1CABA6AD007438E4 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
+				2187B9301CCDF07200B92435 /* 艺术家的界面 */,
 				2187B92F1CCDC8EF00B92435 /* 编辑资料 */,
 				2118F1E01CAE5805003BFC6B /* MyViewController.h */,
 				2118F1E11CAE5805003BFC6B /* MyViewController.m */,
@@ -1702,6 +1787,8 @@
 		E2DDB1A61CABA721007438E4 /* 详情 */ = {
 			isa = PBXGroup;
 			children = (
+				2187B95A1CCE083500B92435 /* CreationDetailsViewController.h */,
+				2187B95B1CCE083500B92435 /* CreationDetailsViewController.m */,
 			);
 			name = "详情";
 			sourceTree = "<group>";
@@ -2249,6 +2336,7 @@
 				219AC9AC1CBC9B060052146E /* ImagesPicker.xcassets in Resources */,
 				2118F1E41CAE5805003BFC6B /* MyViewController.xib in Resources */,
 				219ACA3F1CBE3F100052146E /* addPictures.png in Resources */,
+				2187B9511CCDF7E100B92435 /* ArtistMyHeaderView.xib in Resources */,
 				E2DDB0F31CAB66DB007438E4 /* Assets.xcassets in Resources */,
 				21AB0B821CC787C700B7BA03 /* InvestorArtWorkViewController.xib in Resources */,
 				211C394B1CB36B1500DAD827 /* FinanceTableViewCell.xib in Resources */,
@@ -2275,6 +2363,7 @@
 				E2D05B701CB38B7400B0F690 /* read_me.txt in Resources */,
 				219AC9BE1CBCA5A40052146E /* ReleaseProjectViewController.xib in Resources */,
 				2187B9171CCA051A00B92435 /* FocusTableViewCell.xib in Resources */,
+				2187B9591CCDFE3100B92435 /* MyArtworkCell.xib in Resources */,
 				219ACA551CBE3F100052146E /* picture3.png in Resources */,
 				219AC9DE1CBDE47D0052146E /* CollectionViewCell.xib in Resources */,
 				215E73681CB7BC1000A67690 /* NotificationTableViewCell.xib in Resources */,
@@ -2375,6 +2464,7 @@
 				21AB0A001CC0A17600B7BA03 /* ReleaseVideoViewController.m in Sources */,
 				215E73661CB7BC1000A67690 /* NotificationModel.m in Sources */,
 				21D54B3C1CB4FA8B0088D386 /* UIImage+Antialias.m in Sources */,
+				2187B9401CCDF14000B92435 /* TYSlidePageScrollView.m in Sources */,
 				218D2B7C1CACBBC2004553B9 /* LognController.m in Sources */,
 				2168EAE31CBFA05000B7E037 /* FinanceDetailFirstCell.m in Sources */,
 				219AC5F11CBC89970052146E /* MBProgressHUD+MJ.m in Sources */,
@@ -2394,6 +2484,7 @@
 				219AC9F41CBDE4980052146E /* WHC_CameraVC.m in Sources */,
 				E236C3371CB4F6D0009DCBF0 /* MessageTableViewController.m in Sources */,
 				21904CF51CAD3C8B00AD7A3F /* ForgetPasswordViewController.m in Sources */,
+				2187B94F1CCDF7D500B92435 /* ArtistMyHeaderView.m in Sources */,
 				21AB0AC31CC50A4D00B7BA03 /* CollectViewTestVC.m in Sources */,
 				E2D387081CB8E49F00F735F9 /* ChartContentView.m in Sources */,
 				219AC5EA1CBC87FD0052146E /* HMEmotionToolbar.m in Sources */,
@@ -2418,6 +2509,7 @@
 				21AB0B771CC72BBA00B7BA03 /* ImageModel.m in Sources */,
 				219AC9D61CBDE1EC0052146E /* ComposeViewController.m in Sources */,
 				2187B9011CC8E74100B92435 /* UserCommonResultModel.m in Sources */,
+				2187B9461CCDF15100B92435 /* UINavigationBar+Awesome.m in Sources */,
 				219AC9B01CBC9B060052146E /* JKAssetsGroupsView.m in Sources */,
 				219AC9BD1CBCA5A40052146E /* ReleaseProjectViewController.m in Sources */,
 				2187B9071CC9F33200B92435 /* ArtistViewHeaderView.m in Sources */,
@@ -2425,6 +2517,7 @@
 				219AC9B51CBC9B060052146E /* JKPhotoBrowserCell.m in Sources */,
 				21AB0B421CC6056500B7BA03 /* XCLPageView.m in Sources */,
 				E2DDB0EB1CAB66DB007438E4 /* AppDelegate.m in Sources */,
+				2187B95C1CCE083500B92435 /* CreationDetailsViewController.m in Sources */,
 				21D54B7E1CB64A630088D386 /* HttpRequstTool.m in Sources */,
 				21AB0B641CC722CC00B7BA03 /* ProjectDetailsCell1.m in Sources */,
 				219AC5E01CBC87FD0052146E /* HMComposeViewController.m in Sources */,
@@ -2438,6 +2531,7 @@
 				21AB0A081CC0A5C400B7BA03 /* XMGPlayerView.m in Sources */,
 				219ACA481CBE3F100052146E /* AGIPCPreviewController.m in Sources */,
 				219ACA471CBE3F100052146E /* AGIPCGridItem.m in Sources */,
+				2187B9431CCDF14000B92435 /* UIScrollView+ty_swizzle.m in Sources */,
 				219ACA461CBE3F100052146E /* AGIPCGridCell.m in Sources */,
 				21D54B391CB4F88B0088D386 /* AuctionTableViewController.m in Sources */,
 				219AC9F61CBDE4980052146E /* WHC_ChoicePictureVC.m in Sources */,
@@ -2448,6 +2542,7 @@
 				219AC9AF1CBC9B060052146E /* JKAssetsGroupCell.m in Sources */,
 				2168EAE61CBFA05000B7E037 /* FinanceDetailSecondCell.m in Sources */,
 				21D54B8C1CB660970088D386 /* ArtistTableViewCell.m in Sources */,
+				2187B93F1CCDF14000B92435 /* TYBasePageTabBar.m in Sources */,
 				219AC5E11CBC87FD0052146E /* HMEmotion.m in Sources */,
 				219ACA401CBE3F100052146E /* AGImagePickerController+Helper.m in Sources */,
 				2118F1DF1CAE1D1A003BFC6B /* NSString+Extension.m in Sources */,
@@ -2504,12 +2599,14 @@
 				219ACA5B1CBE3F100052146E /* UIButton+AGIPC.m in Sources */,
 				21D54B851CB6585B0088D386 /* InvestorTableViewCell.m in Sources */,
 				2187B9211CCA369000B92435 /* EditingInfoViewController.m in Sources */,
+				2187B94C1CCDF25C00B92435 /* CollectionViewController.m in Sources */,
 				21904D321CAE0F4000AD7A3F /* UserAccount.m in Sources */,
 				219ACA5E1CBE3F100052146E /* WhoCanSeeViewController.m in Sources */,
 				219ACA521CBE3F100052146E /* LocationViewController.m in Sources */,
 				215EED1D1CB0058D00A5957B /* FinanceTableViewController.m in Sources */,
 				219AC9AD1CBC9B060052146E /* JKAssets.m in Sources */,
 				215E73671CB7BC1000A67690 /* NotificationTableViewCell.m in Sources */,
+				2187B9581CCDFE3100B92435 /* MyArtworkCell.m in Sources */,
 				219AC9B81CBC9B060052146E /* PhotoAlbumManager.m in Sources */,
 				219AC9D11CBD1B890052146E /* ArtistViewController.m in Sources */,
 				21AB0AA31CC4F69C00B7BA03 /* XiangqingViewController.m in Sources */,
@@ -2517,14 +2614,18 @@
 				21AB0A1F1CC2384C00B7BA03 /* ArtworkAttachmentListModel.m in Sources */,
 				219AC5E41CBC87FD0052146E /* HMEmotionGridView.m in Sources */,
 				219AC9891CBC99670052146E /* DSComposePhotoViewCell.m in Sources */,
+				2187B9541CCDFCE500B92435 /* MyArtworkViewController.m in Sources */,
 				219ACA491CBE3F100052146E /* AGIPCToolbarItem.m in Sources */,
 				2187B92D1CCDAD9C00B92435 /* EditingSignatureViewController.m in Sources */,
 				2118F1E31CAE5805003BFC6B /* MyViewController.m in Sources */,
+				2187B9421CCDF14000B92435 /* TYTitlePageTabBar.m in Sources */,
 				219AC9E21CBDE48D0052146E /* MBProgressHUD+Add.m in Sources */,
+				2187B9491CCDF24700B92435 /* TableViewController.m in Sources */,
 				21AB0B7A1CC7590F00B7BA03 /* ProjectDetailsModel.m in Sources */,
 				219AC9B71CBC9B060052146E /* JKUtil.m in Sources */,
 				219AC9F31CBDE4980052146E /* WHC_PhotoListCell.m in Sources */,
 				E2D3870B1CB8E4E900F735F9 /* PrivateLetterViewController.m in Sources */,
+				2187B9331CCDF12400B92435 /* ArtistMyViewController.m in Sources */,
 				E236C3321CB4F653009DCBF0 /* NotificationController.m in Sources */,
 				2134E3811CBB5D5700D6E662 /* UserCommentViewController.m in Sources */,
 				2118F1EA1CAE88B4003BFC6B /* navTitleButton.m in Sources */,
@@ -2539,6 +2640,7 @@
 				21AB0AC51CC50A4D00B7BA03 /* JPBaseTableViewController.m in Sources */,
 				219AC5E71CBC87FD0052146E /* HMEmotionPopView.m in Sources */,
 				21D54B231CB4DF0F0088D386 /* MasterModel.m in Sources */,
+				2187B9411CCDF14000B92435 /* TYSlidePageScrollViewController.m in Sources */,
 				2187B9161CCA051A00B92435 /* FocusTableViewCell.m in Sources */,
 				2187B9121CC9FA7500B92435 /* FocusUserTableViewController.m in Sources */,
 			);
