@@ -21,6 +21,7 @@
 #import "MessageTableViewController.h"
 
 #import "AliPayController.h"
+#import "BeeCloud.h"
 
 #import "XIBDemoViewController.h"
 
@@ -40,16 +41,39 @@ static BOOL isProduction = FALSE;
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
-{
-    return  [WXApi handleOpenURL:url delegate:self];
-    NSLog(@"");
+
+
+/*******************************BeeCloud********************************/
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    if (![BeeCloud handleOpenUrl:url]) {
+        //handle其他类型的url
+    }
+    return YES;
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    return  [WXApi handleOpenURL:url delegate:self];
+//iOS9之后官方推荐用此方法
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+    NSLog(@"options %@", options);
+    if (![BeeCloud handleOpenUrl:url]) {
+        //handle其他类型的url
+    }
+    return YES;
 }
+
+/*******************************WeiXin********************************/
+//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+//{
+//
+//    return  [WXApi handleOpenURL:url delegate:self];
+//    NSLog(@"");
+//}
+//
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+//{
+//
+//
+//    return  [WXApi handleOpenURL:url delegate:self];
+//}
 
 - (id)init{
     if(self = [super init]){
@@ -144,6 +168,36 @@ static BOOL isProduction = FALSE;
     //1.创建主窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
+    //BeeCloud
+    /*
+     如果使用BeeCloud控制台的APP Secret初始化，代表初始化生产环境；
+     如果使用BeeCloud控制台的Test Secret初始化，代表初始化沙箱测试环境;
+     测试账号 appid: c5d1cba1-5e3f-4ba0-941d-9b0a371fe719
+     appSecret: 39a7a518-9ac8-4a9e-87bc-7885f33cf18c
+     testSecret: 4bfdd244-574d-4bf3-b034-0c751ed34fee
+     由于支付宝的政策原因，测试账号的支付宝支付不能在生产环境中使用，带来不便，敬请原谅！
+     */
+    [BeeCloud initWithAppID:@"c5d1cba1-5e3f-4ba0-941d-9b0a371fe719" andAppSecret:@"39a7a518-9ac8-4a9e-87bc-7885f33cf18c"];
+    
+    //    [BeeCloud initWithAppID:@"c5d1cba1-5e3f-4ba0-941d-9b0a371fe719" andAppSecret:@"4bfdd244-574d-4bf3-b034-0c751ed34fee" sandbox:YES];
+    
+    //开启/关闭沙箱测试模式;
+    //可通过[BeeCloud getCurrentMode]查看当前模式，返回YES代表当前是sandbox环境，返回NO代表当前是生产环境
+    //开启沙箱测试模式，请使用Test Secret初始化
+    //    [BeeCloud setSandboxMode:YES];
+    
+    //初始化微信
+    //此处的微信appid必须是在微信开放平台创建的移动应用的appid，且必须与在『BeeCloud控制台-》微信APP支付』配置的"应用APPID"一致，否则会出现『跳转到微信客户端后只显示一个确定按钮的现象』。
+    [BeeCloud initWeChatPay:@"wxf1aa465362b4c8f1"];
+    
+    //初始化PayPal
+    [BeeCloud initPayPal:@"AVT1Ch18aTIlUJIeeCxvC7ZKQYHczGwiWm8jOwhrREc4a5FnbdwlqEB4evlHPXXUA67RAAZqZM0H8TCR"
+                  secret:@"EL-fkjkEUyxrwZAmrfn46awFXlX-h2nRkyCVhhpeVdlSRuhPJKXx3ZvUTTJqPQuAeomXA8PZ2MkX24vF"
+                 sandbox:YES];
+
+    
+    
+    
     //JPush
     // Required
     if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
@@ -167,7 +221,7 @@ static BOOL isProduction = FALSE;
     //2.设置窗口的根控制器
         CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
     
-    
+    //设置tabBar的背景颜色
     CGRect frame = CGRectMake(0, 0, SSScreenW, 48);
     UIView *v = [[UIView alloc] initWithFrame:frame];
     [v setBackgroundColor:[[UIColor alloc] initWithRed:0/255.0
@@ -242,11 +296,6 @@ static BOOL isProduction = FALSE;
 //    return YES;
 //}
 
-
-
-
-
-
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
     // Required
@@ -295,5 +344,9 @@ static BOOL isProduction = FALSE;
                                      errorDescription:NULL];
     return str;
 }
+
+
+
+
 
 @end

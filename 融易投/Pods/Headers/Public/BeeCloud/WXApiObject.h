@@ -1,0 +1,1 @@
+../../../BeeCloud/BCPaySDK/Channel/WXPay/WXApiObject.h

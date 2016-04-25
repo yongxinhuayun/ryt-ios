@@ -58,6 +58,7 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "BeeCloud/BCPaySDK/BeeCloud/SandBox/BeeCloud.bundle"
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "WechatShortVideo/WechatShortVideo/WechatShortVideoController.xib"
@@ -71,6 +72,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "WechatShortVideo/WechatShortVideo/Resources/WechatShortVideo_scan_focus@3x.png"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "BeeCloud/BCPaySDK/BeeCloud/SandBox/BeeCloud.bundle"
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "WechatShortVideo/WechatShortVideo/WechatShortVideoController.xib"

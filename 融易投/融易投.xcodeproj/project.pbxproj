@@ -44,6 +44,12 @@
 		2187B9161CCA051A00B92435 /* FocusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9141CCA051A00B92435 /* FocusTableViewCell.m */; };
 		2187B9171CCA051A00B92435 /* FocusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187B9151CCA051A00B92435 /* FocusTableViewCell.xib */; };
 		2187B91A1CCA075400B92435 /* FocusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9191CCA075400B92435 /* FocusModel.m */; };
+		2187B9211CCA369000B92435 /* EditingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B91F1CCA369000B92435 /* EditingInfoViewController.m */; };
+		2187B9241CCA36F600B92435 /* EditingInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2187B9231CCA36F600B92435 /* EditingInfoViewController.storyboard */; };
+		2187B9281CCDAD6700B92435 /* EditingNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9261CCDAD6700B92435 /* EditingNickNameViewController.m */; };
+		2187B9291CCDAD6700B92435 /* EditingNickNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187B9271CCDAD6700B92435 /* EditingNickNameViewController.xib */; };
+		2187B92D1CCDAD9C00B92435 /* EditingSignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B92B1CCDAD9C00B92435 /* EditingSignatureViewController.m */; };
+		2187B92E1CCDAD9C00B92435 /* EditingSignatureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187B92C1CCDAD9C00B92435 /* EditingSignatureViewController.xib */; };
 		218D2B3C1CACB2F9004553B9 /* CommonNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B391CACB2F9004553B9 /* CommonNavigationController.m */; };
 		218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3B1CACB2F9004553B9 /* CommonTabBarViewController.m */; };
 		218D2B411CACB310004553B9 /* RankTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3F1CACB310004553B9 /* RankTableViewController.m */; };
@@ -357,6 +363,15 @@
 		2187B9151CCA051A00B92435 /* FocusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FocusTableViewCell.xib; sourceTree = "<group>"; };
 		2187B9181CCA075400B92435 /* FocusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusModel.h; sourceTree = "<group>"; };
 		2187B9191CCA075400B92435 /* FocusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusModel.m; sourceTree = "<group>"; };
+		2187B91E1CCA369000B92435 /* EditingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingInfoViewController.h; sourceTree = "<group>"; };
+		2187B91F1CCA369000B92435 /* EditingInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingInfoViewController.m; sourceTree = "<group>"; };
+		2187B9231CCA36F600B92435 /* EditingInfoViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditingInfoViewController.storyboard; sourceTree = "<group>"; };
+		2187B9251CCDAD6700B92435 /* EditingNickNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingNickNameViewController.h; sourceTree = "<group>"; };
+		2187B9261CCDAD6700B92435 /* EditingNickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingNickNameViewController.m; sourceTree = "<group>"; };
+		2187B9271CCDAD6700B92435 /* EditingNickNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditingNickNameViewController.xib; sourceTree = "<group>"; };
+		2187B92A1CCDAD9C00B92435 /* EditingSignatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingSignatureViewController.h; sourceTree = "<group>"; };
+		2187B92B1CCDAD9C00B92435 /* EditingSignatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingSignatureViewController.m; sourceTree = "<group>"; };
+		2187B92C1CCDAD9C00B92435 /* EditingSignatureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditingSignatureViewController.xib; sourceTree = "<group>"; };
 		218D2B381CACB2F9004553B9 /* CommonNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNavigationController.h; sourceTree = "<group>"; };
 		218D2B391CACB2F9004553B9 /* CommonNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNavigationController.m; sourceTree = "<group>"; };
 		218D2B3A1CACB2F9004553B9 /* CommonTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTabBarViewController.h; sourceTree = "<group>"; };
@@ -1578,6 +1593,15 @@
 				2118F1E01CAE5805003BFC6B /* MyViewController.h */,
 				2118F1E11CAE5805003BFC6B /* MyViewController.m */,
 				2118F1E21CAE5805003BFC6B /* MyViewController.xib */,
+				2187B91E1CCA369000B92435 /* EditingInfoViewController.h */,
+				2187B91F1CCA369000B92435 /* EditingInfoViewController.m */,
+				2187B9231CCA36F600B92435 /* EditingInfoViewController.storyboard */,
+				2187B9251CCDAD6700B92435 /* EditingNickNameViewController.h */,
+				2187B9261CCDAD6700B92435 /* EditingNickNameViewController.m */,
+				2187B9271CCDAD6700B92435 /* EditingNickNameViewController.xib */,
+				2187B92A1CCDAD9C00B92435 /* EditingSignatureViewController.h */,
+				2187B92B1CCDAD9C00B92435 /* EditingSignatureViewController.m */,
+				2187B92C1CCDAD9C00B92435 /* EditingSignatureViewController.xib */,
 				2187B9021CC9DF2700B92435 /* ApplyforArtViewController.h */,
 				2187B9031CC9DF2700B92435 /* ApplyforArtViewController.m */,
 				219AC9CE1CBD1B890052146E /* ArtistViewController.h */,
@@ -2195,6 +2219,7 @@
 				219ACA621CBE3F100052146E /* 麦粒-app-30.jpg in Resources */,
 				21AB0A091CC0A5C400B7BA03 /* XMGPlayerView.xib in Resources */,
 				219ACA561CBE3F100052146E /* picture4.png in Resources */,
+				2187B9241CCA36F600B92435 /* EditingInfoViewController.storyboard in Resources */,
 				218D2B5C1CACB5B9004553B9 /* Launch Screen.storyboard in Resources */,
 				219ACA541CBE3F100052146E /* picture2.png in Resources */,
 				21AB0AC41CC50A4D00B7BA03 /* CollectViewTestVC.xib in Resources */,
@@ -2223,6 +2248,7 @@
 				21D54B201CB4D99E0088D386 /* CreationTableViewCell.xib in Resources */,
 				219AC9F91CBDE4980052146E /* WHC_PictureListVC.xib in Resources */,
 				21AB0A011CC0A17600B7BA03 /* ReleaseVideoViewController.xib in Resources */,
+				2187B9291CCDAD6700B92435 /* EditingNickNameViewController.xib in Resources */,
 				21AB0B5C1CC6084F00B7BA03 /* XIBDemoViewController.xib in Resources */,
 				21904CF61CAD3C8B00AD7A3F /* ForgetPasswordViewController.xib in Resources */,
 				219ACA4E1CBE3F100052146E /* deletePhoto.png in Resources */,
@@ -2234,6 +2260,7 @@
 				219AC5E81CBC87FD0052146E /* HMEmotionPopView.xib in Resources */,
 				219ACA531CBE3F100052146E /* picture1.png in Resources */,
 				E236C3241CB4E27E009DCBF0 /* PushConfig.plist in Resources */,
+				2187B92E1CCDAD9C00B92435 /* EditingSignatureViewController.xib in Resources */,
 				2168EAE71CBFA05000B7E037 /* FinanceDetailSecondCell.xib in Resources */,
 				21AB0A071CC0A5C400B7BA03 /* XMGPlayer.bundle in Resources */,
 				219ACA4D1CBE3F100052146E /* choose.png in Resources */,
@@ -2344,6 +2371,7 @@
 				2168EAE31CBFA05000B7E037 /* FinanceDetailFirstCell.m in Sources */,
 				219AC5F11CBC89970052146E /* MBProgressHUD+MJ.m in Sources */,
 				21AB0B731CC72B3900B7BA03 /* ImageCollectionViewCell.m in Sources */,
+				2187B9281CCDAD6700B92435 /* EditingNickNameViewController.m in Sources */,
 				21AB0B581CC605F500B7BA03 /* XCLSegmentView.m in Sources */,
 				219ACA4F1CBE3F100052146E /* ImagePickerChooseCell.m in Sources */,
 				219ACA591CBE3F100052146E /* ShowImageView.m in Sources */,
@@ -2467,6 +2495,7 @@
 				219ACA5C1CBE3F100052146E /* UIImage+ReSize.m in Sources */,
 				219ACA5B1CBE3F100052146E /* UIButton+AGIPC.m in Sources */,
 				21D54B851CB6585B0088D386 /* InvestorTableViewCell.m in Sources */,
+				2187B9211CCA369000B92435 /* EditingInfoViewController.m in Sources */,
 				21904D321CAE0F4000AD7A3F /* UserAccount.m in Sources */,
 				219ACA5E1CBE3F100052146E /* WhoCanSeeViewController.m in Sources */,
 				219ACA521CBE3F100052146E /* LocationViewController.m in Sources */,
@@ -2481,6 +2510,7 @@
 				219AC5E41CBC87FD0052146E /* HMEmotionGridView.m in Sources */,
 				219AC9891CBC99670052146E /* DSComposePhotoViewCell.m in Sources */,
 				219ACA491CBE3F100052146E /* AGIPCToolbarItem.m in Sources */,
+				2187B92D1CCDAD9C00B92435 /* EditingSignatureViewController.m in Sources */,
 				2118F1E31CAE5805003BFC6B /* MyViewController.m in Sources */,
 				219AC9E21CBDE48D0052146E /* MBProgressHUD+Add.m in Sources */,
 				21AB0B7A1CC7590F00B7BA03 /* ProjectDetailsModel.m in Sources */,

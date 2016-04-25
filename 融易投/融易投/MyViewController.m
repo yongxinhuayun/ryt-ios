@@ -25,6 +25,8 @@
 
 #import "FocusViewController.h"
 
+#import "EditingInfoViewController.h"
+
 
 //#import "WeiXinController.h"
 //#import "ALiController.h"
@@ -32,6 +34,7 @@
 @interface MyViewController () <WechatShortVideoDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *subTableView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 
 
 @end
@@ -46,6 +49,21 @@
     
     //设置详细视图
     [self setUpTableView];
+    
+    //设置图片能够点击
+    //记住:UIImageView默认情况下是不能接收事件的,如果要执行点击方法,必须把默认的User interaction Enable 改成yes
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
+    
+    [self.iconImageView addGestureRecognizer:tapGesture];
+}
+
+-(void)tap {
+    
+    UIStoryboard *editingInfoStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([EditingInfoViewController class]) bundle:nil];
+    EditingInfoViewController *editingInfoVC = [editingInfoStoryBoard instantiateInitialViewController];
+    [self.navigationController pushViewController:editingInfoVC animated:YES];
+
+    
 }
 
 // 设置导航条

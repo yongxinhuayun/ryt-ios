@@ -1,0 +1,1 @@
+../../../BeeCloud/BCPaySDK/BeeCloud/Classes/BCResults/BCBaseResult.h

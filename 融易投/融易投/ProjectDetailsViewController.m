@@ -132,6 +132,13 @@ static NSString *ID4 = @"imageCell";
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
+        //模型中有个数组属性artworkAttachmentList，数组里面又要装着ArtworkAttachmentListModel模型
+        [ProjectDetailsModel mj_setupObjectClassInArray:^NSDictionary *{
+            return @{
+                     @"artworkAttachmentList" : @"ArtworkAttachmentListModel",
+                    };
+        }];
+        
 //        NSLog(@"%@",modelDict);
 
         //字典数组 -> 模型数组
@@ -215,6 +222,7 @@ static NSString *ID4 = @"imageCell";
     //        self.collectionView.bounces = NO;
     //设置collectionView不能滚动 ---- 直接跳进collectionView的头文件搜索scroll,发现并没有相关属性,跳进父类UIScrollView中搜素发现scrollEnabled属性
     cell1.collectionView.scrollEnabled = NO;
+     
      */
 
    

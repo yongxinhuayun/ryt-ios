@@ -1,0 +1,1 @@
+../../../BeeCloud/BCPaySDK/BeeCloud/Protocol/BeeCloudAdapter.h

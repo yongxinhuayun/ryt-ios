@@ -29,6 +29,7 @@
                 <constraint firstItem="BIw-RL-beh" firstAttribute="leading" secondItem="jDK-Le-3RG" secondAttribute="leading" id="zqK-ML-shL"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="196.5" y="233.5"/>
         </view>
     </objects>
 </document>

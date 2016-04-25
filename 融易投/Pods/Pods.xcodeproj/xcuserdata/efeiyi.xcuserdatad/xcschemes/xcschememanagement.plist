@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BeeCloud.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FMDB.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,12 +67,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>03E81DC826E59A64918574781288D20E</key>
+		<key>135503B428DAAAE5DB7410B27BE66E58</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5051E0C63A2472DF44C8FD545DD62BE6</key>
+		<key>1E74A613EC4A1FB9203793BAE7FB7A68</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +82,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8A6755DB1BFC0475622832CBD591EE57</key>
+		<key>8F74D9EA91F4C43190670066BAC37D44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F74D9EA91F4C43190670066BAC37D44</key>
+		<key>9171E2A69137DBBD1209B313E30968E4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,12 +107,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B427725AEB2238C33AD8636E0979D3C5</key>
+		<key>B667A3A4B3A1AE8801ECB06AD6A779DE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CD7A63930C054F7BF690CE62EDD0F69F</key>
+		<key>C9FD7B5A1A559AEDA6F017981F409D95</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EE2B12AB7A6D995150B9DF143C548278</key>
 		<dict>
 			<key>primary</key>
 			<true/>

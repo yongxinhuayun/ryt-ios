@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyViewController">
             <connections>
+                <outlet property="iconImageView" destination="ZpF-Y8-Sh3" id="4on-VA-wU9"/>
                 <outlet property="subTableView" destination="xPk-jU-Ppf" id="m78-ru-Xe0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -49,7 +50,7 @@
                                 <action selector="FansBtnClick:" destination="-1" eventType="touchUpInside" id="9Ag-Hb-GBX"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerImage" translatesAutoresizingMaskIntoConstraints="NO" id="ZpF-Y8-Sh3">
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerImage" translatesAutoresizingMaskIntoConstraints="NO" id="ZpF-Y8-Sh3">
                             <rect key="frame" x="149" y="83" width="77" height="77"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="77" id="Ivv-7W-cuN"/>
