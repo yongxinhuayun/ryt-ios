@@ -70,6 +70,7 @@ static NSString *ID = @"userCommentCell";
     //要是其他控制器也需要,直接把上面的拷贝到其他控制器就可以了
 }
 
+
 -(void)loadData{
     
     //参数

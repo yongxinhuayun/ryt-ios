@@ -808,6 +808,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2187B92F1CCDC8EF00B92435 /* 编辑资料 */ = {
+			isa = PBXGroup;
+			children = (
+				2187B91E1CCA369000B92435 /* EditingInfoViewController.h */,
+				2187B91F1CCA369000B92435 /* EditingInfoViewController.m */,
+				2187B9231CCA36F600B92435 /* EditingInfoViewController.storyboard */,
+				2187B9251CCDAD6700B92435 /* EditingNickNameViewController.h */,
+				2187B9261CCDAD6700B92435 /* EditingNickNameViewController.m */,
+				2187B9271CCDAD6700B92435 /* EditingNickNameViewController.xib */,
+				2187B92A1CCDAD9C00B92435 /* EditingSignatureViewController.h */,
+				2187B92B1CCDAD9C00B92435 /* EditingSignatureViewController.m */,
+				2187B92C1CCDAD9C00B92435 /* EditingSignatureViewController.xib */,
+			);
+			name = "编辑资料";
+			sourceTree = "<group>";
+		};
 		218D2B371CACB2E3004553B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -1590,18 +1606,10 @@
 		E2DDB19F1CABA6AD007438E4 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
+				2187B92F1CCDC8EF00B92435 /* 编辑资料 */,
 				2118F1E01CAE5805003BFC6B /* MyViewController.h */,
 				2118F1E11CAE5805003BFC6B /* MyViewController.m */,
 				2118F1E21CAE5805003BFC6B /* MyViewController.xib */,
-				2187B91E1CCA369000B92435 /* EditingInfoViewController.h */,
-				2187B91F1CCA369000B92435 /* EditingInfoViewController.m */,
-				2187B9231CCA36F600B92435 /* EditingInfoViewController.storyboard */,
-				2187B9251CCDAD6700B92435 /* EditingNickNameViewController.h */,
-				2187B9261CCDAD6700B92435 /* EditingNickNameViewController.m */,
-				2187B9271CCDAD6700B92435 /* EditingNickNameViewController.xib */,
-				2187B92A1CCDAD9C00B92435 /* EditingSignatureViewController.h */,
-				2187B92B1CCDAD9C00B92435 /* EditingSignatureViewController.m */,
-				2187B92C1CCDAD9C00B92435 /* EditingSignatureViewController.xib */,
 				2187B9021CC9DF2700B92435 /* ApplyforArtViewController.h */,
 				2187B9031CC9DF2700B92435 /* ApplyforArtViewController.m */,
 				219AC9CE1CBD1B890052146E /* ArtistViewController.h */,

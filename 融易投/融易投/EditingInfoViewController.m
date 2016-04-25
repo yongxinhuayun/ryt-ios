@@ -17,6 +17,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *sexLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nickNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *signatureLabel;
 
 @end
 
@@ -25,6 +27,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self setUpNavBar];
+}
+
+// 设置导航条
+-(void)setUpNavBar
+{
+    //设置导航条标题
+    self.navigationItem.title = @"编辑资料";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,11 +55,26 @@
         if (indexPath.row == 0) {
             
             EditingNickNameViewController *editingNickNameVC = [[EditingNickNameViewController alloc] init];
+            
+            editingNickNameVC.valueBlcok = ^(NSString *str){
+                
+                self.nickNameLabel.text = str;
+               
+            };
+            
+            
             [self.navigationController pushViewController:editingNickNameVC animated:YES];
             
         }else if (indexPath.row == 1){
             
             EditingSignatureViewController *editingSignatureVC = [[EditingSignatureViewController alloc] init];
+            
+            editingSignatureVC.valueBlcok = ^(NSString *str){
+                
+                self.signatureLabel.text = str;
+                
+            };
+            
             [self.navigationController pushViewController:editingSignatureVC animated:YES];
             
         }else if (indexPath.row == 2){
@@ -67,8 +92,9 @@
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
     
     imagePickerController.delegate = self;
+    
     //设置选择图片的截取框
-    //    imagePickerController.allowsEditing = YES;
+    imagePickerController.allowsEditing = YES;
     
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"从相册选取" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
         
@@ -144,7 +170,7 @@
     
     NSString *createPath = [NSString stringWithFormat:@"%@/", cachePath];
     
-    NSString *iconName = @"picture_url.png";
+    NSString *iconName = @"iocnInfo.png";
     NSString *path = [NSString stringWithFormat:@"%@%@",createPath,iconName];
     
     SSLog(@"%@",path);

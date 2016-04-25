@@ -8,7 +8,11 @@
 
 #import "EditingSignatureViewController.h"
 
-@interface EditingSignatureViewController ()
+#import <SVProgressHUD.h>
+
+@interface EditingSignatureViewController ()<UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *signatureTF;
 
 @end
 
@@ -18,11 +22,25 @@
     [super viewDidLoad];
 
     [self setUpNavBar];
+    
+    
+    self.signatureTF.delegate = self;
+    
+    [self.signatureTF addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];
+}
+
+-(void)textChange
+{
+    if (self.signatureTF.text.length > 30) {
+        
+        [SVProgressHUD showErrorWithStatus:@"最多输入30个子"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    
 }
 
 // 设置导航条
@@ -54,7 +72,12 @@
 
 -(void)save{
     
-    SSLog(@"safsadf");
+    // 传值:调用block
+    if (_valueBlcok) {
+        _valueBlcok(self.signatureTF.text);
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

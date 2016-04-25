@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditingNickNameViewController">
             <connections>
+                <outlet property="nickNameTF" destination="Yc8-Dr-uU5" id="mAE-HJ-pgn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入昵称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yc8-Dr-uU5">
-                    <rect key="frame" x="0.0" y="64" width="375" height="30"/>
+                    <rect key="frame" x="0.0" y="74" width="375" height="30"/>
                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="jbR-G9-boM"/>
@@ -29,7 +30,7 @@
             <constraints>
                 <constraint firstItem="Yc8-Dr-uU5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YZa-zb-skL"/>
                 <constraint firstAttribute="trailing" secondItem="Yc8-Dr-uU5" secondAttribute="trailing" id="snY-fa-NUm"/>
-                <constraint firstItem="Yc8-Dr-uU5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="tHm-ng-B4O"/>
+                <constraint firstItem="Yc8-Dr-uU5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="tHm-ng-B4O"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="196.5" y="322.5"/>

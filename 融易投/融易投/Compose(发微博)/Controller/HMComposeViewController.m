@@ -168,7 +168,8 @@
     photosView.y = 10;
     [photosView.addButton addTarget:self action:@selector(addButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     
-//    photosView.addButton.hidden = YES;
+    photosView.addButton.hidden = YES;
+    
     [self.textView addSubview:photosView];
     self.photosView2 = photosView;
 }

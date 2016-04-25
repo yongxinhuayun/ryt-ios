@@ -8,7 +8,11 @@
 
 #import "EditingNickNameViewController.h"
 
-@interface EditingNickNameViewController ()
+#import <SVProgressHUD.h>
+
+@interface EditingNickNameViewController () <UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *nickNameTF;
 
 @end
 
@@ -18,9 +22,22 @@
     [super viewDidLoad];
 
     [self setUpNavBar];
+    
+    self.nickNameTF.delegate = self;
+    
+    [self.nickNameTF addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];
+}
+
+-(void)textChange
+{
+    if (self.nickNameTF.text.length > 10) {
+        
+        [SVProgressHUD showErrorWithStatus:@"最多输入10个字"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
 
 }
@@ -29,7 +46,7 @@
 -(void)setUpNavBar
 {
     //设置导航条标题
-    self.navigationItem.title = @"编辑昵称";
+    self.navigationItem.title = @"编辑签名";
     
     
     //设置导航条按钮
@@ -53,8 +70,13 @@
 }
 
 -(void)save{
-
-    SSLog(@"safsadf");
+    
+    // 传值:调用block
+    if (_valueBlcok) {
+        _valueBlcok(self.nickNameTF.text);
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
