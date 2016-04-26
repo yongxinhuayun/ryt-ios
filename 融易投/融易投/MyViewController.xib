@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyViewController">
             <connections>
                 <outlet property="iconImageView" destination="ZpF-Y8-Sh3" id="4on-VA-wU9"/>
-                <outlet property="subTableView" destination="xPk-jU-Ppf" id="m78-ru-Xe0"/>
+                <outlet property="subTableView" destination="9B4-s0-eY7" id="flz-5m-Eun"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -102,42 +102,42 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfk-q2-Wk7">
-                            <rect key="frame" x="0.0" y="45" width="30" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                             <state key="normal" title="登录"/>
                             <connections>
                                 <action selector="loginBtnClick:" destination="-1" eventType="touchUpInside" id="AiC-RA-ez4"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaj-0o-TxB">
-                            <rect key="frame" x="-2" y="191" width="60" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
                             <state key="normal" title="信息完善"/>
                             <connections>
                                 <action selector="CompleteUserInfoBtnClick:" destination="-1" eventType="touchUpInside" id="LWc-kq-I4U"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwF-tb-h5H">
-                            <rect key="frame" x="327" y="135" width="48" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="48" height="30"/>
                             <state key="normal" title="WeiXin"/>
                             <connections>
                                 <action selector="WeiXinPayBtnThings:" destination="-1" eventType="touchUpInside" id="JEZ-iU-ggB"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbd-bN-YsN">
-                            <rect key="frame" x="345" y="168" width="30" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                             <state key="normal" title="ALi"/>
                             <connections>
                                 <action selector="ALiPayBtnThings:" destination="-1" eventType="touchUpInside" id="KZa-wo-aor"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3EM-o9-oee">
-                            <rect key="frame" x="74" y="69" width="45" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
                             <state key="normal" title="小视频"/>
                             <connections>
                                 <action selector="shortVideo:" destination="-1" eventType="touchUpInside" id="kvW-8V-W9L"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vad-XN-nqd">
-                            <rect key="frame" x="-2" y="78" width="60" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
                             <state key="normal" title="发布项目"/>
                             <connections>
                                 <action selector="releaseProject:" destination="-1" eventType="touchUpInside" id="hne-CZ-psu"/>
@@ -150,7 +150,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fhb-qt-Gzk">
-                            <rect key="frame" x="24" y="163" width="90" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
                             <state key="normal" title="艺术家的界面"/>
                             <connections>
                                 <action selector="artistBtnClick:" destination="-1" eventType="touchUpInside" id="d8G-YG-0c6"/>
@@ -195,18 +195,18 @@
                         </mask>
                     </variation>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xPk-jU-Ppf">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9B4-s0-eY7">
                     <rect key="frame" x="0.0" y="290.5" width="375" height="329.5"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="xPk-jU-Ppf" secondAttribute="bottom" constant="47" id="2Gf-Oi-3u5"/>
+                <constraint firstItem="9B4-s0-eY7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DgM-PR-LTk"/>
                 <constraint firstAttribute="trailing" secondItem="N3P-m0-gcq" secondAttribute="trailing" id="EgA-Qc-8N4"/>
-                <constraint firstItem="xPk-jU-Ppf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PS1-nP-MEh"/>
-                <constraint firstItem="xPk-jU-Ppf" firstAttribute="top" secondItem="N3P-m0-gcq" secondAttribute="bottom" constant="15" id="fVB-na-n7R"/>
-                <constraint firstAttribute="trailing" secondItem="xPk-jU-Ppf" secondAttribute="trailing" id="rWt-h0-f4U"/>
+                <constraint firstAttribute="bottom" secondItem="9B4-s0-eY7" secondAttribute="bottom" constant="47" id="Zk9-i4-aQ3"/>
+                <constraint firstItem="9B4-s0-eY7" firstAttribute="top" secondItem="N3P-m0-gcq" secondAttribute="bottom" constant="15" id="cEy-BO-OE0"/>
+                <constraint firstAttribute="trailing" secondItem="9B4-s0-eY7" secondAttribute="trailing" id="qMD-dK-PEE"/>
                 <constraint firstItem="N3P-m0-gcq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="udJ-Ix-VTj"/>
                 <constraint firstItem="N3P-m0-gcq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="x7H-4f-P4e"/>
             </constraints>

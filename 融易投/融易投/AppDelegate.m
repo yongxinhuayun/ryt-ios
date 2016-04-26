@@ -219,7 +219,7 @@ static BOOL isProduction = FALSE;
     [JPUSHService setupWithOption:launchOptions appKey:appKey channel:channel apsForProduction:isProduction];
 //
     //2.设置窗口的根控制器
-        CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
+    CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
     
     //设置tabBar的背景颜色
     CGRect frame = tabBarController.tabBar.bounds;
@@ -229,6 +229,19 @@ static BOOL isProduction = FALSE;
                                                   blue:0/255.0
                                                  alpha:1.0]];
     [tabBarController.tabBar insertSubview:v atIndex:0];
+    
+    //设置状态栏字体颜色和背景颜色
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+    CGFloat statwidth = [[UIApplication sharedApplication] statusBarFrame].size.width;
+    
+    CGFloat statheight = [[UIApplication sharedApplication] statusBarFrame].size.height;
+    
+    UIView *statusBarView=[[UIView alloc]initWithFrame:CGRectMake(0,0, statwidth, statheight)];
+    
+    statusBarView.backgroundColor = [UIColor blackColor];
+    
+    [tabBarController.view addSubview:statusBarView];
     
         //self.window.rootViewController = [MessageTableViewController new];
         //self.window.rootViewController = [RegViewController new];

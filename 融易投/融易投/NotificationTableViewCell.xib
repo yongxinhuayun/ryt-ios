@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="330" height="50.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KCi-Ql-q0S">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerImage" translatesAutoresizingMaskIntoConstraints="NO" id="KCi-Ql-q0S">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="6NF-Nl-Eu6"/>
@@ -52,4 +52,7 @@
             <point key="canvasLocation" x="237" y="245.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="headerImage" width="214" height="221"/>
+    </resources>
 </document>

@@ -359,9 +359,10 @@
     //3.1 添加下划线
     UIView *underlineView = [[UIView alloc] init];
     underlineView.height = 2;
-    //    underlineView.width = 100;
+    
     underlineView.y = self.titlesView.height - underlineView.height;
     underlineView.x = 0;
+    
     underlineView.backgroundColor = [UIColor blackColor];
     
     //3.2 运行程序我们发现能添加下划线.但是我们希望点击按钮的时候,下划线跟这个点击按钮移动并且的宽度跟按钮的文字是一样宽度

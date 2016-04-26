@@ -68,6 +68,18 @@
 		2187B95F1CCE1B4200B92435 /* FinanceDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B95E1CCE1B4200B92435 /* FinanceDetailsViewController.m */; };
 		2187B9631CCE1C5700B92435 /* FinanceDetailsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9611CCE1C5700B92435 /* FinanceDetailsHeaderView.m */; };
 		2187B9641CCE1C5700B92435 /* FinanceDetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187B9621CCE1C5700B92435 /* FinanceDetailsHeaderView.xib */; };
+		2187B9691CCF0D0100B92435 /* AddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9671CCF0D0100B92435 /* AddressViewController.m */; };
+		2187B96A1CCF0D0100B92435 /* AddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187B9681CCF0D0100B92435 /* AddressViewController.xib */; };
+		2187B96F1CCF109900B92435 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B96C1CCF109900B92435 /* City.m */; };
+		2187B9701CCF109900B92435 /* cityField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B96E1CCF109900B92435 /* cityField.m */; };
+		2187B9721CCF10A600B92435 /* provinces.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2187B9711CCF10A600B92435 /* provinces.plist */; };
+		2187B97E1CCF25BF00B92435 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2187B9751CCF25BF00B92435 /* area.plist */; };
+		2187B97F1CCF25BF00B92435 /* CNCityAreaCitiesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9771CCF25BF00B92435 /* CNCityAreaCitiesModel.m */; };
+		2187B9801CCF25BF00B92435 /* CNCityAreaFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9791CCF25BF00B92435 /* CNCityAreaFactory.m */; };
+		2187B9811CCF25BF00B92435 /* CNCityAreaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B97B1CCF25BF00B92435 /* CNCityAreaModel.m */; };
+		2187B9821CCF25BF00B92435 /* CNCityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B97D1CCF25BF00B92435 /* CNCityPickerView.m */; };
+		2187B9861CCF405300B92435 /* WalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9851CCF405300B92435 /* WalletViewController.m */; };
+		2187B9881CCF415300B92435 /* WalletViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2187B9871CCF415300B92435 /* WalletViewController.storyboard */; };
 		218D2B3C1CACB2F9004553B9 /* CommonNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B391CACB2F9004553B9 /* CommonNavigationController.m */; };
 		218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3B1CACB2F9004553B9 /* CommonTabBarViewController.m */; };
 		218D2B411CACB310004553B9 /* RankTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3F1CACB310004553B9 /* RankTableViewController.m */; };
@@ -259,8 +271,6 @@
 		BC4A8BFAB939A8BBE3AF0A2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFB6E4A926D52C7C2AE4F6C /* libPods.a */; };
 		E21550E81CB604E20070D5D3 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */; };
 		E236C2961CB4B1B8009DCBF0 /* LognController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E236C2951CB4B1B7009DCBF0 /* LognController.xib */; };
-		E236C3101CB4BD7F009DCBF0 /* denglu_shurukuang@x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C30F1CB4BD7F009DCBF0 /* denglu_shurukuang@x.png */; };
-		E236C3121CB4C18C009DCBF0 /* denglu_yanzhengmashurukuang@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E236C3111CB4C18C009DCBF0 /* denglu_yanzhengmashurukuang@2x.png */; };
 		E236C3141CB4E068009DCBF0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E236C3131CB4E068009DCBF0 /* CFNetwork.framework */; };
 		E236C3161CB4E080009DCBF0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E236C3151CB4E080009DCBF0 /* CoreFoundation.framework */; };
 		E236C3181CB4E0C9009DCBF0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E236C3171CB4E0C9009DCBF0 /* CoreGraphics.framework */; };
@@ -423,6 +433,26 @@
 		2187B9601CCE1C5700B92435 /* FinanceDetailsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceDetailsHeaderView.h; sourceTree = "<group>"; };
 		2187B9611CCE1C5700B92435 /* FinanceDetailsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceDetailsHeaderView.m; sourceTree = "<group>"; };
 		2187B9621CCE1C5700B92435 /* FinanceDetailsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceDetailsHeaderView.xib; sourceTree = "<group>"; };
+		2187B9661CCF0D0100B92435 /* AddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressViewController.h; sourceTree = "<group>"; };
+		2187B9671CCF0D0100B92435 /* AddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressViewController.m; sourceTree = "<group>"; };
+		2187B9681CCF0D0100B92435 /* AddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressViewController.xib; sourceTree = "<group>"; };
+		2187B96B1CCF109900B92435 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		2187B96C1CCF109900B92435 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		2187B96D1CCF109900B92435 /* cityField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cityField.h; sourceTree = "<group>"; };
+		2187B96E1CCF109900B92435 /* cityField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cityField.m; sourceTree = "<group>"; };
+		2187B9711CCF10A600B92435 /* provinces.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = provinces.plist; sourceTree = "<group>"; };
+		2187B9751CCF25BF00B92435 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
+		2187B9761CCF25BF00B92435 /* CNCityAreaCitiesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNCityAreaCitiesModel.h; sourceTree = "<group>"; };
+		2187B9771CCF25BF00B92435 /* CNCityAreaCitiesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNCityAreaCitiesModel.m; sourceTree = "<group>"; };
+		2187B9781CCF25BF00B92435 /* CNCityAreaFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNCityAreaFactory.h; sourceTree = "<group>"; };
+		2187B9791CCF25BF00B92435 /* CNCityAreaFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNCityAreaFactory.m; sourceTree = "<group>"; };
+		2187B97A1CCF25BF00B92435 /* CNCityAreaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNCityAreaModel.h; sourceTree = "<group>"; };
+		2187B97B1CCF25BF00B92435 /* CNCityAreaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNCityAreaModel.m; sourceTree = "<group>"; };
+		2187B97C1CCF25BF00B92435 /* CNCityPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNCityPickerView.h; sourceTree = "<group>"; };
+		2187B97D1CCF25BF00B92435 /* CNCityPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNCityPickerView.m; sourceTree = "<group>"; };
+		2187B9841CCF405300B92435 /* WalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletViewController.h; sourceTree = "<group>"; };
+		2187B9851CCF405300B92435 /* WalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletViewController.m; sourceTree = "<group>"; };
+		2187B9871CCF415300B92435 /* WalletViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WalletViewController.storyboard; sourceTree = "<group>"; };
 		218D2B381CACB2F9004553B9 /* CommonNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNavigationController.h; sourceTree = "<group>"; };
 		218D2B391CACB2F9004553B9 /* CommonNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNavigationController.m; sourceTree = "<group>"; };
 		218D2B3A1CACB2F9004553B9 /* CommonTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTabBarViewController.h; sourceTree = "<group>"; };
@@ -762,8 +792,6 @@
 		E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
 		E21550E71CB604E20070D5D3 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		E236C2951CB4B1B7009DCBF0 /* LognController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LognController.xib; sourceTree = "<group>"; };
-		E236C30F1CB4BD7F009DCBF0 /* denglu_shurukuang@x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "denglu_shurukuang@x.png"; sourceTree = "<group>"; };
-		E236C3111CB4C18C009DCBF0 /* denglu_yanzhengmashurukuang@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "denglu_yanzhengmashurukuang@2x.png"; sourceTree = "<group>"; };
 		E236C3131CB4E068009DCBF0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		E236C3151CB4E080009DCBF0 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		E236C3171CB4E0C9009DCBF0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -792,7 +820,6 @@
 		E2D05B751CB38CD000B0F690 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E2D05B771CB38CEA00B0F690 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		E2D05B791CB38D5800B0F690 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		E2D099141CB796B00009B990 /* wode-weixuanzhong@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wode-weixuanzhong@2x.png"; sourceTree = "<group>"; };
 		E2D386FF1CB8AD6300F735F9 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		E2D387011CB8B1B000F735F9 /* AliPayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliPayController.h; sourceTree = "<group>"; };
 		E2D387021CB8B1B000F735F9 /* AliPayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliPayController.m; sourceTree = "<group>"; };
@@ -914,6 +941,56 @@
 				2187B94B1CCDF25C00B92435 /* CollectionViewController.m */,
 			);
 			path = TYSlidePageScrollView;
+			sourceTree = "<group>";
+		};
+		2187B9651CCF0C9900B92435 /* 收货地址 */ = {
+			isa = PBXGroup;
+			children = (
+				2187B9731CCF25BF00B92435 /* CNCityPickerView */,
+				2187B9661CCF0D0100B92435 /* AddressViewController.h */,
+				2187B9671CCF0D0100B92435 /* AddressViewController.m */,
+				2187B9681CCF0D0100B92435 /* AddressViewController.xib */,
+				2187B96B1CCF109900B92435 /* City.h */,
+				2187B96C1CCF109900B92435 /* City.m */,
+				2187B96D1CCF109900B92435 /* cityField.h */,
+				2187B96E1CCF109900B92435 /* cityField.m */,
+				2187B9711CCF10A600B92435 /* provinces.plist */,
+			);
+			name = "收货地址";
+			sourceTree = "<group>";
+		};
+		2187B9731CCF25BF00B92435 /* CNCityPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				2187B9741CCF25BF00B92435 /* Classes */,
+				2187B97C1CCF25BF00B92435 /* CNCityPickerView.h */,
+				2187B97D1CCF25BF00B92435 /* CNCityPickerView.m */,
+			);
+			path = CNCityPickerView;
+			sourceTree = "<group>";
+		};
+		2187B9741CCF25BF00B92435 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2187B9751CCF25BF00B92435 /* area.plist */,
+				2187B9761CCF25BF00B92435 /* CNCityAreaCitiesModel.h */,
+				2187B9771CCF25BF00B92435 /* CNCityAreaCitiesModel.m */,
+				2187B9781CCF25BF00B92435 /* CNCityAreaFactory.h */,
+				2187B9791CCF25BF00B92435 /* CNCityAreaFactory.m */,
+				2187B97A1CCF25BF00B92435 /* CNCityAreaModel.h */,
+				2187B97B1CCF25BF00B92435 /* CNCityAreaModel.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		2187B9831CCF3FFB00B92435 /* 钱包 */ = {
+			isa = PBXGroup;
+			children = (
+				2187B9841CCF405300B92435 /* WalletViewController.h */,
+				2187B9851CCF405300B92435 /* WalletViewController.m */,
+				2187B9871CCF415300B92435 /* WalletViewController.storyboard */,
+			);
+			name = "钱包";
 			sourceTree = "<group>";
 		};
 		218D2B371CACB2E3004553B9 /* Main */ = {
@@ -1595,9 +1672,6 @@
 			children = (
 				E2DDB0E91CAB66DB007438E4 /* AppDelegate.h */,
 				E2DDB0EA1CAB66DB007438E4 /* AppDelegate.m */,
-				E2D099141CB796B00009B990 /* wode-weixuanzhong@2x.png */,
-				E236C3111CB4C18C009DCBF0 /* denglu_yanzhengmashurukuang@2x.png */,
-				E236C30F1CB4BD7F009DCBF0 /* denglu_shurukuang@x.png */,
 				218D2B371CACB2E3004553B9 /* Main */,
 				E2DDB1B01CABA935007438E4 /* Lib */,
 				E2DDB1AA1CABA76B007438E4 /* Other */,
@@ -1703,6 +1777,8 @@
 		E2DDB19F1CABA6AD007438E4 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
+				2187B9831CCF3FFB00B92435 /* 钱包 */,
+				2187B9651CCF0C9900B92435 /* 收货地址 */,
 				2187B9301CCDF07200B92435 /* 艺术家的界面(没数据,没有展示) */,
 				2187B92F1CCDC8EF00B92435 /* 编辑资料 */,
 				2118F1E01CAE5805003BFC6B /* MyViewController.h */,
@@ -2319,7 +2395,6 @@
 			files = (
 				219ACA5F1CBE3F100052146E /* 林峰.png in Resources */,
 				219AC9F71CBDE4980052146E /* WHC_ChoicePictureVC.xib in Resources */,
-				E236C3121CB4C18C009DCBF0 /* denglu_yanzhengmashurukuang@2x.png in Resources */,
 				21AB0AC61CC50A4D00B7BA03 /* JPBaseTableViewController.xib in Resources */,
 				219AC9831CBC8EBD0052146E /* EmotionIcons in Resources */,
 				21C08BD11CB02521002328D3 /* SettingTableViewController.storyboard in Resources */,
@@ -2330,20 +2405,22 @@
 				2187B9241CCA36F600B92435 /* EditingInfoViewController.storyboard in Resources */,
 				218D2B5C1CACB5B9004553B9 /* Launch Screen.storyboard in Resources */,
 				219ACA541CBE3F100052146E /* picture2.png in Resources */,
+				2187B9721CCF10A600B92435 /* provinces.plist in Resources */,
 				21AB0AC41CC50A4D00B7BA03 /* CollectViewTestVC.xib in Resources */,
 				219AC9F51CBDE4980052146E /* WHC_CameraVC.xib in Resources */,
 				219ACA411CBE3F100052146E /* AGImagePickerController.bundle in Resources */,
 				219ACA031CBE3EE40052146E /* ReleaseViewController.storyboard in Resources */,
 				21D54B861CB6585B0088D386 /* InvestorTableViewCell.xib in Resources */,
-				E236C3101CB4BD7F009DCBF0 /* denglu_shurukuang@x.png in Resources */,
 				2168EAE41CBFA05000B7E037 /* FinanceDetailFirstCell.xib in Resources */,
 				21AB0B511CC6056500B7BA03 /* XIBHeaderView.xib in Resources */,
 				E2ABF0B21CB63C090005571F /* CommentsController.xib in Resources */,
 				E2D73DC31CAD2CA9004CEFA3 /* RegViewController.xib in Resources */,
+				2187B9881CCF415300B92435 /* WalletViewController.storyboard in Resources */,
 				21AB0B651CC722CC00B7BA03 /* ProjectDetailsCell1.xib in Resources */,
 				219ACA4C1CBE3F100052146E /* buttonSend@2x.png in Resources */,
 				E2D387051CB8B1B000F735F9 /* AliPayController.xib in Resources */,
 				21AB0B741CC72B3900B7BA03 /* ImageCollectionViewCell.xib in Resources */,
+				2187B97E1CCF25BF00B92435 /* area.plist in Resources */,
 				21AB0AA51CC4F6AE00B7BA03 /* XiangqingViewController.storyboard in Resources */,
 				2187B9091CC9F34100B92435 /* ArtistViewHeaderView.xib in Resources */,
 				219AC9AC1CBC9B060052146E /* ImagesPicker.xcassets in Resources */,
@@ -2357,6 +2434,7 @@
 				21D54B921CB739E60088D386 /* AuctionTableViewCell.xib in Resources */,
 				21D54B201CB4D99E0088D386 /* CreationTableViewCell.xib in Resources */,
 				219AC9F91CBDE4980052146E /* WHC_PictureListVC.xib in Resources */,
+				2187B96A1CCF0D0100B92435 /* AddressViewController.xib in Resources */,
 				21AB0A011CC0A17600B7BA03 /* ReleaseVideoViewController.xib in Resources */,
 				2187B9291CCDAD6700B92435 /* EditingNickNameViewController.xib in Resources */,
 				21AB0B5C1CC6084F00B7BA03 /* XIBDemoViewController.xib in Resources */,
@@ -2484,6 +2562,7 @@
 				219AC5F11CBC89970052146E /* MBProgressHUD+MJ.m in Sources */,
 				21AB0B731CC72B3900B7BA03 /* ImageCollectionViewCell.m in Sources */,
 				2187B9281CCDAD6700B92435 /* EditingNickNameViewController.m in Sources */,
+				2187B9861CCF405300B92435 /* WalletViewController.m in Sources */,
 				21AB0B581CC605F500B7BA03 /* XCLSegmentView.m in Sources */,
 				219ACA4F1CBE3F100052146E /* ImagePickerChooseCell.m in Sources */,
 				219ACA591CBE3F100052146E /* ShowImageView.m in Sources */,
@@ -2522,6 +2601,7 @@
 				219AC9DF1CBDE47D0052146E /* imageViewController.m in Sources */,
 				E2D387041CB8B1B000F735F9 /* AliPayController.m in Sources */,
 				21AB0B771CC72BBA00B7BA03 /* ImageModel.m in Sources */,
+				2187B9701CCF109900B92435 /* cityField.m in Sources */,
 				2187B9631CCE1C5700B92435 /* FinanceDetailsHeaderView.m in Sources */,
 				219AC9D61CBDE1EC0052146E /* ComposeViewController.m in Sources */,
 				2187B9011CC8E74100B92435 /* UserCommonResultModel.m in Sources */,
@@ -2544,7 +2624,9 @@
 				21D54B771CB6405B0088D386 /* NSCalendar+Init.m in Sources */,
 				21D54B781CB6405B0088D386 /* NSDate+Interval.m in Sources */,
 				21AB0ABF1CC50A4D00B7BA03 /* JPSlideBar+ScrollViewDelegate.m in Sources */,
+				2187B9811CCF25BF00B92435 /* CNCityAreaModel.m in Sources */,
 				21AB0A081CC0A5C400B7BA03 /* XMGPlayerView.m in Sources */,
+				2187B9691CCF0D0100B92435 /* AddressViewController.m in Sources */,
 				219ACA481CBE3F100052146E /* AGIPCPreviewController.m in Sources */,
 				219ACA471CBE3F100052146E /* AGIPCGridItem.m in Sources */,
 				2187B9431CCDF14000B92435 /* UIScrollView+ty_swizzle.m in Sources */,
@@ -2580,6 +2662,7 @@
 				219AC9AE1CBC9B060052146E /* JKAssetsCollectionFooterView.m in Sources */,
 				211C394A1CB36B1500DAD827 /* FinanceTableViewCell.m in Sources */,
 				218D2B5A1CACB35C004553B9 /* UIView+Frame.m in Sources */,
+				2187B97F1CCF25BF00B92435 /* CNCityAreaCitiesModel.m in Sources */,
 				218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */,
 				21AB0B911CC8BE0F00B7BA03 /* ArtworkMessageModel.m in Sources */,
 				218D2B411CACB310004553B9 /* RankTableViewController.m in Sources */,
@@ -2595,6 +2678,7 @@
 				21AB0B7D1CC77B5400B7BA03 /* ProjectDetailsResultModel.m in Sources */,
 				21AB0AE41CC5152C00B7BA03 /* UIColor+RandomColor.m in Sources */,
 				21D54B9D1CB791E10088D386 /* NSString+DocumentPath.m in Sources */,
+				2187B9801CCF25BF00B92435 /* CNCityAreaFactory.m in Sources */,
 				215EED2C1CB010A500A5957B /* ArtistTableViewController.m in Sources */,
 				21D54B1B1CB4D97C0088D386 /* CreationModel.m in Sources */,
 				21D54B9E1CB791E10088D386 /* UIImage+StrethImage.m in Sources */,
@@ -2632,12 +2716,14 @@
 				219AC9891CBC99670052146E /* DSComposePhotoViewCell.m in Sources */,
 				2187B9541CCDFCE500B92435 /* MyArtworkViewController.m in Sources */,
 				219ACA491CBE3F100052146E /* AGIPCToolbarItem.m in Sources */,
+				2187B96F1CCF109900B92435 /* City.m in Sources */,
 				2187B92D1CCDAD9C00B92435 /* EditingSignatureViewController.m in Sources */,
 				2118F1E31CAE5805003BFC6B /* MyViewController.m in Sources */,
 				2187B9421CCDF14000B92435 /* TYTitlePageTabBar.m in Sources */,
 				219AC9E21CBDE48D0052146E /* MBProgressHUD+Add.m in Sources */,
 				2187B9491CCDF24700B92435 /* TableViewController.m in Sources */,
 				21AB0B7A1CC7590F00B7BA03 /* ProjectDetailsModel.m in Sources */,
+				2187B9821CCF25BF00B92435 /* CNCityPickerView.m in Sources */,
 				219AC9B71CBC9B060052146E /* JKUtil.m in Sources */,
 				219AC9F31CBDE4980052146E /* WHC_PhotoListCell.m in Sources */,
 				E2D3870B1CB8E4E900F735F9 /* PrivateLetterViewController.m in Sources */,

@@ -10,6 +10,7 @@
 
 #import "EditingNickNameViewController.h"
 #import "EditingSignatureViewController.h"
+#import "AddressViewController.h"
 
 @interface EditingInfoViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -89,6 +90,10 @@
         }else if (indexPath.row == 2){
             
             [self editingSex];
+        }else if (indexPath.row == 3){
+            
+            AddressViewController *addressVC = [[AddressViewController alloc] init];
+            [self.navigationController pushViewController:addressVC animated:YES];
         }
     
     }

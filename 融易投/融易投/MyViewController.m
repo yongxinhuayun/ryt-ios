@@ -29,11 +29,14 @@
 
 #import "ArtistMyViewController.h"
 
+#import "WalletViewController.h"
+
 
 //#import "WeiXinController.h"
 //#import "ALiController.h"
 
 @interface MyViewController () <WechatShortVideoDelegate,UITableViewDelegate,UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UITableView *subTableView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -105,7 +108,7 @@
 
 -(void)setUpTableView{
 
-//    self.subTableView.scrollEnabled = NO;
+    self.subTableView.scrollEnabled = NO;
     
     self.subTableView.dataSource = self;
     self.subTableView.delegate = self;
@@ -127,7 +130,7 @@
     
     if (indexPath.row == 0) { //第0组
        
-            cell.textLabel.text = @"我的主页";
+    cell.textLabel.text = @"我的主页";
 
     }else if (indexPath.row == 1){
     cell.textLabel.text = @"钱包";
@@ -143,11 +146,14 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     if (indexPath.row == 0) { //第0组
         
+        
     }else if (indexPath.row == 1){
+        
+        UIStoryboard *walletStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([WalletViewController class]) bundle:nil];
+        WalletViewController *walletVC = [walletStoryBoard instantiateInitialViewController];
+        [self.navigationController pushViewController:walletVC animated:YES];
 
     }else if (indexPath.row == 2){
 
@@ -166,6 +172,7 @@
         
 
     }
+//        [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -173,8 +180,6 @@
     return 49;
 
 }
-
-
 
 
 - (void)didReceiveMemoryWarning {

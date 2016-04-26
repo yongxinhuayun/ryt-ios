@@ -14,7 +14,7 @@
 //NSString *const baseUrl = @"http://api.budejie.com/api/api_open.php";
 
 /** 导航栏最大的Y值 */
-CGFloat const SSStatusMaxH = 22;
+CGFloat const SSStatusMaxH = 20;
 
 /** 导航栏最大的Y值 */
 CGFloat const SSNavMaxY = 64;

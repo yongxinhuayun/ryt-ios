@@ -23,7 +23,7 @@
 #import "UIImageView+WebCache.h"
 
 
-@interface ProjectDetailsViewController () //<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface ProjectDetailsViewController () <UICollectionViewDataSource,UICollectionViewDelegate>
 
 //存放模型的数组
 @property (nonatomic, strong) NSMutableArray *models;
@@ -54,10 +54,18 @@ static NSString *ID4 = @"imageCell";
     
      [self loadData];
     
+    //替换模型中对应的key
     [ProjectDetailsModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         
         return @{
-                 @"descriptions":@"description",
+                  @"descriptions":@"description",
+                 };
+    }];
+    
+    //模型中有个数组属性artworkAttachmentList，数组里面又要装着ArtworkAttachmentListModel模型
+    [ProjectDetailsModel mj_setupObjectClassInArray:^NSDictionary *{
+        return @{
+                  @"artworkAttachmentList" : @"ArtworkAttachmentListModel",
                  };
     }];
     
@@ -132,12 +140,7 @@ static NSString *ID4 = @"imageCell";
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
-        //模型中有个数组属性artworkAttachmentList，数组里面又要装着ArtworkAttachmentListModel模型
-        [ProjectDetailsModel mj_setupObjectClassInArray:^NSDictionary *{
-            return @{
-                     @"artworkAttachmentList" : @"ArtworkAttachmentListModel",
-                    };
-        }];
+
         
 //        NSLog(@"%@",modelDict);
 
