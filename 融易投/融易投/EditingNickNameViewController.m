@@ -22,10 +22,21 @@
     [super viewDidLoad];
 
     [self setUpNavBar];
+   
+    [self setUpTextField];
+}
+
+-(void)setUpTextField{
+
     
     self.nickNameTF.delegate = self;
     
     [self.nickNameTF addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];
+    
+    if ([self.nickNameTF.placeholder isEqualToString:@"请输入昵称"]) {
+        
+        self.nickNameTF.text = self.nickName;
+    }
 }
 
 -(void)textChange

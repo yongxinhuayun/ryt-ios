@@ -28,6 +28,8 @@
 
 #import "XIBDemoViewController.h"
 
+#import "FinanceDetailsViewController.h"
+
 @interface FinanceTableViewController ()
 
 
@@ -430,8 +432,6 @@ static NSString *ID = @"financeCell";
 //    XiangqingViewController *settingVC = [settingStoryBoard instantiateInitialViewController];
 //    [self.navigationController pushViewController:settingVC animated:YES];
     
-    XIBDemoViewController *controller = [[XIBDemoViewController alloc] init];
-    
 //    // 告诉其他人（全世界）吧非详情页的数据传递给详情页
 //    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:self.model.ID,@"artWordID", nil];
 //    
@@ -440,6 +440,11 @@ static NSString *ID = @"financeCell";
 //    
 //    //通过通知中心发送通知
 //    [[NSNotificationCenter defaultCenter] postNotification:notification];
+    
+    
+//    XIBDemoViewController *controller = [[XIBDemoViewController alloc] init];
+    
+    FinanceDetailsViewController *controller = [[FinanceDetailsViewController alloc] init];
     
     //使用归档进行保存id
     //NSUserDefaults  是个单例,但是取出不是shared

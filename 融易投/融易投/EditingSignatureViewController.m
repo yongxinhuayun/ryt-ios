@@ -24,9 +24,23 @@
     [self setUpNavBar];
     
     
+    [self setUpTextField];
+    
+    
+    
+}
+
+-(void)setUpTextField{
+
     self.signatureTF.delegate = self;
     
     [self.signatureTF addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];
+    
+    if ([self.signatureTF.placeholder isEqualToString:@"请编辑个性签名"]) {
+        
+        self.signatureTF.text = self.singature;
+    }
+
 }
 
 -(void)textChange

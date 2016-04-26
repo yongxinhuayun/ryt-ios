@@ -57,8 +57,6 @@
     self.navigationItem.title = @"项目名称";
 }
 
-
-// if you want to set default page index ,you can do it on this method
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
@@ -192,8 +190,7 @@
     [self.slidePageScrollView reloadData];
 }
 
-- (void)navGoBack:(UIButton *)button
-{
+- (void)navGoBack:(UIButton *)button {
     [self.navigationController popViewControllerAnimated:YES];
 }
 

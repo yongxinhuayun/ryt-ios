@@ -65,6 +65,9 @@
 		2187B9581CCDFE3100B92435 /* MyArtworkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9561CCDFE3100B92435 /* MyArtworkCell.m */; };
 		2187B9591CCDFE3100B92435 /* MyArtworkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187B9571CCDFE3100B92435 /* MyArtworkCell.xib */; };
 		2187B95C1CCE083500B92435 /* CreationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B95B1CCE083500B92435 /* CreationDetailsViewController.m */; };
+		2187B95F1CCE1B4200B92435 /* FinanceDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B95E1CCE1B4200B92435 /* FinanceDetailsViewController.m */; };
+		2187B9631CCE1C5700B92435 /* FinanceDetailsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9611CCE1C5700B92435 /* FinanceDetailsHeaderView.m */; };
+		2187B9641CCE1C5700B92435 /* FinanceDetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187B9621CCE1C5700B92435 /* FinanceDetailsHeaderView.xib */; };
 		218D2B3C1CACB2F9004553B9 /* CommonNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B391CACB2F9004553B9 /* CommonNavigationController.m */; };
 		218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3B1CACB2F9004553B9 /* CommonTabBarViewController.m */; };
 		218D2B411CACB310004553B9 /* RankTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3F1CACB310004553B9 /* RankTableViewController.m */; };
@@ -415,6 +418,11 @@
 		2187B9571CCDFE3100B92435 /* MyArtworkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyArtworkCell.xib; sourceTree = "<group>"; };
 		2187B95A1CCE083500B92435 /* CreationDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreationDetailsViewController.h; sourceTree = "<group>"; };
 		2187B95B1CCE083500B92435 /* CreationDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreationDetailsViewController.m; sourceTree = "<group>"; };
+		2187B95D1CCE1B4200B92435 /* FinanceDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceDetailsViewController.h; sourceTree = "<group>"; };
+		2187B95E1CCE1B4200B92435 /* FinanceDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceDetailsViewController.m; sourceTree = "<group>"; };
+		2187B9601CCE1C5700B92435 /* FinanceDetailsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceDetailsHeaderView.h; sourceTree = "<group>"; };
+		2187B9611CCE1C5700B92435 /* FinanceDetailsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceDetailsHeaderView.m; sourceTree = "<group>"; };
+		2187B9621CCE1C5700B92435 /* FinanceDetailsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceDetailsHeaderView.xib; sourceTree = "<group>"; };
 		218D2B381CACB2F9004553B9 /* CommonNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNavigationController.h; sourceTree = "<group>"; };
 		218D2B391CACB2F9004553B9 /* CommonNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNavigationController.m; sourceTree = "<group>"; };
 		218D2B3A1CACB2F9004553B9 /* CommonTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTabBarViewController.h; sourceTree = "<group>"; };
@@ -867,7 +875,7 @@
 			name = "编辑资料";
 			sourceTree = "<group>";
 		};
-		2187B9301CCDF07200B92435 /* 艺术家的界面 */ = {
+		2187B9301CCDF07200B92435 /* 艺术家的界面(没数据,没有展示) */ = {
 			isa = PBXGroup;
 			children = (
 				2187B9341CCDF14000B92435 /* TYSlidePageScrollView */,
@@ -882,7 +890,7 @@
 				2187B9561CCDFE3100B92435 /* MyArtworkCell.m */,
 				2187B9571CCDFE3100B92435 /* MyArtworkCell.xib */,
 			);
-			name = "艺术家的界面";
+			name = "艺术家的界面(没数据,没有展示)";
 			sourceTree = "<group>";
 		};
 		2187B9341CCDF14000B92435 /* TYSlidePageScrollView */ = {
@@ -1401,6 +1409,11 @@
 		21AB0B861CC8BC9F00B7BA03 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2187B95D1CCE1B4200B92435 /* FinanceDetailsViewController.h */,
+				2187B95E1CCE1B4200B92435 /* FinanceDetailsViewController.m */,
+				2187B9601CCE1C5700B92435 /* FinanceDetailsHeaderView.h */,
+				2187B9611CCE1C5700B92435 /* FinanceDetailsHeaderView.m */,
+				2187B9621CCE1C5700B92435 /* FinanceDetailsHeaderView.xib */,
 				21AB0B3C1CC6056500B7BA03 /* XIBDemoViewController.h */,
 				21AB0B3D1CC6056500B7BA03 /* XIBDemoViewController.m */,
 				21AB0B5B1CC6084F00B7BA03 /* XIBDemoViewController.xib */,
@@ -1690,7 +1703,7 @@
 		E2DDB19F1CABA6AD007438E4 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
-				2187B9301CCDF07200B92435 /* 艺术家的界面 */,
+				2187B9301CCDF07200B92435 /* 艺术家的界面(没数据,没有展示) */,
 				2187B92F1CCDC8EF00B92435 /* 编辑资料 */,
 				2118F1E01CAE5805003BFC6B /* MyViewController.h */,
 				2118F1E11CAE5805003BFC6B /* MyViewController.m */,
@@ -2337,6 +2350,7 @@
 				2118F1E41CAE5805003BFC6B /* MyViewController.xib in Resources */,
 				219ACA3F1CBE3F100052146E /* addPictures.png in Resources */,
 				2187B9511CCDF7E100B92435 /* ArtistMyHeaderView.xib in Resources */,
+				2187B9641CCE1C5700B92435 /* FinanceDetailsHeaderView.xib in Resources */,
 				E2DDB0F31CAB66DB007438E4 /* Assets.xcassets in Resources */,
 				21AB0B821CC787C700B7BA03 /* InvestorArtWorkViewController.xib in Resources */,
 				211C394B1CB36B1500DAD827 /* FinanceTableViewCell.xib in Resources */,
@@ -2474,6 +2488,7 @@
 				219ACA4F1CBE3F100052146E /* ImagePickerChooseCell.m in Sources */,
 				219ACA591CBE3F100052146E /* ShowImageView.m in Sources */,
 				21E52C511CBE70BC004A68C4 /* TestViewController.m in Sources */,
+				2187B95F1CCE1B4200B92435 /* FinanceDetailsViewController.m in Sources */,
 				21AB0AC11CC50A4D00B7BA03 /* JPSlideNavigationBar.m in Sources */,
 				219AC5B91CBC839F0052146E /* NSString+Emoji.m in Sources */,
 				21D54B611CB532CF0088D386 /* UIImageView+Header.m in Sources */,
@@ -2507,6 +2522,7 @@
 				219AC9DF1CBDE47D0052146E /* imageViewController.m in Sources */,
 				E2D387041CB8B1B000F735F9 /* AliPayController.m in Sources */,
 				21AB0B771CC72BBA00B7BA03 /* ImageModel.m in Sources */,
+				2187B9631CCE1C5700B92435 /* FinanceDetailsHeaderView.m in Sources */,
 				219AC9D61CBDE1EC0052146E /* ComposeViewController.m in Sources */,
 				2187B9011CC8E74100B92435 /* UserCommonResultModel.m in Sources */,
 				2187B9461CCDF15100B92435 /* UINavigationBar+Awesome.m in Sources */,

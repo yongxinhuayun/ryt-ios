@@ -56,11 +56,16 @@
             
             EditingNickNameViewController *editingNickNameVC = [[EditingNickNameViewController alloc] init];
             
+            //逆传
             editingNickNameVC.valueBlcok = ^(NSString *str){
                 
                 self.nickNameLabel.text = str;
                
             };
+            
+            
+            //顺传
+            editingNickNameVC.nickName = self.nickNameLabel.text;
             
             
             [self.navigationController pushViewController:editingNickNameVC animated:YES];
@@ -69,11 +74,15 @@
             
             EditingSignatureViewController *editingSignatureVC = [[EditingSignatureViewController alloc] init];
             
+            //逆传
             editingSignatureVC.valueBlcok = ^(NSString *str){
                 
                 self.signatureLabel.text = str;
                 
             };
+            
+            //顺传
+            editingSignatureVC.singature = self.signatureLabel.text;
             
             [self.navigationController pushViewController:editingSignatureVC animated:YES];
             

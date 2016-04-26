@@ -222,7 +222,7 @@ static BOOL isProduction = FALSE;
         CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
     
     //设置tabBar的背景颜色
-    CGRect frame = CGRectMake(0, 0, SSScreenW, 48);
+    CGRect frame = tabBarController.tabBar.bounds;
     UIView *v = [[UIView alloc] initWithFrame:frame];
     [v setBackgroundColor:[[UIColor alloc] initWithRed:0/255.0
                                                  green:0/255.0

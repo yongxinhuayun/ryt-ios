@@ -237,7 +237,6 @@ static NSString *ID4 = @"imageCell";
 //    
 //    return topic.cellHeight;
     
-    
     return 750;
         
 }

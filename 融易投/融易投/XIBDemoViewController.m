@@ -82,7 +82,6 @@
     
     //添加所有的标题按钮
     [self setUpBottomTitleButtons];
-    
 }
 
 //-(void)acceprArtWorkID:(NSNotification *)note {
@@ -190,7 +189,6 @@
 //            
 //        }];
         }];
-    
 }
 
 
