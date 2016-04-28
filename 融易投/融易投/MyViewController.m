@@ -31,6 +31,11 @@
 
 #import "WalletViewController.h"
 
+#import "IdeaRetroactionViewController.h"
+
+#import "ReleaseViewController.h"
+
+#import "ApplyforArtistViewController.h"
 
 //#import "WeiXinController.h"
 //#import "ALiController.h"
@@ -103,7 +108,9 @@
     ApplyforArtViewController *applyforArt = [[ApplyforArtViewController alloc] init];
     
     [self.navigationController pushViewController:applyforArt animated:YES];
-    
+
+//    ApplyforArtistViewController *applyforArt = [[ApplyforArtistViewController alloc] init];
+//     [self.navigationController pushViewController:applyforArt animated:YES];
 }
 
 -(void)setUpTableView{
@@ -129,16 +136,25 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     if (indexPath.row == 0) { //第0组
-       
-    cell.textLabel.text = @"我的主页";
+        cell.imageView.image = [UIImage imageNamed:@"wodezhuye"];
+        cell.textLabel.text = @"我的主页";
 
     }else if (indexPath.row == 1){
-    cell.textLabel.text = @"钱包";
+        
+        cell.imageView.image = [UIImage imageNamed:@"qianbao"];
+        cell.textLabel.text = @"钱包";
+        
     }else if (indexPath.row == 2){
+        
+        cell.imageView.image = [UIImage imageNamed:@"paimaipaihang"];
         cell.textLabel.text = @"拍卖订单";
+        
     }else if (indexPath.row == 3){
+        cell.imageView.image = [UIImage imageNamed:@"shezhi"];
         cell.textLabel.text = @"设置";
     }else if (indexPath.row == 4){
+        
+        cell.imageView.image = [UIImage imageNamed:@"yijianfankui"];
         cell.textLabel.text = @"意见反馈";
     }
        return cell;
@@ -147,6 +163,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     if (indexPath.row == 0) { //第0组
+        
+        ArtistViewController *artistVC = [[ArtistViewController alloc] init];
+        [self.navigationController pushViewController:artistVC animated:YES];
         
         
     }else if (indexPath.row == 1){
@@ -170,9 +189,11 @@
 
     }else if (indexPath.row == 4){
         
+        IdeaRetroactionViewController *ideaRetroactionVC = [[IdeaRetroactionViewController alloc] init];
+        [self.navigationController pushViewController:ideaRetroactionVC animated:YES];
 
     }
-//        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -254,5 +275,14 @@
     
 }
 
+- (IBAction)releaseBtnClick:(id)sender {
+    
+    UIStoryboard *releaseStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
+    ReleaseViewController *releaseVC = [releaseStoryBoard instantiateInitialViewController];
+//    [self presentViewController:releaseVC animated:YES completion:nil];
+    [self.navigationController pushViewController:releaseVC animated:YES];
+    
+
+}
 
 @end

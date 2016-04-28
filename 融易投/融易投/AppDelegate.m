@@ -25,6 +25,8 @@
 
 #import "XIBDemoViewController.h"
 
+#import "ApplyforArtViewController.h"
+
 static NSString *appKey = @"d1573e16403c2482826bbd35";
 static NSString *channel = @"Publish channel";
 static BOOL isProduction = FALSE;
@@ -249,7 +251,7 @@ static BOOL isProduction = FALSE;
     
 //    FinanceViewController *vc = [[FinanceViewController alloc] init];
     
-//    XIBDemoViewController *xib = [[XIBDemoViewController alloc] init];
+//    ApplyforArtViewController *xib = [[ApplyforArtViewController alloc] init];
     
     self.window.rootViewController = tabBarController;
 //      self.window.rootViewController = [AliPayController new];

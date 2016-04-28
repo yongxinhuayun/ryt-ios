@@ -102,42 +102,28 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfk-q2-Wk7">
-                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                            <rect key="frame" x="0.0" y="160" width="30" height="30"/>
                             <state key="normal" title="登录"/>
                             <connections>
                                 <action selector="loginBtnClick:" destination="-1" eventType="touchUpInside" id="AiC-RA-ez4"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaj-0o-TxB">
-                            <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                            <rect key="frame" x="0.0" y="120" width="60" height="30"/>
                             <state key="normal" title="信息完善"/>
                             <connections>
                                 <action selector="CompleteUserInfoBtnClick:" destination="-1" eventType="touchUpInside" id="LWc-kq-I4U"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwF-tb-h5H">
-                            <rect key="frame" x="0.0" y="0.0" width="48" height="30"/>
-                            <state key="normal" title="WeiXin"/>
-                            <connections>
-                                <action selector="WeiXinPayBtnThings:" destination="-1" eventType="touchUpInside" id="JEZ-iU-ggB"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbd-bN-YsN">
-                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                            <state key="normal" title="ALi"/>
-                            <connections>
-                                <action selector="ALiPayBtnThings:" destination="-1" eventType="touchUpInside" id="KZa-wo-aor"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3EM-o9-oee">
-                            <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
+                            <rect key="frame" x="0.0" y="90" width="45" height="30"/>
                             <state key="normal" title="小视频"/>
                             <connections>
                                 <action selector="shortVideo:" destination="-1" eventType="touchUpInside" id="kvW-8V-W9L"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vad-XN-nqd">
-                            <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                            <rect key="frame" x="0.0" y="60" width="60" height="30"/>
                             <state key="normal" title="发布项目"/>
                             <connections>
                                 <action selector="releaseProject:" destination="-1" eventType="touchUpInside" id="hne-CZ-psu"/>
@@ -150,10 +136,17 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fhb-qt-Gzk">
-                            <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
+                            <rect key="frame" x="0.0" y="180" width="90" height="30"/>
                             <state key="normal" title="艺术家的界面"/>
                             <connections>
                                 <action selector="artistBtnClick:" destination="-1" eventType="touchUpInside" id="d8G-YG-0c6"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWi-iy-Ojx">
+                            <rect key="frame" x="0.0" y="204" width="60" height="30"/>
+                            <state key="normal" title="发布动态"/>
+                            <connections>
+                                <action selector="releaseBtnClick:" destination="-1" eventType="touchUpInside" id="1ZH-ve-QPI"/>
                             </connections>
                         </button>
                     </subviews>
@@ -211,6 +204,7 @@
                 <constraint firstItem="N3P-m0-gcq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="x7H-4f-P4e"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="179.5" y="204.5"/>
         </view>
     </objects>
     <resources>

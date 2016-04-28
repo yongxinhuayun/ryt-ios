@@ -20,7 +20,7 @@
 
 #import "ReleaseViewController.h"
 
-#import "TestViewController.h"
+
 
 
 @interface ReleaseProjectViewController ()<UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
@@ -45,7 +45,7 @@
     
     [self setupTextView];
     
-    
+
     //设置图片能够点击
     //记住:UIImageView默认情况下是不能接收事件的,如果要执行点击方法,必须把默认的User interaction Enable 改成yes
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];

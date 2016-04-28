@@ -53,7 +53,6 @@
 
 
 
-// if you want to set default page index ,you can do it on this method
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];

@@ -80,6 +80,10 @@
 		2187B9821CCF25BF00B92435 /* CNCityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B97D1CCF25BF00B92435 /* CNCityPickerView.m */; };
 		2187B9861CCF405300B92435 /* WalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9851CCF405300B92435 /* WalletViewController.m */; };
 		2187B9881CCF415300B92435 /* WalletViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2187B9871CCF415300B92435 /* WalletViewController.storyboard */; };
+		2187B98C1CD049C100B92435 /* IdeaRetroactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B98A1CD049C100B92435 /* IdeaRetroactionViewController.m */; };
+		2187B98D1CD049C100B92435 /* IdeaRetroactionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187B98B1CD049C100B92435 /* IdeaRetroactionViewController.xib */; };
+		218BC75B1CD1C331000A0CF8 /* ApplyHeaderView3.m in Sources */ = {isa = PBXBuildFile; fileRef = 218BC75A1CD1C331000A0CF8 /* ApplyHeaderView3.m */; };
+		218BC75D1CD1C33D000A0CF8 /* ApplyHeaderView3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 218BC75C1CD1C33D000A0CF8 /* ApplyHeaderView3.xib */; };
 		218D2B3C1CACB2F9004553B9 /* CommonNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B391CACB2F9004553B9 /* CommonNavigationController.m */; };
 		218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3B1CACB2F9004553B9 /* CommonTabBarViewController.m */; };
 		218D2B411CACB310004553B9 /* RankTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3F1CACB310004553B9 /* RankTableViewController.m */; };
@@ -266,8 +270,13 @@
 		21D54B9E1CB791E10088D386 /* UIImage+StrethImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B9C1CB791E10088D386 /* UIImage+StrethImage.m */; };
 		21D54BA11CB791F60088D386 /* ChartMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54BA01CB791F60088D386 /* ChartMessage.m */; };
 		21D54BCF1CB796CD0088D386 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21D54BCE1CB796CD0088D386 /* messages.plist */; };
-		21E52C511CBE70BC004A68C4 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E52C4F1CBE70BC004A68C4 /* TestViewController.m */; };
-		21E52C521CBE70BC004A68C4 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21E52C501CBE70BC004A68C4 /* TestViewController.xib */; };
+		21E5A9831CD062C300F7FE94 /* ApplyforArtViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21E5A9821CD062C300F7FE94 /* ApplyforArtViewController.storyboard */; };
+		21E5A9861CD0723F00F7FE94 /* ApplyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5A9851CD0723F00F7FE94 /* ApplyHeaderView.m */; };
+		21E5A9881CD0724C00F7FE94 /* ApplyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21E5A9871CD0724C00F7FE94 /* ApplyHeaderView.xib */; };
+		21E5A98C1CD0882500F7FE94 /* ApplyforArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5A98A1CD0882500F7FE94 /* ApplyforArtistViewController.m */; };
+		21E5A98D1CD0882500F7FE94 /* ApplyforArtistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21E5A98B1CD0882500F7FE94 /* ApplyforArtistViewController.xib */; };
+		21E5A9901CD094FE00F7FE94 /* ApplyHeaderView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5A98F1CD094FE00F7FE94 /* ApplyHeaderView2.m */; };
+		21E5A9921CD0950A00F7FE94 /* ApplyHeaderView2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21E5A9911CD0950A00F7FE94 /* ApplyHeaderView2.xib */; };
 		BC4A8BFAB939A8BBE3AF0A2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFB6E4A926D52C7C2AE4F6C /* libPods.a */; };
 		E21550E81CB604E20070D5D3 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */; };
 		E236C2961CB4B1B8009DCBF0 /* LognController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E236C2951CB4B1B7009DCBF0 /* LognController.xib */; };
@@ -453,6 +462,12 @@
 		2187B9841CCF405300B92435 /* WalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletViewController.h; sourceTree = "<group>"; };
 		2187B9851CCF405300B92435 /* WalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletViewController.m; sourceTree = "<group>"; };
 		2187B9871CCF415300B92435 /* WalletViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WalletViewController.storyboard; sourceTree = "<group>"; };
+		2187B9891CD049C100B92435 /* IdeaRetroactionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdeaRetroactionViewController.h; sourceTree = "<group>"; };
+		2187B98A1CD049C100B92435 /* IdeaRetroactionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdeaRetroactionViewController.m; sourceTree = "<group>"; };
+		2187B98B1CD049C100B92435 /* IdeaRetroactionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IdeaRetroactionViewController.xib; sourceTree = "<group>"; };
+		218BC7591CD1C331000A0CF8 /* ApplyHeaderView3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyHeaderView3.h; sourceTree = "<group>"; };
+		218BC75A1CD1C331000A0CF8 /* ApplyHeaderView3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyHeaderView3.m; sourceTree = "<group>"; };
+		218BC75C1CD1C33D000A0CF8 /* ApplyHeaderView3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ApplyHeaderView3.xib; sourceTree = "<group>"; };
 		218D2B381CACB2F9004553B9 /* CommonNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNavigationController.h; sourceTree = "<group>"; };
 		218D2B391CACB2F9004553B9 /* CommonNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNavigationController.m; sourceTree = "<group>"; };
 		218D2B3A1CACB2F9004553B9 /* CommonTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTabBarViewController.h; sourceTree = "<group>"; };
@@ -785,9 +800,16 @@
 		21D54BA41CB792010088D386 /* KeyBordVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyBordVIew.h; sourceTree = "<group>"; };
 		21D54BA51CB792010088D386 /* KeyBordVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyBordVIew.m; sourceTree = "<group>"; };
 		21D54BCE1CB796CD0088D386 /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
-		21E52C4E1CBE70BC004A68C4 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		21E52C4F1CBE70BC004A68C4 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		21E52C501CBE70BC004A68C4 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		21E5A9821CD062C300F7FE94 /* ApplyforArtViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ApplyforArtViewController.storyboard; sourceTree = "<group>"; };
+		21E5A9841CD0723F00F7FE94 /* ApplyHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyHeaderView.h; sourceTree = "<group>"; };
+		21E5A9851CD0723F00F7FE94 /* ApplyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyHeaderView.m; sourceTree = "<group>"; };
+		21E5A9871CD0724C00F7FE94 /* ApplyHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ApplyHeaderView.xib; sourceTree = "<group>"; };
+		21E5A9891CD0882500F7FE94 /* ApplyforArtistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyforArtistViewController.h; sourceTree = "<group>"; };
+		21E5A98A1CD0882500F7FE94 /* ApplyforArtistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyforArtistViewController.m; sourceTree = "<group>"; };
+		21E5A98B1CD0882500F7FE94 /* ApplyforArtistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ApplyforArtistViewController.xib; sourceTree = "<group>"; };
+		21E5A98E1CD094FE00F7FE94 /* ApplyHeaderView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyHeaderView2.h; sourceTree = "<group>"; };
+		21E5A98F1CD094FE00F7FE94 /* ApplyHeaderView2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyHeaderView2.m; sourceTree = "<group>"; };
+		21E5A9911CD0950A00F7FE94 /* ApplyHeaderView2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ApplyHeaderView2.xib; sourceTree = "<group>"; };
 		AC411E3C5CA46BB337E074BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
 		E21550E71CB604E20070D5D3 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
@@ -993,6 +1015,41 @@
 			name = "钱包";
 			sourceTree = "<group>";
 		};
+		2187B98E1CD04CCD00B92435 /* 申请为艺术家 */ = {
+			isa = PBXGroup;
+			children = (
+				2187B9021CC9DF2700B92435 /* ApplyforArtViewController.h */,
+				2187B9031CC9DF2700B92435 /* ApplyforArtViewController.m */,
+				21E5A9821CD062C300F7FE94 /* ApplyforArtViewController.storyboard */,
+				21E5A9841CD0723F00F7FE94 /* ApplyHeaderView.h */,
+				21E5A9851CD0723F00F7FE94 /* ApplyHeaderView.m */,
+				21E5A9871CD0724C00F7FE94 /* ApplyHeaderView.xib */,
+				21E5A98E1CD094FE00F7FE94 /* ApplyHeaderView2.h */,
+				21E5A98F1CD094FE00F7FE94 /* ApplyHeaderView2.m */,
+				21E5A9911CD0950A00F7FE94 /* ApplyHeaderView2.xib */,
+				218BC7591CD1C331000A0CF8 /* ApplyHeaderView3.h */,
+				218BC75A1CD1C331000A0CF8 /* ApplyHeaderView3.m */,
+				218BC75C1CD1C33D000A0CF8 /* ApplyHeaderView3.xib */,
+				21E5A9891CD0882500F7FE94 /* ApplyforArtistViewController.h */,
+				21E5A98A1CD0882500F7FE94 /* ApplyforArtistViewController.m */,
+				21E5A98B1CD0882500F7FE94 /* ApplyforArtistViewController.xib */,
+			);
+			name = "申请为艺术家";
+			sourceTree = "<group>";
+		};
+		2187B98F1CD0534100B92435 /* 我的主页 */ = {
+			isa = PBXGroup;
+			children = (
+				219AC9CE1CBD1B890052146E /* ArtistViewController.h */,
+				219AC9CF1CBD1B890052146E /* ArtistViewController.m */,
+				219AC9D01CBD1B890052146E /* ArtistViewController.xib */,
+				2187B9051CC9F33200B92435 /* ArtistViewHeaderView.h */,
+				2187B9061CC9F33200B92435 /* ArtistViewHeaderView.m */,
+				2187B9081CC9F34100B92435 /* ArtistViewHeaderView.xib */,
+			);
+			name = "我的主页";
+			sourceTree = "<group>";
+		};
 		218D2B371CACB2E3004553B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -1027,7 +1084,7 @@
 			name = "注册完成完善界面";
 			sourceTree = "<group>";
 		};
-		219AC5BD1CBC87FD0052146E /* Compose(发项目) */ = {
+		219AC5BD1CBC87FD0052146E /* Compose */ = {
 			isa = PBXGroup;
 			children = (
 				219AC5BE1CBC87FD0052146E /* Controller */,
@@ -1035,7 +1092,7 @@
 				219AC5C61CBC87FD0052146E /* Tool */,
 				219AC5C91CBC87FD0052146E /* View */,
 			);
-			name = "Compose(发项目)";
+			name = Compose;
 			path = "Compose(发微博)";
 			sourceTree = "<group>";
 		};
@@ -1586,13 +1643,28 @@
 				219AC9BC1CBCA5A40052146E /* ReleaseProjectViewController.xib */,
 				219AC5BF1CBC87FD0052146E /* HMComposeViewController.h */,
 				219AC5C01CBC87FD0052146E /* HMComposeViewController.m */,
-				21E52C4E1CBE70BC004A68C4 /* TestViewController.h */,
-				21E52C4F1CBE70BC004A68C4 /* TestViewController.m */,
-				21E52C501CBE70BC004A68C4 /* TestViewController.xib */,
 				2168EA7C1CBE882700B7E037 /* BBFlashCtntLabel.h */,
 				2168EA7D1CBE882700B7E037 /* BBFlashCtntLabel.m */,
 			);
 			name = "发布项目";
+			sourceTree = "<group>";
+		};
+		21E5A9811CD0610900F7FE94 /* 关注/粉丝 */ = {
+			isa = PBXGroup;
+			children = (
+				2187B90A1CC9F9CB00B92435 /* FocusViewController.h */,
+				2187B90B1CC9F9CB00B92435 /* FocusViewController.m */,
+				2187B90D1CC9FA6300B92435 /* FocusArtistTableViewController.h */,
+				2187B90E1CC9FA6300B92435 /* FocusArtistTableViewController.m */,
+				2187B9101CC9FA7500B92435 /* FocusUserTableViewController.h */,
+				2187B9111CC9FA7500B92435 /* FocusUserTableViewController.m */,
+				2187B9131CCA051A00B92435 /* FocusTableViewCell.h */,
+				2187B9141CCA051A00B92435 /* FocusTableViewCell.m */,
+				2187B9151CCA051A00B92435 /* FocusTableViewCell.xib */,
+				2187B9181CCA075400B92435 /* FocusModel.h */,
+				2187B9191CCA075400B92435 /* FocusModel.m */,
+			);
+			name = "关注/粉丝";
 			sourceTree = "<group>";
 		};
 		B084BF39CB86E631C5631222 /* Pods */ = {
@@ -1777,33 +1849,20 @@
 		E2DDB19F1CABA6AD007438E4 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
+				21E5A9811CD0610900F7FE94 /* 关注/粉丝 */,
+				2187B98E1CD04CCD00B92435 /* 申请为艺术家 */,
 				2187B9831CCF3FFB00B92435 /* 钱包 */,
 				2187B9651CCF0C9900B92435 /* 收货地址 */,
+				2187B98F1CD0534100B92435 /* 我的主页 */,
 				2187B9301CCDF07200B92435 /* 艺术家的界面(没数据,没有展示) */,
 				2187B92F1CCDC8EF00B92435 /* 编辑资料 */,
 				2118F1E01CAE5805003BFC6B /* MyViewController.h */,
 				2118F1E11CAE5805003BFC6B /* MyViewController.m */,
 				2118F1E21CAE5805003BFC6B /* MyViewController.xib */,
-				2187B9021CC9DF2700B92435 /* ApplyforArtViewController.h */,
-				2187B9031CC9DF2700B92435 /* ApplyforArtViewController.m */,
-				219AC9CE1CBD1B890052146E /* ArtistViewController.h */,
-				219AC9CF1CBD1B890052146E /* ArtistViewController.m */,
-				219AC9D01CBD1B890052146E /* ArtistViewController.xib */,
-				2187B9051CC9F33200B92435 /* ArtistViewHeaderView.h */,
-				2187B9061CC9F33200B92435 /* ArtistViewHeaderView.m */,
-				2187B9081CC9F34100B92435 /* ArtistViewHeaderView.xib */,
-				2187B90A1CC9F9CB00B92435 /* FocusViewController.h */,
-				2187B90B1CC9F9CB00B92435 /* FocusViewController.m */,
-				2187B90D1CC9FA6300B92435 /* FocusArtistTableViewController.h */,
-				2187B90E1CC9FA6300B92435 /* FocusArtistTableViewController.m */,
-				2187B9101CC9FA7500B92435 /* FocusUserTableViewController.h */,
-				2187B9111CC9FA7500B92435 /* FocusUserTableViewController.m */,
-				2187B9131CCA051A00B92435 /* FocusTableViewCell.h */,
-				2187B9141CCA051A00B92435 /* FocusTableViewCell.m */,
-				2187B9151CCA051A00B92435 /* FocusTableViewCell.xib */,
-				2187B9181CCA075400B92435 /* FocusModel.h */,
-				2187B9191CCA075400B92435 /* FocusModel.m */,
-				219AC5BD1CBC87FD0052146E /* Compose(发项目) */,
+				2187B9891CD049C100B92435 /* IdeaRetroactionViewController.h */,
+				2187B98A1CD049C100B92435 /* IdeaRetroactionViewController.m */,
+				2187B98B1CD049C100B92435 /* IdeaRetroactionViewController.xib */,
+				219AC5BD1CBC87FD0052146E /* Compose */,
 				E2DDB1AC1CABA8F2007438E4 /* 设置 */,
 				E2DDB1AB1CABA8DF007438E4 /* 申请艺术家 */,
 			);
@@ -2401,6 +2460,7 @@
 				219ACA601CBE3F100052146E /* 范冰冰.png in Resources */,
 				219ACA621CBE3F100052146E /* 麦粒-app-30.jpg in Resources */,
 				21AB0A091CC0A5C400B7BA03 /* XMGPlayerView.xib in Resources */,
+				21E5A98D1CD0882500F7FE94 /* ApplyforArtistViewController.xib in Resources */,
 				219ACA561CBE3F100052146E /* picture4.png in Resources */,
 				2187B9241CCA36F600B92435 /* EditingInfoViewController.storyboard in Resources */,
 				218D2B5C1CACB5B9004553B9 /* Launch Screen.storyboard in Resources */,
@@ -2416,6 +2476,7 @@
 				E2ABF0B21CB63C090005571F /* CommentsController.xib in Resources */,
 				E2D73DC31CAD2CA9004CEFA3 /* RegViewController.xib in Resources */,
 				2187B9881CCF415300B92435 /* WalletViewController.storyboard in Resources */,
+				21E5A9921CD0950A00F7FE94 /* ApplyHeaderView2.xib in Resources */,
 				21AB0B651CC722CC00B7BA03 /* ProjectDetailsCell1.xib in Resources */,
 				219ACA4C1CBE3F100052146E /* buttonSend@2x.png in Resources */,
 				E2D387051CB8B1B000F735F9 /* AliPayController.xib in Resources */,
@@ -2425,6 +2486,7 @@
 				2187B9091CC9F34100B92435 /* ArtistViewHeaderView.xib in Resources */,
 				219AC9AC1CBC9B060052146E /* ImagesPicker.xcassets in Resources */,
 				2118F1E41CAE5805003BFC6B /* MyViewController.xib in Resources */,
+				21E5A9881CD0724C00F7FE94 /* ApplyHeaderView.xib in Resources */,
 				219ACA3F1CBE3F100052146E /* addPictures.png in Resources */,
 				2187B9511CCDF7E100B92435 /* ArtistMyHeaderView.xib in Resources */,
 				2187B9641CCE1C5700B92435 /* FinanceDetailsHeaderView.xib in Resources */,
@@ -2438,10 +2500,12 @@
 				21AB0A011CC0A17600B7BA03 /* ReleaseVideoViewController.xib in Resources */,
 				2187B9291CCDAD6700B92435 /* EditingNickNameViewController.xib in Resources */,
 				21AB0B5C1CC6084F00B7BA03 /* XIBDemoViewController.xib in Resources */,
+				2187B98D1CD049C100B92435 /* IdeaRetroactionViewController.xib in Resources */,
 				21904CF61CAD3C8B00AD7A3F /* ForgetPasswordViewController.xib in Resources */,
 				219ACA4E1CBE3F100052146E /* deletePhoto.png in Resources */,
+				218BC75D1CD1C33D000A0CF8 /* ApplyHeaderView3.xib in Resources */,
 				21904CF11CAD3C7800AD7A3F /* CompleteUserInfoController.xib in Resources */,
-				21E52C521CBE70BC004A68C4 /* TestViewController.xib in Resources */,
+				21E5A9831CD062C300F7FE94 /* ApplyforArtViewController.storyboard in Resources */,
 				219ACA511CBE3F100052146E /* location.png in Resources */,
 				2187B8FE1CC8DBE800B92435 /* UserCommonCell.xib in Resources */,
 				219AC9FB1CBDE86F0052146E /* ComposeViewController.xib in Resources */,
@@ -2551,6 +2615,7 @@
 				219ACA451CBE3F100052146E /* AGIPCAssetsController.m in Sources */,
 				219AC9B91CBC9B060052146E /* UIView+JKPicker.m in Sources */,
 				E2D3870C1CB8E56100F735F9 /* KeyBordVIew.m in Sources */,
+				218BC75B1CD1C331000A0CF8 /* ApplyHeaderView3.m in Sources */,
 				2187B90F1CC9FA6300B92435 /* FocusArtistTableViewController.m in Sources */,
 				21D54B901CB660AC0088D386 /* ArtistModel.m in Sources */,
 				21AB0A001CC0A17600B7BA03 /* ReleaseVideoViewController.m in Sources */,
@@ -2566,7 +2631,6 @@
 				21AB0B581CC605F500B7BA03 /* XCLSegmentView.m in Sources */,
 				219ACA4F1CBE3F100052146E /* ImagePickerChooseCell.m in Sources */,
 				219ACA591CBE3F100052146E /* ShowImageView.m in Sources */,
-				21E52C511CBE70BC004A68C4 /* TestViewController.m in Sources */,
 				2187B95F1CCE1B4200B92435 /* FinanceDetailsViewController.m in Sources */,
 				21AB0AC11CC50A4D00B7BA03 /* JPSlideNavigationBar.m in Sources */,
 				219AC5B91CBC839F0052146E /* NSString+Emoji.m in Sources */,
@@ -2578,6 +2642,7 @@
 				219AC9F41CBDE4980052146E /* WHC_CameraVC.m in Sources */,
 				E236C3371CB4F6D0009DCBF0 /* MessageTableViewController.m in Sources */,
 				21904CF51CAD3C8B00AD7A3F /* ForgetPasswordViewController.m in Sources */,
+				2187B98C1CD049C100B92435 /* IdeaRetroactionViewController.m in Sources */,
 				2187B94F1CCDF7D500B92435 /* ArtistMyHeaderView.m in Sources */,
 				21AB0AC31CC50A4D00B7BA03 /* CollectViewTestVC.m in Sources */,
 				E2D387081CB8E49F00F735F9 /* ChartContentView.m in Sources */,
@@ -2600,6 +2665,7 @@
 				219AC5E91CBC87FD0052146E /* HMEmotionTextView.m in Sources */,
 				219AC9DF1CBDE47D0052146E /* imageViewController.m in Sources */,
 				E2D387041CB8B1B000F735F9 /* AliPayController.m in Sources */,
+				21E5A98C1CD0882500F7FE94 /* ApplyforArtistViewController.m in Sources */,
 				21AB0B771CC72BBA00B7BA03 /* ImageModel.m in Sources */,
 				2187B9701CCF109900B92435 /* cityField.m in Sources */,
 				2187B9631CCE1C5700B92435 /* FinanceDetailsHeaderView.m in Sources */,
@@ -2632,6 +2698,7 @@
 				2187B9431CCDF14000B92435 /* UIScrollView+ty_swizzle.m in Sources */,
 				219ACA461CBE3F100052146E /* AGIPCGridCell.m in Sources */,
 				21D54B391CB4F88B0088D386 /* AuctionTableViewController.m in Sources */,
+				21E5A9861CD0723F00F7FE94 /* ApplyHeaderView.m in Sources */,
 				219AC9F61CBDE4980052146E /* WHC_ChoicePictureVC.m in Sources */,
 				219ACA021CBE3EE40052146E /* ReleaseViewController.m in Sources */,
 				219AC5E31CBC87FD0052146E /* HMEmotionTool.m in Sources */,
@@ -2691,6 +2758,7 @@
 				21D54B7B1CB64A510088D386 /* MyMD5.m in Sources */,
 				21AB0B9A1CC8CF5200B7BA03 /* UserCommentObjectModel.m in Sources */,
 				215E73601CB7BB4500A67690 /* FromUserModel.m in Sources */,
+				21E5A9901CD094FE00F7FE94 /* ApplyHeaderView2.m in Sources */,
 				21AB0AC71CC50A4D00B7BA03 /* JPTableViewCell.m in Sources */,
 				219ACA5D1CBE3F100052146E /* UITableView+Improve.m in Sources */,
 				219AC9F81CBDE4980052146E /* WHC_PictureListVC.m in Sources */,
