@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ApplyforArtViewController : UIViewController
+@interface ApplyforArtViewController : UITableViewController
 
 @end

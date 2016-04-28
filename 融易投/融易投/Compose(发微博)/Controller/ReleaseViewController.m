@@ -38,19 +38,56 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0/255 green:149.0/255 blue:135.0/255 alpha:1];
+    [self setUpNavBar];
     
-   self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+
     [self.tableView improveTableView];
-    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
+
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(keyboardDismiss:)];
+    
     tap.delegate = self;
+    
     [self.tableView addGestureRecognizer:tap];
     
     [self initHeaderView];
 }
+
+// 设置导航条
+-(void)setUpNavBar
+{
+    //设置导航条标题
+    self.navigationItem.title = @"发布动态";
+    
+    
+    //设置导航条按钮
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [rightButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    [rightButton setTitle:@"发送" forState:UIControlStateNormal];
+    
+    //运行程序,发现按钮没有出现导航条上面,因为没有设置尺寸
+    [rightButton sizeToFit];
+    
+    [rightButton addTarget:self action:@selector(send) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    
+    self.navigationItem.rightBarButtonItem = rightBarButton;
+    
+}
+
+-(void)send{
+    
+    
+    SSLog(@"发布");
+    
+//    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 #define textViewHeight 100
 #define pictureHW (screenWidth - 5*padding)/4
@@ -123,7 +160,7 @@
 -(void)tapImageView:(UITapGestureRecognizer *)tap
 {
     self.navigationController.navigationBarHidden = YES;
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ReleaseViewController" bundle:[NSBundle mainBundle]];
     ShowImageViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ShowImage"];
     vc.clickTag = tap.view.tag;
     vc.imageViews = self.imagePickerArray;
@@ -133,6 +170,7 @@
 #pragma mark - keyboard method
 -(void)keyboardDismiss:(UITapGestureRecognizer *)tap
 {
+    
     [self.reportStateTextView resignFirstResponder];
 }
 
@@ -141,11 +179,13 @@
 {
     if ([(UIButton *)btn.superview isKindOfClass:[UIImageView class]]) {
         UIImageView *imageView = (UIImageView *)(UIButton *)btn.superview;
+        NSLog(@"tag = %ld",(long)imageView.tag);
         [self.imagePickerArray removeObjectAtIndex:(imageView.tag - imageTag)];
         [imageView removeFromSuperview];
     }
     [self initHeaderView];
 }
+
 
 #define IPCViewHeight 120
 -(void)initImagePickerChooseView
@@ -347,19 +387,19 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //所在位置
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    if (indexPath.section == 0) {
-        UIViewController *locationVC = [storyboard instantiateViewControllerWithIdentifier:@"Location"];
-        [self.navigationController pushViewController:locationVC animated:YES];
-        
-    }
-    //对谁可见
-    else
-    {
-        UIViewController *locationVC = [storyboard instantiateViewControllerWithIdentifier:@"WhoCanSee"];
-        [self.navigationController pushViewController:locationVC animated:YES];
-    }
+//    //所在位置
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ReleaseViewController" bundle:[NSBundle mainBundle]];
+//    if (indexPath.section == 0) {
+//        UIViewController *locationVC = [storyboard instantiateViewControllerWithIdentifier:@"Location"];
+//        [self.navigationController pushViewController:locationVC animated:YES];
+//        
+//    }
+//    //对谁可见
+//    else
+//    {
+//        UIViewController *locationVC = [storyboard instantiateViewControllerWithIdentifier:@"WhoCanSee"];
+//        [self.navigationController pushViewController:locationVC animated:YES];
+//    }
 }
 //-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 //{
@@ -467,7 +507,27 @@
     NSString *description = @"和发货速度加快结构记得分别居";
     
    // NSArray *file = self.photosView2.selectedPhotos;
-    NSArray *file = @[@"1",@"2",@"3"];
+    NSMutableArray *tempArray = [NSMutableArray array];
+    
+    NSInteger count = 0;
+    
+    for (UIImage *image in self.imagePickerArray) {
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        
+        formatter.dateFormat = @"yyyyMMddHHmmssSSS";
+        
+        NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(count)];
+        
+        NSLog(@"%@",fileName);
+        
+        [tempArray addObject:fileName];
+
+        count++;
+}
+    
+    NSArray *file = tempArray.copy;
+
     
     
     //    NSString *make_instruDescription = @"和发货速度加快结构记得分别居";
@@ -575,14 +635,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

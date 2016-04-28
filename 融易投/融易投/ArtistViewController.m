@@ -10,7 +10,6 @@
 
 #import "SettingTableViewController.h"
 
-
 #import <WechatShortVideoController.h>
 
 #import "ReleaseViewController.h"
@@ -73,8 +72,6 @@
 {
     //设置导航条标题
     self.navigationItem.title = @"我的";
-    
-    
 }
 
 //上传视频
@@ -141,8 +138,6 @@
         [alertController addAction:picAction];
         [alertController addAction:cancelAction];
     }
-
-    
 }
 
 
@@ -152,7 +147,6 @@
     NSString *projectTitle = @"你妹";
     
     NSString *title = [projectTitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
     
     NSString *userId = @"imhfp1yr4636pj49";
     NSString *picture_url = urlVideo;

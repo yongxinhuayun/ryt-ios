@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ApplyHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="329" height="182"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="真实姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ds-GA-DGq">
+                    <rect key="frame" x="10" y="10" width="68" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAi-uM-UXS">
+                    <rect key="frame" x="10" y="80" width="51" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="La2-oT-rPD">
+                    <rect key="frame" x="10" y="110" width="225" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请上传本人身份证照片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ae4-ea-MmH">
+                    <rect key="frame" x="10" y="150" width="170" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="您身份证上的姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xvC-gC-bDW">
+                    <rect key="frame" x="10" y="40" width="312" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(正反面)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZm-OA-ab4">
+                    <rect key="frame" x="83" y="10" width="62.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.13713025249999999" blue="0.95569611830000001" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="ae4-ea-MmH" firstAttribute="top" secondItem="La2-oT-rPD" secondAttribute="bottom" constant="10" id="OSY-TG-tNs"/>
+                <constraint firstItem="La2-oT-rPD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Ona-Iv-JxS"/>
+                <constraint firstItem="ae4-ea-MmH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Q14-Ed-l3s"/>
+                <constraint firstItem="xvC-gC-bDW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Sdy-yt-ayl"/>
+                <constraint firstItem="3ds-GA-DGq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="bOa-My-Om6"/>
+                <constraint firstItem="3ds-GA-DGq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="beJ-WX-QSO"/>
+                <constraint firstItem="La2-oT-rPD" firstAttribute="top" secondItem="fAi-uM-UXS" secondAttribute="bottom" constant="10" id="dM6-c9-9mP"/>
+                <constraint firstAttribute="trailing" secondItem="La2-oT-rPD" secondAttribute="trailing" constant="10" id="g1d-8l-G8O"/>
+                <constraint firstAttribute="bottom" secondItem="ae4-ea-MmH" secondAttribute="bottom" id="igJ-JZ-y6Y"/>
+                <constraint firstItem="fAi-uM-UXS" firstAttribute="top" secondItem="xvC-gC-bDW" secondAttribute="bottom" constant="10" id="kHp-1B-POg"/>
+                <constraint firstItem="wZm-OA-ab4" firstAttribute="leading" secondItem="3ds-GA-DGq" secondAttribute="trailing" constant="5" id="kZJ-0C-BFn"/>
+                <constraint firstItem="xvC-gC-bDW" firstAttribute="top" secondItem="3ds-GA-DGq" secondAttribute="bottom" constant="10" id="l0k-9Q-GWt"/>
+                <constraint firstAttribute="trailing" secondItem="xvC-gC-bDW" secondAttribute="trailing" constant="10" id="uSe-du-1Lq"/>
+                <constraint firstItem="wZm-OA-ab4" firstAttribute="centerY" secondItem="3ds-GA-DGq" secondAttribute="centerY" id="vdY-eV-yc5"/>
+                <constraint firstItem="fAi-uM-UXS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="y7L-eD-Rgh"/>
+                <constraint firstAttribute="trailing" secondItem="xvC-gC-bDW" secondAttribute="trailing" constant="10" id="yQk-JS-U5Y"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="yQk-JS-U5Y"/>
+                    <exclude reference="g1d-8l-G8O"/>
+                    <exclude reference="igJ-JZ-y6Y"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="nameTF" destination="xvC-gC-bDW" id="td1-P3-40F"/>
+                <outlet property="phoneTF" destination="La2-oT-rPD" id="RSL-4D-IY2"/>
+            </connections>
+            <point key="canvasLocation" x="46.5" y="206"/>
+        </view>
+    </objects>
+</document>

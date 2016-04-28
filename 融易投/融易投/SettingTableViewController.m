@@ -89,9 +89,6 @@
         
     } else if (indexPath.section == 2) {
         
-        
-    }else if (indexPath.section == 3) {
-        
         [SVProgressHUD showWithStatus:@"正在删除..."];
         
         // 清空缓存,就是把Cache文件夹直接删掉
@@ -107,10 +104,7 @@
             self.cachesTotalLabel.text = @"";
             
         }];
-
     }
-
-
 }
 
 
