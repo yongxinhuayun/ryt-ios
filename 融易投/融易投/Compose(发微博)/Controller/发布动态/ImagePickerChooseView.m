@@ -9,7 +9,7 @@
 #import "ImagePickerChooseView.h"
 #import "HeaderContent.h"
 #import "ImagePickerChooseCell.h"
-@interface ImagePickerChooseView()<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>
+@interface ImagePickerChooseView()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,weak)UIView *tapView;
 @property (nonatomic,weak)UITableView *chooseTableView;
 @property (nonatomic,strong)ImagePickerBlock ImagePickerblock;
@@ -22,49 +22,31 @@
     self = [super initWithFrame:frame];
     if (self) {
         //初始化背景
-        UIView *tapView = [[UIView alloc]initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
+        UIView *tapView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,screenWidth, screenHeight)];
         tapView.backgroundColor = [UIColor blackColor];
         tapView.alpha = 0.4;
         tapView.userInteractionEnabled = YES;
-//        [bgView addSubview:tapView];
-        [[UIApplication sharedApplication].keyWindow addSubview:tapView];
+        [bgView addSubview:tapView];
         self.tapView = tapView;
         
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(disappear)];
-        tapGesture.delegate = self;
         [self.tapView addGestureRecognizer:tapGesture];
     }
     return self;
 }
 
--(BOOL)gestureRecognizer:(UIGestureRecognizer*)gestureRecognizer shouldReceiveTouch:(UITouch*)touch {
-    
-    NSLog(@"")
-    if([touch.view isKindOfClass:[UITableView class]])
-        
-        return YES;
-    
-    else
-        
-        return NO;
-    
-}
-
 -(void)addImagePickerChooseView
 {
-    UITableView *chooseTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, self.frame.size.width, self.frame.size.height)];
+    UITableView *chooseTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     chooseTableView.delegate = self;
     chooseTableView.dataSource = self;
     [self addSubview:chooseTableView];
-    
     self.chooseTableView = chooseTableView;
 }
 
 #define IPCViewHeight 120
 -(void)disappear
 {
-    
-    NSLog(@"取消");
 //    ((UITableView *)self.superview).scrollEnabled = YES;
     [self.tapView removeFromSuperview];
     self.tapView = nil;
@@ -103,7 +85,6 @@
     {
         cell.imagePickerName.text = @"取消";
     }
-    
     return cell;
 }
 
@@ -121,8 +102,6 @@
     else if (indexPath.row == 1)
     {
         self.ImagePickerblock();
-        [self.tapView removeFromSuperview];
-        [self.chooseTableView removeFromSuperview];
     }
     else
     {
