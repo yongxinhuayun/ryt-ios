@@ -98,6 +98,17 @@
 		21904CF51CAD3C8B00AD7A3F /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21904CF31CAD3C8B00AD7A3F /* ForgetPasswordViewController.m */; };
 		21904CF61CAD3C8B00AD7A3F /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21904CF41CAD3C8B00AD7A3F /* ForgetPasswordViewController.xib */; };
 		21904D321CAE0F4000AD7A3F /* UserAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 21904D311CAE0F4000AD7A3F /* UserAccount.m */; };
+		219A1E7D1CD3352F002843AC /* FocusMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219A1E7C1CD3352F002843AC /* FocusMyViewController.m */; };
+		219A1E801CD33569002843AC /* FocusMyArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219A1E7F1CD33569002843AC /* FocusMyArtistTableViewController.m */; };
+		219A1E831CD33580002843AC /* FocusMyUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219A1E821CD33580002843AC /* FocusMyUserTableViewController.m */; };
+		219A1E871CD3359F002843AC /* FocusMyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 219A1E851CD3359F002843AC /* FocusMyTableViewCell.m */; };
+		219A1E881CD3359F002843AC /* FocusMyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219A1E861CD3359F002843AC /* FocusMyTableViewCell.xib */; };
+		219A1E8B1CD335B6002843AC /* FocusMyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 219A1E8A1CD335B6002843AC /* FocusMyModel.m */; };
+		219A1E8E1CD34570002843AC /* MyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 219A1E8D1CD34570002843AC /* MyHeaderView.m */; };
+		219A1E901CD345F1002843AC /* MyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219A1E8F1CD345F1002843AC /* MyHeaderView.xib */; };
+		219A1E921CD355D0002843AC /* test.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219A1E911CD355D0002843AC /* test.xib */; };
+		219A1E951CD355DE002843AC /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = 219A1E941CD355DE002843AC /* test.m */; };
+		219A1E981CD35682002843AC /* testTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219A1E971CD35682002843AC /* testTableViewController.m */; };
 		219AC5B91CBC839F0052146E /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 219AC5B81CBC839F0052146E /* NSString+Emoji.m */; };
 		219AC5E01CBC87FD0052146E /* HMComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219AC5C01CBC87FD0052146E /* HMComposeViewController.m */; };
 		219AC5E11CBC87FD0052146E /* HMEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 219AC5C31CBC87FD0052146E /* HMEmotion.m */; };
@@ -499,6 +510,25 @@
 		21904D2C1CAD517700AD7A3F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		21904D301CAE0F4000AD7A3F /* UserAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAccount.h; sourceTree = "<group>"; };
 		21904D311CAE0F4000AD7A3F /* UserAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAccount.m; sourceTree = "<group>"; };
+		219A1E7B1CD3352F002843AC /* FocusMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusMyViewController.h; sourceTree = "<group>"; };
+		219A1E7C1CD3352F002843AC /* FocusMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusMyViewController.m; sourceTree = "<group>"; };
+		219A1E7E1CD33569002843AC /* FocusMyArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusMyArtistTableViewController.h; sourceTree = "<group>"; };
+		219A1E7F1CD33569002843AC /* FocusMyArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusMyArtistTableViewController.m; sourceTree = "<group>"; };
+		219A1E811CD33580002843AC /* FocusMyUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusMyUserTableViewController.h; sourceTree = "<group>"; };
+		219A1E821CD33580002843AC /* FocusMyUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusMyUserTableViewController.m; sourceTree = "<group>"; };
+		219A1E841CD3359F002843AC /* FocusMyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusMyTableViewCell.h; sourceTree = "<group>"; };
+		219A1E851CD3359F002843AC /* FocusMyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusMyTableViewCell.m; sourceTree = "<group>"; };
+		219A1E861CD3359F002843AC /* FocusMyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FocusMyTableViewCell.xib; sourceTree = "<group>"; };
+		219A1E891CD335B6002843AC /* FocusMyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusMyModel.h; sourceTree = "<group>"; };
+		219A1E8A1CD335B6002843AC /* FocusMyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusMyModel.m; sourceTree = "<group>"; };
+		219A1E8C1CD34570002843AC /* MyHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHeaderView.h; sourceTree = "<group>"; };
+		219A1E8D1CD34570002843AC /* MyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHeaderView.m; sourceTree = "<group>"; };
+		219A1E8F1CD345F1002843AC /* MyHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyHeaderView.xib; sourceTree = "<group>"; };
+		219A1E911CD355D0002843AC /* test.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = test.xib; sourceTree = "<group>"; };
+		219A1E931CD355DE002843AC /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
+		219A1E941CD355DE002843AC /* test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
+		219A1E961CD35682002843AC /* testTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testTableViewController.h; sourceTree = "<group>"; };
+		219A1E971CD35682002843AC /* testTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testTableViewController.m; sourceTree = "<group>"; };
 		219AC5B71CBC839F0052146E /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
 		219AC5B81CBC839F0052146E /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
 		219AC5BF1CBC87FD0052146E /* HMComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMComposeViewController.h; sourceTree = "<group>"; };
@@ -934,6 +964,8 @@
 				2187B92A1CCDAD9C00B92435 /* EditingSignatureViewController.h */,
 				2187B92B1CCDAD9C00B92435 /* EditingSignatureViewController.m */,
 				2187B92C1CCDAD9C00B92435 /* EditingSignatureViewController.xib */,
+				219A1E961CD35682002843AC /* testTableViewController.h */,
+				219A1E971CD35682002843AC /* testTableViewController.m */,
 			);
 			name = "编辑资料";
 			sourceTree = "<group>";
@@ -1096,6 +1128,31 @@
 				21904D311CAE0F4000AD7A3F /* UserAccount.m */,
 			);
 			name = "注册完成完善界面";
+			sourceTree = "<group>";
+		};
+		219A1E791CD3348B002843AC /* 看别人的关注 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "看别人的关注";
+			sourceTree = "<group>";
+		};
+		219A1E7A1CD3349E002843AC /* 看自己的关注 */ = {
+			isa = PBXGroup;
+			children = (
+				219A1E7B1CD3352F002843AC /* FocusMyViewController.h */,
+				219A1E7C1CD3352F002843AC /* FocusMyViewController.m */,
+				219A1E7E1CD33569002843AC /* FocusMyArtistTableViewController.h */,
+				219A1E7F1CD33569002843AC /* FocusMyArtistTableViewController.m */,
+				219A1E811CD33580002843AC /* FocusMyUserTableViewController.h */,
+				219A1E821CD33580002843AC /* FocusMyUserTableViewController.m */,
+				219A1E841CD3359F002843AC /* FocusMyTableViewCell.h */,
+				219A1E851CD3359F002843AC /* FocusMyTableViewCell.m */,
+				219A1E861CD3359F002843AC /* FocusMyTableViewCell.xib */,
+				219A1E891CD335B6002843AC /* FocusMyModel.h */,
+				219A1E8A1CD335B6002843AC /* FocusMyModel.m */,
+			);
+			name = "看自己的关注";
 			sourceTree = "<group>";
 		};
 		219AC5BD1CBC87FD0052146E /* Compose */ = {
@@ -1671,6 +1728,8 @@
 		21E5A9811CD0610900F7FE94 /* 关注/粉丝 */ = {
 			isa = PBXGroup;
 			children = (
+				219A1E7A1CD3349E002843AC /* 看自己的关注 */,
+				219A1E791CD3348B002843AC /* 看别人的关注 */,
 				2187B90A1CC9F9CB00B92435 /* FocusViewController.h */,
 				2187B90B1CC9F9CB00B92435 /* FocusViewController.m */,
 				2187B90D1CC9FA6300B92435 /* FocusArtistTableViewController.h */,
@@ -1888,6 +1947,12 @@
 				2118F1E01CAE5805003BFC6B /* MyViewController.h */,
 				2118F1E11CAE5805003BFC6B /* MyViewController.m */,
 				2118F1E21CAE5805003BFC6B /* MyViewController.xib */,
+				219A1E911CD355D0002843AC /* test.xib */,
+				219A1E931CD355DE002843AC /* test.h */,
+				219A1E941CD355DE002843AC /* test.m */,
+				219A1E8C1CD34570002843AC /* MyHeaderView.h */,
+				219A1E8D1CD34570002843AC /* MyHeaderView.m */,
+				219A1E8F1CD345F1002843AC /* MyHeaderView.xib */,
 				2187B9891CD049C100B92435 /* IdeaRetroactionViewController.h */,
 				2187B98A1CD049C100B92435 /* IdeaRetroactionViewController.m */,
 				2187B98B1CD049C100B92435 /* IdeaRetroactionViewController.xib */,
@@ -2534,6 +2599,7 @@
 				21AB0B5C1CC6084F00B7BA03 /* XIBDemoViewController.xib in Resources */,
 				2187B98D1CD049C100B92435 /* IdeaRetroactionViewController.xib in Resources */,
 				21904CF61CAD3C8B00AD7A3F /* ForgetPasswordViewController.xib in Resources */,
+				219A1E901CD345F1002843AC /* MyHeaderView.xib in Resources */,
 				219ACA4E1CBE3F100052146E /* deletePhoto.png in Resources */,
 				218BC75D1CD1C33D000A0CF8 /* ApplyHeaderView3.xib in Resources */,
 				21904CF11CAD3C7800AD7A3F /* CompleteUserInfoController.xib in Resources */,
@@ -2546,6 +2612,8 @@
 				E236C3241CB4E27E009DCBF0 /* PushConfig.plist in Resources */,
 				2187B92E1CCDAD9C00B92435 /* EditingSignatureViewController.xib in Resources */,
 				2168EAE71CBFA05000B7E037 /* FinanceDetailSecondCell.xib in Resources */,
+				219A1E881CD3359F002843AC /* FocusMyTableViewCell.xib in Resources */,
+				219A1E921CD355D0002843AC /* test.xib in Resources */,
 				21AB0A071CC0A5C400B7BA03 /* XMGPlayer.bundle in Resources */,
 				219ACA4D1CBE3F100052146E /* choose.png in Resources */,
 				E2D05B701CB38B7400B0F690 /* read_me.txt in Resources */,
@@ -2702,6 +2770,7 @@
 				21AB0B771CC72BBA00B7BA03 /* ImageModel.m in Sources */,
 				2187B9701CCF109900B92435 /* cityField.m in Sources */,
 				2187B9631CCE1C5700B92435 /* FinanceDetailsHeaderView.m in Sources */,
+				219A1E951CD355DE002843AC /* test.m in Sources */,
 				219AC9D61CBDE1EC0052146E /* ComposeViewController.m in Sources */,
 				2187B9011CC8E74100B92435 /* UserCommonResultModel.m in Sources */,
 				2187B9461CCDF15100B92435 /* UINavigationBar+Awesome.m in Sources */,
@@ -2734,6 +2803,7 @@
 				21D54B391CB4F88B0088D386 /* AuctionTableViewController.m in Sources */,
 				21E5A9861CD0723F00F7FE94 /* ApplyHeaderView.m in Sources */,
 				219AC9F61CBDE4980052146E /* WHC_ChoicePictureVC.m in Sources */,
+				219A1E8B1CD335B6002843AC /* FocusMyModel.m in Sources */,
 				219ACA021CBE3EE40052146E /* ReleaseViewController.m in Sources */,
 				219AC5E31CBC87FD0052146E /* HMEmotionTool.m in Sources */,
 				21AB0AE11CC5152C00B7BA03 /* TopTabControl.m in Sources */,
@@ -2758,6 +2828,7 @@
 				21AB0A2E1CC23CDD00B7BA03 /* AuthorDetailModel.m in Sources */,
 				E2ABF0B11CB63C090005571F /* CommentsController.m in Sources */,
 				2168EA7E1CBE882700B7E037 /* BBFlashCtntLabel.m in Sources */,
+				219A1E831CD33580002843AC /* FocusMyUserTableViewController.m in Sources */,
 				21AB0B601CC720A800B7BA03 /* ProjectDetailsViewController.m in Sources */,
 				E2D73DC21CAD2CA9004CEFA3 /* RegViewController.m in Sources */,
 				219AC9AE1CBC9B060052146E /* JKAssetsCollectionFooterView.m in Sources */,
@@ -2798,6 +2869,7 @@
 				219ACA5D1CBE3F100052146E /* UITableView+Improve.m in Sources */,
 				219AC9F81CBDE4980052146E /* WHC_PictureListVC.m in Sources */,
 				21AB0B941CC8BE2400B7BA03 /* ArtworkMessageCreatorModel.m in Sources */,
+				219A1E801CD33569002843AC /* FocusMyArtistTableViewController.m in Sources */,
 				219ACA5C1CBE3F100052146E /* UIImage+ReSize.m in Sources */,
 				219ACA5B1CBE3F100052146E /* UIButton+AGIPC.m in Sources */,
 				21D54B851CB6585B0088D386 /* InvestorTableViewCell.m in Sources */,
@@ -2836,7 +2908,9 @@
 				2134E3811CBB5D5700D6E662 /* UserCommentViewController.m in Sources */,
 				2118F1EA1CAE88B4003BFC6B /* navTitleButton.m in Sources */,
 				2134E37E1CBB5D3800D6E662 /* ProjectScheduleViewController.m in Sources */,
+				219A1E981CD35682002843AC /* testTableViewController.m in Sources */,
 				21D54B171CB4C31F0088D386 /* CommonFooter.m in Sources */,
+				219A1E871CD3359F002843AC /* FocusMyTableViewCell.m in Sources */,
 				219AC9FE1CBDF44A0052146E /* ArtWorkIdModel.m in Sources */,
 				21AB0B4F1CC6056500B7BA03 /* XIBDemoViewController.m in Sources */,
 				219ACA441CBE3F100052146E /* AGIPCAlbumsController.m in Sources */,
@@ -2844,11 +2918,13 @@
 				219AC5EC1CBC87FD0052146E /* HMComposePhotosView.m in Sources */,
 				219ACA5A1CBE3F100052146E /* ShowImageViewController.m in Sources */,
 				21AB0AC51CC50A4D00B7BA03 /* JPBaseTableViewController.m in Sources */,
+				219A1E8E1CD34570002843AC /* MyHeaderView.m in Sources */,
 				219AC5E71CBC87FD0052146E /* HMEmotionPopView.m in Sources */,
 				21D54B231CB4DF0F0088D386 /* MasterModel.m in Sources */,
 				2187B9411CCDF14000B92435 /* TYSlidePageScrollViewController.m in Sources */,
 				2187B9161CCA051A00B92435 /* FocusTableViewCell.m in Sources */,
 				2187B9121CC9FA7500B92435 /* FocusUserTableViewController.m in Sources */,
+				219A1E7D1CD3352F002843AC /* FocusMyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

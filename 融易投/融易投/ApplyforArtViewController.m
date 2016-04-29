@@ -1027,7 +1027,8 @@
     //资格认证
      NSString *titleCertificate = self.certificationTF.text;
     //当前用户Id
-     NSString *userId = @"imhipoyk18s4k52u";
+//    NSString *userId = TakeUserID;
+     NSString *userId = @"ina6pqm2d036fya5";
     //类型
      NSString *paramType = @"0";
     
@@ -1114,7 +1115,7 @@
     
 
     // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-    NSString *url = @"http://192.168.1.69:8001/app/applyArtMaster.do";
+    NSString *url = @"http://192.168.1.41:8080/app/applyArtMaster.do";
     
     // 3.设置请求体
     NSDictionary *json = @{

@@ -13,10 +13,12 @@
 #import "UIImageView+WebCache.h"
 
 @interface FocusTableViewCell ()
+
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UIButton *guanzhuBtn;
 
 
 @end
@@ -49,7 +51,9 @@
 
     // Configure the view for the selected state
 }
-- (IBAction)focusBtnClick:(id)sender {
+- (IBAction)focusBtnClick:(UIButton *)sender {
+    
+    sender.selected = !sender.selected;
 }
 
 @end

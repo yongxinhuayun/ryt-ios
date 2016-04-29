@@ -7,7 +7,7 @@
 //
 
 #import "MyViewController.h"
-
+#import "test.h"
 #import "LognController.h"
 #import "RegViewController.h"
 #import "ForgetPasswordViewController.h"
@@ -37,6 +37,10 @@
 
 #import "ApplyforArtistViewController.h"
 
+#import "FocusMyViewController.h"
+
+#import "MyHeaderView.h"
+
 //#import "WeiXinController.h"
 //#import "ALiController.h"
 
@@ -44,7 +48,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *subTableView;
 
-@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+
+@property (strong, nonatomic) MyHeaderView *mgHeaderView;
 
 
 @end
@@ -60,21 +65,42 @@
     //设置详细视图
     [self setUpTableView];
     
-    //设置图片能够点击
-    //记住:UIImageView默认情况下是不能接收事件的,如果要执行点击方法,必须把默认的User interaction Enable 改成yes
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
+    [self jumpeditingInfoVc];
     
-    [self.iconImageView addGestureRecognizer:tapGesture];
+    [self jumpFocusVc];
 }
 
--(void)tap {
-    
-    UIStoryboard *editingInfoStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([EditingInfoViewController class]) bundle:nil];
-    EditingInfoViewController *editingInfoVC = [editingInfoStoryBoard instantiateInitialViewController];
-    [self.navigationController pushViewController:editingInfoVC animated:YES];
 
+-(void)jumpeditingInfoVc{
+    
+    __weak MyViewController *weakself=self;
+    
+    self.mgHeaderView.valueBlcok = ^{
+        
+        UIStoryboard *editingInfoStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([EditingInfoViewController class]) bundle:nil];
+        EditingInfoViewController *editingInfoVC = [editingInfoStoryBoard instantiateInitialViewController];
+        
+        [weakself.navigationController pushViewController:editingInfoVC animated:YES];
+
+    };
     
 }
+
+-(void)jumpFocusVc{
+
+    __weak MyViewController *weakself=self;
+    
+    self.mgHeaderView.valueBlcok = ^{
+        
+        FocusMyViewController *focusVC = [[FocusMyViewController alloc] init];
+        
+        [weakself.navigationController pushViewController:focusVC animated:YES];
+        
+    };
+
+}
+
+
 
 // 设置导航条
 -(void)setUpNavBar
@@ -115,13 +141,35 @@
 
 -(void)setUpTableView{
 
-    self.subTableView.scrollEnabled = NO;
+//    self.subTableView.scrollEnabled = NO;
+    
+
+    
+    
+    //设置tableView的内边距---实现全局穿透让tableView向上移动64 + 标题栏的高度35/向下移动tabBar的高度49
+    //运行程序,发现底部一致到了tabBar的最下面,我们应该设置成子控制器的view的显示范围为tabBar的上面
+    //同样,tabBar的高度我们也可能项目中都会用到,写在常量文件中
+    self.subTableView.contentInset = UIEdgeInsetsMake(SSNavMaxY, 0, 0, 0);
+    //运行程序,发现滚动条上部分被标题栏和导航栏挡住了,这样会对会用造成一定的假象,造成对内容的多少判断不准确
+    self.subTableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSNavMaxY, 0, 0, 0);
+
+
     
     self.subTableView.dataSource = self;
     self.subTableView.delegate = self;
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    MyHeaderView *mgHeaderView = [MyHeaderView myHeaderView];
+    mgHeaderView.frame = CGRectMake(0, 64, SSScreenW, 300);
+    self.mgHeaderView = mgHeaderView;
 
+    return mgHeaderView;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 400;
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
@@ -265,13 +313,14 @@
 - (IBAction)FocusBtnClick:(id)sender {
     
     
-    FocusViewController *focusVC = [[FocusViewController alloc] init];
+    FocusMyViewController *focusVC = [[FocusMyViewController alloc] init];
     [self.navigationController pushViewController:focusVC animated:YES];
 }
 
 - (IBAction)FansBtnClick:(id)sender {
     
-    
+    FocusViewController *focusVC = [[FocusViewController alloc] init];
+    [self.navigationController pushViewController:focusVC animated:YES];
     
 }
 

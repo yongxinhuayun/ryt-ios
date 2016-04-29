@@ -1,23 +1,23 @@
 //
-//  FocusArtistTableViewController.m
+//  FocusMyUserTableViewController.m
 //  融易投
 //
-//  Created by efeiyi on 16/4/22.
+//  Created by efeiyi on 16/4/29.
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
-#import "FocusArtistTableViewController.h"
+#import "FocusMyUserTableViewController.h"
 
-#import "FocusTableViewCell.h"
+#import "FocusMyTableViewCell.h"
 
-#import "FocusModel.h"
+#import "FocusMyModel.h"
 
 #import <MJExtension.h>
 
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 
-@interface FocusArtistTableViewController ()
+@interface FocusMyUserTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray *models;
 
@@ -26,17 +26,18 @@
 
 @end
 
-@implementation FocusArtistTableViewController
 
 
-static NSString *ID = @"focusCell";
+@implementation FocusMyUserTableViewController
+
+static NSString *ID = @"focusMyCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-     self.lastPageNum = @"1";
+    self.lastPageNum = @"1";
     
-//    self.view.backgroundColor = [UIColor redColor];
+    //    self.view.backgroundColor = [UIColor redColor];
     
     //设置tableView的内边距---实现全局穿透让tableView向上移动64 + 标题栏的高度35/向下移动tabBar的高度49
     //运行程序,发现底部一致到了tabBar的最下面,我们应该设置成子控制器的view的显示范围为tabBar的上面
@@ -46,14 +47,14 @@ static NSString *ID = @"focusCell";
     self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, SSTabBarH, 0);
     
     //注册创建cell ,这样注册就不用在XIB设置ID
-    [self.tableView registerNib:[UINib nibWithNibName:@"FocusTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
+    [self.tableView registerNib:[UINib nibWithNibName:@"FocusMyTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
     
     //设置刷新控件
     [self setUpRefresh];
     
     [self loadNewData];
-
-
+    
+    
 }
 
 -(void)setUpRefresh
@@ -121,19 +122,19 @@ static NSString *ID = @"focusCell";
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
         
-//        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-//        
-//        self.models = [FocusModel mj_objectArrayWithKeyValuesArray:modelDict[@"InvestorTopList"]];
-//        
-//        NSLog(@"11111111111111%@",self.models);
-//
-//        
-//        //在主线程刷新UI数据
-//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//            
-//            [self.tableView reloadData];
-//            
-//        }];
+        //        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        //
+        //        self.models = [FocusModel mj_objectArrayWithKeyValuesArray:modelDict[@"InvestorTopList"]];
+        //
+        //        NSLog(@"11111111111111%@",self.models);
+        //
+        //
+        //        //在主线程刷新UI数据
+        //        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        //
+        //            [self.tableView reloadData];
+        //
+        //        }];
     }];
 }
 
@@ -182,19 +183,19 @@ static NSString *ID = @"focusCell";
         //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         //        NSLog(@"返回结果:%@",jsonStr);
         
-//        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-//        
-//        NSArray *moreModels = [InvestorModel mj_objectArrayWithKeyValuesArray:modelDict[@"InvestorTopList"]];
-//        //拼接数据
-//        [self.models addObjectsFromArray:moreModels];
-//        
-//        
-//        //在主线程刷新UI数据
-//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//            
-//            [self.tableView reloadData];
-//            
-//        }];
+        //        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        //
+        //        NSArray *moreModels = [InvestorModel mj_objectArrayWithKeyValuesArray:modelDict[@"InvestorTopList"]];
+        //        //拼接数据
+        //        [self.models addObjectsFromArray:moreModels];
+        //
+        //
+        //        //在主线程刷新UI数据
+        //        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        //
+        //            [self.tableView reloadData];
+        //
+        //        }];
         
     }];
 }
@@ -219,18 +220,16 @@ static NSString *ID = @"focusCell";
     
     //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    FocusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    FocusMyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
-//    cell.textLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row];
+    //    cell.textLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row];
     
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-
+    
+    
     return 60;
 }
-
-
 @end
