@@ -7,7 +7,7 @@
 //
 
 #import "CommonTabBarViewController.h"
-
+#import "testTableViewController.h"
 #import "CommonNavigationController.h"
 
 #import "MessageTableViewController.h"
@@ -96,7 +96,7 @@
     [self addChildViewController:MessageVC];
     
     // 我的
-    MyViewController *meVC = [[MyViewController alloc] init];
+    testTableViewController *meVC = [[testTableViewController alloc] init];
     [self addChildViewController:meVC];
 }
 

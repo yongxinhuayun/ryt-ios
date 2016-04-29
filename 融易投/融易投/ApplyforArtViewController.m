@@ -46,6 +46,16 @@
 
 @property (nonatomic,assign) NSInteger headViewHeight;
 
+
+@property (nonatomic,copy) NSString *str1;
+@property (nonatomic,copy) NSString *str2;
+@property (nonatomic,copy) NSString *str3;
+@property (nonatomic,copy) NSString *str4;
+@property (nonatomic,copy) NSString *str5;
+@property (nonatomic,copy) NSString *str6;
+@property (nonatomic,copy) NSString *str7;
+
+
 //imagePicker队列
 @property (nonatomic,strong)NSMutableArray *imagePickerArray1;
 
@@ -90,7 +100,10 @@
 
 #define textViewHeight 100
 #define pictureHW (screenWidth - 5*padding)/4
-#define MaxImageCount 9
+#define MaxImageCount1 2
+#define MaxImageCount2 3
+#define MaxImageCount3 3
+#define MaxImageCount4 3
 #define deleImageWH 25 // 删除按钮的宽高
 //大图特别耗内存，不能把大图存在数组里，存类型或者小图
 
@@ -186,7 +199,7 @@
         pictureImageView.image = [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray1 objectAtIndex:i]).thumbnail];
         [headView addSubview:pictureImageView];
     }
-    if (imageCount < MaxImageCount) {
+    if (imageCount < MaxImageCount1) {
         
         UIButton *addPictureButton = [[UIButton alloc]initWithFrame:CGRectMake(padding + (imageCount%4)*(pictureHW+padding), CGRectGetMaxY(identityCardInfoLabel2.frame) + padding +(imageCount/4)*(pictureHW+padding), pictureHW, pictureHW)];
         [addPictureButton setBackgroundImage:[UIImage imageNamed:@"addPictures"] forState:UIControlStateNormal];
@@ -296,7 +309,7 @@
         pictureImageView.image = [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray2 objectAtIndex:i]).thumbnail];
         [headView addSubview:pictureImageView];
     }
-    if (imageCount2 < MaxImageCount) {
+    if (imageCount2 < MaxImageCount2) {
         
         UIButton *addPictureButton2 = [[UIButton alloc]initWithFrame:CGRectMake(padding + (imageCount2%4)*(pictureHW+padding), CGRectGetMaxY(worksLabel.frame) + padding +(imageCount2/4)*(pictureHW+padding), pictureHW, pictureHW)];
         [addPictureButton2 setBackgroundImage:[UIImage imageNamed:@"addPictures"] forState:UIControlStateNormal];
@@ -352,7 +365,7 @@
         pictureImageView.image = [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray3 objectAtIndex:i]).thumbnail];
         [headView addSubview:pictureImageView];
     }
-    if (imageCount3 < MaxImageCount) {
+    if (imageCount3 < MaxImageCount3) {
         
         UIButton *addPictureButton3 = [[UIButton alloc]initWithFrame:CGRectMake(padding + (imageCount3%4)*(pictureHW+padding), CGRectGetMaxY(roomInfoLabel.frame) + padding +(imageCount3/4)*(pictureHW+padding), pictureHW, pictureHW)];
         [addPictureButton3 setBackgroundImage:[UIImage imageNamed:@"addPictures"] forState:UIControlStateNormal];
@@ -418,7 +431,7 @@
         pictureImageView.image = [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray4 objectAtIndex:i]).thumbnail];
         [headView addSubview:pictureImageView];
     }
-    if (imageCount4 < MaxImageCount) {
+    if (imageCount4 < MaxImageCount4) {
         
         UIButton *addPictureButton4 = [[UIButton alloc]initWithFrame:CGRectMake(padding + (imageCount4%4)*(pictureHW+padding), CGRectGetMaxY(certificationPhotoLabel.frame) + padding +(imageCount4/4)*(pictureHW+padding), pictureHW, pictureHW)];
         [addPictureButton4 setBackgroundImage:[UIImage imageNamed:@"addPictures"] forState:UIControlStateNormal];
@@ -472,6 +485,7 @@
     
     self.headViewHeight = headViewHeight;
     headView.frame = CGRectMake(0, 0, screenWidth, headViewHeight + padding);
+
     
     self.tableView.tableHeaderView = headView;
 }
@@ -512,7 +526,7 @@
     if ([self.identityCardInfoLabel isFirstResponder]) {
         [self.identityCardInfoLabel resignFirstResponder];
     }
-    //    self.tableView.scrollEnabled = NO;
+//        self.tableView.scrollEnabled = NO;
     
     [self initImagePickerChooseView4];
 }
@@ -588,7 +602,11 @@
         [self.imagePickerArray1 removeObjectAtIndex:(imageView.tag - imageTag)];
         [imageView removeFromSuperview];
     }
+    [self saveData];
+    
     [self initHeaderView];
+    
+    [self takeData];
 }
 
 -(void)deletePics2:(UIButton *)btn
@@ -599,7 +617,11 @@
         [self.imagePickerArray2 removeObjectAtIndex:(imageView.tag - imageTag)];
         [imageView removeFromSuperview];
     }
+    [self saveData];
+    
     [self initHeaderView];
+    
+    [self takeData];
 }
 
 -(void)deletePics3:(UIButton *)btn
@@ -610,7 +632,11 @@
         [self.imagePickerArray3 removeObjectAtIndex:(imageView.tag - imageTag)];
         [imageView removeFromSuperview];
     }
+    [self saveData];
+    
     [self initHeaderView];
+    
+    [self takeData];
 }
 
 -(void)deletePics4:(UIButton *)btn
@@ -621,13 +647,17 @@
         [self.imagePickerArray4 removeObjectAtIndex:(imageView.tag - imageTag)];
         [imageView removeFromSuperview];
     }
+    [self saveData];
+    
     [self initHeaderView];
+    
+    [self takeData];
 }
 
 #define IPCViewHeight 120
 -(void)initImagePickerChooseView
 {
-    ImagePickerChooseView *IPCView = [[ImagePickerChooseView alloc]initWithFrame:CGRectMake(0, screenHeight - 64, screenWidth, IPCViewHeight) andAboveView:self.view];
+    ImagePickerChooseView *IPCView = [[ImagePickerChooseView alloc]initWithFrame:CGRectMake(0, screenHeight + 64, screenWidth, IPCViewHeight) andAboveView:self.view];
     //IPCView.frame = CGRectMake(0, screenHeight - IPCViewHeight - 64, screenWidth, IPCViewHeight);
     [IPCView setImagePickerBlock:^{
         self.imagePicker = [[AGImagePickerController alloc] initWithFailureBlock:^(NSError *error) {
@@ -660,7 +690,12 @@
             
             [self dismissViewControllerAnimated:YES completion:^{}];
             [self.IPCView disappear];
+            
+            [self saveData];
+            
             [self initHeaderView];
+            
+            [self takeData];
             
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
         }];
@@ -675,7 +710,7 @@
         IPCView.frame = CGRectMake(0, screenHeight - IPCViewHeight-64, screenWidth, IPCViewHeight);
     } completion:^(BOOL finished) {
     }];
-    [self.view addSubview:IPCView];
+  [[UIApplication sharedApplication].keyWindow addSubview:IPCView];
     self.IPCView = IPCView;
 
     [self.IPCView addImagePickerChooseView];
@@ -684,7 +719,7 @@
 #define IPCViewHeight 120
 -(void)initImagePickerChooseView2
 {
-    ImagePickerChooseView *IPCView = [[ImagePickerChooseView alloc]initWithFrame:CGRectMake(0, screenHeight - 64, screenWidth, IPCViewHeight) andAboveView:self.view];
+    ImagePickerChooseView *IPCView = [[ImagePickerChooseView alloc]initWithFrame:CGRectMake(0, self.tableView.contentSize.height + 64, screenWidth, IPCViewHeight) andAboveView:self.view];
     //IPCView.frame = CGRectMake(0, screenHeight - IPCViewHeight - 64, screenWidth, IPCViewHeight);
     [IPCView setImagePickerBlock:^{
         self.imagePicker = [[AGImagePickerController alloc] initWithFailureBlock:^(NSError *error) {
@@ -717,7 +752,12 @@
             
             [self dismissViewControllerAnimated:YES completion:^{}];
             [self.IPCView disappear];
+            
+            [self saveData];
+            
             [self initHeaderView];
+            
+            [self takeData];
             
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
         }];
@@ -732,7 +772,10 @@
         IPCView.frame = CGRectMake(0, screenHeight - IPCViewHeight - 64, screenWidth, IPCViewHeight);
     } completion:^(BOOL finished) {
     }];
-    [self.view addSubview:IPCView];
+    
+    
+    
+   [[UIApplication sharedApplication].keyWindow addSubview:IPCView];
     self.IPCView = IPCView;
     
     [self.IPCView addImagePickerChooseView];
@@ -740,7 +783,7 @@
 #define IPCViewHeight 120
 -(void)initImagePickerChooseView3
 {
-    ImagePickerChooseView *IPCView = [[ImagePickerChooseView alloc]initWithFrame:CGRectMake(0, screenHeight - 64, screenWidth, IPCViewHeight) andAboveView:self.view];
+    ImagePickerChooseView *IPCView = [[ImagePickerChooseView alloc]initWithFrame:CGRectMake(0, screenHeight + 64, screenWidth, IPCViewHeight) andAboveView:self.view];
     //IPCView.frame = CGRectMake(0, screenHeight - IPCViewHeight - 64, screenWidth, IPCViewHeight);
     [IPCView setImagePickerBlock:^{
         self.imagePicker = [[AGImagePickerController alloc] initWithFailureBlock:^(NSError *error) {
@@ -773,7 +816,14 @@
             
             [self dismissViewControllerAnimated:YES completion:^{}];
             [self.IPCView disappear];
+            
+            [self saveData];
+            
             [self initHeaderView];
+            
+            [self takeData];
+            
+            
             
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
         }];
@@ -788,7 +838,9 @@
         IPCView.frame = CGRectMake(0, screenHeight - IPCViewHeight -64, screenWidth, IPCViewHeight);
     } completion:^(BOOL finished) {
     }];
-    [self.view addSubview:IPCView];
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:IPCView];
+    
     self.IPCView = IPCView;
     
     [self.IPCView addImagePickerChooseView];
@@ -797,7 +849,7 @@
 #define IPCViewHeight 120
 -(void)initImagePickerChooseView4
 {
-    ImagePickerChooseView *IPCView = [[ImagePickerChooseView alloc]initWithFrame:CGRectMake(0, screenHeight - 64, screenWidth, IPCViewHeight) andAboveView:self.view];
+    ImagePickerChooseView *IPCView = [[ImagePickerChooseView alloc]initWithFrame:CGRectMake(0, screenHeight + 64, screenWidth, IPCViewHeight) andAboveView:self.view];
     //IPCView.frame = CGRectMake(0, screenHeight - IPCViewHeight - 64, screenWidth, IPCViewHeight);
     [IPCView setImagePickerBlock:^{
         self.imagePicker = [[AGImagePickerController alloc] initWithFailureBlock:^(NSError *error) {
@@ -830,7 +882,12 @@
             
             [self dismissViewControllerAnimated:YES completion:^{}];
             [self.IPCView disappear];
+            
+            [self saveData];
+            
             [self initHeaderView];
+            
+            [self takeData];
             
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
         }];
@@ -845,7 +902,9 @@
         IPCView.frame = CGRectMake(0, screenHeight - IPCViewHeight -64, screenWidth, IPCViewHeight);
     } completion:^(BOOL finished) {
     }];
-    [self.view addSubview:IPCView];
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:IPCView];
+    
     self.IPCView = IPCView;
     
     [self.IPCView addImagePickerChooseView];
@@ -924,13 +983,253 @@
     return NO;
 }
 
--(void)querentijiao{
+-(void)saveData{
+    
 
-    SSLog(@"111");
+        
+        self.str1 =self.nameTextView.text;
+        self.str2 =  self.phoneTextView.text;
+        self.str3 =self.districtTextView.text;
+        self.str4 = self.addressTextView.text;
+        self.str5 = self.certificationTF.text;
+        self.str6 =self.districtTextView.text;
+        self.str7 = self.artTextView.text;
+
+}
+
+-(void)takeData{
+    
+        
+        self.nameTextView.text = self.str1;
+        self.phoneTextView.text = self.str2;
+        self.districtTextView.text = self.str3;
+        self.addressTextView.text = self.str4;
+        self.certificationTF.text = self.str5;
+        self.districtTextView.text = self.str6;
+        self.artTextView.text = self.str7;
+
+    
 }
 
 
+-(void)querentijiao{
 
+    SSLog(@"111");
+    
+    //参数
+    //籍贯
+    NSString *province = self.districtTextView.text;
+    //详细地址
+    NSString *provinceName = self.addressTextView.text;
+    
+    //艺术类别
+     NSString *artCategory = self.artTextView.text;
+    //资格认证
+     NSString *titleCertificate = self.certificationTF.text;
+    //当前用户Id
+//    NSString *userId = TakeUserID;
+     NSString *userId = @"ina6pqm2d036fya5";
+    //类型
+     NSString *paramType = @"0";
+    
+    //时间戳
+    NSString *timestamp = [MyMD5 timestamp];
+    
+    //加密
+    NSString *appkey = MD5key;
+    NSString *signmsg = [NSString stringWithFormat:@"artCategory=%@&paramType=%@&province=%@&provinceName=%@&timestamp=%@&titleCertificate=%@&userId=%@&key=%@",artCategory,paramType,province,provinceName,timestamp,titleCertificate,userId,appkey];
+    
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+
+    
+    
+    //图片数组
+    NSMutableArray *tempArray1 = [NSMutableArray array];
+    
+    NSInteger count1 = 0;
+    
+    for (UIImage *image in self.imagePickerArray2) {
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        
+        formatter.dateFormat = @"yyyyMMddHHmmssSSS";
+        
+        NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(count1)];
+        
+        NSLog(@"%@",fileName);
+        
+        [tempArray1 addObject:fileName];
+        
+        count1++;
+    }
+    
+    NSArray *one = tempArray1.copy;
+    
+    
+    
+    NSMutableArray *tempArray2 = [NSMutableArray array];
+    NSInteger count2 = 0;
+    
+    for (UIImage *image in self.imagePickerArray3) {
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        
+        formatter.dateFormat = @"yyyyMMddHHmmssSSS";
+        
+        NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(count2)];
+        
+        NSLog(@"%@",fileName);
+        
+        [tempArray2 addObject:fileName];
+        
+        count2++;
+    }
+    
+    NSArray *two = tempArray2.copy;
+    
+    
+    NSMutableArray *tempArray3 = [NSMutableArray array];
+    NSInteger count3 = 0;
+    
+    for (UIImage *image in self.imagePickerArray4) {
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        
+        formatter.dateFormat = @"yyyyMMddHHmmssSSS";
+        
+        NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(count3)];
+        
+        NSLog(@"%@",fileName);
+        
+        [tempArray3 addObject:fileName];
+        
+        count3++;
+    }
+    
+    NSArray *three = tempArray3.copy;
+    
+    
+    NSString *identityFront = @"identityFront.png";
+    NSString *identityBack = @"identityBack.png";
+    
+    
+
+    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
+    NSString *url = @"http://192.168.1.41:8080/app/applyArtMaster.do";
+    
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"province" : province,
+                           @"provinceName" : provinceName,
+                           @"artCategory" : artCategory,
+                           @"titleCertificate" : titleCertificate,
+                           @"userId" : userId,
+                           @"paramType" : paramType,
+                           @"one"        :one,
+                           @"two"        :two,
+                           @"three"        :three,
+                           @"identityFront" :identityFront,
+                           @"identityBack"  :identityBack,
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5
+                           };
+    
+    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
+    
+    // 设置请求格式
+    manger.requestSerializer = [AFJSONRequestSerializer serializer];
+    // 设置返回格式
+    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    
+    [manger POST:url parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        NSInteger imgCount = 0;
+        
+        //身份证正反面2张图片
+//        UIImage *identityFrontImage2 = [UIImage imageWithCGImage:(__bridge CGImageRef _Nonnull)(identityFrontImage)];
+        UIImage *identityFrontImage2  =  [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray1 objectAtIndex:0]).thumbnail];
+        NSLog(@"%@",[self.imagePickerArray1.firstObject class]);
+        
+         NSData *data1 = UIImageJPEGRepresentation(identityFrontImage2, 1.0);
+        NSLog(@"data1 = %@",data1);
+         [formData appendPartWithFileData:data1 name:@"identityFront" fileName:identityFront mimeType:@"application/octet-stream"];
+
+//        UIImage *identityBackImage2 = [UIImage imageWithCGImage:(__bridge CGImageRef _Nonnull)(identityBackImage)];
+        UIImage *identityBackImage2  =  [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray1 objectAtIndex:1]).thumbnail];
+        NSData *data2 = UIImageJPEGRepresentation(identityBackImage2, 1.0);
+        [formData appendPartWithFileData:data2 name:@"identityBack" fileName:identityBack mimeType:@"application/octet-stream"];
+        
+        //三张作品图片
+        
+        for (int i = 0; i < self.imagePickerArray2.count; i++) {
+            
+            UIImage *image  =  [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray2 objectAtIndex:i]).thumbnail];
+            
+            NSData *data = UIImageJPEGRepresentation(image, 1.0);
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            
+            formatter.dateFormat = @"yyyyMMddHHmmssSSS";
+            
+            NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(imgCount)];
+            
+            NSLog(@"%@",fileName);
+            
+            [formData appendPartWithFileData:data name:@"one" fileName:fileName mimeType:@"application/octet-stream"];
+        }
+        
+        for (int i = 0; i < self.imagePickerArray3.count; i++) {
+            
+            UIImage *image  =  [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray3 objectAtIndex:i]).thumbnail];
+            
+            NSData *data = UIImageJPEGRepresentation(image, 1.0);
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            
+            formatter.dateFormat = @"yyyyMMddHHmmssSSS";
+            
+            NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(imgCount)];
+            
+            NSLog(@"%@",fileName);
+            
+            [formData appendPartWithFileData:data name:@"two" fileName:fileName mimeType:@"application/octet-stream"];
+        }
+        
+        for (int i = 0; i < self.imagePickerArray4.count; i++) {
+            
+            UIImage *image  =  [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray4 objectAtIndex:i]).thumbnail];
+            
+            NSData *data = UIImageJPEGRepresentation(image, 1.0);
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            
+            formatter.dateFormat = @"yyyyMMddHHmmssSSS";
+            
+            NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(imgCount)];
+            
+            NSLog(@"%@",fileName);
+            
+            [formData appendPartWithFileData:data name:@"three" fileName:fileName mimeType:@"application/octet-stream"];
+        }
+        
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        
+        SSLog(@"---%@---%@",[responseObject class],aString);
+        
+        //[SVProgressHUD showSuccessWithStatus:@"发布成功" maskType:SVProgressHUDMaskTypeBlack];
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        SSLog(@"%@",error);
+        
+        //[SVProgressHUD showSuccessWithStatus:@"发布失败" maskType:SVProgressHUDMaskTypeBlack];
+    }];
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
