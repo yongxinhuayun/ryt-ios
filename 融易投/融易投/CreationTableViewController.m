@@ -7,6 +7,7 @@
 //
 
 #import "CreationTableViewController.h"
+#import "FinanceViewController.h"
 
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
@@ -367,7 +368,7 @@ static NSString *ID = @"creationCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CreationDetailsViewController *creationDetailsVC = [[CreationDetailsViewController alloc] init];
+    FinanceViewController *creationDetailsVC = [[FinanceViewController alloc] init];
     [self.navigationController pushViewController:creationDetailsVC animated:YES];
 }
 

@@ -308,6 +308,11 @@
 		E2D3870C1CB8E56100F735F9 /* KeyBordVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54BA51CB792010088D386 /* KeyBordVIew.m */; };
 		E2D73DC21CAD2CA9004CEFA3 /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D73DC01CAD2CA9004CEFA3 /* RegViewController.m */; };
 		E2D73DC31CAD2CA9004CEFA3 /* RegViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D73DC11CAD2CA9004CEFA3 /* RegViewController.xib */; };
+		E2D812EF1CCF85D500A52172 /* BaseScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D812EE1CCF85D500A52172 /* BaseScrollViewController.m */; };
+		E2D812FA1CD077BD00A52172 /* FinanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D812F91CD077BD00A52172 /* FinanceViewController.m */; };
+		E2D812FD1CD0780100A52172 /* TopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D812FC1CD0780100A52172 /* TopView.m */; };
+		E2D812FF1CD0780E00A52172 /* TopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D812FE1CD0780E00A52172 /* TopView.xib */; };
+		E2D813021CD09A7800A52172 /* CycleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D813011CD09A7800A52172 /* CycleView.m */; };
 		E2DDB0E81CAB66DB007438E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB0E71CAB66DB007438E4 /* main.m */; };
 		E2DDB0EB1CAB66DB007438E4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB0EA1CAB66DB007438E4 /* AppDelegate.m */; };
 		E2DDB0F31CAB66DB007438E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */; };
@@ -853,6 +858,15 @@
 		E2D73DBF1CAD2CA9004CEFA3 /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegViewController.h; sourceTree = "<group>"; };
 		E2D73DC01CAD2CA9004CEFA3 /* RegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegViewController.m; sourceTree = "<group>"; };
 		E2D73DC11CAD2CA9004CEFA3 /* RegViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegViewController.xib; sourceTree = "<group>"; };
+		E2D812ED1CCF85D500A52172 /* BaseScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseScrollViewController.h; sourceTree = "<group>"; };
+		E2D812EE1CCF85D500A52172 /* BaseScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseScrollViewController.m; sourceTree = "<group>"; };
+		E2D812F81CD077BD00A52172 /* FinanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceViewController.h; sourceTree = "<group>"; };
+		E2D812F91CD077BD00A52172 /* FinanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceViewController.m; sourceTree = "<group>"; };
+		E2D812FB1CD0780100A52172 /* TopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopView.h; sourceTree = "<group>"; };
+		E2D812FC1CD0780100A52172 /* TopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopView.m; sourceTree = "<group>"; };
+		E2D812FE1CD0780E00A52172 /* TopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopView.xib; sourceTree = "<group>"; };
+		E2D813001CD09A7800A52172 /* CycleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleView.h; sourceTree = "<group>"; };
+		E2D813011CD09A7800A52172 /* CycleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleView.m; sourceTree = "<group>"; };
 		E2DDB0E31CAB66DB007438E4 /* 融易投.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "融易投.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2DDB0E71CAB66DB007438E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2DDB0E91CAB66DB007438E4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1368,6 +1382,11 @@
 				2168EADC1CBFA05000B7E037 /* FinanceDetailSecondCell.h */,
 				2168EADD1CBFA05000B7E037 /* FinanceDetailSecondCell.m */,
 				2168EADE1CBFA05000B7E037 /* FinanceDetailSecondCell.xib */,
+				E2D812FB1CD0780100A52172 /* TopView.h */,
+				E2D812FC1CD0780100A52172 /* TopView.m */,
+				E2D812FE1CD0780E00A52172 /* TopView.xib */,
+				E2D813001CD09A7800A52172 /* CycleView.h */,
+				E2D813011CD09A7800A52172 /* CycleView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1717,6 +1736,15 @@
 			path = SDKExport;
 			sourceTree = "<group>";
 		};
+		E2D812EC1CCF856200A52172 /* RYTScrollViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E2D812ED1CCF85D500A52172 /* BaseScrollViewController.h */,
+				E2D812EE1CCF85D500A52172 /* BaseScrollViewController.m */,
+			);
+			name = RYTScrollViewController;
+			sourceTree = "<group>";
+		};
 		E2DDB0DA1CAB66DB007438E4 = {
 			isa = PBXGroup;
 			children = (
@@ -1824,6 +1852,7 @@
 		E2DDB19D1CABA677007438E4 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				E2D812EC1CCF856200A52172 /* RYTScrollViewController */,
 				218D2B431CACB325004553B9 /* MainTableViewController.h */,
 				218D2B441CACB325004553B9 /* MainTableViewController.m */,
 				2118F1E81CAE88B4003BFC6B /* navTitleButton.h */,
@@ -1937,6 +1966,8 @@
 			children = (
 				2187B95A1CCE083500B92435 /* CreationDetailsViewController.h */,
 				2187B95B1CCE083500B92435 /* CreationDetailsViewController.m */,
+				E2D812F81CD077BD00A52172 /* FinanceViewController.h */,
+				E2D812F91CD077BD00A52172 /* FinanceViewController.m */,
 			);
 			name = "详情";
 			sourceTree = "<group>";
@@ -2490,6 +2521,7 @@
 				219ACA3F1CBE3F100052146E /* addPictures.png in Resources */,
 				2187B9511CCDF7E100B92435 /* ArtistMyHeaderView.xib in Resources */,
 				2187B9641CCE1C5700B92435 /* FinanceDetailsHeaderView.xib in Resources */,
+				E2D812FF1CD0780E00A52172 /* TopView.xib in Resources */,
 				E2DDB0F31CAB66DB007438E4 /* Assets.xcassets in Resources */,
 				21AB0B821CC787C700B7BA03 /* InvestorArtWorkViewController.xib in Resources */,
 				211C394B1CB36B1500DAD827 /* FinanceTableViewCell.xib in Resources */,
@@ -2606,6 +2638,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				219AC9B21CBC9B060052146E /* JKAssetsViewCell.m in Sources */,
+				E2D812EF1CCF85D500A52172 /* BaseScrollViewController.m in Sources */,
 				2187B9041CC9DF2700B92435 /* ApplyforArtViewController.m in Sources */,
 				219AC5E51CBC87FD0052146E /* HMEmotionKeyboard.m in Sources */,
 				21AB0AC21CC50A4D00B7BA03 /* UIColor+JPExtension.m in Sources */,
@@ -2693,6 +2726,7 @@
 				2187B9811CCF25BF00B92435 /* CNCityAreaModel.m in Sources */,
 				21AB0A081CC0A5C400B7BA03 /* XMGPlayerView.m in Sources */,
 				2187B9691CCF0D0100B92435 /* AddressViewController.m in Sources */,
+				E2D812FD1CD0780100A52172 /* TopView.m in Sources */,
 				219ACA481CBE3F100052146E /* AGIPCPreviewController.m in Sources */,
 				219ACA471CBE3F100052146E /* AGIPCGridItem.m in Sources */,
 				2187B9431CCDF14000B92435 /* UIScrollView+ty_swizzle.m in Sources */,
@@ -2744,6 +2778,7 @@
 				2187B90C1CC9F9CB00B92435 /* FocusViewController.m in Sources */,
 				21AB0B7D1CC77B5400B7BA03 /* ProjectDetailsResultModel.m in Sources */,
 				21AB0AE41CC5152C00B7BA03 /* UIColor+RandomColor.m in Sources */,
+				E2D812FA1CD077BD00A52172 /* FinanceViewController.m in Sources */,
 				21D54B9D1CB791E10088D386 /* NSString+DocumentPath.m in Sources */,
 				2187B9801CCF25BF00B92435 /* CNCityAreaFactory.m in Sources */,
 				215EED2C1CB010A500A5957B /* ArtistTableViewController.m in Sources */,
@@ -2783,6 +2818,7 @@
 				219AC5E41CBC87FD0052146E /* HMEmotionGridView.m in Sources */,
 				219AC9891CBC99670052146E /* DSComposePhotoViewCell.m in Sources */,
 				2187B9541CCDFCE500B92435 /* MyArtworkViewController.m in Sources */,
+				E2D813021CD09A7800A52172 /* CycleView.m in Sources */,
 				219ACA491CBE3F100052146E /* AGIPCToolbarItem.m in Sources */,
 				2187B96F1CCF109900B92435 /* City.m in Sources */,
 				2187B92D1CCDAD9C00B92435 /* EditingSignatureViewController.m in Sources */,
