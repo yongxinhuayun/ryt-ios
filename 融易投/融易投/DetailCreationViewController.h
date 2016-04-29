@@ -10,4 +10,7 @@
 
 @interface DetailCreationViewController : BaseScrollViewController
 
+@property(nonatomic,strong)CycleView *cycleView;
+@property(nonatomic,strong)NSMutableArray *titleArray;
+@property(nonatomic,strong)NSMutableArray *controllersView;
 @end

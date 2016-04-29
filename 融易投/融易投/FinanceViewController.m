@@ -10,7 +10,6 @@
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 
 #import "FinanceViewController.h"
-#import "CreationTableViewController.h"
 #import "TopView.h"
 #import "UIView+Frame.h"
 #import "CycleView.h"
@@ -26,61 +25,58 @@
     self.navigationController.navigationBarHidden = NO;
     self.navigationItem.title = @"项目名称";
     
-    TopView *tView = [[[NSBundle mainBundle] loadNibNamed:@"TopView" owner:nil options:nil] lastObject];
-    self.topView.height = tView.height;
-    tView.backgroundColor = [UIColor whiteColor];
-    tView.width = ScreenWidth;
-    [tView.imgView setBackgroundColor:[UIColor whiteColor]];
-    [self.topView addSubview:tView];
-    NSLog(@"tView的高度%f",tView.height);
+//    TopView *tView = [[[NSBundle mainBundle] loadNibNamed:@"TopView" owner:nil options:nil] lastObject];
+//    self.topView.height = tView.height;
+//    tView.backgroundColor = [UIColor whiteColor];
+//    tView.width = ScreenWidth;
+//    [tView.imgView setBackgroundColor:[UIColor whiteColor]];
+//    [self.topView addSubview:tView];
+//    NSLog(@"tView的高度%f",tView.height);
+    self.topview.height = 100;
     
-    self.middleView.frame = CGRectMake(0, CGRectGetHeight(tView.frame), ScreenWidth, ScreenHeight - CGRectGetMaxY(self.navigationController.navigationBar.frame));
+    self.middleView.frame = CGRectMake(0, CGRectGetHeight(self.topview.frame), ScreenWidth, ScreenHeight - CGRectGetMaxY(self.navigationController.navigationBar.frame));
     self.middleView.backgroundColor = [UIColor blueColor];
-    CycleView *cycleView = [[CycleView alloc] initWithFrame:self.middleView.bounds];
-    NSArray *array = @[@"项目进度",@"项目详情",@"用户评论",@"投资记录"];
-    cycleView.titleArray = array;
-    cycleView.backgroundColor = [UIColor redColor];
-    CreationTableViewController *vc1 = [[CreationTableViewController alloc] init];
-    vc1.view.backgroundColor = [UIColor redColor];
-    UIViewController *vc2 = [[UIViewController alloc]init];
-    vc2.view.backgroundColor = [UIColor orangeColor];
-    UIViewController *vc3 = [[UIViewController alloc]init];
-    vc3.view.backgroundColor = [UIColor blueColor];
-    UIViewController *vc4 = [[UIViewController alloc]init];
-    vc4.view.backgroundColor = [UIColor lightGrayColor];
-    NSArray *arr = @[vc1.view,vc2.view,vc3.view,vc4.view];
-    cycleView.controllers = arr;
-    [self.middleView addSubview:cycleView];
+//    CycleView *cycleView = [[CycleView alloc] initWithFrame:self.middleView.bounds];
+    self.cycleView.frame = self.middleView.bounds;
+    self.cycleView.titleArray = self.titleArray;
+    self.cycleView.controllers = self.controllersView;
+    [self.middleView addSubview:self.cycleView];
     //添加控制器视图 到scrollView中
-    
     int count = 0;
-    for(UIView *vi in arr){
-        vi.frame = CGRectMake(ScreenWidth * count, 0, ScreenWidth, cycleView.bottomScrollView.frame.size.height);
-        [cycleView.bottomScrollView addSubview:vi];
+    for(UIView *vi in self.cycleView.controllers){
+        vi.frame = CGRectMake(ScreenWidth * count, 0, ScreenWidth, self.cycleView.bottomScrollView.frame.size.height);
+        [self.cycleView.bottomScrollView addSubview:vi];
         count++;
     }
-//    for (int i = 0; i < arr.count; i++) {
-//        if (i == 0) {
-//            vc1.view.frame = CGRectMake(0, 0, ScreenWidth, cycleView.bottomScrollView.frame.size.height);
-//            [cycleView.bottomScrollView addSubview:vc1.view];
-//        }else if (i == 1){
-//            vc2.view.frame = CGRectMake(ScreenWidth * i, 0, ScreenWidth, cycleView.bottomScrollView.frame.size.height);
-//            [cycleView.bottomScrollView addSubview:vc2.view];
-//        }else if (i == 2){
-//            vc3.view.frame = CGRectMake(ScreenWidth * i, 0, ScreenWidth, cycleView.bottomScrollView.frame.size.height);
-//            [cycleView.bottomScrollView addSubview:vc3.view];
-//        }else{
-//            vc4.view.frame = CGRectMake(ScreenWidth * i, 0, ScreenWidth, cycleView.bottomScrollView.frame.size.height);
-//            [cycleView.bottomScrollView addSubview:vc4.view];
-//        }
-//    }
-    self.backgroundScrollView.contentSize = CGSizeMake(ScreenWidth,self.topView.height + self.middleView.height);
+    self.backgroundScrollView.contentSize = CGSizeMake(ScreenWidth,self.topview.height + self.middleView.height);
+}
+
+-(CycleView *)cycleView{
+    if (!_cycleView) {
+        _cycleView = [[CycleView alloc] init];
+        _cycleView.backgroundColor = [UIColor redColor];
+    }
+    return _cycleView;
+}
+
+-(NSMutableArray *)titleArray{
+    if (!_titleArray) {
+        NSArray *array = @[@"项目进度",@"项目详情",@"用户评论",@"投资记录"];
+        _titleArray = [NSMutableArray arrayWithArray:array];
+    }
+    return _titleArray;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+-(NSMutableArray *)controllersView{
+    if (!_controllersView) {
+        _controllersView = [NSMutableArray arrayWithCapacity:self.titleArray.count];
+    }
+    return _controllersView;
+}
 /*
 #pragma mark - Navigation
 

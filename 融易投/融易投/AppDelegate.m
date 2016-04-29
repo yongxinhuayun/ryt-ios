@@ -6,6 +6,9 @@
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
+//阿里云服务器
+//http://j.efeiyi.com:8080/app-wikiServer/app/login.do
+
 #import "AppDelegate.h"
 
 #import "CommonTabBarViewController.h"

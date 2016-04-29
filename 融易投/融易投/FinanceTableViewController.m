@@ -7,10 +7,10 @@
 //
 
 #import "FinanceTableViewController.h"
+#import "DetailFinanceViewController.h"
 
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
-
 #import "FinanceModel.h"
 #import "authorModel.h"
 
@@ -169,7 +169,9 @@ static NSString *ID = @"financeCell";
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.69:8001/app/investorIndex.do";
+    ////http://j.efeiyi.com:8080/app-wikiServer/app/login.do
+//    NSString *url = @"http://192.168.1.69:8001/app/investorIndex.do";
+        NSString *url = @"http://j.efeiyi.com:8080/app-wikiServer/app/investorIndex.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
@@ -180,6 +182,7 @@ static NSString *ID = @"financeCell";
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
         self.models = [FinanceModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
+        NSLog(@"self.models = %@",self.models);
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -316,13 +319,14 @@ static NSString *ID = @"financeCell";
     
 //    XIBDemoViewController *controller = [[XIBDemoViewController alloc] init];
     
-    FinanceDetailsViewController *controller = [[FinanceDetailsViewController alloc] init];
+//    FinanceDetailsViewController *controller = [[FinanceDetailsViewController alloc] init];
     
     //使用归档进行保存id
     //NSUserDefaults  是个单例,但是取出不是shared
-    [[NSUserDefaults standardUserDefaults] setObject:self.model.ID forKey:@"artWorkId"];
+//    [[NSUserDefaults standardUserDefaults] setObject:self.model.ID forKey:@"artWorkId"];
+    DetailFinanceViewController *detail = [[DetailFinanceViewController alloc] init];
 
-    [self.navigationController pushViewController:controller animated:YES];
+    [self.navigationController pushViewController:detail animated:YES];
     
 }
 

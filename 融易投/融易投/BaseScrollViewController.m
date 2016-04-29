@@ -7,6 +7,9 @@
 //
 
 #import "BaseScrollViewController.h"
+#import "TopView.h"
+#import "UIView+Frame.h"
+#import "CycleView.h"
 
 @interface BaseScrollViewController ()
 
@@ -19,8 +22,29 @@
 
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.backgroundScrollView];
-    [self.backgroundScrollView addSubview:self.topView];
+    [self.backgroundScrollView addSubview:self.topview];
     [self.backgroundScrollView addSubview:self.middleView];
+    
+    
+//    self.navigationController.navigationBarHidden = NO;
+//    self.navigationItem.title = @"项目名称";
+////    self.topview.height = 400;
+//    self.middleView.frame = CGRectMake(0, CGRectGetHeight(self.topview.frame), SSScreenW, SSScreenH - CGRectGetMaxY(self.navigationController.navigationBar.frame));
+//    self.middleView.backgroundColor = [UIColor blueColor];
+//    //    CycleView *cycleView = [[CycleView alloc] initWithFrame:self.middleView.bounds];
+//    self.cycleView.frame = self.middleView.bounds;
+//    self.cycleView.titleArray = self.titleArray;
+//    self.cycleView.controllers = self.controllersView;
+//    [self.middleView addSubview:self.cycleView];
+//    //添加控制器视图 到scrollView中
+//    int count = 0;
+//    for(UIView *vi in self.cycleView.controllers){
+//        vi.frame = CGRectMake(SSScreenW * count, 0, SSScreenW, self.cycleView.bottomScrollView.frame.size.height);
+//        [self.cycleView.bottomScrollView addSubview:vi];
+//        count++;
+//    }
+//    self.backgroundScrollView.contentSize = CGSizeMake(SSScreenW,self.topview.height + self.middleView.height);
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,13 +52,12 @@
 }
 
 //懒加载
--(UIView *)topView{
-    if (!_topView) {
-        _topView = [[UIView alloc] init];
-        _topView.backgroundColor = [UIColor redColor];
-//        _topView.frame = CGRectMake(0, 0, 375, 100);
+-(UIView *)topview{
+    if (!_topview) {
+        _topview = [[UIView alloc] init];
+        _topview.backgroundColor = [UIColor redColor];
     }
-    return _topView;
+    return _topview;
 }
 -(UIView *)middleView{
     if (!_middleView) {
@@ -52,6 +75,29 @@
     }
     return _backgroundScrollView;
 }
+
+//-(CycleView *)cycleView{
+//    if (!_cycleView) {
+//        _cycleView = [[CycleView alloc] init];
+//        _cycleView.backgroundColor = [UIColor redColor];
+//    }
+//    return _cycleView;
+//}
+//
+//-(NSMutableArray *)titleArray{
+//    if (!_titleArray) {
+//        NSArray *array = @[@"项目进度",@"项目详情",@"用户评论",@"投资记录"];
+//        _titleArray = [NSMutableArray arrayWithArray:array];
+//    }
+//    return _titleArray;
+//}
+//
+//-(NSMutableArray *)controllersView{
+//    if (!_controllersView) {
+//        _controllersView = [NSMutableArray arrayWithCapacity:self.titleArray.count];
+//    }
+//    return _controllersView;
+//}
 
 /*
 #pragma mark - Navigation

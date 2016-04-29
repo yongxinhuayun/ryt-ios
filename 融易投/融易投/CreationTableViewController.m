@@ -7,6 +7,7 @@
 //
 
 #import "CreationTableViewController.h"
+#import "DetailFinanceViewController.h"
 #import "FinanceViewController.h"
 
 #import <CommonCrypto/CommonDigest.h>
@@ -76,7 +77,6 @@ static NSString *ID = @"creationCell";
     
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"CreationTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
-    
     
     [CreationModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         
@@ -368,7 +368,7 @@ static NSString *ID = @"creationCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FinanceViewController *creationDetailsVC = [[FinanceViewController alloc] init];
+    DetailFinanceViewController *creationDetailsVC = [[DetailFinanceViewController alloc] init];
     [self.navigationController pushViewController:creationDetailsVC animated:YES];
 }
 

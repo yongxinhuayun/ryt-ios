@@ -7,7 +7,13 @@
 //
 
 #import "BaseScrollViewController.h"
+#import "CycleView.h"
 
 @interface FinanceViewController : BaseScrollViewController
+@property(nonatomic,strong)CycleView *cycleView;
+@property(nonatomic,strong)NSMutableArray *titleArray;
+@property(nonatomic,strong)NSMutableArray *controllersView;
+@property(nonatomic,assign)CGFloat topHight;
+
 
 @end

@@ -9,5 +9,7 @@
 #import "BaseScrollViewController.h"
 
 @interface DetailFinanceViewController : BaseScrollViewController
-
+@property(nonatomic,strong)CycleView *cycleView;
+@property(nonatomic,strong)NSMutableArray *titleArray;
+@property(nonatomic,strong)NSMutableArray *controllersView;
 @end
