@@ -11,14 +11,9 @@
 #import "authorModel.h"
 
 @interface FinanceModel : NSObject
-
-
-
 /**
  *  objectList对应的数据
  */
-
-
 /** 项目背景图 */
 @property (nonatomic ,strong) NSString *picture_url;
 

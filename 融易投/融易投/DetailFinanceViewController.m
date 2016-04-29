@@ -12,11 +12,13 @@
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 
 #import "CycleView.h"
-#import "TopView.h"
+#import "FinanceHeader.h"
 #import "DetailFinanceViewController.h"
+#import "UIImageView+WebCache.h"
+#import "FinanceModel.h"
 
 @interface DetailFinanceViewController ()
-
+@property(nonatomic,strong) FinanceHeader *financeHeader;
 @end
 
 @implementation DetailFinanceViewController
@@ -24,15 +26,30 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+    [self setupUI];
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    TopView *tView = [[[NSBundle mainBundle] loadNibNamed:@"TopView" owner:nil options:nil] lastObject];
+    //显示数据
+    NSString *urlStr = [[NSString stringWithFormat:@"%@",self.financeModel.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURL *picture_urlURL = [NSURL URLWithString:urlStr];
+    
+    //    NSLog(@"%@",picture_urlURL);
+    
+//    [self.bgImageView sd_setImageWithURL:picture_urlURL];
+
+    
+}
+
+-(void)setupUI{
+    FinanceHeader *tView = [[[NSBundle mainBundle] loadNibNamed:@"FinanceHeader" owner:nil options:nil] lastObject];
+    self.financeHeader = tView;
     self.topview.height = tView.height;
     tView.backgroundColor = [UIColor whiteColor];
     tView.width = ScreenWidth;
-    [tView.imgView setBackgroundColor:[UIColor whiteColor]];
-    [self.topview addSubview:tView];
+    [self.topview addSubview:self.financeHeader];
     self.middleView.frame = CGRectMake(0, CGRectGetHeight(self.topview.frame), ScreenWidth, ScreenHeight - CGRectGetMaxY(self.navigationController.navigationBar.frame));
     self.middleView.backgroundColor = [UIColor blueColor];
     //    CycleView *cycleView = [[CycleView alloc] initWithFrame:self.middleView.bounds];
@@ -50,6 +67,7 @@
     self.backgroundScrollView.contentSize = CGSizeMake(ScreenWidth,self.topview.height + self.middleView.height);
 }
 
+//懒加载
 -(CycleView *)cycleView{
     if (!_cycleView) {
         _cycleView = [[CycleView alloc] init];
