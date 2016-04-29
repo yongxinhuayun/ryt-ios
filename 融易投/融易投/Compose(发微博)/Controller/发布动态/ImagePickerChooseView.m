@@ -22,11 +22,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         //初始化背景
-        UIView *tapView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,screenWidth, screenHeight)];
+        UIView *tapView = [[UIView alloc]initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
         tapView.backgroundColor = [UIColor blackColor];
         tapView.alpha = 0.4;
         tapView.userInteractionEnabled = YES;
-        [bgView addSubview:tapView];
+        [[UIApplication sharedApplication].keyWindow addSubview:tapView];
         self.tapView = tapView;
         
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(disappear)];
@@ -37,10 +37,10 @@
 
 -(void)addImagePickerChooseView
 {
-    UITableView *chooseTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    UITableView *chooseTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, [UIApplication sharedApplication].keyWindow.height - 120, self.frame.size.width, self.frame.size.height)];
     chooseTableView.delegate = self;
     chooseTableView.dataSource = self;
-    [self addSubview:chooseTableView];
+    [[UIApplication sharedApplication].keyWindow addSubview:chooseTableView];
     self.chooseTableView = chooseTableView;
 }
 
@@ -48,6 +48,7 @@
 -(void)disappear
 {
 //    ((UITableView *)self.superview).scrollEnabled = YES;
+    [self.chooseTableView removeFromSuperview];
     [self.tapView removeFromSuperview];
     self.tapView = nil;
     [UIView animateWithDuration:0.25f animations:^{
@@ -107,6 +108,8 @@
     {
         [self disappear];
     }
+    
+    [self disappear];
 }
 
 
