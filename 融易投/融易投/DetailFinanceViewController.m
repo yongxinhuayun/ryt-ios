@@ -1,42 +1,58 @@
 //
-//  FinanceViewController.m
+//  DetailFinanceViewController.m
 //  融易投
 //
-//  Created by dongxin on 16/4/27.
+//  Created by dongxin on 16/4/28.
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
+
+
 
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 
-#import "FinanceViewController.h"
-#import "TopView.h"
-#import "UIView+Frame.h"
 #import "CycleView.h"
-@interface FinanceViewController ()
+#import "FinanceHeader.h"
+#import "DetailFinanceViewController.h"
+#import "UIImageView+WebCache.h"
+#import "FinanceModel.h"
 
+@interface DetailFinanceViewController ()
+@property(nonatomic,strong) FinanceHeader *financeHeader;
 @end
 
-@implementation FinanceViewController
+@implementation DetailFinanceViewController
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+    [self setupUI];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //显示数据
+    NSString *urlStr = [[NSString stringWithFormat:@"%@",self.financeModel.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    self.navigationController.navigationBarHidden = NO;
-    self.navigationItem.title = @"项目名称";
+    NSURL *picture_urlURL = [NSURL URLWithString:urlStr];
     
-//    TopView *tView = [[[NSBundle mainBundle] loadNibNamed:@"TopView" owner:nil options:nil] lastObject];
-//    self.topView.height = tView.height;
-//    tView.backgroundColor = [UIColor whiteColor];
-//    tView.width = ScreenWidth;
-//    [tView.imgView setBackgroundColor:[UIColor whiteColor]];
-//    [self.topView addSubview:tView];
-//    NSLog(@"tView的高度%f",tView.height);
-    self.topview.height = 100;
+    //    NSLog(@"%@",picture_urlURL);
     
+//    [self.bgImageView sd_setImageWithURL:picture_urlURL];
+
+    
+}
+
+-(void)setupUI{
+    FinanceHeader *tView = [[[NSBundle mainBundle] loadNibNamed:@"FinanceHeader" owner:nil options:nil] lastObject];
+    self.financeHeader = tView;
+    self.topview.height = tView.height;
+    tView.backgroundColor = [UIColor whiteColor];
+    tView.width = ScreenWidth;
+    [self.topview addSubview:self.financeHeader];
     self.middleView.frame = CGRectMake(0, CGRectGetHeight(self.topview.frame), ScreenWidth, ScreenHeight - CGRectGetMaxY(self.navigationController.navigationBar.frame));
     self.middleView.backgroundColor = [UIColor blueColor];
-//    CycleView *cycleView = [[CycleView alloc] initWithFrame:self.middleView.bounds];
+    //    CycleView *cycleView = [[CycleView alloc] initWithFrame:self.middleView.bounds];
     self.cycleView.frame = self.middleView.bounds;
     self.cycleView.titleArray = self.titleArray;
     self.cycleView.controllers = self.controllersView;
@@ -51,6 +67,7 @@
     self.backgroundScrollView.contentSize = CGSizeMake(ScreenWidth,self.topview.height + self.middleView.height);
 }
 
+//懒加载
 -(CycleView *)cycleView{
     if (!_cycleView) {
         _cycleView = [[CycleView alloc] init];
@@ -78,13 +95,13 @@
     return _controllersView;
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

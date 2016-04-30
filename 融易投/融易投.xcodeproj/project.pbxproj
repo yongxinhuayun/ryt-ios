@@ -320,6 +320,8 @@
 		E2D387081CB8E49F00F735F9 /* ChartContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D387071CB8E49F00F735F9 /* ChartContentView.m */; };
 		E2D3870B1CB8E4E900F735F9 /* PrivateLetterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D3870A1CB8E4E900F735F9 /* PrivateLetterViewController.m */; };
 		E2D3870C1CB8E56100F735F9 /* KeyBordVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54BA51CB792010088D386 /* KeyBordVIew.m */; };
+		E2D557BA1CD21B33003F0F4A /* DetailFinanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D557B91CD21B33003F0F4A /* DetailFinanceViewController.m */; };
+		E2D557BE1CD21D04003F0F4A /* DetailCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D557BD1CD21D04003F0F4A /* DetailCreationViewController.m */; };
 		E2D73DC21CAD2CA9004CEFA3 /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D73DC01CAD2CA9004CEFA3 /* RegViewController.m */; };
 		E2D73DC31CAD2CA9004CEFA3 /* RegViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D73DC11CAD2CA9004CEFA3 /* RegViewController.xib */; };
 		E2D812EF1CCF85D500A52172 /* BaseScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D812EE1CCF85D500A52172 /* BaseScrollViewController.m */; };
@@ -893,6 +895,10 @@
 		E2D387071CB8E49F00F735F9 /* ChartContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartContentView.m; sourceTree = "<group>"; };
 		E2D387091CB8E4E900F735F9 /* PrivateLetterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivateLetterViewController.h; sourceTree = "<group>"; };
 		E2D3870A1CB8E4E900F735F9 /* PrivateLetterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivateLetterViewController.m; sourceTree = "<group>"; };
+		E2D557B81CD21B33003F0F4A /* DetailFinanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailFinanceViewController.h; sourceTree = "<group>"; };
+		E2D557B91CD21B33003F0F4A /* DetailFinanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailFinanceViewController.m; sourceTree = "<group>"; };
+		E2D557BC1CD21D04003F0F4A /* DetailCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCreationViewController.h; sourceTree = "<group>"; };
+		E2D557BD1CD21D04003F0F4A /* DetailCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCreationViewController.m; sourceTree = "<group>"; };
 		E2D73DBF1CAD2CA9004CEFA3 /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegViewController.h; sourceTree = "<group>"; };
 		E2D73DC01CAD2CA9004CEFA3 /* RegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegViewController.m; sourceTree = "<group>"; };
 		E2D73DC11CAD2CA9004CEFA3 /* RegViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegViewController.xib; sourceTree = "<group>"; };
@@ -1447,11 +1453,6 @@
 				2168EADC1CBFA05000B7E037 /* FinanceDetailSecondCell.h */,
 				2168EADD1CBFA05000B7E037 /* FinanceDetailSecondCell.m */,
 				2168EADE1CBFA05000B7E037 /* FinanceDetailSecondCell.xib */,
-				E2D812FB1CD0780100A52172 /* TopView.h */,
-				E2D812FC1CD0780100A52172 /* TopView.m */,
-				E2D812FE1CD0780E00A52172 /* TopView.xib */,
-				E2D813001CD09A7800A52172 /* CycleView.h */,
-				E2D813011CD09A7800A52172 /* CycleView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1627,6 +1628,8 @@
 		21AB0B861CC8BC9F00B7BA03 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E2D557B81CD21B33003F0F4A /* DetailFinanceViewController.h */,
+				E2D557B91CD21B33003F0F4A /* DetailFinanceViewController.m */,
 				2187B95D1CCE1B4200B92435 /* FinanceDetailsViewController.h */,
 				2187B95E1CCE1B4200B92435 /* FinanceDetailsViewController.m */,
 				2187B9601CCE1C5700B92435 /* FinanceDetailsHeaderView.h */,
@@ -1803,11 +1806,25 @@
 			path = SDKExport;
 			sourceTree = "<group>";
 		};
+		E2D557BB1CD21C4C003F0F4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E2D812FB1CD0780100A52172 /* TopView.h */,
+				E2D812FC1CD0780100A52172 /* TopView.m */,
+				E2D812FE1CD0780E00A52172 /* TopView.xib */,
+				E2D813001CD09A7800A52172 /* CycleView.h */,
+				E2D813011CD09A7800A52172 /* CycleView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		E2D812EC1CCF856200A52172 /* RYTScrollViewController */ = {
 			isa = PBXGroup;
 			children = (
 				E2D812ED1CCF85D500A52172 /* BaseScrollViewController.h */,
 				E2D812EE1CCF85D500A52172 /* BaseScrollViewController.m */,
+				E2D812F81CD077BD00A52172 /* FinanceViewController.h */,
+				E2D812F91CD077BD00A52172 /* FinanceViewController.m */,
 			);
 			name = RYTScrollViewController;
 			sourceTree = "<group>";
@@ -2042,10 +2059,11 @@
 		E2DDB1A61CABA721007438E4 /* 详情 */ = {
 			isa = PBXGroup;
 			children = (
+				E2D557BB1CD21C4C003F0F4A /* View */,
 				2187B95A1CCE083500B92435 /* CreationDetailsViewController.h */,
 				2187B95B1CCE083500B92435 /* CreationDetailsViewController.m */,
-				E2D812F81CD077BD00A52172 /* FinanceViewController.h */,
-				E2D812F91CD077BD00A52172 /* FinanceViewController.m */,
+				E2D557BC1CD21D04003F0F4A /* DetailCreationViewController.h */,
+				E2D557BD1CD21D04003F0F4A /* DetailCreationViewController.m */,
 			);
 			name = "详情";
 			sourceTree = "<group>";
@@ -2828,6 +2846,7 @@
 				21D54B8C1CB660970088D386 /* ArtistTableViewCell.m in Sources */,
 				2187B93F1CCDF14000B92435 /* TYBasePageTabBar.m in Sources */,
 				219AC5E11CBC87FD0052146E /* HMEmotion.m in Sources */,
+				E2D557BE1CD21D04003F0F4A /* DetailCreationViewController.m in Sources */,
 				219ACA401CBE3F100052146E /* AGImagePickerController+Helper.m in Sources */,
 				2118F1DF1CAE1D1A003BFC6B /* NSString+Extension.m in Sources */,
 				21AB0AC01CC50A4D00B7BA03 /* JPSlideBarConst.m in Sources */,
@@ -2908,6 +2927,7 @@
 				2187B9541CCDFCE500B92435 /* MyArtworkViewController.m in Sources */,
 				E2D813021CD09A7800A52172 /* CycleView.m in Sources */,
 				219ACA491CBE3F100052146E /* AGIPCToolbarItem.m in Sources */,
+				E2D557BA1CD21B33003F0F4A /* DetailFinanceViewController.m in Sources */,
 				2187B96F1CCF109900B92435 /* City.m in Sources */,
 				2187B92D1CCDAD9C00B92435 /* EditingSignatureViewController.m in Sources */,
 				2118F1E31CAE5805003BFC6B /* MyViewController.m in Sources */,
