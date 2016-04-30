@@ -109,6 +109,9 @@
 		219A1E921CD355D0002843AC /* test.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219A1E911CD355D0002843AC /* test.xib */; };
 		219A1E951CD355DE002843AC /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = 219A1E941CD355DE002843AC /* test.m */; };
 		219A1E981CD35682002843AC /* testTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219A1E971CD35682002843AC /* testTableViewController.m */; };
+		219A1E9B1CD35D09002843AC /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219A1E9A1CD35D09002843AC /* MeViewController.m */; };
+		219A1E9E1CD35E60002843AC /* MeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 219A1E9D1CD35E60002843AC /* MeHeaderView.m */; };
+		219A1EA01CD36005002843AC /* MeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219A1E9F1CD36005002843AC /* MeHeaderView.xib */; };
 		219AC5B91CBC839F0052146E /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 219AC5B81CBC839F0052146E /* NSString+Emoji.m */; };
 		219AC5E01CBC87FD0052146E /* HMComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219AC5C01CBC87FD0052146E /* HMComposeViewController.m */; };
 		219AC5E11CBC87FD0052146E /* HMEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 219AC5C31CBC87FD0052146E /* HMEmotion.m */; };
@@ -529,6 +532,11 @@
 		219A1E941CD355DE002843AC /* test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 		219A1E961CD35682002843AC /* testTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testTableViewController.h; sourceTree = "<group>"; };
 		219A1E971CD35682002843AC /* testTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testTableViewController.m; sourceTree = "<group>"; };
+		219A1E991CD35D09002843AC /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
+		219A1E9A1CD35D09002843AC /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
+		219A1E9C1CD35E60002843AC /* MeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeHeaderView.h; sourceTree = "<group>"; };
+		219A1E9D1CD35E60002843AC /* MeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeHeaderView.m; sourceTree = "<group>"; };
+		219A1E9F1CD36005002843AC /* MeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeHeaderView.xib; sourceTree = "<group>"; };
 		219AC5B71CBC839F0052146E /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
 		219AC5B81CBC839F0052146E /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
 		219AC5BF1CBC87FD0052146E /* HMComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMComposeViewController.h; sourceTree = "<group>"; };
@@ -1953,6 +1961,11 @@
 				219A1E8C1CD34570002843AC /* MyHeaderView.h */,
 				219A1E8D1CD34570002843AC /* MyHeaderView.m */,
 				219A1E8F1CD345F1002843AC /* MyHeaderView.xib */,
+				219A1E991CD35D09002843AC /* MeViewController.h */,
+				219A1E9A1CD35D09002843AC /* MeViewController.m */,
+				219A1E9C1CD35E60002843AC /* MeHeaderView.h */,
+				219A1E9D1CD35E60002843AC /* MeHeaderView.m */,
+				219A1E9F1CD36005002843AC /* MeHeaderView.xib */,
 				2187B9891CD049C100B92435 /* IdeaRetroactionViewController.h */,
 				2187B98A1CD049C100B92435 /* IdeaRetroactionViewController.m */,
 				2187B98B1CD049C100B92435 /* IdeaRetroactionViewController.xib */,
@@ -2607,6 +2620,7 @@
 				219ACA511CBE3F100052146E /* location.png in Resources */,
 				2187B8FE1CC8DBE800B92435 /* UserCommonCell.xib in Resources */,
 				219AC9FB1CBDE86F0052146E /* ComposeViewController.xib in Resources */,
+				219A1EA01CD36005002843AC /* MeHeaderView.xib in Resources */,
 				219AC5E81CBC87FD0052146E /* HMEmotionPopView.xib in Resources */,
 				219ACA531CBE3F100052146E /* picture1.png in Resources */,
 				E236C3241CB4E27E009DCBF0 /* PushConfig.plist in Resources */,
@@ -2724,6 +2738,7 @@
 				21D54B3C1CB4FA8B0088D386 /* UIImage+Antialias.m in Sources */,
 				2187B9401CCDF14000B92435 /* TYSlidePageScrollView.m in Sources */,
 				218D2B7C1CACBBC2004553B9 /* LognController.m in Sources */,
+				219A1E9E1CD35E60002843AC /* MeHeaderView.m in Sources */,
 				2168EAE31CBFA05000B7E037 /* FinanceDetailFirstCell.m in Sources */,
 				219AC5F11CBC89970052146E /* MBProgressHUD+MJ.m in Sources */,
 				21AB0B731CC72B3900B7BA03 /* ImageCollectionViewCell.m in Sources */,
@@ -2857,6 +2872,7 @@
 				21D54B9E1CB791E10088D386 /* UIImage+StrethImage.m in Sources */,
 				21AB0B971CC8BEB800B7BA03 /* CreatorModel.m in Sources */,
 				215EED291CB0108F00A5957B /* InvestorTableViewController.m in Sources */,
+				219A1E9B1CD35D09002843AC /* MeViewController.m in Sources */,
 				21AB0A281CC23A0000B7BA03 /* ArtworkModel.m in Sources */,
 				219AC5EE1CBC87FD0052146E /* HMTextView.m in Sources */,
 				21D54BA11CB791F60088D386 /* ChartMessage.m in Sources */,

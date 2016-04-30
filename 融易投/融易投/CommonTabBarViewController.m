@@ -7,13 +7,12 @@
 //
 
 #import "CommonTabBarViewController.h"
-#import "testTableViewController.h"
 #import "CommonNavigationController.h"
 
 #import "MessageTableViewController.h"
-#import "MyViewController.h"
 #import "RankTableViewController.h"
 #import "MainTableViewController.h"
+#import "MeViewController.h"
 
 
 //TabBar的颜色
@@ -96,7 +95,7 @@
     [self addChildViewController:MessageVC];
     
     // 我的
-    testTableViewController *meVC = [[testTableViewController alloc] init];
+    MeViewController *meVC = [[MeViewController alloc] init];
     [self addChildViewController:meVC];
 }
 

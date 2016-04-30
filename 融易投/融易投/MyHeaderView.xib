@@ -168,7 +168,7 @@
             <connections>
                 <outlet property="iconImageView" destination="3n7-md-13m" id="qRu-Lq-IAf"/>
             </connections>
-            <point key="canvasLocation" x="168.5" y="126.75"/>
+            <point key="canvasLocation" x="179.5" y="97.75"/>
         </view>
     </objects>
     <resources>
