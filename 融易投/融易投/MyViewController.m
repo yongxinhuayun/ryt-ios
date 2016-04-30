@@ -7,7 +7,6 @@
 //
 
 #import "MyViewController.h"
-#import "test.h"
 #import "LognController.h"
 #import "RegViewController.h"
 #import "ForgetPasswordViewController.h"
@@ -35,7 +34,6 @@
 
 #import "ReleaseViewController.h"
 
-#import "ApplyforArtistViewController.h"
 
 #import "FocusMyViewController.h"
 

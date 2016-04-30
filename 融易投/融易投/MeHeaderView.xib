@@ -28,12 +28,18 @@
                     <state key="normal" title="关注">
                         <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="FocusBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="I3y-mc-0Yl"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sov-JL-u8c">
                     <rect key="frame" x="225" y="73" width="30" height="30"/>
                     <state key="normal" title="粉丝">
                         <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="FansBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="iKl-kW-Cn7"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iT-vG-yk1">
                     <rect key="frame" x="129" y="111" width="42" height="20.5"/>
@@ -101,20 +107,13 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerImage" translatesAutoresizingMaskIntoConstraints="NO" id="tTk-mT-RlM">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerImage" translatesAutoresizingMaskIntoConstraints="NO" id="tTk-mT-RlM">
                     <rect key="frame" x="112" y="19" width="77" height="77"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="77" id="s0V-Sd-WOQ"/>
                         <constraint firstAttribute="height" constant="77" id="uMG-FO-XnL"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HsX-mG-yzI">
-                    <rect key="frame" x="46" y="127" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="w6q-NV-n6Z"/>
-                    </connections>
-                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="jt3-UQ-nYP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1mZ-BU-RFK"/>
@@ -158,6 +157,9 @@
                     <exclude reference="ej6-3x-PIp"/>
                 </mask>
             </variation>
+            <connections>
+                <outlet property="iconImageView" destination="tTk-mT-RlM" id="eSx-xF-8gS"/>
+            </connections>
             <point key="canvasLocation" x="161.5" y="161"/>
         </view>
     </objects>

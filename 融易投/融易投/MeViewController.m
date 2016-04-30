@@ -35,13 +35,18 @@
 
 #import "ReleaseViewController.h"
 
-#import "ApplyforArtistViewController.h"
-
 #import "FocusMyViewController.h"
 
 #import "MeHeaderView.h"
 
+
+
+#import "OtherHomeViewController.h"
+
 @interface MeViewController ()
+
+
+@property (strong, nonatomic) MeHeaderView *meheaderView;
 
 @end
 
@@ -56,53 +61,62 @@
     [self setUpNavBar];
     
     
-    MeHeaderView *headerView = [MeHeaderView meHeaderView];
-//    headerView.frame = CGRectMake(0, 64, SSScreenW, 222);
-//    UIView *v = [[UIView alloc] init]
-    self.tableView.tableHeaderView = headerView;
+    //设置头部视图
+    MeHeaderView *meheaderView = [MeHeaderView meHeaderView];
+    self.meheaderView = meheaderView;
+    self.tableView.tableHeaderView = meheaderView;
     
-//    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
-//    //运行程序,发现滚动条上部分被标题栏和导航栏挡住了,这样会对会用造成一定的假象,造成对内容的多少判断不准确
-//    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, 0, 0);
+    //点击头像跳转编辑资料视图
+    [self jumpeditingInfoVc];
     
-   
+    //点击关注跳转关注视图
+    [self jumpFocusVc];
     
-//    //设置详细视图
-//    [self setUpTableView];
-    
-//    [self jumpeditingInfoVc];
-//    
-//    [self jumpFocusVc];
+    //点击跳转粉丝界面
+    [self jumpFansVc];
 }
 
-//-(void)jumpeditingInfoVc{
-//    
-//    __weak MeViewController *weakself=self;
-//    
-//    self.mgHeaderView.valueBlcok = ^{
-//        
-//        UIStoryboard *editingInfoStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([EditingInfoViewController class]) bundle:nil];
-//        EditingInfoViewController *editingInfoVC = [editingInfoStoryBoard instantiateInitialViewController];
-//        
-//        [weakself.navigationController pushViewController:editingInfoVC animated:YES];
-//        
-//    };
-//    
-//}
-//
-//-(void)jumpFocusVc{
-//    
-//    __weak MeViewController *weakself=self;
-//    
-//    self.mgHeaderView.valueBlcok = ^{
-//        
-//        FocusMyViewController *focusVC = [[FocusMyViewController alloc] init];
-//        
-//        [weakself.navigationController pushViewController:focusVC animated:YES];
-//        
-//    };
-//    
-//}
+-(void)jumpeditingInfoVc{
+    
+    __weak MeViewController *weakself=self;
+    
+    self.meheaderView.editingInfoBlcok = ^{
+        
+        UIStoryboard *editingInfoStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([EditingInfoViewController class]) bundle:nil];
+        EditingInfoViewController *editingInfoVC = [editingInfoStoryBoard instantiateInitialViewController];
+        
+        [weakself.navigationController pushViewController:editingInfoVC animated:YES];
+        
+    };
+    
+}
+
+-(void)jumpFocusVc{
+    
+    __weak MeViewController *weakself=self;
+    
+    self.meheaderView.focusBlcok = ^{
+        
+        FocusMyViewController *focusVC = [[FocusMyViewController alloc] init];
+        
+        [weakself.navigationController pushViewController:focusVC animated:YES];
+        
+    };
+    
+}
+
+-(void)jumpFansVc{
+    
+    __weak MeViewController *weakself=self;
+    
+    self.meheaderView.fansBlcok = ^{
+        
+        FocusViewController *focusVC = [[FocusViewController alloc] init];
+        [weakself.navigationController pushViewController:focusVC animated:YES];
+        
+    };
+    
+}
 
 
 
@@ -181,8 +195,11 @@
     
     if (indexPath.row == 0) { //第0组
         
-        ArtistViewController *artistVC = [[ArtistViewController alloc] init];
-        [self.navigationController pushViewController:artistVC animated:YES];
+//        ArtistViewController *artistVC = [[ArtistViewController alloc] init];
+//        [self.navigationController pushViewController:artistVC animated:YES];
+        
+        OtherHomeViewController *myHomeVC = [[OtherHomeViewController alloc] init];
+        [self.navigationController pushViewController:myHomeVC animated:YES];
         
         
     }else if (indexPath.row == 1){

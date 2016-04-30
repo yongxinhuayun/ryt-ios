@@ -59,7 +59,7 @@
     
     NSMutableDictionary *attrsSel = [NSMutableDictionary dictionary];
     
-    attrsSel[NSForegroundColorAttributeName] = TabBarColor(255, 255, 255);
+    attrsSel[NSForegroundColorAttributeName] = TabBarColor(239, 91, 112);
     attrsSel[NSFontAttributeName] = TabButtonTitleFont;
     
     [item setTitleTextAttributes:attrsSel forState:UIControlStateSelected];

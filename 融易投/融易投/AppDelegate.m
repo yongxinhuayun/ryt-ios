@@ -227,13 +227,13 @@ static BOOL isProduction = FALSE;
     CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
     
     //设置tabBar的背景颜色
-    CGRect frame = tabBarController.tabBar.bounds;
-    UIView *v = [[UIView alloc] initWithFrame:frame];
-    [v setBackgroundColor:[[UIColor alloc] initWithRed:0/255.0
-                                                 green:0/255.0
-                                                  blue:0/255.0
-                                                 alpha:1.0]];
-    [tabBarController.tabBar insertSubview:v atIndex:0];
+//    CGRect frame = tabBarController.tabBar.bounds;
+//    UIView *v = [[UIView alloc] initWithFrame:frame];
+//    [v setBackgroundColor:[[UIColor alloc] initWithRed:0/255.0
+//                                                 green:0/255.0
+//                                                  blue:0/255.0
+//                                                 alpha:1.0]];
+//    [tabBarController.tabBar insertSubview:v atIndex:0];
     
     //设置状态栏字体颜色和背景颜色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;

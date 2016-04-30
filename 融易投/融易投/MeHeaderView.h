@@ -12,4 +12,13 @@
 
 +(instancetype)meHeaderView;
 
+//当编辑资料时调用
+// 传值:需要传值的时候,再去调用
+//@property (nonatomic ,strong) void(^valueBlcok)();
+@property (nonatomic ,strong) void(^editingInfoBlcok)();
+
+@property (nonatomic ,strong) void(^focusBlcok)();
+
+@property (nonatomic ,strong) void(^fansBlcok)();
+
 @end

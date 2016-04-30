@@ -18,9 +18,6 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
 
-#import "ApplyHeaderView.h"
-#import "ApplyHeaderView2.h"
-#import "ApplyHeaderView3.h"
 #import "cityField.h"
 
 @interface ApplyforArtViewController ()<UITextViewDelegate,UIGestureRecognizerDelegate>
@@ -32,7 +29,6 @@
 @property (nonatomic,weak) UITextField *addressTextView;
 @property (nonatomic,weak) UITextField *artTextView;
 @property (nonatomic,weak) UITextField *certificationTF;
-@property (nonatomic,weak) ApplyHeaderView *view1;
 
 @property (nonatomic,weak)UILabel *identityCardInfoLabel;
 @property (nonatomic,weak)UILabel *pLabel;
@@ -598,7 +594,7 @@
 {
     if ([(UIButton *)btn.superview isKindOfClass:[UIImageView class]]) {
         UIImageView *imageView = (UIImageView *)(UIButton *)btn.superview;
-        NSLog(@"tag = %ld",imageView.tag);
+
         [self.imagePickerArray1 removeObjectAtIndex:(imageView.tag - imageTag)];
         [imageView removeFromSuperview];
     }
@@ -613,7 +609,7 @@
 {
     if ([(UIButton *)btn.superview isKindOfClass:[UIImageView class]]) {
         UIImageView *imageView = (UIImageView *)(UIButton *)btn.superview;
-        NSLog(@"tag = %ld",imageView.tag);
+
         [self.imagePickerArray2 removeObjectAtIndex:(imageView.tag - imageTag)];
         [imageView removeFromSuperview];
     }
@@ -628,7 +624,7 @@
 {
     if ([(UIButton *)btn.superview isKindOfClass:[UIImageView class]]) {
         UIImageView *imageView = (UIImageView *)(UIButton *)btn.superview;
-        NSLog(@"tag = %ld",imageView.tag);
+
         [self.imagePickerArray3 removeObjectAtIndex:(imageView.tag - imageTag)];
         [imageView removeFromSuperview];
     }
@@ -643,7 +639,7 @@
 {
     if ([(UIButton *)btn.superview isKindOfClass:[UIImageView class]]) {
         UIImageView *imageView = (UIImageView *)(UIButton *)btn.superview;
-        NSLog(@"tag = %ld",imageView.tag);
+
         [self.imagePickerArray4 removeObjectAtIndex:(imageView.tag - imageTag)];
         [imageView removeFromSuperview];
     }
@@ -682,11 +678,9 @@
             
         } andSuccessBlock:^(NSArray *info) {
             
-            NSLog(@"%ld",info.count);
             
             [self.imagePickerArray1 addObjectsFromArray:info];
             
-            NSLog(@"%ld",self.imagePickerArray1.count);
             
             [self dismissViewControllerAnimated:YES completion:^{}];
             [self.IPCView disappear];
@@ -700,9 +694,8 @@
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
         }];
         
-        NSLog(@"%ld",[self.imagePickerArray1 count]);
         
-        self.imagePicker.maximumNumberOfPhotosToBeSelected = 9 - [self.imagePickerArray1 count];
+        self.imagePicker.maximumNumberOfPhotosToBeSelected = 2 - [self.imagePickerArray1 count];
         
         [self presentViewController:self.imagePicker animated:YES completion:^{}];
     }];
@@ -744,11 +737,9 @@
             
         } andSuccessBlock:^(NSArray *info) {
             
-            NSLog(@"%ld",info.count);
             
             [self.imagePickerArray2 addObjectsFromArray:info];
             
-            NSLog(@"%ld",self.imagePickerArray2.count);
             
             [self dismissViewControllerAnimated:YES completion:^{}];
             [self.IPCView disappear];
@@ -764,7 +755,7 @@
         
         NSLog(@"%ld",[self.imagePickerArray2 count]);
         
-        self.imagePicker.maximumNumberOfPhotosToBeSelected = 9 - [self.imagePickerArray2 count];
+        self.imagePicker.maximumNumberOfPhotosToBeSelected = 3 - [self.imagePickerArray2 count];
         
         [self presentViewController:self.imagePicker animated:YES completion:^{}];
     }];
@@ -794,7 +785,6 @@
                 [self.IPCView disappear];
             } else
             {
-                NSLog(@"Error: %@", error);
                 
                 // Wait for the view controller to show first and hide it after that
                 double delayInSeconds = 0.5;
@@ -808,11 +798,9 @@
             
         } andSuccessBlock:^(NSArray *info) {
             
-            NSLog(@"%ld",info.count);
             
             [self.imagePickerArray3 addObjectsFromArray:info];
             
-            NSLog(@"%ld",self.imagePickerArray3.count);
             
             [self dismissViewControllerAnimated:YES completion:^{}];
             [self.IPCView disappear];
@@ -828,9 +816,8 @@
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
         }];
         
-        NSLog(@"%ld",[self.imagePickerArray3 count]);
         
-        self.imagePicker.maximumNumberOfPhotosToBeSelected = 9 - [self.imagePickerArray3 count];
+        self.imagePicker.maximumNumberOfPhotosToBeSelected = 3 - [self.imagePickerArray3 count];
         
         [self presentViewController:self.imagePicker animated:YES completion:^{}];
     }];
@@ -874,11 +861,9 @@
             
         } andSuccessBlock:^(NSArray *info) {
             
-            NSLog(@"%ld",info.count);
             
             [self.imagePickerArray4 addObjectsFromArray:info];
             
-            NSLog(@"%ld",self.imagePickerArray4.count);
             
             [self dismissViewControllerAnimated:YES completion:^{}];
             [self.IPCView disappear];
@@ -892,9 +877,8 @@
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
         }];
         
-        NSLog(@"%ld",[self.imagePickerArray4 count]);
         
-        self.imagePicker.maximumNumberOfPhotosToBeSelected = 9 - [self.imagePickerArray4 count];
+        self.imagePicker.maximumNumberOfPhotosToBeSelected = 3 - [self.imagePickerArray4 count];
         
         [self presentViewController:self.imagePicker animated:YES completion:^{}];
     }];
