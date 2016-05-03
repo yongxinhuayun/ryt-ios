@@ -16,6 +16,10 @@
 #import "DetailFinanceViewController.h"
 #import "UIImageView+WebCache.h"
 #import "FinanceModel.h"
+#import "RecordTableViewController.h"
+#import "ProjectDetailsViewController.h"
+#import "UserCommentViewController.h"
+#import "ProjectDetailTableViewController.h"
 
 @interface DetailFinanceViewController ()
 @property(nonatomic,strong) FinanceHeader *financeHeader;
@@ -36,10 +40,10 @@
     
     NSURL *picture_urlURL = [NSURL URLWithString:urlStr];
     
+
     //    NSLog(@"%@",picture_urlURL);
     
 //    [self.bgImageView sd_setImageWithURL:picture_urlURL];
-
     
 }
 
@@ -55,18 +59,40 @@
     //    CycleView *cycleView = [[CycleView alloc] initWithFrame:self.middleView.bounds];
     self.cycleView.frame = self.middleView.bounds;
     self.cycleView.titleArray = self.titleArray;
-    self.cycleView.controllers = self.controllersView;
+    //添加控制器view
+    [self addControllersToCycleView];
     [self.middleView addSubview:self.cycleView];
     //添加控制器视图 到scrollView中
+    self.backgroundScrollView.contentSize = CGSizeMake(ScreenWidth,self.topview.height + self.middleView.height);
+}
+
+-(void)addControllersToCycleView{
+    
+    //添加控制器view
+    RecordTableViewController * record1 = [[RecordTableViewController alloc] init];
+    [self.controllersView addObject:record1.view];
+    [self addChildViewController:record1];
+    UserCommentViewController * userComment = [[UserCommentViewController alloc] init];
+    [self.controllersView addObject:userComment.view];
+    [self addChildViewController:userComment];
+//   ProjectDetailsViewController
+    ProjectDetailsViewController * pro = [[ProjectDetailsViewController alloc] init];
+    [self.controllersView addObject:pro.view];
+    [self addChildViewController:pro];
+//    ProjectDetailTableViewController
+    ProjectDetailTableViewController * pro1 = [[ProjectDetailTableViewController alloc] init];
+    [self.controllersView addObject:pro1.view];
+    [self addChildViewController:pro1];
+    self.cycleView.controllers = self.controllersView;
     int count = 0;
     for(UIView *vi in self.cycleView.controllers){
         vi.frame = CGRectMake(ScreenWidth * count, 0, ScreenWidth, self.cycleView.bottomScrollView.frame.size.height);
         [self.cycleView.bottomScrollView addSubview:vi];
         count++;
     }
-    self.backgroundScrollView.contentSize = CGSizeMake(ScreenWidth,self.topview.height + self.middleView.height);
-}
 
+    
+}
 //懒加载
 -(CycleView *)cycleView{
     if (!_cycleView) {
@@ -78,7 +104,7 @@
 
 -(NSMutableArray *)titleArray{
     if (!_titleArray) {
-        NSArray *array = @[@"项目进度",@"项目详情",@"用户评论",@"投资记录"];
+        NSArray *array = @[@"项目详情",@"项目流程",@"用户评论",@"投资记录"];
         _titleArray = [NSMutableArray arrayWithArray:array];
     }
     return _titleArray;

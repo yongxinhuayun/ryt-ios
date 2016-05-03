@@ -17,6 +17,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *commonLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *commentTime;
+
 @end
 
 @implementation UserCommonCell

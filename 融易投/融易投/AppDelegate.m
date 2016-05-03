@@ -8,7 +8,7 @@
 
 //阿里云服务器
 //http://j.efeiyi.com:8080/app-wikiServer/app/login.do
-
+#import "DetailFinanceViewController.h"
 #import "AppDelegate.h"
 
 #import "CommonTabBarViewController.h"
@@ -255,7 +255,6 @@ static BOOL isProduction = FALSE;
 //    FinanceViewController *vc = [[FinanceViewController alloc] init];
     
 //    ApplyforArtViewController *xib = [[ApplyforArtViewController alloc] init];
-    
     self.window.rootViewController = tabBarController;
 //      self.window.rootViewController = [AliPayController new];
     //3.显示窗口

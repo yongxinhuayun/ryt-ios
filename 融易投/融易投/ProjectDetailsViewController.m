@@ -104,7 +104,7 @@ static NSString *ID4 = @"imageCell";
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
     
     // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-    NSString *url = @"http://192.168.1.69:8001/app/investorArtWorkView.do";
+    NSString *url = @"http://192.168.1.41:8080/app/investorArtWorkView.do";
     
     // 3.设置请求体
     NSDictionary *json = @{
@@ -167,7 +167,7 @@ static NSString *ID4 = @"imageCell";
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     return 1;
 }
 

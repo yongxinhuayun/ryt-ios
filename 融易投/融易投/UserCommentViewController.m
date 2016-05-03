@@ -38,17 +38,12 @@ static NSString *ID = @"userCommentCell";
     
     
     [ArtworkCommentListModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-        
-        return @{
-                 @"ID"          :@"id",
-                 };
+        return @{@"ID" : @"id"};
     }];
     
     [CreatorModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         
-        return @{
-                 @"ID"          :@"id",
-                 };
+        return @{@"ID" : @"id"};
     }];
     
     [self loadData];
@@ -234,8 +229,5 @@ static NSString *ID = @"userCommentCell";
     
     return cell;
 }
-
-
-
 
 @end
