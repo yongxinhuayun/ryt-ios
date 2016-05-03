@@ -27,24 +27,44 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbf-5e-f8o">
-                        <rect key="frame" x="64" y="36.5" width="28.5" height="13.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbf-5e-f8o">
+                        <rect key="frame" x="64" y="30" width="243" height="13.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="277-CD-Ypt">
+                        <rect key="frame" x="289" y="19" width="18" height="22"/>
+                        <state key="normal" image="guanzhuhouq"/>
+                        <state key="selected" image="guanzhuhou"/>
+                        <connections>
+                            <action selector="focusBtnClick:" destination="xY2-T9-zTX" eventType="touchUpInside" id="cU0-fT-I8c"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Pbf-5e-f8o" secondAttribute="bottom" constant="14" id="ALC-EG-d1j"/>
                     <constraint firstItem="UvV-kA-YOZ" firstAttribute="leading" secondItem="Vtg-XU-oqo" secondAttribute="leading" constant="14" id="CEG-QX-LsT"/>
+                    <constraint firstAttribute="trailing" secondItem="277-CD-Ypt" secondAttribute="trailing" constant="14" id="CmC-SQ-htj"/>
                     <constraint firstItem="UvV-kA-YOZ" firstAttribute="top" secondItem="Vtg-XU-oqo" secondAttribute="top" constant="10" id="HxZ-V4-cHd"/>
                     <constraint firstItem="6jM-Yo-t3h" firstAttribute="top" secondItem="UvV-kA-YOZ" secondAttribute="top" id="Yuj-X1-LKq"/>
+                    <constraint firstItem="Pbf-5e-f8o" firstAttribute="top" secondItem="6jM-Yo-t3h" secondAttribute="bottom" constant="5" id="bZA-uT-QLC"/>
+                    <constraint firstAttribute="trailing" secondItem="Pbf-5e-f8o" secondAttribute="trailing" constant="14" id="cHk-24-4xE"/>
                     <constraint firstItem="6jM-Yo-t3h" firstAttribute="leading" secondItem="UvV-kA-YOZ" secondAttribute="trailing" constant="10" id="fKN-bY-88l"/>
                     <constraint firstItem="Pbf-5e-f8o" firstAttribute="bottom" secondItem="UvV-kA-YOZ" secondAttribute="bottom" id="m9d-JF-gyj"/>
+                    <constraint firstItem="277-CD-Ypt" firstAttribute="centerY" secondItem="UvV-kA-YOZ" secondAttribute="centerY" id="ozV-CA-Sim"/>
                     <constraint firstItem="Pbf-5e-f8o" firstAttribute="leading" secondItem="6jM-Yo-t3h" secondAttribute="leading" id="uUH-bm-HuG"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="ALC-EG-d1j"/>
+                        <exclude reference="m9d-JF-gyj"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="descriptionLabel" destination="Pbf-5e-f8o" id="dfa-hl-1oB"/>
+                <outlet property="focusBtn" destination="277-CD-Ypt" id="T5A-eA-V3y"/>
                 <outlet property="iconImageView" destination="UvV-kA-YOZ" id="Rre-Vk-iod"/>
                 <outlet property="userNameLabel" destination="6jM-Yo-t3h" id="Jc1-17-b1R"/>
             </connections>
@@ -52,6 +72,8 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="guanzhuhou" width="18" height="18"/>
+        <image name="guanzhuhouq" width="18" height="18"/>
         <image name="headerImage" width="214" height="221"/>
     </resources>
 </document>

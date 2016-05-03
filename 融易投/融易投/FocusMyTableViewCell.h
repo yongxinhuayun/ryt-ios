@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 
-@class FocusMyModel;
+@class PageInfoListMyModel;
 
 @interface FocusMyTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) FocusMyModel *model;
+@property (nonatomic, strong) PageInfoListMyModel *model;
 
 @end

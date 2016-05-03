@@ -15,6 +15,8 @@
 
 @interface FocusMyViewController ()
 
+
+
 /** 标题栏 */
 @property (nonatomic, strong) UIView *titlesView;
 
@@ -26,6 +28,9 @@
 
 /** 用来显示所有子控制器view的scrollView */
 @property (nonatomic, weak) UIScrollView *scrollView;
+
+
+
 
 @end
 

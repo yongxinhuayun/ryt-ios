@@ -22,7 +22,7 @@
 
 #import "ApplyforArtViewController.h"
 
-#import "FocusViewController.h"
+
 
 #import "EditingInfoViewController.h"
 
@@ -317,8 +317,8 @@
 
 - (IBAction)FansBtnClick:(id)sender {
     
-    FocusViewController *focusVC = [[FocusViewController alloc] init];
-    [self.navigationController pushViewController:focusVC animated:YES];
+//    FocusViewController *focusVC = [[FocusViewController alloc] init];
+//    [self.navigationController pushViewController:focusVC animated:YES];
     
 }
 

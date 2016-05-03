@@ -6,8 +6,8 @@
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
-#import "FocusMyModel.h"
+#import "PageInfoListMyModel.h"
 
-@implementation FocusMyModel
+@implementation PageInfoListMyModel
 
 @end

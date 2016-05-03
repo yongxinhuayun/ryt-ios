@@ -23,7 +23,6 @@
 
 #import "ApplyforArtViewController.h"
 
-#import "FocusViewController.h"
 
 #import "EditingInfoViewController.h"
 
@@ -111,8 +110,8 @@
     
     self.meheaderView.fansBlcok = ^{
         
-        FocusViewController *focusVC = [[FocusViewController alloc] init];
-        [weakself.navigationController pushViewController:focusVC animated:YES];
+//        FocusViewController *focusVC = [[FocusViewController alloc] init];
+//        [weakself.navigationController pushViewController:focusVC animated:YES];
         
     };
     
