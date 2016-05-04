@@ -184,9 +184,6 @@
                     <exclude reference="TtY-si-RgF"/>
                 </mask>
             </variation>
-            <connections>
-                <outlet property="iconImageView" destination="L3g-p1-LPp" id="dCz-9P-3ec"/>
-            </connections>
             <point key="canvasLocation" x="168" y="188"/>
         </view>
     </objects>

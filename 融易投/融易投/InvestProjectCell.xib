@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="374" id="KGk-i7-Jjw" customClass="InvestProjectCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InvestProjectCell" rowHeight="374" id="KGk-i7-Jjw" customClass="InvestProjectCell">
             <rect key="frame" x="0.0" y="0.0" width="325" height="374"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -99,6 +99,15 @@
                     <constraint firstItem="WWm-of-p9Y" firstAttribute="centerY" secondItem="fVd-Bi-z7O" secondAttribute="centerY" id="yp9-sw-Lip"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="backgroundImage" destination="UuT-t9-qSG" id="wMc-jT-FYm"/>
+                <outlet property="projectStepBtn" destination="emL-zO-iic" id="b6e-Wy-SEh"/>
+                <outlet property="title" destination="Y24-Wd-AST" id="CEN-Ou-jh5"/>
+                <outlet property="totalMoney" destination="Lvp-Pq-oy9" id="OKN-3a-bEo"/>
+                <outlet property="userIcon" destination="fVd-Bi-z7O" id="MGu-SK-GQ2"/>
+                <outlet property="userName" destination="bAD-VM-Ag9" id="MG7-FW-6z1"/>
+                <outlet property="userTitle" destination="43d-p7-b3p" id="16g-Ni-eaF"/>
+            </connections>
             <point key="canvasLocation" x="193.5" y="376"/>
         </tableViewCell>
     </objects>

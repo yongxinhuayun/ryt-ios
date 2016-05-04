@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class ArtworksModel;
+
 @interface InvestProjectCell : UITableViewCell
+
+@property (nonatomic, strong) ArtworksModel *model;
 
 @end

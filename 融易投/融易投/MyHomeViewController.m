@@ -6,20 +6,17 @@
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
-#import "OtherHomeViewController.h"
+#import "MyHomeViewController.h"
 
 #import "TopView.h"
 #import "CycleView.h"
-#import "OtherHeaderView.h"
+#import "MeHeaderView.h"
 
-#import "TouGuoViewController.h"
-#import "ZanGuoViewController.h"
-
-@interface OtherHomeViewController ()
+@interface MyHomeViewController ()
 
 @end
 
-@implementation OtherHomeViewController
+@implementation MyHomeViewController
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -30,12 +27,12 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-
+    
 }
 
 -(void)setupUI{
-
-    OtherHeaderView *tView = [[[NSBundle mainBundle] loadNibNamed:@"OtherHeaderView" owner:nil options:nil] lastObject];
+    
+    MeHeaderView *tView = [[[NSBundle mainBundle] loadNibNamed:@"MeHeaderView" owner:nil options:nil] lastObject];
     self.topview.height = tView.height;
     tView.backgroundColor = [UIColor whiteColor];
     tView.width = SSScreenW;
@@ -54,27 +51,27 @@
     [self.middleView addSubview:self.cycleView];
     //添加控制器视图 到scrollView中
     self.backgroundScrollView.contentSize = CGSizeMake(SSScreenW,self.topview.height + self.middleView.height);
-
+    
 }
 
 -(void)addControllersToCycleView{
     
-    //添加控制器view
-    TouGuoViewController *record1 = [[TouGuoViewController alloc] init];
-    [self.controllersView addObject:record1.view];
-    [self addChildViewController:record1];
-
-    ZanGuoViewController * record2 = [[ZanGuoViewController alloc] init];
-    [self.controllersView addObject:record2.view];
-    [self addChildViewController:record2];
-
-//    ProjectDetailsViewController *pro = [[ProjectDetailsViewController alloc] init];
-//    [self.controllersView addObject:pro.view];
-//    [self addChildViewController:pro];
-//
-//    ProjectDetailTableViewController * pro1 = [[ProjectDetailTableViewController alloc] init];
-//    [self.controllersView addObject:pro1.view];
-//    [self addChildViewController:pro1];
+    //    //添加控制器view
+    //    RecordTableViewController * record1 = [[RecordTableViewController alloc] init];
+    //    [self.controllersView addObject:record1.view];
+    //    [self addChildViewController:record1];
+    //
+    //    UserCommentViewController * userComment = [[UserCommentViewController alloc] init];
+    //    [self.controllersView addObject:userComment.view];
+    //    [self addChildViewController:userComment];
+    //
+    //    ProjectDetailsViewController *pro = [[ProjectDetailsViewController alloc] init];
+    //    [self.controllersView addObject:pro.view];
+    //    [self addChildViewController:pro];
+    //
+    //    ProjectDetailTableViewController * pro1 = [[ProjectDetailTableViewController alloc] init];
+    //    [self.controllersView addObject:pro1.view];
+    //    [self addChildViewController:pro1];
     
     self.cycleView.controllers = self.controllersView;
     

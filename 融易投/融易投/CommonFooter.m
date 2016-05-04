@@ -1,9 +1,9 @@
 //
-//  BSFooter.m
-//  01-BuDeJie
+//  CommonFooter.m
+//  融易投
 //
-//  Created by 1 on 15/12/25.
-//  Copyright © 2015年 xiaomage. All rights reserved.
+//  Created by efeiyi on 16/4/2.
+//  Copyright © 2016年 dongxin. All rights reserved.
 //
 
 #import "CommonFooter.h"
