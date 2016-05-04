@@ -29,6 +29,7 @@
     //关闭自动显示和隐藏的功能(需要开发者自己去显示和隐藏footer)
     self.automaticallyHidden = YES;
     
+    
     [self setTitle:@"加载更多数据 ..." forState:MJRefreshStateRefreshing];
     self.stateLabel.textColor =[UIColor colorWithRed: (239) / 255.0 green:(91) / 255.0 blue:(112) / 255.0 alpha:1];
     
