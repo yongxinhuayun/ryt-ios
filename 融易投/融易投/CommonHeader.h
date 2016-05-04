@@ -8,6 +8,6 @@
 
 #import <MJRefresh/MJRefresh.h>
 
-@interface CommonHeader : MJRefreshNormalHeader
+@interface CommonHeader : MJRefreshGifHeader
 
 @end
