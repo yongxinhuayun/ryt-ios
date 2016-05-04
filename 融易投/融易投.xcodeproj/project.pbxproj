@@ -38,6 +38,14 @@
 		212EEE291CD991A300F94B30 /* PageInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE281CD991A300F94B30 /* PageInfoModel.m */; };
 		212EEE2C1CD993AB00F94B30 /* ArtworksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE2B1CD993AB00F94B30 /* ArtworksModel.m */; };
 		212EEE2F1CD9AEE300F94B30 /* ZanGuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE2E1CD9AEE300F94B30 /* ZanGuoViewController.m */; };
+		212EEE321CD9CA7800F94B30 /* WalletHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE311CD9CA7800F94B30 /* WalletHeaderView.m */; };
+		212EEE341CD9CA9100F94B30 /* WalletHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE331CD9CA9100F94B30 /* WalletHeaderView.xib */; };
+		212EEE371CD9CB3800F94B30 /* WalletFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE361CD9CB3800F94B30 /* WalletFooterView.m */; };
+		212EEE391CD9CB4500F94B30 /* WalletFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE381CD9CB4500F94B30 /* WalletFooterView.xib */; };
+		212EEE3E1CD9D49100F94B30 /* WithdrawTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE3D1CD9D49100F94B30 /* WithdrawTableViewController.m */; };
+		212EEE401CD9D49D00F94B30 /* WithdrawTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE3F1CD9D49D00F94B30 /* WithdrawTableViewController.storyboard */; };
+		212EEE431CD9D8CD00F94B30 /* CommonButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE421CD9D8CD00F94B30 /* CommonButton.m */; };
+		212EEE471CD9DD2100F94B30 /* BillTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE461CD9DD2100F94B30 /* BillTableViewController.m */; };
 		2134E37E1CBB5D3800D6E662 /* ProjectScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */; };
 		215E73601CB7BB4500A67690 /* FromUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 215E735F1CB7BB4500A67690 /* FromUserModel.m */; };
 		215E73661CB7BC1000A67690 /* NotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 215E73621CB7BC1000A67690 /* NotificationModel.m */; };
@@ -425,6 +433,19 @@
 		212EEE2B1CD993AB00F94B30 /* ArtworksModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworksModel.m; sourceTree = "<group>"; };
 		212EEE2D1CD9AEE300F94B30 /* ZanGuoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZanGuoViewController.h; sourceTree = "<group>"; };
 		212EEE2E1CD9AEE300F94B30 /* ZanGuoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZanGuoViewController.m; sourceTree = "<group>"; };
+		212EEE301CD9CA7800F94B30 /* WalletHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletHeaderView.h; sourceTree = "<group>"; };
+		212EEE311CD9CA7800F94B30 /* WalletHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletHeaderView.m; sourceTree = "<group>"; };
+		212EEE331CD9CA9100F94B30 /* WalletHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletHeaderView.xib; sourceTree = "<group>"; };
+		212EEE351CD9CB3800F94B30 /* WalletFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletFooterView.h; sourceTree = "<group>"; };
+		212EEE361CD9CB3800F94B30 /* WalletFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletFooterView.m; sourceTree = "<group>"; };
+		212EEE381CD9CB4500F94B30 /* WalletFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletFooterView.xib; sourceTree = "<group>"; };
+		212EEE3C1CD9D49100F94B30 /* WithdrawTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WithdrawTableViewController.h; sourceTree = "<group>"; };
+		212EEE3D1CD9D49100F94B30 /* WithdrawTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WithdrawTableViewController.m; sourceTree = "<group>"; };
+		212EEE3F1CD9D49D00F94B30 /* WithdrawTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WithdrawTableViewController.storyboard; sourceTree = "<group>"; };
+		212EEE411CD9D8CD00F94B30 /* CommonButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonButton.h; sourceTree = "<group>"; };
+		212EEE421CD9D8CD00F94B30 /* CommonButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonButton.m; sourceTree = "<group>"; };
+		212EEE451CD9DD2100F94B30 /* BillTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillTableViewController.h; sourceTree = "<group>"; };
+		212EEE461CD9DD2100F94B30 /* BillTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillTableViewController.m; sourceTree = "<group>"; };
 		2134E37C1CBB5D3800D6E662 /* ProjectScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectScheduleViewController.h; sourceTree = "<group>"; };
 		2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectScheduleViewController.m; sourceTree = "<group>"; };
 		215E735E1CB7BB4500A67690 /* FromUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FromUserModel.h; sourceTree = "<group>"; };
@@ -1064,6 +1085,35 @@
 			name = "自己看自己的";
 			sourceTree = "<group>";
 		};
+		212EEE3A1CD9D42D00F94B30 /* 充值 */ = {
+			isa = PBXGroup;
+			children = (
+				2125669F1CD8B1F3008CE9DD /* PayTableViewController.h */,
+				212566A01CD8B1F3008CE9DD /* PayTableViewController.m */,
+				212566A11CD8B1F3008CE9DD /* PayTableViewController.storyboard */,
+			);
+			name = "充值";
+			sourceTree = "<group>";
+		};
+		212EEE3B1CD9D43300F94B30 /* 提现 */ = {
+			isa = PBXGroup;
+			children = (
+				212EEE3C1CD9D49100F94B30 /* WithdrawTableViewController.h */,
+				212EEE3D1CD9D49100F94B30 /* WithdrawTableViewController.m */,
+				212EEE3F1CD9D49D00F94B30 /* WithdrawTableViewController.storyboard */,
+			);
+			name = "提现";
+			sourceTree = "<group>";
+		};
+		212EEE441CD9DD0600F94B30 /* 订单 */ = {
+			isa = PBXGroup;
+			children = (
+				212EEE451CD9DD2100F94B30 /* BillTableViewController.h */,
+				212EEE461CD9DD2100F94B30 /* BillTableViewController.m */,
+			);
+			name = "订单";
+			sourceTree = "<group>";
+		};
 		2187B92F1CCDC8EF00B92435 /* 编辑资料 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1164,15 +1214,21 @@
 		2187B9831CCF3FFB00B92435 /* 钱包 */ = {
 			isa = PBXGroup;
 			children = (
-				2125669F1CD8B1F3008CE9DD /* PayTableViewController.h */,
-				212566A01CD8B1F3008CE9DD /* PayTableViewController.m */,
-				212566A11CD8B1F3008CE9DD /* PayTableViewController.storyboard */,
-				212566A21CD8B1F3008CE9DD /* WalletTableViewCell.h */,
-				212566A31CD8B1F3008CE9DD /* WalletTableViewCell.m */,
-				212566A41CD8B1F3008CE9DD /* WalletTableViewCell.xib */,
+				212EEE441CD9DD0600F94B30 /* 订单 */,
+				212EEE3B1CD9D43300F94B30 /* 提现 */,
+				212EEE3A1CD9D42D00F94B30 /* 充值 */,
 				212566A51CD8B1F3008CE9DD /* WalletViewController.h */,
 				212566A61CD8B1F3008CE9DD /* WalletViewController.m */,
 				212566A71CD8B1F3008CE9DD /* WalletViewController.storyboard */,
+				212566A21CD8B1F3008CE9DD /* WalletTableViewCell.h */,
+				212566A31CD8B1F3008CE9DD /* WalletTableViewCell.m */,
+				212566A41CD8B1F3008CE9DD /* WalletTableViewCell.xib */,
+				212EEE301CD9CA7800F94B30 /* WalletHeaderView.h */,
+				212EEE311CD9CA7800F94B30 /* WalletHeaderView.m */,
+				212EEE331CD9CA9100F94B30 /* WalletHeaderView.xib */,
+				212EEE351CD9CB3800F94B30 /* WalletFooterView.h */,
+				212EEE361CD9CB3800F94B30 /* WalletFooterView.m */,
+				212EEE381CD9CB4500F94B30 /* WalletFooterView.xib */,
 			);
 			name = "钱包";
 			sourceTree = "<group>";
@@ -1214,6 +1270,8 @@
 				21D54B7A1CB64A510088D386 /* MyMD5.m */,
 				21D54B7C1CB64A630088D386 /* HttpRequstTool.h */,
 				21D54B7D1CB64A630088D386 /* HttpRequstTool.m */,
+				212EEE411CD9D8CD00F94B30 /* CommonButton.h */,
+				212EEE421CD9D8CD00F94B30 /* CommonButton.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -2677,6 +2735,7 @@
 				219ACA621CBE3F100052146E /* 麦粒-app-30.jpg in Resources */,
 				21AB0A091CC0A5C400B7BA03 /* XMGPlayerView.xib in Resources */,
 				219ACA561CBE3F100052146E /* picture4.png in Resources */,
+				212EEE341CD9CA9100F94B30 /* WalletHeaderView.xib in Resources */,
 				2187B9241CCA36F600B92435 /* EditingInfoViewController.storyboard in Resources */,
 				E2729AEB1CD8B923006C0617 /* ImageListViewCellCollectionViewCell.xib in Resources */,
 				218D2B5C1CACB5B9004553B9 /* Launch Screen.storyboard in Resources */,
@@ -2724,6 +2783,7 @@
 				219ACA4E1CBE3F100052146E /* deletePhoto.png in Resources */,
 				E2729AE91CD8B923006C0617 /* InstructionCell.xib in Resources */,
 				21904CF11CAD3C7800AD7A3F /* CompleteUserInfoController.xib in Resources */,
+				212EEE391CD9CB4500F94B30 /* WalletFooterView.xib in Resources */,
 				21E5A9831CD062C300F7FE94 /* ApplyforArtViewController.storyboard in Resources */,
 				219ACA511CBE3F100052146E /* location.png in Resources */,
 				219AC9FB1CBDE86F0052146E /* ComposeViewController.xib in Resources */,
@@ -2747,6 +2807,7 @@
 				219ACA571CBE3F100052146E /* reply.png in Resources */,
 				219ACA581CBE3F100052146E /* seen.png in Resources */,
 				21F01B321CD4C0BE0085C5A4 /* OtherHeaderView.xib in Resources */,
+				212EEE401CD9D49D00F94B30 /* WithdrawTableViewController.storyboard in Resources */,
 				E236C3381CB4F6D0009DCBF0 /* MessageTableViewController.storyboard in Resources */,
 				E2D059DE1CB34F7400B0F690 /* WeiXinController.xib in Resources */,
 				E236C2961CB4B1B8009DCBF0 /* LognController.xib in Resources */,
@@ -2844,6 +2905,7 @@
 				E2D3870C1CB8E56100F735F9 /* KeyBordVIew.m in Sources */,
 				21D54B901CB660AC0088D386 /* ArtistModel.m in Sources */,
 				21AB0A001CC0A17600B7BA03 /* ReleaseVideoViewController.m in Sources */,
+				212EEE431CD9D8CD00F94B30 /* CommonButton.m in Sources */,
 				215E73661CB7BC1000A67690 /* NotificationModel.m in Sources */,
 				21D54B3C1CB4FA8B0088D386 /* UIImage+Antialias.m in Sources */,
 				2187B9401CCDF14000B92435 /* TYSlidePageScrollView.m in Sources */,
@@ -2914,6 +2976,7 @@
 				219AC9B11CBC9B060052146E /* JKAssetsThumbnailView.m in Sources */,
 				212566961CD8B145008CE9DD /* FocusMyTableViewCell.m in Sources */,
 				21D54B771CB6405B0088D386 /* NSCalendar+Init.m in Sources */,
+				212EEE321CD9CA7800F94B30 /* WalletHeaderView.m in Sources */,
 				21D54B781CB6405B0088D386 /* NSDate+Interval.m in Sources */,
 				21AB0ABF1CC50A4D00B7BA03 /* JPSlideBar+ScrollViewDelegate.m in Sources */,
 				E2729B061CD8BB0D006C0617 /* FinanceHeader.m in Sources */,
@@ -3026,6 +3089,7 @@
 				212566991CD8B145008CE9DD /* FocusMyViewController.m in Sources */,
 				219AC9891CBC99670052146E /* DSComposePhotoViewCell.m in Sources */,
 				2187B9541CCDFCE500B92435 /* MyArtworkViewController.m in Sources */,
+				212EEE3E1CD9D49100F94B30 /* WithdrawTableViewController.m in Sources */,
 				E2D813021CD09A7800A52172 /* CycleView.m in Sources */,
 				219ACA491CBE3F100052146E /* AGIPCToolbarItem.m in Sources */,
 				2125669E1CD8B145008CE9DD /* UserMyModel.m in Sources */,
@@ -3047,6 +3111,7 @@
 				2118F1EA1CAE88B4003BFC6B /* navTitleButton.m in Sources */,
 				2134E37E1CBB5D3800D6E662 /* ProjectScheduleViewController.m in Sources */,
 				21D54B171CB4C31F0088D386 /* CommonFooter.m in Sources */,
+				212EEE471CD9DD2100F94B30 /* BillTableViewController.m in Sources */,
 				212566AA1CD8B1F3008CE9DD /* WalletTableViewCell.m in Sources */,
 				219AC9FE1CBDF44A0052146E /* ArtWorkIdModel.m in Sources */,
 				2125669D1CD8B145008CE9DD /* UserBriefMyModel.m in Sources */,
@@ -3059,6 +3124,7 @@
 				2125669C1CD8B145008CE9DD /* PageInfoListMyModel.m in Sources */,
 				21AB0AC51CC50A4D00B7BA03 /* JPBaseTableViewController.m in Sources */,
 				219A1E8E1CD34570002843AC /* MyHeaderView.m in Sources */,
+				212EEE371CD9CB3800F94B30 /* WalletFooterView.m in Sources */,
 				219AC5E71CBC87FD0052146E /* HMEmotionPopView.m in Sources */,
 				21F01B361CD4E6BC0085C5A4 /* InvestProjectCell.m in Sources */,
 				21D54B231CB4DF0F0088D386 /* MasterModel.m in Sources */,
