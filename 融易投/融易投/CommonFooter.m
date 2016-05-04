@@ -33,7 +33,7 @@
     [self setTitle:@"加载更多数据 ..." forState:MJRefreshStateRefreshing];
     self.stateLabel.textColor =[UIColor colorWithRed: (239) / 255.0 green:(91) / 255.0 blue:(112) / 255.0 alpha:1];
     
-//    self.refreshingTitleHidden = YES;
+    self.refreshingTitleHidden = YES;
     
     // 设置普通状态的动画图片
     NSMutableArray *idleImages = [NSMutableArray array];

@@ -27,7 +27,7 @@
     // 设置颜色
     //239, 91, 112
     self.stateLabel.textColor =[UIColor colorWithRed: (239) / 255.0 green:(91) / 255.0 blue:(112) / 255.0 alpha:1];
-//    self.stateLabel.hidden = YES;
+    self.stateLabel.hidden = YES;
     self.lastUpdatedTimeLabel.hidden = YES;
     
 
