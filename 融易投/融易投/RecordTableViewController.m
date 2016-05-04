@@ -11,13 +11,19 @@
 
 @interface RecordTableViewController ()
 
+
+//-----------------------联动属性-----------------------
+@property(nonatomic,assign) BOOL canScroll;
+@property(nonatomic,assign) BOOL isfoot;
+//-----------------------联动属性-----------------------
+
 @end
 
 @implementation RecordTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.isfoot = YES;
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"RecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"RecordCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -62,7 +68,34 @@
     return 60;
 }
 
-// 滚动
+//-----------------------联动-----------------------
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    CGPoint offset = scrollView.contentOffset;
+    NSLog(@"(%f,%f)",offset.x,offset.y);
+    UIScrollView *superView = (UIScrollView *)scrollView.superview.superview.superview.superview;
+    NSLog(@"%@",[scrollView.superview class]);
+    if (superView.contentOffset.y >= self.topHeight) {
+        self.isfoot = NO;
+        superView.contentOffset = CGPointMake(0, self.topHeight);
+        scrollView.scrollEnabled = YES;
+    }
+    if (superView.contentOffset.y <= 0) {
+        self.isfoot = YES;
+        superView.contentOffset = CGPointMake(0, 0);
+        scrollView.scrollEnabled = YES;
+    }
+    NSLog(@"bool = %d",self.isfoot);
+    if (self.isfoot && scrollView.contentOffset.y > 0) {
+        superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+        scrollView.contentOffset = CGPointZero;
+    }
+    if (!self.isfoot && scrollView.contentOffset.y < 0) {
+        superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+        scrollView.contentOffset = CGPointZero;
+    }
+    NSLog(@"x= %f,y = %f",scrollView.contentOffset.x,scrollView.contentOffset.y);
+}
+//-----------------------联动-----------------------
 
 
 /*
