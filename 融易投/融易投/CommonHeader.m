@@ -23,8 +23,43 @@
     [super prepare];
     
     self.automaticallyChangeAlpha = YES;
-    self.stateLabel.textColor = [UIColor blackColor];
-    self.lastUpdatedTimeLabel.hidden = NO;
+    
+    // 设置颜色
+    //239, 91, 112
+    self.stateLabel.textColor =[UIColor colorWithRed: (239) / 255.0 green:(91) / 255.0 blue:(112) / 255.0 alpha:1];
+//    self.stateLabel.hidden = YES;
+    self.lastUpdatedTimeLabel.hidden = YES;
+    
+
+    [self setTitle:@"加载中 ..." forState:MJRefreshStateRefreshing];
+    
+    // 设置字体
+    self.stateLabel.font = [UIFont systemFontOfSize:15];
+    self.lastUpdatedTimeLabel.font = [UIFont systemFontOfSize:14];
+    
+    
+
+    
+    
+    // 设置普通状态的动画图片
+    NSMutableArray *idleImages = [NSMutableArray array];
+    for (NSUInteger i = 1; i<=9; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"refresh%zd", i]];
+        [idleImages addObject:image];
+    }
+    [self setImages:idleImages forState:MJRefreshStateIdle];
+    
+    // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
+    NSMutableArray *refreshingImages = [NSMutableArray array];
+    for (NSUInteger i = 1; i<=9; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"refresh%zd", i]];
+        [refreshingImages addObject:image];
+    }
+    [self setImages:refreshingImages forState:MJRefreshStatePulling];
+    
+    // 设置正在刷新状态的动画图片
+    [self setImages:refreshingImages forState:MJRefreshStateRefreshing];
+
     
     //    UIImageView *logo = [[UIImageView alloc] init];
     //    logo.contentMode = UIViewContentModeCenter;
@@ -38,7 +73,9 @@
 {
     [super placeSubviews];
     
-    self.frame = CGRectMake(0, -61 , self.width, self.height);
+    CGFloat x = [UIApplication sharedApplication].keyWindow.x;
+    
+    self.frame = CGRectMake(x * 0.5, -61 , self.width, self.height);
     
     //    self.logo.frame = CGRectMake(0, -60, self.width, 60);
 }
