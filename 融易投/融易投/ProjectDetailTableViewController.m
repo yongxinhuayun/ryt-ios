@@ -51,9 +51,7 @@
     }else{
 //         (indexPath.row == 1)
        InstructionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InstructionCell" forIndexPath:indexPath];
-//        cell.instructionLabelView.text = @"1.alaksdjflakjdsf \n 2.asdfasdfasdfasf\n3.asdfasdfasdf";
         cell.instructionLabel.text = @"1.alaksdjflakjdsf \n 2.asdfasdfasdfasf\n3.asdfasdfasdf";
-
         return cell;
     }
     

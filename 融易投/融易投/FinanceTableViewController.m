@@ -234,7 +234,7 @@ static NSString *ID = @"financeCell";
                            };
     
 //    NSString *url = @"http://192.168.1.69:8001/app/investorIndex.do";
-            NSString *url = @"http://192.168.1.41:8080/app/investorIndex.do";
+            NSString *url = @"http://192.168.1.41:8085/app/investorIndex.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         

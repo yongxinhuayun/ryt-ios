@@ -26,8 +26,11 @@
 /** 项目描述 */
 @property (nonatomic ,strong) NSString *brief;
 
+/** 已融资金额*/
+@property(nonatomic,assign) NSInteger investsMoney;
 /** 融资目标金额 */
 @property (nonatomic ,assign) NSInteger investGoalMoney;
+
 
 /** 融资开始时间 */
 @property (nonatomic ,assign) NSInteger investStartDatetime;

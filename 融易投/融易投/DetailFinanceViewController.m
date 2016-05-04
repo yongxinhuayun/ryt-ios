@@ -20,6 +20,9 @@
 #import "ProjectDetailsViewController.h"
 #import "UserCommentViewController.h"
 #import "ProjectDetailTableViewController.h"
+#import "authorModel.h"
+
+#import "UIImageView+WebCache.h"
 
 @interface DetailFinanceViewController ()
 @property(nonatomic,strong) FinanceHeader *financeHeader;
@@ -31,25 +34,55 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     [self setupUI];
+    [self loadDataToController];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //显示数据
-    NSString *urlStr = [[NSString stringWithFormat:@"%@",self.financeModel.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    NSURL *picture_urlURL = [NSURL URLWithString:urlStr];
-    
+}
 
-    //    NSLog(@"%@",picture_urlURL);
+//加载数据
+-(void)loadDataToController{
+    //加载图片
+    NSString *urlStr = [[NSString stringWithFormat:@"%@",self.financeModel.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *picUrl = [NSURL URLWithString:urlStr];
+    [self.financeHeader.imgView sd_setImageWithURL:picUrl];
+    //加载用户信息
+    // 存放在financeHeader中
+    //头像userPicture
+    authorModel *author = self.financeModel.author;
+    urlStr = [[NSString stringWithFormat:@"%@",author.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    picUrl = [NSURL URLWithString:urlStr];
     
-//    [self.bgImageView sd_setImageWithURL:picture_urlURL];
+    [self.financeHeader.userPicture ss_setHeader:picUrl];
+    //用户真实姓名：userName
+    self.financeHeader.userName.text = author.name;
+    if (author.name == nil) {
+        self.financeHeader.userName.text = @"匿名";
+    }
+    //用户头衔userTitle
+    self.financeHeader.userTitle.text = author.username;
+    //项目描述brief
+    self.financeHeader.userContent.text = self.financeModel.brief;
+//     融资目标金额 investGoalMoney;
+    self.financeHeader.investGoalMoney.text = [NSString stringWithFormat:@"%ld",(long)self.financeModel.investGoalMoney];
+    //MARK:TODO
+    //融资开始时间 investStartDatetime;
+//    融资结束时间/创作开始时间 investEndDatetime;
+    //融资金额百分比 = 已融金额 / 目标金额
+    self.financeHeader.investsMoney.text = [NSString stringWithFormat:@"%ld",(long)self.financeModel.investsMoney];
+    CGFloat value = self.financeModel.investsMoney / self.financeModel.investGoalMoney;
+    self.financeHeader.progress.progress = value;
+    self.financeHeader.progressLabel.text = [NSString stringWithFormat:@"%d%%",(int)(value * 100)];
+//    投资人数 investorsNum;
+    self.financeHeader.investNum.text =[NSString stringWithFormat:@"%ld",self.financeModel.investorsNum];
     
 }
 
 -(void)setupUI{
     FinanceHeader *tView = [[[NSBundle mainBundle] loadNibNamed:@"FinanceHeader" owner:nil options:nil] lastObject];
     self.financeHeader = tView;
+    self.financeHeader.width = ScreenWidth;
     self.topview.height = tView.height;
     tView.backgroundColor = [UIColor whiteColor];
     tView.width = ScreenWidth;
