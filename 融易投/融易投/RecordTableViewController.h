@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface RecordTableViewController : UITableViewController
-
+@property(nonatomic,assign) CGFloat topHeight;
 @end

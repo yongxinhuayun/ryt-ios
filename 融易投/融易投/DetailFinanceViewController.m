@@ -24,7 +24,7 @@
 
 #import "UIImageView+WebCache.h"
 
-@interface DetailFinanceViewController ()
+@interface DetailFinanceViewController ()<UIScrollViewDelegate>
 @property(nonatomic,strong) FinanceHeader *financeHeader;
 @end
 
@@ -34,7 +34,7 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     [self setupUI];
-    [self loadDataToController];
+//    [self loadDataToController];
 }
 
 - (void)viewDidLoad {
@@ -97,12 +97,13 @@
     [self.middleView addSubview:self.cycleView];
     //添加控制器视图 到scrollView中
     self.backgroundScrollView.contentSize = CGSizeMake(ScreenWidth,self.topview.height + self.middleView.height);
+    self.backgroundScrollView.delegate = self;
 }
 
 -(void)addControllersToCycleView{
-    
     //添加控制器view
     RecordTableViewController * record1 = [[RecordTableViewController alloc] init];
+    record1.topHeight = self.topview.height;
     [self.controllersView addObject:record1.view];
     [self addChildViewController:record1];
     UserCommentViewController * userComment = [[UserCommentViewController alloc] init];
@@ -123,9 +124,12 @@
         [self.cycleView.bottomScrollView addSubview:vi];
         count++;
     }
-
-    
 }
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"123");
+}
+
 //懒加载
 -(CycleView *)cycleView{
     if (!_cycleView) {
