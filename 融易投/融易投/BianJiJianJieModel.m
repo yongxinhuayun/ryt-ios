@@ -1,14 +1,13 @@
 //
-//  JianjieViewController.h
+//  BianJiJianJieModel.m
 //  融易投
 //
 //  Created by efeiyi on 16/5/5.
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BianJiJianJieModel.h"
 
-@interface JianjieViewController : UIViewController
-
+@implementation BianJiJianJieModel
 
 @end

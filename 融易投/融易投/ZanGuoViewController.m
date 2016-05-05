@@ -26,6 +26,10 @@
 /** 用来加载下一页数据 */
 @property (nonatomic, strong) NSString *lastPageIndex;
 
+//-----------------------联动属性-----------------------
+@property(nonatomic,assign) BOOL isfoot;
+//-----------------------联动属性-----------------------
+
 @end
 
 @implementation ZanGuoViewController
@@ -43,6 +47,8 @@ static NSString *ID = @"ZanguoProjectCell";
  
     
     self.lastPageIndex = @"1";
+    
+    self.isfoot = YES;
     
     
     //    self.tableView.contentInset = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, 0, 0);
@@ -122,8 +128,8 @@ static NSString *ID = @"ZanguoProjectCell";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
         
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
@@ -244,4 +250,78 @@ static NSString *ID = @"ZanguoProjectCell";
     
     return 374;
 }
+
+//-----------------------联动-----------------------
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    if (scrollView == self.tableView)
+    {
+        CGFloat sectionHeaderHeight = 80; //sectionHeaderHeight
+        if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+        }
+    }
+    CGPoint offset = scrollView.contentOffset;
+    NSLog(@"(%f,%f)",offset.x,offset.y);
+    UIScrollView *superView = (UIScrollView *)scrollView.superview.superview.superview.superview;
+    
+    NSLog(@"topHeight = %f,y = %f",self.topHeight,superView.contentOffset.y);
+    if (superView.contentOffset.y >= self.topHeight) {
+        self.isfoot = NO;
+        superView.contentOffset = CGPointMake(0, self.topHeight);
+        scrollView.scrollEnabled = YES;
+    }
+    if (superView.contentOffset.y <= 0) {
+        self.isfoot = YES;
+        superView.contentOffset = CGPointMake(0, 0);
+        scrollView.scrollEnabled = YES;
+    }
+    NSLog(@"bool = %d",self.isfoot);
+    CGFloat zeroY = superView.contentOffset.y + scrollView.contentOffset.y;
+    if (self.isfoot && scrollView.contentOffset.y > 0) {
+        superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+        scrollView.contentOffset = CGPointZero;
+    }
+    if (!self.isfoot && scrollView.contentOffset.y < 0) {
+        superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+    }
+    if (superView.contentOffset.y < self.topHeight && scrollView.contentOffset.y >0) {
+        superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+        scrollView.contentOffset = CGPointZero;
+    }
+    if(superView.contentOffset.y < self.topHeight && scrollView.contentOffset.y <= 0){
+        CGFloat y = scrollView.contentOffset.y / 10;
+        zeroY = superView.contentOffset.y + y;
+        
+        if (zeroY < 0) {
+            [superView setContentOffset:CGPointZero animated:YES];
+        }else{
+            superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
+        }
+        //        if (scrollView.contentOffset.y > -10) {
+        //            if (zeroY < 0) {
+        //                [superView setContentOffset:CGPointZero animated:YES];
+        //            }else{
+        //                superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+        //            }
+        //        }else{
+        //            superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
+        //            if (scrollView.contentOffset.y <= -100) {
+        //                [superView setContentOffset:CGPointMake(0, superView.contentOffset.y + y) animated:YES];
+        //            }else
+        //            {
+        //
+        //                if (zeroY < 0) {
+        //                    superView.contentOffset = CGPointZero;
+        //                }else{
+        //                 [superView setContentOffset:CGPointMake(0, superView.contentOffset.y + y) animated:YES];
+        //                }
+        //           
+        //            }
+        //        }
+    }
+}
+//-----------------------联动-----------------------
 @end

@@ -55,6 +55,8 @@
 		212EEE631CDB1F4B00F94B30 /* ZanguoProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE611CDB1F4B00F94B30 /* ZanguoProjectCell.m */; };
 		212EEE641CDB1F4B00F94B30 /* ZanguoProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE621CDB1F4B00F94B30 /* ZanguoProjectCell.xib */; };
 		212EEE671CDB21E800F94B30 /* ZanGuoResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE661CDB21E800F94B30 /* ZanGuoResultModel.m */; };
+		212EEE6A1CDB428900F94B30 /* JianJieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE691CDB428900F94B30 /* JianJieModel.m */; };
+		212EEE6D1CDB557B00F94B30 /* BianJiJianJieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE6C1CDB557B00F94B30 /* BianJiJianJieModel.m */; };
 		2134E37E1CBB5D3800D6E662 /* ProjectScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */; };
 		215E73601CB7BB4500A67690 /* FromUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 215E735F1CB7BB4500A67690 /* FromUserModel.m */; };
 		215E73661CB7BC1000A67690 /* NotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 215E73621CB7BC1000A67690 /* NotificationModel.m */; };
@@ -472,6 +474,10 @@
 		212EEE621CDB1F4B00F94B30 /* ZanguoProjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZanguoProjectCell.xib; sourceTree = "<group>"; };
 		212EEE651CDB21E800F94B30 /* ZanGuoResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZanGuoResultModel.h; sourceTree = "<group>"; };
 		212EEE661CDB21E800F94B30 /* ZanGuoResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZanGuoResultModel.m; sourceTree = "<group>"; };
+		212EEE681CDB428900F94B30 /* JianJieModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JianJieModel.h; sourceTree = "<group>"; };
+		212EEE691CDB428900F94B30 /* JianJieModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JianJieModel.m; sourceTree = "<group>"; };
+		212EEE6B1CDB557B00F94B30 /* BianJiJianJieModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BianJiJianJieModel.h; sourceTree = "<group>"; };
+		212EEE6C1CDB557B00F94B30 /* BianJiJianJieModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BianJiJianJieModel.m; sourceTree = "<group>"; };
 		2134E37C1CBB5D3800D6E662 /* ProjectScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectScheduleViewController.h; sourceTree = "<group>"; };
 		2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectScheduleViewController.m; sourceTree = "<group>"; };
 		215E735E1CB7BB4500A67690 /* FromUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FromUserModel.h; sourceTree = "<group>"; };
@@ -1175,9 +1181,13 @@
 				212EEE481CDADF7200F94B30 /* JianjieViewController.h */,
 				212EEE491CDADF7200F94B30 /* JianjieViewController.m */,
 				212EEE4A1CDADF7200F94B30 /* JianjieViewController.xib */,
+				212EEE681CDB428900F94B30 /* JianJieModel.h */,
+				212EEE691CDB428900F94B30 /* JianJieModel.m */,
 				212EEE4D1CDAE1F900F94B30 /* BianJiJianJieViewController.h */,
 				212EEE4E1CDAE1F900F94B30 /* BianJiJianJieViewController.m */,
 				212EEE4F1CDAE1F900F94B30 /* BianJiJianJieViewController.xib */,
+				212EEE6B1CDB557B00F94B30 /* BianJiJianJieModel.h */,
+				212EEE6C1CDB557B00F94B30 /* BianJiJianJieModel.m */,
 			);
 			name = "简介";
 			sourceTree = "<group>";
@@ -2965,6 +2975,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				219AC9B21CBC9B060052146E /* JKAssetsViewCell.m in Sources */,
+				212EEE6D1CDB557B00F94B30 /* BianJiJianJieModel.m in Sources */,
 				E2D812EF1CCF85D500A52172 /* BaseScrollViewController.m in Sources */,
 				E2729AEE1CD8B943006C0617 /* DetailFinanceViewController.m in Sources */,
 				2187B9041CC9DF2700B92435 /* ApplyforArtViewController.m in Sources */,
@@ -2984,6 +2995,7 @@
 				215E73661CB7BC1000A67690 /* NotificationModel.m in Sources */,
 				21D54B3C1CB4FA8B0088D386 /* UIImage+Antialias.m in Sources */,
 				2187B9401CCDF14000B92435 /* TYSlidePageScrollView.m in Sources */,
+				212EEE6A1CDB428900F94B30 /* JianJieModel.m in Sources */,
 				218D2B7C1CACBBC2004553B9 /* LognController.m in Sources */,
 				219A1E9E1CD35E60002843AC /* MeHeaderView.m in Sources */,
 				2168EAE31CBFA05000B7E037 /* FinanceDetailFirstCell.m in Sources */,
