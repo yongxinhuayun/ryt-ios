@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JianjieViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F38-6X-ugW">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="还没有填写简介..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTl-kt-xQA">
+                            <rect key="frame" x="132.5" y="291.5" width="110.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ftx-v2-EML">
+                            <rect key="frame" x="157.5" y="318.5" width="60" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.13713025249999999" blue="0.95569611830000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="编辑简介">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="bianJiJianJieBtnClick:" destination="-1" eventType="touchUpInside" id="tg5-gi-BTv"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Ftx-v2-EML" firstAttribute="centerX" secondItem="F38-6X-ugW" secondAttribute="centerX" id="4Hk-4P-JeH"/>
+                        <constraint firstItem="Ftx-v2-EML" firstAttribute="centerY" secondItem="F38-6X-ugW" secondAttribute="centerY" id="RiI-XI-E7P"/>
+                        <constraint firstItem="Ftx-v2-EML" firstAttribute="top" secondItem="gTl-kt-xQA" secondAttribute="bottom" constant="10" id="dRX-mz-khK"/>
+                        <constraint firstItem="gTl-kt-xQA" firstAttribute="centerX" secondItem="F38-6X-ugW" secondAttribute="centerX" id="vaA-Ug-jKM"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="F38-6X-ugW" secondAttribute="trailing" id="60O-9Q-46B"/>
+                <constraint firstAttribute="bottom" secondItem="F38-6X-ugW" secondAttribute="bottom" id="Qb7-ia-xRL"/>
+                <constraint firstItem="F38-6X-ugW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RR4-Vk-pZ2"/>
+                <constraint firstItem="F38-6X-ugW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rGZ-O0-rKF"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+</document>

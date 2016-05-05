@@ -107,12 +107,12 @@ static NSString *ID = @"InvestProjectCell";
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.41:8085/app/my.do";
+    NSString *url = @"http://192.168.1.41:8080/app/my.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
         
                
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
@@ -120,14 +120,6 @@ static NSString *ID = @"InvestProjectCell";
         PageInfoModel *model = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
         
         self.models = model.artworks;
-        
-        NSLog(@"%ld",self.models.count);
-        
-        for (ArtworksModel *model in self.models) {
-        
-            NSLog(@"%@",model.title);
-        }
-        
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -175,7 +167,7 @@ static NSString *ID = @"InvestProjectCell";
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.41:8085/app/my.do";
+    NSString *url = @"http://192.168.1.41:8080/app/my.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
@@ -186,8 +178,7 @@ static NSString *ID = @"InvestProjectCell";
         
         PageInfoModel *model = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
         
-        
-        NSArray *moreModels =  model.artworks;
+        NSArray *moreModels = model.artworks;
         
         //拼接数据
         [self.models addObjectsFromArray:moreModels];
@@ -231,6 +222,6 @@ static NSString *ID = @"InvestProjectCell";
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    return 60;
+    return 374;
 }
 @end

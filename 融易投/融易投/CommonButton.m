@@ -26,7 +26,7 @@
     self.titleLabel.y = 0;
     self.titleLabel.x = 0;
     
-    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame);
+    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame) + 5;
     self.imageView.centerY = self.titleLabel.centerY;
     
     //运行程序,发现标题显示不完全,我们要重新更新一下位置

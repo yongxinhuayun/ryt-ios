@@ -8,10 +8,11 @@
 
 #import "ZanGuoViewController.h"
 
-#import "InvestProjectCell.h"
+#import "ZanguoProjectCell.h"
 
-#import "PageInfoModel.h"
-#import "ArtworksModel.h"
+#import "ZanGuoResultModel.h"
+#import "PageInfoListModel.h"
+#import "ZanguoArtworkModel.h"
 
 #import <MJExtension.h>
 
@@ -29,13 +30,12 @@
 
 @implementation ZanGuoViewController
 
-static NSString *ID = @"InvestProjectCell";
+static NSString *ID = @"ZanguoProjectCell";
 
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
 
-    NSLog(@"111");
 }
 
 - (void)viewDidLoad {
@@ -49,11 +49,11 @@ static NSString *ID = @"InvestProjectCell";
     //    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, 0, 0);
     
     //注册创建cell ,这样注册就不用在XIB设置ID
-    [self.tableView registerNib:[UINib nibWithNibName:@"InvestProjectCell" bundle:nil] forCellReuseIdentifier:ID];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ZanguoProjectCell" bundle:nil] forCellReuseIdentifier:ID];
     
-    [PageInfoModel mj_setupObjectClassInArray:^NSDictionary *{
+    [ZanGuoResultModel mj_setupObjectClassInArray:^NSDictionary *{
         return @{
-                 @"artworks" : @"ArtworksModel",
+                 @"pageInfoList" : @"PageInfoListModel",
                  };
     }];
     
@@ -118,7 +118,7 @@ static NSString *ID = @"InvestProjectCell";
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.41:8085/app/followed.do";
+    NSString *url = @"http://192.168.1.41:8080/app/followed.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
@@ -128,16 +128,16 @@ static NSString *ID = @"InvestProjectCell";
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
-        PageInfoModel *model = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
+        ZanGuoResultModel *model = [ZanGuoResultModel mj_objectWithKeyValues:modelDict];
         
-        self.models = model.artworks;
+        self.models = model.pageInfoList;
         
-        NSLog(@"%ld",self.models.count);
-        
-        for (ArtworksModel *model in self.models) {
-            
-            NSLog(@"%@",model.title);
-        }
+//        NSLog(@"%ld",self.models.count);
+//        
+//        for (ZanguoArtworkModel *model in self.models) {
+//            
+//            NSLog(@"%@",model.title);
+//        }
         
         
         //在主线程刷新UI数据
@@ -186,7 +186,7 @@ static NSString *ID = @"InvestProjectCell";
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.41:8085/app/my.do";
+     NSString *url = @"http://192.168.1.41:8080/app/followed.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
@@ -195,10 +195,10 @@ static NSString *ID = @"InvestProjectCell";
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
-        PageInfoModel *model = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
+        ZanGuoResultModel *model = [ZanGuoResultModel mj_objectWithKeyValues:modelDict];
         
         
-        NSArray *moreModels =  model.artworks;
+        NSArray *moreModels =  model.pageInfoList;
         
         //拼接数据
         [self.models addObjectsFromArray:moreModels];
@@ -230,9 +230,9 @@ static NSString *ID = @"InvestProjectCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    InvestProjectCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    ZanguoProjectCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
-    PageInfoModel *model = self.models[indexPath.row];
+    PageInfoListModel *model = self.models[indexPath.row];
     
     cell.model = model;
     
@@ -242,6 +242,6 @@ static NSString *ID = @"InvestProjectCell";
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    return 60;
+    return 374;
 }
 @end

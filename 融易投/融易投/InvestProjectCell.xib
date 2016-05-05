@@ -58,11 +58,15 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PM8-Nh-GSy" customClass="CommonButton">
-                        <rect key="frame" x="250" y="327.5" width="61" height="22"/>
+                        <rect key="frame" x="260" y="328.5" width="51" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <state key="normal" title="1000" image="dianzanqian">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <state key="selected" image="dianzanhou"/>
+                        <connections>
+                            <action selector="dianZanClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Hew-vh-tsl"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emL-zO-iic">
                         <rect key="frame" x="266" y="238" width="45" height="30"/>
@@ -101,6 +105,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="backgroundImage" destination="UuT-t9-qSG" id="wMc-jT-FYm"/>
+                <outlet property="dianzanBtn" destination="PM8-Nh-GSy" id="Gjn-bs-xyN"/>
                 <outlet property="projectStepBtn" destination="emL-zO-iic" id="b6e-Wy-SEh"/>
                 <outlet property="title" destination="Y24-Wd-AST" id="CEN-Ou-jh5"/>
                 <outlet property="totalMoney" destination="Lvp-Pq-oy9" id="OKN-3a-bEo"/>

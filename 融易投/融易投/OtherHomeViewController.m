@@ -14,6 +14,7 @@
 
 #import "TouGuoViewController.h"
 #import "ZanGuoViewController.h"
+#import "JianjieViewController.h"
 
 @interface OtherHomeViewController ()
 
@@ -36,6 +37,10 @@
 -(void)setupUI{
 
     OtherHeaderView *tView = [[[NSBundle mainBundle] loadNibNamed:@"OtherHeaderView" owner:nil options:nil] lastObject];
+//    if (tView.otherView.hidden) {
+//        self.topview.height = tView.height - 26;
+//    }
+    
     self.topview.height = tView.height;
     tView.backgroundColor = [UIColor whiteColor];
     tView.width = SSScreenW;
@@ -64,17 +69,14 @@
     [self.controllersView addObject:record1.view];
     [self addChildViewController:record1];
 
-    ZanGuoViewController * record2 = [[ZanGuoViewController alloc] init];
+    ZanGuoViewController *record2 = [[ZanGuoViewController alloc] init];
     [self.controllersView addObject:record2.view];
     [self addChildViewController:record2];
 
-//    ProjectDetailsViewController *pro = [[ProjectDetailsViewController alloc] init];
-//    [self.controllersView addObject:pro.view];
-//    [self addChildViewController:pro];
-//
-//    ProjectDetailTableViewController * pro1 = [[ProjectDetailTableViewController alloc] init];
-//    [self.controllersView addObject:pro1.view];
-//    [self addChildViewController:pro1];
+    JianjieViewController *record3 = [[JianjieViewController alloc] init];
+    [self.controllersView addObject:record3.view];
+    [self addChildViewController:record3];
+
     
     self.cycleView.controllers = self.controllersView;
     

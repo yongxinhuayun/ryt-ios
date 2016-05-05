@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BianJiJianJieViewController">
+            <connections>
+                <outlet property="placeholderLabel" destination="quT-jI-NJ7" id="iL7-xt-tQG"/>
+                <outlet property="textView" destination="DYa-ta-zP9" id="Udf-vo-Yk8"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DYa-ta-zP9">
+                    <rect key="frame" x="14" y="64" width="361" height="300"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="300" id="HoJ-8v-9nt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quT-jI-NJ7">
+                    <rect key="frame" x="21" y="71" width="340" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="quT-jI-NJ7" firstAttribute="trailing" secondItem="DYa-ta-zP9" secondAttribute="trailing" constant="-14" id="CT6-oB-Agh"/>
+                <constraint firstItem="quT-jI-NJ7" firstAttribute="top" secondItem="DYa-ta-zP9" secondAttribute="top" constant="7" id="CgB-wD-9Wg"/>
+                <constraint firstAttribute="trailing" secondItem="DYa-ta-zP9" secondAttribute="trailing" id="GKh-cN-xWb"/>
+                <constraint firstItem="DYa-ta-zP9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="KuC-Hl-whK"/>
+                <constraint firstItem="DYa-ta-zP9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="LGl-5J-UVB"/>
+                <constraint firstItem="quT-jI-NJ7" firstAttribute="leading" secondItem="DYa-ta-zP9" secondAttribute="leading" constant="7" id="Yvz-j8-PDd"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+</document>
