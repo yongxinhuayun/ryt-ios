@@ -308,6 +308,8 @@
 		21F01B371CD4E6BC0085C5A4 /* InvestProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21F01B351CD4E6BC0085C5A4 /* InvestProjectCell.xib */; };
 		BC4A8BFAB939A8BBE3AF0A2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFB6E4A926D52C7C2AE4F6C /* libPods.a */; };
 		E21550E81CB604E20070D5D3 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */; };
+		E22BF2B01CDB1C39006F29D1 /* TopRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E22BF2AE1CDB1C39006F29D1 /* TopRecordTableViewCell.m */; };
+		E22BF2B11CDB1C39006F29D1 /* TopRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22BF2AF1CDB1C39006F29D1 /* TopRecordTableViewCell.xib */; };
 		E236C2961CB4B1B8009DCBF0 /* LognController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E236C2951CB4B1B7009DCBF0 /* LognController.xib */; };
 		E236C3141CB4E068009DCBF0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E236C3131CB4E068009DCBF0 /* CFNetwork.framework */; };
 		E236C3161CB4E080009DCBF0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E236C3151CB4E080009DCBF0 /* CoreFoundation.framework */; };
@@ -916,6 +918,9 @@
 		AC411E3C5CA46BB337E074BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
 		E21550E71CB604E20070D5D3 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		E22BF2AD1CDB1C39006F29D1 /* TopRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopRecordTableViewCell.h; sourceTree = "<group>"; };
+		E22BF2AE1CDB1C39006F29D1 /* TopRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopRecordTableViewCell.m; sourceTree = "<group>"; };
+		E22BF2AF1CDB1C39006F29D1 /* TopRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopRecordTableViewCell.xib; sourceTree = "<group>"; };
 		E236C2951CB4B1B7009DCBF0 /* LognController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LognController.xib; sourceTree = "<group>"; };
 		E236C3131CB4E068009DCBF0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		E236C3151CB4E080009DCBF0 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -2011,6 +2016,9 @@
 			children = (
 				E2729AF01CD8B983006C0617 /* RecordTableViewController.h */,
 				E2729AF11CD8B983006C0617 /* RecordTableViewController.m */,
+				E22BF2AD1CDB1C39006F29D1 /* TopRecordTableViewCell.h */,
+				E22BF2AE1CDB1C39006F29D1 /* TopRecordTableViewCell.m */,
+				E22BF2AF1CDB1C39006F29D1 /* TopRecordTableViewCell.xib */,
 				E2729AF21CD8B983006C0617 /* RecordTableViewCell.h */,
 				E2729AF31CD8B983006C0617 /* RecordTableViewCell.m */,
 				E2729AF41CD8B983006C0617 /* RecordTableViewCell.xib */,
@@ -2808,6 +2816,7 @@
 				E2729AE71CD8B923006C0617 /* IntroduceTableViewCell.xib in Resources */,
 				21AB0AC41CC50A4D00B7BA03 /* CollectViewTestVC.xib in Resources */,
 				219AC9F51CBDE4980052146E /* WHC_CameraVC.xib in Resources */,
+				E22BF2B11CDB1C39006F29D1 /* TopRecordTableViewCell.xib in Resources */,
 				219ACA411CBE3F100052146E /* AGImagePickerController.bundle in Resources */,
 				219ACA031CBE3EE40052146E /* ReleaseViewController.storyboard in Resources */,
 				21D54B861CB6585B0088D386 /* InvestorTableViewCell.xib in Resources */,
@@ -3140,6 +3149,7 @@
 				2187B9211CCA369000B92435 /* EditingInfoViewController.m in Sources */,
 				212EEE5F1CDB1D9D00F94B30 /* ZanguoArtworkModel.m in Sources */,
 				2187B94C1CCDF25C00B92435 /* CollectionViewController.m in Sources */,
+				E22BF2B01CDB1C39006F29D1 /* TopRecordTableViewCell.m in Sources */,
 				21904D321CAE0F4000AD7A3F /* UserAccount.m in Sources */,
 				219ACA5E1CBE3F100052146E /* WhoCanSeeViewController.m in Sources */,
 				219ACA521CBE3F100052146E /* LocationViewController.m in Sources */,
@@ -3359,7 +3369,7 @@
 					"/ryt-ios/融易投/融易投/alipay",
 				);
 				INFOPLIST_FILE = "融易投/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3374,6 +3384,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/TOM/Desktop/ryt-ios/融易投/融易投/JPushLIB";
 			};
 			name = Debug;
@@ -3407,7 +3418,7 @@
 					"/ryt-ios/融易投/融易投/alipay",
 				);
 				INFOPLIST_FILE = "融易投/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3422,6 +3433,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/TOM/Desktop/ryt-ios/融易投/融易投/JPushLIB";
 			};
 			name = Release;

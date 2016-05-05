@@ -255,9 +255,7 @@ static BOOL isProduction = FALSE;
 //    FinanceViewController *vc = [[FinanceViewController alloc] init];
     
 //    ApplyforArtViewController *xib = [[ApplyforArtViewController alloc] init];
-    DetailFinanceViewController * df = [[DetailFinanceViewController alloc] init];
-    self.window.rootViewController = df;
-//    self.window.rootViewController = tabBarController;
+    self.window.rootViewController = tabBarController;
 //      self.window.rootViewController = [AliPayController new];
     //3.显示窗口
     [self.window makeKeyAndVisible];

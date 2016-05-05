@@ -102,21 +102,22 @@
 
 -(void)addControllersToCycleView{
     //添加控制器view
-    RecordTableViewController * record1 = [[RecordTableViewController alloc] init];
-    record1.topHeight = self.topview.height;
-    [self.controllersView addObject:record1.view];
-    [self addChildViewController:record1];
+
     UserCommentViewController * userComment = [[UserCommentViewController alloc] init];
     [self.controllersView addObject:userComment.view];
     [self addChildViewController:userComment];
 //   ProjectDetailsViewController
-    ProjectDetailsViewController * pro = [[ProjectDetailsViewController alloc] init];
-    [self.controllersView addObject:pro.view];
-    [self addChildViewController:pro];
+//    ProjectDetailsViewController * pro = [[ProjectDetailsViewController alloc] init];
+//    [self.controllersView addObject:pro.view];
+//    [self addChildViewController:pro];
 //    ProjectDetailTableViewController
     ProjectDetailTableViewController * pro1 = [[ProjectDetailTableViewController alloc] init];
     [self.controllersView addObject:pro1.view];
     [self addChildViewController:pro1];
+    RecordTableViewController * record1 = [[RecordTableViewController alloc] init];
+    record1.topHeight = self.topview.height - 64;
+    [self.controllersView addObject:record1.view];
+    [self addChildViewController:record1];
     self.cycleView.controllers = self.controllersView;
     int count = 0;
     for(UIView *vi in self.cycleView.controllers){
@@ -127,7 +128,9 @@
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@"123");
+    if (scrollView.contentOffset.y == 0) {
+        return;
+    }
 }
 
 //懒加载
