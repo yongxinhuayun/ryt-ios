@@ -10,4 +10,7 @@
 
 @interface ZanGuoViewController : UITableViewController
 
+@property(nonatomic,assign) CGFloat topHeight;
+
+
 @end

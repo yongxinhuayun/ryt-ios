@@ -10,4 +10,6 @@
 
 @interface TouGuoViewController : UITableViewController
 
+@property(nonatomic,assign) CGFloat topHeight;
+
 @end

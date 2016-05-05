@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JianjieViewController">
             <connections>
+                <outlet property="WeiBianjiView" destination="F38-6X-ugW" id="JMq-hL-GZd"/>
+                <outlet property="YiBianJiView" destination="Zrv-ZR-E9e" id="Cob-td-8uE"/>
+                <outlet property="textView" destination="vw9-dp-44p" id="6yi-df-4HN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F38-6X-ugW">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F38-6X-ugW">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="还没有填写简介..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTl-kt-xQA">
@@ -25,8 +28,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ftx-v2-EML">
-                            <rect key="frame" x="157.5" y="318.5" width="60" height="30"/>
-                            <color key="backgroundColor" red="1" green="0.13713025249999999" blue="0.95569611830000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="127.5" y="318.5" width="120" height="30"/>
+                            <color key="backgroundColor" red="0.93725490196078431" green="0.35686274509803922" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="R8a-9b-uXO"/>
+                            </constraints>
                             <state key="normal" title="编辑简介">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -42,12 +48,33 @@
                         <constraint firstItem="gTl-kt-xQA" firstAttribute="centerX" secondItem="F38-6X-ugW" secondAttribute="centerX" id="vaA-Ug-jKM"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zrv-ZR-E9e">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="简介" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vw9-dp-44p">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <color key="backgroundColor" red="1" green="0.97618007409999996" blue="0.29880268119999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="vw9-dp-44p" secondAttribute="trailing" id="Iqh-1a-wbm"/>
+                        <constraint firstItem="vw9-dp-44p" firstAttribute="leading" secondItem="Zrv-ZR-E9e" secondAttribute="leading" id="J6X-qG-Q92"/>
+                        <constraint firstItem="vw9-dp-44p" firstAttribute="top" secondItem="Zrv-ZR-E9e" secondAttribute="top" id="T5y-lY-Gvc"/>
+                        <constraint firstAttribute="bottom" secondItem="vw9-dp-44p" secondAttribute="bottom" id="fLT-Z7-5s8"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="Zrv-ZR-E9e" secondAttribute="bottom" id="20C-w2-S2p"/>
                 <constraint firstAttribute="trailing" secondItem="F38-6X-ugW" secondAttribute="trailing" id="60O-9Q-46B"/>
                 <constraint firstAttribute="bottom" secondItem="F38-6X-ugW" secondAttribute="bottom" id="Qb7-ia-xRL"/>
                 <constraint firstItem="F38-6X-ugW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RR4-Vk-pZ2"/>
+                <constraint firstItem="Zrv-ZR-E9e" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YnK-r2-szO"/>
+                <constraint firstItem="Zrv-ZR-E9e" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="k2y-2r-hGb"/>
+                <constraint firstAttribute="trailing" secondItem="Zrv-ZR-E9e" secondAttribute="trailing" id="nc4-IJ-dVd"/>
                 <constraint firstItem="F38-6X-ugW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rGZ-O0-rKF"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

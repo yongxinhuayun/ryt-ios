@@ -66,10 +66,12 @@
     
     //添加控制器view
     TouGuoViewController *record1 = [[TouGuoViewController alloc] init];
+    record1.topHeight = self.topview.height - 64;
     [self.controllersView addObject:record1.view];
     [self addChildViewController:record1];
 
     ZanGuoViewController *record2 = [[ZanGuoViewController alloc] init];
+     record2.topHeight = self.topview.height - 64;
     [self.controllersView addObject:record2.view];
     [self addChildViewController:record2];
 

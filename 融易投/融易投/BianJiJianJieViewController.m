@@ -8,6 +8,10 @@
 
 #import "BianJiJianJieViewController.h"
 
+#import "BianJiJianJieModel.h"
+#import <MJExtension.h>
+#import <SVProgressHUD.h>
+
 @interface BianJiJianJieViewController () <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
@@ -86,8 +90,69 @@
 
 -(void)publish{
 
-    SSLog(@"publish");
+//    SSLog(@"publish");
+    
+    [self loadData];
+    
+
 }
+
+-(void)loadData
+{
+    //参数
+    NSString *userId = @"ieatht97wfw30hfd";
+    NSString *type = @"2"; //1 签名 2 简介
+    NSString *content = self.textView.text;
+    
+    NSLog(@"%@",content);
+    
+    NSString *timestamp = [MyMD5 timestamp];
+    NSString *appkey = MD5key;
+    
+    NSString *signmsg = [NSString stringWithFormat:@"timestamp=%@&type=%@&userId=%@&key=%@",timestamp,type,userId,appkey];
+    NSLog(@"%@",signmsg);
+    
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+    
+    NSLog(@"signmsgMD5=%@",signmsgMD5);
+    
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"userId":userId,
+                           @"type":type,
+                           @"content":content,
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5
+                           };
+    
+    NSString *url = @"http://192.168.1.41:8080/app/saveUserBrief.do";
+    
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+        
+        
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        
+        BianJiJianJieModel *model = [BianJiJianJieModel mj_objectWithKeyValues:modelDict];
+        
+        
+        [SVProgressHUD showInfoWithStatus:model.resultMsg];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        
+        //在主线程刷新UI数据
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            [SVProgressHUD dismiss];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }];
+        
+    }];
+}
+
 
 -(void)cancel{
     

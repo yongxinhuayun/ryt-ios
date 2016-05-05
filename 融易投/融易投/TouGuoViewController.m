@@ -25,6 +25,10 @@
 /** 用来加载下一页数据 */
 @property (nonatomic, strong) NSString *lastPageIndex;
 
+//-----------------------联动属性-----------------------
+@property(nonatomic,assign) BOOL isfoot;
+//-----------------------联动属性-----------------------
+
 @end
 
 @implementation TouGuoViewController
@@ -33,6 +37,8 @@ static NSString *ID = @"InvestProjectCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.isfoot = YES;
 
     self.lastPageIndex = @"1";
     
@@ -181,8 +187,7 @@ static NSString *ID = @"InvestProjectCell";
         
         //拼接数据
         [self.models addObjectsFromArray:moreModels];
-        
-        
+    
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
@@ -223,4 +228,79 @@ static NSString *ID = @"InvestProjectCell";
     
     return 374;
 }
+
+//-----------------------联动-----------------------
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+//    if (scrollView == self.tableView)
+//    {
+//        CGFloat sectionHeaderHeight = 80; //sectionHeaderHeight
+//        if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+//            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+//        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+//            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+//        }
+//    }
+    CGPoint offset = scrollView.contentOffset;
+    NSLog(@"(%f,%f)",offset.x,offset.y);
+    UIScrollView *superView = (UIScrollView *)scrollView.superview.superview.superview.superview;
+    
+    NSLog(@"topHeight = %f,y = %f",self.topHeight,superView.contentOffset.y);
+    if (superView.contentOffset.y >= self.topHeight) {
+        self.isfoot = NO;
+        superView.contentOffset = CGPointMake(0, self.topHeight);
+        scrollView.scrollEnabled = YES;
+    }
+    if (superView.contentOffset.y <= 0) {
+        self.isfoot = YES;
+        superView.contentOffset = CGPointMake(0, 0);
+        scrollView.scrollEnabled = YES;
+    }
+    NSLog(@"bool = %d",self.isfoot);
+    CGFloat zeroY = superView.contentOffset.y + scrollView.contentOffset.y;
+    if (self.isfoot && scrollView.contentOffset.y > 0) {
+        superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+        scrollView.contentOffset = CGPointZero;
+    }
+    if (!self.isfoot && scrollView.contentOffset.y < 0) {
+        superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+    }
+    if (superView.contentOffset.y < self.topHeight && scrollView.contentOffset.y >0) {
+        superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+        scrollView.contentOffset = CGPointZero;
+    }
+    if(superView.contentOffset.y < self.topHeight && scrollView.contentOffset.y <= 0){
+        CGFloat y = scrollView.contentOffset.y / 10;
+        zeroY = superView.contentOffset.y + y;
+        
+        if (zeroY < 0) {
+            [superView setContentOffset:CGPointZero animated:YES];
+        }else{
+            superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
+        }
+        //        if (scrollView.contentOffset.y > -10) {
+        //            if (zeroY < 0) {
+        //                [superView setContentOffset:CGPointZero animated:YES];
+        //            }else{
+        //                superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+        //            }
+        //        }else{
+        //            superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
+        //            if (scrollView.contentOffset.y <= -100) {
+        //                [superView setContentOffset:CGPointMake(0, superView.contentOffset.y + y) animated:YES];
+        //            }else
+        //            {
+        //
+        //                if (zeroY < 0) {
+        //                    superView.contentOffset = CGPointZero;
+        //                }else{
+        //                 [superView setContentOffset:CGPointMake(0, superView.contentOffset.y + y) animated:YES];
+        //                }
+        //           
+        //            }
+        //        }
+    }
+}
+//-----------------------联动-----------------------
+
 @end
