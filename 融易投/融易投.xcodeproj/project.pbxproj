@@ -310,6 +310,8 @@
 		E21550E81CB604E20070D5D3 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */; };
 		E22BF2B01CDB1C39006F29D1 /* TopRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E22BF2AE1CDB1C39006F29D1 /* TopRecordTableViewCell.m */; };
 		E22BF2B11CDB1C39006F29D1 /* TopRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22BF2AF1CDB1C39006F29D1 /* TopRecordTableViewCell.xib */; };
+		E22BF2B41CDB47EB006F29D1 /* RecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E22BF2B31CDB47EB006F29D1 /* RecordModel.m */; };
+		E22BF2B71CDB4E26006F29D1 /* RecordModelList.m in Sources */ = {isa = PBXBuildFile; fileRef = E22BF2B61CDB4E26006F29D1 /* RecordModelList.m */; };
 		E236C2961CB4B1B8009DCBF0 /* LognController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E236C2951CB4B1B7009DCBF0 /* LognController.xib */; };
 		E236C3141CB4E068009DCBF0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E236C3131CB4E068009DCBF0 /* CFNetwork.framework */; };
 		E236C3161CB4E080009DCBF0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E236C3151CB4E080009DCBF0 /* CoreFoundation.framework */; };
@@ -921,6 +923,10 @@
 		E22BF2AD1CDB1C39006F29D1 /* TopRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopRecordTableViewCell.h; sourceTree = "<group>"; };
 		E22BF2AE1CDB1C39006F29D1 /* TopRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopRecordTableViewCell.m; sourceTree = "<group>"; };
 		E22BF2AF1CDB1C39006F29D1 /* TopRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopRecordTableViewCell.xib; sourceTree = "<group>"; };
+		E22BF2B21CDB47EB006F29D1 /* RecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordModel.h; sourceTree = "<group>"; };
+		E22BF2B31CDB47EB006F29D1 /* RecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordModel.m; sourceTree = "<group>"; };
+		E22BF2B51CDB4E26006F29D1 /* RecordModelList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordModelList.h; sourceTree = "<group>"; };
+		E22BF2B61CDB4E26006F29D1 /* RecordModelList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordModelList.m; sourceTree = "<group>"; };
 		E236C2951CB4B1B7009DCBF0 /* LognController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LognController.xib; sourceTree = "<group>"; };
 		E236C3131CB4E068009DCBF0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		E236C3151CB4E080009DCBF0 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -2022,6 +2028,10 @@
 				E2729AF21CD8B983006C0617 /* RecordTableViewCell.h */,
 				E2729AF31CD8B983006C0617 /* RecordTableViewCell.m */,
 				E2729AF41CD8B983006C0617 /* RecordTableViewCell.xib */,
+				E22BF2B51CDB4E26006F29D1 /* RecordModelList.h */,
+				E22BF2B61CDB4E26006F29D1 /* RecordModelList.m */,
+				E22BF2B21CDB47EB006F29D1 /* RecordModel.h */,
+				E22BF2B31CDB47EB006F29D1 /* RecordModel.m */,
 			);
 			name = "记录";
 			sourceTree = "<group>";
@@ -2964,6 +2974,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E22BF2B41CDB47EB006F29D1 /* RecordModel.m in Sources */,
 				219AC9B21CBC9B060052146E /* JKAssetsViewCell.m in Sources */,
 				E2D812EF1CCF85D500A52172 /* BaseScrollViewController.m in Sources */,
 				E2729AEE1CD8B943006C0617 /* DetailFinanceViewController.m in Sources */,
@@ -3151,6 +3162,7 @@
 				2187B94C1CCDF25C00B92435 /* CollectionViewController.m in Sources */,
 				E22BF2B01CDB1C39006F29D1 /* TopRecordTableViewCell.m in Sources */,
 				21904D321CAE0F4000AD7A3F /* UserAccount.m in Sources */,
+				E22BF2B71CDB4E26006F29D1 /* RecordModelList.m in Sources */,
 				219ACA5E1CBE3F100052146E /* WhoCanSeeViewController.m in Sources */,
 				219ACA521CBE3F100052146E /* LocationViewController.m in Sources */,
 				212EEE5C1CDB1C7000F94B30 /* PageInfoListModel.m in Sources */,

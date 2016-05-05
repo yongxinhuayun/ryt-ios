@@ -10,4 +10,6 @@
 
 @interface RecordTableViewController : UITableViewController
 @property(nonatomic,assign) CGFloat topHeight;
+@property(nonatomic,copy) NSString *ID;
+
 @end

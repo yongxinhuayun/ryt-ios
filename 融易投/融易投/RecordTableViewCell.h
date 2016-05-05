@@ -10,11 +10,9 @@
 
 @interface RecordTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *topIcon;
-
 @property (weak, nonatomic) IBOutlet UIImageView *userIcon;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UILabel *investTime;
-
+-(void)setupUI:(NSMutableArray *)list;
 @end

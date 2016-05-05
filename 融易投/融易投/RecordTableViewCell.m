@@ -7,17 +7,21 @@
 //
 
 #import "RecordTableViewCell.h"
+#import "RecordModel.h"
 
 @implementation RecordTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+-(void)setupUI:(NSMutableArray *)list{
+    
+}
 
-    // Configure the view for the selected state
+
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
 }
 
 @end

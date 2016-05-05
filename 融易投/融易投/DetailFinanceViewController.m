@@ -33,12 +33,13 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
-    [self setupUI];
+   [self setupUI];
 //    [self loadDataToController];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
 }
 
 //加载数据
@@ -115,6 +116,7 @@
     [self.controllersView addObject:pro1.view];
     [self addChildViewController:pro1];
     RecordTableViewController * record1 = [[RecordTableViewController alloc] init];
+    record1.ID = self.financeModel.ID;
     record1.topHeight = self.topview.height - 64;
     [self.controllersView addObject:record1.view];
     [self addChildViewController:record1];
