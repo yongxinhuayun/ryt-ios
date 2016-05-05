@@ -16,6 +16,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UILabel *investTime;
-@property (weak, nonatomic) IBOutlet UIView *line;
 
 @end
