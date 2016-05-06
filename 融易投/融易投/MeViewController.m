@@ -26,7 +26,7 @@
 
 #import "EditingInfoViewController.h"
 
-#import "ArtistMyViewController.h"
+#import "ArtistUserHomeViewController.h"
 
 #import "WalletViewController.h"
 
@@ -41,7 +41,9 @@
 #import <MJExtension.h>
 
 
-#import "OtherHomeViewController.h"
+#import "CommonUserHomeViewController.h"
+
+#import "ArtistUserHomeViewController.h"
 
 @interface MeViewController ()
 
@@ -188,7 +190,7 @@
 //        ArtistViewController *artistVC = [[ArtistViewController alloc] init];
 //        [self.navigationController pushViewController:artistVC animated:YES];
         
-        OtherHomeViewController *myHomeVC = [[OtherHomeViewController alloc] init];
+        CommonUserHomeViewController *myHomeVC = [[CommonUserHomeViewController alloc] init];
         
         myHomeVC.model = self.model;
         
@@ -202,6 +204,12 @@
         [self.navigationController pushViewController:walletVC animated:YES];
         
     }else if (indexPath.row == 2){
+        
+        ArtistUserHomeViewController *artistHomeVC = [[ArtistUserHomeViewController alloc] init];
+        
+        artistHomeVC.model = self.model;
+        
+        [self.navigationController pushViewController:artistHomeVC animated:YES];
         
     }else if (indexPath.row == 3){
         

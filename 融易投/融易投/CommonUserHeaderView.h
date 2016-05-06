@@ -10,7 +10,7 @@
 
 @class PageInfoModel;
 
-@interface OtherHeaderView : UIView
+@interface CommonUserHeaderView : UIView
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *guanzhuLabel;

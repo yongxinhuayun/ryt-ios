@@ -1,5 +1,5 @@
 //
-//  MyArtworkViewController.h
+//  MyArtworkCell.h
 //  融易投
 //
 //  Created by efeiyi on 16/4/25.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyArtworkViewController : UITableViewController
+@interface ArtistMainCell : UITableViewCell
 
 @end

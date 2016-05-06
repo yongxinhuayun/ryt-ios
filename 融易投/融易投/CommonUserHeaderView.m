@@ -6,16 +6,16 @@
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
-#import "OtherHeaderView.h"
+#import "CommonUserHeaderView.h"
 
 #import "PageInfoModel.h"
 
-@interface OtherHeaderView ()
+@interface CommonUserHeaderView ()
 
 
 @end
 
-@implementation OtherHeaderView
+@implementation CommonUserHeaderView
 
 -(void)awakeFromNib{
 
