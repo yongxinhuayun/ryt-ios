@@ -16,6 +16,8 @@
 #import "ZanGuoViewController.h"
 #import "JianjieViewController.h"
 
+#import "PageInfoModel.h"
+
 @interface OtherHomeViewController ()
 
 @end
@@ -31,7 +33,6 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-
 }
 
 -(void)setupUI{
@@ -40,6 +41,8 @@
 //    if (tView.otherView.hidden) {
 //        self.topview.height = tView.height - 26;
 //    }
+    
+    tView.model = self.model;
     
     self.topview.height = tView.height;
     tView.backgroundColor = [UIColor whiteColor];

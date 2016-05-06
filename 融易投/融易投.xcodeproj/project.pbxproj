@@ -57,6 +57,8 @@
 		212EEE671CDB21E800F94B30 /* ZanGuoResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE661CDB21E800F94B30 /* ZanGuoResultModel.m */; };
 		212EEE6A1CDB428900F94B30 /* JianJieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE691CDB428900F94B30 /* JianJieModel.m */; };
 		212EEE6D1CDB557B00F94B30 /* BianJiJianJieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE6C1CDB557B00F94B30 /* BianJiJianJieModel.m */; };
+		212EEE701CDC361100F94B30 /* SettingFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE6F1CDC361100F94B30 /* SettingFooterView.m */; };
+		212EEE721CDC362600F94B30 /* SettingFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE711CDC362600F94B30 /* SettingFooterView.xib */; };
 		2134E37E1CBB5D3800D6E662 /* ProjectScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */; };
 		215E73601CB7BB4500A67690 /* FromUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 215E735F1CB7BB4500A67690 /* FromUserModel.m */; };
 		215E73661CB7BC1000A67690 /* NotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 215E73621CB7BC1000A67690 /* NotificationModel.m */; };
@@ -480,6 +482,9 @@
 		212EEE691CDB428900F94B30 /* JianJieModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JianJieModel.m; sourceTree = "<group>"; };
 		212EEE6B1CDB557B00F94B30 /* BianJiJianJieModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BianJiJianJieModel.h; sourceTree = "<group>"; };
 		212EEE6C1CDB557B00F94B30 /* BianJiJianJieModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BianJiJianJieModel.m; sourceTree = "<group>"; };
+		212EEE6E1CDC361100F94B30 /* SettingFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingFooterView.h; sourceTree = "<group>"; };
+		212EEE6F1CDC361100F94B30 /* SettingFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingFooterView.m; sourceTree = "<group>"; };
+		212EEE711CDC362600F94B30 /* SettingFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingFooterView.xib; sourceTree = "<group>"; };
 		2134E37C1CBB5D3800D6E662 /* ProjectScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectScheduleViewController.h; sourceTree = "<group>"; };
 		2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectScheduleViewController.m; sourceTree = "<group>"; };
 		215E735E1CB7BB4500A67690 /* FromUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FromUserModel.h; sourceTree = "<group>"; };
@@ -1366,8 +1371,6 @@
 				21904CED1CAD3C7800AD7A3F /* CompleteUserInfoController.h */,
 				21904CEE1CAD3C7800AD7A3F /* CompleteUserInfoController.m */,
 				21904CEF1CAD3C7800AD7A3F /* CompleteUserInfoController.xib */,
-				21904D301CAE0F4000AD7A3F /* UserAccount.h */,
-				21904D311CAE0F4000AD7A3F /* UserAccount.m */,
 			);
 			name = "注册完成完善界面";
 			sourceTree = "<group>";
@@ -2181,6 +2184,8 @@
 		E2DDB19C1CABA664007438E4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				21904D301CAE0F4000AD7A3F /* UserAccount.h */,
+				21904D311CAE0F4000AD7A3F /* UserAccount.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2382,6 +2387,9 @@
 				21C08BC61CB01BC3002328D3 /* SettingTableViewController.h */,
 				21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */,
 				21C08BD01CB02521002328D3 /* SettingTableViewController.storyboard */,
+				212EEE6E1CDC361100F94B30 /* SettingFooterView.h */,
+				212EEE6F1CDC361100F94B30 /* SettingFooterView.m */,
+				212EEE711CDC362600F94B30 /* SettingFooterView.xib */,
 				21C08BCB1CB01F7E002328D3 /* NSObject+FileManager.h */,
 				21C08BCC1CB01F7E002328D3 /* NSObject+FileManager.m */,
 			);
@@ -2906,6 +2914,7 @@
 				E2D059DE1CB34F7400B0F690 /* WeiXinController.xib in Resources */,
 				E236C2961CB4B1B8009DCBF0 /* LognController.xib in Resources */,
 				212566AD1CD8B1F3008CE9DD /* WalletViewController.storyboard in Resources */,
+				212EEE721CDC362600F94B30 /* SettingFooterView.xib in Resources */,
 				219AC9D21CBD1B890052146E /* ArtistViewController.xib in Resources */,
 				219AC9AB1CBC9B060052146E /* JKImagePickerController.strings in Resources */,
 				21D54BCF1CB796CD0088D386 /* messages.plist in Resources */,
@@ -3118,6 +3127,7 @@
 				219AC9B31CBC9B060052146E /* JKImagePickerController.m in Sources */,
 				21AB0A2E1CC23CDD00B7BA03 /* AuthorDetailModel.m in Sources */,
 				E2ABF0B11CB63C090005571F /* CommentsController.m in Sources */,
+				212EEE701CDC361100F94B30 /* SettingFooterView.m in Sources */,
 				2168EA7E1CBE882700B7E037 /* BBFlashCtntLabel.m in Sources */,
 				E2D73DC21CAD2CA9004CEFA3 /* RegViewController.m in Sources */,
 				219AC9AE1CBC9B060052146E /* JKAssetsCollectionFooterView.m in Sources */,

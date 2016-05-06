@@ -193,6 +193,7 @@
                 <outlet property="fansLabel" destination="zZ9-B4-0QU" id="d6l-xz-LnL"/>
                 <outlet property="focusBtn" destination="i2W-KU-J7f" id="OF9-bg-wU2"/>
                 <outlet property="guanzhuLabel" destination="Nue-kV-Yn5" id="VYA-cI-cVS"/>
+                <outlet property="iconImageView" destination="L3g-p1-LPp" id="2w2-O7-GSA"/>
                 <outlet property="inverstMoneyLabel" destination="TRF-ZQ-Swi" id="kJO-qH-YFJ"/>
                 <outlet property="inverstProfitLabel" destination="XdI-TO-sZb" id="i7w-OH-y4u"/>
                 <outlet property="otherView" destination="eqh-nY-F5Z" id="zqV-RZ-5GH"/>
