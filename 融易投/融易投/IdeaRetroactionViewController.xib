@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IdeaRetroactionViewController">
             <connections>
+                <outlet property="placeholderLabel" destination="I1L-RI-Xdt" id="xwU-8q-fDy"/>
+                <outlet property="textField" destination="Eu1-Dw-BAA" id="cI7-Zo-w9f"/>
+                <outlet property="textView" destination="Fpl-N3-BHr" id="18A-Hf-F8V"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,18 +18,40 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入反馈,我们将为您不断改进" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eu1-Dw-BAA">
-                    <rect key="frame" x="17" y="98" width="280" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请填写您的邮箱或QQ号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mMV-G8-zti">
-                    <rect key="frame" x="22" y="175" width="280" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fpl-N3-BHr">
+                    <rect key="frame" x="14" y="76" width="347" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="cZp-4l-Bib"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入反馈,我们将为您不断改进" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1L-RI-Xdt">
+                    <rect key="frame" x="21" y="83" width="172" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请填写您的邮箱或QQ号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eu1-Dw-BAA">
+                    <rect key="frame" x="14" y="226" width="347" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="tbv-VP-NlN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="I1L-RI-Xdt" firstAttribute="leading" secondItem="Fpl-N3-BHr" secondAttribute="leading" constant="7" id="0j7-lZ-AZH"/>
+                <constraint firstItem="Fpl-N3-BHr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="BSl-rp-vAz"/>
+                <constraint firstItem="Eu1-Dw-BAA" firstAttribute="trailing" secondItem="Fpl-N3-BHr" secondAttribute="trailing" id="DBe-aa-B8q"/>
+                <constraint firstItem="Fpl-N3-BHr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="76" id="F7J-ql-oTC"/>
+                <constraint firstItem="I1L-RI-Xdt" firstAttribute="top" secondItem="Fpl-N3-BHr" secondAttribute="top" constant="7" id="P3O-Li-Xki"/>
+                <constraint firstItem="Eu1-Dw-BAA" firstAttribute="leading" secondItem="Fpl-N3-BHr" secondAttribute="leading" id="PJn-TJ-v3J"/>
+                <constraint firstItem="Eu1-Dw-BAA" firstAttribute="top" secondItem="Fpl-N3-BHr" secondAttribute="bottom" constant="22" id="ZNC-sY-Ar8"/>
+                <constraint firstAttribute="trailing" secondItem="Fpl-N3-BHr" secondAttribute="trailing" constant="14" id="mar-6a-ev5"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="221.5" y="307.5"/>
         </view>

@@ -6,11 +6,11 @@
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
-#import "ArtistMyHeaderView.h"
+#import "ArtistUserHeaderView.h"
 
-@implementation ArtistMyHeaderView
+@implementation ArtistUserHeaderView
 
-+(instancetype)artistMyHeaderView
++(instancetype)artistUserHeaderView
 {
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
 }

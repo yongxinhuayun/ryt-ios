@@ -6,16 +6,16 @@
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
-#import "MyArtworkViewController.h"
+#import "ArtistMainViewController.h"
 
 #import <MJExtension.h>
 
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 
-#import "MyArtworkCell.h"
+#import "ArtistMainCell.h"
 
-@interface MyArtworkViewController ()
+@interface ArtistMainViewController ()
 
 @property (nonatomic, strong) NSMutableArray *models;
 
@@ -24,19 +24,26 @@
 @property (nonatomic, strong) NSString *lastPageNum;
 
 
+//-----------------------联动属性-----------------------
+@property(nonatomic,assign) BOOL isfoot;
+//-----------------------联动属性-----------------------
+
+
 @end
 
-@implementation MyArtworkViewController
+@implementation ArtistMainViewController
 
-static NSString *ID = @"myArtworkCell";
+static NSString *ID = @"ArtistMainCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+     self.isfoot = YES;
+    
    self.lastPageNum = @"1";
     
     //注册创建cell ,这样注册就不用在XIB设置ID
-    [self.tableView registerNib:[UINib nibWithNibName:@"MyArtworkCell" bundle:nil] forCellReuseIdentifier:ID];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ArtistMainCell" bundle:nil] forCellReuseIdentifier:ID];
     
     //设置刷新控件
 //    [self setUpRefresh];
@@ -208,7 +215,7 @@ static NSString *ID = @"myArtworkCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MyArtworkCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    ArtistMainCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
 //    InvestorModel *model = self.models[indexPath.row];
 //    
@@ -219,7 +226,85 @@ static NSString *ID = @"myArtworkCell";
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    return 257;
+}
 
+//-----------------------联动-----------------------
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    //    if (scrollView == self.tableView)
+    //    {
+    //        CGFloat sectionHeaderHeight = 80; //sectionHeaderHeight
+    //        if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+    //            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+    //        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+    //            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+    //        }
+    //    }
+    CGPoint offset = scrollView.contentOffset;
+    NSLog(@"(%f,%f)",offset.x,offset.y);
+    UIScrollView *superView = (UIScrollView *)scrollView.superview.superview.superview.superview;
+    
+    NSLog(@"topHeight = %f,y = %f",self.topHeight,superView.contentOffset.y);
+    if (superView.contentOffset.y >= self.topHeight) {
+        self.isfoot = NO;
+        superView.contentOffset = CGPointMake(0, self.topHeight);
+        scrollView.scrollEnabled = YES;
+    }
+    if (superView.contentOffset.y <= 0) {
+        self.isfoot = YES;
+        superView.contentOffset = CGPointMake(0, 0);
+        scrollView.scrollEnabled = YES;
+    }
+    NSLog(@"bool = %d",self.isfoot);
+    CGFloat zeroY = superView.contentOffset.y + scrollView.contentOffset.y;
+    if (self.isfoot && scrollView.contentOffset.y > 0) {
+        superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+        scrollView.contentOffset = CGPointZero;
+    }
+    if (!self.isfoot && scrollView.contentOffset.y < 0) {
+        superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+    }
+    if (superView.contentOffset.y < self.topHeight && scrollView.contentOffset.y >0) {
+        superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+        scrollView.contentOffset = CGPointZero;
+    }
+    if(superView.contentOffset.y < self.topHeight && scrollView.contentOffset.y <= 0){
+        CGFloat y = scrollView.contentOffset.y / 10;
+        zeroY = superView.contentOffset.y + y;
+        
+        if (zeroY < 0) {
+            [superView setContentOffset:CGPointZero animated:YES];
+        }else{
+            superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
+        }
+        //        if (scrollView.contentOffset.y > -10) {
+        //            if (zeroY < 0) {
+        //                [superView setContentOffset:CGPointZero animated:YES];
+        //            }else{
+        //                superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+        //            }
+        //        }else{
+        //            superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
+        //            if (scrollView.contentOffset.y <= -100) {
+        //                [superView setContentOffset:CGPointMake(0, superView.contentOffset.y + y) animated:YES];
+        //            }else
+        //            {
+        //
+        //                if (zeroY < 0) {
+        //                    superView.contentOffset = CGPointZero;
+        //                }else{
+        //                 [superView setContentOffset:CGPointMake(0, superView.contentOffset.y + y) animated:YES];
+        //                }
+        //
+        //            }
+        //        }
+    }
+}
+//-----------------------联动-----------------------
 
 
 @end

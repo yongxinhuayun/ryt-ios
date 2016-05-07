@@ -6,9 +6,9 @@
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
-#import "MyArtworkCell.h"
+#import "ArtistMainCell.h"
 
-@interface MyArtworkCell ()
+@interface ArtistMainCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *projectTitle;
@@ -20,7 +20,7 @@
 
 
 
-@implementation MyArtworkCell
+@implementation ArtistMainCell
 
 - (void)awakeFromNib {
     // Initialization code

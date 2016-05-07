@@ -12,9 +12,9 @@
 #import "TableViewController.h"
 #import "CollectionViewController.h"
 
-#import "ArtistMyViewController.h"
+#import "ArtistUserHomeViewController.h"
 
-#import "ArtistMyHeaderView.h"
+#import "ArtistUserHeaderView.h"
 
 @interface CreationDetailsViewController ()
 
@@ -117,7 +117,7 @@
     //    label2.text = @"pageTabBarIsStopOnTop YES ↓↓";
     //    [imageView addSubview:label2];
     
-    ArtistMyHeaderView *headerView = [ArtistMyHeaderView artistMyHeaderView];
+    ArtistUserHeaderView *headerView = [ArtistUserHeaderView artistUserHeaderView];
     headerView.frame = CGRectMake(0, 0, SSScreenW, 277);
     
     self.slidePageScrollView.headerView = _isNoHeaderView ? nil : headerView;

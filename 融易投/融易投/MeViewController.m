@@ -26,7 +26,7 @@
 
 #import "EditingInfoViewController.h"
 
-#import "ArtistMyViewController.h"
+#import "ArtistUserHomeViewController.h"
 
 #import "WalletViewController.h"
 
@@ -38,14 +38,19 @@
 
 #import "MeHeaderView.h"
 
+#import <MJExtension.h>
 
 
-#import "OtherHomeViewController.h"
+#import "CommonUserHomeViewController.h"
+
+#import "ArtistUserHomeViewController.h"
 
 @interface MeViewController ()
 
 
 @property (strong, nonatomic) MeHeaderView *meheaderView;
+
+@property (nonatomic ,strong)PageInfoModel *model;
 
 @end
 
@@ -55,24 +60,12 @@
     
     [super viewDidLoad];
     
-   
     //设置导航条
     [self setUpNavBar];
-    
-    
-    //设置头部视图
-    MeHeaderView *meheaderView = [MeHeaderView meHeaderView];
-    self.meheaderView = meheaderView;
-    self.tableView.tableHeaderView = meheaderView;
-    
-    //点击头像跳转编辑资料视图
-    [self jumpeditingInfoVc];
-    
-    //点击关注跳转关注视图
-    [self jumpFocusVc];
-    
-    //点击跳转粉丝界面
-    [self jumpFansVc];
+
+    //加载头部视图数据
+    [self loadData];
+
 }
 
 -(void)jumpeditingInfoVc{
@@ -197,7 +190,10 @@
 //        ArtistViewController *artistVC = [[ArtistViewController alloc] init];
 //        [self.navigationController pushViewController:artistVC animated:YES];
         
-        OtherHomeViewController *myHomeVC = [[OtherHomeViewController alloc] init];
+        CommonUserHomeViewController *myHomeVC = [[CommonUserHomeViewController alloc] init];
+        
+        myHomeVC.model = self.model;
+        
         [self.navigationController pushViewController:myHomeVC animated:YES];
         
         
@@ -208,6 +204,12 @@
         [self.navigationController pushViewController:walletVC animated:YES];
         
     }else if (indexPath.row == 2){
+        
+        ArtistUserHomeViewController *artistHomeVC = [[ArtistUserHomeViewController alloc] init];
+        
+        artistHomeVC.model = self.model;
+        
+        [self.navigationController pushViewController:artistHomeVC animated:YES];
         
     }else if (indexPath.row == 3){
         
@@ -234,6 +236,75 @@
     return 49;
     
 }
+
+-(void)loadData
+{
+    //参数
+    NSString *userId = @"ieatht97wfw30hfd";
+    
+    NSString *pageSize = @"20";
+    NSString *pageIndex = @"1";
+    //flag为1是自己看自己,为2时是看别人,还需要传递otheruserId
+    NSString *timestamp = [MyMD5 timestamp];
+    NSString *appkey = MD5key;
+    
+    NSString *signmsg = [NSString stringWithFormat:@"pageIndex=%@&pageSize=%@&timestamp=%@&userId=%@&key=%@",pageIndex,pageSize,timestamp,userId,appkey];
+    NSLog(@"%@",signmsg);
+    
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+    
+    NSLog(@"signmsgMD5=%@",signmsgMD5);
+    
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"userId":userId,
+                           @"pageSize" : pageSize,
+                           @"pageIndex" : pageIndex,
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5
+                           };
+    
+    NSString *url = @"http://192.168.1.41:8080/app/my.do";
+    
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:nil success:^(id respondObj) {
+        
+        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        //        NSLog(@"返回结果:%@",jsonStr);
+        
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        
+        PageInfoModel *model = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
+        
+        //保存模型,赋值给控制器
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            self.model = model;
+            
+            //给xib赋值数据的时候,在viewDidLoad方法老是赋值为nil,所以只好写在这里
+            
+            //设置头部视图
+            MeHeaderView *meheaderView = [MeHeaderView meHeaderView];
+            //保存从xib获取的模型数据
+            meheaderView.model = self.model;
+            
+            NSLog(@"%@",self.model.user.pictureUrl);
+            
+            self.meheaderView = meheaderView;
+            self.tableView.tableHeaderView = meheaderView;
+            
+            //点击头像跳转编辑资料视图
+            [self jumpeditingInfoVc];
+            
+            //点击关注跳转关注视图
+            [self jumpFocusVc];
+            
+            //点击跳转粉丝界面
+            [self jumpFansVc];
+        }];
+    }];
+}
+
 
 
 

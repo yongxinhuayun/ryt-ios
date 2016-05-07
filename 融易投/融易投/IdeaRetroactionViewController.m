@@ -8,8 +8,12 @@
 
 #import "IdeaRetroactionViewController.h"
 
-@interface IdeaRetroactionViewController ()
+@interface IdeaRetroactionViewController () <UITextViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
+
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 @end
 
 @implementation IdeaRetroactionViewController
@@ -18,6 +22,26 @@
     [super viewDidLoad];
    
     [self setUpNavBar];
+    
+    //让textView在左上角出现光标
+    self.automaticallyAdjustsScrollViewInsets = false;
+    
+    //设置placeholderLabel隐藏
+    self.placeholderLabel.hidden = [self.textView.text length];
+    
+    //添加边框
+    self.textView.layer.backgroundColor = [[UIColor clearColor] CGColor];
+    
+    self.textView.layer.borderColor = [[UIColor colorWithRed:226.0/255.0 green:226.0/255.0 blue:226.0/255.0 alpha:1.0]CGColor];
+    
+    self.textView.layer.borderWidth = 1.0;
+    
+    self.textView.layer.cornerRadius = 8.0f;
+    
+    [self.textView.layer setMasksToBounds:YES];
+
+    
+    self.textView.delegate = self;
 }
 
 // 设置导航条
@@ -53,6 +77,29 @@
     SSLog(@"111");
     
 }
+
+#pragma mark - Text View Delegate
+-(void)textViewDidChange:(UITextView *)textView
+{
+    self.placeholderLabel.hidden = [textView.text length];
+}
+
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([@"\n" isEqualToString:text])
+    {
+        if ([self.textView.text length]) {
+            [self.textView resignFirstResponder];
+        }
+        else
+        {
+            return NO;
+        }
+    }
+    return YES;
+}
+
 
 
 - (void)didReceiveMemoryWarning {

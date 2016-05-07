@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "PageInfoModel.h"
+#import "ArtworksModel.h"
+
 @interface MeHeaderView : UIView
 
 +(instancetype)meHeaderView;
@@ -20,5 +23,8 @@
 @property (nonatomic ,strong) void(^focusBlcok)();
 
 @property (nonatomic ,strong) void(^fansBlcok)();
+
+
+@property (nonatomic ,strong)PageInfoModel *model;
 
 @end

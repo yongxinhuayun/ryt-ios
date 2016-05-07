@@ -26,7 +26,7 @@
 
 #import "EditingInfoViewController.h"
 
-#import "ArtistMyViewController.h"
+#import "ArtistUserHomeViewController.h"
 
 #import "WalletViewController.h"
 
@@ -302,7 +302,7 @@
 //    
 //    [self.navigationController pushViewController:releaseProject animated:YES];
     
-    ArtistMyViewController *releaseProject = [[ArtistMyViewController alloc] init];
+    ArtistUserHomeViewController *releaseProject = [[ArtistUserHomeViewController alloc] init];
 
     [self.navigationController pushViewController:releaseProject animated:YES];
 }

@@ -14,6 +14,8 @@
 
 #import <SVProgressHUD/SVProgressHUD.h>
 
+#import "SettingFooterView.h"
+
 @interface SettingTableViewController ()
 
 /** 缓存尺寸*/
@@ -105,6 +107,36 @@
             
         }];
     }
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+
+    SettingFooterView *footerView = [SettingFooterView settingFooterView];
+    
+    [footerView.tuiChuBtn addTarget:self action:@selector(tuiChuLogn) forControlEvents:UIControlEventTouchUpInside];
+
+    if (section == 2) {
+        
+        return footerView;
+        
+    }else{
+
+        return nil;
+    }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+
+    if (section == 2) {
+        return 92;
+    }
+    
+    return 0;
+}
+
+-(void)tuiChuLogn{
+
+    SSLog(@"退出登录");
 }
 
 

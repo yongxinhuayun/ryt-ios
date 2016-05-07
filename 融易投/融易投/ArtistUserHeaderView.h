@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ArtistMyHeaderView : UIView
+@interface ArtistUserHeaderView : UIView
 
-+(instancetype)artistMyHeaderView;
++(instancetype)artistUserHeaderView;
 
 @end

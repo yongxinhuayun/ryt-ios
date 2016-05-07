@@ -81,6 +81,13 @@
 #define TakeUserID  [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
 
 
+//使用归档进行用户登录信息
+//NSUserDefaults  是个单例,但是取出不是shared
+#define SaveUserInfo(userId) [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"userInfo"];
+
+#define TakeUserInfo [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
+
+
 
 // 颜色
 #define HMColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]

@@ -6,24 +6,29 @@
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
-#import "OtherHomeViewController.h"
+#import "ArtistUserHomeViewController.h"
 
 #import "TopView.h"
 #import "CycleView.h"
-#import "OtherHeaderView.h"
+#import "CommonUserHeaderView.h"
 
 #import "TouGuoViewController.h"
 #import "ZanGuoViewController.h"
 #import "JianjieViewController.h"
+#import "ArtistWorksViewController.h"
+#import "ArtistMainViewController.h"
 
-@interface OtherHomeViewController ()
+#import "PageInfoModel.h"
+
+@interface ArtistUserHomeViewController ()
 
 @end
 
-@implementation OtherHomeViewController
+@implementation ArtistUserHomeViewController
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
     self.navigationController.navigationBarHidden = NO;
     
     [self setupUI];
@@ -31,15 +36,16 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-
 }
 
 -(void)setupUI{
-
-    OtherHeaderView *tView = [[[NSBundle mainBundle] loadNibNamed:@"OtherHeaderView" owner:nil options:nil] lastObject];
-//    if (tView.otherView.hidden) {
-//        self.topview.height = tView.height - 26;
-//    }
+    
+    CommonUserHeaderView *tView = [[[NSBundle mainBundle] loadNibNamed:@"CommonUserHeaderView" owner:nil options:nil] lastObject];
+    //    if (tView.otherView.hidden) {
+    //        self.topview.height = tView.height - 26;
+    //    }
+    
+    tView.model = self.model;
     
     self.topview.height = tView.height;
     tView.backgroundColor = [UIColor whiteColor];
@@ -59,26 +65,38 @@
     [self.middleView addSubview:self.cycleView];
     //添加控制器视图 到scrollView中
     self.backgroundScrollView.contentSize = CGSizeMake(SSScreenW,self.topview.height + self.middleView.height);
-
+    
 }
 
 -(void)addControllersToCycleView{
     
     //添加控制器view
-    TouGuoViewController *record1 = [[TouGuoViewController alloc] init];
+    ArtistMainViewController *record1 = [[ArtistMainViewController alloc] init];
     record1.topHeight = self.topview.height - 64;
     [self.controllersView addObject:record1.view];
     [self addChildViewController:record1];
-
-    ZanGuoViewController *record2 = [[ZanGuoViewController alloc] init];
-     record2.topHeight = self.topview.height - 64;
+    
+    JianjieViewController *record2 = [[JianjieViewController alloc] init];
     [self.controllersView addObject:record2.view];
     [self addChildViewController:record2];
-
-    JianjieViewController *record3 = [[JianjieViewController alloc] init];
+    
+    ArtistWorksViewController *record3 = [[ArtistWorksViewController alloc] init];
+    record3.topHeight = self.topview.height - 64;
     [self.controllersView addObject:record3.view];
     [self addChildViewController:record3];
-
+    
+    TouGuoViewController *record4 = [[TouGuoViewController alloc] init];
+    record4.topHeight = self.topview.height - 64;
+    [self.controllersView addObject:record4.view];
+    [self addChildViewController:record4];
+    
+    ZanGuoViewController *record5 = [[ZanGuoViewController alloc] init];
+    record5.topHeight = self.topview.height - 64;
+    [self.controllersView addObject:record5.view];
+    [self addChildViewController:record5];
+    
+   
+    
     
     self.cycleView.controllers = self.controllersView;
     
@@ -102,7 +120,7 @@
 
 -(NSMutableArray *)titleArray{
     if (!_titleArray) {
-        NSArray *array = @[@"投过的",@"赞过的",@"简介"];
+        NSArray *array = @[@"主页",@"简介",@"作品",@"投过的",@"赞过的"];
         _titleArray = [NSMutableArray arrayWithArray:array];
     }
     return _titleArray;

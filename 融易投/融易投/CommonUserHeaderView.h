@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OtherHeaderView : UIView
+@class PageInfoModel;
+
+@interface CommonUserHeaderView : UIView
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *guanzhuLabel;
 @property (weak, nonatomic) IBOutlet UILabel *fansLabel;
@@ -22,5 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIView *otherView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *otherViewTopCons;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *otherViewBottomCons;
+
+
+@property (nonatomic ,strong)PageInfoModel *model;
 
 @end
