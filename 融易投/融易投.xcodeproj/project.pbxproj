@@ -310,6 +310,8 @@
 		21F01B371CD4E6BC0085C5A4 /* InvestProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21F01B351CD4E6BC0085C5A4 /* InvestProjectCell.xib */; };
 		BC4A8BFAB939A8BBE3AF0A2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFB6E4A926D52C7C2AE4F6C /* libPods.a */; };
 		E21550E81CB604E20070D5D3 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */; };
+		E2288DF61CDC290C00483F18 /* UserReplyCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2288DF41CDC290C00483F18 /* UserReplyCommentCell.m */; };
+		E2288DF71CDC290C00483F18 /* UserReplyCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2288DF51CDC290C00483F18 /* UserReplyCommentCell.xib */; };
 		E22BF2B01CDB1C39006F29D1 /* TopRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E22BF2AE1CDB1C39006F29D1 /* TopRecordTableViewCell.m */; };
 		E22BF2B11CDB1C39006F29D1 /* TopRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22BF2AF1CDB1C39006F29D1 /* TopRecordTableViewCell.xib */; };
 		E22BF2B41CDB47EB006F29D1 /* RecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E22BF2B31CDB47EB006F29D1 /* RecordModel.m */; };
@@ -926,6 +928,9 @@
 		AC411E3C5CA46BB337E074BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E21550E61CB604E20070D5D3 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
 		E21550E71CB604E20070D5D3 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		E2288DF31CDC290C00483F18 /* UserReplyCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserReplyCommentCell.h; sourceTree = "<group>"; };
+		E2288DF41CDC290C00483F18 /* UserReplyCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserReplyCommentCell.m; sourceTree = "<group>"; };
+		E2288DF51CDC290C00483F18 /* UserReplyCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserReplyCommentCell.xib; sourceTree = "<group>"; };
 		E22BF2AD1CDB1C39006F29D1 /* TopRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopRecordTableViewCell.h; sourceTree = "<group>"; };
 		E22BF2AE1CDB1C39006F29D1 /* TopRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopRecordTableViewCell.m; sourceTree = "<group>"; };
 		E22BF2AF1CDB1C39006F29D1 /* TopRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopRecordTableViewCell.xib; sourceTree = "<group>"; };
@@ -1908,6 +1913,9 @@
 				E2729AFA1CD8B9A7006C0617 /* UserCommonCell.h */,
 				E2729AFB1CD8B9A7006C0617 /* UserCommonCell.m */,
 				E2729AFC1CD8B9A7006C0617 /* UserCommonCell.xib */,
+				E2288DF31CDC290C00483F18 /* UserReplyCommentCell.h */,
+				E2288DF41CDC290C00483F18 /* UserReplyCommentCell.m */,
+				E2288DF51CDC290C00483F18 /* UserReplyCommentCell.xib */,
 				21AB0B881CC8BD5400B7BA03 /* Model */,
 			);
 			name = "用户评论";
@@ -1920,14 +1928,9 @@
 				2187B9001CC8E74100B92435 /* UserCommonResultModel.m */,
 				21AB0B981CC8CF5200B7BA03 /* UserCommentObjectModel.h */,
 				21AB0B991CC8CF5200B7BA03 /* UserCommentObjectModel.m */,
-				21AB0B8C1CC8BDF600B7BA03 /* ArtworkCommentListModel.h */,
-				21AB0B8D1CC8BDF600B7BA03 /* ArtworkCommentListModel.m */,
-				21AB0B951CC8BEB800B7BA03 /* CreatorModel.h */,
-				21AB0B961CC8BEB800B7BA03 /* CreatorModel.m */,
-				21AB0B8F1CC8BE0F00B7BA03 /* ArtworkMessageModel.h */,
-				21AB0B901CC8BE0F00B7BA03 /* ArtworkMessageModel.m */,
 				21AB0B921CC8BE2400B7BA03 /* ArtworkMessageCreatorModel.h */,
 				21AB0B931CC8BE2400B7BA03 /* ArtworkMessageCreatorModel.m */,
+				E2288DFB1CDC3AFA00483F18 /* myModel */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2025,6 +2028,19 @@
 				E21550E71CB604E20070D5D3 /* JPUSHService.h */,
 			);
 			path = JPushLIB;
+			sourceTree = "<group>";
+		};
+		E2288DFB1CDC3AFA00483F18 /* myModel */ = {
+			isa = PBXGroup;
+			children = (
+				21AB0B8F1CC8BE0F00B7BA03 /* ArtworkMessageModel.h */,
+				21AB0B901CC8BE0F00B7BA03 /* ArtworkMessageModel.m */,
+				21AB0B951CC8BEB800B7BA03 /* CreatorModel.h */,
+				21AB0B961CC8BEB800B7BA03 /* CreatorModel.m */,
+				21AB0B8C1CC8BDF600B7BA03 /* ArtworkCommentListModel.h */,
+				21AB0B8D1CC8BDF600B7BA03 /* ArtworkCommentListModel.m */,
+			);
+			name = myModel;
 			sourceTree = "<group>";
 		};
 		E2729AEF1CD8B975006C0617 /* 记录 */ = {
@@ -2839,6 +2855,7 @@
 				E22BF2B11CDB1C39006F29D1 /* TopRecordTableViewCell.xib in Resources */,
 				219ACA411CBE3F100052146E /* AGImagePickerController.bundle in Resources */,
 				219ACA031CBE3EE40052146E /* ReleaseViewController.storyboard in Resources */,
+				E2288DF71CDC290C00483F18 /* UserReplyCommentCell.xib in Resources */,
 				21D54B861CB6585B0088D386 /* InvestorTableViewCell.xib in Resources */,
 				2168EAE41CBFA05000B7E037 /* FinanceDetailFirstCell.xib in Resources */,
 				21AB0B511CC6056500B7BA03 /* XIBHeaderView.xib in Resources */,
@@ -3031,6 +3048,7 @@
 				2187B94F1CCDF7D500B92435 /* ArtistMyHeaderView.m in Sources */,
 				E2729AF51CD8B983006C0617 /* RecordTableViewController.m in Sources */,
 				21AB0AC31CC50A4D00B7BA03 /* CollectViewTestVC.m in Sources */,
+				E2288DF61CDC290C00483F18 /* UserReplyCommentCell.m in Sources */,
 				E2D387081CB8E49F00F735F9 /* ChartContentView.m in Sources */,
 				219AC5EA1CBC87FD0052146E /* HMEmotionToolbar.m in Sources */,
 				21AB0B411CC6056500B7BA03 /* DemoTableViewController.m in Sources */,

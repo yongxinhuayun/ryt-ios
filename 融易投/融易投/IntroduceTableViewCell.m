@@ -14,7 +14,6 @@
 @implementation IntroduceTableViewCell
 
 - (void)awakeFromNib {
-    
     self.imageListView.delegate = self;
     self.imageListView.dataSource = self;
     self.imageListView.bounces = NO;
@@ -26,7 +25,6 @@
     [self.imageListView sizeToFit];
     self.flowLayout.minimumInteritemSpacing = 0;
     self.flowLayout.minimumLineSpacing = 10;
-    
 }
 
 

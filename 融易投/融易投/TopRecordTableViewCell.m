@@ -34,6 +34,7 @@
 //            self.top1Money  price
 //            self.top1Name
 //            self.top1Time
+            //获取 url
             
         }
         i++;

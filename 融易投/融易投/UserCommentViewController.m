@@ -19,42 +19,37 @@
 #import "CreatorModel.h"
 
 #import "UserCommonCell.h"
+#import "UserReplyCommentCell.h"
+#import "ArtworkCommentListModel.h"
 
 @interface UserCommentViewController ()
-
-
 @property (nonatomic, strong) NSMutableArray *models;
-
 @end
 
 @implementation UserCommentViewController
 
 static NSString *ID = @"userCommentCell";
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.estimatedRowHeight = 300;
+    self.tableView.rowHeight = 250;
     
-//   self.tableView.backgroundColor = [UIColor blueColor];
-    
-    
-    [ArtworkCommentListModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-        return @{@"ID" : @"id"};
+    [UserCommentObjectModel mj_setupObjectClassInArray:^NSDictionary *{
+        return @{
+                 @"artworkCommentList":[ArtworkCommentListModel class],
+                 @"fatherComment" : [ArtworkCommentListModel class],
+                 };
     }];
+    
     
     [CreatorModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-        
         return @{@"ID" : @"id"};
     }];
-    
-    [self loadData];
-    
-    [self setUpRefresh];
-    
+//    [self loadData];
+//    [self setUpRefresh];
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"UserCommonCell" bundle:nil] forCellReuseIdentifier:ID];
-    
-    
-
+    [self.tableView registerNib:[UINib nibWithNibName:@"UserReplyCommentCell" bundle:nil] forCellReuseIdentifier:@"ReplyCell"];
 }
 
 -(void)setUpRefresh
@@ -69,34 +64,22 @@ static NSString *ID = @"userCommentCell";
 -(void)loadData{
     
     //参数
-//    NSString *artWorkId = [[NSUserDefaults standardUserDefaults] objectForKey:@"artWorkId"];
-    
-     NSString *artWorkId = @"qydeyugqqiugd2";
-    
-    NSLog(@"-----%@",artWorkId); //imyuxey8ze7lp8h5 ---in5z7r5f2w2f73so
-    
-    
-    NSString *messageId = @"imhipoyk18s4k52u";
-    
+    //    NSString *artWorkId = [[NSUserDefaults standardUserDefaults] objectForKey:@"artWorkId"];
+    NSString *artWorkId = self.artWorkId;
+    //
+//    NSString *messageId = self.artWorkId;
     NSString *pageIndex = @"1";
     NSString *pageSize = @"20";
-    
     NSString *timestamp = [MyMD5 timestamp];
     NSString *appkey = MD5key;
-    
-    NSString *signmsg = [NSString stringWithFormat:@"artWorkId=%@&messageId=%@&pageIndex=%@&pageSize=%@&timestamp=%@&key=%@",artWorkId,messageId,pageIndex,pageSize,timestamp,appkey];
-    
-    NSLog(@"%@",signmsg);
-    
+    NSString *signmsg = [NSString stringWithFormat:@"artWorkId=%@&pageIndex=%@&pageSize=%@&timestamp=%@&key=%@",artWorkId,pageIndex,pageSize,timestamp,appkey];
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
     // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-    NSString *url = @"http://192.168.1.69:8001/app/investorArtWorkComment.do";
-    
+    NSString *url = @"http://192.168.1.41:8080/app/investorArtWorkComment.do";
     // 3.设置请求体
     NSDictionary *json = @{
                            @"artWorkId" : artWorkId,
-                           @"messageId":messageId,
+//                           @"messageId":messageId,
                            @"pageIndex":pageIndex,
                            @"pageSize":pageSize,
                            @"timestamp" : timestamp,
@@ -104,61 +87,16 @@ static NSString *ID = @"userCommentCell";
                            };
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
-        
-        
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
-        
-        /*
-         {"resultCode":"0","resultMsg":"成功",
-         "object":
-                {"artworkCommentList":
-                        [
-                            {"id":"3",
-                            "content":"地方",
-                            "creator":{"id":"iijq9f1r7apprtab","username":"18510251819","name":"杜锐","pictureUrl":"http://rongyitou2.efeiyi.com/headPortrait/18510251819.jpeg@!ryt_head_portrai","cityId":null,"status":"1","createDatetime":1450930002000,"type":null,"master":null},
-                            "createDatetime"1460194750000,
-                             "status":"1",
-                             "isWatch":"0",
-                             "fatherComment":null},
-                            {"id":"1","content":"阿凡达","creator":{"id":"imhfp1yr4636pj49","username":"18513234278","name":null,"pictureUrl":"http://rongyitou2.efeiyi.com/headPortrait/18513234278","cityId":null,"status":"1","createDatetime":1459498453000,"type":null,"master":null},"createDatetime":1455861042000,"status":"1","isWatch":"0","fatherComment":{"id":"3","content":"地方","creator":{"id":"iijq9f1r7apprtab","username":"18510251819","name":"杜锐","pictureUrl":"http://rongyitou2.efeiyi.com/headPortrait/18510251819.jpeg@!ryt_head_portrai","cityId":null,"status":"1","createDatetime":1450930002000,"type":null,"master":null},"createDatetime":1460194750000,"status":"1","isWatch":"0","fatherComment":null}}
-                            ]
-                }
-        }
-         
-         */
-        
-        /*
-         {"resultCode":"0",
-         "resultMsg":"成功",
-         "object":{
-                "artworkCommentList":[
-                        {"id":"3",
-                        "content":"地方",
-                        "creator":{
-                                "id":"iijq9f1r7apprtab","username":"18510251819","name":"杜锐","pictureUrl":"http://rongyitou2.efeiyi.com/headPortrait/18510251819.jpeg@!ryt_head_portrai","cityId":null,"status":"1","createDatetime":1450930002000,"type":null,"master":null
-                                    },
-                        "createDatetime":1460194750000,
-                        "status":"1",
-                        "isWatch":"0",
-                        "fatherComment":null
-                            },
-                        {"id":"1","content":"阿凡达","creator":{"id":"imhfp1yr4636pj49","username":"18513234278","name":null,"pictureUrl":"http://rongyitou2.efeiyi.com/headPortrait/18513234278","cityId":null,"status":"1","createDatetime":1459498453000,"type":null,"master":null},"createDatetime":1455861042000,"status":"1","isWatch":"0","fatherComment":{"id":"3","content":"地方","creator":{"id":"iijq9f1r7apprtab","username":"18510251819","name":"杜锐","pictureUrl":"http://rongyitou2.efeiyi.com/headPortrait/18510251819.jpeg@!ryt_head_portrai","cityId":null,"status":"1","createDatetime":1450930002000,"type":null,"master":null},"createDatetime":1460194750000,"status":"1","isWatch":"0","fatherComment":null}}]}}
-         */
-
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-        
         UserCommonResultModel *userCommentObject = [UserCommonResultModel mj_objectWithKeyValues:modelDict];
         
-        self.models = userCommentObject.object.artworkCommentList;
-        
-        NSLog(@"11111111111111----%ld",self.models.count);
-        NSLog(@"%@",self.models);
-        
-        for (ArtworkCommentListModel *model in self.models) {
-            
-//            NSLog(@"%@",model.ID);
+        self.models = [ArtworkCommentListModel mj_objectArrayWithKeyValuesArray:userCommentObject.object.artworkCommentList];
+        for (ArtworkCommentListModel *m in self.models) {
+            NSLog(@"model : %@,%@ \n",m.ID,m.content);
         }
+        
 
 
 //        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
@@ -208,7 +146,6 @@ static NSString *ID = @"userCommentCell";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -217,17 +154,30 @@ static NSString *ID = @"userCommentCell";
     return  self.models.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
-    UserCommonCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
     ArtworkCommentListModel *model = self.models[indexPath.row];
-    
-    cell.model = model;
-    
-    return cell;
+    if (model.fatherComment == nil) {
+        UserCommonCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+        cell.model = model;
+        return cell;
+    }else{
+        UserReplyCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReplyCell" forIndexPath:indexPath];
+        cell.model = model;
+        cell.cellHeight = 10;
+        return cell;
+    }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    ArtworkCommentListModel *model = self.models[indexPath.row];
+    CGFloat margin = 10;
+    CGFloat userIconY = 50;
+    CGFloat maxY = userIconY + margin * 2;
+    CGFloat textW = [UIScreen mainScreen].bounds.size.width - 2 * 10;
+    CGSize textMaxSize = CGSizeMake(textW, MAXFLOAT);
+    CGFloat textH = [[NSString stringWithFormat:@":%@",model.content] boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{ NSFontAttributeName:[UIFont systemFontOfSize:15] } context:nil].size.height;
+    maxY = maxY + textH + margin;
+    return  maxY;
 }
 
 @end

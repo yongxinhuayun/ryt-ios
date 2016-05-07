@@ -43,5 +43,7 @@
 /** 作者信息 */
 @property (nonatomic, strong) authorModel *author;
 
-
+/** 回复列表*/
+@property(nonatomic,strong) NSMutableArray *artworkComments;
+@property(nonatomic,strong) NSMutableArray *artworkAttachment;
 @end

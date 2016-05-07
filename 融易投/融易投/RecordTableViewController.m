@@ -224,7 +224,7 @@
         UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"zuixintouzijilu"]];
         imgView.center = header.center;
         imgView.height = 15;
-                [header addSubview:imgView];
+        [header addSubview:imgView];
     }
     return header;
 }
@@ -265,10 +265,7 @@
         }
     }
     CGPoint offset = scrollView.contentOffset;
-//    NSLog(@"(%f,%f)",offset.x,offset.y);
     UIScrollView *superView = (UIScrollView *)scrollView.superview.superview.superview.superview;
-    
-//            NSLog(@"topHeight = %f,y = %f",self.topHeight,superView.contentOffset.y);
     if (superView.contentOffset.y >= self.topHeight) {
         self.isfoot = NO;
         superView.contentOffset = CGPointMake(0, self.topHeight);

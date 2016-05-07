@@ -14,4 +14,11 @@
 
 @property (nonatomic, strong) ArtworkCommentListModel *model;
 
+
+@property (weak, nonatomic) IBOutlet UIButton *userPic;
+@property (weak, nonatomic) IBOutlet UIButton *userName;
+@property (weak, nonatomic) IBOutlet UILabel *replyTime;
+@property (weak, nonatomic) IBOutlet UILabel *content;
+
+
 @end

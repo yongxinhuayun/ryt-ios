@@ -16,11 +16,9 @@
 
 /**评论内容 */
 @property (nonatomic ,strong) NSString *name;
-
+@property (nonatomic ,strong) NSString *username;
 /** 评论者 */
 @property (nonatomic ,strong) NSString *pictureUrl;
-
-
 @property (nonatomic ,assign) NSInteger createDatetime;
 
 @end

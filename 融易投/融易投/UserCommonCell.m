@@ -10,14 +10,10 @@
 
 #import "UIImageView+WebCache.h"
 
-@interface UserCommonCell ()
+#import "CreatorModel.h"
+#import <UIKit/UIKit.h>
+@interface UserCommonCell ()<UITextViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
-@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
-
-@property (weak, nonatomic) IBOutlet UILabel *commonLabel;
-
-@property (weak, nonatomic) IBOutlet UILabel *commentTime;
 
 @end
 
@@ -27,6 +23,13 @@
 -(void)setModel:(ArtworkCommentListModel *)model{
 
     _model = model;
+    NSString *urlStr = [model.creator.pictureUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [self.userPic.imageView sd_setImageWithURL:[NSURL URLWithString:urlStr]];
+    self.userName.titleLabel.text = model.creator.name;
+//    self.replyTime.text = model.createDatetime;
+    self.content.text = model.content;
+    
+    
     
 //    NSLog(@"%@",model);
 //    
@@ -39,7 +42,6 @@
 }
 
 - (void)awakeFromNib {
-    
     // Initialization code
 }
 

@@ -12,5 +12,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *introduceLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *imageListView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
-
 @end

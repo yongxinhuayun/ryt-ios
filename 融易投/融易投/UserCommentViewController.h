@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UserCommentViewController : UITableViewController
-
+@property (nonatomic,copy) NSString *artWorkId;
 @end

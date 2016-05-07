@@ -69,7 +69,7 @@
     self.financeHeader.investGoalMoney.text = [NSString stringWithFormat:@"%ld",(long)self.financeModel.investGoalMoney];
     //MARK:TODO
     //融资开始时间 investStartDatetime;
-//    融资结束时间/创作开始时间 investEndDatetime;
+    //融资结束时间/创作开始时间 investEndDatetime;
     //融资金额百分比 = 已融金额 / 目标金额
     self.financeHeader.investsMoney.text = [NSString stringWithFormat:@"%ld",(long)self.financeModel.investsMoney];
     CGFloat value = self.financeModel.investsMoney / self.financeModel.investGoalMoney;
@@ -105,13 +105,9 @@
     //添加控制器view
 
     UserCommentViewController * userComment = [[UserCommentViewController alloc] init];
+    userComment.artWorkId = self.financeModel.ID;
     [self.controllersView addObject:userComment.view];
     [self addChildViewController:userComment];
-//   ProjectDetailsViewController
-//    ProjectDetailsViewController * pro = [[ProjectDetailsViewController alloc] init];
-//    [self.controllersView addObject:pro.view];
-//    [self addChildViewController:pro];
-//    ProjectDetailTableViewController
     ProjectDetailTableViewController * pro1 = [[ProjectDetailTableViewController alloc] init];
     [self.controllersView addObject:pro1.view];
     [self addChildViewController:pro1];
