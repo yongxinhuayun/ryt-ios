@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditingSignatureViewController">
+            <connections>
+                <outlet property="signatureTF" destination="r1l-PG-K8f" id="ADT-Kd-Dwg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请编辑个性签名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r1l-PG-K8f">
+                    <rect key="frame" x="0.0" y="66" width="375" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="ahi-K5-sid"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="r1l-PG-K8f" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="66" id="qth-0W-6eo"/>
+                <constraint firstItem="r1l-PG-K8f" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ujh-uT-n1w"/>
+                <constraint firstAttribute="trailing" secondItem="r1l-PG-K8f" secondAttribute="trailing" id="z0o-7r-GNO"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="196.5" y="322.5"/>
+        </view>
+    </objects>
+</document>
