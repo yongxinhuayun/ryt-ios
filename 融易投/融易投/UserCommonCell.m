@@ -24,8 +24,12 @@
 
     _model = model;
     NSString *urlStr = [model.creator.pictureUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [self.userPic.imageView sd_setImageWithURL:[NSURL URLWithString:urlStr]];
-    self.userName.titleLabel.text = model.creator.name;
+    NSURL *url =[NSURL URLWithString:urlStr];
+    UIImageView *imgView = [[UIImageView alloc] init];
+    [imgView ss_setHeader:url];
+    [self.userPic setImage:imgView.image forState:(UIControlStateNormal)];
+//    self.userName.titleLabel.text = model.creator.name;
+    [self.userName setTitle:model.creator.name forState:(UIControlStateNormal)];
 //    self.replyTime.text = model.createDatetime;
     self.content.text = model.content;
     

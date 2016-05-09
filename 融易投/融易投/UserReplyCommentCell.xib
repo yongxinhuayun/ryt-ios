@@ -24,9 +24,9 @@
                         <rect key="frame" x="70" y="20" width="60" height="30"/>
                         <state key="normal" title="艺术人生"/>
                     </button>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="小丫小二郎啊，背着书包上学堂，浪一个浪，浪里个浪。小丫小二郎啊，背着书包上学堂，浪" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Kx-4k-Eaf">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Kx-4k-Eaf">
                         <rect key="frame" x="70" y="50" width="337" height="102.5"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" notEnabled="YES"/>
                         </accessibility>
@@ -34,15 +34,15 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="回复" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXq-an-5Fd">
-                        <rect key="frame" x="70" y="52" width="28" height="29"/>
+                        <rect key="frame" x="72" y="52" width="28" height="29"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SdQ-rd-77B">
-                        <rect key="frame" x="100" y="52" width="94" height="29"/>
+                        <rect key="frame" x="102" y="52" width="56" height="29"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <state key="normal" title="艺术人生12321"/>
+                        <state key="normal" title="艺术人生"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zK-gv-DsT">
                         <rect key="frame" x="10" y="10" width="50" height="50"/>
@@ -50,7 +50,6 @@
                             <constraint firstAttribute="width" constant="50" id="5aa-gD-cKl"/>
                             <constraint firstAttribute="height" constant="50" id="xxl-PP-RJq"/>
                         </constraints>
-                        <state key="normal" image="高圆圆.png"/>
                     </button>
                 </subviews>
                 <constraints>
@@ -62,7 +61,7 @@
                     <constraint firstItem="5Kx-4k-Eaf" firstAttribute="trailing" secondItem="FTT-hR-GkP" secondAttribute="trailing" id="A2t-5E-Em6"/>
                     <constraint firstItem="SdQ-rd-77B" firstAttribute="bottom" secondItem="LXq-an-5Fd" secondAttribute="bottom" id="M8S-5r-2dw"/>
                     <constraint firstItem="5Kx-4k-Eaf" firstAttribute="leading" secondItem="zta-dQ-cRk" secondAttribute="leading" id="NKM-3o-dV4"/>
-                    <constraint firstItem="LXq-an-5Fd" firstAttribute="leading" secondItem="5Kx-4k-Eaf" secondAttribute="leading" id="QeT-hb-m9q"/>
+                    <constraint firstItem="LXq-an-5Fd" firstAttribute="leading" secondItem="5Kx-4k-Eaf" secondAttribute="leading" constant="2" id="QeT-hb-m9q"/>
                     <constraint firstAttribute="bottom" secondItem="5Kx-4k-Eaf" secondAttribute="bottom" constant="10" id="fFz-vw-NzQ"/>
                     <constraint firstItem="FTT-hR-GkP" firstAttribute="centerY" secondItem="zta-dQ-cRk" secondAttribute="centerY" id="lsK-Pa-ERK"/>
                     <constraint firstItem="zta-dQ-cRk" firstAttribute="centerY" secondItem="4zK-gv-DsT" secondAttribute="centerY" id="t4R-rJ-nYe"/>
@@ -72,16 +71,13 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="content" destination="5Kx-4k-Eaf" id="s18-a6-0yx"/>
-                <outlet property="replyName" destination="SdQ-rd-77B" id="0h6-0g-XdP"/>
-                <outlet property="replyTime" destination="FTT-hR-GkP" id="fsx-PD-H9O"/>
-                <outlet property="userName" destination="zta-dQ-cRk" id="Be9-kM-Xve"/>
-                <outlet property="userPic" destination="4zK-gv-DsT" id="p7P-Bd-wKE"/>
+                <outlet property="content" destination="5Kx-4k-Eaf" id="ys1-7B-aGg"/>
+                <outlet property="replyName" destination="SdQ-rd-77B" id="IXP-R7-vEA"/>
+                <outlet property="replyTime" destination="FTT-hR-GkP" id="Apy-nc-Vnw"/>
+                <outlet property="userName" destination="zta-dQ-cRk" id="qFp-Mh-JQE"/>
+                <outlet property="userPic" destination="4zK-gv-DsT" id="7dC-9g-Qe3"/>
             </connections>
             <point key="canvasLocation" x="302.5" y="345.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="高圆圆.png" width="41" height="41"/>
-    </resources>
 </document>

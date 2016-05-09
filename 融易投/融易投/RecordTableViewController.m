@@ -83,7 +83,7 @@
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.41:8085/app/investorArtWorkInvest.do";
+    NSString *url = @"http://192.168.1.75:8001/app/investorArtWorkInvest.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
@@ -151,7 +151,10 @@
         RecordModelList *model = [RecordModelList mj_objectWithKeyValues:modelDict[@"object"]];
         //拼接数据
         self.artTopList = model.artworkInvestTopList;
-        [self.artList addObject:model.artworkInvestList];
+        
+        if (model.artworkInvestList != nil) {
+            [self.artList addObject:model.artworkInvestList];
+        }
 
 //        [self.models addObjectsFromArray:moreModels];
         

@@ -24,6 +24,9 @@
 
 @interface UserCommentViewController ()
 @property (nonatomic, strong) NSMutableArray *models;
+//-----------------------联动属性-----------------------
+@property(nonatomic,assign) BOOL isfoot;
+//-----------------------联动属性-----------------------
 @end
 
 @implementation UserCommentViewController
@@ -45,8 +48,8 @@ static NSString *ID = @"userCommentCell";
     [CreatorModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         return @{@"ID" : @"id"};
     }];
-//    [self loadData];
-//    [self setUpRefresh];
+    [self loadData];
+    [self setUpRefresh];
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"UserCommonCell" bundle:nil] forCellReuseIdentifier:ID];
     [self.tableView registerNib:[UINib nibWithNibName:@"UserReplyCommentCell" bundle:nil] forCellReuseIdentifier:@"ReplyCell"];
@@ -75,7 +78,7 @@ static NSString *ID = @"userCommentCell";
     NSString *signmsg = [NSString stringWithFormat:@"artWorkId=%@&pageIndex=%@&pageSize=%@&timestamp=%@&key=%@",artWorkId,pageIndex,pageSize,timestamp,appkey];
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
     // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-    NSString *url = @"http://192.168.1.41:8080/app/investorArtWorkComment.do";
+    NSString *url = @"http://192.168.1.41:8085/app/investorArtWorkComment.do";
     // 3.设置请求体
     NSDictionary *json = @{
                            @"artWorkId" : artWorkId,
@@ -157,27 +160,94 @@ static NSString *ID = @"userCommentCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ArtworkCommentListModel *model = self.models[indexPath.row];
     if (model.fatherComment == nil) {
-        UserCommonCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+        
+        UserCommonCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
         cell.model = model;
         return cell;
     }else{
+        
         UserReplyCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReplyCell" forIndexPath:indexPath];
         cell.model = model;
-        cell.cellHeight = 10;
         return cell;
     }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     ArtworkCommentListModel *model = self.models[indexPath.row];
-    CGFloat margin = 10;
-    CGFloat userIconY = 50;
-    CGFloat maxY = userIconY + margin * 2;
-    CGFloat textW = [UIScreen mainScreen].bounds.size.width - 2 * 10;
-    CGSize textMaxSize = CGSizeMake(textW, MAXFLOAT);
-    CGFloat textH = [[NSString stringWithFormat:@":%@",model.content] boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{ NSFontAttributeName:[UIFont systemFontOfSize:15] } context:nil].size.height;
-    maxY = maxY + textH + margin;
-    return  maxY;
+
+    return  model.cellHeight;
 }
+
+//-----------------------联动-----------------------
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    if (scrollView == self.tableView)
+    {
+        CGFloat sectionHeaderHeight = 80; //sectionHeaderHeight
+        if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+        }
+    }
+    CGPoint offset = scrollView.contentOffset;
+    UIScrollView *superView = (UIScrollView *)scrollView.superview.superview.superview.superview;
+    if (superView.contentOffset.y >= self.topHeight) {
+        self.isfoot = NO;
+        superView.contentOffset = CGPointMake(0, self.topHeight);
+        scrollView.scrollEnabled = YES;
+    }
+    if (superView.contentOffset.y <= 0) {
+        self.isfoot = YES;
+        superView.contentOffset = CGPointMake(0, 0);
+        scrollView.scrollEnabled = YES;
+    }
+    //    NSLog(@"bool = %d",self.isfoot);
+    CGFloat zeroY = superView.contentOffset.y + scrollView.contentOffset.y;
+    if (self.isfoot && scrollView.contentOffset.y > 0) {
+        superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+        scrollView.contentOffset = CGPointZero;
+    }
+    if (!self.isfoot && scrollView.contentOffset.y < 0) {
+        superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+    }
+    if (superView.contentOffset.y < self.topHeight && scrollView.contentOffset.y >0) {
+        superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+        scrollView.contentOffset = CGPointZero;
+    }
+    if(superView.contentOffset.y < self.topHeight && scrollView.contentOffset.y <= 0){
+        CGFloat y = scrollView.contentOffset.y / 10;
+        zeroY = superView.contentOffset.y + y;
+        
+        if (zeroY < 0) {
+            [superView setContentOffset:CGPointZero animated:YES];
+        }else{
+            superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
+        }
+        //        if (scrollView.contentOffset.y > -10) {
+        //            if (zeroY < 0) {
+        //                [superView setContentOffset:CGPointZero animated:YES];
+        //            }else{
+        //                superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+        //            }
+        //        }else{
+        //            superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
+        //            if (scrollView.contentOffset.y <= -100) {
+        //                [superView setContentOffset:CGPointMake(0, superView.contentOffset.y + y) animated:YES];
+        //            }else
+        //            {
+        //
+        //                if (zeroY < 0) {
+        //                    superView.contentOffset = CGPointZero;
+        //                }else{
+        //                 [superView setContentOffset:CGPointMake(0, superView.contentOffset.y + y) animated:YES];
+        //                }
+        //           
+        //            }
+        //        }
+    }
+}
+//-----------------------联动-----------------------
+
 
 @end

@@ -34,7 +34,7 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
    [self setupUI];
-//    [self loadDataToController];
+    [self loadDataToController];
 }
 
 - (void)viewDidLoad {
@@ -106,6 +106,7 @@
 
     UserCommentViewController * userComment = [[UserCommentViewController alloc] init];
     userComment.artWorkId = self.financeModel.ID;
+    userComment.topHeight = self.topview.height - 64;
     [self.controllersView addObject:userComment.view];
     [self addChildViewController:userComment];
     ProjectDetailTableViewController * pro1 = [[ProjectDetailTableViewController alloc] init];
