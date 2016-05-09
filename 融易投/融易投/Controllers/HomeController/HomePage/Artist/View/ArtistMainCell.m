@@ -7,6 +7,9 @@
 //
 
 #import "ArtistMainCell.h"
+#import "ArtworkListModel.h"
+
+#import "UIImageView+WebCache.h"
 
 @interface ArtistMainCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -21,6 +24,21 @@
 
 
 @implementation ArtistMainCell
+
+-(void)setModel:(ArtworkListModel *)model{
+
+    _model = model;
+    
+    NSString *pictureUrlStr = [[NSString stringWithFormat:@"%@",model.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURL *pictureUrlURL = [NSURL URLWithString:pictureUrlStr];
+    
+    [self.iconImageView sd_setImageWithURL:pictureUrlURL placeholderImage:[UIImage imageNamed:@"defaultBackground"]];
+    
+    self.projectTitle.text = model.title;
+    self.projectTotal.text = [NSString stringWithFormat:@"%ld",model.investGoalMoney];
+    self.projectDes.text = model.brief;
+}
 
 - (void)awakeFromNib {
     // Initialization code

@@ -15,6 +15,9 @@
 		212EEE431CD9D8CD00F94B30 /* CommonButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE421CD9D8CD00F94B30 /* CommonButton.m */; };
 		212EEE701CDC361100F94B30 /* SettingFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE6F1CDC361100F94B30 /* SettingFooterView.m */; };
 		212EEE721CDC362600F94B30 /* SettingFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE711CDC362600F94B30 /* SettingFooterView.xib */; };
+		212EEE7F1CE0240C00F94B30 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE7E1CE0240C00F94B30 /* Info.plist */; };
+		212EEE821CE0331200F94B30 /* ArtworkListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE811CE0331200F94B30 /* ArtworkListModel.m */; };
+		212EEE851CE0341400F94B30 /* ArtistObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE841CE0341400F94B30 /* ArtistObjectModel.m */; };
 		2134E37E1CBB5D3800D6E662 /* ProjectScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */; };
 		215EED1D1CB0058D00A5957B /* FinanceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED1C1CB0058D00A5957B /* FinanceTableViewController.m */; };
 		215EED291CB0108F00A5957B /* InvestorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED281CB0108F00A5957B /* InvestorTableViewController.m */; };
@@ -649,6 +652,11 @@
 		212EEE6E1CDC361100F94B30 /* SettingFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingFooterView.h; sourceTree = "<group>"; };
 		212EEE6F1CDC361100F94B30 /* SettingFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingFooterView.m; sourceTree = "<group>"; };
 		212EEE711CDC362600F94B30 /* SettingFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingFooterView.xib; sourceTree = "<group>"; };
+		212EEE7E1CE0240C00F94B30 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		212EEE801CE0331200F94B30 /* ArtworkListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkListModel.h; sourceTree = "<group>"; };
+		212EEE811CE0331200F94B30 /* ArtworkListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkListModel.m; sourceTree = "<group>"; };
+		212EEE831CE0341400F94B30 /* ArtistObjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistObjectModel.h; sourceTree = "<group>"; };
+		212EEE841CE0341400F94B30 /* ArtistObjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistObjectModel.m; sourceTree = "<group>"; };
 		2134E37C1CBB5D3800D6E662 /* ProjectScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectScheduleViewController.h; sourceTree = "<group>"; };
 		2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectScheduleViewController.m; sourceTree = "<group>"; };
 		215EED1B1CB0058D00A5957B /* FinanceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceTableViewController.h; sourceTree = "<group>"; };
@@ -1497,7 +1505,6 @@
 		E2DDB0E31CAB66DB007438E4 /* 融易投.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "融易投.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2DDB0E71CAB66DB007438E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E2DDB0F71CAB66DB007438E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2DDB0FC1CAB66DB007438E4 /* 融易投Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "融易投Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2DDB1001CAB66DB007438E4 /* ___Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "___Tests.m"; sourceTree = "<group>"; };
 		E2DDB1021CAB66DB007438E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2253,6 +2260,10 @@
 		E2288E4F1CDEFB3200483F18 /* ArtistModel */ = {
 			isa = PBXGroup;
 			children = (
+				212EEE831CE0341400F94B30 /* ArtistObjectModel.h */,
+				212EEE841CE0341400F94B30 /* ArtistObjectModel.m */,
+				212EEE801CE0331200F94B30 /* ArtworkListModel.h */,
+				212EEE811CE0331200F94B30 /* ArtworkListModel.m */,
 			);
 			path = ArtistModel;
 			sourceTree = "<group>";
@@ -3238,10 +3249,10 @@
 		E2D524BE1CDFA0C40024887A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E2D524C01CDFA12A0024887A /* ArtistMainViewController.h */,
-				E2D524C11CDFA12A0024887A /* ArtistMainViewController.m */,
 				E2D524C21CDFA12A0024887A /* ArtistUserHomeViewController.h */,
 				E2D524C31CDFA12A0024887A /* ArtistUserHomeViewController.m */,
+				E2D524C01CDFA12A0024887A /* ArtistMainViewController.h */,
+				E2D524C11CDFA12A0024887A /* ArtistMainViewController.m */,
 				E2D524C41CDFA12A0024887A /* ArtistWorksViewController.h */,
 				E2D524C51CDFA12A0024887A /* ArtistWorksViewController.m */,
 			);
@@ -3378,16 +3389,16 @@
 		E2DDB0E51CAB66DB007438E4 /* 融易投 */ = {
 			isa = PBXGroup;
 			children = (
-				E22892131CDF01B400483F18 /* Controllers */,
 				E2288E441CDEFA8C00483F18 /* AppDelegate */,
 				E22890421CDEFE0700483F18 /* Tools */,
-				E2288E4E1CDEFB3200483F18 /* Model */,
 				E2288E481CDEFB0500483F18 /* 3rd */,
+				E22892131CDF01B400483F18 /* Controllers */,
+				E2288E4E1CDEFB3200483F18 /* Model */,
 				218D2B371CACB2E3004553B9 /* Main */,
 				E2DDB19A1CABA64E007438E4 /* Controller */,
 				E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */,
+				212EEE7E1CE0240C00F94B30 /* Info.plist */,
 				E236C3231CB4E27E009DCBF0 /* PushConfig.plist */,
-				E2DDB0F71CAB66DB007438E4 /* Info.plist */,
 				218D2B5B1CACB5B9004553B9 /* Launch Screen.storyboard */,
 				21D54BCE1CB796CD0088D386 /* messages.plist */,
 				21D54BAB1CB796B40088D386 /* images */,
@@ -3707,6 +3718,7 @@
 				E228937F1CDF049500483F18 /* lxh_haoaio.gif in Resources */,
 				219ACA561CBE3F100052146E /* picture4.png in Resources */,
 				E22893901CDF049500483F18 /* lxh_jiekexun@2x.png in Resources */,
+				212EEE7F1CE0240C00F94B30 /* Info.plist in Resources */,
 				E22892A91CDF03F400483F18 /* d_shuijiao@2x.png in Resources */,
 				E22893781CDF049500483F18 /* lxh_buxiangshangban@2x.png in Resources */,
 				E22892A21CDF03F400483F18 /* d_nvhaier@2x.png in Resources */,
@@ -4123,6 +4135,7 @@
 				219ACA591CBE3F100052146E /* ShowImageView.m in Sources */,
 				E2D524721CDF9B9C0024887A /* WalletHeaderView.m in Sources */,
 				2187B95F1CCE1B4200B92435 /* FinanceDetailsViewController.m in Sources */,
+				212EEE821CE0331200F94B30 /* ArtworkListModel.m in Sources */,
 				21AB0AC11CC50A4D00B7BA03 /* JPSlideNavigationBar.m in Sources */,
 				E2D522721CDF90680024887A /* WeiXinController.m in Sources */,
 				215EED321CB014D400A5957B /* CreationTableViewController.m in Sources */,
@@ -4180,6 +4193,7 @@
 				21AB0B641CC722CC00B7BA03 /* ProjectDetailsCell1.m in Sources */,
 				219AC5E01CBC87FD0052146E /* HMComposeViewController.m in Sources */,
 				21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */,
+				212EEE851CE0341400F94B30 /* ArtistObjectModel.m in Sources */,
 				E2D521FA1CDF7A230024887A /* cityField.m in Sources */,
 				219AC9B61CBC9B060052146E /* JKPromptView.m in Sources */,
 				219AC9861CBC99530052146E /* DSComposePhotosView.m in Sources */,

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class ArtworkListModel;
+
 @interface ArtistMainCell : UITableViewCell
+
+@property (nonatomic, strong) ArtworkListModel *model;
 
 @end

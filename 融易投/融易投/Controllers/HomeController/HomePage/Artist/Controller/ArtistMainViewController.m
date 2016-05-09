@@ -1,33 +1,33 @@
 //
-//  MyArtworkViewController.m
+//  FocusMyArtistTableViewController.m
 //  融易投
 //
-//  Created by efeiyi on 16/4/25.
+//  Created by efeiyi on 16/4/29.
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
 #import "ArtistMainViewController.h"
+
+#import "ArtistMainCell.h"
+
+#import "ArtistObjectModel.h"
+#import "ArtworkListModel.h"
 
 #import <MJExtension.h>
 
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 
-#import "ArtistMainCell.h"
-
 @interface ArtistMainViewController ()
 
 @property (nonatomic, strong) NSMutableArray *models;
 
-
 /** 用来加载下一页数据 */
-@property (nonatomic, strong) NSString *lastPageNum;
-
+@property (nonatomic, strong) NSString *lastPageIndex;
 
 //-----------------------联动属性-----------------------
 @property(nonatomic,assign) BOOL isfoot;
 //-----------------------联动属性-----------------------
-
 
 @end
 
@@ -38,70 +38,66 @@ static NSString *ID = @"ArtistMainCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-     self.isfoot = YES;
+    self.isfoot = YES;
     
-   self.lastPageNum = @"1";
+    self.lastPageIndex = @"1";
+    
+    
+    //    self.tableView.contentInset = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, 0, 0);
+    //    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, 0, 0);
     
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"ArtistMainCell" bundle:nil] forCellReuseIdentifier:ID];
     
-    //设置刷新控件
-//    [self setUpRefresh];
+    [ArtistObjectModel mj_setupObjectClassInArray:^NSDictionary *{
+        return @{
+                 @"artworkList" : @"ArtworkListModel",
+                 };
+    }];
     
-//    [self loadNewData];
-
+    [self loadNewData];
+    
+    //设置刷新控件
+    [self setUpRefresh];
+    
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
-}
-
-#pragma mark - Table view data source
 -(void)setUpRefresh
 {
-    //但是如果我们想整个项目都要用到上拉刷新和下拉刷新呢,不能把这上面的代码一个个拷贝了吧
-    //这样,我们可以使用继承,自定义刷新控件然后继承自MJRefreshNormalHeader,这里是自定义下拉刷新
-    
-    CommonHeader *header = [CommonHeader headerWithRefreshingBlock:^{
-
-        [self loadNewData];
-
-    }];
-
-    self.tableView.mj_header = header;
+    //    CommonHeader *header = [CommonHeader headerWithRefreshingBlock:^{
+    //
+    //        [self loadNewData];
+    //
+    //    }];
+    //
+    //    self.tableView.mj_header = header;
     
     //让程序一开始就加载数据
-    [self.tableView.mj_header beginRefreshing];
+    //    [self.tableView.mj_header beginRefreshing];
     
     
     //同样,自定义上拉刷新
     self.tableView.mj_footer = [CommonFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    
+    //要是其他控制器也需要,直接把上面的拷贝到其他控制器就可以了
 }
-
 
 -(void)loadNewData
 {
     //8.2 取消之前的请求
     [self.tableView.mj_header endRefreshing];
-    self.lastPageNum = @"1";
     
+    self.lastPageIndex = @"1";
     //参数
-    NSString *userId = @"imhipoyk18s4k52u";
+    NSString *userId = @"imhfp1yr4636pj49";
+    
+    NSString *pageSize = @"20";
+    NSString *pageIndex = @"1";
+    //flag为1是自己看自己,为2时是看别人,还需要传递otheruserId
     NSString *timestamp = [MyMD5 timestamp];
     NSString *appkey = MD5key;
     
-//    NSString *pageSize = @"20";
-//    NSString *pageNum = @"1";
-//    NSString *timestamp = [MyMD5 timestamp];
-//    NSString *appkey = MD5key;
-//    
-//    NSLog(@"pageSize=%@,pageNum=%@,timestamp=%@",pageNum,pageNum,timestamp);
-//    
-//    NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&key=%@",pageNum,pageSize,timestamp,appkey];
-//    NSLog(@"%@",signmsg);
-    
-    NSString *signmsg = [NSString stringWithFormat:@"timestamp=%@&userId=%@&key=%@",timestamp,userId,appkey];
+    NSString *signmsg = [NSString stringWithFormat:@"pageIndex=%@&pageSize=%@&timestamp=%@&userId=%@&key=%@",pageIndex,pageSize,timestamp,userId,appkey];
+    NSLog(@"%@",signmsg);
     
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
     
@@ -109,30 +105,26 @@ static NSString *ID = @"ArtistMainCell";
     
     // 3.设置请求体
     NSDictionary *json = @{
-                           @"userId" : userId,
+                           @"userId":userId,
+                           @"pageSize" : pageSize,
+                           @"pageIndex" : pageIndex,
                            @"timestamp" : timestamp,
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.69:8001/app/myArtwork.do";
+    NSString *url = @"http://192.168.1.41:8085/app/userMain.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
         
-        /*
-          {"pageInfo":{"artworks":[],"sumInvestment":0.00,"yield":0.00,"user":null,"followNum":0,"num":0}}
-         */
-//
-//        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-//        
-//        self.models = [InvestorModel mj_objectArrayWithKeyValuesArray:modelDict[@"InvestorTopList"]];
-//        
-//        NSLog(@"11111111111111%@",self.models);
         
-        //4. 刷新数据
-        //        [self.tableView reloadData];
+    NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+    
+    ArtistObjectModel *model = [ArtistObjectModel mj_objectWithKeyValues:modelDict[@"object"]];
+    
+    self.models = model.artworkList;
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -149,24 +141,22 @@ static NSString *ID = @"ArtistMainCell";
     [self.tableView.mj_footer endRefreshing];
     
     //参数
-    NSString *pageSize = @"1";
+    int newPageIndex = self.lastPageIndex.intValue + 1;
     
-    int newPageNum = self.lastPageNum.intValue + 1;
+    self.lastPageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
     
-    self.lastPageNum = [NSString stringWithFormat:@"%d",newPageNum];
+    NSLog(@"newPageIndex%@",self.lastPageIndex);
     
-    NSLog(@"self.lastPageNum%@",self.lastPageNum);
+    NSLog(@"%d",newPageIndex);
     
-    NSLog(@"%d",newPageNum);
-    
-    NSString *pageNum = [NSString stringWithFormat:@"%d",newPageNum];
-    
+    //参数
+    NSString *userId = @"imhfp1yr4636pj49";
+    NSString *pageSize = @"20";
+    NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
     NSString *timestamp = [MyMD5 timestamp];
     NSString *appkey = MD5key;
     
-    NSLog(@"pageSize=%@,pageNum=%@,timestamp=%@",pageNum,pageNum,timestamp);
-    
-    NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&key=%@",pageNum,pageSize,timestamp,appkey];
+    NSString *signmsg = [NSString stringWithFormat:@"pageIndex=%@&pageSize=%@&timestamp=%@&userId=%@&key=%@",pageIndex,pageSize,timestamp,userId,appkey];
     NSLog(@"%@",signmsg);
     
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
@@ -175,25 +165,28 @@ static NSString *ID = @"ArtistMainCell";
     
     // 3.设置请求体
     NSDictionary *json = @{
+                           @"userId":userId,
                            @"pageSize" : pageSize,
-                           @"pageNum" : pageNum,
+                           @"pageIndex" : pageIndex,
                            @"timestamp" : timestamp,
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.69:8001/app/getInvestorTopList.do";
+    NSString *url = @"http://192.168.1.41:8085/app/userMain.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
         //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         //        NSLog(@"返回结果:%@",jsonStr);
         
-//        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-//        
-//        NSArray *moreModels = [InvestorModel mj_objectArrayWithKeyValuesArray:modelDict[@"InvestorTopList"]];
-//        //拼接数据
-//        [self.models addObjectsFromArray:moreModels];
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
+        ArtistObjectModel *model = [ArtistObjectModel mj_objectWithKeyValues:modelDict[@"object"]];
+        
+        NSArray *moreModels = model.artworkList;
+        
+        //拼接数据
+        [self.models addObjectsFromArray:moreModels];
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -206,22 +199,26 @@ static NSString *ID = @"ArtistMainCell";
 }
 
 
-#pragma mark - 数据源
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 10;
-//    return self.models.count;
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return self.models.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     ArtistMainCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
-//    InvestorModel *model = self.models[indexPath.row];
-//    
-//    cell.model = model;
-//    
-//    cell.RankLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row + 1];
+    ArtworkListModel *model = self.models[indexPath.row];
+    
+    cell.model = model;
     
     return cell;
 }
@@ -229,7 +226,7 @@ static NSString *ID = @"ArtistMainCell";
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    return 257;
+    return  257;
 }
 
 //-----------------------联动-----------------------
@@ -305,6 +302,5 @@ static NSString *ID = @"ArtistMainCell";
     }
 }
 //-----------------------联动-----------------------
-
 
 @end
