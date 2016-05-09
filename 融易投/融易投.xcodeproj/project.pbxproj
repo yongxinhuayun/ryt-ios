@@ -3414,11 +3414,11 @@
 				218D2B371CACB2E3004553B9 /* Main */,
 				E2DDB19A1CABA64E007438E4 /* Controller */,
 				E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */,
-<<<<<<< HEAD
+
 				212EEE7E1CE0240C00F94B30 /* Info.plist */,
 				E2E842291CE01F860047D86C /* Info.plist */,
-=======
->>>>>>> d1d14f25e40132ea65bb05a6f90412a7ea8a75c1
+
+
 				E236C3231CB4E27E009DCBF0 /* PushConfig.plist */,
 				212EEE901CE0685700F94B30 /* Info.plist */,
 				218D2B5B1CACB5B9004553B9 /* Launch Screen.storyboard */,
@@ -3739,12 +3739,12 @@
 				E228937F1CDF049500483F18 /* lxh_haoaio.gif in Resources */,
 				219ACA561CBE3F100052146E /* picture4.png in Resources */,
 				E22893901CDF049500483F18 /* lxh_jiekexun@2x.png in Resources */,
-<<<<<<< HEAD
+
 				212EEE7F1CE0240C00F94B30 /* Info.plist in Resources */,
 				E2E8422A1CE01F860047D86C /* Info.plist in Resources */,
-=======
+
 				212EEE911CE0685700F94B30 /* Info.plist in Resources */,
->>>>>>> d1d14f25e40132ea65bb05a6f90412a7ea8a75c1
+
 				E22892A91CDF03F400483F18 /* d_shuijiao@2x.png in Resources */,
 				E22893781CDF049500483F18 /* lxh_buxiangshangban@2x.png in Resources */,
 				E22892A21CDF03F400483F18 /* d_nvhaier@2x.png in Resources */,
