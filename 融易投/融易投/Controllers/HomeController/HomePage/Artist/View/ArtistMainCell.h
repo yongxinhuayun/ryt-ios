@@ -14,4 +14,9 @@
 
 @property (nonatomic, strong) ArtworkListModel *model;
 
+//对控制器就行实现按钮监听
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet UIButton *btn1;
+@property (weak, nonatomic) IBOutlet UIButton *btn2;
+
 @end

@@ -15,9 +15,17 @@
 		212EEE431CD9D8CD00F94B30 /* CommonButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE421CD9D8CD00F94B30 /* CommonButton.m */; };
 		212EEE701CDC361100F94B30 /* SettingFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE6F1CDC361100F94B30 /* SettingFooterView.m */; };
 		212EEE721CDC362600F94B30 /* SettingFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE711CDC362600F94B30 /* SettingFooterView.xib */; };
-		212EEE7F1CE0240C00F94B30 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE7E1CE0240C00F94B30 /* Info.plist */; };
 		212EEE821CE0331200F94B30 /* ArtworkListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE811CE0331200F94B30 /* ArtworkListModel.m */; };
 		212EEE851CE0341400F94B30 /* ArtistObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE841CE0341400F94B30 /* ArtistObjectModel.m */; };
+		212EEE8D1CE048C500F94B30 /* CommonUserHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE891CE048C500F94B30 /* CommonUserHeaderView.m */; };
+		212EEE8E1CE048C500F94B30 /* CommonUserHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE8A1CE048C500F94B30 /* CommonUserHeaderView.xib */; };
+		212EEE8F1CE048C500F94B30 /* CommonUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE8C1CE048C500F94B30 /* CommonUserHomeViewController.m */; };
+		212EEE911CE0685700F94B30 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE901CE0685700F94B30 /* Info.plist */; };
+		212EEE941CE08A3100F94B30 /* CommonTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE931CE08A3100F94B30 /* CommonTextView.m */; };
+		212EEE961CE08A3D00F94B30 /* CommonTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE951CE08A3D00F94B30 /* CommonTextView.xib */; };
+		212EEE9D1CE0916500F94B30 /* ArtWorkIdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE9C1CE0916500F94B30 /* ArtWorkIdModel.m */; };
+		212EEEA21CE0934700F94B30 /* ReleasePicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEEA11CE0934700F94B30 /* ReleasePicViewController.m */; };
+		212EEEA41CE098E000F94B30 /* ReleasePicViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212EEEA31CE098E000F94B30 /* ReleasePicViewController.storyboard */; };
 		2134E37E1CBB5D3800D6E662 /* ProjectScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */; };
 		215EED1D1CB0058D00A5957B /* FinanceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED1C1CB0058D00A5957B /* FinanceTableViewController.m */; };
 		215EED291CB0108F00A5957B /* InvestorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED281CB0108F00A5957B /* InvestorTableViewController.m */; };
@@ -94,7 +102,6 @@
 		219AC9F81CBDE4980052146E /* WHC_PictureListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 219AC9F01CBDE4980052146E /* WHC_PictureListVC.m */; };
 		219AC9F91CBDE4980052146E /* WHC_PictureListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219AC9F11CBDE4980052146E /* WHC_PictureListVC.xib */; };
 		219AC9FB1CBDE86F0052146E /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219AC9FA1CBDE86F0052146E /* ComposeViewController.xib */; };
-		219AC9FE1CBDF44A0052146E /* ArtWorkIdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 219AC9FD1CBDF44A0052146E /* ArtWorkIdModel.m */; };
 		219ACA021CBE3EE40052146E /* ReleaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219ACA001CBE3EE40052146E /* ReleaseViewController.m */; };
 		219ACA031CBE3EE40052146E /* ReleaseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 219ACA011CBE3EE40052146E /* ReleaseViewController.storyboard */; };
 		219ACA3F1CBE3F100052146E /* addPictures.png in Resources */ = {isa = PBXBuildFile; fileRef = 219ACA051CBE3F100052146E /* addPictures.png */; };
@@ -588,9 +595,6 @@
 		E2D524E71CDFA19A0024887A /* EditingNickNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D524E01CDFA19A0024887A /* EditingNickNameViewController.xib */; };
 		E2D524E81CDFA19A0024887A /* EditingSignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524E21CDFA19A0024887A /* EditingSignatureViewController.m */; };
 		E2D524E91CDFA19A0024887A /* EditingSignatureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D524E31CDFA19A0024887A /* EditingSignatureViewController.xib */; };
-		E2D524F81CDFA2600024887A /* CommonUserHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524F41CDFA2600024887A /* CommonUserHeaderView.m */; };
-		E2D524F91CDFA2600024887A /* CommonUserHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D524F51CDFA2600024887A /* CommonUserHeaderView.xib */; };
-		E2D524FA1CDFA2600024887A /* CommonUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524F71CDFA2600024887A /* CommonUserHomeViewController.m */; };
 		E2D525001CDFA2F80024887A /* MeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524FE1CDFA2F80024887A /* MeHeaderView.m */; };
 		E2D525011CDFA2F80024887A /* MeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D524FF1CDFA2F80024887A /* MeHeaderView.xib */; };
 		E2D525071CDFA2FF0024887A /* IdeaRetroactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D525031CDFA2FF0024887A /* IdeaRetroactionViewController.m */; };
@@ -606,7 +610,6 @@
 		E2DDB0F31CAB66DB007438E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */; };
 		E2DDB1011CAB66DB007438E4 /* ___Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB1001CAB66DB007438E4 /* ___Tests.m */; };
 		E2DDB10C1CAB66DB007438E4 /* ___UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB10B1CAB66DB007438E4 /* ___UITests.m */; };
-		E2E8422A1CE01F860047D86C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2E842291CE01F860047D86C /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -653,11 +656,24 @@
 		212EEE6E1CDC361100F94B30 /* SettingFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingFooterView.h; sourceTree = "<group>"; };
 		212EEE6F1CDC361100F94B30 /* SettingFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingFooterView.m; sourceTree = "<group>"; };
 		212EEE711CDC362600F94B30 /* SettingFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingFooterView.xib; sourceTree = "<group>"; };
-		212EEE7E1CE0240C00F94B30 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		212EEE801CE0331200F94B30 /* ArtworkListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkListModel.h; sourceTree = "<group>"; };
 		212EEE811CE0331200F94B30 /* ArtworkListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkListModel.m; sourceTree = "<group>"; };
 		212EEE831CE0341400F94B30 /* ArtistObjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistObjectModel.h; sourceTree = "<group>"; };
 		212EEE841CE0341400F94B30 /* ArtistObjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistObjectModel.m; sourceTree = "<group>"; };
+		212EEE881CE048C500F94B30 /* CommonUserHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUserHeaderView.h; sourceTree = "<group>"; };
+		212EEE891CE048C500F94B30 /* CommonUserHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUserHeaderView.m; sourceTree = "<group>"; };
+		212EEE8A1CE048C500F94B30 /* CommonUserHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonUserHeaderView.xib; sourceTree = "<group>"; };
+		212EEE8B1CE048C500F94B30 /* CommonUserHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUserHomeViewController.h; sourceTree = "<group>"; };
+		212EEE8C1CE048C500F94B30 /* CommonUserHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUserHomeViewController.m; sourceTree = "<group>"; };
+		212EEE901CE0685700F94B30 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		212EEE921CE08A3100F94B30 /* CommonTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTextView.h; sourceTree = "<group>"; };
+		212EEE931CE08A3100F94B30 /* CommonTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTextView.m; sourceTree = "<group>"; };
+		212EEE951CE08A3D00F94B30 /* CommonTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonTextView.xib; sourceTree = "<group>"; };
+		212EEE9B1CE0916500F94B30 /* ArtWorkIdModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArtWorkIdModel.h; path = ../ArtWorkIdModel.h; sourceTree = "<group>"; };
+		212EEE9C1CE0916500F94B30 /* ArtWorkIdModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArtWorkIdModel.m; path = ../ArtWorkIdModel.m; sourceTree = "<group>"; };
+		212EEEA01CE0934700F94B30 /* ReleasePicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleasePicViewController.h; sourceTree = "<group>"; };
+		212EEEA11CE0934700F94B30 /* ReleasePicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleasePicViewController.m; sourceTree = "<group>"; };
+		212EEEA31CE098E000F94B30 /* ReleasePicViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReleasePicViewController.storyboard; sourceTree = "<group>"; };
 		2134E37C1CBB5D3800D6E662 /* ProjectScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectScheduleViewController.h; sourceTree = "<group>"; };
 		2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectScheduleViewController.m; sourceTree = "<group>"; };
 		215EED1B1CB0058D00A5957B /* FinanceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceTableViewController.h; sourceTree = "<group>"; };
@@ -798,8 +814,6 @@
 		219AC9F01CBDE4980052146E /* WHC_PictureListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHC_PictureListVC.m; sourceTree = "<group>"; };
 		219AC9F11CBDE4980052146E /* WHC_PictureListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WHC_PictureListVC.xib; sourceTree = "<group>"; };
 		219AC9FA1CBDE86F0052146E /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ComposeViewController.xib; path = ../ComposeViewController.xib; sourceTree = "<group>"; };
-		219AC9FC1CBDF44A0052146E /* ArtWorkIdModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtWorkIdModel.h; sourceTree = "<group>"; };
-		219AC9FD1CBDF44A0052146E /* ArtWorkIdModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtWorkIdModel.m; sourceTree = "<group>"; };
 		219AC9FF1CBE3EE40052146E /* ReleaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReleaseViewController.h; path = ../ReleaseViewController.h; sourceTree = "<group>"; };
 		219ACA001CBE3EE40052146E /* ReleaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReleaseViewController.m; path = ../ReleaseViewController.m; sourceTree = "<group>"; };
 		219ACA011CBE3EE40052146E /* ReleaseViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ReleaseViewController.storyboard; path = ../ReleaseViewController.storyboard; sourceTree = "<group>"; };
@@ -1479,11 +1493,6 @@
 		E2D524E11CDFA19A0024887A /* EditingSignatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingSignatureViewController.h; sourceTree = "<group>"; };
 		E2D524E21CDFA19A0024887A /* EditingSignatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingSignatureViewController.m; sourceTree = "<group>"; };
 		E2D524E31CDFA19A0024887A /* EditingSignatureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditingSignatureViewController.xib; sourceTree = "<group>"; };
-		E2D524F31CDFA2600024887A /* CommonUserHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUserHeaderView.h; sourceTree = "<group>"; };
-		E2D524F41CDFA2600024887A /* CommonUserHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUserHeaderView.m; sourceTree = "<group>"; };
-		E2D524F51CDFA2600024887A /* CommonUserHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonUserHeaderView.xib; sourceTree = "<group>"; };
-		E2D524F61CDFA2600024887A /* CommonUserHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUserHomeViewController.h; sourceTree = "<group>"; };
-		E2D524F71CDFA2600024887A /* CommonUserHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUserHomeViewController.m; sourceTree = "<group>"; };
 		E2D524FD1CDFA2F80024887A /* MeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeHeaderView.h; sourceTree = "<group>"; };
 		E2D524FE1CDFA2F80024887A /* MeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeHeaderView.m; sourceTree = "<group>"; };
 		E2D524FF1CDFA2F80024887A /* MeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeHeaderView.xib; sourceTree = "<group>"; };
@@ -1512,7 +1521,6 @@
 		E2DDB1071CAB66DB007438E4 /* 融易投UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "融易投UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2DDB10B1CAB66DB007438E4 /* ___UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "___UITests.m"; sourceTree = "<group>"; };
 		E2DDB10D1CAB66DB007438E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2E842291CE01F860047D86C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0956E19B66868332217542E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1567,6 +1575,23 @@
 				219A1E8F1CD345F1002843AC /* MyHeaderView.xib */,
 			);
 			name = "之前的---要用到";
+			sourceTree = "<group>";
+		};
+		212EEE9E1CE092F100F94B30 /* ComposeDynamic */ = {
+			isa = PBXGroup;
+			children = (
+				212EEEA01CE0934700F94B30 /* ReleasePicViewController.h */,
+				212EEEA11CE0934700F94B30 /* ReleasePicViewController.m */,
+				212EEEA31CE098E000F94B30 /* ReleasePicViewController.storyboard */,
+			);
+			path = ComposeDynamic;
+			sourceTree = "<group>";
+		};
+		212EEE9F1CE092F900F94B30 /* ComposeProject */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ComposeProject;
 			sourceTree = "<group>";
 		};
 		2187B9301CCDF07200B92435 /* 艺术家的界面(没数据,没有展示) */ = {
@@ -1631,8 +1656,8 @@
 		219AC5BE1CBC87FD0052146E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				219AC9FC1CBDF44A0052146E /* ArtWorkIdModel.h */,
-				219AC9FD1CBDF44A0052146E /* ArtWorkIdModel.m */,
+				212EEE9B1CE0916500F94B30 /* ArtWorkIdModel.h */,
+				212EEE9C1CE0916500F94B30 /* ArtWorkIdModel.m */,
 				21E52C4D1CBE5C8A004A68C4 /* 发布项目 */,
 				219ACA041CBE3F100052146E /* 发布动态 */,
 			);
@@ -3167,7 +3192,6 @@
 			children = (
 				E2D524FB1CDFA2B90024887A /* HomePageController */,
 				E2D524FC1CDFA2B90024887A /* HomePageView */,
-				E2D524EA1CDFA2510024887A /* Common */,
 				E2D524D81CDFA1850024887A /* Editing */,
 				E2D524BD1CDFA0C40024887A /* Artist */,
 				E2D524AA1CDF9F620024887A /* other */,
@@ -3198,6 +3222,11 @@
 		E2D5248E1CDF9EBE0024887A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				212EEE881CE048C500F94B30 /* CommonUserHeaderView.h */,
+				212EEE891CE048C500F94B30 /* CommonUserHeaderView.m */,
+				212EEE8A1CE048C500F94B30 /* CommonUserHeaderView.xib */,
+				212EEE8B1CE048C500F94B30 /* CommonUserHomeViewController.h */,
+				212EEE8C1CE048C500F94B30 /* CommonUserHomeViewController.m */,
 				E2D524901CDF9F0B0024887A /* BianJiJianJieViewController.h */,
 				E2D524911CDF9F0B0024887A /* BianJiJianJieViewController.m */,
 				E2D524921CDF9F0B0024887A /* BianJiJianJieViewController.xib */,
@@ -3251,12 +3280,17 @@
 		E2D524BE1CDFA0C40024887A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				212EEE9F1CE092F900F94B30 /* ComposeProject */,
+				212EEE9E1CE092F100F94B30 /* ComposeDynamic */,
 				E2D524C21CDFA12A0024887A /* ArtistUserHomeViewController.h */,
 				E2D524C31CDFA12A0024887A /* ArtistUserHomeViewController.m */,
 				E2D524C01CDFA12A0024887A /* ArtistMainViewController.h */,
 				E2D524C11CDFA12A0024887A /* ArtistMainViewController.m */,
 				E2D524C41CDFA12A0024887A /* ArtistWorksViewController.h */,
 				E2D524C51CDFA12A0024887A /* ArtistWorksViewController.m */,
+				212EEE921CE08A3100F94B30 /* CommonTextView.h */,
+				212EEE931CE08A3100F94B30 /* CommonTextView.m */,
+				212EEE951CE08A3D00F94B30 /* CommonTextView.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3307,18 +3341,6 @@
 			children = (
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		E2D524EA1CDFA2510024887A /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				E2D524F31CDFA2600024887A /* CommonUserHeaderView.h */,
-				E2D524F41CDFA2600024887A /* CommonUserHeaderView.m */,
-				E2D524F51CDFA2600024887A /* CommonUserHeaderView.xib */,
-				E2D524F61CDFA2600024887A /* CommonUserHomeViewController.h */,
-				E2D524F71CDFA2600024887A /* CommonUserHomeViewController.m */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		E2D524FB1CDFA2B90024887A /* HomePageController */ = {
@@ -3399,12 +3421,8 @@
 				218D2B371CACB2E3004553B9 /* Main */,
 				E2DDB19A1CABA64E007438E4 /* Controller */,
 				E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */,
-
-				212EEE7E1CE0240C00F94B30 /* Info.plist */,
-
-				E2E842291CE01F860047D86C /* Info.plist */,
-
 				E236C3231CB4E27E009DCBF0 /* PushConfig.plist */,
+				212EEE901CE0685700F94B30 /* Info.plist */,
 				218D2B5B1CACB5B9004553B9 /* Launch Screen.storyboard */,
 				21D54BCE1CB796CD0088D386 /* messages.plist */,
 				21D54BAB1CB796B40088D386 /* images */,
@@ -3724,11 +3742,7 @@
 				E228937F1CDF049500483F18 /* lxh_haoaio.gif in Resources */,
 				219ACA561CBE3F100052146E /* picture4.png in Resources */,
 				E22893901CDF049500483F18 /* lxh_jiekexun@2x.png in Resources */,
-
-				212EEE7F1CE0240C00F94B30 /* Info.plist in Resources */,
-
-				E2E8422A1CE01F860047D86C /* Info.plist in Resources */,
-
+				212EEE911CE0685700F94B30 /* Info.plist in Resources */,
 				E22892A91CDF03F400483F18 /* d_shuijiao@2x.png in Resources */,
 				E22893781CDF049500483F18 /* lxh_buxiangshangban@2x.png in Resources */,
 				E22892A21CDF03F400483F18 /* d_nvhaier@2x.png in Resources */,
@@ -3772,6 +3786,7 @@
 				219ACA031CBE3EE40052146E /* ReleaseViewController.storyboard in Resources */,
 				E2288DF71CDC290C00483F18 /* UserReplyCommentCell.xib in Resources */,
 				21D54B861CB6585B0088D386 /* InvestorTableViewCell.xib in Resources */,
+				212EEEA41CE098E000F94B30 /* ReleasePicViewController.storyboard in Resources */,
 				E22893DC1CDF049500483F18 /* lxh_zhenjing.png in Resources */,
 				2168EAE41CBFA05000B7E037 /* FinanceDetailFirstCell.xib in Resources */,
 				E22893DA1CDF049500483F18 /* lxh_zaokuangzheng@2x.png in Resources */,
@@ -3833,6 +3848,7 @@
 				E22893A71CDF049500483F18 /* lxh_oye.gif in Resources */,
 				E22892AA1CDF03F400483F18 /* d_sikao@2x.png in Resources */,
 				E22892821CDF03F400483F18 /* d_aoteman@2x.png in Resources */,
+				212EEE8E1CE048C500F94B30 /* CommonUserHeaderView.xib in Resources */,
 				E22893981CDF049500483F18 /* lxh_koubishi.png in Resources */,
 				E22893A31CDF049500483F18 /* lxh_meigui.gif in Resources */,
 				E22893881CDF049500483F18 /* lxh_haoxihuan.gif in Resources */,
@@ -3877,6 +3893,7 @@
 				E22893861CDF049500483F18 /* lxh_haojiong.png in Resources */,
 				E22892C21CDF03F400483F18 /* f_shenma@2x.png in Resources */,
 				E22892B91CDF03F400483F18 /* d_zhajipijiu@2x.png in Resources */,
+				212EEE961CE08A3D00F94B30 /* CommonTextView.xib in Resources */,
 				E22893711CDF049500483F18 /* lxh_biefanwo.png in Resources */,
 				E22892E31CDF03F400483F18 /* w_xiayu@2x.png in Resources */,
 				E22892AD1CDF03F400483F18 /* d_travel@2x.png in Resources */,
@@ -3974,7 +3991,6 @@
 				E22892E01CDF03F400483F18 /* w_taiyang@2x.png in Resources */,
 				E22892CD1CDF03F400483F18 /* h_ye@2x.png in Resources */,
 				E22892D21CDF03F400483F18 /* o_fahongbao@2x.png in Resources */,
-				E2D524F91CDFA2600024887A /* CommonUserHeaderView.xib in Resources */,
 				E22892DF1CDF03F400483F18 /* w_shachenbao@2x.png in Resources */,
 				E22892A51CDF03F400483F18 /* d_shengbing@2x.png in Resources */,
 				E22892CE1CDF03F400483F18 /* info.plist in Resources */,
@@ -4113,7 +4129,6 @@
 				21AB0AC81CC50A4D00B7BA03 /* ScrollTestVC.m in Sources */,
 				E2D524291CDF95040024887A /* ChartCellFrame.m in Sources */,
 				E2D5225D1CDF8CEC0024887A /* ArtworkMessageModel.m in Sources */,
-				E2D524FA1CDFA2600024887A /* CommonUserHomeViewController.m in Sources */,
 				E2729AE81CD8B923006C0617 /* InstructionCell.m in Sources */,
 				E2D524D21CDFA1330024887A /* ArtistMainCell.m in Sources */,
 				E22890391CDEFDD900483F18 /* NSString+DocumentPath.m in Sources */,
@@ -4136,6 +4151,7 @@
 				2187B9401CCDF14000B92435 /* TYSlidePageScrollView.m in Sources */,
 				E2D525091CDFA2FF0024887A /* MeViewController.m in Sources */,
 				E2D522371CDF8C5F0024887A /* ArtworkAttachmentListModel.m in Sources */,
+				212EEE8D1CE048C500F94B30 /* CommonUserHeaderView.m in Sources */,
 				2168EAE31CBFA05000B7E037 /* FinanceDetailFirstCell.m in Sources */,
 				219AC5F11CBC89970052146E /* MBProgressHUD+MJ.m in Sources */,
 				21AB0B731CC72B3900B7BA03 /* ImageCollectionViewCell.m in Sources */,
@@ -4195,8 +4211,10 @@
 				219AC9B01CBC9B060052146E /* JKAssetsGroupsView.m in Sources */,
 				219AC9BD1CBCA5A40052146E /* ReleaseProjectViewController.m in Sources */,
 				219ACA421CBE3F100052146E /* AGImagePickerController.m in Sources */,
+				212EEE8F1CE048C500F94B30 /* CommonUserHomeViewController.m in Sources */,
 				219AC9B51CBC9B060052146E /* JKPhotoBrowserCell.m in Sources */,
 				21AB0B421CC6056500B7BA03 /* XCLPageView.m in Sources */,
+				212EEE941CE08A3100F94B30 /* CommonTextView.m in Sources */,
 				E2D5224B1CDF8C6E0024887A /* MasterModel.m in Sources */,
 				2187B95C1CCE083500B92435 /* CreationDetailsViewController.m in Sources */,
 				E2D522121CDF89950024887A /* JianJieModel.m in Sources */,
@@ -4243,6 +4261,7 @@
 				E2D557BE1CD21D04003F0F4A /* DetailCreationViewController.m in Sources */,
 				E228904B1CDEFE4400483F18 /* HttpRequstTool.m in Sources */,
 				E2D524C81CDFA12A0024887A /* ArtistWorksViewController.m in Sources */,
+				212EEEA21CE0934700F94B30 /* ReleasePicViewController.m in Sources */,
 				219ACA401CBE3F100052146E /* AGImagePickerController+Helper.m in Sources */,
 				E2D5223C1CDF8C5F0024887A /* MasterDetailsModel.m in Sources */,
 				E2D521F51CDF79FC0024887A /* City.m in Sources */,
@@ -4262,7 +4281,6 @@
 				21AB0A1C1CC2070200B7BA03 /* InvestRecordViewController.m in Sources */,
 				E2D521EC1CDF79220024887A /* CNCityAreaCitiesModel.m in Sources */,
 				E2D522391CDF8C5F0024887A /* ArtworkModel.m in Sources */,
-				E2D524F81CDFA2600024887A /* CommonUserHeaderView.m in Sources */,
 				219AC9B31CBC9B060052146E /* JKImagePickerController.m in Sources */,
 				212EEE701CDC361100F94B30 /* SettingFooterView.m in Sources */,
 				E2D524E81CDFA19A0024887A /* EditingSignatureViewController.m in Sources */,
@@ -4326,6 +4344,7 @@
 				E2D524811CDF9CA70024887A /* CNCityPickerView.m in Sources */,
 				219AC9B81CBC9B060052146E /* PhotoAlbumManager.m in Sources */,
 				E2D5225C1CDF8CEC0024887A /* ArtworkMessageCreatorModel.m in Sources */,
+				212EEE9D1CE0916500F94B30 /* ArtWorkIdModel.m in Sources */,
 				E2D5219E1CDF77C00024887A /* FromUserModel.m in Sources */,
 				21AB0AA31CC4F69C00B7BA03 /* XiangqingViewController.m in Sources */,
 				218D2B461CACB325004553B9 /* MainTableViewController.m in Sources */,
@@ -4349,7 +4368,6 @@
 				E2D522111CDF89950024887A /* BianJiJianJieModel.m in Sources */,
 				E2D5223D1CDF8C5F0024887A /* ProjectDetailsModel.m in Sources */,
 				E2D5223E1CDF8C5F0024887A /* ProjectDetailsResultModel.m in Sources */,
-				219AC9FE1CBDF44A0052146E /* ArtWorkIdModel.m in Sources */,
 				E2D5226B1CDF8D8F0024887A /* AuctionModel.m in Sources */,
 				E2D522241CDF8AF50024887A /* InvestorModel.m in Sources */,
 				21AB0B4F1CC6056500B7BA03 /* XIBDemoViewController.m in Sources */,

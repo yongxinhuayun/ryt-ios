@@ -22,7 +22,7 @@
 @property (nonatomic ,strong) NSString *brief;
 
 /**  */
-@property (nonatomic ,strong) NSString *description;
+@property (nonatomic ,strong) NSString *descriptions;
 
 /** 图片 */
 @property (nonatomic ,strong) NSString *picture_url;
@@ -42,5 +42,8 @@
 
 /**  */
 @property (nonatomic ,strong) UserMyModel *author;
+
+/** 辅助属性 --- cell的高度 */
+@property (nonatomic,assign) CGFloat cellHeight;
 
 @end

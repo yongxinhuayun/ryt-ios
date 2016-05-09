@@ -18,7 +18,12 @@
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 
-@interface ArtistMainViewController ()
+#import "ReleaseViewController.h"
+
+#import "ReleaseVideoViewController.h"
+#import "ReleasePicViewController.h"
+
+@interface ArtistMainViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *models;
 
@@ -216,6 +221,10 @@ static NSString *ID = @"ArtistMainCell";
     
     ArtistMainCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
+    [cell.btn1 addTarget:self action:@selector(btn1Click:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [cell.btn2 addTarget:self action:@selector(btn2Click:) forControlEvents:UIControlEventTouchUpInside];
+    
     ArtworkListModel *model = self.models[indexPath.row];
     
     cell.model = model;
@@ -225,8 +234,89 @@ static NSString *ID = @"ArtistMainCell";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    ArtworkListModel *model = self.models[indexPath.row];
     
-    return  257;
+    return  model.cellHeight;
+}
+
+-(void)btn1Click:(UIButton *)btn{
+
+    SSLog(@"btn1Click");
+}
+
+-(void)btn2Click:(UIButton *)btn{
+    
+    SSLog(@"btn2Click");
+    
+    if ([btn.titleLabel.text isEqualToString:@"发布动态"]) {
+        
+        //发布动态
+        [self publishState];
+        
+    }else {
+    
+        //编辑项目
+    }
+    
+   
+}
+
+//发布动态
+-(void)publishState{
+
+    //创建UIAlertController是为了让用户去选择照片来源,拍照或者相册.
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:0];
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    
+    imagePickerController.delegate = self;
+    //设置选择图片的截取框
+    //    imagePickerController.allowsEditing = YES;
+    
+    UIAlertAction *videoAction = [UIAlertAction actionWithTitle:@"视频" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+        
+        //        WechatShortVideoController *wechatShortVideoController = [[WechatShortVideoController alloc] init];
+        //        wechatShortVideoController.delegate = self;
+        //        [self presentViewController:wechatShortVideoController animated:YES completion:^{}];
+        
+        ReleaseVideoViewController *videoVc = [[ReleaseVideoViewController alloc] init];
+        
+//        [self presentViewController:videoVc animated:YES completion:^{}];
+        [self.navigationController pushViewController:videoVc animated:YES];
+    }];
+    
+//    UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"拍照" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+//        
+//        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+//        
+//        [self presentViewController:imagePickerController animated:YES completion:nil];
+//    }];
+    
+    UIAlertAction *picAction = [UIAlertAction actionWithTitle:@"从手机相册选择" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+        
+    //之前的
+//        UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
+//        ReleaseViewController *settingVC = [settingStoryBoard instantiateInitialViewController];
+////        [self presentViewController:settingVC animated:YES completion:nil];
+//         [self.navigationController pushViewController:settingVC animated:YES];
+        
+    //现在的
+    UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleasePicViewController class]) bundle:nil];
+    ReleasePicViewController *releasePicVC = [settingStoryBoard instantiateInitialViewController];
+//        [self presentViewController:settingVC animated:YES completion:nil];
+     [self.navigationController pushViewController:releasePicVC animated:YES];
+        
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action)
+                                   {
+                                       //这里可以不写代码
+                                   }];
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    [alertController addAction:videoAction];
+    [alertController addAction:picAction];
+    [alertController addAction:cancelAction];
+
 }
 
 //-----------------------联动-----------------------

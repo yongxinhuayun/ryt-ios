@@ -6,7 +6,7 @@
 //  Copyright © 2016年 dongxin. All rights reserved.
 //
 
-#import "ReleaseViewController.h"
+#import "ReleasePicViewController.h"
 #import "UITableView+Improve.h"
 #import "UIImage+ReSize.h"
 #import "HeaderContent.h"
@@ -17,7 +17,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
 
-@interface ReleaseViewController ()
+@interface ReleasePicViewController ()
 <UITextViewDelegate,UIGestureRecognizerDelegate>
 
 @property (nonatomic,weak)UITextView *reportStateTextView;
@@ -29,12 +29,10 @@
 //imagePicker队列
 @property (nonatomic,strong)NSMutableArray *imagePickerArray;
 
-- (IBAction)promuThings:(id)sender;
-
 
 @end
 
-@implementation ReleaseViewController
+@implementation ReleasePicViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,7 +42,7 @@
     
     //删除多余的分割线
     [self.tableView improveTableView];
-
+    
     //添加手势,隐藏键盘
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismiss:)];
     
@@ -90,7 +88,7 @@
     
     [self sendStatusWithImage];
     
-//    [self.navigationController popViewControllerAnimated:YES];
+    //    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -158,14 +156,14 @@
     if ([self.reportStateTextView isFirstResponder]) {
         [self.reportStateTextView resignFirstResponder];
     }
-//    self.tableView.scrollEnabled = NO;
+    //    self.tableView.scrollEnabled = NO;
     [self initImagePickerChooseView];
 }
 
 #pragma mark - gesture method
 -(void)tapImageView:(UITapGestureRecognizer *)tap
 {
-//    self.navigationController.navigationBarHidden = YES;
+    //    self.navigationController.navigationBarHidden = YES;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ReleaseViewController" bundle:[NSBundle mainBundle]];
     ShowImageViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ShowImage"];
     vc.clickTag = tap.view.tag;
@@ -238,19 +236,6 @@
     [self.view addSubview:IPCView];
     self.IPCView = IPCView;
     
-    
-    
-    //不能添加约束，因为会导致frame暂时为0，后面的tableview cellfor......不会执行
-    //添加约束
-    /*self.IPCView.translatesAutoresizingMaskIntoConstraints = NO;
-     NSArray *IPCViewConstraintH = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_IPCView]|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(_IPCView)];
-     [self.view addConstraints:IPCViewConstraintH];
-     
-     NSArray *IPCViewConstraintV = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_IPCView(60)]|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(_IPCView)];
-     [self.view addConstraints:IPCViewConstraintV];*/
-    
-    
-    
     [self.IPCView addImagePickerChooseView];
 }
 
@@ -262,13 +247,7 @@
     return _imagePickerArray;
 }
 
-- (IBAction)promuThings:(id)sender {
-    
-    NSLog(@"打印发布");
-    //url :assets-library://asset/
-    [self sendStatusWithImage];
-    NSLog(@" self.imageArr%@,",self.imagePickerArray);
-}
+
 
 #pragma mark - UIGesture Delegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
@@ -301,116 +280,14 @@
     }
     return YES;
 }
-#pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 2;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return 1;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *identifier = @"ReportStateCell";
-    
-    //缓存中取
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    
-    //创建
-    if (!cell)
-    {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    
-    if (indexPath.section == 0) {
-
-        
-        UITextView *processDescription = [[UITextView alloc]initWithFrame:CGRectMake(10, 10, self.view.bounds.size.width-20, 100)];
-        
-        processDescription.backgroundColor = [UIColor redColor];
-        [cell addSubview:processDescription];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-    } else {
-        
-        UITextView *processDescription = [[UITextView alloc]initWithFrame:CGRectMake(10, 10, self.view.bounds.size.width-20, 100)];
-        processDescription.backgroundColor = [UIColor redColor];
-        [cell addSubview:processDescription];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.backgroundColor = [UIColor blackColor];
-        btn.frame = CGRectMake(110, 220, 200, 30);
-        [cell addSubview:btn];
-        
-    }
-    
-    
-    return cell;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if (section == 1) {
-        return 5;
-    }
-    else
-    {
-        return 1;
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 250;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-//    //所在位置
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ReleaseViewController" bundle:[NSBundle mainBundle]];
-//    if (indexPath.section == 0) {
-//        UIViewController *locationVC = [storyboard instantiateViewControllerWithIdentifier:@"Location"];
-//        [self.navigationController pushViewController:locationVC animated:YES];
-//        
-//    }
-//    //对谁可见
-//    else
-//    {
-//        UIViewController *locationVC = [storyboard instantiateViewControllerWithIdentifier:@"WhoCanSee"];
-//        [self.navigationController pushViewController:locationVC animated:YES];
-//    }
-}
-//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    //所在位置
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-//    if (indexPath.section == 0) {
-//        UIViewController *locationVC = [storyboard instantiateViewControllerWithIdentifier:@"Location"];
-//        [self.navigationController pushViewController:locationVC animated:YES];
-//    }
-//    //对谁可见
-//    else
-//    {
-//        UIViewController *locationVC = [storyboard instantiateViewControllerWithIdentifier:@"WhoCanSee"];
-//        [self.navigationController pushViewController:locationVC animated:YES];
-//    }
-//}
 
 - (void)sendStatusWithImage
 {
     //参数
-    //    NSString *projectDescription = @"和发货速度加快结构记得分别居";
-    //    NSString *description = [projectDescription stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *description = self.reportStateTextView.text;
+    NSLog(@"%@",description);
     
-    //    NSString *projectDescription =  self.textView.text;
-    NSString *description = @"和发货速度加快结构记得分别居";
-    
-   // NSArray *file = self.photosView2.selectedPhotos;
     NSMutableArray *tempArray = [NSMutableArray array];
     
     NSInteger count = 0;
@@ -426,22 +303,12 @@
         NSLog(@"%@",fileName);
         
         [tempArray addObject:fileName];
-
+        
         count++;
-}
+    }
     
     NSArray *file = tempArray.copy;
 
-    
-    
-    //    NSString *make_instruDescription = @"和发货速度加快结构记得分别居";
-    //    NSString *make_instru = [make_instruDescription stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *make_instru = @"和发货速度加快结构记得分别居";
-    
-    //    NSString *financing_aqDescription = @"和发货速度加快结构记得分别居";
-    //    NSString *financing_aq = [financing_aqDescription stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    NSString *financing_aq = @"和发货速度加快结构记得分别居";
     
     NSString *artworkId = [[NSUserDefaults standardUserDefaults]objectForKey:@"artworkId"];
     
@@ -453,8 +320,8 @@
     NSString *signmsg = [NSString stringWithFormat:@"artworkId=%@&timestamp=%@&key=%@",artworkId,timestamp,appkey];
     
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    //    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-    NSString *url = @"http://192.168.1.69:8001/app/releaseArtworkDynamic.do";
+    // 1.创建请求
+    NSString *url = @"http://192.168.1.41:8080/app/releaseArtworkDynamic.do";
     
     // 3.设置请求体
     NSDictionary *json = @{
@@ -478,8 +345,11 @@
         
         NSInteger imgCount = 0;
         
-//        for (UIImage *image in self.photosView2.selectedPhotos) {
-        for (UIImage *image in self.imagePickerArray) {
+        //        for (UIImage *image in self.photosView2.selectedPhotos) {
+         for (int i = 0; i < self.imagePickerArray.count; i++) {
+            
+            UIImage *image  =  [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray objectAtIndex:i]).thumbnail];
+            
             NSData *data = UIImageJPEGRepresentation(image, 1.0);
             
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
