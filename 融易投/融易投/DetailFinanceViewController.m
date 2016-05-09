@@ -77,7 +77,6 @@
     self.financeHeader.progressLabel.text = [NSString stringWithFormat:@"%d%%",(int)(value * 100)];
 //    投资人数 investorsNum;
     self.financeHeader.investNum.text =[NSString stringWithFormat:@"%ld",self.financeModel.investorsNum];
-    
 }
 
 -(void)setupUI{
@@ -90,7 +89,6 @@
     [self.topview addSubview:self.financeHeader];
     self.middleView.frame = CGRectMake(0, CGRectGetHeight(self.topview.frame), ScreenWidth, ScreenHeight - CGRectGetMaxY(self.navigationController.navigationBar.frame));
     self.middleView.backgroundColor = [UIColor blueColor];
-    //    CycleView *cycleView = [[CycleView alloc] initWithFrame:self.middleView.bounds];
     self.cycleView.frame = self.middleView.bounds;
     self.cycleView.titleArray = self.titleArray;
     //添加控制器view
@@ -103,32 +101,30 @@
 
 -(void)addControllersToCycleView{
     //添加控制器view
-
+    ProjectDetailTableViewController * pro1 = [[ProjectDetailTableViewController alloc] init];
+    pro1.artWorkId = self.financeModel.ID;
+    pro1.topHeight = self.topview.height - 64;
+    [self.controllersView addObject:pro1.view];
+    [self addChildViewController:pro1];
+    
     UserCommentViewController * userComment = [[UserCommentViewController alloc] init];
     userComment.artWorkId = self.financeModel.ID;
     userComment.topHeight = self.topview.height - 64;
     [self.controllersView addObject:userComment.view];
     [self addChildViewController:userComment];
-    ProjectDetailTableViewController * pro1 = [[ProjectDetailTableViewController alloc] init];
-    [self.controllersView addObject:pro1.view];
-    [self addChildViewController:pro1];
+
     RecordTableViewController * record1 = [[RecordTableViewController alloc] init];
     record1.ID = self.financeModel.ID;
     record1.topHeight = self.topview.height - 64;
     [self.controllersView addObject:record1.view];
     [self addChildViewController:record1];
+    
     self.cycleView.controllers = self.controllersView;
     int count = 0;
     for(UIView *vi in self.cycleView.controllers){
         vi.frame = CGRectMake(ScreenWidth * count, 0, ScreenWidth, self.cycleView.bottomScrollView.frame.size.height);
         [self.cycleView.bottomScrollView addSubview:vi];
         count++;
-    }
-}
-
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (scrollView.contentOffset.y == 0) {
-        return;
     }
 }
 
@@ -143,7 +139,7 @@
 
 -(NSMutableArray *)titleArray{
     if (!_titleArray) {
-        NSArray *array = @[@"项目详情",@"项目流程",@"用户评论",@"投资记录"];
+        NSArray *array = @[@"项目详情",@"用户评论",@"投资记录"];
         _titleArray = [NSMutableArray arrayWithArray:array];
     }
     return _titleArray;

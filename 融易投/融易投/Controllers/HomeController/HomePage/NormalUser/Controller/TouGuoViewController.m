@@ -245,7 +245,7 @@ static NSString *ID = @"InvestProjectCell";
     NSLog(@"(%f,%f)",offset.x,offset.y);
     UIScrollView *superView = (UIScrollView *)scrollView.superview.superview.superview.superview;
     
-    NSLog(@"topHeight = %f,y = %f",self.topHeight,superView.contentOffset.y);
+    NSLog(@"t----opHeight = %f,y = %f",self.topHeight,superView.contentOffset.y);
     if (superView.contentOffset.y >= self.topHeight) {
         self.isfoot = NO;
         superView.contentOffset = CGPointMake(0, self.topHeight);

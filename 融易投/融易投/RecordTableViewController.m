@@ -34,17 +34,17 @@
 //--------------
 -(void)setUpRefresh
 {
-        CommonHeader *header = [CommonHeader headerWithRefreshingBlock:^{
-    
-            [self loadNewData];
-    
-        }];
-    
-        self.tableView.mj_header = header;
-    
-    //让程序一开始就加载数据
-        [self.tableView.mj_header beginRefreshing];
-    
+//        CommonHeader *header = [CommonHeader headerWithRefreshingBlock:^{
+//    
+//            [self loadNewData];
+//    
+//        }];
+//    
+//        self.tableView.mj_header = header;
+//    
+//    //让程序一开始就加载数据
+//        [self.tableView.mj_header beginRefreshing];
+
     
     //同样,自定义上拉刷新
     self.tableView.mj_footer = [CommonFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
@@ -274,9 +274,9 @@
         superView.contentOffset = CGPointMake(0, self.topHeight);
         scrollView.scrollEnabled = YES;
     }
-    if (superView.contentOffset.y <= 0) {
+    if (superView.contentOffset.y < -64) {
         self.isfoot = YES;
-        superView.contentOffset = CGPointMake(0, 0);
+        superView.contentOffset = CGPointMake(0, -64);
         scrollView.scrollEnabled = YES;
     }
 //    NSLog(@"bool = %d",self.isfoot);
@@ -297,31 +297,10 @@
         zeroY = superView.contentOffset.y + y;
         
         if (zeroY < 0) {
-            [superView setContentOffset:CGPointZero animated:YES];
+            [superView setContentOffset:CGPointMake(0, -64) animated:YES];
         }else{
             superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
         }
-//        if (scrollView.contentOffset.y > -10) {
-//            if (zeroY < 0) {
-//                [superView setContentOffset:CGPointZero animated:YES];
-//            }else{
-//                superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
-//            }
-//        }else{
-//            superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
-//            if (scrollView.contentOffset.y <= -100) {
-//                [superView setContentOffset:CGPointMake(0, superView.contentOffset.y + y) animated:YES];
-//            }else
-//            {
-//                
-//                if (zeroY < 0) {
-//                    superView.contentOffset = CGPointZero;
-//                }else{
-//                 [superView setContentOffset:CGPointMake(0, superView.contentOffset.y + y) animated:YES];
-//                }
-//           
-//            }
-//        }
     }
 }
 //-----------------------联动-----------------------

@@ -54,6 +54,17 @@
     self.content.attributedText = [[NSAttributedString alloc]initWithString:appendString attributes:attributes];
 }
 
+- (IBAction)clickUserName:(UIButton *)sender {
+    NSLog(@"跳转到用户信息页面");
+}
+- (IBAction)clickFatherName:(UIButton *)sender {
+    NSLog(@"跳转到用户主页");
+}
+
+
+
+
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
 }
 

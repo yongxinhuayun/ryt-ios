@@ -11,7 +11,7 @@
 @implementation ImageListViewCellCollectionViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+
 }
 
 @end

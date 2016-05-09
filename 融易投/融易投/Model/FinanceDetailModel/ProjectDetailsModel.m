@@ -7,37 +7,34 @@
 //
 
 #import "ProjectDetailsModel.h"
+#import "ArtworkModel.h"
+#import "ArtworkdirectionModel.h"
 
 @implementation ProjectDetailsModel
+// 获取cell 的高度
+-(CGFloat)cellHeight:(CellType)Type{
+    CGFloat tWidth = [UIScreen mainScreen].bounds.size.height - 2 * 10;
+    CGFloat textH = 0;
+    if (Type == cellBrief) {
+        textH = [self TextHeight:self.artWork.brief andTextWidth:tWidth];
+        NSInteger count = self.artworkAttachmentList.count;
+        if (count > 0) {
+            textH = textH + count * 200 + count * 10 + 30;
+        }
+    }else if(Type == cellInstru){
+        textH = [self TextHeight:self.artworkdirection.make_instru andTextWidth:tWidth];
+    }else{
+        textH = [self TextHeight:self.artworkdirection.financing_aq andTextWidth:tWidth];
+    }
+    textH += 40;
+    return textH;
+}
 
-
-
--(CGFloat)cellHeight{
-    
-    //我们早这里直接使用下划线属性,就不用在创建一个了
-    //     CGFloat cellHeight = 0;
-    
-    //4. 因为get方法会在tableView滚动的时候会来多次,所以为了节省系统资源,我们可以在加载数据完成的时候调用一次
-    if (_cellHeight) return _cellHeight;
-    
-//    // 项目介绍
-//    CGFloat textMaxW = SSScreenW - 2 * SSMargin;
-//    _cellHeight = SSMargin + [self.labelInfo.text boundingRectWithSize:CGSizeMake(textMaxW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:17]} context:nil].size.height + SSMargin;
-//    
-//    // 文字
-//    _cellHeight += [self.label.text boundingRectWithSize:CGSizeMake(textMaxW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:17]} context:nil].size.height;
-//    
-//    // 照片
-//    if (imagesCount > 4) {
-//        
-//        _cellHeight += CGRectGetHeight(self.collectionView.frame);
-//    }else {
-//        
-//        _cellHeight += (CGRectGetHeight(self.collectionView.frame) + margin * 4 )* 2 + margin;
-//    }
-    
-    
-    return _cellHeight;
+-(CGFloat)TextHeight:(NSString *)text andTextWidth:(CGFloat)textWidth{
+    CGFloat textW = textWidth;
+    CGSize textMaxSize = CGSizeMake(textW, MAXFLOAT);
+    CGFloat textH = [text boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{ NSFontAttributeName:[UIFont systemFontOfSize:15] } context:nil].size.height;
+    return textH;
 }
 
 @end

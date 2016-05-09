@@ -12,4 +12,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *introduceLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *imageListView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
+@property(nonatomic,strong) NSMutableArray *imgArray;
+-(void)imgArray:(NSMutableArray *)imgList;
 @end

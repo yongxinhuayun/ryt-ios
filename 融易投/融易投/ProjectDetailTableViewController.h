@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ProjectDetailTableViewController : UITableViewController
-
+@property(nonatomic,copy)NSString *artWorkId;
+@property(nonatomic,assign) CGFloat topHeight;
 @end

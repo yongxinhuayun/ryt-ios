@@ -197,9 +197,9 @@ static NSString *ID = @"userCommentCell";
         superView.contentOffset = CGPointMake(0, self.topHeight);
         scrollView.scrollEnabled = YES;
     }
-    if (superView.contentOffset.y <= 0) {
+    if (superView.contentOffset.y < -64) {
         self.isfoot = YES;
-        superView.contentOffset = CGPointMake(0, 0);
+        superView.contentOffset = CGPointMake(0, -64);
         scrollView.scrollEnabled = YES;
     }
     //    NSLog(@"bool = %d",self.isfoot);
@@ -220,31 +220,10 @@ static NSString *ID = @"userCommentCell";
         zeroY = superView.contentOffset.y + y;
         
         if (zeroY < 0) {
-            [superView setContentOffset:CGPointZero animated:YES];
+            [superView setContentOffset:CGPointMake(0, -64) animated:YES];
         }else{
             superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
         }
-        //        if (scrollView.contentOffset.y > -10) {
-        //            if (zeroY < 0) {
-        //                [superView setContentOffset:CGPointZero animated:YES];
-        //            }else{
-        //                superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
-        //            }
-        //        }else{
-        //            superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
-        //            if (scrollView.contentOffset.y <= -100) {
-        //                [superView setContentOffset:CGPointMake(0, superView.contentOffset.y + y) animated:YES];
-        //            }else
-        //            {
-        //
-        //                if (zeroY < 0) {
-        //                    superView.contentOffset = CGPointZero;
-        //                }else{
-        //                 [superView setContentOffset:CGPointMake(0, superView.contentOffset.y + y) animated:YES];
-        //                }
-        //           
-        //            }
-        //        }
     }
 }
 //-----------------------联动-----------------------
