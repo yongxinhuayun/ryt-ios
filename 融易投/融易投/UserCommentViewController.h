@@ -10,4 +10,5 @@
 
 @interface UserCommentViewController : UITableViewController
 @property (nonatomic,copy) NSString *artWorkId;
+@property(nonatomic,assign) CGFloat topHeight;
 @end

@@ -603,6 +603,7 @@
 		E2DDB0F31CAB66DB007438E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */; };
 		E2DDB1011CAB66DB007438E4 /* ___Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB1001CAB66DB007438E4 /* ___Tests.m */; };
 		E2DDB10C1CAB66DB007438E4 /* ___UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB10B1CAB66DB007438E4 /* ___UITests.m */; };
+		E2E8422A1CE01F860047D86C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2E842291CE01F860047D86C /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1497,13 +1498,13 @@
 		E2DDB0E31CAB66DB007438E4 /* 融易投.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "融易投.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2DDB0E71CAB66DB007438E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E2DDB0F71CAB66DB007438E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2DDB0FC1CAB66DB007438E4 /* 融易投Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "融易投Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2DDB1001CAB66DB007438E4 /* ___Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "___Tests.m"; sourceTree = "<group>"; };
 		E2DDB1021CAB66DB007438E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2DDB1071CAB66DB007438E4 /* 融易投UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "融易投UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2DDB10B1CAB66DB007438E4 /* ___UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "___UITests.m"; sourceTree = "<group>"; };
 		E2DDB10D1CAB66DB007438E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2E842291CE01F860047D86C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0956E19B66868332217542E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -3378,16 +3379,16 @@
 		E2DDB0E51CAB66DB007438E4 /* 融易投 */ = {
 			isa = PBXGroup;
 			children = (
-				E22892131CDF01B400483F18 /* Controllers */,
 				E2288E441CDEFA8C00483F18 /* AppDelegate */,
 				E22890421CDEFE0700483F18 /* Tools */,
-				E2288E4E1CDEFB3200483F18 /* Model */,
 				E2288E481CDEFB0500483F18 /* 3rd */,
+				E22892131CDF01B400483F18 /* Controllers */,
+				E2288E4E1CDEFB3200483F18 /* Model */,
 				218D2B371CACB2E3004553B9 /* Main */,
 				E2DDB19A1CABA64E007438E4 /* Controller */,
 				E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */,
+				E2E842291CE01F860047D86C /* Info.plist */,
 				E236C3231CB4E27E009DCBF0 /* PushConfig.plist */,
-				E2DDB0F71CAB66DB007438E4 /* Info.plist */,
 				218D2B5B1CACB5B9004553B9 /* Launch Screen.storyboard */,
 				21D54BCE1CB796CD0088D386 /* messages.plist */,
 				21D54BAB1CB796B40088D386 /* images */,
@@ -3707,6 +3708,7 @@
 				E228937F1CDF049500483F18 /* lxh_haoaio.gif in Resources */,
 				219ACA561CBE3F100052146E /* picture4.png in Resources */,
 				E22893901CDF049500483F18 /* lxh_jiekexun@2x.png in Resources */,
+				E2E8422A1CE01F860047D86C /* Info.plist in Resources */,
 				E22892A91CDF03F400483F18 /* d_shuijiao@2x.png in Resources */,
 				E22893781CDF049500483F18 /* lxh_buxiangshangban@2x.png in Resources */,
 				E22892A21CDF03F400483F18 /* d_nvhaier@2x.png in Resources */,

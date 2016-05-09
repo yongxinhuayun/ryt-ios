@@ -26,20 +26,31 @@
 
 -(void)setModel:(ArtworkCommentListModel *)model{
     _model = model;
-    NSString *urlStr = [model.creator.pictureUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [self.userPic.imageView sd_setImageWithURL:[NSURL URLWithString:urlStr]];
-    self.userName.titleLabel.text = model.creator.name;
-    //    self.replyTime.text = model.createDatetime;
+    
+    
+    
+//    urlStr = [[NSString stringWithFormat:@"%@",author.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    picUrl = [NSURL URLWithString:urlStr];
+//    
+//    [self.financeHeader.userPicture ss_setHeader:picUrl];
+    
+//    NSString *urlStr = [model.creator.pictureUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlStr = [[NSString stringWithFormat:@"%@",model.creator.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    UIImageView *imgView = [[UIImageView alloc] init];
+    [imgView ss_setHeader:url];
+    [self.userPic setImage:imgView.image forState:(UIControlStateNormal)];
+    [self.userName setTitle:model.creator.name forState:(UIControlStateNormal)];
     ArtworkCommentListModel *fatherComment = [[ArtworkCommentListModel alloc] init];
     fatherComment = model.fatherComment;
-    self.replyName.titleLabel.text = fatherComment.creator.name;
-    
+    [self.replyName setTitle:fatherComment.creator.name forState:(UIControlStateNormal)];
+    [self.replyName sizeToFit];
     CGFloat x = CGRectGetMaxX(self.replyName.frame);
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
     paragraphStyle.firstLineHeadIndent = x - 70;
     paragraphStyle.alignment = NSTextAlignmentJustified;
     NSDictionary *attributes = @{ NSFontAttributeName:[UIFont systemFontOfSize:14], NSParagraphStyleAttributeName:paragraphStyle, NSForegroundColorAttributeName:[UIColor colorWithRed:76./255. green:75./255. blue:71./255. alpha:1]};
-    NSString *appendString = [NSString stringWithFormat:@":%@",self.content.text];
+    NSString *appendString = [NSString stringWithFormat:@":%@",model.content];
     self.content.attributedText = [[NSAttributedString alloc]initWithString:appendString attributes:attributes];
 }
 
