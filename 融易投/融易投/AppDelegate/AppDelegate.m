@@ -236,7 +236,7 @@ static BOOL isProduction = FALSE;
 //    [tabBarController.tabBar insertSubview:v atIndex:0];
     
     //设置状态栏字体颜色和背景颜色
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     CGFloat statwidth = [[UIApplication sharedApplication] statusBarFrame].size.width;
     
@@ -244,7 +244,7 @@ static BOOL isProduction = FALSE;
     
     UIView *statusBarView=[[UIView alloc]initWithFrame:CGRectMake(0,0, statwidth, statheight)];
     
-    statusBarView.backgroundColor = [UIColor blackColor];
+    statusBarView.backgroundColor = [UIColor whiteColor];
     
     [tabBarController.view addSubview:statusBarView];
     

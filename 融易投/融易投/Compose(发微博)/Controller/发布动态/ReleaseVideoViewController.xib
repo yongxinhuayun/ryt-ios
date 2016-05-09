@@ -8,6 +8,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReleaseVideoViewController">
             <connections>
                 <outlet property="addVideoBtn" destination="nSg-6k-8tN" id="9Na-KS-PSh"/>
+                <outlet property="placeholderLabel" destination="rOC-FN-JJq" id="Vbh-fp-kYE"/>
+                <outlet property="textView" destination="kGg-1Y-fqb" id="J3v-eV-K9e"/>
                 <outlet property="videoView" destination="ze5-sV-6eH" id="3XE-Jp-5Zz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -17,35 +19,83 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rke-Rg-6SC">
-                    <rect key="frame" x="32" y="93" width="322" height="169"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rke-Rg-6SC">
+                    <rect key="frame" x="10" y="86" width="355" height="200"/>
                     <subviews>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ze5-sV-6eH">
-                            <rect key="frame" x="8" y="16" width="120" height="120"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ze5-sV-6eH">
+                            <rect key="frame" x="14" y="16" width="120" height="120"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSg-6k-8tN">
-                                    <rect key="frame" x="45" y="45" width="30" height="30"/>
-                                    <state key="normal" title="+"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSg-6k-8tN">
+                                    <rect key="frame" x="24.5" y="24.5" width="71" height="71"/>
+                                    <state key="normal" backgroundImage="video-play"/>
                                     <connections>
                                         <action selector="recordVideo:" destination="-1" eventType="touchUpInside" id="C5w-kL-Dgy"/>
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="nSg-6k-8tN" firstAttribute="centerX" secondItem="ze5-sV-6eH" secondAttribute="centerX" id="FT7-b8-UcH"/>
+                                <constraint firstItem="nSg-6k-8tN" firstAttribute="centerY" secondItem="ze5-sV-6eH" secondAttribute="centerY" id="KG2-mh-x5M"/>
+                                <constraint firstAttribute="height" constant="120" id="Tps-Sr-iVd"/>
+                                <constraint firstAttribute="width" constant="120" id="kgN-NH-vwh"/>
+                            </constraints>
                         </view>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="创作过程中有什么想法..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kGg-1Y-fqb">
-                            <rect key="frame" x="129" y="16" width="157" height="126"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kGg-1Y-fqb">
+                            <rect key="frame" x="144" y="16" width="201" height="174"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创作过程中有什么想法..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOC-FN-JJq">
+                            <rect key="frame" x="151" y="23" width="131" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="denglu_fenggexian750" translatesAutoresizingMaskIntoConstraints="NO" id="L3G-OQ-yrb">
+                            <rect key="frame" x="0.0" y="0.0" width="355" height="1"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="xBW-K7-JbB"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="denglu_fenggexian750" translatesAutoresizingMaskIntoConstraints="NO" id="RP0-e7-sgQ">
+                            <rect key="frame" x="0.0" y="199" width="355" height="1"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="0LX-oF-PdT"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
-                    <color key="backgroundColor" red="0.5376683942247158" green="1" blue="0.41439542305097221" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="rOC-FN-JJq" firstAttribute="top" secondItem="ze5-sV-6eH" secondAttribute="top" constant="7" id="ETn-bY-8Wk"/>
+                        <constraint firstItem="ze5-sV-6eH" firstAttribute="leading" secondItem="rke-Rg-6SC" secondAttribute="leading" constant="14" id="Fxo-Jl-rfg"/>
+                        <constraint firstItem="kGg-1Y-fqb" firstAttribute="leading" secondItem="ze5-sV-6eH" secondAttribute="trailing" constant="10" id="Gpr-cS-s13"/>
+                        <constraint firstItem="RP0-e7-sgQ" firstAttribute="leading" secondItem="rke-Rg-6SC" secondAttribute="leading" id="W9M-g6-eQb"/>
+                        <constraint firstAttribute="height" constant="200" id="YZB-Qw-jtM"/>
+                        <constraint firstItem="L3G-OQ-yrb" firstAttribute="leading" secondItem="rke-Rg-6SC" secondAttribute="leading" id="ckB-or-Ql4"/>
+                        <constraint firstAttribute="bottom" secondItem="RP0-e7-sgQ" secondAttribute="bottom" id="dYK-Ub-2My"/>
+                        <constraint firstItem="kGg-1Y-fqb" firstAttribute="top" secondItem="ze5-sV-6eH" secondAttribute="top" id="dlI-99-D9h"/>
+                        <constraint firstAttribute="trailing" secondItem="L3G-OQ-yrb" secondAttribute="trailing" id="eSm-jG-LXy"/>
+                        <constraint firstAttribute="bottom" secondItem="kGg-1Y-fqb" secondAttribute="bottom" constant="10" id="eeE-VM-Dsj"/>
+                        <constraint firstAttribute="trailing" secondItem="kGg-1Y-fqb" secondAttribute="trailing" constant="10" id="hwx-93-g3l"/>
+                        <constraint firstItem="rOC-FN-JJq" firstAttribute="leading" secondItem="kGg-1Y-fqb" secondAttribute="leading" constant="7" id="r42-Zk-SNd"/>
+                        <constraint firstItem="ze5-sV-6eH" firstAttribute="top" secondItem="rke-Rg-6SC" secondAttribute="top" constant="16" id="ssV-Yg-H73"/>
+                        <constraint firstAttribute="trailing" secondItem="RP0-e7-sgQ" secondAttribute="trailing" id="thZ-mA-ltR"/>
+                        <constraint firstItem="L3G-OQ-yrb" firstAttribute="top" secondItem="rke-Rg-6SC" secondAttribute="top" id="xjE-yX-w7O"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="rke-Rg-6SC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="86" id="6Cs-Um-FcS"/>
+                <constraint firstItem="rke-Rg-6SC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="bfJ-XH-uuT"/>
+                <constraint firstAttribute="trailing" secondItem="rke-Rg-6SC" secondAttribute="trailing" constant="10" id="hdj-eA-qhM"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="250.5" y="243.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="denglu_fenggexian750" width="1" height="1"/>
+        <image name="video-play" width="71" height="71"/>
+    </resources>
 </document>
