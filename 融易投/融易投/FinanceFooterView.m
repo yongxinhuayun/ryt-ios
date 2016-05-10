@@ -44,15 +44,13 @@
     
 }
 - (IBAction)touzi:(UIButton *)sender {
-    NSLog(@"投资");
     if ([self.delegate respondsToSelector:@selector(jumpTZController)]) {
         [self.delegate jumpTZController];
     }
 }
 - (IBAction)pinglun:(UIButton *)sender {
-        NSLog(@"评论");
-    if ([self.delegate respondsToSelector:@selector(jumpTZController)]) {
-        [self.delegate jumpTZController];
+    if ([self.delegate respondsToSelector:@selector(jumpPLController)]) {
+        [self.delegate jumpPLController];
     }
 }
 

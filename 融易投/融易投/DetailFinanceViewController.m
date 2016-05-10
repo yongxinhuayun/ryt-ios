@@ -23,10 +23,9 @@
 #import "authorModel.h"
 #import "navTitleButton.h"
 #import "FinanceFooterView.h"
-
 #import "UIImageView+WebCache.h"
 
-@interface DetailFinanceViewController ()<UIScrollViewDelegate>
+@interface DetailFinanceViewController ()<UIScrollViewDelegate,FinanceFooterViewDelegate>
 @property(nonatomic,strong) FinanceHeader *financeHeader;
 @end
 
@@ -136,12 +135,18 @@
     CGFloat y = SSScreenH - 44;
     CGFloat w = SSScreenW;
     CGFloat h = 44;
-    
-//    FinanceFooterView *bottomView = [UINib nibWithNibName:@"FinanceFooterView" bundle:nil];
     FinanceFooterView *bottomView = [[[NSBundle mainBundle] loadNibNamed:@"FinanceFooterView" owner:nil options:nil] lastObject];
+    bottomView.delegate = self;
     bottomView.frame = CGRectMake(0, y, w, h);
     [self.view addSubview:bottomView];
 }
+
+-(void)jumpPLController{
+}
+
+-(void)jumpTZController{
+}
+
 //懒加载
 -(CycleView *)cycleView{
     if (!_cycleView) {

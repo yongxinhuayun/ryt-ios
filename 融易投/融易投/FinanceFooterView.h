@@ -10,7 +10,7 @@
 
 @protocol FinanceFooterViewDelegate <NSObject>
 -(void)jumpTZController;
--(void)jumpTPController;
+-(void)jumpPLController;
 @end
 
 @interface FinanceFooterView : UIView
