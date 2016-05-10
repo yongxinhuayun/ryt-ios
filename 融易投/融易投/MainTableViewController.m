@@ -126,7 +126,8 @@
     
     //    titlesView.backgroundColor = [UIColor whiteColor];
     //2.9 设置标题栏为半透明的
-    titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0];
+//    titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0];
+    titlesView.backgroundColor = [UIColor colorWithRed:247.0 /255.0  green:247.0 /255.0  blue:247.0 /255.0  alpha:1.0];
     
     [self.view addSubview:titlesView];
     

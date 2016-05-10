@@ -244,7 +244,7 @@ static BOOL isProduction = FALSE;
     
     UIView *statusBarView=[[UIView alloc]initWithFrame:CGRectMake(0,0, statwidth, statheight)];
     
-    statusBarView.backgroundColor = [UIColor whiteColor];
+    statusBarView.backgroundColor = [[UIColor alloc] initWithRed:247.0 /255.0  green:247.0 /255.0  blue:247.0 /255.0  alpha:1.0];
     
     [tabBarController.view addSubview:statusBarView];
     
