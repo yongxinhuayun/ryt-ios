@@ -21,6 +21,8 @@
 #import "UserCommentViewController.h"
 #import "ProjectDetailTableViewController.h"
 #import "authorModel.h"
+#import "navTitleButton.h"
+#import "FinanceFooterView.h"
 
 #import "UIImageView+WebCache.h"
 
@@ -35,6 +37,7 @@
     self.navigationController.navigationBarHidden = NO;
    [self setupUI];
     [self loadDataToController];
+    [self addFooterView];
 }
 
 - (void)viewDidLoad {
@@ -99,6 +102,7 @@
     self.backgroundScrollView.delegate = self;
 }
 
+//添加子控制器
 -(void)addControllersToCycleView{
     //添加控制器view
     ProjectDetailTableViewController * pro1 = [[ProjectDetailTableViewController alloc] init];
@@ -122,12 +126,22 @@
     self.cycleView.controllers = self.controllersView;
     int count = 0;
     for(UIView *vi in self.cycleView.controllers){
-        vi.frame = CGRectMake(ScreenWidth * count, 0, ScreenWidth, self.cycleView.bottomScrollView.frame.size.height);
+        vi.frame = CGRectMake(ScreenWidth * count, 0, ScreenWidth, self.cycleView.bottomScrollView.frame.size.height - 44);
         [self.cycleView.bottomScrollView addSubview:vi];
         count++;
     }
 }
-
+//设置底部按钮
+- (void)addFooterView {
+    CGFloat y = SSScreenH - 44;
+    CGFloat w = SSScreenW;
+    CGFloat h = 44;
+    
+//    FinanceFooterView *bottomView = [UINib nibWithNibName:@"FinanceFooterView" bundle:nil];
+    FinanceFooterView *bottomView = [[[NSBundle mainBundle] loadNibNamed:@"FinanceFooterView" owner:nil options:nil] lastObject];
+    bottomView.frame = CGRectMake(0, y, w, h);
+    [self.view addSubview:bottomView];
+}
 //懒加载
 -(CycleView *)cycleView{
     if (!_cycleView) {
