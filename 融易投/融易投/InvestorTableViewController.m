@@ -149,7 +149,7 @@ static NSString *ID = @"investorCell";
     [self.tableView.mj_header endRefreshing];
     self.lastPageNum = @"1";
     //参数
-    NSString *pageSize = @"99";
+    NSString *pageSize = @"20";
     NSString *pageNum = @"1";
     NSString *timestamp = [MyMD5 timestamp];
     NSString *appkey = MD5key;
@@ -171,7 +171,7 @@ static NSString *ID = @"investorCell";
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.69:8001/app/getInvestorTopList.do";
+    NSString *url = @"http://192.168.1.41:8080/app/getInvestorTopList.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
@@ -234,7 +234,7 @@ static NSString *ID = @"investorCell";
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.69:8001/app/getInvestorTopList.do";
+    NSString *url = @"http://192.168.1.41:8080/app/getInvestorTopList.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         

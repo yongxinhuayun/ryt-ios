@@ -264,21 +264,18 @@ static NSString *ID = @"ZanguoProjectCell";
         }
     }
     CGPoint offset = scrollView.contentOffset;
-    NSLog(@"(%f,%f)",offset.x,offset.y);
     UIScrollView *superView = (UIScrollView *)scrollView.superview.superview.superview.superview;
-    
-    NSLog(@"topHeight = %f,y = %f",self.topHeight,superView.contentOffset.y);
     if (superView.contentOffset.y >= self.topHeight) {
         self.isfoot = NO;
         superView.contentOffset = CGPointMake(0, self.topHeight);
         scrollView.scrollEnabled = YES;
     }
-    if (superView.contentOffset.y <= 0) {
+    if (superView.contentOffset.y < -64) {
         self.isfoot = YES;
-        superView.contentOffset = CGPointMake(0, 0);
+        superView.contentOffset = CGPointMake(0, -64);
         scrollView.scrollEnabled = YES;
     }
-    NSLog(@"bool = %d",self.isfoot);
+    //    NSLog(@"bool = %d",self.isfoot);
     CGFloat zeroY = superView.contentOffset.y + scrollView.contentOffset.y;
     if (self.isfoot && scrollView.contentOffset.y > 0) {
         superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
@@ -296,31 +293,10 @@ static NSString *ID = @"ZanguoProjectCell";
         zeroY = superView.contentOffset.y + y;
         
         if (zeroY < 0) {
-            [superView setContentOffset:CGPointZero animated:YES];
+            [superView setContentOffset:CGPointMake(0, -64) animated:YES];
         }else{
             superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
         }
-        //        if (scrollView.contentOffset.y > -10) {
-        //            if (zeroY < 0) {
-        //                [superView setContentOffset:CGPointZero animated:YES];
-        //            }else{
-        //                superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
-        //            }
-        //        }else{
-        //            superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
-        //            if (scrollView.contentOffset.y <= -100) {
-        //                [superView setContentOffset:CGPointMake(0, superView.contentOffset.y + y) animated:YES];
-        //            }else
-        //            {
-        //
-        //                if (zeroY < 0) {
-        //                    superView.contentOffset = CGPointZero;
-        //                }else{
-        //                 [superView setContentOffset:CGPointMake(0, superView.contentOffset.y + y) animated:YES];
-        //                }
-        //           
-        //            }
-        //        }
     }
 }
 //-----------------------联动-----------------------

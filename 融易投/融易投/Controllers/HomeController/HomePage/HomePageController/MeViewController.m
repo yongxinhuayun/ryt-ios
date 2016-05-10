@@ -64,6 +64,12 @@
     [self setUpNavBar];
 
     //加载头部视图数据
+    //设置头部视图
+    MeHeaderView *meheaderView = [MeHeaderView meHeaderView];
+    
+    self.meheaderView = meheaderView;
+    
+    
     [self loadData];
 
 }
@@ -284,14 +290,14 @@
             //给xib赋值数据的时候,在viewDidLoad方法老是赋值为nil,所以只好写在这里
             
             //设置头部视图
-            MeHeaderView *meheaderView = [MeHeaderView meHeaderView];
+//            MeHeaderView *meheaderView = [MeHeaderView meHeaderView];
             //保存从xib获取的模型数据
-            meheaderView.model = self.model;
+            self.meheaderView.model = self.model;
             
             NSLog(@"%@",self.model.user.pictureUrl);
             
-            self.meheaderView = meheaderView;
-            self.tableView.tableHeaderView = meheaderView;
+//            self.meheaderView = meheaderView;
+            self.tableView.tableHeaderView = self.meheaderView;
             
             //点击头像跳转编辑资料视图
             [self jumpeditingInfoVc];

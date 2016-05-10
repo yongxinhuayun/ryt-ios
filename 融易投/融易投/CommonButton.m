@@ -25,6 +25,7 @@
     
     self.titleLabel.y = 0;
     self.titleLabel.x = 0;
+    self.titleLabel.font = [UIFont systemFontOfSize:14];
     
     self.imageView.x = CGRectGetMaxX(self.titleLabel.frame) + 5;
     self.imageView.centerY = self.titleLabel.centerY;

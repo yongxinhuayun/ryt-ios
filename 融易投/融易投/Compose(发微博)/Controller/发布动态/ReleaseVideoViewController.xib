@@ -25,7 +25,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ze5-sV-6eH">
                             <rect key="frame" x="14" y="16" width="120" height="120"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSg-6k-8tN">
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSg-6k-8tN">
                                     <rect key="frame" x="24.5" y="24.5" width="71" height="71"/>
                                     <state key="normal" backgroundImage="video-play"/>
                                     <connections>

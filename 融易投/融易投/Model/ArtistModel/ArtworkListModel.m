@@ -74,17 +74,17 @@
 //        
 //    }
     
-    self.step = @"24";
+    self.step = @"100";
     
     CGFloat bottomViewY = 50;
     
     if ([self.step isEqualToString:@"100"]){ //可以编辑项目
         
-        return maxY + bottomViewY ;
+        return maxY + bottomViewY + margin;
         
     }else if ([self.step isEqualToString:@"24"]||[self.step isEqualToString:@"25"]){//可以点击创作完成和发布动态
         
-         return maxY + bottomViewY ;
+         return maxY + bottomViewY + margin;
         
     }else {//其他什么也不显示
         

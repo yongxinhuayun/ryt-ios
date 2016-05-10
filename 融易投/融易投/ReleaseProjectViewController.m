@@ -262,7 +262,7 @@
     
     //    NSData *data = UIImagePNGRepresentation(newImage);
     //    NSString *filename = @"image";
-    
+    self.imageView.contentMode = UIViewContentModeScaleToFill;
     self.imageView.image = newImage;
     
     selctedImage = nil;

@@ -54,13 +54,15 @@ static NSString *ID = @"artistCell";
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"ArtistTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
     
+    
+    [self loadNewData];
+    
     //设置刷新控件
     [self setUpRefresh];
     
     //添加顶部Header
     [self setUpSubTitlesView];
-    
-    [self loadNewData];
+
 }
 
 //添加副标题栏
@@ -146,7 +148,7 @@ static NSString *ID = @"artistCell";
     self.lastPageNum = @"1";
     
     //参数
-    NSString *pageSize = @"1";
+    NSString *pageSize = @"20";
     NSString *pageNum = @"1";
     NSString *timestamp = [MyMD5 timestamp];
     NSString *appkey = MD5key;
@@ -168,7 +170,7 @@ static NSString *ID = @"artistCell";
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.69:8001/app/getArtistTopList.do";
+    NSString *url = @"http://192.168.1.41:8080/app/getArtistTopList.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
@@ -230,7 +232,7 @@ static NSString *ID = @"artistCell";
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.69:8001/app/getArtistTopList.do";
+    NSString *url = @"http://192.168.1.41:8080/app/getArtistTopList.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         

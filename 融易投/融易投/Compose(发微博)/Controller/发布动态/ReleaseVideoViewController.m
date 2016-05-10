@@ -128,7 +128,7 @@
     
     NSLog(@"%@",picture_url);
     
-    NSString *artworkId = @"imyj2dw936qyh35t";
+    NSString *artworkId = @"qydeyugqqiugd6";
     
     NSString *timestamp = [MyMD5 timestamp];
     
