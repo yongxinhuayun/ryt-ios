@@ -8,7 +8,7 @@
 
 #import "CommonNavigationController.h"
 
-@interface CommonNavigationController ()<UINavigationControllerDelegate>
+@interface CommonNavigationController ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) id popDelegate;
 
@@ -31,7 +31,7 @@
     // 设置导航条背景图片
     // 注意: iOS9之前,如果不使用UIBarMetricsDefault,默认导航控制器的根控制器的尺寸,会少64的高度.
     // UIBarMetricsDefault:必须设置默认
-//    [navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+    [navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
 }
 
 //但是我们只在设置界面修改返回按钮,也只能修改设置界面的返回按钮,但是我们希望只要一个界面能够push就能修改返回按钮
@@ -143,43 +143,13 @@
     
 }
 
-//14.实现代理方法
--(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    NSLog(@"%@",viewController);
-    
-    //childViewControllers第一个就是根控制器
-    if (viewController == self.childViewControllers[0]) {
-        //恢复滑动返回手势代理
-        self.interactivePopGestureRecognizer.delegate = _popDelegate;
-    }
-}
-
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
     // 实现滑动返回功能
-    //    self.interactivePopGestureRecognizer.delegate = self;
-    
-    //因为我们要让系统的代理去帮我们实现左滑功能,并且我们要调用系统的默认实现左滑功能的方法
-    //所以,我们的监听对象就是系统实现左滑的代理
-    
-    //创建全屏的滑动手势
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self.interactivePopGestureRecognizer.delegate action:@selector(handleNavigationTransition:)];
-    
-    
-    //因为我们要实现全屏滑动,所以我们需要把自定义的手势的代理设置成自定义导航控制器,让他去管理手势什么时候触发
-    //所以,把之前的代理注释掉
-    pan.delegate = self;
-    
-    //把手势添加到导航控制器的view上
-    [self.view addGestureRecognizer:pan];
-    
-    //因为我们把系统的手势覆盖掉了,所以为了防止意外,把系统的手势禁止掉
-    self.interactivePopGestureRecognizer.enabled = NO;
-    
+        self.interactivePopGestureRecognizer.delegate = self;
     
 }
 
