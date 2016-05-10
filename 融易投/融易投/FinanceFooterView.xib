@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FinanceFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Tx-x7-7LX">
+                    <rect key="frame" x="0.0" y="0.0" width="102" height="44"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title=" 30" image="zan">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="zan_selected">
+                        <color key="titleColor" red="1" green="0.25941775189999999" blue="0.28726397339999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="clickZan:" destination="iN0-l3-epB" eventType="touchUpInside" id="LII-nu-DdW"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drX-uE-MhE">
+                    <rect key="frame" x="102" y="5" width="170" height="33"/>
+                    <color key="backgroundColor" red="0.94117647058823528" green="0.35294117647058826" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="170" id="kCc-2b-E2w"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="马上投资">
+                        <color key="titleColor" red="0.99607843137254903" green="0.9137254901960784" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="touzi:" destination="iN0-l3-epB" eventType="touchUpInside" id="5eG-O6-vLH"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8iM-qY-vrV">
+                    <rect key="frame" x="272" y="0.0" width="103" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title=" 评论" image="pinglun">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="pinglun:" destination="iN0-l3-epB" eventType="touchUpInside" id="YaF-Dn-Oo4"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpn-t4-KtJ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.45889342280000001" green="0.46561131389999999" blue="0.5" alpha="0.083298141891891886" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="69d-zv-gUk"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="drX-uE-MhE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="4ta-ct-jvP"/>
+                <constraint firstItem="8iM-qY-vrV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7mj-d6-aWu"/>
+                <constraint firstAttribute="bottom" secondItem="8iM-qY-vrV" secondAttribute="bottom" id="DIX-Lk-IYZ"/>
+                <constraint firstItem="5Tx-x7-7LX" firstAttribute="trailing" secondItem="drX-uE-MhE" secondAttribute="leading" id="Dbl-Dp-lPp"/>
+                <constraint firstItem="5Tx-x7-7LX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DmY-gx-jX9"/>
+                <constraint firstAttribute="trailing" secondItem="8iM-qY-vrV" secondAttribute="trailing" id="KvD-9F-v5C"/>
+                <constraint firstItem="drX-uE-MhE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ods-fE-b6q"/>
+                <constraint firstAttribute="trailing" secondItem="qpn-t4-KtJ" secondAttribute="trailing" id="Q1u-ZC-ufF"/>
+                <constraint firstItem="qpn-t4-KtJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Zaa-Aa-rxp"/>
+                <constraint firstItem="drX-uE-MhE" firstAttribute="trailing" secondItem="8iM-qY-vrV" secondAttribute="leading" id="cce-9H-Zr0"/>
+                <constraint firstItem="5Tx-x7-7LX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fca-ap-ZSN"/>
+                <constraint firstAttribute="bottom" secondItem="5Tx-x7-7LX" secondAttribute="bottom" id="p2E-Db-IN5"/>
+                <constraint firstItem="qpn-t4-KtJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uXd-Ej-0FC"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="TZBtn" destination="drX-uE-MhE" id="fFO-Wi-xwK"/>
+                <outlet property="widthConstraint" destination="kCc-2b-E2w" id="bgy-h1-1nh"/>
+                <outlet property="zan" destination="5Tx-x7-7LX" id="lbG-hH-epi"/>
+            </connections>
+            <point key="canvasLocation" x="328.5" y="290"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="pinglun" width="22" height="22"/>
+        <image name="zan" width="22" height="22"/>
+        <image name="zan_selected" width="22" height="22"/>
+    </resources>
+</document>

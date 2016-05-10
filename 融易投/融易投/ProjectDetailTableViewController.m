@@ -39,7 +39,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"InstructionCell" bundle:nil] forCellReuseIdentifier:@"InstructionCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 500;
-    
+    [self improveTableView];
     //替换模型中对应的key
     [ProjectDetailsModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         return @{
@@ -102,9 +102,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 1;
+        return 0;
     }else{
-        return 1;
+        return 0;
     }
 }
 
@@ -163,22 +163,19 @@
             return @"融资解惑";
         }
 }
-//去掉UItableview headerview黏性(sticky)
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    if (scrollView == self.tableView)
-//    {
-//        CGFloat sectionHeaderHeight = 25; //sectionHeaderHeight
-//        if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
-//            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
-//        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
-//            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
-//        }
-//    }
-//}
+
+-(void)improveTableView
+{
+    self.tableView.tableHeaderView.backgroundColor = [UIColor whiteColor];
+    self.tableView.tableFooterView = [[UIView alloc]init];  //删除多余的行
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {  //防止分割线显示不
+        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    }
+}
 
 //-----------------------联动-----------------------
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    
+//去掉UItableview headerview黏性(sticky)
     if (scrollView == self.tableView)
     {
         CGFloat sectionHeaderHeight = 25; //sectionHeaderHeight

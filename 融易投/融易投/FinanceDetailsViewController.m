@@ -109,34 +109,24 @@
 //    [footerView addSubview:lable];
 
     UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.slidePageScrollView.frame), 44)];
-    
     bottomView.backgroundColor = [UIColor blackColor];
-    
     NSArray *bottomtitles = @[@"点赞", @"评论", @"投资"];
-    
     NSInteger index = bottomtitles.count;
     //设置按钮尺寸,要想拿到titlesView需设置成成员属性
     //    CGFloat titleButtonW = self.titlesView.width / 5;
     CGFloat titleButtonW = bottomView.width / index;
     CGFloat titleButtonH = bottomView.height;
-    
     //遍历添加所有标题按钮
     for (NSInteger i = 0; i < index; i++) {
-        
         navTitleButton *titleButton = [navTitleButton buttonWithType:UIButtonTypeCustom];
-        
         //给标题按钮绑定tag
         titleButton.tag= i;
-        
         titleButton.frame = CGRectMake(i * titleButtonW, 0, titleButtonW, titleButtonH);
-        
         //设置标题按钮的标题
         [titleButton setTitle:bottomtitles[i] forState:UIControlStateNormal];
         [titleButton setTintColor:[UIColor whiteColor]];
-        
         //设置按钮的选中状态
         [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
-        
         [bottomView addSubview:titleButton];
     }
     
