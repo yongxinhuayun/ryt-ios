@@ -5,6 +5,12 @@
       "scale" : "1x"
     },
     {
+      "alignment-insets" : {
+        "top" : 0.5,
+        "left" : 0.5,
+        "bottom" : 0,
+        "right" : 0
+      },
       "idiom" : "universal",
       "filename" : "AddGroupMemberBtnHL@2x.png",
       "scale" : "2x"

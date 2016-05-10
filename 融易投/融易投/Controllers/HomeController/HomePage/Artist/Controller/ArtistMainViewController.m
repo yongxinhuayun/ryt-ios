@@ -22,6 +22,8 @@
 
 #import "ReleaseVideoViewController.h"
 #import "ReleasePicViewController.h"
+#import "ReleaseProjectViewController.h"
+#import "ComposeProjectViewController.h"
 
 @interface ArtistMainViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -221,9 +223,9 @@ static NSString *ID = @"ArtistMainCell";
     
     ArtistMainCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
-    [cell.btn1 addTarget:self action:@selector(btn1Click:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.btn1 addTarget:self action:@selector(cellBtn1Clicked:event:) forControlEvents:UIControlEventTouchUpInside];
     
-    [cell.btn2 addTarget:self action:@selector(btn2Click:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.btn2 addTarget:self action:@selector(cellBtn2Clicked:event:) forControlEvents:UIControlEventTouchUpInside];
     
     ArtworkListModel *model = self.models[indexPath.row];
     
@@ -239,12 +241,41 @@ static NSString *ID = @"ArtistMainCell";
     return  model.cellHeight;
 }
 
--(void)btn1Click:(UIButton *)btn{
-
+- (void)cellBtn1Clicked:(UIButton *)btn event:(id)event
+{
+    
     SSLog(@"btn1Click");
+    
+    if ([btn.titleLabel.text isEqualToString:@"提交项目"]) {
+        
+        
+        
+    }else {
+        
+        //创作完成
+        SSLog(@"创作完成");
+        btn.superview.hidden = YES;
+        
+        NSSet *touches =[event allTouches];
+        UITouch *touch =[touches anyObject];
+        CGPoint currentTouchPosition = [touch locationInView:self.tableView];
+        NSIndexPath *indexPath= [self.tableView indexPathForRowAtPoint:currentTouchPosition];
+        
+        
+        if (indexPath!= nil) {
+            
+            //局部刷新数据
+            NSArray *indexPaths = @[
+                                    indexPath,
+                                    ];
+            
+            [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+        }
+    }
 }
 
--(void)btn2Click:(UIButton *)btn{
+- (void)cellBtn2Clicked:(UIButton *)btn event:(id)event
+{
     
     SSLog(@"btn2Click");
     
@@ -254,12 +285,20 @@ static NSString *ID = @"ArtistMainCell";
         [self publishState];
         
     }else {
-    
+        
         //编辑项目
+        // 弹出发微博控制器
+//        ReleaseProjectViewController *releaseProject = [[ReleaseProjectViewController alloc] init];
+//        
+//        [self.navigationController pushViewController:releaseProject animated:YES];
+        
+        ComposeProjectViewController *releaseProject = [[ComposeProjectViewController alloc] init];
+
+        [self.navigationController pushViewController:releaseProject animated:YES];
     }
-    
-   
 }
+
+
 
 //发布动态
 -(void)publishState{
@@ -322,31 +361,28 @@ static NSString *ID = @"ArtistMainCell";
 //-----------------------联动-----------------------
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
-    //    if (scrollView == self.tableView)
-    //    {
-    //        CGFloat sectionHeaderHeight = 80; //sectionHeaderHeight
-    //        if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
-    //            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
-    //        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
-    //            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
-    //        }
-    //    }
+    if (scrollView == self.tableView)
+    {
+        CGFloat sectionHeaderHeight = 80; //sectionHeaderHeight
+        if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+        }
+    }
     CGPoint offset = scrollView.contentOffset;
-    NSLog(@"(%f,%f)",offset.x,offset.y);
     UIScrollView *superView = (UIScrollView *)scrollView.superview.superview.superview.superview;
-    
-    NSLog(@"topHeight = %f,y = %f",self.topHeight,superView.contentOffset.y);
     if (superView.contentOffset.y >= self.topHeight) {
         self.isfoot = NO;
         superView.contentOffset = CGPointMake(0, self.topHeight);
         scrollView.scrollEnabled = YES;
     }
-    if (superView.contentOffset.y <= 0) {
+    if (superView.contentOffset.y < -64) {
         self.isfoot = YES;
-        superView.contentOffset = CGPointMake(0, 0);
+        superView.contentOffset = CGPointMake(0, -64);
         scrollView.scrollEnabled = YES;
     }
-    NSLog(@"bool = %d",self.isfoot);
+    //    NSLog(@"bool = %d",self.isfoot);
     CGFloat zeroY = superView.contentOffset.y + scrollView.contentOffset.y;
     if (self.isfoot && scrollView.contentOffset.y > 0) {
         superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
@@ -364,31 +400,10 @@ static NSString *ID = @"ArtistMainCell";
         zeroY = superView.contentOffset.y + y;
         
         if (zeroY < 0) {
-            [superView setContentOffset:CGPointZero animated:YES];
+            [superView setContentOffset:CGPointMake(0, -64) animated:YES];
         }else{
             superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
         }
-        //        if (scrollView.contentOffset.y > -10) {
-        //            if (zeroY < 0) {
-        //                [superView setContentOffset:CGPointZero animated:YES];
-        //            }else{
-        //                superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
-        //            }
-        //        }else{
-        //            superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
-        //            if (scrollView.contentOffset.y <= -100) {
-        //                [superView setContentOffset:CGPointMake(0, superView.contentOffset.y + y) animated:YES];
-        //            }else
-        //            {
-        //
-        //                if (zeroY < 0) {
-        //                    superView.contentOffset = CGPointZero;
-        //                }else{
-        //                 [superView setContentOffset:CGPointMake(0, superView.contentOffset.y + y) animated:YES];
-        //                }
-        //
-        //            }
-        //        }
     }
 }
 //-----------------------联动-----------------------

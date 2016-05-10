@@ -40,6 +40,7 @@
     self.projectTitle.text = model.title;
     self.projectTotal.text = [NSString stringWithFormat:@"%ld",model.investGoalMoney];
     self.projectDes.text = [NSString stringWithFormat:@"项目描述:   %@",model.brief];
+    NSLog(@"%@",model.brief);
     
     //判断当前项目处于什么状态
     if ([model.step isEqualToString:@"12"]||[model.step isEqualToString:@"14"]||[model.step isEqualToString:@"15"]){

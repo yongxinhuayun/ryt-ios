@@ -173,6 +173,21 @@
         
     }else{ //赞
         
+        UILabel *num = [[UILabel alloc] initWithFrame:button.frame];
+        num.center = button.center;
+        num.textAlignment = NSTextAlignmentCenter;
+        num.text = @"+1";
+        num.textColor = [UIColor redColor];
+        [self addSubview:num];
+        [UIView animateWithDuration:0.5 animations:^{
+            CGFloat x = num.centerX;
+            CGPoint p = CGPointMake(x, num.y - num.height);
+            num.center = p;
+            num.alpha = 0;
+        } completion:^(BOOL finished) {
+            [num removeFromSuperview];
+        }];
+        
         //1. 按钮变成选中图片
         [button setImage:[UIImage imageNamed:@"dianzanhou"] forState:UIControlStateNormal];
         //2. 点赞数加一,直接修改模型中的数据,因为模型中的顶是个字符串,所以需要拼接

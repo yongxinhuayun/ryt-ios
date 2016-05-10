@@ -190,6 +190,8 @@
 		21D54B8D1CB660970088D386 /* ArtistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D54B8B1CB660970088D386 /* ArtistTableViewCell.xib */; };
 		21D54B921CB739E60088D386 /* AuctionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D54B911CB739E60088D386 /* AuctionTableViewCell.xib */; };
 		21D54BCF1CB796CD0088D386 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21D54BCE1CB796CD0088D386 /* messages.plist */; };
+		21D8FCE11CE1B8260000A32A /* ComposeProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D8FCE01CE1B8260000A32A /* ComposeProjectViewController.m */; };
+		21D8FCE31CE1B88F0000A32A /* ComposeProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D8FCE21CE1B88F0000A32A /* ComposeProjectViewController.xib */; };
 		BC4A8BFAB939A8BBE3AF0A2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFB6E4A926D52C7C2AE4F6C /* libPods.a */; };
 		E2288DF61CDC290C00483F18 /* UserReplyCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2288DF41CDC290C00483F18 /* UserReplyCommentCell.m */; };
 		E2288DF71CDC290C00483F18 /* UserReplyCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2288DF51CDC290C00483F18 /* UserReplyCommentCell.xib */; };
@@ -960,6 +962,9 @@
 		21D54B8B1CB660970088D386 /* ArtistTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistTableViewCell.xib; sourceTree = "<group>"; };
 		21D54B911CB739E60088D386 /* AuctionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionTableViewCell.xib; sourceTree = "<group>"; };
 		21D54BCE1CB796CD0088D386 /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
+		21D8FCDF1CE1B8260000A32A /* ComposeProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeProjectViewController.h; sourceTree = "<group>"; };
+		21D8FCE01CE1B8260000A32A /* ComposeProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeProjectViewController.m; sourceTree = "<group>"; };
+		21D8FCE21CE1B88F0000A32A /* ComposeProjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeProjectViewController.xib; sourceTree = "<group>"; };
 		AC411E3C5CA46BB337E074BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E2288DF31CDC290C00483F18 /* UserReplyCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserReplyCommentCell.h; sourceTree = "<group>"; };
 		E2288DF41CDC290C00483F18 /* UserReplyCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserReplyCommentCell.m; sourceTree = "<group>"; };
@@ -1590,6 +1595,9 @@
 		212EEE9F1CE092F900F94B30 /* ComposeProject */ = {
 			isa = PBXGroup;
 			children = (
+				21D8FCDF1CE1B8260000A32A /* ComposeProjectViewController.h */,
+				21D8FCE01CE1B8260000A32A /* ComposeProjectViewController.m */,
+				21D8FCE21CE1B88F0000A32A /* ComposeProjectViewController.xib */,
 			);
 			path = ComposeProject;
 			sourceTree = "<group>";
@@ -3414,11 +3422,6 @@
 				218D2B371CACB2E3004553B9 /* Main */,
 				E2DDB19A1CABA64E007438E4 /* Controller */,
 				E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */,
-
-				212EEE7E1CE0240C00F94B30 /* Info.plist */,
-				E2E842291CE01F860047D86C /* Info.plist */,
-
-
 				E236C3231CB4E27E009DCBF0 /* PushConfig.plist */,
 				212EEE901CE0685700F94B30 /* Info.plist */,
 				218D2B5B1CACB5B9004553B9 /* Launch Screen.storyboard */,
@@ -3739,12 +3742,7 @@
 				E228937F1CDF049500483F18 /* lxh_haoaio.gif in Resources */,
 				219ACA561CBE3F100052146E /* picture4.png in Resources */,
 				E22893901CDF049500483F18 /* lxh_jiekexun@2x.png in Resources */,
-
-				212EEE7F1CE0240C00F94B30 /* Info.plist in Resources */,
-				E2E8422A1CE01F860047D86C /* Info.plist in Resources */,
-
 				212EEE911CE0685700F94B30 /* Info.plist in Resources */,
-
 				E22892A91CDF03F400483F18 /* d_shuijiao@2x.png in Resources */,
 				E22893781CDF049500483F18 /* lxh_buxiangshangban@2x.png in Resources */,
 				E22892A21CDF03F400483F18 /* d_nvhaier@2x.png in Resources */,
@@ -3819,6 +3817,7 @@
 				E2729B071CD8BB0D006C0617 /* FinanceHeader.xib in Resources */,
 				E2D524E91CDFA19A0024887A /* EditingSignatureViewController.xib in Resources */,
 				E228929E1CDF03F400483F18 /* d_madaochenggong@2x.png in Resources */,
+				21D8FCE31CE1B88F0000A32A /* ComposeProjectViewController.xib in Resources */,
 				E22893C21CDF049500483F18 /* lxh_tuijian@2x.png in Resources */,
 				E228937D1CDF049500483F18 /* lxh_geijin.png in Resources */,
 				E22893691CDF049500483F18 /* lxh_beicui@2x.png in Resources */,
@@ -4257,6 +4256,7 @@
 				2168EAE61CBFA05000B7E037 /* FinanceDetailSecondCell.m in Sources */,
 				21D54B8C1CB660970088D386 /* ArtistTableViewCell.m in Sources */,
 				E2D521B11CDF783B0024887A /* UserBriefMyModel.m in Sources */,
+				21D8FCE11CE1B8260000A32A /* ComposeProjectViewController.m in Sources */,
 				E2D524D41CDFA1330024887A /* ArtistUserHeaderView.m in Sources */,
 				2187B93F1CCDF14000B92435 /* TYBasePageTabBar.m in Sources */,
 				E2D5243E1CDF99430024887A /* FocusMyUserTableViewController.m in Sources */,
