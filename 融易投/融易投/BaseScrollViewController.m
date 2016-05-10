@@ -31,9 +31,6 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@"------------------------scrollView(y=%f)",scrollView.contentOffset.y);
-}
 //懒加载
 -(UIView *)topview{
     if (!_topview) {

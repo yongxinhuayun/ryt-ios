@@ -99,38 +99,6 @@ static NSString *ID = @"userCommentCell";
         for (ArtworkCommentListModel *m in self.models) {
             NSLog(@"model : %@,%@ \n",m.ID,m.content);
         }
-        
-
-
-//        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-//        
-//        NSLog(@"%@",modelDict);
-//        
-//        UserCommentObjectModel *model = [UserCommentObjectModel mj_objectWithKeyValues:modelDict[@"object"]];
-//        
-//        NSLog(@"%@",model);
-//        
-//        
-//        self.models = model.artworkCommentList;
-//        
-//        NSLog(@"------%@",[self.models class]);
-//        
-//        NSLog(@"------%@",self.models);
-//        
-//        NSLog(@"--------%ld",self.models.count);
-//        
-//        for (ArtworkCommentListModel *model in self.models) {
-//            
-//            NSLog(@"%@",model);
-//            
-//            NSLog(@"%ld",model.createDatetime);
-//        }
-        
-        
-        //4. 刷新数据
-        //        [self.tableView reloadData];
-        
-        //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
             [self.tableView reloadData];
@@ -181,6 +149,7 @@ static NSString *ID = @"userCommentCell";
 //-----------------------联动-----------------------
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
+    if (self.topHeight > 0) {
     if (scrollView == self.tableView)
     {
         CGFloat sectionHeaderHeight = 80; //sectionHeaderHeight
@@ -224,6 +193,7 @@ static NSString *ID = @"userCommentCell";
         }else{
             superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
         }
+    }
     }
 }
 //-----------------------联动-----------------------
