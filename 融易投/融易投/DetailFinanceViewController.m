@@ -145,7 +145,13 @@
     PostCommentController * postComment = [[PostCommentController alloc] init];
     postComment.title = @"评论";
 //    financeModel
-//    postComment.artworkId =
+//    @property(nonatomic,copy) NSString *artworkId;
+//    @property(nonatomic,copy) NSString *currentUserId;
+//    @property(nonatomic,copy) NSString *messageId;
+//    @property(nonatomic,copy) NSString *fatherCommentId;
+    postComment.artworkId = self.financeModel.ID;
+    postComment.currentUserId = @"khsadkovihso";
+    postComment.messageId = self.financeModel.ID;
     [self.navigationController pushViewController:postComment animated:YES];
 }
 

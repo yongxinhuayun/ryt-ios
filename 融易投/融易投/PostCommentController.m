@@ -50,38 +50,39 @@
 
 -(void)send{
     SSLog(@"``````````%@",self.commentView.text);
+    [self postComment];
 }
 
 //发布评论
-//-(void)loadData
-//{
-//    //参数
+-(void)postComment
+{
+    //参数
 //    NSString *currentUserId = @"imhipoyk18s4k52u";
-//    NSString *timestamp = [MyMD5 timestamp];
-//    NSString *appkey = MD5key;
-//    NSString *signmsg = [NSString stringWithFormat:@"artWorkId=%@&currentUserId=%@&timestamp=%@&key=%@",self.artWorkId,currentUserId,timestamp,appkey];
-//    NSLog(@"%@",signmsg);
-//    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-//    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-//    NSString *url = @"http://192.168.1.41:8080/app/investorArtWorkView.do";
-//    // 3.设置请求体
-//    NSDictionary *json = @{
-//                           @"artWorkId" : self.artWorkId,
-//                           @"currentUserId":currentUserId,
-//                           @"timestamp" : timestamp,
-//                           @"signmsg"   : signmsgMD5
-//                           };
-//    
-//    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
-//        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-//        //        NSLog(@"%@",modelDict);
-//        //字典数组 -> 模型数组
-//        //在主线程刷新UI数据
-//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//            [self.tableView reloadData];
-//        }];
-//    }];
-//}
+    NSString *timestamp = [MyMD5 timestamp];
+    NSString *appkey = MD5key;
+    NSString *signmsg = [NSString stringWithFormat:@"artwork_id=%@&timestamp=%@&key=%@",self.artworkId,timestamp,appkey];
+    NSLog(@"%@",signmsg);
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+    NSString *url = @"http://192.168.1.41:8085/app/saveComment.do";
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"artwork_id" : self.artworkId,
+                           @"username" : self.currentUserId,
+                           @"content":self.commentView.text,
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5,
+                           @"father_comment_id":@""
+                           };
+    
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        SSLog(@"%@",modelDict);
+        //字典数组 -> 模型数组
+        //在主线程刷新UI数据
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        }];
+    }];
+}
 
 
 
