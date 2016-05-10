@@ -20,7 +20,6 @@
 		212EEE8D1CE048C500F94B30 /* CommonUserHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE891CE048C500F94B30 /* CommonUserHeaderView.m */; };
 		212EEE8E1CE048C500F94B30 /* CommonUserHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE8A1CE048C500F94B30 /* CommonUserHeaderView.xib */; };
 		212EEE8F1CE048C500F94B30 /* CommonUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE8C1CE048C500F94B30 /* CommonUserHomeViewController.m */; };
-		212EEE911CE0685700F94B30 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE901CE0685700F94B30 /* Info.plist */; };
 		212EEE941CE08A3100F94B30 /* CommonTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE931CE08A3100F94B30 /* CommonTextView.m */; };
 		212EEE961CE08A3D00F94B30 /* CommonTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE951CE08A3D00F94B30 /* CommonTextView.xib */; };
 		212EEE9D1CE0916500F94B30 /* ArtWorkIdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE9C1CE0916500F94B30 /* ArtWorkIdModel.m */; };
@@ -463,6 +462,7 @@
 		E2729B021CD8B9F9006C0617 /* ProjectDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729B011CD8B9F9006C0617 /* ProjectDetailsViewController.m */; };
 		E2729B061CD8BB0D006C0617 /* FinanceHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729B041CD8BB0D006C0617 /* FinanceHeader.m */; };
 		E2729B071CD8BB0D006C0617 /* FinanceHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2729B051CD8BB0D006C0617 /* FinanceHeader.xib */; };
+		E2AAF0351CE1BF8D0009FD19 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2AAF0341CE1BF8D0009FD19 /* Info.plist */; };
 		E2D05B721CB38C8C00B0F690 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B711CB38C8C00B0F690 /* CoreTelephony.framework */; };
 		E2D05B741CB38CB100B0F690 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B731CB38CB100B0F690 /* SystemConfiguration.framework */; };
 		E2D05B761CB38CD000B0F690 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B751CB38CD000B0F690 /* libz.tbd */; };
@@ -667,7 +667,6 @@
 		212EEE8A1CE048C500F94B30 /* CommonUserHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonUserHeaderView.xib; sourceTree = "<group>"; };
 		212EEE8B1CE048C500F94B30 /* CommonUserHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUserHomeViewController.h; sourceTree = "<group>"; };
 		212EEE8C1CE048C500F94B30 /* CommonUserHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUserHomeViewController.m; sourceTree = "<group>"; };
-		212EEE901CE0685700F94B30 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		212EEE921CE08A3100F94B30 /* CommonTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTextView.h; sourceTree = "<group>"; };
 		212EEE931CE08A3100F94B30 /* CommonTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTextView.m; sourceTree = "<group>"; };
 		212EEE951CE08A3D00F94B30 /* CommonTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonTextView.xib; sourceTree = "<group>"; };
@@ -1269,6 +1268,7 @@
 		E2729B031CD8BB0D006C0617 /* FinanceHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceHeader.h; sourceTree = "<group>"; };
 		E2729B041CD8BB0D006C0617 /* FinanceHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceHeader.m; sourceTree = "<group>"; };
 		E2729B051CD8BB0D006C0617 /* FinanceHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceHeader.xib; sourceTree = "<group>"; };
+		E2AAF0341CE1BF8D0009FD19 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2D05B711CB38C8C00B0F690 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		E2D05B731CB38CB100B0F690 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E2D05B751CB38CD000B0F690 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -3422,8 +3422,8 @@
 				218D2B371CACB2E3004553B9 /* Main */,
 				E2DDB19A1CABA64E007438E4 /* Controller */,
 				E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */,
+				E2AAF0341CE1BF8D0009FD19 /* Info.plist */,
 				E236C3231CB4E27E009DCBF0 /* PushConfig.plist */,
-				212EEE901CE0685700F94B30 /* Info.plist */,
 				218D2B5B1CACB5B9004553B9 /* Launch Screen.storyboard */,
 				21D54BCE1CB796CD0088D386 /* messages.plist */,
 				21D54BAB1CB796B40088D386 /* images */,
@@ -3742,7 +3742,6 @@
 				E228937F1CDF049500483F18 /* lxh_haoaio.gif in Resources */,
 				219ACA561CBE3F100052146E /* picture4.png in Resources */,
 				E22893901CDF049500483F18 /* lxh_jiekexun@2x.png in Resources */,
-				212EEE911CE0685700F94B30 /* Info.plist in Resources */,
 				E22892A91CDF03F400483F18 /* d_shuijiao@2x.png in Resources */,
 				E22893781CDF049500483F18 /* lxh_buxiangshangban@2x.png in Resources */,
 				E22892A21CDF03F400483F18 /* d_nvhaier@2x.png in Resources */,
@@ -3818,6 +3817,7 @@
 				E2D524E91CDFA19A0024887A /* EditingSignatureViewController.xib in Resources */,
 				E228929E1CDF03F400483F18 /* d_madaochenggong@2x.png in Resources */,
 				E22893C21CDF049500483F18 /* lxh_tuijian@2x.png in Resources */,
+				E2AAF0351CE1BF8D0009FD19 /* Info.plist in Resources */,
 				E228937D1CDF049500483F18 /* lxh_geijin.png in Resources */,
 				E22893691CDF049500483F18 /* lxh_beicui@2x.png in Resources */,
 				21AB0AA51CC4F6AE00B7BA03 /* XiangqingViewController.storyboard in Resources */,
