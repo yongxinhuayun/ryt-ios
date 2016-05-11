@@ -29,9 +29,6 @@
 //imagePicker队列
 @property (nonatomic,strong)NSMutableArray *imagePickerArray;
 
-- (IBAction)promuThings:(id)sender;
-
-
 @end
 
 @implementation ReleaseViewController
@@ -60,7 +57,7 @@
 -(void)setUpNavBar
 {
     //设置导航条标题
-    self.navigationItem.title = @"发布动态";
+    self.navigationItem.title = @"发起新项目";
     
     
     //设置导航条按钮
@@ -103,7 +100,18 @@
 -(void)initHeaderView
 {
     UIView *headView = [[UIView alloc]initWithFrame:CGRectZero];
-    UITextView *reportStateTextView = [[UITextView alloc]initWithFrame:CGRectMake(padding, padding, screenWidth - 2 * padding, textViewHeight)];
+    
+    //项目介绍
+    UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding, padding, 200, 10)];
+    nameLabel.text = @"项目介绍";
+    nameLabel.font = [UIFont systemFontOfSize:15];
+    nameLabel.textColor = [UIColor blackColor];
+    [headView addSubview:nameLabel];
+    
+    NSInteger headViewHeight = CGRectGetMaxY(nameLabel.frame);
+    
+    
+    UITextView *reportStateTextView = [[UITextView alloc]initWithFrame:CGRectMake(padding, headViewHeight + padding, screenWidth - 2 * padding, textViewHeight)];
     reportStateTextView.text = self.reportStateTextView.text;  //防止用户已经输入了文字状态
     reportStateTextView.returnKeyType = UIReturnKeyDone;
     reportStateTextView.font = [UIFont systemFontOfSize:15];
@@ -111,8 +119,8 @@
     self.reportStateTextView.delegate = self;
     [headView addSubview:reportStateTextView];
     
-    UILabel *pLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding+5, 2 * padding, screenWidth, 10)];
-    pLabel.text = @"这一刻的想法...";
+    UILabel *pLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding + 5, headViewHeight + padding * 2, screenWidth, 10)];
+    pLabel.text = @"请填写项目的说明内容...";
     pLabel.hidden = [self.reportStateTextView.text length];
     pLabel.font = [UIFont systemFontOfSize:15];
     pLabel.textColor = [UIColor colorWithRed:152/255.0 green:152/255.0 blue:152/255.0 alpha:1];
@@ -146,7 +154,7 @@
         self.addPictureButton = addPictureButton;
     }
     
-    NSInteger headViewHeight = 120 + (10 + pictureHW)*([self.imagePickerArray count]/4 + 1);
+    headViewHeight = 120 + (10 + pictureHW)*([self.imagePickerArray count]/4 + 1);
     headView.frame = CGRectMake(0, 0, screenWidth, headViewHeight);
     
     self.tableView.tableHeaderView = headView;
@@ -262,13 +270,6 @@
     return _imagePickerArray;
 }
 
-- (IBAction)promuThings:(id)sender {
-    
-    NSLog(@"打印发布");
-    //url :assets-library://asset/
-    [self sendStatusWithImage];
-    NSLog(@" self.imageArr%@,",self.imagePickerArray);
-}
 
 #pragma mark - UIGesture Delegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
