@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CommonTextView">
-            <rect key="frame" x="0.0" y="0.0" width="350" height="197"/>
+            <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创作过程说明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39f-UO-MA8">
@@ -47,6 +47,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="label" destination="39f-UO-MA8" id="xe1-1m-EZ8"/>
+                <outlet property="placeholderLabel" destination="lmC-6U-UnB" id="UWi-c6-5uL"/>
+                <outlet property="textView" destination="Tev-aJ-H5z" id="V7N-P6-aQ9"/>
             </connections>
             <point key="canvasLocation" x="135" y="-6.5"/>
         </view>

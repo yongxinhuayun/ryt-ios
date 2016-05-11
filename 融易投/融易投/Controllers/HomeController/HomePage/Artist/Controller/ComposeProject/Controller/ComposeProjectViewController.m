@@ -13,35 +13,66 @@
 #import "ArtWorkIdModel.h"
 #import <MJExtension.h>
 
+#import "FabuProjectView.h"
+
 
 #import <SVProgressHUD.h>
 
 @interface ComposeProjectViewController ()<UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIScrollViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) UIScrollView *scrollView;
 
-@property (weak, nonatomic) IBOutlet UITextField *projectTextField;
-@property (weak, nonatomic) IBOutlet UITextView *progectTextView;
-
-@property (weak, nonatomic) IBOutlet UITextField *projecTotaltTextField;
-@property (weak, nonatomic) IBOutlet UITextField *projectTimeTextField;
-@property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
-
+@property (strong,nonatomic) FabuProjectView *composeProjectView;
 @property (strong,nonatomic) NSString *createPath;
 
 @end
 
 @implementation ComposeProjectViewController
 
+-(UIScrollView *)scrollView{
+
+    if (_scrollView == nil) {
+        
+        _scrollView = [[UIScrollView alloc] init];
+    }
+    return  _scrollView;
+}
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
-    CGFloat height = CGRectGetMaxY(_imageView.frame);
+    self.view.backgroundColor = [UIColor whiteColor];
     
-    self.scrollView.contentSize = CGSizeMake(SSScreenW - 2 * SSMargin, height);
+    self.scrollView.frame = CGRectMake(0, 0, SSScreenW, SSScreenH);
+
+    
+    FabuProjectView *composeProjectView = [FabuProjectView composeProjectView];
+    composeProjectView.frame = CGRectMake(0, 0, SSScreenW, SSScreenH + 200);
+    self.composeProjectView = composeProjectView;
+    
+    
+    
+    CGFloat height = CGRectGetMaxY(composeProjectView.nextBtn.frame);
+    
+    self.scrollView.contentSize = CGSizeMake(0, height + SSMargin);
     self.scrollView.delegate = self;
     self.scrollView.scrollEnabled = YES;
+    
+//    [self.view addSubview:nextBtn];
+//    [self.view bringSubviewToFront:nextBtn];
+//    [self.view insertSubview:nextBtn belowSubview:self.view];
+//    [self.scrollView addSubview:nextBtn];
+    
+    [composeProjectView.nextBtn addTarget:self action:@selector(nextBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    [self.scrollView addSubview:composeProjectView];
+    
+    
+    [self.view addSubview:self.scrollView];
+    
+
     
     [self setUpNavBar];
     
@@ -52,7 +83,7 @@
     //记住:UIImageView默认情况下是不能接收事件的,如果要执行点击方法,必须把默认的User interaction Enable 改成yes
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
     
-    [self.imageView addGestureRecognizer:tapGesture];
+    [self.composeProjectView.imageView addGestureRecognizer:tapGesture];
     
 }
 
@@ -68,7 +99,7 @@
 //    self.automaticallyAdjustsScrollViewInsets = false;
     
     //设置placeholderLabel隐藏
-    self.placeholderLabel.hidden = [self.progectTextView.text length];
+    self.composeProjectView.placeholderLabel.hidden = [self.composeProjectView.progectTextView.text length];
     
     //添加边框
 //    self.progectTextView.layer.backgroundColor = [[UIColor clearColor] CGColor];
@@ -82,28 +113,28 @@
 //    [self.progectTextView.layer setMasksToBounds:YES];
     
     
-    self.progectTextView.delegate = self;
+    self.composeProjectView.progectTextView.delegate = self;
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
-    [self.projectTextField resignFirstResponder];
-    [self.progectTextView resignFirstResponder];
-    [self.projecTotaltTextField resignFirstResponder];
-    [self.projectTimeTextField resignFirstResponder];
+    [self.composeProjectView.projectTextField resignFirstResponder];
+    [self.composeProjectView.progectTextView resignFirstResponder];
+    [self.composeProjectView.projecTotaltTextField resignFirstResponder];
+    [self.composeProjectView.projectTimeTextField resignFirstResponder];
 }
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
 
-    [self.projectTextField resignFirstResponder];
-    [self.progectTextView resignFirstResponder];
-    [self.projecTotaltTextField resignFirstResponder];
-    [self.projectTimeTextField resignFirstResponder];
+    [self.composeProjectView.projectTextField resignFirstResponder];
+    [self.composeProjectView.progectTextView resignFirstResponder];
+    [self.composeProjectView.projecTotaltTextField resignFirstResponder];
+    [self.composeProjectView.projectTimeTextField resignFirstResponder];
 }
 
 #pragma mark - Text View Delegate
 -(void)textViewDidChange:(UITextView *)textView
 {
-    self.placeholderLabel.hidden = [textView.text length];
+    self.composeProjectView.placeholderLabel.hidden = [textView.text length];
 }
 
 
@@ -111,8 +142,8 @@
 {
     if ([@"\n" isEqualToString:text])
     {
-        if ([self.progectTextView.text length]) {
-            [self.progectTextView resignFirstResponder];
+        if ([self.composeProjectView.progectTextView.text length]) {
+            [self.composeProjectView.progectTextView resignFirstResponder];
         }
         else
         {
@@ -180,7 +211,8 @@
     
     
 }
-- (IBAction)nextBtnClick:(id)sender {
+
+- (void)nextBtnClick:(UIButton *)btn{
     
     if ([self panduanWeiKong]) {
         
@@ -197,7 +229,7 @@
     BOOL isSpace = YES;
     
     //判断是否填写了项目标题
-    if ([self.projectTextField.text isEqualToString:@""]) {
+    if ([self.composeProjectView.projectTextField.text isEqualToString:@""]) {
         
         [SVProgressHUD showInfoWithStatus:@"项目标题不能为空"];
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
@@ -206,7 +238,7 @@
     }
     
     //判断是否填写了项目简介
-    if (!(self.progectTextView.text.length > 0)) {
+    if (!(self.composeProjectView.progectTextView.text.length > 0)) {
         
         [SVProgressHUD showInfoWithStatus:@"项目简介不能为空"];
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
@@ -215,7 +247,7 @@
     }
     
     //判断是否填写了创作时长
-    if ([self.projectTimeTextField.text isEqualToString:@""]) {
+    if ([self.composeProjectView.projectTimeTextField.text isEqualToString:@""]) {
         
         [SVProgressHUD showInfoWithStatus:@"创作时长不能为空"];
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
@@ -224,7 +256,7 @@
     }
     
     //判断是否填写了融资金额
-    if ([self.projecTotaltTextField.text isEqualToString:@""]) {
+    if ([self.composeProjectView.projecTotaltTextField.text isEqualToString:@""]) {
         
         [SVProgressHUD showInfoWithStatus:@"融资金额不能为空"];
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
@@ -233,7 +265,7 @@
     }
     
     //判断是否上传了图片
-    if (self.imageView.contentMode != UIViewContentModeScaleToFill) {
+    if (self.composeProjectView.imageView.contentMode != UIViewContentModeScaleToFill) {
         
         [SVProgressHUD showInfoWithStatus:@"请上传项目的效果图或参考图"];
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
@@ -253,12 +285,12 @@
     //    NSString *title = [projectTitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     
-    NSString *title =  self.projectTextField.text;
-    NSString *brief = self.progectTextView.text;
-    NSString *duration = self.projectTimeTextField.text;
+    NSString *title =  self.composeProjectView.projectTextField.text;
+    NSString *brief = self.composeProjectView.progectTextView.text;
+    NSString *duration = self.composeProjectView.projectTimeTextField.text;
     NSString *userId = @"imhfp1yr4636pj49";
     NSString *picture_url = self.createPath;
-    NSString *investGoalMoney = self.projecTotaltTextField.text;
+    NSString *investGoalMoney = self.composeProjectView.projecTotaltTextField.text;
     
     NSString *timestamp = [MyMD5 timestamp];
     NSString *appkey = MD5key;
@@ -352,7 +384,7 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     //移除原来的图片
-    self.imageView.image = nil;
+    self.composeProjectView.imageView.image = nil;
     
     //保存被选中图片
     //UIImagePickerControllerEditedImage
@@ -370,8 +402,8 @@
     
     //    NSData *data = UIImagePNGRepresentation(newImage);
     //    NSString *filename = @"image";
-    self.imageView.contentMode = UIViewContentModeScaleToFill;
-    self.imageView.image = newImage;
+    self.composeProjectView.imageView.contentMode = UIViewContentModeScaleToFill;
+    self.composeProjectView.imageView.image = newImage;
     
     selctedImage = nil;
     

@@ -17,6 +17,13 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
 
+#import "ReleaseProjectCell1.h"
+#import "ReleaseProjectCell2.h"
+
+#import "SettingFooterView.h"
+
+
+
 @interface ReleaseViewController ()
 <UITextViewDelegate,UIGestureRecognizerDelegate>
 
@@ -29,9 +36,15 @@
 //imagePicker队列
 @property (nonatomic,strong)NSMutableArray *imagePickerArray;
 
+@property (nonatomic,strong)ReleaseProjectCell1 *cell1;
+@property (nonatomic,strong)ReleaseProjectCell2 *cell2;
+
 @end
 
 @implementation ReleaseViewController
+
+static NSString *ID1 = @"ReleaseProjectCell1";
+static NSString *ID2 = @"ReleaseProjectCell2";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,6 +64,12 @@
     
     //初始化头部视图
     [self initHeaderView];
+    
+    //注册创建cell ,这样注册就不用在XIB设置ID
+    [self.tableView registerNib:[UINib nibWithNibName:@"ReleaseProjectCell1" bundle:nil] forCellReuseIdentifier:ID1];
+    
+       [self.tableView registerNib:[UINib nibWithNibName:@"ReleaseProjectCell2" bundle:nil] forCellReuseIdentifier:ID2];
+    
 }
 
 // 设置导航条
@@ -58,36 +77,6 @@
 {
     //设置导航条标题
     self.navigationItem.title = @"发起新项目";
-    
-    
-    //设置导航条按钮
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    [rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
-    [rightButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    
-    [rightButton setTitle:@"发送" forState:UIControlStateNormal];
-    
-    //运行程序,发现按钮没有出现导航条上面,因为没有设置尺寸
-    [rightButton sizeToFit];
-    
-    [rightButton addTarget:self action:@selector(send) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-    
-    self.navigationItem.rightBarButtonItem = rightBarButton;
-    
-}
-
--(void)send{
-    
-    
-    SSLog(@"发布");
-    
-    [self sendStatusWithImage];
-    
-//    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -102,7 +91,7 @@
     UIView *headView = [[UIView alloc]initWithFrame:CGRectZero];
     
     //项目介绍
-    UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding, padding, 200, 10)];
+    UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding + 5, padding, 200, 10)];
     nameLabel.text = @"项目介绍";
     nameLabel.font = [UIFont systemFontOfSize:15];
     nameLabel.textColor = [UIColor blackColor];
@@ -166,6 +155,7 @@
     if ([self.reportStateTextView isFirstResponder]) {
         [self.reportStateTextView resignFirstResponder];
     }
+    
 //    self.tableView.scrollEnabled = NO;
     [self initImagePickerChooseView];
 }
@@ -185,6 +175,8 @@
 -(void)dismiss:(UITapGestureRecognizer *)tap
 {
     [self.reportStateTextView resignFirstResponder];
+    [self.cell1.textView resignFirstResponder];
+    [self.cell2.textView resignFirstResponder];
 }
 
 // 删除图片
@@ -285,6 +277,8 @@
 -(void)textViewDidChange:(UITextView *)textView
 {
     self.pLabel.hidden = [textView.text length];
+     self.pLabel.hidden = [textView.text length];
+     self.pLabel.hidden = [textView.text length];
 }
 
 
@@ -317,101 +311,64 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *identifier = @"ReportStateCell";
     
-    //缓存中取
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    
-    //创建
-    if (!cell)
-    {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    
+    ReleaseProjectCell1 *cell1 = [tableView dequeueReusableCellWithIdentifier:ID1];
+    self.cell1 = cell1;
+    ReleaseProjectCell2 *cell2 = [tableView dequeueReusableCellWithIdentifier:ID2];
+     self.cell2 = cell2;
+
     if (indexPath.section == 0) {
 
-        
-        UITextView *processDescription = [[UITextView alloc]initWithFrame:CGRectMake(10, 10, self.view.bounds.size.width-20, 100)];
-        
-        processDescription.backgroundColor = [UIColor redColor];
-        [cell addSubview:processDescription];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+        return cell1;
         
     } else {
         
-        UITextView *processDescription = [[UITextView alloc]initWithFrame:CGRectMake(10, 10, self.view.bounds.size.width-20, 100)];
-        processDescription.backgroundColor = [UIColor redColor];
-        [cell addSubview:processDescription];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.backgroundColor = [UIColor blackColor];
-        btn.frame = CGRectMake(110, 220, 200, 30);
-        [cell addSubview:btn];
-        
-    }
-    
-    
-    return cell;
-}
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if (section == 1) {
-        return 5;
-    }
-    else
-    {
-        return 1;
+        
+         return cell2;
+        
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 250;
+    return 200;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-//    //所在位置
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ReleaseViewController" bundle:[NSBundle mainBundle]];
-//    if (indexPath.section == 0) {
-//        UIViewController *locationVC = [storyboard instantiateViewControllerWithIdentifier:@"Location"];
-//        [self.navigationController pushViewController:locationVC animated:YES];
-//        
-//    }
-//    //对谁可见
-//    else
-//    {
-//        UIViewController *locationVC = [storyboard instantiateViewControllerWithIdentifier:@"WhoCanSee"];
-//        [self.navigationController pushViewController:locationVC animated:YES];
-//    }
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
+    SettingFooterView *footerView = [SettingFooterView settingFooterView];
+    [footerView.tuiChuBtn setTitle:@"完成" forState:UIControlStateNormal];
+    
+    [footerView.tuiChuBtn addTarget:self action:@selector(tuiChuLogn) forControlEvents:UIControlEventTouchUpInside];
+    
+    return footerView;
 }
-//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    //所在位置
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-//    if (indexPath.section == 0) {
-//        UIViewController *locationVC = [storyboard instantiateViewControllerWithIdentifier:@"Location"];
-//        [self.navigationController pushViewController:locationVC animated:YES];
-//    }
-//    //对谁可见
-//    else
-//    {
-//        UIViewController *locationVC = [storyboard instantiateViewControllerWithIdentifier:@"WhoCanSee"];
-//        [self.navigationController pushViewController:locationVC animated:YES];
-//    }
-//}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    
+    if (section == 1) {
+        
+        return 92;
+    }
+    
+    return 0;
+}
+
+-(void)tuiChuLogn{
+    
+    SSLog(@"完成");
+    
+    [self sendStatusWithImage];
+}
+
 
 - (void)sendStatusWithImage
 {
     //参数
-    //    NSString *projectDescription = @"和发货速度加快结构记得分别居";
-    //    NSString *description = [projectDescription stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *description = self.reportStateTextView.text;
     
-    //    NSString *projectDescription =  self.textView.text;
-    NSString *description = @"和发货速度加快结构记得分别居";
-    
-   // NSArray *file = self.photosView2.selectedPhotos;
     NSMutableArray *tempArray = [NSMutableArray array];
     
     NSInteger count = 0;
@@ -433,16 +390,9 @@
     
     NSArray *file = tempArray.copy;
 
+    NSString *make_instru = self.cell1.textView.text;
     
-    
-    //    NSString *make_instruDescription = @"和发货速度加快结构记得分别居";
-    //    NSString *make_instru = [make_instruDescription stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *make_instru = @"和发货速度加快结构记得分别居";
-    
-    //    NSString *financing_aqDescription = @"和发货速度加快结构记得分别居";
-    //    NSString *financing_aq = [financing_aqDescription stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    NSString *financing_aq = @"和发货速度加快结构记得分别居";
+    NSString *financing_aq = self.cell2.textView.text;
     
     NSString *artworkId = [[NSUserDefaults standardUserDefaults]objectForKey:@"artworkId"];
     
@@ -454,14 +404,15 @@
     NSString *signmsg = [NSString stringWithFormat:@"artworkId=%@&timestamp=%@&key=%@",artworkId,timestamp,appkey];
     
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    //    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-    NSString *url = @"http://192.168.1.69:8001/app/releaseArtworkDynamic.do";
+    
+    NSString *url = @"http://192.168.1.41:8085/app/initNewArtWork2.do";
     
     // 3.设置请求体
     NSDictionary *json = @{
-                           @"content" : description,
+                           @"description" : description,
+                           @"make_instru":make_instru,
+                           @"financing_aq":financing_aq,
                            @"file"        :file,
-                           @"type": @"0",
                            @"artworkId"   : artworkId,
                            @"timestamp" : timestamp,
                            @"signmsg"   : signmsgMD5
@@ -479,8 +430,10 @@
         
         NSInteger imgCount = 0;
         
-//        for (UIImage *image in self.photosView2.selectedPhotos) {
-        for (UIImage *image in self.imagePickerArray) {
+         for (int i = 0; i < self.imagePickerArray.count; i++) {
+            
+            UIImage *image  =  [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray objectAtIndex:i]).thumbnail];
+            
             NSData *data = UIImageJPEGRepresentation(image, 1.0);
             
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

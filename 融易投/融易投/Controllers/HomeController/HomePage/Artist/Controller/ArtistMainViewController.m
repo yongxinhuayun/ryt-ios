@@ -22,7 +22,6 @@
 
 #import "ReleaseVideoViewController.h"
 #import "ReleasePicViewController.h"
-#import "ReleaseProjectViewController.h"
 #import "ComposeProjectViewController.h"
 
 @interface ArtistMainViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>

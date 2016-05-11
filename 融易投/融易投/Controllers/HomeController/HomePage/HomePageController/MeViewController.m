@@ -17,7 +17,7 @@
 
 #import <WechatShortVideoController.h>
 
-#import "ReleaseProjectViewController.h"
+
 
 #import "ArtistViewController.h"
 
