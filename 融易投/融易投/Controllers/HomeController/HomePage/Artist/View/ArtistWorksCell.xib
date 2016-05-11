@@ -27,31 +27,41 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="铜雕" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xC1-ev-EpU">
-                        <rect key="frame" x="10" y="200.5" width="34" height="20.5"/>
+                        <rect key="frame" x="10" y="200" width="34" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9J-8I-YdM">
-                        <rect key="frame" x="54" y="200.5" width="43.5" height="20.5"/>
+                        <rect key="frame" x="54" y="200" width="43.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/非卖品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gd-pq-SEc">
-                        <rect key="frame" x="107.5" y="200.5" width="57" height="20.5"/>
+                        <rect key="frame" x="107" y="200" width="57" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cik-XJ-l6a">
+                        <rect key="frame" x="261" y="20" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="MXO-Ht-FME"/>
+                            <constraint firstAttribute="width" constant="25" id="iIy-pQ-bKg"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="shanchu"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="gVt-GB-yim" firstAttribute="leading" secondItem="wvy-Hx-1xL" secondAttribute="leading" constant="10" id="C07-tX-vwy"/>
                     <constraint firstItem="A9J-8I-YdM" firstAttribute="centerY" secondItem="xC1-ev-EpU" secondAttribute="centerY" id="Fw1-0k-Ne3"/>
+                    <constraint firstItem="Cik-XJ-l6a" firstAttribute="trailing" secondItem="gVt-GB-yim" secondAttribute="trailing" constant="-10" id="HCQ-LN-6w4"/>
                     <constraint firstItem="A9J-8I-YdM" firstAttribute="leading" secondItem="xC1-ev-EpU" secondAttribute="trailing" constant="10" id="K1o-ur-VcL"/>
                     <constraint firstItem="2gd-pq-SEc" firstAttribute="leading" secondItem="A9J-8I-YdM" secondAttribute="trailing" constant="10" id="M9h-BR-Noi"/>
                     <constraint firstItem="xC1-ev-EpU" firstAttribute="leading" secondItem="gVt-GB-yim" secondAttribute="leading" id="TM9-zl-ohg"/>
                     <constraint firstItem="gVt-GB-yim" firstAttribute="top" secondItem="wvy-Hx-1xL" secondAttribute="top" constant="10" id="Ty4-eV-0Ps"/>
+                    <constraint firstItem="gVt-GB-yim" firstAttribute="top" secondItem="Cik-XJ-l6a" secondAttribute="top" constant="-10" id="Wh1-yL-1Of"/>
                     <constraint firstAttribute="trailing" secondItem="gVt-GB-yim" secondAttribute="trailing" constant="10" id="dxS-i0-p2Y"/>
                     <constraint firstItem="2gd-pq-SEc" firstAttribute="centerY" secondItem="xC1-ev-EpU" secondAttribute="centerY" id="fJK-Ah-7q5"/>
                     <constraint firstItem="xC1-ev-EpU" firstAttribute="top" secondItem="Ktu-Th-aMx" secondAttribute="bottom" constant="10" id="hEn-ja-dh7"/>
@@ -59,10 +69,14 @@
                     <constraint firstItem="Ktu-Th-aMx" firstAttribute="top" secondItem="gVt-GB-yim" secondAttribute="bottom" constant="10" id="pGZ-mQ-dJZ"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="shanchuBtn" destination="Cik-XJ-l6a" id="P8s-fg-m9C"/>
+            </connections>
             <point key="canvasLocation" x="189" y="291"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="headerImage" width="214" height="221"/>
+        <image name="shanchu" width="29" height="29"/>
     </resources>
 </document>

@@ -25,6 +25,7 @@
 @property (strong,nonatomic) FabuProjectView *composeProjectView;
 @property (strong,nonatomic) NSString *createPath;
 
+
 @end
 
 @implementation ComposeProjectViewController
@@ -36,6 +37,20 @@
         _scrollView = [[UIScrollView alloc] init];
     }
     return  _scrollView;
+}
+
+BOOL isPop = NO;
+
+-(void)viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:animated];
+    
+    if (isPop) {
+        
+        isPop = NO;
+        [self.navigationController popViewControllerAnimated:NO];
+    }
+    
 }
 
 - (void)viewDidLoad {
@@ -278,8 +293,8 @@
 
 -(void)loadData
 {
-    //参数
     
+    //参数
     //    NSString *projectTitle =  self.projectTextField.text;
     //
     //    NSString *title = [projectTitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -354,9 +369,12 @@
             
             [SVProgressHUD dismiss];
             
-            UIStoryboard *releaseStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
-            ReleaseViewController *releaseVC = [releaseStoryBoard instantiateInitialViewController];
-            [self.navigationController pushViewController:releaseVC animated:YES];
+          
+                UIStoryboard *releaseStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
+                ReleaseViewController *releaseVC = [releaseStoryBoard instantiateInitialViewController];
+                isPop = YES;
+                
+                [self.navigationController pushViewController:releaseVC animated:YES];
     
         }];
         

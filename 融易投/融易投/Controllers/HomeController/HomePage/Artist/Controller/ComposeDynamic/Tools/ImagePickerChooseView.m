@@ -98,6 +98,9 @@
     //拍照
     if (indexPath.row == 0) {
         
+        SSLog(@"第三方实现拍照");
+        
+        
     }
     //从手机相册选择
     else if (indexPath.row == 1)

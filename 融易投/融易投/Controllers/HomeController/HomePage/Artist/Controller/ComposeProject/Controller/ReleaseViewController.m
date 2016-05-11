@@ -22,6 +22,9 @@
 
 #import "SettingFooterView.h"
 
+#import <SVProgressHUD.h>
+#import "ArtistMainViewController.h"
+
 
 
 @interface ReleaseViewController ()
@@ -324,8 +327,6 @@ static NSString *ID2 = @"ReleaseProjectCell2";
         
     } else {
         
-
-        
          return cell2;
         
     }
@@ -354,6 +355,11 @@ static NSString *ID2 = @"ReleaseProjectCell2";
     }
     
     return 0;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(void)tuiChuLogn{
@@ -458,14 +464,26 @@ static NSString *ID2 = @"ReleaseProjectCell2";
         
         SSLog(@"---%@---%@",[responseObject class],aString);
         
-        //[SVProgressHUD showSuccessWithStatus:@"发布成功" maskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD showInfoWithStatus:@"发布成功"];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        
+        //在主线程刷新UI数据
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            [SVProgressHUD dismiss];
+            
+            [self.navigationController popViewControllerAnimated:NO];
+            
+        }];
         
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         SSLog(@"%@",error);
         
-        //[SVProgressHUD showSuccessWithStatus:@"发布失败" maskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD showInfoWithStatus:@"发布失败,请重新发布"];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+
     }];
     
 }

@@ -240,6 +240,11 @@ static NSString *ID = @"ArtistMainCell";
     return  model.cellHeight;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 - (void)cellBtn1Clicked:(UIButton *)btn event:(id)event
 {
     

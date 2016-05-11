@@ -10,4 +10,6 @@
 
 @interface ArtistWorksCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIButton *shanchuBtn;
+
 @end

@@ -217,11 +217,18 @@ static NSString *ID1 = @"ArtistWorksCell";
     
     ArtistWorksCell *cell = [tableView dequeueReusableCellWithIdentifier:ID1];
     
+    [cell.shanchuBtn addTarget:self action:@selector(shanchuZuoPin:) forControlEvents:UIControlEventTouchUpInside];
+    
 //    ArtworksModel *model = self.models[indexPath.row];
 //    
 //    cell.model = model;
     
     return cell;
+}
+
+-(void)shanchuZuoPin:(UIButton *)btn{
+
+    SSLog(@"shanchuZuoPin");
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
