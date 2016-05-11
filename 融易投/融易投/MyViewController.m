@@ -16,7 +16,7 @@
 
 #import <WechatShortVideoController.h>
 
-#import "ReleaseProjectViewController.h"
+
 
 #import "ArtistViewController.h"
 
@@ -289,10 +289,10 @@
 }
 - (IBAction)releaseProject:(id)sender {
 
-    // 弹出发微博控制器
-    ReleaseProjectViewController *releaseProject = [[ReleaseProjectViewController alloc] init];
-   
-    [self.navigationController pushViewController:releaseProject animated:YES];
+//    // 弹出发微博控制器
+//    ReleaseProjectViewController *releaseProject = [[ReleaseProjectViewController alloc] init];
+//   
+//    [self.navigationController pushViewController:releaseProject animated:YES];
 
 }
 - (IBAction)artistBtnClick:(id)sender {
