@@ -30,7 +30,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad {
@@ -66,7 +66,13 @@
     NSLog(@"%@",signmsg);
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
     // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-    NSString *url = @"http://192.168.1.41:8080/app/investorArtWorkView.do";
+    NSString *url = [[NSString alloc] init];
+    if (self.isFinance) {
+        url = @"http://192.168.1.41:8080/app/artWorkCreationView.do";
+    }else
+    {
+        url = @"http://192.168.1.41:8080/app/investorArtWorkView.do";
+    }
     // 3.设置请求体
     NSDictionary *json = @{
                            @"artWorkId" : self.artWorkId,

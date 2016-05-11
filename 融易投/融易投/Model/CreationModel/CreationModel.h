@@ -11,6 +11,7 @@
 
 @interface CreationModel : NSObject
 
+@property(nonatomic,copy) NSString *ID;
 /** 项目背景图 */
 @property (nonatomic ,strong) NSString *picture_url;
 
@@ -19,7 +20,6 @@
 
 /** 创作简介 */
 @property (nonatomic ,strong) NSString *descriptions;
-
 
 /** 最新创作时间 */
 @property (nonatomic ,assign) NSInteger newCreationEmdDatetime;

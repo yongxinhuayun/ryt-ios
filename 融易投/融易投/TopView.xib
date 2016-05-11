@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -31,7 +31,7 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OI7-A0-GI5">
-                    <rect key="frame" x="88" y="203" width="57" height="27"/>
+                    <rect key="frame" x="83" y="203" width="57" height="27"/>
                     <attributedString key="attributedText">
                         <fragment content="朱炳仁">
                             <attributes>
@@ -44,7 +44,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1O-LT-7hi">
-                    <rect key="frame" x="155" y="208" width="1" height="17"/>
+                    <rect key="frame" x="145" y="208" width="1" height="17"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="1" id="XLt-Q9-HqQ"/>
@@ -52,13 +52,13 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="铜雕技艺国家级传承人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6x0-Ii-7kx">
-                    <rect key="frame" x="165" y="207.5" width="150" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <rect key="frame" x="150" y="208" width="140" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="逐鹿顺意铜雕，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TlP-UW-mYJ">
-                    <rect key="frame" x="14" y="259" width="328" height="53"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="逐鹿顺意铜雕，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TlP-UW-mYJ">
+                    <rect key="frame" x="14" y="259" width="328" height="52"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -103,14 +103,14 @@
                 <constraint firstItem="6x0-Ii-7kx" firstAttribute="centerY" secondItem="OI7-A0-GI5" secondAttribute="centerY" id="317-MC-rPs"/>
                 <constraint firstItem="MGw-dF-Z1n" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="3mF-1M-XRz"/>
                 <constraint firstItem="SKc-QK-yR7" firstAttribute="top" secondItem="TlP-UW-mYJ" secondAttribute="bottom" constant="5" id="3zf-Wk-88B"/>
-                <constraint firstItem="OI7-A0-GI5" firstAttribute="leading" secondItem="B2O-zk-3Ek" secondAttribute="trailing" constant="10" id="CRu-1j-Drx"/>
+                <constraint firstItem="OI7-A0-GI5" firstAttribute="leading" secondItem="B2O-zk-3Ek" secondAttribute="trailing" constant="5" id="CRu-1j-Drx"/>
                 <constraint firstItem="gZz-YQ-LpC" firstAttribute="leading" secondItem="5Oc-5A-vZk" secondAttribute="trailing" constant="17.5" id="DTj-CB-Jxt"/>
                 <constraint firstAttribute="trailing" secondItem="cMX-70-WDa" secondAttribute="trailing" id="EJr-rl-bSJ"/>
                 <constraint firstItem="5Oc-5A-vZk" firstAttribute="leading" secondItem="MGw-dF-Z1n" secondAttribute="trailing" constant="8" id="Gy5-zn-4VI"/>
                 <constraint firstItem="gZz-YQ-LpC" firstAttribute="centerY" secondItem="MGw-dF-Z1n" secondAttribute="centerY" id="IIP-sq-2sv"/>
                 <constraint firstAttribute="trailing" secondItem="SKc-QK-yR7" secondAttribute="trailing" constant="12" id="J3K-0l-6tK"/>
                 <constraint firstAttribute="trailing" secondItem="An3-39-zE1" secondAttribute="trailing" id="LQt-gd-OWm"/>
-                <constraint firstItem="k1O-LT-7hi" firstAttribute="leading" secondItem="OI7-A0-GI5" secondAttribute="trailing" constant="10" id="OFm-ae-ftK"/>
+                <constraint firstItem="k1O-LT-7hi" firstAttribute="leading" secondItem="OI7-A0-GI5" secondAttribute="trailing" constant="5" id="OFm-ae-ftK"/>
                 <constraint firstAttribute="bottom" secondItem="MGw-dF-Z1n" secondAttribute="bottom" constant="12" id="TnF-bB-OzC"/>
                 <constraint firstItem="5Oc-5A-vZk" firstAttribute="centerY" secondItem="MGw-dF-Z1n" secondAttribute="centerY" id="UCB-8H-cZN"/>
                 <constraint firstItem="SKc-QK-yR7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="Vpc-z6-nuX"/>
@@ -125,12 +125,17 @@
                 <constraint firstItem="An3-39-zE1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uys-E9-LU8"/>
                 <constraint firstItem="B2O-zk-3Ek" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="14" id="xUH-kt-eH6"/>
                 <constraint firstItem="k1O-LT-7hi" firstAttribute="centerY" secondItem="OI7-A0-GI5" secondAttribute="centerY" id="xcS-gX-ocL"/>
-                <constraint firstItem="6x0-Ii-7kx" firstAttribute="leading" secondItem="OI7-A0-GI5" secondAttribute="trailing" constant="20" id="y2g-Qp-yqo"/>
+                <constraint firstItem="6x0-Ii-7kx" firstAttribute="leading" secondItem="OI7-A0-GI5" secondAttribute="trailing" constant="10" id="y2g-Qp-yqo"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="brief" destination="TlP-UW-mYJ" id="vzA-B4-n8f"/>
+                <outlet property="finishedTime" destination="5Oc-5A-vZk" id="jSk-Mk-3af"/>
                 <outlet property="imgView" destination="An3-39-zE1" id="D7j-4w-XcV"/>
+                <outlet property="userName" destination="OI7-A0-GI5" id="8pr-b1-kqV"/>
+                <outlet property="userPicture" destination="B2O-zk-3Ek" id="thy-0Z-oWY"/>
+                <outlet property="userTitle" destination="6x0-Ii-7kx" id="43v-lb-knQ"/>
             </connections>
             <point key="canvasLocation" x="148" y="207"/>
         </view>
