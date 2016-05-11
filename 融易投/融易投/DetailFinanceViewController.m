@@ -137,6 +137,7 @@
     CGFloat h = 44;
     FinanceFooterView *bottomView = [[[NSBundle mainBundle] loadNibNamed:@"FinanceFooterView" owner:nil options:nil] lastObject];
     bottomView.delegate = self;
+    bottomView.widthConstraint.constant = 170;
     bottomView.frame = CGRectMake(0, y, w, h);
     [self.view addSubview:bottomView];
 }

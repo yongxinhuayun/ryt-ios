@@ -11,4 +11,5 @@
 @interface ProjectDetailTableViewController : UITableViewController
 @property(nonatomic,copy)NSString *artWorkId;
 @property(nonatomic,assign) CGFloat topHeight;
+@property(nonatomic,assign) BOOL isFinance;
 @end

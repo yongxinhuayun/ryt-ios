@@ -7,10 +7,11 @@
 //
 
 #import "BaseScrollViewController.h"
-
+@class CreationModel;
 @interface DetailCreationViewController : BaseScrollViewController
 
 @property(nonatomic,strong)CycleView *cycleView;
 @property(nonatomic,strong)NSMutableArray *titleArray;
 @property(nonatomic,strong)NSMutableArray *controllersView;
+@property(nonatomic,strong)CreationModel *creationModel;
 @end
