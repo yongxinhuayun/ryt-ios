@@ -24,6 +24,7 @@
 #import "navTitleButton.h"
 #import "FinanceFooterView.h"
 #import "UIImageView+WebCache.h"
+#import "PostCommentController.h"
 
 @interface DetailFinanceViewController ()<UIScrollViewDelegate,FinanceFooterViewDelegate>
 @property(nonatomic,strong) FinanceHeader *financeHeader;
@@ -34,14 +35,13 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
-   [self setupUI];
+    [self setupUI];
     [self loadDataToController];
     [self addFooterView];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 }
 
 //加载数据
@@ -142,9 +142,21 @@
 }
 
 -(void)jumpPLController{
+    PostCommentController * postComment = [[PostCommentController alloc] init];
+    postComment.title = @"评论";
+//    financeModel
+//    @property(nonatomic,copy) NSString *artworkId;
+//    @property(nonatomic,copy) NSString *currentUserId;
+//    @property(nonatomic,copy) NSString *messageId;
+//    @property(nonatomic,copy) NSString *fatherCommentId;
+    postComment.artworkId = self.financeModel.ID;
+    postComment.currentUserId = @"khsadkovihso";
+    postComment.messageId = self.financeModel.ID;
+    [self.navigationController pushViewController:postComment animated:YES];
 }
 
 -(void)jumpTZController{
+    
 }
 
 //懒加载

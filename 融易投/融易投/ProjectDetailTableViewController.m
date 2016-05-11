@@ -110,15 +110,6 @@
     if (indexPath.section == 0) {
         IntroduceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IntroduceCell" forIndexPath:indexPath];
         cell.introduceLabel.text = self.model.artWork.brief;
-        NSLog(@"xiao - %@",self.model.artWork.brief);
-        NSLog(@"xxxxx%@",cell.introduceLabel.text);
-//        NSMutableArray *arrayM =[NSMutableArray array];
-//        for (ArtworkAttachmentListModel *list in self.imgList) {
-//            NSString *urlStr = [NSString stringWithFormat:@"%@",list.fileName];
-//            UIImageView *imgView = [[UIImageView alloc] init];
-//            [imgView sd_setImageWithURL:[NSURL URLWithString:urlStr]];
-//            [arrayM addObject:imgView];
-//        }
         cell.imgArray = self.imgList;
         [cell imgArray:self.imgList];
         return  cell;

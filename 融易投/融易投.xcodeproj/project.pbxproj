@@ -465,6 +465,8 @@
 		E2729B061CD8BB0D006C0617 /* FinanceHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729B041CD8BB0D006C0617 /* FinanceHeader.m */; };
 		E2729B071CD8BB0D006C0617 /* FinanceHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2729B051CD8BB0D006C0617 /* FinanceHeader.xib */; };
 		E2AAF0351CE1BF8D0009FD19 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2AAF0341CE1BF8D0009FD19 /* Info.plist */; };
+		E2AAF0391CE1C7B40009FD19 /* PostCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AAF0371CE1C7B40009FD19 /* PostCommentController.m */; };
+		E2AAF03A1CE1C7B40009FD19 /* PostCommentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2AAF0381CE1C7B40009FD19 /* PostCommentController.xib */; };
 		E2D05B721CB38C8C00B0F690 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B711CB38C8C00B0F690 /* CoreTelephony.framework */; };
 		E2D05B741CB38CB100B0F690 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B731CB38CB100B0F690 /* SystemConfiguration.framework */; };
 		E2D05B761CB38CD000B0F690 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B751CB38CD000B0F690 /* libz.tbd */; };
@@ -1274,6 +1276,9 @@
 		E2729B041CD8BB0D006C0617 /* FinanceHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceHeader.m; sourceTree = "<group>"; };
 		E2729B051CD8BB0D006C0617 /* FinanceHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceHeader.xib; sourceTree = "<group>"; };
 		E2AAF0341CE1BF8D0009FD19 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2AAF0361CE1C7B40009FD19 /* PostCommentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCommentController.h; sourceTree = "<group>"; };
+		E2AAF0371CE1C7B40009FD19 /* PostCommentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCommentController.m; sourceTree = "<group>"; };
+		E2AAF0381CE1C7B40009FD19 /* PostCommentController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCommentController.xib; sourceTree = "<group>"; };
 		E2D05B711CB38C8C00B0F690 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		E2D05B731CB38CB100B0F690 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E2D05B751CB38CD000B0F690 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -2113,6 +2118,9 @@
 				E2288DF31CDC290C00483F18 /* UserReplyCommentCell.h */,
 				E2288DF41CDC290C00483F18 /* UserReplyCommentCell.m */,
 				E2288DF51CDC290C00483F18 /* UserReplyCommentCell.xib */,
+				E2AAF0361CE1C7B40009FD19 /* PostCommentController.h */,
+				E2AAF0371CE1C7B40009FD19 /* PostCommentController.m */,
+				E2AAF0381CE1C7B40009FD19 /* PostCommentController.xib */,
 			);
 			name = "用户评论";
 			sourceTree = "<group>";
@@ -3430,10 +3438,7 @@
 				218D2B371CACB2E3004553B9 /* Main */,
 				E2DDB19A1CABA64E007438E4 /* Controller */,
 				E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */,
-
-
 				E2AAF0341CE1BF8D0009FD19 /* Info.plist */,
-
 				E236C3231CB4E27E009DCBF0 /* PushConfig.plist */,
 				218D2B5B1CACB5B9004553B9 /* Launch Screen.storyboard */,
 				21D54BCE1CB796CD0088D386 /* messages.plist */,
@@ -3753,10 +3758,6 @@
 				E228937F1CDF049500483F18 /* lxh_haoaio.gif in Resources */,
 				219ACA561CBE3F100052146E /* picture4.png in Resources */,
 				E22893901CDF049500483F18 /* lxh_jiekexun@2x.png in Resources */,
-
-				212EEE911CE0685700F94B30 /* Info.plist in Resources */,
-
-
 				E22892A91CDF03F400483F18 /* d_shuijiao@2x.png in Resources */,
 				E22893781CDF049500483F18 /* lxh_buxiangshangban@2x.png in Resources */,
 				E22892A21CDF03F400483F18 /* d_nvhaier@2x.png in Resources */,
@@ -4054,6 +4055,7 @@
 				E228937A1CDF049500483F18 /* lxh_deyidexiao.png in Resources */,
 				E22892C01CDF03F400483F18 /* f_jiong@2x.png in Resources */,
 				E228939D1CDF049500483F18 /* lxh_leifeng.gif in Resources */,
+				E2AAF03A1CE1C7B40009FD19 /* PostCommentController.xib in Resources */,
 				E22893AF1CDF049500483F18 /* lxh_qiaoqiao.png in Resources */,
 				E2E8422F1CE173B20047D86C /* FinanceFooterView.xib in Resources */,
 				E22892B61CDF03F400483F18 /* d_yiwen@2x.png in Resources */,
@@ -4271,6 +4273,7 @@
 				E2D524431CDF994C0024887A /* FocusMyTableViewCell.m in Sources */,
 				2168EAE61CBFA05000B7E037 /* FinanceDetailSecondCell.m in Sources */,
 				21D54B8C1CB660970088D386 /* ArtistTableViewCell.m in Sources */,
+				E2AAF0391CE1C7B40009FD19 /* PostCommentController.m in Sources */,
 				E2D521B11CDF783B0024887A /* UserBriefMyModel.m in Sources */,
 				21D8FCE11CE1B8260000A32A /* ComposeProjectViewController.m in Sources */,
 				E2D524D41CDFA1330024887A /* ArtistUserHeaderView.m in Sources */,
