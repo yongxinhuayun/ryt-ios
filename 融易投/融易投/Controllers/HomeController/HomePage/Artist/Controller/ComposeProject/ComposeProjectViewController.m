@@ -37,7 +37,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.scrollView.contentSize = CGSizeMake(SSScreenW, 2000);
+    CGFloat height = CGRectGetMaxY(_imageView.frame);
+    
+    self.scrollView.contentSize = CGSizeMake(SSScreenW - 2 * SSMargin, height);
     self.scrollView.delegate = self;
     self.scrollView.scrollEnabled = YES;
     
@@ -180,27 +182,67 @@
 }
 - (IBAction)nextBtnClick:(id)sender {
     
-    [self loadData];
-    
-    //这个暂时不用
-    //    ComposeViewController *compose = [[ComposeViewController alloc] init];
-    //    [self.navigationController pushViewController:compose animated:YES];
-    
-    // 弹出发微博控制器
-    //    HMComposeViewController *compose = [[HMComposeViewController alloc] init];
-    //    [self.navigationController pushViewController:compose animated:YES];
-    
-    //
-    UIStoryboard *releaseStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
-    ReleaseViewController *releaseVC = [releaseStoryBoard instantiateInitialViewController];
-    [self presentViewController:releaseVC animated:YES completion:nil];
-    
-    
-    //    TestViewController *test = [[TestViewController alloc] init];
-    //    [self.navigationController pushViewController:test animated:YES];
-    
+    if ([self panduanWeiKong]) {
+        
+        
+        [self loadData];
+
+    }
 }
 
+
+
+-(BOOL)panduanWeiKong {
+
+    BOOL isSpace = YES;
+    
+    //判断是否填写了项目标题
+    if ([self.projectTextField.text isEqualToString:@""]) {
+        
+        [SVProgressHUD showInfoWithStatus:@"项目标题不能为空"];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        
+        isSpace = NO;
+    }
+    
+    //判断是否填写了项目简介
+    if (!(self.progectTextView.text.length > 0)) {
+        
+        [SVProgressHUD showInfoWithStatus:@"项目简介不能为空"];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        
+        isSpace = NO;
+    }
+    
+    //判断是否填写了创作时长
+    if ([self.projectTimeTextField.text isEqualToString:@""]) {
+        
+        [SVProgressHUD showInfoWithStatus:@"创作时长不能为空"];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        
+        isSpace = NO;
+    }
+    
+    //判断是否填写了融资金额
+    if ([self.projecTotaltTextField.text isEqualToString:@""]) {
+        
+        [SVProgressHUD showInfoWithStatus:@"融资金额不能为空"];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        
+        isSpace = NO;
+    }
+    
+    //判断是否上传了图片
+    if (self.imageView.contentMode != UIViewContentModeScaleToFill) {
+        
+        [SVProgressHUD showInfoWithStatus:@"请上传项目的效果图或参考图"];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        
+        isSpace = NO;
+    }
+
+    return isSpace;
+}
 
 -(void)loadData
 {
@@ -210,29 +252,6 @@
     //
     //    NSString *title = [projectTitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    if ([self.projectTextField.text isEqualToString:@""]) {
-        
-        [SVProgressHUD showInfoWithStatus:@"项目标题不能为空"];
-        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-    }
-    
-    if ([self.progectTextView.text isEqualToString:@""]) {
-        
-        [SVProgressHUD showInfoWithStatus:@"项目简介不能为空"];
-        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-    }
-    
-    if ([self.projectTimeTextField.text isEqualToString:@""]) {
-        
-        [SVProgressHUD showInfoWithStatus:@"创作时长不能为空"];
-        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-    }
-    
-    if ([self.projecTotaltTextField.text isEqualToString:@""]) {
-        
-        [SVProgressHUD showInfoWithStatus:@"融资金额不能为空"];
-        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-    }
     
     NSString *title =  self.projectTextField.text;
     NSString *brief = self.progectTextView.text;
@@ -303,8 +322,10 @@
             
             [SVProgressHUD dismiss];
             
-            [self.navigationController popViewControllerAnimated:YES];
-            
+            UIStoryboard *releaseStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
+            ReleaseViewController *releaseVC = [releaseStoryBoard instantiateInitialViewController];
+            [self.navigationController pushViewController:releaseVC animated:YES];
+    
         }];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -320,8 +341,6 @@
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
             [SVProgressHUD dismiss];
-            
-            [self.navigationController popViewControllerAnimated:YES];
             
         }];
     }];
@@ -345,7 +364,7 @@
     //    self.drawView.image = selctedImage;
     //    SSLog(@"%@",selctedImage);
     
-    UIImage *newImage = [self drawImageWith:selctedImage imageWidth:100];
+    UIImage *newImage = [self drawImageWith:selctedImage imageWidth:SSScreenW - 2 * SSMargin];
     //    NSLog(@"newImage = %d",);
     
     

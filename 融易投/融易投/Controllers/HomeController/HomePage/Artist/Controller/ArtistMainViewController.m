@@ -313,22 +313,11 @@ static NSString *ID = @"ArtistMainCell";
     
     UIAlertAction *videoAction = [UIAlertAction actionWithTitle:@"视频" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
         
-        //        WechatShortVideoController *wechatShortVideoController = [[WechatShortVideoController alloc] init];
-        //        wechatShortVideoController.delegate = self;
-        //        [self presentViewController:wechatShortVideoController animated:YES completion:^{}];
-        
         ReleaseVideoViewController *videoVc = [[ReleaseVideoViewController alloc] init];
         
-//        [self presentViewController:videoVc animated:YES completion:^{}];
         [self.navigationController pushViewController:videoVc animated:YES];
     }];
     
-//    UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"拍照" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
-//        
-//        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-//        
-//        [self presentViewController:imagePickerController animated:YES completion:nil];
-//    }];
     
     UIAlertAction *picAction = [UIAlertAction actionWithTitle:@"从手机相册选择" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
         
@@ -341,7 +330,6 @@ static NSString *ID = @"ArtistMainCell";
     //现在的
     UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleasePicViewController class]) bundle:nil];
     ReleasePicViewController *releasePicVC = [settingStoryBoard instantiateInitialViewController];
-//        [self presentViewController:settingVC animated:YES completion:nil];
      [self.navigationController pushViewController:releasePicVC animated:YES];
         
     }];
