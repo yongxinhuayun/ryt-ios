@@ -175,8 +175,8 @@ static NSString *ID = @"financeCell";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
-        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        //        NSLog(@"返回结果:%@",jsonStr);
+                NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+                NSLog(@"返回结果:%@",jsonStr);
         
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
@@ -200,31 +200,14 @@ static NSString *ID = @"financeCell";
     
     //参数
     NSString *pageSize = @"20";
-    
     int newPageNum = self.lastPageNum.intValue + 1;
-    
     self.lastPageNum = [NSString stringWithFormat:@"%d",newPageNum];
-    
     NSString *pageNum = [NSString stringWithFormat:@"%d",newPageNum];
-    
     NSString *timestamp = [MyMD5 timestamp];
     NSString *appkey = MD5key;
-    
     NSLog(@"pageSize=%@,pageNum=%@,timestamp=%@",pageSize,pageNum,timestamp);
-    
     NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&key=%@",pageNum,pageSize,timestamp,appkey];
-    
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    
-    // 1.创建请求
-    //http://192.168.1.69:8001/app/login.do
-    //http://192.168.1.57/app-wikiServer/
-    //http://j.efeiyi.com:8080/app-wikiServer/app/
-    //http://j.efeiyi.com:8080/app-wikiServer/app/login.do
-    
-    
-    
     // 3.设置请求体
     NSDictionary *json = @{
                            @"pageSize" : pageSize,
@@ -235,37 +218,25 @@ static NSString *ID = @"financeCell";
     
 //    NSString *url = @"http://192.168.1.69:8001/app/investorIndex.do";
             NSString *url = @"http://192.168.1.41:8085/app/investorIndex.do";
-    
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
-        
         //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         //        NSLog(@"返回结果:%@",jsonStr);
-        
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-        
         //字典数组 -> 模型数组
         NSArray *moreModels = [FinanceModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
-        
         //拼接数据
         [self.models addObjectsFromArray:moreModels];
-        
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
             [self.tableView reloadData];
-            
         }];
-        
     }];
-
-
 }
 
 #pragma mark - 数据源
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.models.count;
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -294,7 +265,8 @@ static NSString *ID = @"financeCell";
     FinanceModel *model = self.models[indexPath.row];
     //  跳转
     DetailFinanceViewController *detail = [[DetailFinanceViewController alloc] init];
-    detail.financeModel = model;
+//    detail.financeModel = model;
+    detail.artworkId = model.ID;
     // 传递数据
     detail.navigationItem.title = model.title;
     [self.navigationController pushViewController:detail animated:YES];

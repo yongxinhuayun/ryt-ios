@@ -25,9 +25,15 @@
 #import "FinanceFooterView.h"
 #import "UIImageView+WebCache.h"
 #import "PostCommentController.h"
+#import <MJExtension.h>
+#import "ProjectDetailsModel.H"
+#import "ArtworkModel.h"
 
 @interface DetailFinanceViewController ()<UIScrollViewDelegate,FinanceFooterViewDelegate>
 @property(nonatomic,strong) FinanceHeader *financeHeader;
+@property(nonatomic,assign) NSInteger count;
+@property(nonatomic,assign) BOOL isFirstIn;
+@property(nonatomic,strong)ProjectDetailsModel *projModel;
 @end
 
 @implementation DetailFinanceViewController
@@ -35,25 +41,91 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
-    [self setupUI];
-    [self loadDataToController];
-    [self addFooterView];
+    if (self.isFirstIn) {
+        [self setupUI];
+        [self loadData];
+        
+        
+    }
+}
+
+-(void)loadView{
+    [super loadView];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.isFirstIn = YES;
+    [ArtworkModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{
+                 @"descriptions":@"description",
+                 @"ID"          :@"id",
+                 };
+    }];
+}
+-(void)loadData{
+    // 3.设置请求体
+    NSString *userId = @"imhipoyk18s4k52u";
+    NSString *urlStr = @"http://192.168.1.41:8085/app/investorArtWorkView.do";
+    NSDictionary *json = @{
+                           @"artWorkId" : self.artworkId,
+                           @"currentUserId": userId,
+                           };
+    [self loadData:urlStr parameters:json andBlock:^(id respondObj) {
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//            NSDictionary *dict = modelDict[@"object"];
+            ProjectDetailsModel *project = [ProjectDetailsModel mj_objectWithKeyValues:modelDict[@"object"]];
+            self.projModel = project;
+            self.artworkModel = project.artWork;
+            [self loadDataToController];
+            [self addFooterView];
+        }];
+    }];
+}
+
+-(void)loadData:(NSString *)urlStr parameters:(NSDictionary *)parameters andBlock:(void(^)(id respondObj))success{
+    NSString *timestamp = [MyMD5 timestamp];
+    NSString *appkey = MD5key;
+    NSMutableString *strM = [NSMutableString string];
+    NSArray *keys = [parameters allKeys];
+    NSArray *sortedArray = [keys sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [obj1 compare:obj2 options:NSNumericSearch];
+    }];
+    for (NSString *dictKey in sortedArray) {
+        if (dictKey == sortedArray.lastObject) {
+            [strM appendFormat:@"%@=%@",dictKey,parameters[dictKey]];
+        }else{
+            [strM appendFormat:@"%@=%@&",dictKey,parameters[dictKey]];
+        }
+    }
+    [strM appendFormat:@"&timestamp=%@&key=%@",timestamp,appkey];
+    NSString *signmsgMD5 = [MyMD5 md5:strM];
+    NSDictionary *temp = @{
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5
+                           };
+    NSMutableDictionary *p = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    [p addEntriesFromDictionary:temp];
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:urlStr Parameters:p showHUDView:self.view success:^(id respondObj) {
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            success(respondObj);
+        }];
+    }];
 }
 
 //加载数据
 -(void)loadDataToController{
     //加载图片
-    NSString *urlStr = [[NSString stringWithFormat:@"%@",self.financeModel.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlStr = [[NSString stringWithFormat:@"%@",self.artworkModel.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *picUrl = [NSURL URLWithString:urlStr];
     [self.financeHeader.imgView sd_setImageWithURL:picUrl];
     //加载用户信息
     // 存放在financeHeader中
     //头像userPicture
-    authorModel *author = self.financeModel.author;
+    authorModel *author = self.artworkModel.author;
     urlStr = [[NSString stringWithFormat:@"%@",author.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     picUrl = [NSURL URLWithString:urlStr];
     
@@ -66,19 +138,19 @@
     //用户头衔userTitle
     self.financeHeader.userTitle.text = author.username;
     //项目描述brief
-    self.financeHeader.userContent.text = self.financeModel.brief;
+    self.financeHeader.userContent.text = self.artworkModel.brief;
 //     融资目标金额 investGoalMoney;
-    self.financeHeader.investGoalMoney.text = [NSString stringWithFormat:@"%ld",(long)self.financeModel.investGoalMoney];
+    self.financeHeader.investGoalMoney.text = [NSString stringWithFormat:@"%ld",(long)self.artworkModel.investGoalMoney];
     //MARK:TODO
     //融资开始时间 investStartDatetime;
     //融资结束时间/创作开始时间 investEndDatetime;
     //融资金额百分比 = 已融金额 / 目标金额
-    self.financeHeader.investsMoney.text = [NSString stringWithFormat:@"%ld",(long)self.financeModel.investsMoney];
-    CGFloat value = self.financeModel.investsMoney / self.financeModel.investGoalMoney;
+    self.financeHeader.investsMoney.text = [NSString stringWithFormat:@"%ld",(long)self.artworkModel.investsMoney];
+    CGFloat value = self.artworkModel.investsMoney / self.artworkModel.investGoalMoney;
     self.financeHeader.progress.progress = value;
     self.financeHeader.progressLabel.text = [NSString stringWithFormat:@"%d%%",(int)(value * 100)];
 //    投资人数 investorsNum;
-    self.financeHeader.investNum.text =[NSString stringWithFormat:@"%ld",self.financeModel.investorsNum];
+    self.financeHeader.investNum.text =[NSString stringWithFormat:@"%ld",self.projModel.investNum];
 }
 
 -(void)setupUI{
@@ -105,19 +177,19 @@
 -(void)addControllersToCycleView{
     //添加控制器view
     ProjectDetailTableViewController * pro1 = [[ProjectDetailTableViewController alloc] init];
-    pro1.artWorkId = self.financeModel.ID;
+    pro1.artWorkId = self.artworkId;
     pro1.topHeight = self.topview.height - 64;
     [self.controllersView addObject:pro1.view];
     [self addChildViewController:pro1];
     
     UserCommentViewController * userComment = [[UserCommentViewController alloc] init];
-    userComment.artWorkId = self.financeModel.ID;
+    userComment.artWorkId = self.artworkId;
     userComment.topHeight = self.topview.height - 64;
     [self.controllersView addObject:userComment.view];
     [self addChildViewController:userComment];
 
     RecordTableViewController * record1 = [[RecordTableViewController alloc] init];
-    record1.ID = self.financeModel.ID;
+    record1.ID = self.artworkId;
     record1.topHeight = self.topview.height - 64;
     [self.controllersView addObject:record1.view];
     [self addChildViewController:record1];
@@ -138,6 +210,8 @@
     FinanceFooterView *bottomView = [[[NSBundle mainBundle] loadNibNamed:@"FinanceFooterView" owner:nil options:nil] lastObject];
     bottomView.delegate = self;
     bottomView.widthConstraint.constant = 170;
+    NSString *num = [NSString stringWithFormat:@" %ld",self.artworkModel.praiseNUm];
+    [bottomView.zan setTitle:num forState:(UIControlStateNormal)];
     bottomView.frame = CGRectMake(0, y, w, h);
     [self.view addSubview:bottomView];
 }
@@ -145,21 +219,38 @@
 -(void)jumpPLController{
     PostCommentController * postComment = [[PostCommentController alloc] init];
     postComment.title = @"评论";
-//    financeModel
-//    @property(nonatomic,copy) NSString *artworkId;
-//    @property(nonatomic,copy) NSString *currentUserId;
-//    @property(nonatomic,copy) NSString *messageId;
-//    @property(nonatomic,copy) NSString *fatherCommentId;
-    postComment.artworkId = self.financeModel.ID;
+    postComment.artworkId = self.artworkModel.ID;
     postComment.currentUserId = @"khsadkovihso";
-    postComment.messageId = self.financeModel.ID;
+    postComment.messageId = self.artworkModel.ID;
+    self.isFirstIn = NO;
     [self.navigationController pushViewController:postComment animated:YES];
 }
 
 -(void)jumpTZController{
     
+    self.isFirstIn = NO;
 }
 
+//点赞
+-(void)clickZan:(UIButton *)zan{
+    
+    NSString *userId = @"imhipoyk18s4k52u";
+    NSString *urlStr = @"http://192.168.1.41:8085/app/artworkPraise.do";
+    NSDictionary *json = @{
+                           @"artworkId" : self.artworkId,
+                           @"currentUserId": userId,
+                           };
+    [self loadData:urlStr parameters:json andBlock:^(id respondObj) {
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        NSString *str = modelDict[@"resultMsg"];
+        if ([str isEqualToString:@"成功"]) {
+            NSString *zanNum = [NSString stringWithFormat:@" %ld",self.artworkModel.praiseNUm + 1];
+            [zan setTitle:zanNum forState:(UIControlStateNormal)];
+        }
+    }];
+}
 //懒加载
 -(CycleView *)cycleView{
     if (!_cycleView) {

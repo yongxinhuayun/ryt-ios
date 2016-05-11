@@ -42,6 +42,8 @@
 
 /** 作者信息 */
 @property (nonatomic, strong) authorModel *author;
+@property(nonatomic,assign)NSInteger praiseNUm;
+@property(nonatomic,assign) NSInteger commentNum;
 
 /** 回复列表*/
 @property(nonatomic,strong) NSMutableArray *artworkComments;

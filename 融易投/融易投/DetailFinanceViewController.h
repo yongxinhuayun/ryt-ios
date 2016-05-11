@@ -7,11 +7,12 @@
 //
 
 #import "BaseScrollViewController.h"
-@class FinanceModel;
+@class FinanceModel,ArtworkModel;
 
 @interface DetailFinanceViewController : BaseScrollViewController
 @property(nonatomic,strong)CycleView *cycleView;
 @property(nonatomic,strong)NSMutableArray *titleArray;
 @property(nonatomic,strong)NSMutableArray *controllersView;
-@property(nonatomic,strong)FinanceModel *financeModel;
+@property(nonatomic,strong)ArtworkModel *artworkModel;
+@property(nonatomic,copy) NSString *artworkId;
 @end

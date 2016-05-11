@@ -3723,7 +3723,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = dongxin;
+				ORGANIZATIONNAME = "融艺投";
 				TargetAttributes = {
 					E2DDB0E21CAB66DB007438E4 = {
 						CreatedOnToolsVersion = 7.2.1;

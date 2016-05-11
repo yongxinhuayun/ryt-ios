@@ -23,7 +23,6 @@
 - (IBAction)clickZan:(UIButton *)sender {
     NSLog(@"点赞");
     if (sender.selected) {
-        sender.selected = NO;
     }else{
         UILabel *num = [[UILabel alloc] initWithFrame:sender.frame];
         num.center = sender.center;
@@ -39,7 +38,11 @@
         } completion:^(BOOL finished) {
             [num removeFromSuperview];
         }];
+        if ([self.delegate respondsToSelector:@selector(clickZan:)]) {
+            [self.delegate clickZan:sender];
+        }
         sender.selected = YES;
+        sender.userInteractionEnabled = NO;
     }
     
 }
