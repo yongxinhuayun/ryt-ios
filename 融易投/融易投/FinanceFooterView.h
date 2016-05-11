@@ -11,6 +11,7 @@
 @protocol FinanceFooterViewDelegate <NSObject>
 -(void)jumpTZController;
 -(void)jumpPLController;
+-(void)clickZan:(UIButton *)zan;
 @end
 
 @interface FinanceFooterView : UIView

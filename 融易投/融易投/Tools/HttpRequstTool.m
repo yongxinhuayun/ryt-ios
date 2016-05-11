@@ -59,9 +59,9 @@ static HttpRequstTool *requstTool=nil ;
     
     [self.sessionManager POST:requstURL.absoluteString parameters:param success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [MBProgressHUD hideHUDForView:view animated:YES];
-        successBlock(responseObject);
-        
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            successBlock(responseObject);
+        });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
         if (view)

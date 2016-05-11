@@ -11,10 +11,10 @@
 #import "AuthorDetailModel.h"
 #import "MasterDetailsModel.h"
 
-
+@class authorModel;
 @interface ArtworkModel : NSObject
 
-
+@property(nonatomic,copy) NSString *ID;
 /** 项目背景图 */
 @property (nonatomic ,strong) NSString *picture_url;
 
@@ -29,6 +29,7 @@
 
 /** 融资目标金额 */
 @property (nonatomic ,assign) NSInteger investGoalMoney;
+@property(nonatomic,assign)NSInteger investsMoney;
 
 /** 融资开始时间 */
 @property (nonatomic ,assign) NSInteger investStartDatetime;
@@ -41,9 +42,11 @@
 @property (nonatomic ,assign) NSInteger auctionEndDatetime;
 
 /** author信息 */
-@property (nonatomic, strong) AuthorDetailModel *author;
+@property (nonatomic, strong) authorModel *author;
 
 /** master信息 */
 @property (nonatomic, strong) MasterDetailsModel *master;
+@property(nonatomic,assign) NSInteger praiseNUm;
+@property(nonatomic,assign)NSInteger  commentNum;
 
 @end
