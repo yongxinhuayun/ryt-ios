@@ -16,7 +16,7 @@
 
 - (void)awakeFromNib {
     
-    self.placeholderLabel.text = @"示例说明:\nQ1.该作品是否为纯手工制作?\n作品由本人亲自制作,是纯手工作品。\nQ2.该作品有什么价值？\n作品的价值在于...";
+    self.placeholderLabel.text = @"示例说明:\nQ1.该作品是否为纯手工制作?\n  作品由本人亲自制作,是纯手工作品。\nQ2.该作品有什么价值？\n  作品的价值在于...";
     self.label.text = @"创作过程说明";
     //让textView在左上角出现光标
     //    self.automaticallyAdjustsScrollViewInsets = false;

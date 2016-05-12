@@ -191,6 +191,13 @@
 		21C4145C1CE30C4200F1029C /* ReleaseProjectCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C4145A1CE30C4200F1029C /* ReleaseProjectCell1.xib */; };
 		21C414601CE3135E00F1029C /* ReleaseProjectCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C4145E1CE3135E00F1029C /* ReleaseProjectCell2.m */; };
 		21C414611CE3135E00F1029C /* ReleaseProjectCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C4145F1CE3135E00F1029C /* ReleaseProjectCell2.xib */; };
+		21C414641CE4112F00F1029C /* FaBuHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C414631CE4112F00F1029C /* FaBuHeaderView.m */; };
+		21C414661CE4113B00F1029C /* FaBuHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C414651CE4113B00F1029C /* FaBuHeaderView.xib */; };
+		21C4146E1CE4220800F1029C /* CoverHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C4146D1CE4220800F1029C /* CoverHUDView.m */; };
+		21C414701CE4221200F1029C /* CoverHUDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C4146F1CE4221200F1029C /* CoverHUDView.xib */; };
+		21C4148C1CE46D5A00F1029C /* ComposeWorksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C4148A1CE46D5A00F1029C /* ComposeWorksViewController.m */; };
+		21C4148D1CE46D5A00F1029C /* ComposeWorksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C4148B1CE46D5A00F1029C /* ComposeWorksViewController.xib */; };
+		21C414901CE475CC00F1029C /* TimeFiled.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C4148F1CE475CC00F1029C /* TimeFiled.m */; };
 		21D54B171CB4C31F0088D386 /* CommonFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B141CB4C31F0088D386 /* CommonFooter.m */; };
 		21D54B181CB4C31F0088D386 /* CommonHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B161CB4C31F0088D386 /* CommonHeader.m */; };
 		21D54B1F1CB4D99E0088D386 /* CreationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B1D1CB4D99E0088D386 /* CreationTableViewCell.m */; };
@@ -972,6 +979,17 @@
 		21C4145D1CE3135E00F1029C /* ReleaseProjectCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseProjectCell2.h; sourceTree = "<group>"; };
 		21C4145E1CE3135E00F1029C /* ReleaseProjectCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseProjectCell2.m; sourceTree = "<group>"; };
 		21C4145F1CE3135E00F1029C /* ReleaseProjectCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReleaseProjectCell2.xib; sourceTree = "<group>"; };
+		21C414621CE4112F00F1029C /* FaBuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaBuHeaderView.h; sourceTree = "<group>"; };
+		21C414631CE4112F00F1029C /* FaBuHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaBuHeaderView.m; sourceTree = "<group>"; };
+		21C414651CE4113B00F1029C /* FaBuHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FaBuHeaderView.xib; sourceTree = "<group>"; };
+		21C4146C1CE4220800F1029C /* CoverHUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverHUDView.h; sourceTree = "<group>"; };
+		21C4146D1CE4220800F1029C /* CoverHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverHUDView.m; sourceTree = "<group>"; };
+		21C4146F1CE4221200F1029C /* CoverHUDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverHUDView.xib; sourceTree = "<group>"; };
+		21C414891CE46D5A00F1029C /* ComposeWorksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeWorksViewController.h; sourceTree = "<group>"; };
+		21C4148A1CE46D5A00F1029C /* ComposeWorksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeWorksViewController.m; sourceTree = "<group>"; };
+		21C4148B1CE46D5A00F1029C /* ComposeWorksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeWorksViewController.xib; sourceTree = "<group>"; };
+		21C4148E1CE475CC00F1029C /* TimeFiled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeFiled.h; sourceTree = "<group>"; };
+		21C4148F1CE475CC00F1029C /* TimeFiled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeFiled.m; sourceTree = "<group>"; };
 		21D54B131CB4C31F0088D386 /* CommonFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonFooter.h; sourceTree = "<group>"; };
 		21D54B141CB4C31F0088D386 /* CommonFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonFooter.m; sourceTree = "<group>"; };
 		21D54B151CB4C31F0088D386 /* CommonHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
@@ -1644,6 +1662,8 @@
 				21D54B161CB4C31F0088D386 /* CommonHeader.m */,
 				212EEE411CD9D8CD00F94B30 /* CommonButton.h */,
 				212EEE421CD9D8CD00F94B30 /* CommonButton.m */,
+				21C4148E1CE475CC00F1029C /* TimeFiled.h */,
+				21C4148F1CE475CC00F1029C /* TimeFiled.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -1876,6 +1896,10 @@
 				21C413171CE2D23500F1029C /* ArtistUserHomeViewController.m */,
 				21C413181CE2D23500F1029C /* ArtistWorksViewController.h */,
 				21C413191CE2D23500F1029C /* ArtistWorksViewController.m */,
+				21C4146C1CE4220800F1029C /* CoverHUDView.h */,
+				21C4146D1CE4220800F1029C /* CoverHUDView.m */,
+				21C4146F1CE4221200F1029C /* CoverHUDView.xib */,
+				21C414711CE4295B00F1029C /* ComposeWork */,
 				21C4131D1CE2D23500F1029C /* ComposeDynamic */,
 				21C413BA1CE2D23500F1029C /* ComposeProject */,
 			);
@@ -2183,6 +2207,9 @@
 				21C4145D1CE3135E00F1029C /* ReleaseProjectCell2.h */,
 				21C4145E1CE3135E00F1029C /* ReleaseProjectCell2.m */,
 				21C4145F1CE3135E00F1029C /* ReleaseProjectCell2.xib */,
+				21C414621CE4112F00F1029C /* FaBuHeaderView.h */,
+				21C414631CE4112F00F1029C /* FaBuHeaderView.m */,
+				21C414651CE4113B00F1029C /* FaBuHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2206,6 +2233,40 @@
 				21C413DB1CE2D23500F1029C /* ArtistWorksCell.h */,
 				21C413DC1CE2D23500F1029C /* ArtistWorksCell.m */,
 				21C413DD1CE2D23500F1029C /* ArtistWorksCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		21C414711CE4295B00F1029C /* ComposeWork */ = {
+			isa = PBXGroup;
+			children = (
+				21C414721CE4295B00F1029C /* Controller */,
+				21C414731CE4295B00F1029C /* Model */,
+				21C414741CE4295B00F1029C /* View */,
+			);
+			path = ComposeWork;
+			sourceTree = "<group>";
+		};
+		21C414721CE4295B00F1029C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				21C414891CE46D5A00F1029C /* ComposeWorksViewController.h */,
+				21C4148A1CE46D5A00F1029C /* ComposeWorksViewController.m */,
+				21C4148B1CE46D5A00F1029C /* ComposeWorksViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		21C414731CE4295B00F1029C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		21C414741CE4295B00F1029C /* View */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3792,6 +3853,7 @@
 				E22892BB1CDF03F400483F18 /* d_zhutou@2x.png in Resources */,
 				E2729AEB1CD8B923006C0617 /* ImageListViewCellCollectionViewCell.xib in Resources */,
 				E22893CB1CDF049500483F18 /* lxh_xiaohaha@2x.png in Resources */,
+				21C414701CE4221200F1029C /* CoverHUDView.xib in Resources */,
 				E228936C1CDF049500483F18 /* lxh_beidian@2x.png in Resources */,
 				E22893BF1CDF049500483F18 /* lxh_toule@2x.png in Resources */,
 				E22892DA1CDF03F400483F18 /* o_weiguan@2x.png in Resources */,
@@ -3955,6 +4017,7 @@
 				21C414261CE2D23500F1029C /* 范冰冰.png in Resources */,
 				21AB0B5C1CC6084F00B7BA03 /* XIBDemoViewController.xib in Resources */,
 				E22893761CDF049500483F18 /* lxh_buxiangshangban.gif in Resources */,
+				21C414661CE4113B00F1029C /* FaBuHeaderView.xib in Resources */,
 				E22893AD1CDF049500483F18 /* lxh_pili@2x.png in Resources */,
 				219A1E901CD345F1002843AC /* MyHeaderView.xib in Resources */,
 				E228938E1CDF049500483F18 /* lxh_jiekexun.gif in Resources */,
@@ -4042,6 +4105,7 @@
 				E2D522911CDF91AA0024887A /* LognController.xib in Resources */,
 				212EEE721CDC362600F94B30 /* SettingFooterView.xib in Resources */,
 				E2D522781CDF90900024887A /* AliPayController.xib in Resources */,
+				21C4148D1CE46D5A00F1029C /* ComposeWorksViewController.xib in Resources */,
 				E2D5240E1CDF93B30024887A /* MessageTableViewController.storyboard in Resources */,
 				E22893C61CDF049500483F18 /* lxh_xiangyixiang.gif in Resources */,
 				E2D524131CDF93BC0024887A /* CommentsController.xib in Resources */,
@@ -4247,6 +4311,8 @@
 				E2D5224D1CDF8C6E0024887A /* RecordModelList.m in Sources */,
 				E2D522131CDF89950024887A /* PageInfoListModel.m in Sources */,
 				E2D522151CDF89950024887A /* ZanguoArtworkModel.m in Sources */,
+				21C4148C1CE46D5A00F1029C /* ComposeWorksViewController.m in Sources */,
+				21C414901CE475CC00F1029C /* TimeFiled.m in Sources */,
 				E2D524231CDF94FB0024887A /* KeyBordVIew.m in Sources */,
 				21D54B371CB4F88B0088D386 /* AuctionTableViewCell.m in Sources */,
 				21C414301CE2D23500F1029C /* HMEmotionTextView.m in Sources */,
@@ -4267,6 +4333,7 @@
 				21C414041CE2D23500F1029C /* JKPhotoBrowser.m in Sources */,
 				21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */,
 				212EEE851CE0341400F94B30 /* ArtistObjectModel.m in Sources */,
+				21C4146E1CE4220800F1029C /* CoverHUDView.m in Sources */,
 				E2D521FA1CDF7A230024887A /* cityField.m in Sources */,
 				E2D5225E1CDF8CEC0024887A /* CreatorModel.m in Sources */,
 				21C414331CE2D23500F1029C /* HMComposePhotosView.m in Sources */,
@@ -4286,6 +4353,7 @@
 				E2D525071CDFA2FF0024887A /* IdeaRetroactionViewController.m in Sources */,
 				21C4143B1CE2D23500F1029C /* imageViewController.m in Sources */,
 				E2D5223A1CDF8C5F0024887A /* AuthorDetailModel.m in Sources */,
+				21C414641CE4112F00F1029C /* FaBuHeaderView.m in Sources */,
 				21C414081CE2D23500F1029C /* PhotoAlbumManager.m in Sources */,
 				E2D521EE1CDF79220024887A /* CNCityAreaModel.m in Sources */,
 				21C414061CE2D23500F1029C /* JKPromptView.m in Sources */,

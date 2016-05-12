@@ -36,7 +36,7 @@
                         <constraint firstAttribute="height" constant="80" id="Hp6-pG-aJP"/>
                     </constraints>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称" minimumFontSize="17" background="denglu_shurukuang@x.png" translatesAutoresizingMaskIntoConstraints="NO" id="RuK-CY-fRw">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称" minimumFontSize="17" background="denglu_shurukuang" translatesAutoresizingMaskIntoConstraints="NO" id="RuK-CY-fRw">
                     <rect key="frame" x="94" y="294" width="187" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="DDn-O2-bNG"/>
@@ -105,7 +105,7 @@
         </view>
     </objects>
     <resources>
-        <image name="denglu_shurukuang@x.png" width="374" height="80"/>
+        <image name="denglu_shurukuang" width="188" height="40"/>
         <image name="jibenziliao_anniu" width="187" height="47"/>
         <image name="jibenziliao_shurukuang" width="188" height="40"/>
         <image name="jibenziliao_touxiang" width="80" height="80"/>

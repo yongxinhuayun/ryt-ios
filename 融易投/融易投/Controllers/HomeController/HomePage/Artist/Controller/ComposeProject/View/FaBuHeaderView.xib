@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="HzM-dW-OSS" customClass="FaBuHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="336" height="84"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dW-O4-Hvh">
+                    <rect key="frame" x="85.5" y="21" width="165" height="42"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.35686274509999999" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="UdJ-Dk-8KB"/>
+                        <constraint firstAttribute="width" constant="165" id="Uzb-5L-X3t"/>
+                    </constraints>
+                    <state key="normal" title="发布作品">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="UdJ-Dk-8KB"/>
+                        </mask>
+                    </variation>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="2dW-O4-Hvh" firstAttribute="centerX" secondItem="HzM-dW-OSS" secondAttribute="centerX" id="4aL-rs-3yg"/>
+                <constraint firstItem="2dW-O4-Hvh" firstAttribute="centerX" secondItem="HzM-dW-OSS" secondAttribute="centerX" id="8r5-RO-Wga"/>
+                <constraint firstItem="2dW-O4-Hvh" firstAttribute="centerY" secondItem="HzM-dW-OSS" secondAttribute="centerY" id="8wS-pa-sv7"/>
+                <constraint firstItem="2dW-O4-Hvh" firstAttribute="top" secondItem="HzM-dW-OSS" secondAttribute="top" constant="21" id="Daa-wC-Lcc"/>
+                <constraint firstAttribute="bottom" secondItem="2dW-O4-Hvh" secondAttribute="bottom" constant="21" id="c08-jA-mk6"/>
+                <constraint firstAttribute="trailing" secondItem="2dW-O4-Hvh" secondAttribute="trailing" id="vuh-MH-vpc"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="4aL-rs-3yg"/>
+                    <exclude reference="8wS-pa-sv7"/>
+                    <exclude reference="vuh-MH-vpc"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="fabuBtn" destination="2dW-O4-Hvh" id="487-Xu-DJy"/>
+            </connections>
+            <point key="canvasLocation" x="257" y="152.5"/>
+        </view>
+    </objects>
+</document>

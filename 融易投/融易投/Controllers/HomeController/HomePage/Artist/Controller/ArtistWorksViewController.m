@@ -18,12 +18,23 @@
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 
-@interface ArtistWorksViewController ()
+#import "FaBuHeaderView.h"
+
+#import "CoverHUDView.h"
+
+#import "ComposeWorksViewController.h"
+
+@interface ArtistWorksViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *models;
 
 /** 用来加载下一页数据 */
 @property (nonatomic, strong) NSString *lastPageIndex;
+
+@property (nonatomic, strong) CoverHUDView *cover;
+
+@property (strong,nonatomic) NSString *createPath;
+
 
 //-----------------------联动属性-----------------------
 @property(nonatomic,assign) BOOL isfoot;
@@ -43,8 +54,8 @@ static NSString *ID1 = @"ArtistWorksCell";
     self.lastPageIndex = @"1";
     
     
-    //    self.tableView.contentInset = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, 0, 0);
-    //    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, 0, 0);
+//    self.tableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
+//    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(44, 0, 0, 0);
     
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"ArtistWorksCell" bundle:nil] forCellReuseIdentifier:ID1];
@@ -112,13 +123,13 @@ static NSString *ID1 = @"ArtistWorksCell";
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.41:8080/app/my.do";
+    NSString *url = @"http://192.168.1.41:8080/app/myArtwork.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
-        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        //        NSLog(@"返回结果:%@",jsonStr);
-        
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
@@ -172,12 +183,12 @@ static NSString *ID1 = @"ArtistWorksCell";
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.41:8080/app/my.do";
+    NSString *url = @"http://192.168.1.41:8080/app/myArtwork.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
-        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        //        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
@@ -226,9 +237,184 @@ static NSString *ID1 = @"ArtistWorksCell";
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+
+    return 84;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+
+    FaBuHeaderView *headerView = [FaBuHeaderView faBuHeaderView];
+    
+    [headerView.fabuBtn addTarget:self action:@selector(fabuZuoPin:) forControlEvents:UIControlEventTouchUpInside];
+    
+    return  headerView;
+}
+
+-(void)fabuZuoPin:(UIButton *)btn{
+    
+    SSLog(@"fabuZuoPin");
+    
+    //创建UIAlertController是为了让用户去选择照片来源,拍照或者相册.
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:0];
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    
+    imagePickerController.delegate = self;
+    //设置选择图片的截取框
+    //    imagePickerController.allowsEditing = YES;
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"从相册选取" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+        
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+        [self presentViewController:imagePickerController animated:YES completion:nil];
+    }];
+    
+    UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"拍照" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+        
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+        [self presentViewController:imagePickerController animated:YES completion:nil];
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action)
+                                   {
+                                       //这里可以不写代码
+                                   }];
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    //用来判断来源 Xcode中的模拟器是没有拍摄功能的,当用模拟器的时候我们不需要把拍照功能加速
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        [alertController addAction:okAction];
+        [alertController addAction:cancelAction];
+        [alertController addAction:photoAction];
+    }
+    
+    else {
+        [alertController addAction:okAction];
+        [alertController addAction:cancelAction];
+    }
+
+    
+    
+}
+
+//实现相机的代理方法
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    //保存被选中图片
+    UIImage *selctedImage = info[UIImagePickerControllerOriginalImage];
+    
+    UIImage *workImage = [self drawImageWith:selctedImage imageWidth:SSScreenW - 2 * SSMargin];
+    
+   
+    selctedImage = nil;
+    
+    self.createPath = [self writeImageToCaches:workImage];
+    
+    //取消modal
+    [self dismissViewControllerAnimated:self completion:nil];
+    
+    ComposeWorksViewController *vc = [[ComposeWorksViewController alloc] init];
+    vc.workImage = workImage;
+    vc.createPath = self.createPath;
+    
+    [self.navigationController pushViewController:vc animated:NO];
+//    [self presentViewController:vc animated:YES completion:nil];
+}
+
+-(NSString *)writeImageToCaches:(UIImage *)newImage{
+    
+    // 获取cache文件夹
+    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    
+    NSString *createPath = [NSString stringWithFormat:@"%@/", cachePath];
+    
+    NSString *iconName = @"picture_url.png";
+    NSString *path = [NSString stringWithFormat:@"%@%@",createPath,iconName];
+    
+    SSLog(@"%@",path);
+    
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    
+    // 判断文件夹是否存在，如果不存在，则创建
+    if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        [fileManager createDirectoryAtPath:createPath withIntermediateDirectories:YES attributes:nil error:nil];
+        
+        SSLog(@"%@",path);
+        
+    } else {
+        SSLog(@"FileDir is exists.");
+    }
+    
+    NSData *data = UIImagePNGRepresentation(newImage);
+    
+    [data writeToFile:[NSString stringWithFormat:@"%@",path] atomically:YES];
+    
+    return path;
+}
+
+// 将指定图片按照指定的宽度缩放
+-(UIImage *)drawImageWith:(UIImage *)image imageWidth:(CGFloat)imageWidth{
+    
+    CGFloat imageHeight = (image.size.height / image.size.width) * imageWidth;
+    CGSize size = CGSizeMake(imageWidth, imageHeight);
+    
+    // 1.开启图形上下文
+    UIGraphicsBeginImageContext(size);
+    // 2.绘制图片
+    [image drawInRect:CGRectMake(0, 0, imageWidth, imageHeight)];
+    // 3.从上下文中取出图片
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    // 4.关闭上下文
+    return newImage;
+}
+
+
 -(void)shanchuZuoPin:(UIButton *)btn{
 
     SSLog(@"shanchuZuoPin");
+
+    
+    //创建遮盖
+    CoverHUDView *cover = [CoverHUDView coverHUDView];
+    self.cover = cover;
+    
+    [cover.quxiaoBtn addTarget:self action:@selector(quxiaoBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [cover.quedingBtn addTarget:self action:@selector(quedingBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    cover.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];//都为0代表是黑色
+    //    cover.alpha = 0.7 这么写的话,里面的子控件会都是半透明的
+    cover.bounds = [UIApplication sharedApplication].keyWindow.bounds;
+    //设置圆角距
+    cover.subView.layer.cornerRadius = 5;
+    cover.subView.alpha = 0.001;
+    cover.center = [UIApplication sharedApplication].keyWindow.center;
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:cover];
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        cover.subView.alpha = 1.0;
+    }];
+    
+}
+
+-(void)quxiaoBtnClick:(UIButton *)btn{
+    
+    [self.cover removeFromSuperview];
+}
+
+-(void)quedingBtnClick:(UIButton *)btn{
+    
+    SSLog(@"quedingBtnClick");
+    
+    [self.cover removeFromSuperview];
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        
+        
+        
+    }];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
