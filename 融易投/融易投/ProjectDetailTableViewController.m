@@ -30,7 +30,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-//    [self.tableView reloadData];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad {
@@ -60,29 +60,19 @@
     //参数
     NSLog(@"-----%@",self.artWorkId); //imyuxey8ze7lp8h5 ---in5z7r5f2w2f73so
     NSString *currentUserId = @"imhipoyk18s4k52u";
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    NSString *signmsg = [NSString stringWithFormat:@"artWorkId=%@&currentUserId=%@&timestamp=%@&key=%@",self.artWorkId,currentUserId,timestamp,appkey];
-    NSLog(@"%@",signmsg);
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
     NSString *url = [[NSString alloc] init];
     if (self.isFinance) {
-        url = @"http://192.168.1.41:8080/app/artWorkCreationView.do";
+        url = @"http://192.168.1.41:8085/app/artWorkCreationView.do";
     }else
     {
-        url = @"http://192.168.1.41:8080/app/investorArtWorkView.do";
+        url = @"http://192.168.1.41:8085/app/investorArtWorkView.do";
     }
-    // 3.设置请求体
-    NSDictionary *json = @{
+    NSDictionary *JSON = @{
                            @"artWorkId" : self.artWorkId,
-                           @"currentUserId":currentUserId,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
+                           @"currentUserId":currentUserId
                            };
-    
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
-         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:JSON showHUDView:self.view andBlock:^(id respondObj) {
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         //        NSLog(@"%@",modelDict);
         //字典数组 -> 模型数组
         NSLog(@"%@",modelDict);
@@ -110,7 +100,6 @@
     return 1;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) {
@@ -129,11 +118,12 @@
         }
         return cell;
     }
-    
 }
+
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 200;
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     // 需要通过模型计算cell的高度
     if (indexPath.section == 0) {

@@ -81,6 +81,7 @@
             self.projModel = project;
             self.artworkModel = project.artWork;
             [self loadDataToController];
+
             [self addFooterView];
         }];
     }];
@@ -166,7 +167,7 @@
     self.cycleView.frame = self.middleView.bounds;
     self.cycleView.titleArray = self.titleArray;
     //添加控制器view
-    [self addControllersToCycleView];
+                [self addControllersToCycleView];
     [self.middleView addSubview:self.cycleView];
     //添加控制器视图 到scrollView中
     self.backgroundScrollView.contentSize = CGSizeMake(ScreenWidth,self.topview.height + self.middleView.height);
@@ -212,6 +213,7 @@
     bottomView.widthConstraint.constant = 170;
     NSString *num = [NSString stringWithFormat:@" %ld",self.artworkModel.praiseNUm];
     [bottomView.zan setTitle:num forState:(UIControlStateNormal)];
+    bottomView.zan.selected = self.projModel.isPraise;
     bottomView.frame = CGRectMake(0, y, w, h);
     [self.view addSubview:bottomView];
 }
@@ -233,7 +235,6 @@
 
 //点赞
 -(void)clickZan:(UIButton *)zan{
-    
     NSString *userId = @"imhipoyk18s4k52u";
     NSString *urlStr = @"http://192.168.1.41:8085/app/artworkPraise.do";
     NSDictionary *json = @{
@@ -246,6 +247,20 @@
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         NSString *str = modelDict[@"resultMsg"];
         if ([str isEqualToString:@"成功"]) {
+            UILabel *numLabel = [[UILabel alloc] initWithFrame:zan.frame];
+            numLabel.center = zan.center;
+            numLabel.textAlignment = NSTextAlignmentCenter;
+            numLabel.text = @"+1";
+            numLabel.textColor = [UIColor colorWithRed:1.0 green:0 blue:0 alpha:0.7];
+            [zan addSubview:numLabel];
+            [UIView animateWithDuration:0.6 animations:^{
+                CGFloat x = numLabel.centerX;
+                CGPoint p = CGPointMake(x, 0);
+                numLabel.center = p;
+                numLabel.alpha = 0;
+            } completion:^(BOOL finished) {
+                [numLabel removeFromSuperview];
+            }];
             NSString *zanNum = [NSString stringWithFormat:@" %ld",self.artworkModel.praiseNUm + 1];
             [zan setTitle:zanNum forState:(UIControlStateNormal)];
         }
