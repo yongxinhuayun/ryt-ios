@@ -9,5 +9,10 @@
 #import "ArtworkModel.h"
 
 @implementation ArtworkModel
-
++(instancetype)initWithDictionary:(NSDictionary *)dict{
+    ArtworkModel *artwordModel = [[ArtworkModel alloc]init];
+    [artwordModel setValuesForKeysWithDictionary:dict];
+    return artwordModel;
+}
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key{}
 @end

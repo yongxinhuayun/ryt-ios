@@ -14,4 +14,5 @@
 @property(nonatomic,strong)NSMutableArray *titleArray;
 @property(nonatomic,strong)NSMutableArray *controllersView;
 @property(nonatomic,strong)CreationModel *creationModel;
+@property(nonatomic,copy) NSString *artworkId;
 @end

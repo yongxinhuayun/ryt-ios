@@ -49,7 +49,7 @@
 }
 
 -(void)send{
-    SSLog(@"``````````%@",self.commentView.text);
+    // 发送网络请求
     [self postComment];
 }
 

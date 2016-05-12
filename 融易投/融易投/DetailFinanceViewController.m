@@ -31,7 +31,6 @@
 
 @interface DetailFinanceViewController ()<UIScrollViewDelegate,FinanceFooterViewDelegate>
 @property(nonatomic,strong) FinanceHeader *financeHeader;
-@property(nonatomic,assign) NSInteger count;
 @property(nonatomic,assign) BOOL isFirstIn;
 @property(nonatomic,strong)ProjectDetailsModel *projModel;
 @property(nonatomic,strong)FinanceFooterView *financeFooter;
@@ -72,12 +71,12 @@
                            @"artWorkId" : self.artworkId,
                            @"currentUserId": userId,
                            };
-    [self loadData:urlStr parameters:json andBlock:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//            NSDictionary *dict = modelDict[@"object"];
+            //            NSDictionary *dict = modelDict[@"object"];
             ProjectDetailsModel *project = [ProjectDetailsModel mj_objectWithKeyValues:modelDict[@"object"]];
             self.projModel = project;
             self.artworkModel = project.artWork;
