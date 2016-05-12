@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="109" id="KGk-i7-Jjw" customClass="CreationTimeCell">
+            <rect key="frame" x="0.0" y="0.0" width="408" height="109"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="408" height="108"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o0i-dE-nOF">
+                        <rect key="frame" x="13" y="5" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="Hp3-7I-Izo"/>
+                            <constraint firstAttribute="width" constant="15" id="pAT-IA-lHZ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="创作" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BN-2z-Cfh">
+                        <rect key="frame" x="33" y="2" width="34" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03月05日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxQ-KV-Hjj">
+                        <rect key="frame" x="97" y="2" width="76" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08：50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVD-ie-yN3">
+                        <rect key="frame" x="183" y="2" width="59" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目前，该作品已创作了5天10小时；\n预计作品创作完成还有5天" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CHH-na-wHc">
+                        <rect key="frame" x="97" y="33" width="299" height="40"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z5Q-Qx-tMN">
+                        <rect key="frame" x="20" y="28" width="1" height="80"/>
+                        <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="6pM-xI-0YP"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="kVD-ie-yN3" firstAttribute="centerY" secondItem="dxQ-KV-Hjj" secondAttribute="centerY" id="8l9-LF-SZp"/>
+                    <constraint firstItem="Z5Q-Qx-tMN" firstAttribute="top" secondItem="8BN-2z-Cfh" secondAttribute="bottom" constant="5" id="9tf-yz-nUy"/>
+                    <constraint firstItem="CHH-na-wHc" firstAttribute="leading" secondItem="dxQ-KV-Hjj" secondAttribute="leading" id="KTC-PK-iGU"/>
+                    <constraint firstItem="dxQ-KV-Hjj" firstAttribute="centerY" secondItem="8BN-2z-Cfh" secondAttribute="centerY" id="Kcl-OM-e4H"/>
+                    <constraint firstItem="kVD-ie-yN3" firstAttribute="leading" secondItem="dxQ-KV-Hjj" secondAttribute="trailing" constant="10" id="PPq-Ck-1kl"/>
+                    <constraint firstItem="o0i-dE-nOF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="QC6-Bu-lcd"/>
+                    <constraint firstItem="Z5Q-Qx-tMN" firstAttribute="centerX" secondItem="o0i-dE-nOF" secondAttribute="centerX" id="RAJ-Vi-ez5"/>
+                    <constraint firstItem="8BN-2z-Cfh" firstAttribute="leading" secondItem="o0i-dE-nOF" secondAttribute="trailing" constant="5" id="SpH-S9-oQ0"/>
+                    <constraint firstItem="CHH-na-wHc" firstAttribute="top" secondItem="dxQ-KV-Hjj" secondAttribute="bottom" constant="10" id="URX-1m-dGF"/>
+                    <constraint firstAttribute="trailing" secondItem="CHH-na-wHc" secondAttribute="trailing" constant="12" id="Vp4-RL-k4l"/>
+                    <constraint firstItem="8BN-2z-Cfh" firstAttribute="centerY" secondItem="o0i-dE-nOF" secondAttribute="centerY" id="cHp-Xl-UnE"/>
+                    <constraint firstItem="dxQ-KV-Hjj" firstAttribute="leading" secondItem="8BN-2z-Cfh" secondAttribute="trailing" constant="30" id="h69-Q9-k0v"/>
+                    <constraint firstAttribute="bottom" secondItem="Z5Q-Qx-tMN" secondAttribute="bottom" id="jfa-mN-aHm"/>
+                    <constraint firstItem="o0i-dE-nOF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="kYD-9F-0hW"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="308" y="431.5"/>
+        </tableViewCell>
+    </objects>
+</document>

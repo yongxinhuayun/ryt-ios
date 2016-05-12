@@ -210,6 +210,11 @@
 		21D54B8D1CB660970088D386 /* ArtistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D54B8B1CB660970088D386 /* ArtistTableViewCell.xib */; };
 		21D54B921CB739E60088D386 /* AuctionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D54B911CB739E60088D386 /* AuctionTableViewCell.xib */; };
 		21D54BCF1CB796CD0088D386 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21D54BCE1CB796CD0088D386 /* messages.plist */; };
+		8177F8DB1CE4DC0F005D2259 /* TimeAxisTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8177F8DA1CE4DC0F005D2259 /* TimeAxisTableViewController.m */; };
+		8177F8DF1CE4DD72005D2259 /* FinanceTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8177F8DD1CE4DD72005D2259 /* FinanceTimeCell.m */; };
+		8177F8E01CE4DD72005D2259 /* FinanceTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8177F8DE1CE4DD72005D2259 /* FinanceTimeCell.xib */; };
+		8177F8E41CE4E1CD005D2259 /* CreationTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8177F8E21CE4E1CD005D2259 /* CreationTimeCell.m */; };
+		8177F8E51CE4E1CD005D2259 /* CreationTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8177F8E31CE4E1CD005D2259 /* CreationTimeCell.xib */; };
 		BC4A8BFAB939A8BBE3AF0A2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFB6E4A926D52C7C2AE4F6C /* libPods.a */; };
 		E2288DF61CDC290C00483F18 /* UserReplyCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2288DF41CDC290C00483F18 /* UserReplyCommentCell.m */; };
 		E2288DF71CDC290C00483F18 /* UserReplyCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2288DF51CDC290C00483F18 /* UserReplyCommentCell.xib */; };
@@ -1009,6 +1014,14 @@
 		21D54B8B1CB660970088D386 /* ArtistTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistTableViewCell.xib; sourceTree = "<group>"; };
 		21D54B911CB739E60088D386 /* AuctionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionTableViewCell.xib; sourceTree = "<group>"; };
 		21D54BCE1CB796CD0088D386 /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
+		8177F8D91CE4DC0F005D2259 /* TimeAxisTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeAxisTableViewController.h; sourceTree = "<group>"; };
+		8177F8DA1CE4DC0F005D2259 /* TimeAxisTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeAxisTableViewController.m; sourceTree = "<group>"; };
+		8177F8DC1CE4DD72005D2259 /* FinanceTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceTimeCell.h; sourceTree = "<group>"; };
+		8177F8DD1CE4DD72005D2259 /* FinanceTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceTimeCell.m; sourceTree = "<group>"; };
+		8177F8DE1CE4DD72005D2259 /* FinanceTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceTimeCell.xib; sourceTree = "<group>"; };
+		8177F8E11CE4E1CD005D2259 /* CreationTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreationTimeCell.h; sourceTree = "<group>"; };
+		8177F8E21CE4E1CD005D2259 /* CreationTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreationTimeCell.m; sourceTree = "<group>"; };
+		8177F8E31CE4E1CD005D2259 /* CreationTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreationTimeCell.xib; sourceTree = "<group>"; };
 		AC411E3C5CA46BB337E074BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E2288DF31CDC290C00483F18 /* UserReplyCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserReplyCommentCell.h; sourceTree = "<group>"; };
 		E2288DF41CDC290C00483F18 /* UserReplyCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserReplyCommentCell.m; sourceTree = "<group>"; };
@@ -1154,7 +1167,7 @@
 		E228927F1CDF03F400483F18 /* w_xiayu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w_xiayu@2x.png"; sourceTree = "<group>"; };
 		E22892801CDF03F400483F18 /* w_yueliang@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w_yueliang@2x.png"; sourceTree = "<group>"; };
 		E22892E51CDF040B00483F18 /* info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
-		E22892E91CDF049400483F18 /* .DS_Store */ = {isa = PBXFileReference; lastKnownFileType = file; path = .DS_Store; sourceTree = "<group>"; };
+		E22892E91CDF049400483F18 /* .DS_Store */ = {isa = PBXFileReference; lastKnownFileType = text; path = .DS_Store; sourceTree = "<group>"; };
 		E22892EA1CDF049400483F18 /* info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		E22892EB1CDF049400483F18 /* lxh_beicui.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = lxh_beicui.gif; sourceTree = "<group>"; };
 		E22892EC1CDF049400483F18 /* lxh_beicui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lxh_beicui.png; sourceTree = "<group>"; };
@@ -3479,6 +3492,12 @@
 				E2D812FE1CD0780E00A52172 /* TopView.xib */,
 				E2D813001CD09A7800A52172 /* CycleView.h */,
 				E2D813011CD09A7800A52172 /* CycleView.m */,
+				8177F8DC1CE4DD72005D2259 /* FinanceTimeCell.h */,
+				8177F8DD1CE4DD72005D2259 /* FinanceTimeCell.m */,
+				8177F8DE1CE4DD72005D2259 /* FinanceTimeCell.xib */,
+				8177F8E11CE4E1CD005D2259 /* CreationTimeCell.h */,
+				8177F8E21CE4E1CD005D2259 /* CreationTimeCell.m */,
+				8177F8E31CE4E1CD005D2259 /* CreationTimeCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -3667,6 +3686,8 @@
 				2187B95B1CCE083500B92435 /* CreationDetailsViewController.m */,
 				E2D557BC1CD21D04003F0F4A /* DetailCreationViewController.h */,
 				E2D557BD1CD21D04003F0F4A /* DetailCreationViewController.m */,
+				8177F8D91CE4DC0F005D2259 /* TimeAxisTableViewController.h */,
+				8177F8DA1CE4DC0F005D2259 /* TimeAxisTableViewController.m */,
 			);
 			name = "详情";
 			sourceTree = "<group>";
@@ -3846,6 +3867,7 @@
 				E22892A91CDF03F400483F18 /* d_shuijiao@2x.png in Resources */,
 				E22893781CDF049500483F18 /* lxh_buxiangshangban@2x.png in Resources */,
 				21C414461CE2D23500F1029C /* ArtistUserHeaderView.xib in Resources */,
+				8177F8E51CE4E1CD005D2259 /* CreationTimeCell.xib in Resources */,
 				E22892A21CDF03F400483F18 /* d_nvhaier@2x.png in Resources */,
 				E228939A1CDF049500483F18 /* lxh_kunsile.gif in Resources */,
 				E22893D11CDF049500483F18 /* lxh_xuyuan@2x.png in Resources */,
@@ -4003,6 +4025,7 @@
 				E22892C21CDF03F400483F18 /* f_shenma@2x.png in Resources */,
 				21C4141A1CE2D23500F1029C /* XMGPlayerView.xib in Resources */,
 				E22892B91CDF03F400483F18 /* d_zhajipijiu@2x.png in Resources */,
+				8177F8E01CE4DD72005D2259 /* FinanceTimeCell.xib in Resources */,
 				E22893711CDF049500483F18 /* lxh_biefanwo.png in Resources */,
 				E22892E31CDF03F400483F18 /* w_xiayu@2x.png in Resources */,
 				E22892AD1CDF03F400483F18 /* d_travel@2x.png in Resources */,
@@ -4242,6 +4265,7 @@
 				E2729AE81CD8B923006C0617 /* InstructionCell.m in Sources */,
 				E22890391CDEFDD900483F18 /* NSString+DocumentPath.m in Sources */,
 				E2D521ED1CDF79220024887A /* CNCityAreaFactory.m in Sources */,
+				8177F8DF1CE4DD72005D2259 /* FinanceTimeCell.m in Sources */,
 				E2D5224C1CDF8C6E0024887A /* RecordModel.m in Sources */,
 				E2288E471CDEFAB900483F18 /* AppDelegate.m in Sources */,
 				E2D522771CDF90900024887A /* AliPayController.m in Sources */,
@@ -4487,6 +4511,7 @@
 				21C413F71CE2D23500F1029C /* ImagePickerChooseView.m in Sources */,
 				21D54B171CB4C31F0088D386 /* CommonFooter.m in Sources */,
 				E2D5244B1CDF99C70024887A /* ApplyforArtViewController.m in Sources */,
+				8177F8E41CE4E1CD005D2259 /* CreationTimeCell.m in Sources */,
 				E2D522111CDF89950024887A /* BianJiJianJieModel.m in Sources */,
 				21C414191CE2D23500F1029C /* XMGPlayerView.m in Sources */,
 				21C414561CE3067F00F1029C /* CommonTextView.m in Sources */,
@@ -4496,6 +4521,7 @@
 				E2D5226B1CDF8D8F0024887A /* AuctionModel.m in Sources */,
 				E2D522241CDF8AF50024887A /* InvestorModel.m in Sources */,
 				21AB0B4F1CC6056500B7BA03 /* XIBDemoViewController.m in Sources */,
+				8177F8DB1CE4DC0F005D2259 /* TimeAxisTableViewController.m in Sources */,
 				E2D524A61CDF9F390024887A /* InvestProjectCell.m in Sources */,
 				21AB0AC51CC50A4D00B7BA03 /* JPBaseTableViewController.m in Sources */,
 				219A1E8E1CD34570002843AC /* MyHeaderView.m in Sources */,
