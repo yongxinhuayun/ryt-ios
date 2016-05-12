@@ -49,7 +49,7 @@
 }
 
 -(void)send{
-    SSLog(@"``````````%@",self.commentView.text);
+    // 发送网络请求
     [self postComment];
 }
 
@@ -57,32 +57,35 @@
 //发布评论
 -(void)postComment
 {
-    //参数
-//    NSString *currentUserId = @"imhipoyk18s4k52u";
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    NSString *signmsg = [NSString stringWithFormat:@"artwork_id=%@&timestamp=%@&key=%@",self.artworkId,timestamp,appkey];
-    NSLog(@"%@",signmsg);
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    NSString *url = @"http://192.168.1.41:8085/app/saveComment.do";
-    // 3.设置请求体
-    NSDictionary *json = @{
-                           @"artwork_id" : self.artworkId,
-                           @"username" : self.currentUserId,
-                           @"content":self.commentView.text,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5,
-                           @"father_comment_id":@""
-                           };
-    
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+    NSString *url = @"http://192.168.1.41:8085/app/artworkComment.do";
+    NSDictionary *JSON = @{ @"artworkId" : self.artworkId,
+                            @"currentUserId" : self.currentUserId,
+                            @"content":self.commentView.text
+                            };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:JSON showHUDView:self.view andBlock:^(id respondObj) {
+                NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+                NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         SSLog(@"%@",modelDict);
+        NSString *result = modelDict[@"resultMsg"];
+        if ([result isEqualToString:@"成功"]) {
+                NSNotificationCenter *notCenter = [NSNotificationCenter defaultCenter];
+            [notCenter postNotificationName:@"POSTCOMMENT" object:nil];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
         //字典数组 -> 模型数组
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         }];
     }];
+//    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+//        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+//        SSLog(@"%@",modelDict);
+//        //字典数组 -> 模型数组
+//        //在主线程刷新UI数据
+//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//        }];
+//    }];
 }
 
 

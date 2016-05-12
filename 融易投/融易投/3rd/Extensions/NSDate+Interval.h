@@ -50,4 +50,5 @@ typedef enum {
 - (BOOL)bs_isToday;
 - (BOOL)bs_isTomorrow;
 - (BOOL)bs_isThisYear;
+-(NSString *)created_at:(NSString *)date;
 @end

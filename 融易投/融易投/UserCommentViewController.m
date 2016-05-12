@@ -32,22 +32,25 @@
 @implementation UserCommentViewController
 
 static NSString *ID = @"userCommentCell";
+-(void)reloadDataSource{
+    [self loadData];
+    [self.tableView reloadData];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.estimatedRowHeight = 300;
     self.tableView.rowHeight = 250;
-    
     [UserCommentObjectModel mj_setupObjectClassInArray:^NSDictionary *{
         return @{
                  @"artworkCommentList":[ArtworkCommentListModel class],
                  @"fatherComment" : [ArtworkCommentListModel class],
                  };
     }];
-    
-    
     [CreatorModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         return @{@"ID" : @"id"};
     }];
+    NSNotificationCenter *notCenter = [NSNotificationCenter defaultCenter];
+    [notCenter addObserver:self selector:@selector(reloadDataSource) name:@"POSTCOMMENT" object:nil];
     [self loadData];
     [self setUpRefresh];
     //注册创建cell ,这样注册就不用在XIB设置ID
@@ -59,8 +62,6 @@ static NSString *ID = @"userCommentCell";
 {
     //自定义上拉加载更多
     self.tableView.mj_footer = [CommonFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-    
-    //要是其他控制器也需要,直接把上面的拷贝到其他控制器就可以了
 }
 
 
@@ -114,6 +115,10 @@ static NSString *ID = @"userCommentCell";
     
 }
 
+-(void)dealloc{
+        NSNotificationCenter *notCenter = [NSNotificationCenter defaultCenter];
+    [notCenter removeObserver:self];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

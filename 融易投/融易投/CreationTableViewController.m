@@ -285,7 +285,9 @@ static NSString *ID = @"creationCell";
 {
     DetailCreationViewController *creationDetailsVC = [[DetailCreationViewController alloc] init];
     CreationModel *model = self.models[indexPath.row];
+    creationDetailsVC.artworkId = model.ID;
     creationDetailsVC.creationModel =model;
+    
     creationDetailsVC.title = model.title;
     [self.navigationController pushViewController:creationDetailsVC animated:YES];
 }

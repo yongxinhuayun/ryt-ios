@@ -11,6 +11,7 @@
 #import "UIImageView+WebCache.h"
 
 #import "CreatorModel.h"
+#import "NSDate+Interval.h"
 #import <UIKit/UIKit.h>
 @interface UserCommonCell ()
 @end
@@ -26,8 +27,21 @@
     [imgView ss_setHeader:url];
     [self.userPic setImage:imgView.image forState:(UIControlStateNormal)];
     [self.userName setTitle:model.creator.name forState:(UIControlStateNormal)];
-//    self.replyTime.text = model.createDatetime;
+    self.replyTime.text = [self getTime:model.createDatetime];
+    
     self.content.text = model.content;
+}
+-(NSString *)getTime:(NSInteger)creatTime{
+    NSDate *newCreationEmdTimesp = [NSDate dateWithTimeIntervalSince1970:creatTime / 1000];
+    //设置时间格式
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    //将时间转换为字符串
+    NSString *timeStr=[formatter stringFromDate:newCreationEmdTimesp];
+    NSDate *date = [[NSDate alloc] init];
+    NSString *time = [date created_at:timeStr];
+    
+    return time;
 }
 
 - (void)awakeFromNib {

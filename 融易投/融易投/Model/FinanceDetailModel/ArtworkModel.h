@@ -48,5 +48,5 @@
 @property (nonatomic, strong) MasterDetailsModel *master;
 @property(nonatomic,assign) NSInteger praiseNUm;
 @property(nonatomic,assign)NSInteger  commentNum;
-
++(instancetype)initWithDictionary:(NSDictionary *)dict;
 @end

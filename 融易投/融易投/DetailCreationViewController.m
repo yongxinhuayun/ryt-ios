@@ -19,22 +19,65 @@
 #import "PostCommentController.h"
 #import "TopView.h"
 #import "CreationModel.h"
+#import "ProjectDetailsModel.h"
+#import "ProjectDetailsResultModel.h"
+#import "ArtworkModel.h"
+#import <MJExtension.h>
 #import <UIImageView+WebCache.h>
+
 @interface DetailCreationViewController ()<FinanceFooterViewDelegate,UIScrollViewDelegate>
 @property(nonatomic,strong) TopView *tpView;
+@property(nonatomic,strong)ProjectDetailsModel *projModel;
+@property(nonatomic,strong)ArtworkModel *artworkModel;
+@property(nonatomic,assign) BOOL isFirstIn;
 @end
 @implementation DetailCreationViewController
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
-    [self setupUI];
-    [self loadDataToController];
-    [self addFooterView];
+    if (self.isFirstIn) {
+        [self setupUI];
+    }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.isFirstIn = YES;
+    [ProjectDetailsModel mj_setupObjectClassInArray:^NSDictionary *{
+        return @{
+                 @"artworkAttachmentList" : @"ArtworkAttachmentListModel",
+                 };
+    }];
+    [ArtworkModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{
+                 @"descriptions":@"description",
+                 @"ID"          :@"id",
+                 };
+    }];
+    [self loadData];
+}
+
+
+-(void)loadData{
+    // 3.设置请求体
+    NSString *userId = @"imhipoyk18s4k52u";
+    NSString *urlStr = @"http://192.168.1.41:8085/app/artWorkCreationView.do";
+    NSDictionary *json = @{
+                           @"artWorkId" : self.artworkId,
+                           };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        dispatch_async(dispatch_get_main_queue(), ^{
+//        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+            ProjectDetailsResultModel *project = [ProjectDetailsResultModel mj_objectWithKeyValues:respondObj];
+            self.projModel = project.object;
+            self.artworkModel = self.projModel.artwork;
+            [self loadDataToController];
+            [self addFooterView];
+        });
+    }];
 }
 
 //加载数据
@@ -59,19 +102,13 @@
     //用户头衔userTitle
     self.tpView.userTitle.text = author.username;
     //项目描述brief
-    self.tpView.userTitle.text = self.creationModel.descriptions;
-//    //     融资目标金额 investGoalMoney;
-//    self.tpView.investGoalMoney.text = [NSString stringWithFormat:@"%ld",(long)self.financeModel.investGoalMoney];
-//    //MARK:TODO
-//    //融资开始时间 investStartDatetime;
-//    //融资结束时间/创作开始时间 investEndDatetime;
-//    //融资金额百分比 = 已融金额 / 目标金额
-//    self.tpView.investsMoney.text = [NSString stringWithFormat:@"%ld",(long)self.financeModel.investsMoney];
-//    CGFloat value = self.financeModel.investsMoney / self.financeModel.investGoalMoney;
-//    self.tpView.progress.progress = value;
-//    self.tpView.progressLabel.text = [NSString stringWithFormat:@"%d%%",(int)(value * 100)];
-//    //    投资人数 investorsNum;
-//    self.tpView.investNum.text =[NSString stringWithFormat:@"%ld",self.financeModel.investorsNum];
+    self.tpView.brief.text = self.creationModel.descriptions;
+//        MARK:TODO
+    //融资结束时间/创作开始时间 investEndDatetime;
+    NSDate *endDate = [NSDate dateWithTimeIntervalSince1970:self.artworkModel.investEndDatetime / 1000];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM月dd日"];
+    self.tpView.finishedTime.text =  [dateFormatter stringFromDate:endDate];
 }
 
 -(void)setupUI{
@@ -131,27 +168,74 @@
     CGFloat h = 44;
     FinanceFooterView *bottomView = [[[NSBundle mainBundle] loadNibNamed:@"FinanceFooterView" owner:nil options:nil] lastObject];
     bottomView.widthConstraint.constant = 0;
+    NSString *num = [NSString stringWithFormat:@" %ld",self.artworkModel.praiseNUm];
+    [bottomView.zan setTitle:num forState:(UIControlStateNormal)];
+    bottomView.zan.selected = self.projModel.isPraise;
     bottomView.delegate = self;
     bottomView.frame = CGRectMake(0, y, w, h);
     [self.view addSubview:bottomView];
 }
 
+//-(void)jumpPLController{
+//    PostCommentController * postComment = [[PostCommentController alloc] init];
+//    postComment.title = @"评论";
+//    //    financeModel
+//    //    @property(nonatomic,copy) NSString *artworkId;
+//    //    @property(nonatomic,copy) NSString *currentUserId;
+//    //    @property(nonatomic,copy) NSString *messageId;
+//    //    @property(nonatomic,copy) NSString *fatherCommentId;
+////    postComment.artworkId = self.financeModel.ID;
+//    postComment.currentUserId = @"khsadkovihso";
+////    postComment.messageId = self.financeModel.ID;
+//    [self.navigationController pushViewController:postComment animated:YES];
+//}
+//跳转到评论页面
 -(void)jumpPLController{
     PostCommentController * postComment = [[PostCommentController alloc] init];
     postComment.title = @"评论";
-    //    financeModel
-    //    @property(nonatomic,copy) NSString *artworkId;
-    //    @property(nonatomic,copy) NSString *currentUserId;
-    //    @property(nonatomic,copy) NSString *messageId;
-    //    @property(nonatomic,copy) NSString *fatherCommentId;
-//    postComment.artworkId = self.financeModel.ID;
-    postComment.currentUserId = @"khsadkovihso";
-//    postComment.messageId = self.financeModel.ID;
+    postComment.artworkId = self.artworkModel.ID;
+    postComment.currentUserId = @"imhipoyk18s4k52u";
+    self.isFirstIn = NO;
     [self.navigationController pushViewController:postComment animated:YES];
 }
 
 -(void)jumpTZController{
     
+//    self.isFirstIn = NO;
+}
+
+//点赞
+-(void)clickZan:(UIButton *)zan{
+    NSString *userId = @"18701526255";
+    NSString *urlStr = @"http://192.168.1.41:8085/app/artworkPraise.do";
+    NSDictionary *json = @{
+                           @"artworkId" : self.artworkId,
+                           @"currentUserId": userId,
+                           };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        NSString *str = modelDict[@"resultMsg"];
+        if ([str isEqualToString:@"成功"]) {
+            UILabel *numLabel = [[UILabel alloc] initWithFrame:zan.frame];
+            numLabel.center = zan.center;
+            numLabel.textAlignment = NSTextAlignmentCenter;
+            numLabel.text = @"+1";
+            numLabel.textColor = [UIColor colorWithRed:1.0 green:0 blue:0 alpha:0.7];
+            [zan addSubview:numLabel];
+            [UIView animateWithDuration:0.6 animations:^{
+                CGFloat x = numLabel.centerX;
+                CGPoint p = CGPointMake(x, 0);
+                numLabel.center = p;
+                numLabel.alpha = 0;
+            } completion:^(BOOL finished) {
+                [numLabel removeFromSuperview];
+            }];
+            NSString *zanNum = [NSString stringWithFormat:@" %ld",self.artworkModel.praiseNUm + 1];
+            [zan setTitle:zanNum forState:(UIControlStateNormal)];
+        }
+    }];
 }
 
 -(CycleView *)cycleView{

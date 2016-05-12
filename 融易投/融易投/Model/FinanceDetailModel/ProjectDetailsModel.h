@@ -21,6 +21,7 @@ typedef enum {
 @property (nonatomic ,strong) NSMutableArray *artworkAttachmentList;
 /** 项目详情 */
 @property (nonatomic ,strong) ArtworkModel *artWork;
+@property (nonatomic ,strong) ArtworkModel *artwork;
 /**制作解惑，说明 */
 @property (nonatomic ,strong) ArtworkdirectionModel *artworkdirection;
 /** 剩余时间 */
