@@ -59,7 +59,7 @@
 {
     //参数
     NSLog(@"-----%@",self.artWorkId); //imyuxey8ze7lp8h5 ---in5z7r5f2w2f73so
-    NSString *currentUserId = @"imhipoyk18s4k52u";
+    NSString *currentUserId = @"18701526255";
     NSString *url = [[NSString alloc] init];
     if (self.isFinance) {
         url = @"http://192.168.1.41:8085/app/artWorkCreationView.do";

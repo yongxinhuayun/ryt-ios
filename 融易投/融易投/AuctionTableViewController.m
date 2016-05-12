@@ -392,23 +392,14 @@ static NSString *ID = @"auctionCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.auctionTableViewCellTool.auctionBeforeView.hidden == YES) {
-        
         return [self.auctionTableViewCellTool cellHeight];
-        
     }else if(self.auctionTableViewCellTool.auctingView.hidden == YES){
-        
         return [self.auctionTableViewCellTool cellHeight] + 20 * 3;
-        
     }else if(self.auctionTableViewCellTool.auctionAfterView.hidden == YES){
-        
         return [self.auctionTableViewCellTool cellHeight];
-        
-    }else {
-    
+    }else{
         return [self.auctionTableViewCellTool cellHeight];
     }
-    
-    
 }
 
 

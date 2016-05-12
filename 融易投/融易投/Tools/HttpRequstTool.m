@@ -58,8 +58,10 @@ static HttpRequstTool *requstTool=nil ;
     NSString *timestamp = [MyMD5 timestamp];
     NSString *appkey = MD5key;
     NSMutableString *strM = [NSMutableString string];
-    [strM appendString:[self appendStringWithDictionary:parameters]];
-    [strM appendFormat:@"&timestamp=%@&key=%@",timestamp,appkey];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    [dict setValue:timestamp forKey:@"timestamp"];
+    [strM appendString:[self appendStringWithDictionary:dict]];
+    [strM appendFormat:@"&key=%@",appkey];
     NSString *signmsgMD5 = [MyMD5 md5:strM];
     NSDictionary *temp = @{
                            @"timestamp" : timestamp,

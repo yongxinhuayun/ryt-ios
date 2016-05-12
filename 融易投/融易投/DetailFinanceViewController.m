@@ -34,6 +34,7 @@
 @property(nonatomic,assign) NSInteger count;
 @property(nonatomic,assign) BOOL isFirstIn;
 @property(nonatomic,strong)ProjectDetailsModel *projModel;
+@property(nonatomic,strong)FinanceFooterView *financeFooter;
 @end
 
 @implementation DetailFinanceViewController
@@ -81,7 +82,6 @@
             self.projModel = project;
             self.artworkModel = project.artWork;
             [self loadDataToController];
-
             [self addFooterView];
         }];
     }];
@@ -218,11 +218,12 @@
     [self.view addSubview:bottomView];
 }
 
+//跳转到评论页面
 -(void)jumpPLController{
     PostCommentController * postComment = [[PostCommentController alloc] init];
     postComment.title = @"评论";
     postComment.artworkId = self.artworkModel.ID;
-    postComment.currentUserId = @"khsadkovihso";
+    postComment.currentUserId = @"imhipoyk18s4k52u";
     postComment.messageId = self.artworkModel.ID;
     self.isFirstIn = NO;
     [self.navigationController pushViewController:postComment animated:YES];
@@ -235,7 +236,7 @@
 
 //点赞
 -(void)clickZan:(UIButton *)zan{
-    NSString *userId = @"imhipoyk18s4k52u";
+    NSString *userId = @"18701526255";
     NSString *urlStr = @"http://192.168.1.41:8085/app/artworkPraise.do";
     NSDictionary *json = @{
                            @"artworkId" : self.artworkId,
