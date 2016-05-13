@@ -7,41 +7,38 @@
 //
 
 #import "FinanceHeader.h"
+#import "Progress.h"
 
 @interface FinanceHeader ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
-
 @end
 
 @implementation FinanceHeader
 
+
 - (void)drawRect:(CGRect)rect {
+
+}
+-(void)setupProgressView{
+    Progress *progress = [[Progress alloc] init];
+    progress.frame = self.progressView.bounds;
+    //    p.progress = 0.8;
+    self.progress = progress;
+    [self.progressView addSubview:progress];
+}
+-(void)setupCollectionView{
+
     self.artworkInvestList.delegate = self;
     self.artworkInvestList.backgroundColor = [UIColor whiteColor];
     self.artworkInvestList.dataSource = self;
-//    self.userContent
-//    CGFloat maxW = self.userContent.frame.size.width;
-//    CGFloat maxH = self.userContent.frame.size.height;
-//    CGFloat lineW = maxH / 3;
-//    CGFloat lineH = 2;
-//    
-//    UIView *line1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, lineW, lineH)];
-//    line1.backgroundColor = [UIColor redColor];
-//    UIView *line2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, lineH, lineW)];
-//    line2.backgroundColor = [UIColor redColor];
-//    [self.userContent addSubview:line1];
-//    [self.userContent addSubview:line2];
-//    
-//    UIView *line3 = [[UIView alloc] initWithFrame:CGRectMake(maxW - lineW, maxH - lineH, lineW,lineH)];
-//    line3.backgroundColor = [UIColor redColor];
-//    UIView *line4 = [[UIView alloc] initWithFrame:CGRectMake(maxW - lineH, maxH - lineW, lineH,lineW)];
-//    line4.backgroundColor = [UIColor redColor];
-//    [self.userContent addSubview:line3];
-//    [self.userContent addSubview:line4];
+    self.flowLayout.minimumInteritemSpacing = 10;
+    self.flowLayout.minimumLineSpacing = 10;
+    self.flowLayout.itemSize = CGSizeMake(24, 24);
+    self.artworkInvestList.showsHorizontalScrollIndicator = NO;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 0;
+    return 10;
 }
 
 @end
