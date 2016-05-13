@@ -114,7 +114,7 @@ static NSString *ID = @"creationCell";
     NSLog(@"pageSize=%@,pageIndex=%@,timestamp=%@",pageIndex,pageIndex,timestamp);
     NSString *signmsg = [NSString stringWithFormat:@"pageIndex=%@&pageSize=%@&timestamp=%@&key=%@",pageIndex,pageSize,timestamp,appkey];
     NSString *signmsgMD5 = [self md5:signmsg];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.41:8080/app/artWorkCreationList.do"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.1.41:8085/app/artWorkCreationList.do"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
@@ -194,7 +194,7 @@ static NSString *ID = @"creationCell";
     //http://192.168.1.57/app-wikiServer/
     //http://j.efeiyi.com:8080/app-wikiServer/app/
     //http://j.efeiyi.com:8080/app-wikiServer/app/login.do
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/artWorkCreationList.do"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.1.41:8085/app/artWorkCreationList.do"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";

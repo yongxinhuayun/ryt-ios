@@ -23,6 +23,7 @@
 #import "ProjectDetailsResultModel.h"
 #import "ArtworkModel.h"
 #import <MJExtension.h>
+#import "TimeAxisTableViewController.h"
 #import <UIImageView+WebCache.h>
 
 @interface DetailCreationViewController ()<FinanceFooterViewDelegate,UIScrollViewDelegate>
@@ -134,6 +135,10 @@
 //添加子控制器
 -(void)addControllersToCycleView{
     //添加控制器view
+    TimeAxisTableViewController *time = [[TimeAxisTableViewController alloc] init];
+    [self.controllersView addObject:time.view];
+    [self addChildViewController:time];
+    
     ProjectDetailTableViewController * pro1 = [[ProjectDetailTableViewController alloc] init];
     pro1.artWorkId = self.creationModel.ID;
     pro1.isFinance = NO;

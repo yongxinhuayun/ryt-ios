@@ -141,11 +141,12 @@
     self.financeHeader.userContent.text = self.artworkModel.brief;
 //     融资目标金额 investGoalMoney;
     self.financeHeader.investGoalMoney.text = [NSString stringWithFormat:@"%ld",(long)self.artworkModel.investGoalMoney];
+//    self.financeFooter.investsMoney = [NSString stringWithFormat:@"%ld 元",self.artworkModel.investsMoney];
     //MARK:TODO
     //融资开始时间 investStartDatetime;
     //融资结束时间/创作开始时间 investEndDatetime;
     //融资金额百分比 = 已融金额 / 目标金额
-    self.financeHeader.investsMoney.text = [NSString stringWithFormat:@"%ld",(long)self.artworkModel.investsMoney];
+    self.financeHeader.investsMoney.text = [NSString stringWithFormat:@"%ld 元",(long)self.artworkModel.investsMoney];
     CGFloat value = self.artworkModel.investsMoney / self.artworkModel.investGoalMoney;
     self.financeHeader.progress.progress = value;
     self.financeHeader.progressLabel.text = [NSString stringWithFormat:@"%d%%",(int)(value * 100)];

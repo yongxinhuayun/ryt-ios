@@ -107,6 +107,7 @@
         cell.introduceLabel.text = self.model.artWork.brief;
         cell.imgArray = self.imgList;
         [cell imgArray:self.imgList];
+        [cell.imageListView reloadData];
         return  cell;
     }else{
 //         (indexPath.row == 1)

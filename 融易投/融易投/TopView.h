@@ -14,6 +14,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *userTitle;
-@property (weak, nonatomic) IBOutlet UITextView *brief;
+@property (weak, nonatomic) IBOutlet UITextView *brief1;
 @property (weak, nonatomic) IBOutlet UILabel *finishedTime;
+@property (weak, nonatomic) IBOutlet UILabel *brief;
+
 @end

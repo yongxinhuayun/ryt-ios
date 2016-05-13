@@ -7,7 +7,13 @@
 //
 
 #import "TimeAxisTableViewController.h"
+#import "FinanceTimeCell.h"
+#import "CreationTimeCell.h"
+#import "PMTimeCell.h"
 
+NSString * const financeCell = @"financeCell";
+NSString * const creation = @"creationCell";
+NSString * const pmCell = @"pmCell";
 @interface TimeAxisTableViewController ()
 
 @end
@@ -16,7 +22,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    //注册cell
+    [self.tableView registerNib:[UINib nibWithNibName:@"FinanceTimeCell" bundle:nil] forCellReuseIdentifier:financeCell];
+    [self.tableView registerNib:[UINib nibWithNibName:@"CreationTimeCell" bundle:nil] forCellReuseIdentifier:creation];
+    [self.tableView registerNib:[UINib nibWithNibName:@"PMTimeCell" bundle:nil] forCellReuseIdentifier:pmCell];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,15 +45,22 @@
 
 
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+    if (indexPath.section == 0) {
+        FinanceTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:financeCell];
+        return cell;
+    }else if (indexPath.section == 1){
+        CreationTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:creation];
+        return cell;
+    }else {
+        PMTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:pmCell];
+        return cell;
+    }
 }
-*/
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
+}
+    
 
 /*
 // Override to support conditional editing of the table view.
