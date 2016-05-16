@@ -35,7 +35,7 @@
     CGFloat startX = 0;
     CGFloat startY = 0;
     CGContextMoveToPoint(ref, startX, startY);
-    // 2.直线终点 (比率,5)
+    // 2.直线终点 (比率 * 长度,箭头的长度)
     CGFloat endX = self.frame.size.width * self.progress - 3;
     CGFloat endY = startY;
     CGContextAddLineToPoint(ref, endX, endY);
