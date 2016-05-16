@@ -24,6 +24,9 @@
 
 @interface UserCommentViewController ()
 @property (nonatomic, strong) NSMutableArray *models;
+/** 用来加载下一页数据 */
+@property (nonatomic, strong) NSString *lastPageNum;
+
 //-----------------------联动属性-----------------------
 @property(nonatomic,assign) BOOL isfoot;
 //-----------------------联动属性-----------------------
@@ -70,49 +73,57 @@ static NSString *ID = @"userCommentCell";
     //参数
     //    NSString *artWorkId = [[NSUserDefaults standardUserDefaults] objectForKey:@"artWorkId"];
     NSString *artWorkId = self.artWorkId;
-    //
-//    NSString *messageId = self.artWorkId;
+    self.lastPageNum = @"1";
     NSString *pageIndex = @"1";
     NSString *pageSize = @"20";
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    NSString *signmsg = [NSString stringWithFormat:@"artWorkId=%@&pageIndex=%@&pageSize=%@&timestamp=%@&key=%@",artWorkId,pageIndex,pageSize,timestamp,appkey];
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-    NSString *url = @"http://192.168.1.41:8085/app/investorArtWorkComment.do";
+    NSString *url = @"investorArtWorkComment.do";
     // 3.设置请求体
     NSDictionary *json = @{
                            @"artWorkId" : artWorkId,
-//                           @"messageId":messageId,
                            @"pageIndex":pageIndex,
                            @"pageSize":pageSize,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
                            };
-    
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         UserCommonResultModel *userCommentObject = [UserCommonResultModel mj_objectWithKeyValues:modelDict];
-        
         self.models = [ArtworkCommentListModel mj_objectArrayWithKeyValuesArray:userCommentObject.object.artworkCommentList];
         for (ArtworkCommentListModel *m in self.models) {
             NSLog(@"model : %@,%@ \n",m.ID,m.content);
         }
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
             [self.tableView reloadData];
-            
         }];
-        
     }];
 }
 
 -(void)loadMoreData{
-    
-    
-    
+    //8.2 取消之前的请求
+    [self.tableView.mj_footer endRefreshing];
+    //参数
+    NSString *pageSize = @"20";
+    int newPageNum = self.lastPageNum.intValue + 1;
+    self.lastPageNum = [NSString stringWithFormat:@"%d",newPageNum];
+    NSString *pageNum = [NSString stringWithFormat:@"%d",newPageNum];
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"artWorkId" : self.artWorkId,
+                           @"pageIndex":pageNum,
+                           @"pageSize":pageSize,
+                           };
+    NSString *url = @"investorArtWorkComment.do";
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        UserCommonResultModel *userCommentObject = [UserCommonResultModel mj_objectWithKeyValues:modelDict];
+        NSArray *array = [ArtworkCommentListModel mj_objectArrayWithKeyValuesArray:userCommentObject.object.artworkCommentList];
+        [self.models addObjectsFromArray:array];
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self.tableView reloadData];
+        }];
+    }];
 }
 
 -(void)dealloc{

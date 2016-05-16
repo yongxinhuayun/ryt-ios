@@ -162,8 +162,8 @@
     //融资金额百分比 = 已融金额 / 目标金额
     self.financeHeader.investsMoney.text = [NSString stringWithFormat:@"%ld 元",(long)self.artworkModel.investsMoney];
     CGFloat value = self.artworkModel.investsMoney / self.artworkModel.investGoalMoney;
-    self.financeHeader.progress.progress = 0.9;
-//    self.financeHeader.progress.progress = value;
+//    self.financeHeader.progress.progress = 0.9;
+    self.financeHeader.progress.progress = value;
     self.financeHeader.progressLabel.text = [NSString stringWithFormat:@"%d%%",(int)(value * 100)];
 //    投资人数 investorsNum;
     self.financeHeader.investNum.text =[NSString stringWithFormat:@"%ld",self.projModel.investNum];
