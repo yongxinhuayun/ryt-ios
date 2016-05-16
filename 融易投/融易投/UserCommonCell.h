@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "ArtworkCommentListModel.h"
-
+#import "UserReplyCommentCell.h"
 @interface UserCommonCell : UITableViewCell
 
 @property (nonatomic, strong) ArtworkCommentListModel *model;
@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *userName;
 @property (weak, nonatomic) IBOutlet UILabel *replyTime;
 @property (weak, nonatomic) IBOutlet UILabel *content;
+@property(weak,nonatomic) id<ArtworkCommentListModelDelegate> delegate;
+@property(nonatomic,strong)NSIndexPath *indexPath;
 
 
 @end

@@ -81,7 +81,6 @@
         NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            //            NSDictionary *dict = modelDict[@"object"];
             ProjectDetailsModel *project = [ProjectDetailsModel mj_objectWithKeyValues:modelDict[@"object"]];
             self.projModel = project;
             self.artworkModel = project.artWork;

@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class RecordModel;
 @interface RecordTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *userIcon;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UILabel *investTime;
--(void)setupUI:(NSMutableArray *)list;
+@property(nonatomic,strong) RecordModel *model;
 @end

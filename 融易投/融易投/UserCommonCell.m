@@ -44,6 +44,14 @@
     return time;
 }
 
+- (IBAction)clickUserIcon:(UIButton *)sender {
+    NSLog(@"当前cell= %@",self);
+    if ([self.delegate respondsToSelector:@selector(clickUserIconOrName:)]) {
+        [self.delegate clickUserIconOrName:self.indexPath];
+    }
+}
+
+
 - (void)awakeFromNib {
 }
 

@@ -13,6 +13,7 @@
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 #import "RecordModelList.h"
+#import "RecordModel.h"
 #import "UserMyModel.h"
 
 @interface RecordTableViewController ()
@@ -56,46 +57,24 @@
 {
     //8.2 取消之前的请求
     [self.tableView.mj_header endRefreshing];
-    
     self.lastPageIndex = @"1";
-    //参数
-    NSString *userId = @"ieatht97wfw30hfd";
-    
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";
-    //flag为1是自己看自己,为2时是看别人,还需要传递otheruserId
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    
-    NSString *signmsg = [NSString stringWithFormat:@"artWorkId=%@&pageIndex=%@&pageSize=%@&timestamp=%@&key=%@",self.ID,pageIndex,pageSize,timestamp,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
     // 3.设置请求体
     NSDictionary *json = @{
-                           @"artWorkId":self.ID,
+//                           @"artWorkId":self.ID,
+                           @"artWorkId":@"qydeyugqqiugd2",
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
                            };
-    
-    NSString *url = @"http://192.168.1.75:8001/app/investorArtWorkInvest.do";
-    
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
-        
-                NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-                NSLog(@"返回结果:%@",jsonStr);
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"investorArtWorkInvest.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
         RecordModelList *model = [RecordModelList mj_objectWithKeyValues:modelDict[@"object"]];
         self.artList = model.artworkInvestList;
         self.artTopList = model.artworkInvestTopList;
-//        self.models = model.artworks;
-        
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self.tableView reloadData];
@@ -132,7 +111,7 @@
     
     // 3.设置请求体
     NSDictionary *json = @{
-                           @"artWorkId":self.ID,
+                           @"artWorkId":@"qydeyugqqiugd2",
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex,
                            @"timestamp" : timestamp,
@@ -145,22 +124,20 @@
         
                 NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
                 NSLog(@"返回结果:%@",jsonStr);
-        
-        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-        
-        RecordModelList *model = [RecordModelList mj_objectWithKeyValues:modelDict[@"object"]];
-        //拼接数据
-        self.artTopList = model.artworkInvestTopList;
-        
-        if (model.artworkInvestList != nil) {
-            [self.artList addObject:model.artworkInvestList];
-        }
 
 //        [self.models addObjectsFromArray:moreModels];
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
             
+            RecordModelList *model = [RecordModelList mj_objectWithKeyValues:modelDict[@"object"]];
+            //拼接数据
+            self.artTopList = model.artworkInvestTopList;
+            
+            if (model.artworkInvestList != nil) {
+                [self.artList addObject:model.artworkInvestList];
+            }
             [self.tableView reloadData];
             
         }];
@@ -168,10 +145,7 @@
     }];
 }
 //--------------
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
 
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 刷新
@@ -217,7 +191,7 @@
     UIView *header = [[UIView alloc] init];
     header.frame = CGRectMake(0, 0, tableView.width, 80);
     header.backgroundColor = [UIColor whiteColor];
-    if (section ==0) {
+    if (section == 0) {
         UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"touzimingxingbang"]];
         imgView.center = header.center;
         imgView.height = 59;
@@ -239,10 +213,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         TopRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TopRecordCell" forIndexPath:indexPath];
-        
+        [cell setupUI:self.artTopList];
         return cell;
     }else{
         RecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecordCell"                                                                    forIndexPath:indexPath];
+//        RecordModel *recModel = self.artList[indexPath.row];
+        cell.model = self.artTopList[indexPath.row];
         return cell;
     }
 }
