@@ -23,6 +23,7 @@
 #import "ProjectDetailsResultModel.h"
 #import "ArtworkModel.h"
 #import <MJExtension.h>
+#import "TimeAxisTableViewController.h"
 #import <UIImageView+WebCache.h>
 
 @interface DetailCreationViewController ()<FinanceFooterViewDelegate,UIScrollViewDelegate>
@@ -62,7 +63,7 @@
 -(void)loadData{
     // 3.设置请求体
     NSString *userId = @"imhipoyk18s4k52u";
-    NSString *urlStr = @"http://192.168.1.41:8085/app/artWorkCreationView.do";
+    NSString *urlStr = @"artWorkCreationView.do";
     NSDictionary *json = @{
                            @"artWorkId" : self.artworkId,
                            };
@@ -134,6 +135,10 @@
 //添加子控制器
 -(void)addControllersToCycleView{
     //添加控制器view
+    TimeAxisTableViewController *time = [[TimeAxisTableViewController alloc] init];
+    [self.controllersView addObject:time.view];
+    [self addChildViewController:time];
+    
     ProjectDetailTableViewController * pro1 = [[ProjectDetailTableViewController alloc] init];
     pro1.artWorkId = self.creationModel.ID;
     pro1.isFinance = NO;
@@ -207,7 +212,7 @@
 //点赞
 -(void)clickZan:(UIButton *)zan{
     NSString *userId = @"18701526255";
-    NSString *urlStr = @"http://192.168.1.41:8085/app/artworkPraise.do";
+    NSString *urlStr = @"artworkPraise.do";
     NSDictionary *json = @{
                            @"artworkId" : self.artworkId,
                            @"currentUserId": userId,

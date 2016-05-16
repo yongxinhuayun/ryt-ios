@@ -20,7 +20,7 @@
     self.imageListView.dataSource = self;
     self.imageListView.bounces = NO;
     [self.imageListView registerNib:[UINib nibWithNibName:@"ImageListViewCellCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"imageListCell"];
-    self.flowLayout.itemSize = CGSizeMake(375, 200);
+    self.flowLayout.itemSize = CGSizeMake(SSScreenW, 200);
     long i = [self.imageListView numberOfItemsInSection:0];
 //    self.imageListView.contentSize = CGSizeMake(375, self.flowLayout.itemSize.height * i);
     self.imageListView.height = self.flowLayout.itemSize.height * i +(i - 1)*10;

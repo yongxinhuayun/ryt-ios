@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Progress;
 @interface FinanceHeader : UIView
 //项目图片
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
@@ -22,7 +22,8 @@
 //已融金额
 @property (weak, nonatomic) IBOutlet UILabel *investsMoney;
 //融资进度
-@property (weak, nonatomic) IBOutlet UIProgressView *progress;
+@property (weak, nonatomic) IBOutlet UIView *progressView;
+@property(nonatomic,strong) Progress *progress;
 //融资进度
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 //目标金额
@@ -33,14 +34,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *investNum;
 //
 @property (weak, nonatomic) IBOutlet UICollectionView *artworkInvestList;
-
-
-
-
-
-
-
-
-
-
 @end

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pmCell" rowHeight="49" id="KGk-i7-Jjw" customClass="PMTimeCell">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="49"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="48.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pm" translatesAutoresizingMaskIntoConstraints="NO" id="VFS-za-V7y">
+                        <rect key="frame" x="12" y="5" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="OGt-cQ-WmU"/>
+                            <constraint firstAttribute="height" constant="15" id="cSa-RZ-ggw"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拍卖" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZh-4g-CV8">
+                        <rect key="frame" x="37" y="4" width="28" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="敬请期待..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znp-Wm-9zH">
+                        <rect key="frame" x="95" y="4.5" width="68.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="znp-Wm-9zH" firstAttribute="leading" secondItem="yZh-4g-CV8" secondAttribute="trailing" constant="30" id="6RG-s6-DBS"/>
+                    <constraint firstItem="yZh-4g-CV8" firstAttribute="centerY" secondItem="VFS-za-V7y" secondAttribute="centerY" id="Jxc-uB-tnv"/>
+                    <constraint firstItem="znp-Wm-9zH" firstAttribute="centerY" secondItem="yZh-4g-CV8" secondAttribute="centerY" id="RPM-E9-QDd"/>
+                    <constraint firstItem="VFS-za-V7y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="T8u-fb-Wv9"/>
+                    <constraint firstItem="yZh-4g-CV8" firstAttribute="leading" secondItem="VFS-za-V7y" secondAttribute="trailing" constant="10" id="Y8E-5d-6N0"/>
+                    <constraint firstItem="VFS-za-V7y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="f7Y-Ml-7Gy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="223" y="274.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="pm" width="15" height="15"/>
+    </resources>
+</document>

@@ -28,7 +28,7 @@
 #import <MJExtension.h>
 #import "ProjectDetailsModel.H"
 #import "ArtworkModel.h"
-
+#import "Progress.h"
 @interface DetailFinanceViewController ()<UIScrollViewDelegate,FinanceFooterViewDelegate>
 @property(nonatomic,strong) FinanceHeader *financeHeader;
 @property(nonatomic,assign) BOOL isFirstIn;
@@ -44,8 +44,6 @@
     if (self.isFirstIn) {
         [self setupUI];
         [self loadData];
-        
-        
     }
 }
 
@@ -66,7 +64,7 @@
 -(void)loadData{
     // 3.设置请求体
     NSString *userId = @"imhipoyk18s4k52u";
-    NSString *urlStr = @"http://192.168.1.41:8085/app/investorArtWorkView.do";
+    NSString *urlStr = @"investorArtWorkView.do";
     NSDictionary *json = @{
                            @"artWorkId" : self.artworkId,
                            @"currentUserId": userId,
@@ -82,7 +80,23 @@
             self.artworkModel = project.artWork;
             [self loadDataToController];
             [self addFooterView];
+             [self loadInvestors];
         }];
+    }];
+}
+
+-(void)loadInvestors{
+    NSString *pageIndex = @"1";
+    NSString *pageSize = @"20";
+    NSString *urlStr = @"investorArtWorkInvest.do";
+    NSDictionary *json  = @{
+                            @"artWorkId" : self.artworkId,
+                            @"pageIndex" : pageIndex,
+                            @"pageSize" : pageSize
+                            };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        
     }];
 }
 
@@ -141,13 +155,15 @@
     self.financeHeader.userContent.text = self.artworkModel.brief;
 //     融资目标金额 investGoalMoney;
     self.financeHeader.investGoalMoney.text = [NSString stringWithFormat:@"%ld",(long)self.artworkModel.investGoalMoney];
+//    self.financeFooter.investsMoney = [NSString stringWithFormat:@"%ld 元",self.artworkModel.investsMoney];
     //MARK:TODO
     //融资开始时间 investStartDatetime;
     //融资结束时间/创作开始时间 investEndDatetime;
     //融资金额百分比 = 已融金额 / 目标金额
-    self.financeHeader.investsMoney.text = [NSString stringWithFormat:@"%ld",(long)self.artworkModel.investsMoney];
+    self.financeHeader.investsMoney.text = [NSString stringWithFormat:@"%ld 元",(long)self.artworkModel.investsMoney];
     CGFloat value = self.artworkModel.investsMoney / self.artworkModel.investGoalMoney;
-    self.financeHeader.progress.progress = value;
+    self.financeHeader.progress.progress = 0.9;
+//    self.financeHeader.progress.progress = value;
     self.financeHeader.progressLabel.text = [NSString stringWithFormat:@"%d%%",(int)(value * 100)];
 //    投资人数 investorsNum;
     self.financeHeader.investNum.text =[NSString stringWithFormat:@"%ld",self.projModel.investNum];
@@ -158,6 +174,7 @@
     self.financeHeader = tView;
     self.financeHeader.width = ScreenWidth;
     self.topview.height = tView.height;
+//    self.topview.height = 300;
     tView.backgroundColor = [UIColor whiteColor];
     tView.width = ScreenWidth;
     [self.topview addSubview:self.financeHeader];
@@ -236,12 +253,12 @@
 //点赞
 -(void)clickZan:(UIButton *)zan{
     NSString *userId = @"18701526255";
-    NSString *urlStr = @"http://192.168.1.41:8085/app/artworkPraise.do";
+    NSString *urlStr = @"artworkPraise.do";
     NSDictionary *json = @{
                            @"artworkId" : self.artworkId,
                            @"currentUserId": userId,
                            };
-    [self loadData:urlStr parameters:json andBlock:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
@@ -264,6 +281,8 @@
             NSString *zanNum = [NSString stringWithFormat:@" %ld",self.artworkModel.praiseNUm + 1];
             [zan setTitle:zanNum forState:(UIControlStateNormal)];
         }
+
+        
     }];
 }
 //懒加载

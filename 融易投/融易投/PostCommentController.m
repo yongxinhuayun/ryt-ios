@@ -57,7 +57,7 @@
 //发布评论
 -(void)postComment
 {
-    NSString *url = @"http://192.168.1.41:8085/app/artworkComment.do";
+    NSString *url = @"artworkComment.do";
     NSDictionary *JSON = @{ @"artworkId" : self.artworkId,
                             @"currentUserId" : self.currentUserId,
                             @"content":self.commentView.text
