@@ -33,7 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerImage" translatesAutoresizingMaskIntoConstraints="NO" id="fVd-Bi-z7O">
-                        <rect key="frame" x="14" y="306.5" width="64" height="64"/>
+                        <rect key="frame" x="14" y="306" width="64" height="64"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="64" id="X13-bq-CXq"/>
                             <constraint firstAttribute="width" constant="64" id="Xhb-HO-cs7"/>
@@ -58,7 +58,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PM8-Nh-GSy" customClass="CommonButton">
-                        <rect key="frame" x="260" y="328.5" width="51" height="20"/>
+                        <rect key="frame" x="260" y="328" width="51" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <state key="normal" title="1000" image="dianzanqian">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,8 +69,14 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emL-zO-iic">
-                        <rect key="frame" x="266" y="238" width="45" height="30"/>
-                        <state key="normal" title="创作中"/>
+                        <rect key="frame" x="231" y="238" width="80" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="Vd3-Ia-foi"/>
+                            <constraint firstAttribute="width" constant="80" id="jwa-9I-Jmp"/>
+                        </constraints>
+                        <state key="normal" title="创作中" backgroundImage="btnBackground">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvp-Pq-oy9">
                         <rect key="frame" x="71" y="271" width="37.5" height="14.5"/>
@@ -117,6 +123,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="btnBackground" width="130" height="40"/>
         <image name="dianzanhou" width="20" height="20"/>
         <image name="dianzanqian" width="20" height="20"/>
         <image name="headerImage" width="214" height="221"/>

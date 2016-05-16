@@ -206,6 +206,40 @@
     //当我们进行点赞的时候,应该提醒一下点赞是否成功,可以直接把选中的图片变大即可
     //    [button.imageView.layer addAnimation:<#(nonnull CAAnimation *)#> forKey:<#(nullable NSString *)#>]
     
+    /*
+    NSString *userId = @"18701526255";
+    NSString *urlStr = @"http://192.168.1.41:8085/app/artworkPraise.do";
+    NSDictionary *json = @{
+                           @"artworkId" : self.artworkId,
+                           @"currentUserId": userId,
+                           };
+    
+    [self loadData:urlStr parameters:json andBlock:^(id respondObj) {
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        NSString *str = modelDict[@"resultMsg"];
+        if ([str isEqualToString:@"成功"]) {
+            UILabel *numLabel = [[UILabel alloc] initWithFrame:zan.frame];
+            numLabel.center = zan.center;
+            numLabel.textAlignment = NSTextAlignmentCenter;
+            numLabel.text = @"+1";
+            numLabel.textColor = [UIColor colorWithRed:1.0 green:0 blue:0 alpha:0.7];
+            [zan addSubview:numLabel];
+            [UIView animateWithDuration:0.6 animations:^{
+                CGFloat x = numLabel.centerX;
+                CGPoint p = CGPointMake(x, 0);
+                numLabel.center = p;
+                numLabel.alpha = 0;
+            } completion:^(BOOL finished) {
+                [numLabel removeFromSuperview];
+            }];
+            NSString *zanNum = [NSString stringWithFormat:@" %ld",self.artworkModel.praiseNUm + 1];
+            [zan setTitle:zanNum forState:(UIControlStateNormal)];
+        }
+    }];
+
+    */
     
     
 }
