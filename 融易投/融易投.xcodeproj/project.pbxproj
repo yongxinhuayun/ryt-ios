@@ -198,6 +198,7 @@
 		21C4148C1CE46D5A00F1029C /* ComposeWorksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C4148A1CE46D5A00F1029C /* ComposeWorksViewController.m */; };
 		21C4148D1CE46D5A00F1029C /* ComposeWorksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C4148B1CE46D5A00F1029C /* ComposeWorksViewController.xib */; };
 		21C414901CE475CC00F1029C /* TimeFiled.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C4148F1CE475CC00F1029C /* TimeFiled.m */; };
+		21C459DF1CE95A4100691E8D /* CommonTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C459DE1CE95A4100691E8D /* CommonTextView.m */; };
 		21D54B171CB4C31F0088D386 /* CommonFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B141CB4C31F0088D386 /* CommonFooter.m */; };
 		21D54B181CB4C31F0088D386 /* CommonHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B161CB4C31F0088D386 /* CommonHeader.m */; };
 		21D54B1F1CB4D99E0088D386 /* CreationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B1D1CB4D99E0088D386 /* CreationTableViewCell.m */; };
@@ -995,6 +996,8 @@
 		21C4148B1CE46D5A00F1029C /* ComposeWorksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeWorksViewController.xib; sourceTree = "<group>"; };
 		21C4148E1CE475CC00F1029C /* TimeFiled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeFiled.h; sourceTree = "<group>"; };
 		21C4148F1CE475CC00F1029C /* TimeFiled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeFiled.m; sourceTree = "<group>"; };
+		21C459DD1CE95A4100691E8D /* CommonTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTextView.h; sourceTree = "<group>"; };
+		21C459DE1CE95A4100691E8D /* CommonTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTextView.m; sourceTree = "<group>"; };
 		21D54B131CB4C31F0088D386 /* CommonFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonFooter.h; sourceTree = "<group>"; };
 		21D54B141CB4C31F0088D386 /* CommonFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonFooter.m; sourceTree = "<group>"; };
 		21D54B151CB4C31F0088D386 /* CommonHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
@@ -1675,6 +1678,8 @@
 				21D54B161CB4C31F0088D386 /* CommonHeader.m */,
 				212EEE411CD9D8CD00F94B30 /* CommonButton.h */,
 				212EEE421CD9D8CD00F94B30 /* CommonButton.m */,
+				21C459DD1CE95A4100691E8D /* CommonTextView.h */,
+				21C459DE1CE95A4100691E8D /* CommonTextView.m */,
 				21C4148E1CE475CC00F1029C /* TimeFiled.h */,
 				21C4148F1CE475CC00F1029C /* TimeFiled.m */,
 			);
@@ -4426,6 +4431,7 @@
 				21C4142D1CE2D23500F1029C /* HMEmotionListView.m in Sources */,
 				E2D521EC1CDF79220024887A /* CNCityAreaCitiesModel.m in Sources */,
 				21C413F01CE2D23500F1029C /* AGIPCToolbarItem.m in Sources */,
+				21C459DF1CE95A4100691E8D /* CommonTextView.m in Sources */,
 				E2D522391CDF8C5F0024887A /* ArtworkModel.m in Sources */,
 				212EEE701CDC361100F94B30 /* SettingFooterView.m in Sources */,
 				21C413F61CE2D23500F1029C /* ImagePickerChooseCell.m in Sources */,
