@@ -44,7 +44,6 @@
     if (self.isFirstIn) {
         [self setupUI];
         [self loadData];
-        [self loadInvestors];
     }
 }
 
@@ -65,7 +64,7 @@
 -(void)loadData{
     // 3.设置请求体
     NSString *userId = @"imhipoyk18s4k52u";
-    NSString *urlStr = @"http://192.168.1.41:8085/app/investorArtWorkView.do";
+    NSString *urlStr = @"investorArtWorkView.do";
     NSDictionary *json = @{
                            @"artWorkId" : self.artworkId,
                            @"currentUserId": userId,
@@ -81,6 +80,7 @@
             self.artworkModel = project.artWork;
             [self loadDataToController];
             [self addFooterView];
+             [self loadInvestors];
         }];
     }];
 }
@@ -88,7 +88,7 @@
 -(void)loadInvestors{
     NSString *pageIndex = @"1";
     NSString *pageSize = @"20";
-    NSString *urlStr = @"http://192.168.1.41:8085/app/investorArtWorkInvest.do";
+    NSString *urlStr = @"investorArtWorkInvest.do";
     NSDictionary *json  = @{
                             @"artWorkId" : self.artworkId,
                             @"pageIndex" : pageIndex,
@@ -96,7 +96,7 @@
                             };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
+        
     }];
 }
 
@@ -253,12 +253,12 @@
 //点赞
 -(void)clickZan:(UIButton *)zan{
     NSString *userId = @"18701526255";
-    NSString *urlStr = @"http://192.168.1.41:8085/app/artworkPraise.do";
+    NSString *urlStr = @"artworkPraise.do";
     NSDictionary *json = @{
                            @"artworkId" : self.artworkId,
                            @"currentUserId": userId,
                            };
-    [self loadData:urlStr parameters:json andBlock:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
@@ -281,6 +281,8 @@
             NSString *zanNum = [NSString stringWithFormat:@" %ld",self.artworkModel.praiseNUm + 1];
             [zan setTitle:zanNum forState:(UIControlStateNormal)];
         }
+
+        
     }];
 }
 //懒加载

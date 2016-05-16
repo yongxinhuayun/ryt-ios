@@ -62,10 +62,10 @@
     NSString *currentUserId = @"18701526255";
     NSString *url = [[NSString alloc] init];
     if (self.isFinance) {
-        url = @"http://192.168.1.41:8085/app/artWorkCreationView.do";
+        url = @"artWorkCreationView.do";
     }else
     {
-        url = @"http://192.168.1.41:8085/app/investorArtWorkView.do";
+        url = @"investorArtWorkView.do";
     }
     NSDictionary *JSON = @{
                            @"artWorkId" : self.artWorkId,

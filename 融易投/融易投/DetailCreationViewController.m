@@ -63,7 +63,7 @@
 -(void)loadData{
     // 3.设置请求体
     NSString *userId = @"imhipoyk18s4k52u";
-    NSString *urlStr = @"http://192.168.1.41:8085/app/artWorkCreationView.do";
+    NSString *urlStr = @"artWorkCreationView.do";
     NSDictionary *json = @{
                            @"artWorkId" : self.artworkId,
                            };
@@ -212,7 +212,7 @@
 //点赞
 -(void)clickZan:(UIButton *)zan{
     NSString *userId = @"18701526255";
-    NSString *urlStr = @"http://192.168.1.41:8085/app/artworkPraise.do";
+    NSString *urlStr = @"artworkPraise.do";
     NSDictionary *json = @{
                            @"artworkId" : self.artworkId,
                            @"currentUserId": userId,

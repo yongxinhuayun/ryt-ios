@@ -17,17 +17,16 @@ static HttpRequstTool *requstTool=nil ;
 
 @property(strong,nonatomic) AFHTTPSessionManager *sessionManager;
 
-
 @end
 
 @implementation HttpRequstTool
+static  NSString *basePath = @"http://192.168.1.41:8085/app/";
 +(HttpRequstTool *)shareInstance
 {
     if (!requstTool ) {
         requstTool=[[HttpRequstTool alloc] init];
         requstTool.sessionManager=[AFHTTPSessionManager manager];
 //          requstTool.sessionManager.responseSerializer = [[AFCompoundResponseSerializer alloc] init];
-        
         
         [[AFNetworkActivityIndicatorManager sharedManager ] setEnabled:YES];
     }
@@ -55,6 +54,8 @@ static HttpRequstTool *requstTool=nil ;
 
 // POST请求
 -(void)loadData:(RequestType)type serverUrl:(NSString *)urlStr parameters:(NSDictionary *)parameters showHUDView:(UIView *)view andBlock:(void(^)(id respondObj))success{
+    NSMutableString *url = [NSMutableString stringWithString:basePath];
+    [url appendString:urlStr];
     NSString *timestamp = [MyMD5 timestamp];
     NSString *appkey = MD5key;
     NSMutableString *strM = [NSMutableString string];
@@ -70,7 +71,7 @@ static HttpRequstTool *requstTool=nil ;
     NSMutableDictionary *parDictionary = [NSMutableDictionary dictionaryWithDictionary:parameters];
     [parDictionary addEntriesFromDictionary:temp];
     if (type == POST) {
-        [self handlerNetworkingPOSTRequstWithServerUrl:urlStr Parameters:parDictionary showHUDView:view success:^(id respondObj) {
+        [self handlerNetworkingPOSTRequstWithServerUrl:url Parameters:parDictionary showHUDView:view success:^(id respondObj) {
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 success(respondObj);
             }];
