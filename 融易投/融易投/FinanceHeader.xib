@@ -285,7 +285,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="artworkInvestList" destination="oN4-xb-aUu" id="TqA-Yv-G2I"/>
-                <outlet property="flowLayout" destination="GEL-jN-0lW" id="uWn-77-QeH"/>
+                <outlet property="flowLayout" destination="GEL-jN-0lW" id="U31-iu-KUs"/>
                 <outlet property="imgView" destination="XyZ-rY-OH8" id="HIj-Fs-S5I"/>
                 <outlet property="investGoalMoney" destination="NYM-8S-CTx" id="nzc-hO-JDu"/>
                 <outlet property="investNum" destination="z68-Nw-VuK" id="efu-ba-4pl"/>

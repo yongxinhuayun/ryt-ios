@@ -44,6 +44,7 @@
     if (self.isFirstIn) {
         [self setupUI];
         [self loadData];
+        [self loadInvestors];
     }
 }
 
@@ -81,6 +82,21 @@
             [self loadDataToController];
             [self addFooterView];
         }];
+    }];
+}
+
+-(void)loadInvestors{
+    NSString *pageIndex = @"1";
+    NSString *pageSize = @"20";
+    NSString *urlStr = @"http://192.168.1.41:8085/app/investorArtWorkInvest.do";
+    NSDictionary *json  = @{
+                            @"artWorkId" : self.artworkId,
+                            @"pageIndex" : pageIndex,
+                            @"pageSize" : pageSize
+                            };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
     }];
 }
 
@@ -158,6 +174,7 @@
     self.financeHeader = tView;
     self.financeHeader.width = ScreenWidth;
     self.topview.height = tView.height;
+//    self.topview.height = 300;
     tView.backgroundColor = [UIColor whiteColor];
     tView.width = ScreenWidth;
     [self.topview addSubview:self.financeHeader];

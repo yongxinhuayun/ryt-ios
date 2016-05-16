@@ -13,5 +13,8 @@
 - (void)awakeFromNib {
     // Initialization code
 }
+- (IBAction)clickBtn:(id)sender {
+    NSLog(@"点击头像");
+}
 
 @end

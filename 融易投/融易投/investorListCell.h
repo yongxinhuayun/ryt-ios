@@ -10,4 +10,6 @@
 
 @interface investorListCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *userPicture;
+
 @end

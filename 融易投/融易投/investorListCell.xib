@@ -7,29 +7,30 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="investorListCell">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="investorCell" id="gTV-IL-0wX" customClass="investorListCell">
             <rect key="frame" x="0.0" y="0.0" width="64" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="64" height="44"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Ffg-2V-PdR">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQi-CR-aB0">
                         <rect key="frame" x="0.0" y="0.0" width="64" height="44"/>
-                    </imageView>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="clickBtn:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Yn8-As-khV"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Ffg-2V-PdR" secondAttribute="bottom" id="BQU-uu-xWz"/>
-                <constraint firstItem="Ffg-2V-PdR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="IBf-P7-pIZ"/>
-                <constraint firstItem="Ffg-2V-PdR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Te5-Qh-Df0"/>
-                <constraint firstAttribute="trailing" secondItem="Ffg-2V-PdR" secondAttribute="trailing" id="i43-mR-ueB"/>
+                <constraint firstAttribute="bottom" secondItem="AQi-CR-aB0" secondAttribute="bottom" id="0gs-Nv-Lep"/>
+                <constraint firstItem="AQi-CR-aB0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="E0X-4l-8nx"/>
+                <constraint firstItem="AQi-CR-aB0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Rge-jM-h6l"/>
+                <constraint firstAttribute="trailing" secondItem="AQi-CR-aB0" secondAttribute="trailing" id="YFg-mE-OuE"/>
             </constraints>
             <size key="customSize" width="64" height="44"/>
             <point key="canvasLocation" x="-121" y="246"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="defaultBackground" width="83" height="97"/>
-    </resources>
 </document>
