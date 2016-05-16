@@ -139,7 +139,7 @@
     NSString *name = self.workName.text;
     NSString *material = self.materialText.text;
     NSString *currentUserId = @"imhfp1yr4636pj49";
-    NSString *createDatetime = self.creatTime.text;
+    NSString *createYear = self.creatTime.text;
     
     NSString *type = nil; //0:非卖品 1:可售 2:已售
     if ([self.subLabel.text isEqualToString:@"可售"]) {
@@ -156,7 +156,7 @@
     NSString *timestamp = [MyMD5 timestamp];
     NSString *appkey = MD5key;
     
-    NSString *signmsg = [NSString stringWithFormat:@"createDatetime=%@&currentUserId=%@&material=%@&name=%@&timestamp=%@&type=%@&key=%@",createDatetime,currentUserId,material,name,timestamp,type,appkey];
+    NSString *signmsg = [NSString stringWithFormat:@"createYear=%@&currentUserId=%@&material=%@&name=%@&timestamp=%@&type=%@&key=%@",createYear,currentUserId,material,name,timestamp,type,appkey];
     
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
 
@@ -168,7 +168,7 @@
                            @"currentUserId" : currentUserId,
                            @"type":type,
                            @"pictureUrl":pictureUrl,
-                           @"createDatetime":createDatetime,
+                           @"createYear":createYear,
                            @"timestamp" : timestamp,
                            @"signmsg"   : signmsgMD5
                            };
