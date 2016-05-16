@@ -117,6 +117,7 @@
     self.tpView = tView;
     self.tpView.width = ScreenWidth;
     self.topview.height = tView.height;
+    self.topview.width = ScreenWidth;
     tView.backgroundColor = [UIColor whiteColor];
     tView.width = ScreenWidth;
     [self.topview addSubview:self.tpView];
@@ -130,6 +131,7 @@
     //添加控制器视图 到scrollView中
     self.backgroundScrollView.contentSize = CGSizeMake(ScreenWidth,self.topview.height + self.middleView.height);
     self.backgroundScrollView.delegate = self;
+    [self.view bringSubviewToFront:self.topview];
 }
 
 //添加子控制器

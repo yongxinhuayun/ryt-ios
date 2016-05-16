@@ -477,7 +477,6 @@
 		E2729AE91CD8B923006C0617 /* InstructionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2729AE21CD8B923006C0617 /* InstructionCell.xib */; };
 		E2729AEA1CD8B923006C0617 /* ImageListViewCellCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729AE41CD8B923006C0617 /* ImageListViewCellCollectionViewCell.m */; };
 		E2729AEB1CD8B923006C0617 /* ImageListViewCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2729AE51CD8B923006C0617 /* ImageListViewCellCollectionViewCell.xib */; };
-		E2729AEE1CD8B943006C0617 /* DetailFinanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729AED1CD8B943006C0617 /* DetailFinanceViewController.m */; };
 		E2729AF51CD8B983006C0617 /* RecordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729AF11CD8B983006C0617 /* RecordTableViewController.m */; };
 		E2729AF61CD8B983006C0617 /* RecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729AF31CD8B983006C0617 /* RecordTableViewCell.m */; };
 		E2729AF71CD8B983006C0617 /* RecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2729AF41CD8B983006C0617 /* RecordTableViewCell.xib */; };
@@ -633,6 +632,8 @@
 		E2F1C8061CE5C3F800D4B1B4 /* Progress.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1C8051CE5C3F800D4B1B4 /* Progress.m */; };
 		E2F1C80A1CE5CB5800D4B1B4 /* investorListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1C8081CE5CB5800D4B1B4 /* investorListCell.m */; };
 		E2F1C80B1CE5CB5800D4B1B4 /* investorListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F1C8091CE5CB5800D4B1B4 /* investorListCell.xib */; };
+		E2F1C81B1CE97ACE00D4B1B4 /* ArtworkInvestor.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1C81A1CE97ACE00D4B1B4 /* ArtworkInvestor.m */; };
+		E2F1C81C1CE983B000D4B1B4 /* DetailFinanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729AED1CD8B943006C0617 /* DetailFinanceViewController.m */; };
 		E2F281F31CE55E4600E10330 /* PMTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F281F11CE55E4600E10330 /* PMTimeCell.m */; };
 		E2F281F41CE55E4600E10330 /* PMTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F281F21CE55E4600E10330 /* PMTimeCell.xib */; };
 		E2F281F81CE565A500E10330 /* FinanceTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F281F61CE565A500E10330 /* FinanceTimeCell.m */; };
@@ -1587,6 +1588,8 @@
 		E2F1C8071CE5CB5800D4B1B4 /* investorListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = investorListCell.h; sourceTree = "<group>"; };
 		E2F1C8081CE5CB5800D4B1B4 /* investorListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = investorListCell.m; sourceTree = "<group>"; };
 		E2F1C8091CE5CB5800D4B1B4 /* investorListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = investorListCell.xib; sourceTree = "<group>"; };
+		E2F1C8191CE97ACE00D4B1B4 /* ArtworkInvestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkInvestor.h; sourceTree = "<group>"; };
+		E2F1C81A1CE97ACE00D4B1B4 /* ArtworkInvestor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkInvestor.m; sourceTree = "<group>"; };
 		E2F281F01CE55E4600E10330 /* PMTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMTimeCell.h; sourceTree = "<group>"; };
 		E2F281F11CE55E4600E10330 /* PMTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMTimeCell.m; sourceTree = "<group>"; };
 		E2F281F21CE55E4600E10330 /* PMTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMTimeCell.xib; sourceTree = "<group>"; };
@@ -2957,6 +2960,8 @@
 				E2D522341CDF8C5F0024887A /* ProjectDetailsModel.m */,
 				E2D522351CDF8C5F0024887A /* ProjectDetailsResultModel.h */,
 				E2D522361CDF8C5F0024887A /* ProjectDetailsResultModel.m */,
+				E2F1C8191CE97ACE00D4B1B4 /* ArtworkInvestor.h */,
+				E2F1C81A1CE97ACE00D4B1B4 /* ArtworkInvestor.m */,
 			);
 			path = FinanceDetailModel;
 			sourceTree = "<group>";
@@ -4292,7 +4297,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2D812EF1CCF85D500A52172 /* BaseScrollViewController.m in Sources */,
-				E2729AEE1CD8B943006C0617 /* DetailFinanceViewController.m in Sources */,
 				E2729AFD1CD8B9A7006C0617 /* UserCommentViewController.m in Sources */,
 				21AB0AC21CC50A4D00B7BA03 /* UIColor+JPExtension.m in Sources */,
 				21AB0AC81CC50A4D00B7BA03 /* ScrollTestVC.m in Sources */,
@@ -4322,6 +4326,7 @@
 				E2D522371CDF8C5F0024887A /* ArtworkAttachmentListModel.m in Sources */,
 				212EEE8D1CE048C500F94B30 /* CommonUserHeaderView.m in Sources */,
 				2168EAE31CBFA05000B7E037 /* FinanceDetailFirstCell.m in Sources */,
+				E2F1C81C1CE983B000D4B1B4 /* DetailFinanceViewController.m in Sources */,
 				21C4140D1CE2D23500F1029C /* WHC_PhotoListCell.m in Sources */,
 				21C4142C1CE2D23500F1029C /* HMEmotionKeyboard.m in Sources */,
 				21C413EC1CE2D23500F1029C /* AGIPCAssetsController.m in Sources */,
@@ -4511,6 +4516,7 @@
 				E2D522101CDF89950024887A /* ArtworksModel.m in Sources */,
 				E2D524741CDF9B9C0024887A /* WalletTableViewCell.m in Sources */,
 				E2D524281CDF95040024887A /* ChartCell.m in Sources */,
+				E2F1C81B1CE97ACE00D4B1B4 /* ArtworkInvestor.m in Sources */,
 				21C414021CE2D23500F1029C /* JKAssetsViewCell.m in Sources */,
 				21C414411CE2D23500F1029C /* CollectionViewCell.m in Sources */,
 				E2D521AE1CDF783B0024887A /* FollowerMyModel.m in Sources */,
