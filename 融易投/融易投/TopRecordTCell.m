@@ -1,31 +1,66 @@
 //
-//  TopRecordTableViewCell.m
-//  
+//  TopRecordTCell.m
+//  融易投
 //
-//  Created by dongxin on 16/5/5.
-//
+//  Created by 李鹏飞 on 16/5/17.
+//  Copyright © 2016年 融艺投. All rights reserved.
 //
 
-#import "TopRecordTableViewCell.h"
+#import "TopRecordTCell.h"
 #import "RecordModel.h"
 #import "RecordModelList.h"
 #import "UserMyModel.h"
 
-@implementation TopRecordTableViewCell
+
+@interface TopRecordTCell()
+@property (weak, nonatomic) IBOutlet UIButton *top1Icon;
+@property (weak, nonatomic) IBOutlet UIButton *top2Icon;
+@property (weak, nonatomic) IBOutlet UIButton *top3Icon;
+
+@property (weak, nonatomic) IBOutlet UIImageView *top2img;
+@property (weak, nonatomic) IBOutlet UIImageView *top1img;
+@property (weak, nonatomic) IBOutlet UIImageView *top3img;
+
+@property (weak, nonatomic) IBOutlet UILabel *top2Name;
+@property (weak, nonatomic) IBOutlet UILabel *top1Name;
+@property (weak, nonatomic) IBOutlet UILabel *top3Name;
+
+@property (weak, nonatomic) IBOutlet UILabel *top2Time;
+@property (weak, nonatomic) IBOutlet UILabel *top1Time;
+@property (weak, nonatomic) IBOutlet UILabel *top3Time;
+
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+@property (weak, nonatomic) IBOutlet UILabel *label2;
+@property (weak, nonatomic) IBOutlet UILabel *label3;
+
+@property (weak, nonatomic) IBOutlet UIView *top1;
+@property (weak, nonatomic) IBOutlet UIView *top2;
+@property (weak, nonatomic) IBOutlet UIView *top3;
+
+@property (weak, nonatomic) IBOutlet UILabel *top1Money;
+@property (weak, nonatomic) IBOutlet UILabel *top2Money;
+@property (weak, nonatomic) IBOutlet UILabel *top3Money;
+@end
+
+@implementation TopRecordTCell
 
 - (void)awakeFromNib {
     // Initialization code
 }
-
-- (IBAction)clickUserImage:(UIButton *)sender {
-    
-    NSLog(@"点击了头像");
-}
-
-//设置数据
 -(void)setupUI:(NSMutableArray *)topList{
-    topList = [NSMutableArray array];
     int i = 0;
+    self.top1.hidden = YES;
+    self.top2.hidden = YES;
+    self.top3.hidden = YES;
+    for (int i = 0; i < topList.count; i++) {
+        if (i == 0) {
+            self.top1.hidden = NO;
+        }else if(i == 1){
+            self.top2.hidden = NO;
+        }else{
+            self.top3.hidden = NO;
+        }
+    }
     for (RecordModel *model in topList) {
         if (i == 0) {
             NSString *urlStr = [[NSString stringWithFormat:@"%@",model.creator.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -36,10 +71,8 @@
             NSDate * date = [NSDate dateWithTimeIntervalSince1970:model.createDatetime / 1000];
             NSDateFormatter *dfm = [[NSDateFormatter alloc] init];
             [dfm setDateFormat:@"yyyy-MM-dd"];
-            
             self.top1Time.text = [dfm stringFromDate:date];
-            self.top1Money.text = [NSString stringWithFormat:@"￥%ld",model.price];
-            
+            self.top1Money.text = [NSString stringWithFormat:@"￥%ld",model.price];            
         }else if (i == 1){
             NSString *urlStr = [[NSString stringWithFormat:@"%@",model.creator.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             UIImageView *imgView = [[UIImageView alloc] init];
@@ -54,7 +87,7 @@
             self.top2Money.text = [NSString stringWithFormat:@"￥%ld",model.price];
             
         }else{
-        
+            
             NSString *urlStr = [[NSString stringWithFormat:@"%@",model.creator.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             UIImageView *imgView = [[UIImageView alloc] init];
             [imgView ss_setHeader:[NSURL URLWithString:urlStr]];
@@ -69,20 +102,10 @@
         }
         i++;
     }
-//    if (topList.count == 0) {
-//        self.top1Icon.hidden = YES;
-//        self.top1Name.hidden = YES;
-//        self.top1Time.hidden = YES;
-//        self.top1Icon.hidden = YES;
-//        self.label1.hidden = YES;
-//        self.top1img.hidden = YES;
-//    }else
 }
-
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
+    //    [super setSelected:selected animated:animated];
+    
     // Configure the view for the selected state
 }
 

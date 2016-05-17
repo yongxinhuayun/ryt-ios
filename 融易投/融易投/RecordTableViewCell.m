@@ -23,11 +23,11 @@
     
     [self.userIcon ss_setHeader:[NSURL URLWithString:url]];
     self.userName.text = model.creator.name;
-    self.price.text = [NSString stringWithFormat:@"%ld",model.price];
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:model.createDatetime];
+    self.price.text = [NSString stringWithFormat:@"%ld 元",model.price];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:model.createDatetime / 1000];
     NSDateFormatter *dfm = [[NSDateFormatter alloc] init];
     [dfm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *dTime = [date created_at:[dfm stringFromDate:date]];
+    NSString *dTime = [date createdAt:[dfm stringFromDate:date]];
     self.investTime.text = dTime;
 }
 

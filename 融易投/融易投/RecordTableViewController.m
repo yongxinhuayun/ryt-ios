@@ -8,7 +8,7 @@
 
 #import "RecordTableViewController.h"
 #import "RecordTableViewCell.h"
-#import "TopRecordTableViewCell.h"
+#import "TopRecordTCell.h"
 #import <MJExtension.h>
 #import "CommonHeader.h"
 #import "CommonFooter.h"
@@ -133,7 +133,7 @@
             
             RecordModelList *model = [RecordModelList mj_objectWithKeyValues:modelDict[@"object"]];
             //拼接数据
-            self.artTopList = model.artworkInvestTopList;
+//            self.artTopList = model.artworkInvestTopList;
             
             if (model.artworkInvestList != nil) {
                 [self.artList addObject:model.artworkInvestList];
@@ -164,7 +164,7 @@
     self.isfoot = YES;
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"RecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"RecordCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"TopRecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"TopRecordCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"TopRecordTCell" bundle:nil] forCellReuseIdentifier:@"TopRecordCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
 }
@@ -181,9 +181,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 1;
+        if (self.artTopList.count == 0) {
+            return 0;
+        }else{
+            return 1;}
     }else{
-        return 20;
+        return self.artList.count;
     }
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -212,20 +215,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        TopRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TopRecordCell" forIndexPath:indexPath];
+        TopRecordTCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TopRecordCell" forIndexPath:indexPath];
         [cell setupUI:self.artTopList];
         return cell;
     }else{
         RecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecordCell"                                                                    forIndexPath:indexPath];
 //        RecordModel *recModel = self.artList[indexPath.row];
-        cell.model = self.artTopList[indexPath.row];
+        cell.model = self.artList[indexPath.row];
         return cell;
     }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPat{
     if (indexPat.section ==0) {
-        return 200;
+        if (self.artTopList.count == 0) {
+            return 0;
+        }else{
+            return 200;
+        }
     }else{
         return 60;
     }
