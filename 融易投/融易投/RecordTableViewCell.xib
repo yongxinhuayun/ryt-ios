@@ -14,19 +14,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="林峰.png" translatesAutoresizingMaskIntoConstraints="NO" id="qzy-SA-1je">
-                        <rect key="frame" x="12" y="19" width="32" height="32"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="32" id="kcX-QD-IjP"/>
-                            <constraint firstAttribute="height" constant="32" id="sLi-8E-PDq"/>
-                        </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="沉睡的艺术" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BH0-9M-7mM">
-                        <rect key="frame" x="54" y="27" width="65" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16:22" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uW6-A1-bbV">
                         <rect key="frame" x="329" y="27" width="34" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -45,24 +32,44 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wdz-iG-wdO">
+                        <rect key="frame" x="14" y="19" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="V2n-cP-CQa"/>
+                            <constraint firstAttribute="width" constant="32" id="s8b-qN-DXl"/>
+                        </constraints>
+                        <state key="normal" image="林峰.png"/>
+                        <connections>
+                            <action selector="clickUserIcon:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="q5u-v9-pXJ"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="沉睡的艺术" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BH0-9M-7mM">
+                        <rect key="frame" x="56" y="27" width="65" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="R0W-xB-tHW" firstAttribute="top" secondItem="BH0-9M-7mM" secondAttribute="top" id="2wf-45-MU9"/>
                     <constraint firstItem="R0W-xB-tHW" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="-30" id="3rj-VY-umT"/>
-                    <constraint firstItem="BH0-9M-7mM" firstAttribute="centerY" secondItem="qzy-SA-1je" secondAttribute="centerY" id="BaI-TE-rnd"/>
                     <constraint firstItem="8gJ-UC-DM8" firstAttribute="centerY" secondItem="R0W-xB-tHW" secondAttribute="centerY" id="Mfy-Ww-bby"/>
+                    <constraint firstItem="Wdz-iG-wdO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="Np0-fh-QOI"/>
                     <constraint firstItem="8gJ-UC-DM8" firstAttribute="leading" secondItem="R0W-xB-tHW" secondAttribute="trailing" constant="20" id="Npb-bH-DzX"/>
-                    <constraint firstItem="BH0-9M-7mM" firstAttribute="leading" secondItem="qzy-SA-1je" secondAttribute="trailing" constant="10" id="ZYg-gc-zRS"/>
+                    <constraint firstItem="R0W-xB-tHW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="PYw-0h-aqU"/>
+                    <constraint firstItem="BH0-9M-7mM" firstAttribute="leading" secondItem="Wdz-iG-wdO" secondAttribute="trailing" constant="10" id="WSo-VH-wXA"/>
+                    <constraint firstItem="Wdz-iG-wdO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fMd-B4-J7c"/>
                     <constraint firstAttribute="trailing" secondItem="uW6-A1-bbV" secondAttribute="trailing" constant="12" id="hbg-n4-Ml9"/>
-                    <constraint firstItem="qzy-SA-1je" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="m9O-PE-ypp"/>
+                    <constraint firstItem="uW6-A1-bbV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nao-4Y-Gf3"/>
+                    <constraint firstItem="BH0-9M-7mM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="oBN-3F-4AC"/>
                     <constraint firstItem="uW6-A1-bbV" firstAttribute="centerY" secondItem="8gJ-UC-DM8" secondAttribute="centerY" id="pGt-Rz-Fho"/>
-                    <constraint firstItem="qzy-SA-1je" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="vUn-WZ-UOB"/>
+                    <constraint firstItem="8gJ-UC-DM8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="z17-bc-OK5"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="investTime" destination="uW6-A1-bbV" id="mMC-Ft-xfg"/>
                 <outlet property="price" destination="8gJ-UC-DM8" id="d3j-6r-Wo4"/>
-                <outlet property="userIcon" destination="qzy-SA-1je" id="Z4k-BM-eR6"/>
+                <outlet property="userIcon" destination="Wdz-iG-wdO" id="Xee-d5-qRe"/>
                 <outlet property="userName" destination="BH0-9M-7mM" id="iyL-5P-YlT"/>
             </connections>
             <point key="canvasLocation" x="447.5" y="322"/>

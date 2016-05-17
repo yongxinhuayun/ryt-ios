@@ -39,7 +39,7 @@
     //将时间转换为字符串
     NSString *timeStr=[formatter stringFromDate:newCreationEmdTimesp];
     NSDate *date = [[NSDate alloc] init];
-    NSString *time = [date created_at:timeStr];
+    NSString *time = [date createdAt:timeStr];
     
     return time;
 }

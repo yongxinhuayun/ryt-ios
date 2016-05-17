@@ -12,13 +12,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBackground" translatesAutoresizingMaskIntoConstraints="NO" id="An3-39-zE1">
-                    <rect key="frame" x="0.0" y="0.0" width="356" height="180"/>
+                    <rect key="frame" x="0.0" y="10" width="356" height="180"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="180" id="sYY-Ep-kia"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBackground" translatesAutoresizingMaskIntoConstraints="NO" id="B2O-zk-3Ek">
-                    <rect key="frame" x="14" y="185" width="50" height="50"/>
+                    <rect key="frame" x="14" y="195" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="5wD-kk-1PW"/>
                         <constraint firstAttribute="width" constant="50" id="mUv-kz-G02"/>
@@ -31,7 +31,7 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OI7-A0-GI5">
-                    <rect key="frame" x="69" y="196" width="57" height="27"/>
+                    <rect key="frame" x="69" y="206" width="57" height="27"/>
                     <attributedString key="attributedText">
                         <fragment content="朱炳仁">
                             <attributes>
@@ -44,7 +44,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1O-LT-7hi">
-                    <rect key="frame" x="131" y="201" width="1" height="17"/>
+                    <rect key="frame" x="131" y="211" width="1" height="17"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="1" id="XLt-Q9-HqQ"/>
@@ -52,13 +52,13 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="铜雕技艺国家级传承人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6x0-Ii-7kx">
-                    <rect key="frame" x="136" y="201" width="140" height="17"/>
+                    <rect key="frame" x="136" y="211" width="140" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="逐鹿顺意铜雕，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TlP-UW-mYJ">
-                    <rect key="frame" x="29" y="245" width="298" height="66"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="逐鹿顺意铜雕，铜是人类最早使用的金属。早在史前时代，人们就开始采掘露天铜矿" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TlP-UW-mYJ">
+                    <rect key="frame" x="29" y="255" width="298" height="56"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -81,7 +81,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umS-TY-ykK">
-                    <rect key="frame" x="29" y="245" width="20" height="1"/>
+                    <rect key="frame" x="29" y="255" width="20" height="1"/>
                     <color key="backgroundColor" red="0.90980392160000001" green="0.2470588235" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="O6x-LI-560"/>
@@ -89,7 +89,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggW-QH-R87">
-                    <rect key="frame" x="29" y="245" width="1" height="20"/>
+                    <rect key="frame" x="29" y="255" width="1" height="20"/>
                     <color key="backgroundColor" red="0.90980392160000001" green="0.2470588235" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="V36-QJ-Z7E"/>
@@ -150,13 +150,6 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhb-mv-9Ce">
-                    <rect key="frame" x="8" y="8" width="165" height="97"/>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="asdf:" destination="iN0-l3-epB" eventType="touchUpInside" id="Cj8-oG-lID"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -191,7 +184,7 @@
                 <constraint firstItem="B2O-zk-3Ek" firstAttribute="top" secondItem="An3-39-zE1" secondAttribute="bottom" constant="5" id="pVO-SM-78a"/>
                 <constraint firstItem="gZz-YQ-LpC" firstAttribute="top" secondItem="SKc-QK-yR7" secondAttribute="bottom" constant="10" id="rdF-fQ-2y6"/>
                 <constraint firstItem="cMX-70-WDa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="trI-gE-vdE"/>
-                <constraint firstItem="An3-39-zE1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uys-E9-LU8"/>
+                <constraint firstItem="An3-39-zE1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="uys-E9-LU8"/>
                 <constraint firstItem="B2O-zk-3Ek" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="14" id="xUH-kt-eH6"/>
                 <constraint firstItem="k1O-LT-7hi" firstAttribute="centerY" secondItem="OI7-A0-GI5" secondAttribute="centerY" id="xcS-gX-ocL"/>
                 <constraint firstItem="6x0-Ii-7kx" firstAttribute="leading" secondItem="OI7-A0-GI5" secondAttribute="trailing" constant="10" id="y2g-Qp-yqo"/>

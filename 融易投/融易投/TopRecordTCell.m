@@ -105,8 +105,12 @@
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     //    [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
 }
+- (IBAction)clickTop:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(clickUserBtn:)]) {
+        [self.delegate clickUserBtn:sender.tag - 2000];
+    }
+}
+
 
 @end

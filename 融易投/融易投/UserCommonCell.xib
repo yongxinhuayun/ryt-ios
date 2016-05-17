@@ -40,7 +40,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="原来铜雕是一门高深的技艺，之前从来没有关注过，真心觉得中国的非遗文化值得我们去传承。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBV-wP-PPh">
-                        <rect key="frame" x="70" y="60" width="304.5" height="33.5"/>
+                        <rect key="frame" x="70" y="49.5" width="304.5" height="33.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="0.87175358952702697" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -50,7 +50,7 @@
                     <constraint firstItem="CR6-SX-Pbq" firstAttribute="centerY" secondItem="fTi-q0-9A8" secondAttribute="centerY" id="0hn-tS-i4S"/>
                     <constraint firstItem="FBV-wP-PPh" firstAttribute="leading" secondItem="CR6-SX-Pbq" secondAttribute="leading" id="4SY-8e-ko5"/>
                     <constraint firstItem="fTi-q0-9A8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="BqT-92-n6U"/>
-                    <constraint firstItem="FBV-wP-PPh" firstAttribute="top" secondItem="CR6-SX-Pbq" secondAttribute="bottom" constant="10" id="cAM-KH-0ge"/>
+                    <constraint firstItem="FBV-wP-PPh" firstAttribute="top" secondItem="CR6-SX-Pbq" secondAttribute="bottom" id="cAM-KH-0ge"/>
                     <constraint firstItem="fTi-q0-9A8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="fct-Nl-4Aj"/>
                     <constraint firstItem="FBV-wP-PPh" firstAttribute="trailing" secondItem="rJu-0C-2vm" secondAttribute="trailing" id="hdt-JL-cxk"/>
                     <constraint firstItem="rJu-0C-2vm" firstAttribute="centerY" secondItem="CR6-SX-Pbq" secondAttribute="centerY" id="jeQ-uc-dfh"/>
