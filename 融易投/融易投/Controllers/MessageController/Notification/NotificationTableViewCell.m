@@ -23,23 +23,20 @@
 @implementation NotificationTableViewCell
 
 -(void)setModel:(NotificationModel *)model{
-    
     _model= model;
-    float investInteral =model.createDatetime.floatValue;
-    
+    float investInteral =model.createDatetime.floatValue / 1000;
     NSDate *newCreationEmdTimesp = [NSDate dateWithTimeIntervalSince1970:investInteral];
     NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH-mm"];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
     NSLog(@"nimei");
     NSString *timeStr=[formatter stringFromDate:newCreationEmdTimesp];
-    
 //    self.idLabel.text = model.ID;
     self.contentLabel.text = model.content;
     self.createDatetimeLabel.text = timeStr;
-    
-    NSString *str = model.fromUser.pictureUrl;
+    NSString *str = [model.fromUser.pictureUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *pictureURL = [NSURL URLWithString:str];
-    [self.userIcon sd_setImageWithURL:pictureURL placeholderImage:nil]
+    NSLog(@"%@",str);
+    [self.userIcon ss_setHeader:pictureURL];
     ;
 //    self.imageView
 }

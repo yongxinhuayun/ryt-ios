@@ -627,6 +627,7 @@
 		E2DDB1011CAB66DB007438E4 /* ___Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB1001CAB66DB007438E4 /* ___Tests.m */; };
 		E2DDB10C1CAB66DB007438E4 /* ___UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB10B1CAB66DB007438E4 /* ___UITests.m */; };
 		E2E430E91CEAC22E00DE1CE9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2E430E81CEAC22E00DE1CE9 /* Info.plist */; };
+		E2E430EC1CEB23F600DE1CE9 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E430EB1CEB23F600DE1CE9 /* MessageModel.m */; };
 		E2E8422D1CE1739F0047D86C /* FinanceFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E8422C1CE1739F0047D86C /* FinanceFooterView.m */; };
 		E2E8422F1CE173B20047D86C /* FinanceFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E8422E1CE173B20047D86C /* FinanceFooterView.xib */; };
 		E2F1C8061CE5C3F800D4B1B4 /* Progress.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1C8051CE5C3F800D4B1B4 /* Progress.m */; };
@@ -1580,6 +1581,8 @@
 		E2DDB10B1CAB66DB007438E4 /* ___UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "___UITests.m"; sourceTree = "<group>"; };
 		E2DDB10D1CAB66DB007438E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2E430E81CEAC22E00DE1CE9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2E430EA1CEB23F600DE1CE9 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
+		E2E430EB1CEB23F600DE1CE9 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
 		E2E8422B1CE1739F0047D86C /* FinanceFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceFooterView.h; sourceTree = "<group>"; };
 		E2E8422C1CE1739F0047D86C /* FinanceFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceFooterView.m; sourceTree = "<group>"; };
 		E2E8422E1CE173B20047D86C /* FinanceFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceFooterView.xib; sourceTree = "<group>"; };
@@ -2839,6 +2842,8 @@
 				E2D5219B1CDF77C00024887A /* FromUserModel.m */,
 				E2D5219C1CDF77C00024887A /* NotificationModel.h */,
 				E2D5219D1CDF77C00024887A /* NotificationModel.m */,
+				E2E430EA1CEB23F600DE1CE9 /* MessageModel.h */,
+				E2E430EB1CEB23F600DE1CE9 /* MessageModel.m */,
 			);
 			path = NotificationModel;
 			sourceTree = "<group>";
@@ -4568,6 +4573,7 @@
 				21C414121CE2D23500F1029C /* WHC_PictureListVC.m in Sources */,
 				E2D5226B1CDF8D8F0024887A /* AuctionModel.m in Sources */,
 				E2D522241CDF8AF50024887A /* InvestorModel.m in Sources */,
+				E2E430EC1CEB23F600DE1CE9 /* MessageModel.m in Sources */,
 				21AB0B4F1CC6056500B7BA03 /* XIBDemoViewController.m in Sources */,
 				8177F8DB1CE4DC0F005D2259 /* TimeAxisTableViewController.m in Sources */,
 				E2D524A61CDF9F390024887A /* InvestProjectCell.m in Sources */,

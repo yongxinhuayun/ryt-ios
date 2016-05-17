@@ -25,32 +25,38 @@ static NSString *cellID = @"cellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self setUpNavBar];
-
+    self.navigationItem.title = @"通知";
     //加载数据
     [self loadData];
-    
     //修改模型中的id为ID
     [NotificationModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-        
         return @{
                  @"ID":@"id",
                  };
     }];
-    
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"NotificationTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
 }
 
-
-
-
-
--(void)setUpNavBar
-{
-    //设置导航条标题
-    self.navigationItem.title = @"通知";
+-(void)loadData{
+    NSString * pageNum = @"1";
+    NSString* pageSize = @"99";
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"userId" : @"iijq9f1r7apprtab",
+                           @"pageNum" : pageNum,
+                           @"pageSize" :pageSize,
+                           @"type"     :@"0"
+                           };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"information.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        NSLog(@"%@",modelDict);
+        self.models = [NotificationModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
+        //在主线程刷新UI数据
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    }];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -59,59 +65,12 @@ static NSString *cellID = @"cellID";
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
     NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    
     NotificationModel *model = self.models[indexPath.section];
-    
     cell.model = model;
-    
     return cell;
 }
--(void)loadData{
-    
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    
-    NSString * pageNum = @"1";
-    NSString* pageSize = @"99";
-    
-    NSLog(@"pageSize=%@,pageNum=%@,timestamp=%@",pageNum,pageNum,timestamp);
-    
-    NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&type=%@&userId=%@&key=%@",pageNum,pageSize,timestamp,@"0",@"iijq9f1r7apprtab",appkey];
-    
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
-    // 3.设置请求体
-    NSDictionary *json = @{
-                           @"userId" : @"iijq9f1r7apprtab",
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5,
-                           @"pageNum" : pageNum,
-                           @"pageSize" :pageSize,
-                           @"type"     :@"0"
-                           };
-    
-    NSString *url = @"http://192.168.1.69:8001/app/information.do";
-    
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
-        
-        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-        NSLog(@"%@",modelDict);
-        self.models = [NotificationModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
-        
-        //在主线程刷新UI数据
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
-            [self.tableView reloadData];
-            
-        }];
-    }];
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
 }
-
-
 @end

@@ -7,16 +7,19 @@
 //
 
 #import "MessageTableViewController.h"
-
-
 #import "CommentsController.h"
-
 #import "NotificationController.h"
-
 #import "PrivateLetterViewController.h"
 
-@interface MessageTableViewController ()
+#import "MessageModel.h"
+#import <MJExtension.h>
 
+@interface MessageTableViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *tzBridge;
+@property (weak, nonatomic) IBOutlet UILabel *plBridge;
+@property (weak, nonatomic) IBOutlet UILabel *sxBridge;
+
+@property(nonatomic,strong) MessageModel *messageModel;
 
 @end
 
@@ -24,82 +27,54 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setUpNavBar];
+    [self loadDataToController];
 }
 
 // 设置导航条
--(void)setUpNavBar
-{
+-(void)setUpNavBar{
     //设置导航条标题
     self.navigationItem.title = @"消息";
+    [self.tableView setContentInset:UIEdgeInsetsMake(-25, 0, 0, 0)];
+    [self.tableView setSeparatorColor:[UIColor colorWithRed:224.0 / 255.0 green:225.0 / 255 blue:226.0 / 255.0 alpha:1.0]];
     
 }
--(void)loadData
-{
-    //时间
-    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
-    NSTimeInterval a =[date timeIntervalSince1970] * 1000;
-    NSString *timeString = [NSString stringWithFormat:@"%f", a];
-    
-    NSArray *strArray = [timeString componentsSeparatedByString:@"."];
-    
-    NSLog(@"%@",strArray.firstObject);
-    
-    //参数
-    //    NSString *username = self.phoneNumTextField.text;
-    //    NSString *password = self.passWordTextField.text;
-    NSString *timestamp = strArray.firstObject;
-    
-    NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
-    NSLog(@"userId=%@,timestamp=%@",@"imhipoyk18s4k52u",timestamp);
-    NSArray *arra = @[@"userId",@"timestamp"];
-    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
-    NSLog(@"%@",sortArr);
-    
-    NSString *signmsg = [NSString stringWithFormat:@"timestamp=%@&userId=%@&key=%@",timestamp,@"imhipoyk18s4k52u"
-                         ,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    //对key进行自然排序
-    //    for (NSString *s in [dict allKeys]) {
-    //        NSLog(@"value: %@", s);
-    //    }
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
-    // 1.创建请求   'http://192.168.1.69:8001/app/login.do'
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/informationList.do"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = @"POST";
-    
-    // 2.设置请求头
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    // 3.设置请求体
+
+-(void)loadDataToController{
+    NSString *userId = @"imhipoyk18s4k52u";
     NSDictionary *json = @{
-                           @"userId" : @"imhipoyk18s4k52u",
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
+                           @"userId": userId
                            };
-    
-    //    NSData --> NSDictionary
-    // NSDictionary --> NSData
-    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
-    request.HTTPBody = data;
-    
-    // 4.发送请求
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        
-        NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",obj);
-        
-                
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"informationList.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        MessageModel *model = [MessageModel mj_objectWithKeyValues:respondObj];
+        self.messageModel = model;
+        [self isHidden];
+        [self.tableView reloadData];
     }];
 }
 
+-(void)isHidden{
+    if (self.messageModel.noticeNum == 0) {
+        self.tzBridge.hidden = YES;
+    }else{
+        self.tzBridge.hidden = NO;
+        self.tzBridge.text = [NSString stringWithFormat:@"%ld",self.messageModel.noticeNum];
+    }
+    if (self.messageModel.commentNum == 0) {
+        self.plBridge.hidden = YES;
+    }else{
+        self.plBridge.hidden = NO;
+        self.plBridge.text =[NSString stringWithFormat:@"%ld",self.messageModel.commentNum];
+    }
+    if (self.messageModel.messageNum == 0) {
+        self.sxBridge.hidden = YES;
+    }else{
+        self.sxBridge.hidden = NO;
+        self.sxBridge.text = [NSString stringWithFormat:@"%ld",self.messageModel.messageNum];
+    }
+}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -122,4 +97,11 @@
 
 }
 
+//懒加载
+-(MessageModel *)messageModel{
+    if (!_messageModel) {
+        _messageModel = [[MessageModel alloc] init];
+    }
+    return _messageModel;
+}
 @end
