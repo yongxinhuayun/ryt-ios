@@ -34,4 +34,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *investNum;
 //
 @property (weak, nonatomic) IBOutlet UICollectionView *artworkInvestList;
+@property(nonatomic,strong)NSArray *artworkInvestors;
 @end

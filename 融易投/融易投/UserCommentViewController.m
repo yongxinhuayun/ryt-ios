@@ -7,7 +7,7 @@
 //
 
 #import "UserCommentViewController.h"
-
+#import "CommonUserHomeViewController.h"
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 
@@ -17,12 +17,13 @@
 #import "UserCommentObjectModel.h"
 #import "ArtworkCommentListModel.h"
 #import "CreatorModel.h"
-
+#import "PageInfoModel.h"
+#import "UserMyModel.h"
 #import "UserCommonCell.h"
 #import "UserReplyCommentCell.h"
 #import "ArtworkCommentListModel.h"
 
-@interface UserCommentViewController ()
+@interface UserCommentViewController ()<ArtworkCommentListModelDelegate>
 @property (nonatomic, strong) NSMutableArray *models;
 /** 用来加载下一页数据 */
 @property (nonatomic, strong) NSString *lastPageNum;
@@ -48,6 +49,9 @@ static NSString *ID = @"userCommentCell";
                  @"artworkCommentList":[ArtworkCommentListModel class],
                  @"fatherComment" : [ArtworkCommentListModel class],
                  };
+    }];
+    [ArtworkCommentListModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{@"ID":@"id"};
     }];
     [CreatorModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         return @{@"ID" : @"id"};
@@ -137,23 +141,67 @@ static NSString *ID = @"userCommentCell";
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
     return  self.models.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ArtworkCommentListModel *model = self.models[indexPath.row];
     if (model.fatherComment == nil) {
-        
         UserCommonCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
         cell.model = model;
+        cell.delegate = self;
+        cell.indexPath = indexPath;
         return cell;
     }else{
         
         UserReplyCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReplyCell" forIndexPath:indexPath];
         cell.model = model;
+        cell.indexPath = indexPath;
+        cell.delegate = self;
         return cell;
     }
+}
+
+-(void)clickUserIconOrName:(NSIndexPath *)indexPath{
+    ArtworkCommentListModel *model = self.models[indexPath.row];
+    NSString *userId = model.creator.ID;
+    [self jumpToUserHome:userId];
+}
+-(void)clickUserIcon:(NSIndexPath *)indexPath{
+    ArtworkCommentListModel *model = self.models[indexPath.row];
+    NSString *userId = model.creator.ID;
+    [self jumpToUserHome:userId];
+}
+-(void)clickfatherIcon:(NSIndexPath *)indexPath{
+     ArtworkCommentListModel *model = self.models[indexPath.row];
+    NSString *userId = model.fatherComment.creator.ID;
+    [self jumpToUserHome:userId];
+}
+
+-(void)jumpToUserHome:(NSString *)userId{
+    NSString *pageSize = @"20";
+    NSString *pageIndex = @"1";
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"userId":userId,
+                           @"pageSize" : pageSize,
+                           @"pageIndex" : pageIndex,
+                           };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"my.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        PageInfoModel *pageModel = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
+        //保存模型,赋值给控制器
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            CommonUserHomeViewController *commonUserHome = [[CommonUserHomeViewController alloc] init];
+            commonUserHome.model = pageModel;
+            NSString *title = [NSString stringWithFormat:@"%@的个人主页",pageModel.user.name];
+            commonUserHome.title = title;
+            [self.navigationController pushViewController:commonUserHome animated:YES];
+        }];
+    }];
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

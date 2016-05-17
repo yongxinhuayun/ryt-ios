@@ -13,24 +13,26 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="64" height="44"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQi-CR-aB0">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBackground" translatesAutoresizingMaskIntoConstraints="NO" id="tIz-hD-uno">
                         <rect key="frame" x="0.0" y="0.0" width="64" height="44"/>
-                        <state key="normal" title="Button"/>
-                        <connections>
-                            <action selector="clickBtn:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Yn8-As-khV"/>
-                        </connections>
-                    </button>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="AQi-CR-aB0" secondAttribute="bottom" id="0gs-Nv-Lep"/>
-                <constraint firstItem="AQi-CR-aB0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="E0X-4l-8nx"/>
-                <constraint firstItem="AQi-CR-aB0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Rge-jM-h6l"/>
-                <constraint firstAttribute="trailing" secondItem="AQi-CR-aB0" secondAttribute="trailing" id="YFg-mE-OuE"/>
+                <constraint firstAttribute="bottom" secondItem="tIz-hD-uno" secondAttribute="bottom" id="51P-Rx-wYA"/>
+                <constraint firstAttribute="trailing" secondItem="tIz-hD-uno" secondAttribute="trailing" id="gZf-Fx-eog"/>
+                <constraint firstItem="tIz-hD-uno" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="rWX-cP-MSQ"/>
+                <constraint firstItem="tIz-hD-uno" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sfF-GK-9J2"/>
             </constraints>
             <size key="customSize" width="64" height="44"/>
+            <connections>
+                <outlet property="userPicture" destination="tIz-hD-uno" id="ytn-ts-AAW"/>
+            </connections>
             <point key="canvasLocation" x="-121" y="246"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="defaultBackground" width="83" height="97"/>
+    </resources>
 </document>

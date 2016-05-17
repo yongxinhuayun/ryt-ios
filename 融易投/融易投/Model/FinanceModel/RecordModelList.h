@@ -12,3 +12,4 @@
 @property(nonatomic,strong) NSMutableArray *artworkInvestTopList;
 @property(nonatomic,strong) NSMutableArray *artworkInvestList;
 @end
+

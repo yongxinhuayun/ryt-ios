@@ -29,6 +29,7 @@
 #import "ProjectDetailsModel.H"
 #import "ArtworkModel.h"
 #import "Progress.h"
+#import "RecordModelList.h"
 @interface DetailFinanceViewController ()<UIScrollViewDelegate,FinanceFooterViewDelegate>
 @property(nonatomic,strong) FinanceHeader *financeHeader;
 @property(nonatomic,assign) BOOL isFirstIn;
@@ -60,6 +61,12 @@
                  @"ID"          :@"id",
                  };
     }];
+    [RecordModelList mj_setupObjectClassInArray:^NSDictionary *{
+        return @{
+                 @"artworkInvestTopList":@"RecordModel",
+                 @"artworkInvestList":@"RecordModel"
+                 };
+    }];
 }
 -(void)loadData{
     // 3.设置请求体
@@ -74,7 +81,6 @@
         NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            //            NSDictionary *dict = modelDict[@"object"];
             ProjectDetailsModel *project = [ProjectDetailsModel mj_objectWithKeyValues:modelDict[@"object"]];
             self.projModel = project;
             self.artworkModel = project.artWork;
@@ -96,7 +102,19 @@
                             };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        
+        NSLog(@"%@",jsonStr);
+        NSMutableArray *arrayM = [NSMutableArray array];
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        RecordModelList *model = [RecordModelList mj_objectWithKeyValues:modelDict[@"object"]];
+        //拼接数据
+        NSArray *topList = model.artworkInvestTopList;
+        [arrayM addObjectsFromArray:topList];
+        NSMutableArray *arrM = [NSMutableArray array];
+        if (model.artworkInvestList != nil) {
+            [arrM addObject:model.artworkInvestList];
+            [arrayM addObjectsFromArray:arrM];
+        }
+        self.financeHeader.artworkInvestors = arrayM;
     }];
 }
 
@@ -174,7 +192,7 @@
     self.financeHeader = tView;
     self.financeHeader.width = ScreenWidth;
     self.topview.height = tView.height;
-//    self.topview.height = 300;
+    self.topview.width = ScreenWidth;
     tView.backgroundColor = [UIColor whiteColor];
     tView.width = ScreenWidth;
     [self.topview addSubview:self.financeHeader];

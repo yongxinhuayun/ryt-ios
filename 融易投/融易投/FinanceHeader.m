@@ -9,6 +9,8 @@
 #import "FinanceHeader.h"
 #import "Progress.h"
 #import "investorListCell.h"
+#import "RecordModel.h"
+#import "UserMyModel.h"
 
 @interface FinanceHeader ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
@@ -18,10 +20,6 @@
 
 @implementation FinanceHeader
 
-- (IBAction)a:(id)sender {
-    NSLog(@"asdf");
-}
-
 - (void)drawRect:(CGRect)rect {
     [self setupProgressView];
     [self setupCollectionView];
@@ -30,7 +28,6 @@
 -(void)setupProgressView{
     Progress *progress = [[Progress alloc] init];
     progress.frame = self.progressView.bounds;
-    //    p.progress = 0.8;
     self.progress = progress;
     [self.progressView addSubview:progress];
 }
@@ -40,29 +37,25 @@
     self.artworkInvestList.backgroundColor = [UIColor whiteColor];
     self.artworkInvestList.showsHorizontalScrollIndicator = NO;
     [self.artworkInvestList registerNib:[UINib nibWithNibName:@"investorListCell" bundle:nil] forCellWithReuseIdentifier:@"investorCell"];
-    
+    self.artworkInvestList.pagingEnabled = YES;
     self.flowLayout.minimumInteritemSpacing = 10;
-    self.flowLayout.minimumLineSpacing = 0;
-    self.flowLayout.itemSize = CGSizeMake(40, 40);
+    self.flowLayout.minimumLineSpacing = 10;
+
+    self.flowLayout.itemSize = CGSizeMake((SSScreenW - 10 *8) / 8,(SSScreenW - 10) / 8 );
+    self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
-//    for (int i = 0; i < 5; i ++) {
-//        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        btn.frame = CGRectMake(40 * i + 10, 0, 40, 40);
-//        [btn setTitle:@"头像" forState:(UIControlStateNormal)];
-//        [btn setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
-//        [btn addTarget:self action:@selector(clickBtn) forControlEvents:(UIControlEventTouchUpInside)];
-//        [self.investors addSubview:btn];
-//    }
 
 }
--(void)clickBtn{
-    NSLog(@"点击了头像");
-}
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 10;
+    return self.artworkInvestors.count;
 }
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     investorListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"investorCell" forIndexPath:indexPath];
+    RecordModel *model = self.artworkInvestors[indexPath.row];
+    NSString *pricUrl = [[NSString stringWithString:model.creator.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [cell.userPicture ss_setHeader:[NSURL URLWithString:pricUrl]];
     return cell;
 }
 

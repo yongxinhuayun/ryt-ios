@@ -8,6 +8,8 @@
 
 #import "RecordTableViewCell.h"
 #import "RecordModel.h"
+#import "UserMyModel.h"
+#import "NSDate+Interval.h"
 
 @implementation RecordTableViewCell
 
@@ -15,10 +17,19 @@
     
 }
 
--(void)setupUI:(NSMutableArray *)list{
+-(void)setModel:(RecordModel *)model{
+    _model = model;
+    NSString *url = [[NSString stringWithFormat:@"%@",model.creator.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
+    [self.userIcon ss_setHeader:[NSURL URLWithString:url]];
+    self.userName.text = model.creator.name;
+    self.price.text = [NSString stringWithFormat:@"%ld",model.price];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:model.createDatetime];
+    NSDateFormatter *dfm = [[NSDateFormatter alloc] init];
+    [dfm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *dTime = [date created_at:[dfm stringFromDate:date]];
+    self.investTime.text = dTime;
 }
-
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

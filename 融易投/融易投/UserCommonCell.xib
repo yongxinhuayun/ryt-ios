@@ -24,6 +24,9 @@
                         <rect key="frame" x="70" y="20.5" width="56" height="29"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title="艺术人生"/>
+                        <connections>
+                            <action selector="clickUserIcon:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gH4-8o-qye"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTi-q0-9A8">
                         <rect key="frame" x="10" y="10" width="50" height="50"/>
@@ -31,7 +34,10 @@
                             <constraint firstAttribute="height" constant="50" id="JHf-aO-7Sj"/>
                             <constraint firstAttribute="width" constant="50" id="haN-Hu-zW0"/>
                         </constraints>
-                        <state key="normal" image="林峰.png"/>
+                        <state key="normal" image="defaultBackground"/>
+                        <connections>
+                            <action selector="clickUserIcon:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wCf-aL-sGp"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="原来铜雕是一门高深的技艺，之前从来没有关注过，真心觉得中国的非遗文化值得我们去传承。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBV-wP-PPh">
                         <rect key="frame" x="70" y="60" width="304.5" height="33.5"/>
@@ -68,6 +74,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="林峰.png" width="65" height="65"/>
+        <image name="defaultBackground" width="83" height="97"/>
     </resources>
 </document>
