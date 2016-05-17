@@ -57,7 +57,7 @@
     NSLog(@"%@",datePicker.date);
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"yyyy年";
+    dateFormatter.dateFormat = @"yyyy";
 
     //设置选中文本框显示的时间
     self.text = [dateFormatter stringFromDate:datePicker.date];

@@ -175,8 +175,8 @@ static NSString *ID = @"financeCell";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
-                NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-                NSLog(@"返回结果:%@",jsonStr);
+//                NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//                NSLog(@"返回结果:%@",jsonStr);
         
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
@@ -219,8 +219,8 @@ static NSString *ID = @"financeCell";
 //    NSString *url = @"http://192.168.1.69:8001/app/investorIndex.do";
             NSString *url = @"http://192.168.1.41:8085/app/investorIndex.do";
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
-        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        //        NSLog(@"返回结果:%@",jsonStr);
+//                NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//                NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         //字典数组 -> 模型数组
         NSArray *moreModels = [FinanceModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];

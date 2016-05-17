@@ -23,7 +23,16 @@
 #import "SettingFooterView.h"
 
 #import <SVProgressHUD.h>
+#import <MJExtension.h>
+#import "UIImageView+WebCache.h"
+
 #import "ArtistMainViewController.h"
+
+#import "ProjectDetailsModel.h"
+#import "ArtworkModel.h"
+#import "ArtWorkIdModel.h"
+#import "ArtworkdirectionModel.h"
+#import "ArtworkAttachmentListModel.h"
 
 
 
@@ -35,6 +44,11 @@
 @property (nonatomic,weak)UIButton *addPictureButton;
 @property (nonatomic,weak)ImagePickerChooseView *IPCView;
 @property (nonatomic,strong)AGImagePickerController *imagePicker;
+
+@property (nonatomic,strong) UIView *headView;
+@property (nonatomic,strong)UILabel *nameLabel;
+
+@property (nonatomic,assign) NSInteger headViewHeight;
 
 //imagePicker队列
 @property (nonatomic,strong)NSMutableArray *imagePickerArray;
@@ -71,7 +85,22 @@ static NSString *ID2 = @"ReleaseProjectCell2";
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"ReleaseProjectCell1" bundle:nil] forCellReuseIdentifier:ID1];
     
-       [self.tableView registerNib:[UINib nibWithNibName:@"ReleaseProjectCell2" bundle:nil] forCellReuseIdentifier:ID2];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ReleaseProjectCell2" bundle:nil] forCellReuseIdentifier:ID2];
+    
+    [ArtworkModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"descriptions":@"description",
+                 @"ID"          :@"id",
+                 };
+    }];
+    
+    
+    [ProjectDetailsModel mj_setupObjectClassInArray:^NSDictionary *{
+        return @{
+                 @"artworkAttachmentList" : @"ArtworkAttachmentListModel",
+                 };
+    }];
     
 }
 
@@ -92,16 +121,17 @@ static NSString *ID2 = @"ReleaseProjectCell2";
 -(void)initHeaderView
 {
     UIView *headView = [[UIView alloc]initWithFrame:CGRectZero];
-    
+    self.headView =headView;
     //项目介绍
     UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding + 5, padding, 200, 10)];
+    self.nameLabel = nameLabel;
     nameLabel.text = @"项目介绍";
     nameLabel.font = [UIFont systemFontOfSize:15];
     nameLabel.textColor = [UIColor blackColor];
     [headView addSubview:nameLabel];
     
     NSInteger headViewHeight = CGRectGetMaxY(nameLabel.frame);
-    
+    self.headViewHeight = headViewHeight;
     
     UITextView *reportStateTextView = [[UITextView alloc]initWithFrame:CGRectMake(padding, headViewHeight + padding, screenWidth - 2 * padding, textViewHeight)];
     reportStateTextView.text = self.reportStateTextView.text;  //防止用户已经输入了文字状态
@@ -119,37 +149,217 @@ static NSString *ID2 = @"ReleaseProjectCell2";
     self.pLabel = pLabel;
     [headView addSubview:pLabel];
     
-    NSInteger imageCount = [self.imagePickerArray count];
-    for (NSInteger i = 0; i < imageCount; i++) {
-        UIImageView *pictureImageView = [[UIImageView alloc]initWithFrame:CGRectMake(padding + (i%4)*(pictureHW+padding), CGRectGetMaxY(reportStateTextView.frame) + padding +(i/4)*(pictureHW+padding), pictureHW, pictureHW)];
-        //用作放大图片
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapImageView:)];
-        [pictureImageView addGestureRecognizer:tap];
+    if (self.projectModel) {
         
-        //添加删除按钮
-        UIButton *dele = [UIButton buttonWithType:UIButtonTypeCustom];
-        dele.frame = CGRectMake(pictureHW - deleImageWH + 5, -10, deleImageWH, deleImageWH);
-        [dele setImage:[UIImage imageNamed:@"deletePhoto"] forState:UIControlStateNormal];
-        [dele addTarget:self action:@selector(deletePic:) forControlEvents:UIControlEventTouchUpInside];
-        [pictureImageView addSubview:dele];
+        self.reportStateTextView.text = self.projectModel.artWork.descriptions;
         
-        pictureImageView.tag = imageTag + i;
-        pictureImageView.userInteractionEnabled = YES;
-        pictureImageView.image = [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray objectAtIndex:i]).thumbnail];
-        [headView addSubview:pictureImageView];
-    }
-    if (imageCount < MaxImageCount) {
-        UIButton *addPictureButton = [[UIButton alloc]initWithFrame:CGRectMake(padding + (imageCount%4)*(pictureHW+padding), CGRectGetMaxY(reportStateTextView.frame) + padding +(imageCount/4)*(pictureHW+padding), pictureHW, pictureHW)];
-        [addPictureButton setBackgroundImage:[UIImage imageNamed:@"addPictures"] forState:UIControlStateNormal];
-        [addPictureButton addTarget:self action:@selector(addPicture) forControlEvents:UIControlEventTouchUpInside];
-        [headView addSubview:addPictureButton];
-        self.addPictureButton = addPictureButton;
+        self.cell1.textView.text = self.projectModel.artworkdirection.make_instru;
+        
+        self.cell2.textView.text = self.projectModel.artworkdirection.financing_aq;
+        
+        
+        NSMutableArray *imageArray = [NSMutableArray array];
+        int i = 0;
+        for (ArtworkAttachmentListModel *model in self.projectModel.artworkAttachmentList) {
+            
+            //            SSLog(@"%@",model.fileName);
+            NSString *pictureUrlStr = [[NSString stringWithFormat:@"%@",model.fileName] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            
+            NSURL *pictureUrlURL = [NSURL URLWithString:pictureUrlStr];
+           
+            [[SDWebImageManager sharedManager] downloadImageWithURL:pictureUrlURL options:kNilOptions progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                
+                // expectedSize 下载的图片的总大小
+                // receivedSize 已经接受的大小
+                //                NSLog(@"expectedSize = %ld, receivedSize = %ld", expectedSize, receivedSize);
+                
+            } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                
+                //把从网络上获取的图片加到数组中
+                [imageArray addObject:image];
+                
+//                NSString *cacheImageKey = [[SDWebImageManager sharedManager] cacheKeyForURL:pictureUrlURL];
+//                
+//                if (cacheImageKey.length) {
+//                    
+//                    NSString *cacheImagePath = [[SDImageCache sharedImageCache] defaultCachePathForKey:cacheImageKey];
+//                    SSLog(@"%@",cacheImagePath);
+//                }
+                
+//                NSInteger imageCount1 = imageArray.count;
+                
+//                SSLog(@"%zd",imageCount1);
+                    UIImageView *pictureImageView = [[UIImageView alloc]initWithFrame:CGRectMake(padding + (i%4)*(pictureHW+padding), CGRectGetMaxY(reportStateTextView.frame) + padding +(i/4)*(pictureHW+padding), pictureHW, pictureHW)];
+                
+                NSLog(@"`%f```````%f",CGRectGetMaxY(reportStateTextView.frame),pictureImageView.frame.origin.y);
+                    //用作放大图片
+                    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapImageView:)];
+                    [pictureImageView addGestureRecognizer:tap];
+                    
+                    //添加删除按钮
+                    UIButton *dele = [UIButton buttonWithType:UIButtonTypeCustom];
+                    dele.frame = CGRectMake(pictureHW - deleImageWH + 5, -10, deleImageWH, deleImageWH);
+                    [dele setImage:[UIImage imageNamed:@"deletePhoto"] forState:UIControlStateNormal];
+                    [dele addTarget:self action:@selector(deletePic:) forControlEvents:UIControlEventTouchUpInside];
+                    [pictureImageView addSubview:dele];
+                    
+                    pictureImageView.tag = imageTag + i;
+                    pictureImageView.userInteractionEnabled = YES;
+                    
+                    pictureImageView.image = [imageArray objectAtIndex:i];
+                    
+                    [headView addSubview:pictureImageView];
+                
+                if (i < MaxImageCount) {
+                    
+                    UIButton *addPictureButton = [[UIButton alloc]initWithFrame:CGRectMake(padding + (i%4)*(pictureHW+padding), CGRectGetMaxY(reportStateTextView.frame) + padding +(i/4)*(pictureHW+padding), pictureHW, pictureHW)];
+                    [addPictureButton setBackgroundImage:[UIImage imageNamed:@"addPictures"] forState:UIControlStateNormal];
+                    [addPictureButton addTarget:self action:@selector(addPicture) forControlEvents:UIControlEventTouchUpInside];
+                    [headView addSubview:addPictureButton];
+                    self.addPictureButton = addPictureButton;
+                }
+                
+                NSInteger imageCount2 = self.imagePickerArray.count;
+                
+//                SSLog(@"%zd",imageCount2);
+                
+                for (NSInteger i = 0; i < imageCount2; i++) {
+                    UIImageView *pictureImageView = [[UIImageView alloc]initWithFrame:CGRectMake(padding + (i%4)*(pictureHW+padding),300 + padding +(i/4)*(pictureHW+padding), pictureHW, pictureHW)];
+                    //用作放大图片
+                    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapImageView:)];
+                    [pictureImageView addGestureRecognizer:tap];
+                    
+                    //添加删除按钮
+                    UIButton *dele = [UIButton buttonWithType:UIButtonTypeCustom];
+                    dele.frame = CGRectMake(pictureHW - deleImageWH + 5, -10, deleImageWH, deleImageWH);
+                    [dele setImage:[UIImage imageNamed:@"deletePhoto"] forState:UIControlStateNormal];
+                    [dele addTarget:self action:@selector(deletePic:) forControlEvents:UIControlEventTouchUpInside];
+                    [pictureImageView addSubview:dele];
+                    
+                    pictureImageView.tag = imageTag + i;
+                    pictureImageView.userInteractionEnabled = YES;
+                    
+                    pictureImageView.image = [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray objectAtIndex:i]).thumbnail];
+                    
+                    [headView addSubview:pictureImageView];
+                }
+                if (imageCount2 < MaxImageCount) {
+                    UIButton *addPictureButton = [[UIButton alloc]initWithFrame:CGRectMake(padding + (imageCount2%4)*(pictureHW+padding), CGRectGetMaxY(reportStateTextView.frame) + padding +(imageCount2/4)*(pictureHW+padding), pictureHW, pictureHW)];
+                    [addPictureButton setBackgroundImage:[UIImage imageNamed:@"addPictures"] forState:UIControlStateNormal];
+                    [addPictureButton addTarget:self action:@selector(addPicture) forControlEvents:UIControlEventTouchUpInside];
+                    [headView addSubview:addPictureButton];
+                    self.addPictureButton = addPictureButton;
+                }
+                
+                self.headViewHeight = 120 + (10 + pictureHW)*(imageArray.count/4 + 1);
+                self.headViewHeight = self.headViewHeight + (10 + pictureHW)*([self.imagePickerArray count]/4 + 1);
+                
+                headView.frame = CGRectMake(0, 0, screenWidth, headViewHeight);
+                
+            
+                
+            }];
+            i++;
+        }
+
+    }else {
+        
+        NSInteger imageCount = [self.imagePickerArray count];
+        
+        for (NSInteger i = 0; i < imageCount; i++) {
+            UIImageView *pictureImageView = [[UIImageView alloc]initWithFrame:CGRectMake(padding + (i%4)*(pictureHW+padding), CGRectGetMaxY(reportStateTextView.frame) + padding +(i/4)*(pictureHW+padding), pictureHW, pictureHW)];
+            //用作放大图片
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapImageView:)];
+            [pictureImageView addGestureRecognizer:tap];
+            
+            //添加删除按钮
+            UIButton *dele = [UIButton buttonWithType:UIButtonTypeCustom];
+            dele.frame = CGRectMake(pictureHW - deleImageWH + 5, -10, deleImageWH, deleImageWH);
+            [dele setImage:[UIImage imageNamed:@"deletePhoto"] forState:UIControlStateNormal];
+            [dele addTarget:self action:@selector(deletePic:) forControlEvents:UIControlEventTouchUpInside];
+            [pictureImageView addSubview:dele];
+            
+            pictureImageView.tag = imageTag + i;
+            pictureImageView.userInteractionEnabled = YES;
+            pictureImageView.image = [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray objectAtIndex:i]).thumbnail];
+            [headView addSubview:pictureImageView];
+        }
+        if (imageCount < MaxImageCount) {
+            UIButton *addPictureButton = [[UIButton alloc]initWithFrame:CGRectMake(padding + (imageCount%4)*(pictureHW+padding), CGRectGetMaxY(reportStateTextView.frame) + padding +(imageCount/4)*(pictureHW+padding), pictureHW, pictureHW)];
+            [addPictureButton setBackgroundImage:[UIImage imageNamed:@"addPictures"] forState:UIControlStateNormal];
+            [addPictureButton addTarget:self action:@selector(addPicture) forControlEvents:UIControlEventTouchUpInside];
+            [headView addSubview:addPictureButton];
+            self.addPictureButton = addPictureButton;
+        }
+        
+        headViewHeight = 120 + (10 + pictureHW)*([self.imagePickerArray count]/4 + 1);
+        headView.frame = CGRectMake(0, 0, screenWidth, headViewHeight);
+        
+       
+        
+        
+        self.tableView.tableHeaderView = headView;
     }
     
-    headViewHeight = 120 + (10 + pictureHW)*([self.imagePickerArray count]/4 + 1);
-    headView.frame = CGRectMake(0, 0, screenWidth, headViewHeight);
+    self.headView.backgroundColor = [UIColor redColor];
     
-    self.tableView.tableHeaderView = headView;
+    SSLog(@"%f",headView.y);
+    SSLog(@"%f",headView.height);
+    
+     self.tableView.tableHeaderView = headView;
+   }
+
+-(void)BianJi{
+
+    if (self.projectModel) {
+        
+        self.reportStateTextView.text = self.projectModel.artWork.descriptions;
+        
+        self.cell1.textView.text = self.projectModel.artworkdirection.make_instru;
+        
+        self.cell2.textView.text = self.projectModel.artworkdirection.financing_aq;
+        
+        
+        NSMutableArray *loadImageArry = [NSMutableArray array];
+        
+        for (ArtworkAttachmentListModel *model in self.projectModel.artworkAttachmentList) {
+            
+//            SSLog(@"%@",model.fileName);
+            
+            NSString *pictureUrlStr = [[NSString stringWithFormat:@"%@",model.fileName] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            
+            NSURL *pictureUrlURL = [NSURL URLWithString:pictureUrlStr];
+            
+            [[SDWebImageManager sharedManager] downloadImageWithURL:pictureUrlURL options:kNilOptions progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                
+                // expectedSize 下载的图片的总大小
+                // receivedSize 已经接受的大小
+//                NSLog(@"expectedSize = %ld, receivedSize = %ld", expectedSize, receivedSize);
+                
+            } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                
+                [loadImageArry addObject:image];
+                
+                NSString *cacheImageKey = [[SDWebImageManager sharedManager] cacheKeyForURL:pictureUrlURL];
+                if (cacheImageKey.length) {
+                    NSString *cacheImagePath = [[SDImageCache sharedImageCache] defaultCachePathForKey:cacheImageKey];
+                    SSLog(@"%@",cacheImagePath);
+                }
+                
+                
+                NSInteger headViewHeight = CGRectGetMaxY(self.nameLabel.frame);
+                
+                NSInteger imageCount = loadImageArry.count;
+                
+//                [self.imagePickerArray addObjectsFromArray:loadImageArry];
+                
+                headViewHeight = 120 + (10 + pictureHW)*(imageCount/4 + 1);
+                
+                self.headView.frame = CGRectMake(0, 0, screenWidth, headViewHeight);
+                
+            }];
+        }
+    }
 }
 
 #pragma mark - addPicture
@@ -301,6 +511,11 @@ static NSString *ID2 = @"ReleaseProjectCell2";
 }
 #pragma mark - Table view data source
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return self.headViewHeight;
+}
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
     return 2;
@@ -400,7 +615,8 @@ static NSString *ID2 = @"ReleaseProjectCell2";
     
     NSString *financing_aq = self.cell2.textView.text;
     
-    NSString *artworkId = [[NSUserDefaults standardUserDefaults]objectForKey:@"artworkId"];
+//    NSString *artworkId = self.artWorkIdModel.artworkId;
+     NSString *artworkId = @"imyt7yax314lpzzj";
     
     NSString *timestamp = [MyMD5 timestamp];
     

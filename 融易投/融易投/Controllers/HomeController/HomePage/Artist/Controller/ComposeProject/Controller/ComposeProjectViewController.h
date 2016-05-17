@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class ProjectDetailsModel;
+
 @interface ComposeProjectViewController : UIViewController
+
+
+@property (nonatomic, strong) ProjectDetailsModel *projectModel;
 
 @end

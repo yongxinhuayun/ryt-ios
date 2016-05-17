@@ -25,14 +25,15 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ze5-sV-6eH">
                             <rect key="frame" x="14" y="16" width="120" height="120"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSg-6k-8tN">
-                                    <rect key="frame" x="24.5" y="24.5" width="71" height="71"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSg-6k-8tN">
+                                    <rect key="frame" x="46.5" y="46.5" width="27" height="27"/>
                                     <state key="normal" backgroundImage="video-play"/>
                                     <connections>
                                         <action selector="recordVideo:" destination="-1" eventType="touchUpInside" id="C5w-kL-Dgy"/>
                                     </connections>
                                 </button>
                             </subviews>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="nSg-6k-8tN" firstAttribute="centerX" secondItem="ze5-sV-6eH" secondAttribute="centerX" id="FT7-b8-UcH"/>
                                 <constraint firstItem="nSg-6k-8tN" firstAttribute="centerY" secondItem="ze5-sV-6eH" secondAttribute="centerY" id="KG2-mh-x5M"/>
@@ -96,6 +97,6 @@
     </objects>
     <resources>
         <image name="denglu_fenggexian750" width="1" height="1"/>
-        <image name="video-play" width="71" height="71"/>
+        <image name="video-play" width="27" height="27"/>
     </resources>
 </document>

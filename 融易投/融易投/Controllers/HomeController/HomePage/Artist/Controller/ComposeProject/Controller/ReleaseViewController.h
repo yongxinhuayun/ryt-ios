@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class ProjectDetailsModel,ArtWorkIdModel;
+
 @interface ReleaseViewController : UITableViewController
+
+@property (nonatomic, strong) ArtWorkIdModel *artWorkIdModel;
+
+@property (nonatomic, strong) ProjectDetailsModel *projectModel;
 
 @end

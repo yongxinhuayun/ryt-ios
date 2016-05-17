@@ -38,7 +38,7 @@
 @property (nonatomic ,assign) NSInteger investEndDatetime;
 
 /** 投资人数 */
-@property (nonatomic ,assign) NSInteger investorsNum;
+@property (nonatomic ,assign) NSInteger investNum;
 
 /** 作者信息 */
 @property (nonatomic, strong) authorModel *author;
