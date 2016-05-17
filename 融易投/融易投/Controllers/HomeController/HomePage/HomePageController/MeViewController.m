@@ -22,6 +22,7 @@
 #import "ArtistViewController.h"
 
 #import "ApplyforArtViewController.h"
+#import "ComposeProjectViewController.h"
 
 
 #import "EditingInfoViewController.h"
@@ -141,6 +142,32 @@
     UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     
     self.navigationItem.leftBarButtonItem = leftBarButton;
+    
+    
+    //设置导航条按钮
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [rightButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
+    [rightButton setTitle:@"发起项目" forState:UIControlStateNormal];
+    
+    //运行程序,发现按钮没有出现导航条上面,因为没有设置尺寸
+    [rightButton sizeToFit];
+    
+    [rightButton addTarget:self action:@selector(releaseProject) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    
+    self.navigationItem.rightBarButtonItem = rightBarButton;
+}
+
+-(void)releaseProject{
+    
+    ComposeProjectViewController *releaseProject = [[ComposeProjectViewController alloc] init];
+    
+    [self.navigationController pushViewController:releaseProject animated:YES];
     
 }
 

@@ -24,6 +24,9 @@
 /** 简介 */
 @property (nonatomic ,strong) NSString *brief;
 
+/** 创作时间 */
+@property (nonatomic ,strong) NSString *duration;
+
 /** 描述  这个需要改变一下key值*/
 @property (nonatomic ,strong) NSString *descriptions;
 

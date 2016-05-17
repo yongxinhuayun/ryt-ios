@@ -12,8 +12,12 @@
 
 #import "ArtistObjectModel.h"
 #import "ArtworkListModel.h"
+#import "BianJiJianJieModel.h"
+#import "ProjectDetailsModel.H"
+#import "ArtworkModel.h"
 
 #import <MJExtension.h>
+#import <SVProgressHUD.h>
 
 #import "CommonHeader.h"
 #import "CommonFooter.h"
@@ -58,6 +62,34 @@ static NSString *ID = @"ArtistMainCell";
     [ArtistObjectModel mj_setupObjectClassInArray:^NSDictionary *{
         return @{
                  @"artworkList" : @"ArtworkListModel",
+                 };
+    }];
+    
+    [ProjectDetailsModel mj_setupObjectClassInArray:^NSDictionary *{
+        return @{
+                 @"artworkAttachmentList" : @"ArtworkAttachmentListModel",
+                 };
+    }];
+    
+    [ArtworkListModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"descriptions":@"description",
+                 @"ID"          :@"id",
+                 };
+    }];
+    
+    [UserMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"ID"          :@"id",
+                 };
+    }];
+
+    [ArtworkModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"ID"          :@"id",
                  };
     }];
     
@@ -207,7 +239,6 @@ static NSString *ID = @"ArtistMainCell";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -252,30 +283,92 @@ static NSString *ID = @"ArtistMainCell";
     
     if ([btn.titleLabel.text isEqualToString:@"提交项目"]) {
         
+        //提交项目
+        SSLog(@"提交项目");
+
+        NSSet *touches =[event allTouches];
+        UITouch *touch =[touches anyObject];
+        CGPoint currentTouchPosition = [touch locationInView:self.tableView];
+        NSIndexPath *indexPath= [self.tableView indexPathForRowAtPoint:currentTouchPosition];
         
+        ArtworkListModel *step = self.models[indexPath.row];
         
+        [self loadChangeData:step AndStep:@"10" AndIndexPath:indexPath];
+        
+    
     }else {
         
         //创作完成
         SSLog(@"创作完成");
+        
         btn.superview.hidden = YES;
         
         NSSet *touches =[event allTouches];
         UITouch *touch =[touches anyObject];
         CGPoint currentTouchPosition = [touch locationInView:self.tableView];
         NSIndexPath *indexPath= [self.tableView indexPathForRowAtPoint:currentTouchPosition];
+
+        ArtworkListModel *step = self.models[indexPath.row];
         
-        
-        if (indexPath!= nil) {
-            
-            //局部刷新数据
-            NSArray *indexPaths = @[
-                                    indexPath,
-                                    ];
-            
-            [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-        }
+        [self loadChangeData:step AndStep:@"30" AndIndexPath:indexPath];
     }
+}
+
+-(void)loadChangeData:(ArtworkListModel *)model AndStep:(NSString *)step AndIndexPath:(NSIndexPath *)indexPath
+{
+        //参数
+        NSString *artworkId = model.ID;
+        NSString *userId = model.author.ID;
+    
+        SSLog(@"%@",model.step);
+    
+        // 3.设置请求体
+        NSDictionary *json = @{
+                               @"artworkId":artworkId,
+                               @"userId" : userId,
+                               @"step" : step,
+                               };
+    
+        NSString *url = @"updateArtWork.do";
+    
+        [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
+            
+//            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//            NSLog(@"返回结果:%@",jsonStr);
+            
+            NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+            
+            BianJiJianJieModel *model = [BianJiJianJieModel mj_objectWithKeyValues:modelDict];
+            
+            [SVProgressHUD showInfoWithStatus:model.resultMsg];
+            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+            
+            [self loadNewData];
+    
+            //在主线程刷新UI数据
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                
+                
+                [SVProgressHUD dismiss];
+                
+                [self.tableView reloadData];
+                
+                [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
+                
+//                if (indexPath!= nil) {
+//                    
+//                    //局部刷新数据
+//                    NSArray *indexPaths = @[
+//                                            indexPath,
+//                                            ];
+//                    
+//                    [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+//                }
+                
+                
+            }];
+            
+        }];
 }
 
 - (void)cellBtn2Clicked:(UIButton *)btn event:(id)event
@@ -296,12 +389,54 @@ static NSString *ID = @"ArtistMainCell";
 //        
 //        [self.navigationController pushViewController:releaseProject animated:YES];
         
+        //传递点击当前cell的数据模型
+        NSSet *touches =[event allTouches];
+        UITouch *touch =[touches anyObject];
+        CGPoint currentTouchPosition = [touch locationInView:self.tableView];
+        NSIndexPath *indexPath= [self.tableView indexPathForRowAtPoint:currentTouchPosition];
+        ArtworkListModel *cellModel = self.models[indexPath.row];
+        
         ComposeProjectViewController *releaseProject = [[ComposeProjectViewController alloc] init];
 
-        [self.navigationController pushViewController:releaseProject animated:YES];
+        
+        //获取点击的编辑项目的项目信息
+        
+        NSString *currentUserId = cellModel.author.ID;
+//        NSString *artWorkId = cellModel.ID;
+        NSString *artWorkId = @"imyt7yax314lpzzj";
+        
+        NSString *urlStr = @"investorArtWorkView.do";
+        NSDictionary *json = @{
+                               @"artWorkId" : artWorkId,
+                               @"currentUserId": currentUserId,
+                               };
+        
+        
+        [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
+            
+            
+            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+            NSLog(@"返回结果:%@",jsonStr);
+            
+            NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+            
+            ProjectDetailsModel *project = [ProjectDetailsModel mj_objectWithKeyValues:modelDict[@"object"]];
+            
+            SSLog(@"%@",project);
+            
+            //在主线程刷新UI数据
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                
+                //传递点击当前cell的数据模型
+                releaseProject.projectModel = project;
+                
+                 [self.navigationController pushViewController:releaseProject animated:YES];
+            }];
+            
+            
+        }];
     }
 }
-
 
 
 //发布动态

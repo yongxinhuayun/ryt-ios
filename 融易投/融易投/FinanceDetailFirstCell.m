@@ -59,7 +59,7 @@
     self.endTime.text = timeStr;
     
     //设置投资人数
-    self.investNum.text = [NSString stringWithFormat:@"%ld",model.investorsNum];
+    self.investNum.text = [NSString stringWithFormat:@"%ld",model.investNum];
     
     //设置投资标题
     self.financeTitle.text = model.title;

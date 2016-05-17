@@ -75,7 +75,7 @@
 //    }
     
 //    self.step = @"24";
-    self.step = @"100";
+//    self.step = @"100";
     
     CGFloat bottomViewY = 50;
     

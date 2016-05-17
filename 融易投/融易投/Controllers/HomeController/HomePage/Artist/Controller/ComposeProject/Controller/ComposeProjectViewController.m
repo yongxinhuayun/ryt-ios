@@ -11,12 +11,15 @@
 #import "ReleaseViewController.h"
 
 #import "ArtWorkIdModel.h"
+#import "ProjectDetailsModel.H"
+#import "ArtworkModel.h"
 #import <MJExtension.h>
 
 #import "FabuProjectView.h"
 
 
 #import <SVProgressHUD.h>
+#import "UIImageView+WebCache.h"
 
 @interface ComposeProjectViewController ()<UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIScrollViewDelegate>
 
@@ -66,6 +69,12 @@ BOOL isPop = NO;
     composeProjectView.frame = CGRectMake(0, 0, SSScreenW, SSScreenH + 200);
     self.composeProjectView = composeProjectView;
     
+    SSLog(@"%@",self.projectModel);
+    
+    if (self.projectModel) {
+        
+        composeProjectView.projectModel = self.projectModel;
+    }
     
     
     CGFloat height = CGRectGetMaxY(composeProjectView.nextBtn.frame);
@@ -99,6 +108,13 @@ BOOL isPop = NO;
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
     
     [self.composeProjectView.imageView addGestureRecognizer:tapGesture];
+    
+    [ArtworkModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"ID"          :@"id",
+                 };
+    }];
     
 }
 
@@ -223,8 +239,6 @@ BOOL isPop = NO;
 {
     //设置导航条标题
     self.navigationItem.title = @"发起新项目";
-    
-    
 }
 
 - (void)nextBtnClick:(UIButton *)btn{
@@ -299,12 +313,44 @@ BOOL isPop = NO;
     //
     //    NSString *title = [projectTitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    
     NSString *title =  self.composeProjectView.projectTextField.text;
+//     NSString *title = @"asdsf";
     NSString *brief = self.composeProjectView.progectTextView.text;
     NSString *duration = self.composeProjectView.projectTimeTextField.text;
     NSString *userId = @"imhfp1yr4636pj49";
-    NSString *picture_url = self.createPath;
+    
+    NSString *picture_url;
+    NSString *artWorkId;
+    
+    if (self.projectModel) {
+        
+//        artWorkId = self.projectModel.artWork.ID;
+       artWorkId = @"imyt7yax314lpzzj";
+    }else{
+        
+        artWorkId = @"";
+    }
+    
+    
+    if (!self.createPath) {
+        
+        NSString *pictureUrlStr = [[NSString stringWithFormat:@"%@",self.projectModel.artWork.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        NSURL *pictureUrlURL = [NSURL URLWithString:pictureUrlStr];
+        
+    
+        NSString *cacheImageKey = [[SDWebImageManager sharedManager] cacheKeyForURL:pictureUrlURL];
+        if (cacheImageKey.length) {
+            
+           picture_url = [[SDImageCache sharedImageCache] defaultCachePathForKey:cacheImageKey];
+        }
+
+    }else {
+    
+        picture_url = self.createPath;
+    }
+
+    
     NSString *investGoalMoney = self.composeProjectView.projecTotaltTextField.text;
     
     NSString *timestamp = [MyMD5 timestamp];
@@ -317,7 +363,7 @@ BOOL isPop = NO;
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
     
     // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-    NSString *url = @"http://192.168.1.41:8080/app/initNewArtWork.do";
+    NSString *url = @"http://192.168.1.75:8080/app/initNewArtWork.do";
     
     // 3.设置请求体
     NSDictionary *json = @{
@@ -325,6 +371,7 @@ BOOL isPop = NO;
                            @"brief" : brief,
                            @"duration":duration,
                            @"userId"   : userId,
+                           @"artWorkId":artWorkId,
                            @"picture_url":picture_url,
                            @"investGoalMoney"  : investGoalMoney,
                            @"timestamp" : timestamp,
@@ -341,8 +388,13 @@ BOOL isPop = NO;
     
     [manger POST:url parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
-        [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"picture_url" fileName:@"picture_url.jpg" mimeType:@"application/octet-stream" error:nil];
+        if (self.createPath) {
+            
+             [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"picture_url" fileName:@"picture_url.jpg" mimeType:@"application/octet-stream" error:nil];
+        }else {
         
+            [formData appendPartWithFileURL:[NSURL fileURLWithPath:picture_url] name:@"picture_url" fileName:@"picture_url.jpg" mimeType:@"application/octet-stream" error:nil];
+        }
         
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
@@ -354,13 +406,6 @@ BOOL isPop = NO;
         
         ArtWorkIdModel *artWorkId = [ArtWorkIdModel mj_objectWithKeyValues:responseObject];
         
-        // 3.打印MJUser模型的属性
-        NSLog(@"artworkId = %@",artWorkId.artworkId);
-        
-        [[NSUserDefaults standardUserDefaults] setObject:artWorkId.artworkId forKey:@"artworkId"];
-        
-//        [SVProgressHUD showSuccessWithStatus:@"发布成功" maskType:SVProgressHUDMaskTypeBlack];
-        
         [SVProgressHUD showInfoWithStatus:@"发布成功"];
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
         
@@ -369,12 +414,16 @@ BOOL isPop = NO;
             
             [SVProgressHUD dismiss];
             
-          
-                UIStoryboard *releaseStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
-                ReleaseViewController *releaseVC = [releaseStoryBoard instantiateInitialViewController];
-                isPop = YES;
-                
-                [self.navigationController pushViewController:releaseVC animated:YES];
+            UIStoryboard *releaseStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
+            ReleaseViewController *releaseVC = [releaseStoryBoard instantiateInitialViewController];
+            isPop = YES;
+            
+            //发起新项目传递的artWorkId
+            releaseVC.artWorkIdModel = artWorkId;
+            //编辑项目传递的模型
+            releaseVC.projectModel = self.projectModel;
+            
+            [self.navigationController pushViewController:releaseVC animated:YES];
     
         }];
         
@@ -426,8 +475,6 @@ BOOL isPop = NO;
     selctedImage = nil;
     
     self.createPath = [self writeImageToCaches:newImage];
-    
-    //    SSLog(@"%@",self.createPath);
 }
 
 -(NSString *)writeImageToCaches:(UIImage *)newImage{

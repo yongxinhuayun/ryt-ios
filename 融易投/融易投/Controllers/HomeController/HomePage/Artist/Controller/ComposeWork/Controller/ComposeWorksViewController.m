@@ -191,9 +191,9 @@
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         
-        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        
-        SSLog(@"%@",aString);
+//        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+//        
+//        SSLog(@"%@",aString);
         
         
         [SVProgressHUD showInfoWithStatus:@"发布成功"];
