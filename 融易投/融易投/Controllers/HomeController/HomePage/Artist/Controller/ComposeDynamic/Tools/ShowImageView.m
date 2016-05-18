@@ -76,6 +76,7 @@
         //NSLog(@"%f,%f,%f,%f",self.bounds.origin.x,self.bounds.origin.y,self.bounds.size.width,self.bounds.size.height);
         //需要考虑两种情况，一种传的url(用沙盒机制做，现在还是image的名字，需要改),一种直接传的image
         UIImage *img;
+        
         if([[appendArray objectAtIndex:i] isMemberOfClass:[ALAsset class]])
         {
             CGImageRef imageRef = ((ALAsset *)[appendArray objectAtIndex:i]).defaultRepresentation.fullScreenImage;

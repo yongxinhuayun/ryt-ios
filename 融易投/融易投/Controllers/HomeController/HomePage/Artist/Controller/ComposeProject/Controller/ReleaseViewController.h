@@ -16,4 +16,6 @@
 
 @property (nonatomic, strong) ProjectDetailsModel *projectModel;
 
+@property (nonatomic, strong) NSMutableArray *imageArray;
+
 @end

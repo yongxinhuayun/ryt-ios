@@ -13,6 +13,8 @@
 #import "ArtWorkIdModel.h"
 #import "ProjectDetailsModel.H"
 #import "ArtworkModel.h"
+#import "ArtworkAttachmentListModel.h"
+
 #import <MJExtension.h>
 
 #import "FabuProjectView.h"
@@ -27,6 +29,8 @@
 
 @property (strong,nonatomic) FabuProjectView *composeProjectView;
 @property (strong,nonatomic) NSString *createPath;
+
+@property (nonatomic, strong) NSMutableArray *imageArray;
 
 
 @end
@@ -113,6 +117,12 @@ BOOL isPop = NO;
         
         return @{
                  @"ID"          :@"id",
+                 };
+    }];
+    
+    [ProjectDetailsModel mj_setupObjectClassInArray:^NSDictionary *{
+        return @{
+                 @"artworkAttachmentList" : @"ArtworkAttachmentListModel",
                  };
     }];
     
@@ -243,6 +253,39 @@ BOOL isPop = NO;
 
 - (void)nextBtnClick:(UIButton *)btn{
     
+    
+    NSMutableArray *imageArray = [NSMutableArray array];
+    self.imageArray = imageArray;
+    
+    for (ArtworkAttachmentListModel *model in self.projectModel.artworkAttachmentList) {
+        
+        //            SSLog(@"%@",model.fileName);
+        NSString *pictureUrlStr = [[NSString stringWithFormat:@"%@",model.fileName] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        NSURL *pictureUrlURL = [NSURL URLWithString:pictureUrlStr];
+        
+        [[SDWebImageManager sharedManager] downloadImageWithURL:pictureUrlURL options:kNilOptions progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            
+            // expectedSize 下载的图片的总大小
+            // receivedSize 已经接受的大小
+            //                NSLog(@"expectedSize = %ld, receivedSize = %ld", expectedSize, receivedSize);
+            
+        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            
+            //把从网络上获取的图片加到数组中
+            [imageArray addObject:image];
+            
+            NSString *cacheImageKey = [[SDWebImageManager sharedManager] cacheKeyForURL:pictureUrlURL];
+
+            if (cacheImageKey.length) {
+
+                NSString *cacheImagePath = [[SDImageCache sharedImageCache] defaultCachePathForKey:cacheImageKey];
+                SSLog(@"%@",cacheImagePath);
+            }
+        }];
+    }
+    
+    
     if ([self panduanWeiKong]) {
         
         
@@ -363,7 +406,7 @@ BOOL isPop = NO;
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
     
     // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-    NSString *url = @"http://192.168.1.75:8080/app/initNewArtWork.do";
+    NSString *url = @"http://192.168.1.41:8080/app/initNewArtWork.do";
     
     // 3.设置请求体
     NSDictionary *json = @{
@@ -422,6 +465,9 @@ BOOL isPop = NO;
             releaseVC.artWorkIdModel = artWorkId;
             //编辑项目传递的模型
             releaseVC.projectModel = self.projectModel;
+            
+            //传递图片数组
+            releaseVC.imageArray = self.imageArray;
             
             [self.navigationController pushViewController:releaseVC animated:YES];
     
