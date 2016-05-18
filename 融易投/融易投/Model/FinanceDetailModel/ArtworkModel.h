@@ -46,6 +46,7 @@
 
 /** author信息 */
 @property (nonatomic, strong) authorModel *author;
+@property(nonatomic,copy) NSString *step;
 
 /** master信息 */
 @property (nonatomic, strong) MasterDetailsModel *master;

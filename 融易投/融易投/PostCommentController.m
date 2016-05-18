@@ -58,11 +58,23 @@
 -(void)postComment
 {
     NSString *url = @"artworkComment.do";
-    NSDictionary *JSON = @{ @"artworkId" : self.artworkId,
-                            @"currentUserId" : self.currentUserId,
-                            @"content":self.commentView.text
-                            };
-    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:JSON showHUDView:self.view andBlock:^(id respondObj) {
+    NSMutableDictionary *json = [NSMutableDictionary dictionary];
+    if (self.fatherCommentId) {
+        NSDictionary *JSON = @{ @"artworkId" : self.artworkId,
+                                @"currentUserId" : self.currentUserId,
+                                @"content":self.commentView.text,
+                                @"fatherCommentId" : self.fatherCommentId
+                                };
+        [json addEntriesFromDictionary:JSON];
+        
+    }else{
+        NSDictionary *JSON = @{ @"artworkId" : self.artworkId,
+                                @"currentUserId" : self.currentUserId,
+                                @"content":self.commentView.text
+                                };
+        [json addEntriesFromDictionary:JSON];
+    }
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:self.view andBlock:^(id respondObj) {
                 NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
                 NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
@@ -70,22 +82,12 @@
         NSString *result = modelDict[@"resultMsg"];
         if ([result isEqualToString:@"成功"]) {
                 NSNotificationCenter *notCenter = [NSNotificationCenter defaultCenter];
-            [notCenter postNotificationName:@"POSTCOMMENT" object:nil];
+            if (!self.fatherCommentId) {
+                [notCenter postNotificationName:@"POSTCOMMENT" object:nil];
+            }
             [self.navigationController popViewControllerAnimated:YES];
         }
-        //字典数组 -> 模型数组
-        //在主线程刷新UI数据
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        }];
     }];
-//    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
-//        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-//        SSLog(@"%@",modelDict);
-//        //字典数组 -> 模型数组
-//        //在主线程刷新UI数据
-//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//        }];
-//    }];
 }
 
 
@@ -104,9 +106,7 @@
     {
         if ([self.commentView.text length]) {
             [self.commentView resignFirstResponder];
-        }
-        else
-        {
+        }else{
             return NO;
         }
     }

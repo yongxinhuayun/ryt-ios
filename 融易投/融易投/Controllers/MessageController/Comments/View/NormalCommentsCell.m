@@ -49,10 +49,6 @@
     [self.bottomView addGestureRecognizer:tapGesture];
 }
 
--(void)clickArtworkView{
-    NSLog(@"123");
-}
-
 -(void)setCommentModel:(UserCommentListModel *)commentModel{
         //设置cell 的属性值
     _commentModel = commentModel;
@@ -113,7 +109,15 @@
 }
 
 - (IBAction)clickHFBtn:(UIButton *)sender {
-    NSLog(@"12312");
+    if ([self.delegate respondsToSelector:@selector(postUserComments:)]) {
+        [self.delegate postUserComments:self.commentModel];
+    }
+}
+
+-(void)clickArtworkView{
+    if ([self.delegate respondsToSelector:@selector(jumpToDetailController:)]) {
+        [self.delegate jumpToDetailController:self.commentModel.artwork.ID];
+    }
 }
 
 

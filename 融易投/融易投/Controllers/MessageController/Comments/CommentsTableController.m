@@ -7,6 +7,9 @@
 //
 
 #import "CommentsTableController.h"
+#import "PostCommentController.h"
+#import "DetailFinanceViewController.h"
+#import "DetailCreationViewController.h"
 #import "NormalCommentsCell.h"
 
 #import <MJExtension.h>
@@ -20,7 +23,7 @@
 #import "CommonFooter.h"
 
 
-@interface CommentsTableController ()
+@interface CommentsTableController ()<CommentsDelegate>
 @property(nonatomic,strong)NSMutableArray *commentArray;
 @property(nonatomic,copy) NSString *lastPageNum;
 @end
@@ -49,6 +52,34 @@
     [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
     [self.tableView improveTableView];
     [self setUpRefresh];
+}
+
+-(void)postUserComments:(UserCommentListModel *)commentModel{
+    PostCommentController *postController = [[PostCommentController alloc] init];
+    postController.title = [NSString stringWithFormat:@"回复%@",commentModel.creator.name];
+    postController.artworkId = commentModel.artwork.ID;
+    // 当前用户的ID
+    postController.currentUserId = @"iijq9f1r7apprtab";
+    postController.fatherCommentId = commentModel.fatherArtworkCommentBean.creator.ID;
+    [self.navigationController pushViewController:postController animated:YES];
+}
+
+-(void)jumpToDetailController:(UserCommentListModel *)commentModel{
+    //根据 项目的进度 跳转到 融资 或 创作
+    NSInteger step = [commentModel.artwork.step intValue];
+//    12；14；15	融资阶段
+//    21；22；23；24；25	创作阶段
+    if(step == 12 ||step == 14 ||step == 15){
+        DetailFinanceViewController *detailController = [[DetailFinanceViewController alloc] init];
+        detailController.artworkModel = commentModel.artwork;
+        detailController.artworkId = commentModel.artwork.ID;
+        [self.navigationController pushViewController:detailController animated:YES];
+    }
+    else if (step == 21 ||step == 22 ||step == 23 ||step == 24 ||step == 25){
+        DetailCreationViewController *detailController = [[DetailCreationViewController alloc] init];
+        detailController.artworkId = commentModel.artwork.ID;
+//        detailController.
+    }
 }
 
 -(void)setUpRefresh
@@ -125,6 +156,7 @@
     NormalCommentsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentsCell" forIndexPath:indexPath];
     UserCommentListModel *model = self.commentArray[indexPath.row];
     cell.commentModel = model;
+    cell.delegate = self;
     return cell;
 }
 

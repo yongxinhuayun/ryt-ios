@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 @class UserCommentListModel;
+@protocol CommentsDelegate <NSObject>
+-(void)postUserComments:(UserCommentListModel *) commentModel;
+-(void)jumpToDetailController:(UserCommentListModel*) commentModel;
+@end
+
+
 @interface NormalCommentsCell : UITableViewCell
 @property(nonatomic,strong) UserCommentListModel *commentModel;
+@property(nonatomic,weak) id<CommentsDelegate>delegate;
 @end
