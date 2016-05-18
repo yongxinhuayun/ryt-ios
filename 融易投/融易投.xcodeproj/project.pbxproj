@@ -461,6 +461,11 @@
 		E22893DE1CDF049500483F18 /* lxh_zhuanfa.gif in Resources */ = {isa = PBXBuildFile; fileRef = E22893621CDF049500483F18 /* lxh_zhuanfa.gif */; };
 		E22893DF1CDF049500483F18 /* lxh_zhuanfa.png in Resources */ = {isa = PBXBuildFile; fileRef = E22893631CDF049500483F18 /* lxh_zhuanfa.png */; };
 		E22893E01CDF049500483F18 /* lxh_zhuanfa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E22893641CDF049500483F18 /* lxh_zhuanfa@2x.png */; };
+		E2322B0E1CEC07CB002730E7 /* CommentsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2322B0D1CEC07CB002730E7 /* CommentsTableController.m */; };
+		E2322B131CEC0AAB002730E7 /* NormalCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2322B111CEC0AAB002730E7 /* NormalCommentsCell.m */; };
+		E2322B141CEC0AAB002730E7 /* NormalCommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2322B121CEC0AAB002730E7 /* NormalCommentsCell.xib */; };
+		E2322B1A1CEC24FE002730E7 /* MessageResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2322B191CEC24FE002730E7 /* MessageResultModel.m */; };
+		E2322B201CEC26CC002730E7 /* UserCommentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2322B1F1CEC26CC002730E7 /* UserCommentListModel.m */; };
 		E236C3141CB4E068009DCBF0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E236C3131CB4E068009DCBF0 /* CFNetwork.framework */; };
 		E236C3161CB4E080009DCBF0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E236C3151CB4E080009DCBF0 /* CoreFoundation.framework */; };
 		E236C3181CB4E0C9009DCBF0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E236C3171CB4E0C9009DCBF0 /* CoreGraphics.framework */; };
@@ -1300,6 +1305,15 @@
 		E22893621CDF049500483F18 /* lxh_zhuanfa.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = lxh_zhuanfa.gif; sourceTree = "<group>"; };
 		E22893631CDF049500483F18 /* lxh_zhuanfa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lxh_zhuanfa.png; sourceTree = "<group>"; };
 		E22893641CDF049500483F18 /* lxh_zhuanfa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lxh_zhuanfa@2x.png"; sourceTree = "<group>"; };
+		E2322B0C1CEC07CB002730E7 /* CommentsTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsTableController.h; sourceTree = "<group>"; };
+		E2322B0D1CEC07CB002730E7 /* CommentsTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsTableController.m; sourceTree = "<group>"; };
+		E2322B101CEC0AAB002730E7 /* NormalCommentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalCommentsCell.h; sourceTree = "<group>"; };
+		E2322B111CEC0AAB002730E7 /* NormalCommentsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalCommentsCell.m; sourceTree = "<group>"; };
+		E2322B121CEC0AAB002730E7 /* NormalCommentsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCommentsCell.xib; sourceTree = "<group>"; };
+		E2322B181CEC24FE002730E7 /* MessageResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageResultModel.h; sourceTree = "<group>"; };
+		E2322B191CEC24FE002730E7 /* MessageResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageResultModel.m; sourceTree = "<group>"; };
+		E2322B1E1CEC26CC002730E7 /* UserCommentListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCommentListModel.h; sourceTree = "<group>"; };
+		E2322B1F1CEC26CC002730E7 /* UserCommentListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCommentListModel.m; sourceTree = "<group>"; };
 		E236C3131CB4E068009DCBF0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		E236C3151CB4E080009DCBF0 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		E236C3171CB4E0C9009DCBF0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -2462,6 +2476,7 @@
 		E2288E4E1CDEFB3200483F18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E2322B151CEC24B9002730E7 /* MessageModel */,
 				E2D522651CDF8D820024887A /* AuctionModel */,
 				E2D522611CDF8D130024887A /* CreationModel */,
 				E2D5224E1CDF8C970024887A /* UserCommentModel */,
@@ -2810,6 +2825,43 @@
 			path = lxh;
 			sourceTree = "<group>";
 		};
+		E2322B0F1CEC0A6F002730E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E2322B101CEC0AAB002730E7 /* NormalCommentsCell.h */,
+				E2322B111CEC0AAB002730E7 /* NormalCommentsCell.m */,
+				E2322B121CEC0AAB002730E7 /* NormalCommentsCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E2322B151CEC24B9002730E7 /* MessageModel */ = {
+			isa = PBXGroup;
+			children = (
+				E2322B161CEC24E7002730E7 /* CommentModel */,
+				E2322B171CEC24E7002730E7 /* MessageResultModel */,
+			);
+			path = MessageModel;
+			sourceTree = "<group>";
+		};
+		E2322B161CEC24E7002730E7 /* CommentModel */ = {
+			isa = PBXGroup;
+			children = (
+				E2322B1E1CEC26CC002730E7 /* UserCommentListModel.h */,
+				E2322B1F1CEC26CC002730E7 /* UserCommentListModel.m */,
+			);
+			path = CommentModel;
+			sourceTree = "<group>";
+		};
+		E2322B171CEC24E7002730E7 /* MessageResultModel */ = {
+			isa = PBXGroup;
+			children = (
+				E2322B181CEC24FE002730E7 /* MessageResultModel.h */,
+				E2322B191CEC24FE002730E7 /* MessageResultModel.m */,
+			);
+			path = MessageResultModel;
+			sourceTree = "<group>";
+		};
 		E2729AEF1CD8B975006C0617 /* 记录 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3104,9 +3156,12 @@
 		E2D524091CDF93900024887A /* Comments */ = {
 			isa = PBXGroup;
 			children = (
+				E2322B0F1CEC0A6F002730E7 /* View */,
 				E2D5240F1CDF93BC0024887A /* CommentsController.h */,
 				E2D524101CDF93BC0024887A /* CommentsController.m */,
 				E2D524111CDF93BC0024887A /* CommentsController.xib */,
+				E2322B0C1CEC07CB002730E7 /* CommentsTableController.h */,
+				E2322B0D1CEC07CB002730E7 /* CommentsTableController.m */,
 			);
 			path = Comments;
 			sourceTree = "<group>";
@@ -4056,6 +4111,7 @@
 				21C4144D1CE2D2B200F1029C /* ReleaseVideoViewController.xib in Resources */,
 				E22892A01CDF03F400483F18 /* d_nu@2x.png in Resources */,
 				211C394B1CB36B1500DAD827 /* FinanceTableViewCell.xib in Resources */,
+				E2322B141CEC0AAB002730E7 /* NormalCommentsCell.xib in Resources */,
 				21C414161CE2D23500F1029C /* picture3.png in Resources */,
 				21D54B921CB739E60088D386 /* AuctionTableViewCell.xib in Resources */,
 				E22893951CDF049500483F18 /* lxh_juhan.png in Resources */,
@@ -4331,6 +4387,7 @@
 				E2D522371CDF8C5F0024887A /* ArtworkAttachmentListModel.m in Sources */,
 				212EEE8D1CE048C500F94B30 /* CommonUserHeaderView.m in Sources */,
 				2168EAE31CBFA05000B7E037 /* FinanceDetailFirstCell.m in Sources */,
+				E2322B1A1CEC24FE002730E7 /* MessageResultModel.m in Sources */,
 				E2F1C81C1CE983B000D4B1B4 /* DetailFinanceViewController.m in Sources */,
 				21C4140D1CE2D23500F1029C /* WHC_PhotoListCell.m in Sources */,
 				21C4142C1CE2D23500F1029C /* HMEmotionKeyboard.m in Sources */,
@@ -4340,6 +4397,7 @@
 				21C414091CE2D23500F1029C /* UIView+JKPicker.m in Sources */,
 				21C414231CE2D23500F1029C /* UITableView+Improve.m in Sources */,
 				E2D5245C1CDF9B590024887A /* BillTableViewController.m in Sources */,
+				E2322B131CEC0AAB002730E7 /* NormalCommentsCell.m in Sources */,
 				21AB0B581CC605F500B7BA03 /* XCLSegmentView.m in Sources */,
 				E2D524721CDF9B9C0024887A /* WalletHeaderView.m in Sources */,
 				2187B95F1CCE1B4200B92435 /* FinanceDetailsViewController.m in Sources */,
@@ -4355,6 +4413,7 @@
 				E2D5243D1CDF99430024887A /* FocusMyArtistTableViewController.m in Sources */,
 				E2D521AF1CDF783B0024887A /* MasterMyModel.m in Sources */,
 				21C413FE1CE2D23500F1029C /* JKAssetsCollectionFooterView.m in Sources */,
+				E2322B0E1CEC07CB002730E7 /* CommentsTableController.m in Sources */,
 				E2D5228A1CDF917C0024887A /* ForgetPasswordViewController.m in Sources */,
 				21C4145B1CE30C4200F1029C /* ReleaseProjectCell1.m in Sources */,
 				E2729AF51CD8B983006C0617 /* RecordTableViewController.m in Sources */,
@@ -4477,6 +4536,7 @@
 				E2D521EC1CDF79220024887A /* CNCityAreaCitiesModel.m in Sources */,
 				21C413F01CE2D23500F1029C /* AGIPCToolbarItem.m in Sources */,
 				21C459DF1CE95A4100691E8D /* CommonTextView.m in Sources */,
+				E2322B201CEC26CC002730E7 /* UserCommentListModel.m in Sources */,
 				E2D522391CDF8C5F0024887A /* ArtworkModel.m in Sources */,
 				212EEE701CDC361100F94B30 /* SettingFooterView.m in Sources */,
 				21C413F61CE2D23500F1029C /* ImagePickerChooseCell.m in Sources */,

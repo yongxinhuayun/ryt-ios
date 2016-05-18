@@ -17,8 +17,6 @@
 
 
 @implementation CommonFooter
-
-
 // 初始化
 - (void)prepare
 {
@@ -27,7 +25,8 @@
     self.stateLabel.textColor = [UIColor redColor];
     
     //关闭自动显示和隐藏的功能(需要开发者自己去显示和隐藏footer)
-    self.automaticallyHidden = YES;
+//    self.automaticallyHidden = YES;
+    self.hidden = YES;
     
     
     [self setTitle:@"加载更多数据 ..." forState:MJRefreshStateRefreshing];

@@ -1,0 +1,154 @@
+//
+//  CommentsTableController.m
+//  融易投
+//
+//  Created by 李鹏飞 on 16/5/18.
+//  Copyright © 2016年 融艺投. All rights reserved.
+//
+
+#import "CommentsTableController.h"
+#import "NormalCommentsCell.h"
+
+#import <MJExtension.h>
+#import <MJRefresh.h>
+#import  "UITableView+Improve.h"
+
+#import "MessageResultModel.h"
+#import "UserCommentListModel.h"
+#import "CreatorModel.h"
+#import "ArtworkModel.h"
+#import "CommonFooter.h"
+
+
+@interface CommentsTableController ()
+@property(nonatomic,strong)NSMutableArray *commentArray;
+@property(nonatomic,copy) NSString *lastPageNum;
+@end
+
+@implementation CommentsTableController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"评论";
+    [self loadData];
+    [self.tableView registerNib:[UINib nibWithNibName:@"NormalCommentsCell" bundle:nil] forCellReuseIdentifier:@"CommentsCell"];
+    [UserCommentListModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return [NSDictionary dictionaryWithObject:@"id" forKey:@"ID"];
+    }];
+    [MessageResultModel mj_setupObjectClassInArray:^NSDictionary *{
+        return [NSDictionary dictionaryWithObject:@"UserCommentListModel" forKey:@"objectList"];
+    }];
+    [CreatorModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return [NSDictionary dictionaryWithObject:@"id" forKey:@"ID"];
+    }];
+    [ArtworkModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return [NSDictionary dictionaryWithObject:@"id" forKey:@"ID"];
+    }];
+    
+    [self.tableView  setSeparatorColor:[UIColor colorWithRed:227.0 / 255.0 green:228.0 / 255.0 blue:229.0 / 255.0 alpha:0.6]];
+    [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+    [self.tableView improveTableView];
+    [self setUpRefresh];
+}
+
+-(void)setUpRefresh
+{
+    //自定义上拉加载更多
+    self.tableView.mj_footer = [CommonFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+}
+
+-(void)loadData{
+    NSString * pageNum = @"1";
+    self.lastPageNum = pageNum;
+    NSString* pageSize = @"99";
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"userId" : @"iijq9f1r7apprtab",
+                           @"pageNum" : pageNum,
+                           @"pageSize" :pageSize,
+                           @"type"     :@"1"
+                           };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"information.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+                NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+                NSLog(@"返回结果:%@",jsonStr);
+        
+        MessageResultModel *resultModel = [MessageResultModel mj_objectWithKeyValues:respondObj];
+        [self.commentArray addObjectsFromArray:resultModel.objectList];
+        //在主线程刷新UI数据
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    }];
+}
+
+-(void)loadMoreData{
+    //8.2 取消之前的请求
+    [self.tableView.mj_footer endRefreshing];
+    //参数
+    NSString *pageSize = @"20";
+    int newPageNum = self.lastPageNum.intValue + 1;
+    self.lastPageNum = [NSString stringWithFormat:@"%d",newPageNum];
+    NSString *pageNum = [NSString stringWithFormat:@"%d",newPageNum];
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"userId" : @"iijq9f1r7apprtab",
+                           @"pageNum" : pageNum,
+                           @"pageSize" :pageSize,
+                           @"type"     :@"1"
+                           };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"information.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        
+        MessageResultModel *resultModel = [MessageResultModel mj_objectWithKeyValues:respondObj];
+        if (resultModel.objectList) {
+            [self.commentArray addObjectsFromArray:resultModel.objectList];
+        }
+        //在主线程刷新UI数据
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    }];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.commentArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NormalCommentsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentsCell" forIndexPath:indexPath];
+    UserCommentListModel *model = self.commentArray[indexPath.row];
+    cell.commentModel = model;
+    return cell;
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UserCommentListModel *model = self.commentArray[indexPath.row];
+    return model.cellHeight;
+}
+
+-(NSMutableArray *)commentArray{
+    if (!_commentArray) {
+        _commentArray = [NSMutableArray array];
+    }
+    return _commentArray;
+}
+
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end
