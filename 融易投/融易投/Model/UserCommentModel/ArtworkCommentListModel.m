@@ -11,7 +11,7 @@
 @implementation ArtworkCommentListModel
 
 -(CGFloat)cellHeight{
-    CGFloat margin = 10;
+    CGFloat margin = 5;
     CGFloat userIconY = 50;
     CGFloat maxY = userIconY + margin * 2;
     CGFloat textW = [UIScreen mainScreen].bounds.size.width - 2 * 10;

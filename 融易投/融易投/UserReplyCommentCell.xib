@@ -28,8 +28,8 @@
                             <action selector="clickUserName:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9UD-RM-Fvh"/>
                         </connections>
                     </button>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Kx-4k-Eaf">
-                        <rect key="frame" x="70" y="49" width="337" height="103"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Kx-4k-Eaf">
+                        <rect key="frame" x="70" y="50" width="337" height="103"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -43,14 +43,6 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SdQ-rd-77B">
-                        <rect key="frame" x="102" y="51" width="56" height="29"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <state key="normal" title="艺术人生"/>
-                        <connections>
-                            <action selector="clickFatherName:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wgK-1e-DPY"/>
-                        </connections>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zK-gv-DsT">
                         <rect key="frame" x="10" y="10" width="50" height="50"/>
                         <constraints>
@@ -60,6 +52,14 @@
                         <state key="normal" image="defaultBackground"/>
                         <connections>
                             <action selector="clickUserName:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UNl-6J-Q82"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SdQ-rd-77B">
+                        <rect key="frame" x="102" y="51" width="56" height="29"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="艺术人生"/>
+                        <connections>
+                            <action selector="clickFatherName:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wgK-1e-DPY"/>
                         </connections>
                     </button>
                 </subviews>

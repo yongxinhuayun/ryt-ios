@@ -7,16 +7,18 @@
 //
 
 #import "RecordTableViewController.h"
+#import "CommonUserHomeViewController.h"
 #import "RecordTableViewCell.h"
-#import "TopRecordTableViewCell.h"
+#import "TopRecordTCell.h"
 #import <MJExtension.h>
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 #import "RecordModelList.h"
 #import "RecordModel.h"
 #import "UserMyModel.h"
+#import "PageInfoModel.h"
 
-@interface RecordTableViewController ()
+@interface RecordTableViewController ()<RecordCellDelegate>
 
 
 @property(nonatomic,strong) NSMutableArray *artTopList;
@@ -133,7 +135,7 @@
             
             RecordModelList *model = [RecordModelList mj_objectWithKeyValues:modelDict[@"object"]];
             //拼接数据
-            self.artTopList = model.artworkInvestTopList;
+//            self.artTopList = model.artworkInvestTopList;
             
             if (model.artworkInvestList != nil) {
                 [self.artList addObject:model.artworkInvestList];
@@ -159,12 +161,16 @@
                  @"artworkInvestList":@"RecordModel"
                  };
     }];
-
-    
+    [RecordModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+      return @{@"ID":@"id"};
+    }];
+    [UserMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{@"ID":@"id"};
+    }];
     self.isfoot = YES;
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"RecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"RecordCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"TopRecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"TopRecordCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"TopRecordTCell" bundle:nil] forCellReuseIdentifier:@"TopRecordCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
 }
@@ -181,9 +187,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 1;
+        if (self.artTopList.count == 0) {
+            return 0;
+        }else{
+            return 1;}
     }else{
-        return 20;
+        return self.artList.count;
     }
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -212,20 +221,63 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        TopRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TopRecordCell" forIndexPath:indexPath];
+        TopRecordTCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TopRecordCell" forIndexPath:indexPath];
+        cell.indexPath = indexPath;
+        cell.delegate = self;
         [cell setupUI:self.artTopList];
         return cell;
     }else{
         RecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecordCell"                                                                    forIndexPath:indexPath];
-//        RecordModel *recModel = self.artList[indexPath.row];
-        cell.model = self.artTopList[indexPath.row];
+        cell.indexPath = indexPath;
+        cell.delegate = self;
+        cell.model = self.artList[indexPath.row];
         return cell;
     }
 }
 
+-(void)clickUserBtnIcon:(NSIndexPath *)indexPath{
+    RecordModel *recModel = self.artList[indexPath.row];
+    [self jumpToUserHome:recModel.creator.ID];
+}
+
+-(void)clickUserBtn:(NSInteger)tag{
+    RecordModel *recModel = self.artTopList[tag - 1];
+    [self jumpToUserHome:recModel.creator.ID];
+}
+
+-(void)jumpToUserHome:(NSString *)userId{
+    NSString *pageSize = @"20";
+    NSString *pageIndex = @"1";
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"userId":userId,
+                           @"pageSize" : pageSize,
+                           @"pageIndex" : pageIndex,
+                           };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"my.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        PageInfoModel *pageModel = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
+        //保存模型,赋值给控制器
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            CommonUserHomeViewController *commonUserHome = [[CommonUserHomeViewController alloc] init];
+            commonUserHome.model = pageModel;
+            NSString *title = [NSString stringWithFormat:@"%@的个人主页",pageModel.user.name];
+            commonUserHome.title = title;
+            [self.navigationController pushViewController:commonUserHome animated:YES];
+        }];
+    }];
+    
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPat{
     if (indexPat.section ==0) {
-        return 200;
+        if (self.artTopList.count == 0) {
+            return 0;
+        }else{
+            return 200;
+        }
     }else{
         return 60;
     }

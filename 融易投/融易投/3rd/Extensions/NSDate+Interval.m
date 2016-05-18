@@ -267,6 +267,42 @@ NSString * const BSTimeIntervalSecondKey = @"second";
     }
     
 }
+-(NSString *)createdAt:(NSString *)date
+{
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    NSDate *createdAtDate = [fmt dateFromString:date];
+    //2.1 进行判断,比较出几种情况,是不是今年/昨天/今天/刚刚/几分钟前/几小时之前
+    if ([createdAtDate bs_isThisYear]) { //今年
+        //2.3 判断是今年的情况
+        if (createdAtDate.bs_isYesterday) {//昨天
+            fmt.dateFormat = @"昨天 HH:mm";
+            return [fmt stringFromDate:createdAtDate];
+            //2.4 判断是今天的情况
+        }else if (createdAtDate.bs_isToday){ //今天  要是今天的话需要判断的就很多了
+            //因为来到这里的就是今年的数据了,但是要想判断是否为同一天/同一天相差的小时/分钟等,必须要使用NSCalendar类进行判断了
+            NSCalendar *calendar = [NSCalendar bs_calendar];
+            NSCalendarUnit unit = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+            NSDateComponents *components = [calendar components:unit fromDate:createdAtDate toDate:[NSDate date] options:0];
+            if (components.hour >= 1) { //几小时之前
+                fmt.dateFormat = @"HH:mm";
+                return [fmt stringFromDate:createdAtDate];
+            }else if (components.minute >= 1 ) { //几分钟之前
+                return [NSString stringWithFormat:@"%zd分钟前",components.minute];
+            }else{ //刚刚
+                return @"刚刚";
+            }
+            //2.5 判断既不是昨天也不是今天的情况
+        }else{ //既不是昨天也不是今天,就是几天之前
+            fmt.dateFormat = @"yyyy-MM-dd";
+            return [fmt stringFromDate:createdAtDate];
+        }
+        //2.2 要是不是今天,就直接返回
+    }else{ //不是今年,返回服务器的格式即可
+        fmt.dateFormat = @"yyyy-MM-dd";
+        return [fmt stringFromDate:createdAtDate];
+    }
+}
 
 @end
 
