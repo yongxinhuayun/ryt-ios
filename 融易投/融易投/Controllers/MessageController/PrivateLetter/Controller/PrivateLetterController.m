@@ -25,15 +25,17 @@
 }
 
 
-
+//NSString *targetUserId = @"imhipoyk18s4k52u";
+//NSString *fromUserId = @"imhfp1yr4636pj49";
+// iijq9f1r7apprtab
 
 -(void)loadData{
     NSString * pageNum = @"1";
     self.lastPageNum = pageNum;
-    NSString* pageSize = @"99";
+    NSString* pageSize = @"20";
     // 3.设置请求体
     NSDictionary *json = @{
-                           @"userId" : @"iijq9f1r7apprtab",
+                           @"userId" : @"ioe4rahi670jsgdt",
                            @"pageNum" : pageNum,
                            @"pageSize" :pageSize,
                            @"type"     :@"2"
@@ -41,7 +43,6 @@
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"information.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
-        
 //        MessageResultModel *resultModel = [MessageResultModel mj_objectWithKeyValues:respondObj];
 //        [self.commentArray addObjectsFromArray:resultModel.objectList];
         //在主线程刷新UI数据

@@ -91,8 +91,9 @@
 //    MessageTableViewController *MessageVC = [[MessageTableViewController alloc] init];
 //    [self addChildViewController:MessageVC];
     UIStoryboard *MessageStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([MessageTableViewController class]) bundle:nil];
-    MessageTableViewController *MessageVC = [MessageStoryBoard instantiateInitialViewController];
-    [self addChildViewController:MessageVC];
+    
+    MessageTableViewController *MessageV = [MessageStoryBoard instantiateInitialViewController];
+    [self addChildViewController:MessageV];
     
     // 我的
     MeViewController *meVC = [[MeViewController alloc] init];

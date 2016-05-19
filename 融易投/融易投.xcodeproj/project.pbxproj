@@ -471,6 +471,7 @@
 		E22A9A1E1CED587C002520E7 /* PrivateLetterController.m in Sources */ = {isa = PBXBuildFile; fileRef = E22A9A1D1CED587C002520E7 /* PrivateLetterController.m */; };
 		E22A9A221CED59E2002520E7 /* PrivateLetterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E22A9A201CED59E2002520E7 /* PrivateLetterCell.m */; };
 		E22A9A231CED59E2002520E7 /* PrivateLetterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22A9A211CED59E2002520E7 /* PrivateLetterCell.xib */; };
+		E22A9A261CEDCC47002520E7 /* MessageTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E22A9A241CEDCB44002520E7 /* MessageTableViewController.storyboard */; };
 		E2322B0E1CEC07CB002730E7 /* CommentsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2322B0D1CEC07CB002730E7 /* CommentsTableController.m */; };
 		E2322B131CEC0AAB002730E7 /* NormalCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2322B111CEC0AAB002730E7 /* NormalCommentsCell.m */; };
 		E2322B141CEC0AAB002730E7 /* NormalCommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2322B121CEC0AAB002730E7 /* NormalCommentsCell.xib */; };
@@ -570,7 +571,6 @@
 		E2D522901CDF91AA0024887A /* LognController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D5228E1CDF91AA0024887A /* LognController.m */; };
 		E2D522911CDF91AA0024887A /* LognController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D5228F1CDF91AA0024887A /* LognController.xib */; };
 		E2D5240D1CDF93B30024887A /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D5240B1CDF93B30024887A /* MessageTableViewController.m */; };
-		E2D5240E1CDF93B30024887A /* MessageTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D5240C1CDF93B30024887A /* MessageTableViewController.storyboard */; };
 		E2D524121CDF93BC0024887A /* CommentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524101CDF93BC0024887A /* CommentsController.m */; };
 		E2D524131CDF93BC0024887A /* CommentsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D524111CDF93BC0024887A /* CommentsController.xib */; };
 		E2D5241A1CDF94F00024887A /* PrivateLetterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524191CDF94F00024887A /* PrivateLetterViewController.m */; };
@@ -1329,6 +1329,7 @@
 		E22A9A1F1CED59E2002520E7 /* PrivateLetterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivateLetterCell.h; sourceTree = "<group>"; };
 		E22A9A201CED59E2002520E7 /* PrivateLetterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivateLetterCell.m; sourceTree = "<group>"; };
 		E22A9A211CED59E2002520E7 /* PrivateLetterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrivateLetterCell.xib; sourceTree = "<group>"; };
+		E22A9A241CEDCB44002520E7 /* MessageTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessageTableViewController.storyboard; sourceTree = "<group>"; };
 		E2322B0C1CEC07CB002730E7 /* CommentsTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsTableController.h; sourceTree = "<group>"; };
 		E2322B0D1CEC07CB002730E7 /* CommentsTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsTableController.m; sourceTree = "<group>"; };
 		E2322B101CEC0AAB002730E7 /* NormalCommentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalCommentsCell.h; sourceTree = "<group>"; };
@@ -1499,7 +1500,6 @@
 		E2D5228F1CDF91AA0024887A /* LognController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LognController.xib; sourceTree = "<group>"; };
 		E2D5240A1CDF93B30024887A /* MessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewController.h; sourceTree = "<group>"; };
 		E2D5240B1CDF93B30024887A /* MessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewController.m; sourceTree = "<group>"; };
-		E2D5240C1CDF93B30024887A /* MessageTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessageTableViewController.storyboard; sourceTree = "<group>"; };
 		E2D5240F1CDF93BC0024887A /* CommentsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsController.h; sourceTree = "<group>"; };
 		E2D524101CDF93BC0024887A /* CommentsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsController.m; sourceTree = "<group>"; };
 		E2D524111CDF93BC0024887A /* CommentsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsController.xib; sourceTree = "<group>"; };
@@ -3192,7 +3192,7 @@
 			children = (
 				E2D5240A1CDF93B30024887A /* MessageTableViewController.h */,
 				E2D5240B1CDF93B30024887A /* MessageTableViewController.m */,
-				E2D5240C1CDF93B30024887A /* MessageTableViewController.storyboard */,
+				E22A9A241CEDCB44002520E7 /* MessageTableViewController.storyboard */,
 				E2D5242A1CDF956D0024887A /* Notification */,
 				E2D524141CDF94790024887A /* PrivateLetter */,
 				E2D524091CDF93900024887A /* Comments */,
@@ -4279,8 +4279,8 @@
 				212EEE721CDC362600F94B30 /* SettingFooterView.xib in Resources */,
 				E2D522781CDF90900024887A /* AliPayController.xib in Resources */,
 				21C4148D1CE46D5A00F1029C /* ComposeWorksViewController.xib in Resources */,
-				E2D5240E1CDF93B30024887A /* MessageTableViewController.storyboard in Resources */,
 				E22893C61CDF049500483F18 /* lxh_xiangyixiang.gif in Resources */,
+				E22A9A261CEDCC47002520E7 /* MessageTableViewController.storyboard in Resources */,
 				E2D524131CDF93BC0024887A /* CommentsController.xib in Resources */,
 				E228928B1CDF03F400483F18 /* d_ding@2x.png in Resources */,
 				E22892BE1CDF03F400483F18 /* f_geili@2x.png in Resources */,

@@ -42,7 +42,7 @@
 }
 
 -(void)loadDataToController{
-    NSString *userId = @"imhipoyk18s4k52u";
+    NSString *userId = @"ioe4rahi670jsgdt";
     NSDictionary *json = @{
                            @"userId": userId
                            };
