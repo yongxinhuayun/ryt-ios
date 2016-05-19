@@ -80,6 +80,20 @@ static BOOL isProduction = FALSE;
     return YES;
 }
 
+- (void)networkDidReceiveMessage:(NSNotification *)notification {
+    NSDictionary * userInfo = [notification userInfo];
+    NSString *content = [userInfo valueForKey:@"content"];
+    NSDictionary *extras = [userInfo valueForKey:@"extras"];
+    NSString *customizeField1 = [extras valueForKey:@"customizeField1"]; //自定义参数，key是自己定义的
+}
+- (void)networkDidLogin:(NSNotification *)notification {
+    
+    
+    if ([JPUSHService registrationID]) {
+        NSLog(@"get RegistrationID:%@",[JPUSHService registrationID]);//获取registrationID
+    }
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -101,6 +115,15 @@ static BOOL isProduction = FALSE;
                                                           UIRemoteNotificationTypeAlert)
                                               categories:nil];
     }
+    
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter addObserver:self selector:@selector(networkDidReceiveMessage:) name:kJPFNetworkDidReceiveMessageNotification object:nil];
+    
+    NSNotificationCenter *defaultCenter1 = [NSNotificationCenter defaultCenter];
+    [defaultCenter1 addObserver:self
+                      selector:@selector(networkDidLogin:)
+                          name:kJPFNetworkDidLoginNotification
+                        object:nil];
     
     // Required
     //如需兼容旧版本的方式，请依旧使用[JPUSHService setupWithOption:launchOptions]方式初始化和同时使用pushConfig.plist文件声明appKey等配置内容。
@@ -134,7 +157,6 @@ static BOOL isProduction = FALSE;
                   secret:@"EL-fkjkEUyxrwZAmrfn46awFXlX-h2nRkyCVhhpeVdlSRuhPJKXx3ZvUTTJqPQuAeomXA8PZ2MkX24vF"
                  sandbox:YES];
 
-    
     
     
     //1.创建主窗口

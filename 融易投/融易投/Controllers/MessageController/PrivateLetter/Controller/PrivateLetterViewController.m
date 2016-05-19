@@ -100,15 +100,26 @@ static NSString *const cellIdentifier=@"QQChart";
     }];
 }
 
+
+//NSString *targetUserId = @"imhipoyk18s4k52u"; 接受者
+//NSString *fromUserId = @"imhfp1yr4636pj49"; 发送者
+
 -(void)postLetter{
     NSString *content = @"sadfasdfasdfasdfasdf";
-    NSString *targetUserId = @"imhipoyk18s4k52u";
-    NSString *fromUserId = @"imhfp1yr4636pj49";
+    NSString *targetUserId = @"ioe4rahi670jsgdt";
+    NSString *fromUserId = @"imhipoyk18s4k52u";
     NSDictionary *json = @{
                            @"content" : content,
                            @"targetUserId" : targetUserId,
                            @"fromUserId" : fromUserId
                            };
+//    userBinding.do
+//    15baea603d3492a52b8c8799264b1fc65b4866f3
+    NSDictionary *j = @{
+                        @"cid":@"1517bfd3f7c76cf48ea",
+                        @"username":@"18211025820",
+                        @"password":@"123456",
+                        };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"pushMessage.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
