@@ -2419,13 +2419,6 @@
 			name = "艺术家排行";
 			sourceTree = "<group>";
 		};
-		21D54BAB1CB796B40088D386 /* images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = images;
-			sourceTree = "<group>";
-		};
 		B084BF39CB86E631C5631222 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -3701,7 +3694,6 @@
 				218D2B5B1CACB5B9004553B9 /* Launch Screen.storyboard */,
 				21D54BCE1CB796CD0088D386 /* messages.plist */,
 				E2E430E81CEAC22E00DE1CE9 /* Info.plist */,
-				21D54BAB1CB796B40088D386 /* images */,
 				E2DDB0E61CAB66DB007438E4 /* Supporting Files */,
 				E2DDB0E71CAB66DB007438E4 /* main.m */,
 			);

@@ -308,6 +308,7 @@ static NSString *ID2 = @"ReleaseProjectCell2";
             }
             [imageView removeFromSuperview];
         }
+        
         [self initHeaderView];
     }
 }

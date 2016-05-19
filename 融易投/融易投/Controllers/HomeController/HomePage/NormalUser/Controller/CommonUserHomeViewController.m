@@ -42,6 +42,8 @@
 //        self.topview.height = tView.height - 26;
 //    }
     
+    [tView.focusBtn addTarget:self action:@selector(guanzhuBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
     tView.model = self.model;
     
     self.topview.height = tView.height;
@@ -63,6 +65,44 @@
     //添加控制器视图 到scrollView中
     self.backgroundScrollView.contentSize = CGSizeMake(SSScreenW,self.topview.height + self.middleView.height);
 
+}
+
+-(void)guanzhuBtnClick:(UIButton *)btn{
+    
+    SSLog(@"guanzhuBtnClick");
+    
+    btn.selected = !btn.selected;
+    
+    
+    NSString *currentUserId = @"";
+    //        NSString *artWorkId = cellModel.ID;
+    NSString *artWorkId = @"imyt7yax314lpzzj";
+    
+    
+    NSString *urlStr = @"investorArtWorkView.do";
+    NSDictionary *json = @{
+                           @"artWorkId" : artWorkId,
+                           @"currentUserId": currentUserId,
+                           };
+    
+    
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
+        
+        
+        //            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        //            NSLog(@"返回结果:%@",jsonStr);
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        
+//        ProjectDetailsModel *project = [ProjectDetailsModel mj_objectWithKeyValues:modelDict[@"object"]];
+        
+        
+        //在主线程刷新UI数据
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+
+        }];
+    }];
 }
 
 -(void)addControllersToCycleView{

@@ -59,12 +59,10 @@
 
 static NSString *ID = @"MeTableViewCell";
 
-- (void)viewDidLoad {
+-(void)viewWillAppear:(BOOL)animated{
     
-    [super viewDidLoad];
-    
-    //设置导航条
-    [self setUpNavBar];
+    [super viewWillAppear:animated];
+
 
     //加载头部视图数据
     //设置头部视图
@@ -72,8 +70,29 @@ static NSString *ID = @"MeTableViewCell";
     
     self.meheaderView = meheaderView;
     
+    self.tableView.tableHeaderView = self.meheaderView;
     
+    //点击头像跳转编辑资料视图
+    [self jumpeditingInfoVc];
+    
+    //点击关注跳转关注视图
+    [self jumpFocusVc];
+    
+    //点击跳转粉丝界面
+    [self jumpFansVc];
+    
+    //获取用户信息数据
     [self loadData];
+}
+
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    
+    //设置导航条
+    [self setUpNavBar];
+
+   
     
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"MeTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
@@ -266,11 +285,12 @@ static NSString *ID = @"MeTableViewCell";
     }else if (indexPath.row == 2){
         
         //测试跳转到艺术家主页
-        ArtistUserHomeViewController *artistHomeVC = [[ArtistUserHomeViewController alloc] init];
+        CommonUserHomeViewController *myHomeVC = [[CommonUserHomeViewController alloc] init];
         
-        artistHomeVC.model = self.model;
+        myHomeVC.model = self.model;
         
-        [self.navigationController pushViewController:artistHomeVC animated:YES];
+        [self.navigationController pushViewController:myHomeVC animated:YES];
+
         
     }else if (indexPath.row == 3){
         
@@ -352,8 +372,7 @@ static NSString *ID = @"MeTableViewCell";
             NSLog(@"%@",self.model.user.pictureUrl);
             
 //            self.meheaderView = meheaderView;
-            self.tableView.tableHeaderView = self.meheaderView;
-            
+
             //点击头像跳转编辑资料视图
             [self jumpeditingInfoVc];
             
@@ -362,6 +381,7 @@ static NSString *ID = @"MeTableViewCell";
             
             //点击跳转粉丝界面
             [self jumpFansVc];
+
         }];
     }];
 }

@@ -182,7 +182,7 @@ static NSString *ID = @"financeCell";
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
         self.models = [FinanceModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
-        NSLog(@"self.models = %@",self.models);
+//        NSLog(@"self.models = %@",self.models);
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{

@@ -111,7 +111,7 @@
     NSLog(@"signmsgMD5=%@",signmsgMD5);
     
     // 1.创建请求
-    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/register.do"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.1.41:8080/app/register.do"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
     
@@ -217,7 +217,7 @@
     NSLog(@"signmsgMD5=%@",signmsgMD5);
     
     // 1.创建请求
-    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/sendCode.do"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.1.41:8080/app/sendCode.do"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
     
@@ -282,7 +282,7 @@
     NSLog(@"signmsgMD5=%@",signmsgMD5);
     
     // 1.创建请求
-    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/verifyCode.do"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.1.41:8080/app/verifyCode.do"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
     
