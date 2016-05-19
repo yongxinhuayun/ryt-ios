@@ -17,8 +17,6 @@
 
 #import <WechatShortVideoController.h>
 
-
-
 #import "ArtistViewController.h"
 
 #import "ApplyforArtViewController.h"
@@ -46,6 +44,8 @@
 
 #import "ArtistUserHomeViewController.h"
 
+#import "MeTableViewCell.h"
+
 @interface MeViewController ()
 
 
@@ -56,6 +56,8 @@
 @end
 
 @implementation MeViewController
+
+static NSString *ID = @"MeTableViewCell";
 
 - (void)viewDidLoad {
     
@@ -72,7 +74,22 @@
     
     
     [self loadData];
+    
+    //注册创建cell ,这样注册就不用在XIB设置ID
+    [self.tableView registerNib:[UINib nibWithNibName:@"MeTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
 
+    //去除多余的线
+    [self improveTableView];
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
+-(void)improveTableView
+{
+    self.tableView.tableFooterView = [[UIView alloc]init];  //删除多余的行
+    if ([self respondsToSelector:@selector(setSeparatorInset:)]) {  //防止分割线显示不
+        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    }
 }
 
 -(void)jumpeditingInfoVc{
@@ -127,6 +144,7 @@
     
     //设置导航条按钮
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftButton.titleLabel.font = [UIFont systemFontOfSize:12];
     
     [leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
@@ -146,6 +164,7 @@
     
     //设置导航条按钮
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightButton.titleLabel.font = [UIFont systemFontOfSize:12];
     
     [rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
@@ -187,31 +206,31 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+     MeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
     if (indexPath.row == 0) { //第0组
-        cell.imageView.image = [UIImage imageNamed:@"wodezhuye"];
-        cell.textLabel.text = @"我的主页";
+        
+        cell.image.image = [UIImage imageNamed:@"wodezhuye"];
+       
+        cell.title.text = @"我的主页";
         
     }else if (indexPath.row == 1){
         
-        cell.imageView.image = [UIImage imageNamed:@"qianbao"];
-        cell.textLabel.text = @"钱包";
+        cell.image.image = [UIImage imageNamed:@"qianbao"];
+        cell.title.text = @"钱包";
         
     }else if (indexPath.row == 2){
         
-        cell.imageView.image = [UIImage imageNamed:@"paimaipaihang"];
-        cell.textLabel.text = @"拍卖订单";
+        cell.image.image = [UIImage imageNamed:@"paimaipaihang"];
+        cell.title.text = @"拍卖订单";
         
     }else if (indexPath.row == 3){
-        cell.imageView.image = [UIImage imageNamed:@"shezhi"];
-        cell.textLabel.text = @"设置";
+        cell.image.image = [UIImage imageNamed:@"shezhi"];
+        cell.title.text = @"设置";
     }else if (indexPath.row == 4){
         
-        cell.imageView.image = [UIImage imageNamed:@"yijianfankui"];
-        cell.textLabel.text = @"意见反馈";
+        cell.image.image = [UIImage imageNamed:@"yijianfankui"];
+        cell.title.text = @"意见反馈";
     }
     return cell;
 }
@@ -220,15 +239,23 @@
     
     if (indexPath.row == 0) { //第0组
         
-//        ArtistViewController *artistVC = [[ArtistViewController alloc] init];
-//        [self.navigationController pushViewController:artistVC animated:YES];
+        //艺术家用户
+        if (self.model.user.master) {
+            
+            ArtistUserHomeViewController *artistHomeVC = [[ArtistUserHomeViewController alloc] init];
+            
+            artistHomeVC.model = self.model;
+            
+            [self.navigationController pushViewController:artistHomeVC animated:YES];
+            
+        }else{ //普通用户
         
-        CommonUserHomeViewController *myHomeVC = [[CommonUserHomeViewController alloc] init];
-        
-        myHomeVC.model = self.model;
-        
-        [self.navigationController pushViewController:myHomeVC animated:YES];
-        
+            CommonUserHomeViewController *myHomeVC = [[CommonUserHomeViewController alloc] init];
+            
+            myHomeVC.model = self.model;
+            
+            [self.navigationController pushViewController:myHomeVC animated:YES];
+        }
         
     }else if (indexPath.row == 1){
         
@@ -238,6 +265,7 @@
         
     }else if (indexPath.row == 2){
         
+        //测试跳转到艺术家主页
         ArtistUserHomeViewController *artistHomeVC = [[ArtistUserHomeViewController alloc] init];
         
         artistHomeVC.model = self.model;
@@ -301,8 +329,8 @@
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:nil success:^(id respondObj) {
         
-        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        //        NSLog(@"返回结果:%@",jsonStr);
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
         
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];

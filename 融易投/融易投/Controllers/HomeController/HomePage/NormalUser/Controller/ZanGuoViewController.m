@@ -98,7 +98,7 @@ static NSString *ID = @"ZanguoProjectCell";
     
     self.lastPageIndex = @"1";
     //参数
-    NSString *userId = @"ieatht97wfw30hfd";
+    NSString *userId = @"imhfp1yr4636pj49";
     NSString *type = @"1";
     
     NSString *pageSize = @"20";
@@ -124,7 +124,7 @@ static NSString *ID = @"ZanguoProjectCell";
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.41:8080/app/followed.do";
+    NSString *url = @"http://192.168.1.75:8001/app/followed.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         

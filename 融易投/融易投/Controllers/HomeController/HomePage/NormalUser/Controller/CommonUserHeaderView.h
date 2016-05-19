@@ -17,8 +17,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *fansLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userNickNameLabel;
+
 @property (weak, nonatomic) IBOutlet UIButton *focusBtn;
 @property (weak, nonatomic) IBOutlet UIButton *privateLetterBtn;
+
 @property (weak, nonatomic) IBOutlet UILabel *inverstMoneyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *inverstProfitLabel;
 @property (weak, nonatomic) IBOutlet UILabel *InvestRateLabel;

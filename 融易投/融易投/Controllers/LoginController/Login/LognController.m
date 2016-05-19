@@ -15,10 +15,14 @@
 #import "ForgetPasswordViewController.h"
 
 #import <SVProgressHUD.h>
+#import "BQLAuthEngine.h"
 
 #define serverULR @"http://j.efeiyi.com:8080/app-wikiServer/app/login.do"
 
 @interface LognController ()
+{
+    BQLAuthEngine *_bqlAuthEngine;
+}
 
 @property (weak, nonatomic) IBOutlet UIButton *lognButton;
 
@@ -35,6 +39,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+     _bqlAuthEngine = [[BQLAuthEngine alloc] init];
     
     [self setUpNavBar];
 }
@@ -89,7 +95,18 @@
     return [pwdTest evaluateWithObject:pwd];
 }
 
+//微信登录
 - (IBAction)weixinBtnClick:(id)sender {
+    
+    [_bqlAuthEngine authLoginWeChatWithSuccess:^(id response) {
+        
+        NSLog(@"success:%@",response);
+        
+    } Failure:^(NSError *error) {
+        
+        NSLog(@"failure:%@",error);
+    }];
+    
     
 }
 - (IBAction)registerBtnClick:(id)sender {

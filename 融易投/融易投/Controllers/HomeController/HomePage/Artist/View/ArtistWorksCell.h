@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class MasterWorkListModel;
+
 @interface ArtistWorksCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIButton *shanchuBtn;
+
+@property (nonatomic, strong) MasterWorkListModel *model;
 
 @end
