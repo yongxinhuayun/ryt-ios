@@ -32,7 +32,7 @@
 #import "ApplyforArtViewController.h"
 #import "BQLAuthEngine.h"
 
-static NSString *appKey = @"d1573e16403c2482826bbd35";
+static NSString *appKey = @"539b73fd73c82f1134120a57";
 static NSString *channel = @"Publish channel";
 static BOOL isProduction = FALSE;
 

@@ -2540,12 +2540,8 @@
 		E2288E4E1CDEFB3200483F18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-
 				218A3EDA1CEC422D00700283 /* MasterWorkListModel */,
-
 				E2322B151CEC24B9002730E7 /* MessageModel */,
-
-
 				E2D522651CDF8D820024887A /* AuctionModel */,
 				E2D522611CDF8D130024887A /* CreationModel */,
 				E2D5224E1CDF8C970024887A /* UserCommentModel */,
@@ -4877,7 +4873,7 @@
 					"$(PROJECT_DIR)/融易投/3rd/JPush/JPushLIB",
 					"$(PROJECT_DIR)/融易投/3rd/WXPay/WeChatSDK_1.5",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.efy.eftryt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -4930,7 +4926,7 @@
 					"$(PROJECT_DIR)/融易投/3rd/JPush/JPushLIB",
 					"$(PROJECT_DIR)/融易投/3rd/WXPay/WeChatSDK_1.5",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.efy.eftryt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
