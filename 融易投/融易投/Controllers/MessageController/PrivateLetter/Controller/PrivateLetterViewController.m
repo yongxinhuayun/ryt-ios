@@ -76,15 +76,50 @@ static NSString *const cellIdentifier=@"QQChart";
     [self.view addSubview:self.tableView];
     
     //add keyBorad
-    
     self.keyBordView=[[KeyBordVIew alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height- 44, self.view.frame.size.width, 44)];
     self.keyBordView.delegate=self;
     [self.view addSubview:self.keyBordView];
-    
     //初始化数据
     [self initwithData];
+    [self postLetter];
+}
+
+//进入控制器 加载聊天记录
+-(void)loadUserLetter{
+    //当前用户id
+    NSString *userId = @"";
+    NSString *fromUserId = @"";
+    // 私信用户id
+    NSDictionary *json = @{
+                           @"userId" : userId,
+                           @"fromUserId" : fromUserId
+                           };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"commentDetail.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+    }];
+}
+
+-(void)postLetter{
+    NSString *content = @"sadfasdfasdfasdfasdf";
+    NSString *targetUserId = @"imhipoyk18s4k52u";
+    NSString *fromUserId = @"imhfp1yr4636pj49";
+    NSDictionary *json = @{
+                           @"content" : content,
+                           @"targetUserId" : targetUserId,
+                           @"fromUserId" : fromUserId
+                           };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"pushMessage.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+    }];
     
 }
+
+
+
+
+
 
 
 -(void)initwithData

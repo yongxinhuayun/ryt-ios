@@ -23,6 +23,8 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         self.icon=[[UIImageView alloc]init];
+        self.icon.layer.cornerRadius = 20;
+        self.icon.layer.masksToBounds = YES;
         [self.contentView addSubview:self.icon];
         self.chartView =[[ChartContentView alloc]initWithFrame:CGRectZero];
         self.chartView.delegate=self;
@@ -42,7 +44,9 @@
    
     self.chartView.chartMessage=chartMessage;
     self.chartView.frame=cellFrame.chartViewRect;
-    [self setBackGroundImageViewImage:self.chartView from:@"chatfrom_bg_normal.png" to:@"chatto_bg_normal.png"];
+    
+    //设置聊天框的背景
+    [self setBackGroundImageViewImage:self.chartView from:@"sixin_lift_duihuakuang" to:@"sixin_duihuakuang"];
     self.chartView.contentLabel.text=chartMessage.content;
     
 }
@@ -52,12 +56,12 @@
     if(chartView.chartMessage.messageType==kMessageFrom){
         
         normal = [UIImage imageNamed:from];
-        normal = [normal stretchableImageWithLeftCapWidth:normal.size.width * 0.5 topCapHeight:normal.size.height * 0.7];
+        normal = [normal stretchableImageWithLeftCapWidth:normal.size.width * 0.5 topCapHeight:normal.size.height * 0.9];
         
     }else if(chartView.chartMessage.messageType==kMessageTo){
         
         normal = [UIImage imageNamed:to];
-        normal = [normal stretchableImageWithLeftCapWidth:normal.size.width * 0.5 topCapHeight:normal.size.height * 0.7];
+        normal = [normal stretchableImageWithLeftCapWidth:normal.size.width * 0.5 topCapHeight:normal.size.height * 0.9];
     }
     chartView.backImageView.image=normal;
 }

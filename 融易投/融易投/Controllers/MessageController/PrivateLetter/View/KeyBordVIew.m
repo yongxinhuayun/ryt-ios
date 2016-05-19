@@ -25,7 +25,7 @@
 
 @implementation KeyBordVIew
 
-CGFloat sendBtnW = 50;
+CGFloat sendBtnW = 60;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -40,9 +40,12 @@ CGFloat sendBtnW = 50;
 -(UIButton *)buttonWith:(NSString *)noraml hightLight:(NSString *)hightLight action:(SEL)action
 {
     UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setImage:[UIImage imageNamed:noraml] forState:UIControlStateNormal];
-    [btn setImage:[UIImage imageNamed:hightLight] forState:UIControlStateHighlighted];
+    // 235 94 117
+    btn.backgroundColor = [UIColor colorWithRed:235.0 /255.0 green:94.0 / 255.0 blue:117.0 / 255.0 alpha:1.0];
+    [btn setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
     [btn addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
+    btn.layer.cornerRadius = 2;
+    btn.layer.masksToBounds = YES;
     return btn;
 }
 -(void)initialData
@@ -58,20 +61,20 @@ CGFloat sendBtnW = 50;
 //    [self.voiceBtn setCenter:CGPointMake(30, self.frame.size.height*0.5)];
 //    [self addSubview:self.voiceBtn];
     
-    self.textField=[[UITextField alloc]initWithFrame:CGRectMake(0, 5, SSScreenW - sendBtnW, self.frame.size.height * 0.8)];
+    self.textField=[[UITextField alloc]initWithFrame:CGRectMake(14, 5, SSScreenW - sendBtnW - 34, self.frame.size.height * 0.8)];
 //    self.textField.center=CGPointMake(145, self.frame.size.height*0.5);
     
     self.textField.returnKeyType=UIReturnKeySend;
     self.textField.font=[UIFont fontWithName:@"HelveticaNeue" size:14];
     self.textField.placeholder=@"";
-    self.textField.background=[UIImage imageNamed:@"chat_bottom_textfield.png"];
+//    self.textField.background=[UIImage imageNamed:@"chat_bottom_textfield.png"];
     self.textField.delegate=self;
+    self.textField.borderStyle = UITextBorderStyleRoundedRect;
     [self addSubview:self.textField];
     
     self.sendBtn = [self buttonWith:@"nil" hightLight:@"nil" action:@selector(sendMessage)];
     [self.sendBtn setTitle:@"发送" forState:UIControlStateNormal];
-    
-    [self.sendBtn setFrame:CGRectMake(SSScreenW - sendBtnW, 5, sendBtnW,33)];
+    [self.sendBtn setFrame:CGRectMake(SSScreenW - sendBtnW - 14, 5, sendBtnW,33)];
     [self addSubview:self.sendBtn];
     
 //    self.imageBtn=[self buttonWith:@"chat_bottom_smile_nor.png" hightLight:@"chat_bottom_smile_press.png" action:@selector(imageBtnPress:)];
