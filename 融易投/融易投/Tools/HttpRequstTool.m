@@ -20,7 +20,10 @@ static HttpRequstTool *requstTool=nil ;
 @end
 
 @implementation HttpRequstTool
+//static  NSString *basePath = @"http://192.168.1.75:8080/app/";
 static  NSString *basePath = @"http://192.168.1.41:8080/app/";
+//static  NSString *basePath = @"http://192.168.1.75:8001/app/";
+//static  NSString *basePath = @"http://192.168.1.41:8080/app/";
 +(HttpRequstTool *)shareInstance
 {
     if (!requstTool ) {

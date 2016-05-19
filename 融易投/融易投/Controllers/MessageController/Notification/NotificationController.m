@@ -8,10 +8,12 @@
 
 #import "NotificationController.h"
 
-
+#import "UserMyModel.h"
 #import "NotificationModel.h"
 #import "NotificationTableViewCell.h"
+
 #import <MJExtension.h>
+#import "UITableView+Improve.h"
 
 @interface NotificationController ()
 
@@ -26,6 +28,7 @@ static NSString *cellID = @"cellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"通知";
+    [self.tableView setSeparatorColor:[UIColor colorWithRed:208.0 / 255.0 green:209.0 / 255.0 blue:210.0 / 255.0 alpha:0.4]];
     //加载数据
     [self loadData];
     //修改模型中的id为ID
@@ -34,8 +37,15 @@ static NSString *cellID = @"cellID";
                  @"ID":@"id",
                  };
     }];
+    [UserMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{
+                 @"ID":@"id",
+                 };
+    }];
+    
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"NotificationTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
+    [self.tableView improveTableView];
 }
 
 -(void)loadData{
@@ -49,6 +59,8 @@ static NSString *cellID = @"cellID";
                            @"type"     :@"0"
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"information.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];        
+//        NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         NSLog(@"%@",modelDict);
         self.models = [NotificationModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
@@ -68,9 +80,15 @@ static NSString *cellID = @"cellID";
     NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     NotificationModel *model = self.models[indexPath.section];
     cell.model = model;
+    if(model.isWatch){
+        cell.backgroundColor = [UIColor whiteColor];
+    }else{
+    cell.backgroundColor = [UIColor colorWithRed:247.0 / 255.0 green:247.0 / 255.0 blue:247.0 / 255.0 alpha:1.0];
+    }
+    
     return cell;
 }
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
+    return 70;
 }
 @end

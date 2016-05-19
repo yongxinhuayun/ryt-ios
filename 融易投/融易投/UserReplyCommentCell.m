@@ -45,6 +45,7 @@
     fatherComment = model.fatherComment;
     [self.replyName setTitle:fatherComment.creator.name forState:(UIControlStateNormal)];
     [self.replyName sizeToFit];
+    
     CGFloat x = CGRectGetMaxX(self.replyName.frame);
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
     paragraphStyle.firstLineHeadIndent = x - 70;

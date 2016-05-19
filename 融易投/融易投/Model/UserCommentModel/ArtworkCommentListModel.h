@@ -17,6 +17,7 @@
 @property (nonatomic ,copy) NSString *content;
 @property (nonatomic,strong) ArtworkMessageModel *artworkMessage;
 @property (nonatomic,strong) ArtworkCommentListModel *fatherComment;
+
 /** 创建时间 */
 @property (nonatomic ,strong) CreatorModel *creator;
 @property (nonatomic ,assign) NSInteger createDatetime;

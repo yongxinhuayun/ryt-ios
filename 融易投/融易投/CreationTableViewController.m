@@ -142,9 +142,7 @@ static NSString *ID = @"creationCell";
         NSDictionary *model = modelDict[@"object"];
         self.models = [CreationModel mj_objectArrayWithKeyValuesArray:model[@"artworkList"]];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
-            [self.tableView reloadData];
-            
+            [self.tableView reloadData];            
         }];
         
     }];

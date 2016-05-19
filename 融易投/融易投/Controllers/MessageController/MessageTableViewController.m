@@ -7,7 +7,7 @@
 //
 
 #import "MessageTableViewController.h"
-#import "CommentsController.h"
+#import "CommentsTableController.h"
 #import "NotificationController.h"
 #import "PrivateLetterViewController.h"
 
@@ -85,7 +85,7 @@
         
     } else if (indexPath.section == 1) {
         
-        CommentsController *commentsController = [CommentsController new];
+        CommentsTableController *commentsController = [CommentsTableController new];
         [self.navigationController pushViewController:commentsController animated:YES];
         
     } else if (indexPath.section == 2) {

@@ -8,17 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+@class MasterMyModel;
 @interface CreatorModel : NSObject
 
 
 /** id */
-@property (nonatomic ,strong) NSString* ID;
+@property (nonatomic ,copy) NSString* ID;
 
 /**评论内容 */
-@property (nonatomic ,strong) NSString *name;
-@property (nonatomic ,strong) NSString *username;
+@property (nonatomic ,copy) NSString *name;
+@property (nonatomic ,copy) NSString *username;
 /** 评论者 */
-@property (nonatomic ,strong) NSString *pictureUrl;
+@property (nonatomic ,copy) NSString *pictureUrl;
 @property (nonatomic ,assign) NSInteger createDatetime;
+/** 图片 */
+@property (nonatomic ,strong) MasterMyModel *master;
 
 @end

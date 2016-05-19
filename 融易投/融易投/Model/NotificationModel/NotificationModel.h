@@ -7,23 +7,28 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FromUserModel.h"
+#import "UserMyModel.h"
 
 @interface NotificationModel : NSObject
 
 /** 通知内容 */
-@property (nonatomic ,strong) NSString *content;
+@property (nonatomic ,copy) NSString *content;
 
 
 /** 通知时间 */
-@property (nonatomic ,strong) NSString *createDatetime;
+@property (nonatomic ,copy) NSString *createDatetime;
 
 /** 通知者id */
-@property (nonatomic ,strong) NSString *ID;
+@property (nonatomic ,copy) NSString *ID;
 
-//接受者信息
-@property (nonatomic ,strong) FromUserModel *fromUser;
+/** 发送者信息 */
+@property (nonatomic ,strong) UserMyModel *fromUser;
+/** 接受者信息 */
+@property (nonatomic ,strong) UserMyModel *targetUser;
 
+/** 是否已读 */
+@property(nonatomic,copy) NSString *isWatch;
+@property(nonatomic,copy) NSString *status;
 
 
 @end
