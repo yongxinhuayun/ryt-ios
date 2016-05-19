@@ -13,6 +13,9 @@
 #import "PageInfoModel.h"
 #import "ArtworksModel.h"
 
+#import "MasterWorkModel.h"
+#import "MasterWorkListModel.h"
+
 #import <MJExtension.h>
 
 #import "CommonHeader.h"
@@ -34,6 +37,8 @@
 @property (nonatomic, strong) CoverHUDView *cover;
 
 @property (strong,nonatomic) NSString *createPath;
+
+@property (strong,nonatomic) NSIndexPath *indexPath;
 
 
 //-----------------------联动属性-----------------------
@@ -60,17 +65,23 @@ static NSString *ID1 = @"ArtistWorksCell";
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"ArtistWorksCell" bundle:nil] forCellReuseIdentifier:ID1];
     
-    [PageInfoModel mj_setupObjectClassInArray:^NSDictionary *{
+    [MasterWorkModel mj_setupObjectClassInArray:^NSDictionary *{
         return @{
-                 @"artworks" : @"ArtworksModel",
+                 @"masterWorkList" : @"MasterWorkListModel",
                  };
     }];
     
-//    [self loadNewData];
-//    
-//    //设置刷新控件
-//    [self setUpRefresh];
-//    
+    [MasterWorkListModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"ID"          :@"id",
+                 };
+    }];
+    
+    [self loadNewData];
+    
+    //设置刷新控件
+    [self setUpRefresh];
 }
 -(void)setUpRefresh
 {
@@ -98,52 +109,41 @@ static NSString *ID1 = @"ArtistWorksCell";
     [self.tableView.mj_header endRefreshing];
     
     self.lastPageIndex = @"1";
-    //参数
-    NSString *userId = @"ieatht97wfw30hfd";
     
+    
+    NSString *userId = @"ieatht97wfw30hfd";
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";
-    //flag为1是自己看自己,为2时是看别人,还需要传递otheruserId
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
     
-    NSString *signmsg = [NSString stringWithFormat:@"pageIndex=%@&pageSize=%@&timestamp=%@&userId=%@&key=%@",pageIndex,pageSize,timestamp,userId,appkey];
-    NSLog(@"%@",signmsg);
+    NSString *urlStr = @"userWork.do";
     
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
-    // 3.设置请求体
     NSDictionary *json = @{
-                           @"userId":userId,
                            @"pageSize" : pageSize,
-                           @"pageIndex" : pageIndex,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
+                           @"pageIndex":pageIndex,
+                           @"userId": userId,
                            };
     
-    NSString *url = @"http://192.168.1.41:8080/app/myArtwork.do";
     
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
-
         
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
+      
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-        
-        PageInfoModel *model = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
-        
-        self.models = model.artworks;
-        
+
+        MasterWorkModel *masterWorkModel = [MasterWorkModel mj_objectWithKeyValues:modelDict[@"object"]];
+
+        self.models = masterWorkModel.masterWorkList;
+
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
             [self.tableView reloadData];
-            
         }];
+        
+        
     }];
+
 }
 
 -(void)loadMoreData
@@ -156,71 +156,54 @@ static NSString *ID1 = @"ArtistWorksCell";
     
     self.lastPageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
     
-    NSLog(@"newPageIndex%@",self.lastPageIndex);
-    
-    NSLog(@"%d",newPageIndex);
-    
-    //参数
     NSString *userId = @"ieatht97wfw30hfd";
     NSString *pageSize = @"20";
     NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    
-    NSString *signmsg = [NSString stringWithFormat:@"pageIndex=%@&pageSize=%@&timestamp=%@&userId=%@&key=%@",pageIndex,pageSize,timestamp,userId,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
     
     // 3.设置请求体
     NSDictionary *json = @{
                            @"userId":userId,
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.41:8080/app/myArtwork.do";
+    NSString *urlStr = @"userWork.do";
     
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
+        
+        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        //        NSLog(@"返回结果:%@",jsonStr);
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
-        PageInfoModel *model = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
+        MasterWorkModel *masterWorkModel = [MasterWorkModel mj_objectWithKeyValues:modelDict[@"object"]];
         
-        NSArray *moreModels = model.artworks;
+        NSArray *moreModels = masterWorkModel.masterWorkList;
         
         //拼接数据
         [self.models addObjectsFromArray:moreModels];
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
             [self.tableView reloadData];
-            
         }];
         
+        
     }];
+    
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-//    return self.models.count;
-    return 10;
+    return self.models.count;
 }
 
 
@@ -228,11 +211,11 @@ static NSString *ID1 = @"ArtistWorksCell";
     
     ArtistWorksCell *cell = [tableView dequeueReusableCellWithIdentifier:ID1];
     
-    [cell.shanchuBtn addTarget:self action:@selector(shanchuZuoPin:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.shanchuBtn addTarget:self action:@selector(shanchuZuoPin:event:) forControlEvents:UIControlEventTouchUpInside];
     
-//    ArtworksModel *model = self.models[indexPath.row];
-//    
-//    cell.model = model;
+    MasterWorkListModel *model = self.models[indexPath.row];
+    
+    cell.model = model;
     
     return cell;
 }
@@ -249,6 +232,11 @@ static NSString *ID1 = @"ArtistWorksCell";
     [headerView.fabuBtn addTarget:self action:@selector(fabuZuoPin:) forControlEvents:UIControlEventTouchUpInside];
     
     return  headerView;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    return 304;
 }
 
 -(void)fabuZuoPin:(UIButton *)btn{
@@ -295,9 +283,6 @@ static NSString *ID1 = @"ArtistWorksCell";
         [alertController addAction:okAction];
         [alertController addAction:cancelAction];
     }
-
-    
-    
 }
 
 //实现相机的代理方法
@@ -371,11 +356,16 @@ static NSString *ID1 = @"ArtistWorksCell";
     return newImage;
 }
 
-
--(void)shanchuZuoPin:(UIButton *)btn{
+-(void)shanchuZuoPin:(UIButton *)btn event:(id)event{
 
     SSLog(@"shanchuZuoPin");
 
+    //获取删除的cell的indexPath
+    NSSet *touches =[event allTouches];
+    UITouch *touch =[touches anyObject];
+    CGPoint currentTouchPosition = [touch locationInView:self.tableView];
+    NSIndexPath *indexPath= [self.tableView indexPathForRowAtPoint:currentTouchPosition];
+    self.indexPath = indexPath;
     
     //创建遮盖
     CoverHUDView *cover = [CoverHUDView coverHUDView];
@@ -383,6 +373,7 @@ static NSString *ID1 = @"ArtistWorksCell";
     
     [cover.quxiaoBtn addTarget:self action:@selector(quxiaoBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [cover.quedingBtn addTarget:self action:@selector(quedingBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
     cover.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];//都为0代表是黑色
     //    cover.alpha = 0.7 这么写的话,里面的子控件会都是半透明的
     cover.bounds = [UIApplication sharedApplication].keyWindow.bounds;
@@ -404,6 +395,7 @@ static NSString *ID1 = @"ArtistWorksCell";
     [self.cover removeFromSuperview];
 }
 
+//删除作品的确定操作
 -(void)quedingBtnClick:(UIButton *)btn{
     
     SSLog(@"quedingBtnClick");
@@ -411,17 +403,60 @@ static NSString *ID1 = @"ArtistWorksCell";
     [self.cover removeFromSuperview];
     
     [UIView animateWithDuration:0.25 animations:^{
-        
-        
-        
     }];
+    
+    //删除作品网络
+    [self deleteWorks];
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void)deleteWorks{
+    
+    //参数
+    NSString *userId = @"ieatht97wfw30hfd";
+    
+    MasterWorkListModel *model = self.models[self.indexPath.row];
+    
+    NSString *artWorkId = model.ID;
+    
+    SSLog(@"%@",artWorkId);
+    
+    NSString *urlStr = @"removeMasterWork.do";
+    
+    NSDictionary *json = @{
+                           @"masterWorkId" : artWorkId,
+                           @"userId": userId,
+                           };
     
     
-    return 222;
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
+        
+        
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        
+        
+        SSLog(@"%zd",self.indexPath.row);
+        
+        //在主线程刷新UI数据
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+
+            if (self.indexPath!= nil) {
+                
+                [self.models removeObjectAtIndex:self.indexPath.row];
+
+                //局部刷新数据
+                NSArray *indexPaths = @[
+                                        self.indexPath
+                                        ];
+                [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationLeft];
+            }
+            
+        }];
+        
+    }];
+
 }
+
 
 //-----------------------联动-----------------------
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{

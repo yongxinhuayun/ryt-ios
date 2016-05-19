@@ -21,6 +21,11 @@
 		212EEE8E1CE048C500F94B30 /* CommonUserHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE8A1CE048C500F94B30 /* CommonUserHeaderView.xib */; };
 		212EEE8F1CE048C500F94B30 /* CommonUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE8C1CE048C500F94B30 /* CommonUserHomeViewController.m */; };
 		2134E37E1CBB5D3800D6E662 /* ProjectScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */; };
+		215C965E1CED56AC0084C319 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 215C965A1CED56AC0084C319 /* libWeChatSDK.a */; };
+		215C965F1CED56AC0084C319 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 215C965B1CED56AC0084C319 /* read_me.txt */; };
+		215C96631CED56FD0084C319 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215C96611CED56FD0084C319 /* TencentOpenAPI.framework */; };
+		215C96641CED56FD0084C319 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 215C96621CED56FD0084C319 /* TencentOpenApi_IOS_Bundle.bundle */; };
+		215C96671CED57380084C319 /* BQLAuthEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 215C96661CED57380084C319 /* BQLAuthEngine.m */; };
 		215EED1D1CB0058D00A5957B /* FinanceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED1C1CB0058D00A5957B /* FinanceTableViewController.m */; };
 		215EED291CB0108F00A5957B /* InvestorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED281CB0108F00A5957B /* InvestorTableViewController.m */; };
 		215EED2C1CB010A500A5957B /* ArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED2B1CB010A500A5957B /* ArtistTableViewController.m */; };
@@ -41,6 +46,10 @@
 		2187B95F1CCE1B4200B92435 /* FinanceDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B95E1CCE1B4200B92435 /* FinanceDetailsViewController.m */; };
 		2187B9631CCE1C5700B92435 /* FinanceDetailsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187B9611CCE1C5700B92435 /* FinanceDetailsHeaderView.m */; };
 		2187B9641CCE1C5700B92435 /* FinanceDetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187B9621CCE1C5700B92435 /* FinanceDetailsHeaderView.xib */; };
+		218A3EDD1CEC424200700283 /* MasterWorkListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 218A3EDC1CEC424200700283 /* MasterWorkListModel.m */; };
+		218A3EE01CEC42C600700283 /* MasterWorkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 218A3EDF1CEC42C600700283 /* MasterWorkModel.m */; };
+		218A3EE91CEC70D300700283 /* MeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 218A3EE71CEC70D300700283 /* MeTableViewCell.m */; };
+		218A3EEA1CEC70D300700283 /* MeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 218A3EE81CEC70D300700283 /* MeTableViewCell.xib */; };
 		218D2B3C1CACB2F9004553B9 /* CommonNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B391CACB2F9004553B9 /* CommonNavigationController.m */; };
 		218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3B1CACB2F9004553B9 /* CommonTabBarViewController.m */; };
 		218D2B411CACB310004553B9 /* RankTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218D2B3F1CACB310004553B9 /* RankTableViewController.m */; };
@@ -218,8 +227,6 @@
 		E2288DF61CDC290C00483F18 /* UserReplyCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2288DF41CDC290C00483F18 /* UserReplyCommentCell.m */; };
 		E2288DF71CDC290C00483F18 /* UserReplyCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2288DF51CDC290C00483F18 /* UserReplyCommentCell.xib */; };
 		E2288E471CDEFAB900483F18 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2288E461CDEFAB900483F18 /* AppDelegate.m */; };
-		E228901B1CDEFCC600483F18 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E22890161CDEFCC600483F18 /* libWeChatSDK.a */; };
-		E228901C1CDEFCC600483F18 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = E22890171CDEFCC600483F18 /* read_me.txt */; };
 		E22890201CDEFD6300483F18 /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E228901E1CDEFD6300483F18 /* jpush-ios-2.1.0.a */; };
 		E22890371CDEFDD900483F18 /* NSCalendar+Init.m in Sources */ = {isa = PBXBuildFile; fileRef = E22890221CDEFDD900483F18 /* NSCalendar+Init.m */; };
 		E22890381CDEFDD900483F18 /* NSDate+Interval.m in Sources */ = {isa = PBXBuildFile; fileRef = E22890241CDEFDD900483F18 /* NSDate+Interval.m */; };
@@ -590,7 +597,6 @@
 		E2D524811CDF9CA70024887A /* CNCityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524801CDF9CA70024887A /* CNCityPickerView.m */; };
 		E2D524851CDF9CCB0024887A /* AddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524831CDF9CCB0024887A /* AddressViewController.m */; };
 		E2D524861CDF9CCB0024887A /* AddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D524841CDF9CCB0024887A /* AddressViewController.xib */; };
-		E2D5248C1CDF9E760024887A /* MyHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D5248B1CDF9E760024887A /* MyHomeViewController.m */; };
 		E2D5249A1CDF9F0B0024887A /* BianJiJianJieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524911CDF9F0B0024887A /* BianJiJianJieViewController.m */; };
 		E2D5249B1CDF9F0B0024887A /* BianJiJianJieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D524921CDF9F0B0024887A /* BianJiJianJieViewController.xib */; };
 		E2D5249C1CDF9F0B0024887A /* JianjieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524941CDF9F0B0024887A /* JianjieViewController.m */; };
@@ -698,6 +704,14 @@
 		212EEE8C1CE048C500F94B30 /* CommonUserHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUserHomeViewController.m; sourceTree = "<group>"; };
 		2134E37C1CBB5D3800D6E662 /* ProjectScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectScheduleViewController.h; sourceTree = "<group>"; };
 		2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectScheduleViewController.m; sourceTree = "<group>"; };
+		215C965A1CED56AC0084C319 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		215C965B1CED56AC0084C319 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
+		215C965C1CED56AC0084C319 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		215C965D1CED56AC0084C319 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		215C96611CED56FD0084C319 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		215C96621CED56FD0084C319 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		215C96651CED57380084C319 /* BQLAuthEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQLAuthEngine.h; sourceTree = "<group>"; };
+		215C96661CED57380084C319 /* BQLAuthEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQLAuthEngine.m; sourceTree = "<group>"; };
 		215EED1B1CB0058D00A5957B /* FinanceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceTableViewController.h; sourceTree = "<group>"; };
 		215EED1C1CB0058D00A5957B /* FinanceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceTableViewController.m; sourceTree = "<group>"; };
 		215EED271CB0108F00A5957B /* InvestorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorTableViewController.h; sourceTree = "<group>"; };
@@ -735,6 +749,13 @@
 		2187B9601CCE1C5700B92435 /* FinanceDetailsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceDetailsHeaderView.h; sourceTree = "<group>"; };
 		2187B9611CCE1C5700B92435 /* FinanceDetailsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceDetailsHeaderView.m; sourceTree = "<group>"; };
 		2187B9621CCE1C5700B92435 /* FinanceDetailsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceDetailsHeaderView.xib; sourceTree = "<group>"; };
+		218A3EDB1CEC424200700283 /* MasterWorkListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterWorkListModel.h; sourceTree = "<group>"; };
+		218A3EDC1CEC424200700283 /* MasterWorkListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterWorkListModel.m; sourceTree = "<group>"; };
+		218A3EDE1CEC42C500700283 /* MasterWorkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterWorkModel.h; sourceTree = "<group>"; };
+		218A3EDF1CEC42C600700283 /* MasterWorkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterWorkModel.m; sourceTree = "<group>"; };
+		218A3EE61CEC70D300700283 /* MeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeTableViewCell.h; sourceTree = "<group>"; };
+		218A3EE71CEC70D300700283 /* MeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeTableViewCell.m; sourceTree = "<group>"; };
+		218A3EE81CEC70D300700283 /* MeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeTableViewCell.xib; sourceTree = "<group>"; };
 		218D2B381CACB2F9004553B9 /* CommonNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNavigationController.h; sourceTree = "<group>"; };
 		218D2B391CACB2F9004553B9 /* CommonNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNavigationController.m; sourceTree = "<group>"; };
 		218D2B3A1CACB2F9004553B9 /* CommonTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTabBarViewController.h; sourceTree = "<group>"; };
@@ -1037,11 +1058,6 @@
 		E2288DF51CDC290C00483F18 /* UserReplyCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserReplyCommentCell.xib; sourceTree = "<group>"; };
 		E2288E451CDEFAB900483F18 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E2288E461CDEFAB900483F18 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E22890161CDEFCC600483F18 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
-		E22890171CDEFCC600483F18 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
-		E22890181CDEFCC600483F18 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
-		E22890191CDEFCC600483F18 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
-		E228901A1CDEFCC600483F18 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		E228901E1CDEFD6300483F18 /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
 		E228901F1CDEFD6300483F18 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		E22890211CDEFDD900483F18 /* NSCalendar+Init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+Init.h"; sourceTree = "<group>"; };
@@ -1519,8 +1535,6 @@
 		E2D524821CDF9CCB0024887A /* AddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressViewController.h; sourceTree = "<group>"; };
 		E2D524831CDF9CCB0024887A /* AddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressViewController.m; sourceTree = "<group>"; };
 		E2D524841CDF9CCB0024887A /* AddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressViewController.xib; sourceTree = "<group>"; };
-		E2D5248A1CDF9E760024887A /* MyHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHomeViewController.h; sourceTree = "<group>"; };
-		E2D5248B1CDF9E760024887A /* MyHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHomeViewController.m; sourceTree = "<group>"; };
 		E2D524901CDF9F0B0024887A /* BianJiJianJieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BianJiJianJieViewController.h; sourceTree = "<group>"; };
 		E2D524911CDF9F0B0024887A /* BianJiJianJieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BianJiJianJieViewController.m; sourceTree = "<group>"; };
 		E2D524921CDF9F0B0024887A /* BianJiJianJieViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BianJiJianJieViewController.xib; sourceTree = "<group>"; };
@@ -1611,6 +1625,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2D387001CB8AD6300F735F9 /* CoreText.framework in Frameworks */,
+				215C96631CED56FD0084C319 /* TencentOpenAPI.framework in Frameworks */,
 				E2D05B761CB38CD000B0F690 /* libz.tbd in Frameworks */,
 				E236C31E1CB4E0F9009DCBF0 /* Security.framework in Frameworks */,
 				E236C31C1CB4E0E8009DCBF0 /* UIKit.framework in Frameworks */,
@@ -1624,7 +1639,7 @@
 				E2D05B7A1CB38D5800B0F690 /* libc++.tbd in Frameworks */,
 				E2D05B781CB38CEA00B0F690 /* libsqlite3.0.tbd in Frameworks */,
 				BC4A8BFAB939A8BBE3AF0A2F /* libPods.a in Frameworks */,
-				E228901B1CDEFCC600483F18 /* libWeChatSDK.a in Frameworks */,
+				215C965E1CED56AC0084C319 /* libWeChatSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1658,6 +1673,26 @@
 			name = "之前的---要用到";
 			sourceTree = "<group>";
 		};
+		215C96591CED56AC0084C319 /* WeChatSDK_1.5 */ = {
+			isa = PBXGroup;
+			children = (
+				215C965A1CED56AC0084C319 /* libWeChatSDK.a */,
+				215C965B1CED56AC0084C319 /* read_me.txt */,
+				215C965C1CED56AC0084C319 /* WXApi.h */,
+				215C965D1CED56AC0084C319 /* WXApiObject.h */,
+			);
+			path = WeChatSDK_1.5;
+			sourceTree = "<group>";
+		};
+		215C96601CED56FD0084C319 /* QQSDK */ = {
+			isa = PBXGroup;
+			children = (
+				215C96611CED56FD0084C319 /* TencentOpenAPI.framework */,
+				215C96621CED56FD0084C319 /* TencentOpenApi_IOS_Bundle.bundle */,
+			);
+			path = QQSDK;
+			sourceTree = "<group>";
+		};
 		2187B9301CCDF07200B92435 /* 艺术家的界面(没数据,没有展示) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1687,6 +1722,26 @@
 				2187B94B1CCDF25C00B92435 /* CollectionViewController.m */,
 			);
 			path = TYSlidePageScrollView;
+			sourceTree = "<group>";
+		};
+		218A3EDA1CEC422D00700283 /* MasterWorkListModel */ = {
+			isa = PBXGroup;
+			children = (
+				218A3EDE1CEC42C500700283 /* MasterWorkModel.h */,
+				218A3EDF1CEC42C600700283 /* MasterWorkModel.m */,
+				218A3EDB1CEC424200700283 /* MasterWorkListModel.h */,
+				218A3EDC1CEC424200700283 /* MasterWorkListModel.m */,
+			);
+			path = MasterWorkListModel;
+			sourceTree = "<group>";
+		};
+		218A3EEB1CEC7F3B00700283 /* WXLogn */ = {
+			isa = PBXGroup;
+			children = (
+				215C96651CED57380084C319 /* BQLAuthEngine.h */,
+				215C96661CED57380084C319 /* BQLAuthEngine.m */,
+			);
+			path = WXLogn;
 			sourceTree = "<group>";
 		};
 		218D2B371CACB2E3004553B9 /* Main */ = {
@@ -1937,10 +1992,10 @@
 		21C413131CE2D23500F1029C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				21C413141CE2D23500F1029C /* ArtistMainViewController.h */,
-				21C413151CE2D23500F1029C /* ArtistMainViewController.m */,
 				21C413161CE2D23500F1029C /* ArtistUserHomeViewController.h */,
 				21C413171CE2D23500F1029C /* ArtistUserHomeViewController.m */,
+				21C413141CE2D23500F1029C /* ArtistMainViewController.h */,
+				21C413151CE2D23500F1029C /* ArtistMainViewController.m */,
 				21C413181CE2D23500F1029C /* ArtistWorksViewController.h */,
 				21C413191CE2D23500F1029C /* ArtistWorksViewController.m */,
 				21C4146C1CE4220800F1029C /* CoverHUDView.h */,
@@ -2390,6 +2445,7 @@
 		E2288E481CDEFB0500483F18 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				218A3EEB1CEC7F3B00700283 /* WXLogn */,
 				E22890141CDEFC8600483F18 /* WXPay */,
 				E2288E491CDEFB0500483F18 /* CNCityPicker */,
 				E2288E4A1CDEFB0500483F18 /* EmotionIcon */,
@@ -2462,6 +2518,7 @@
 		E2288E4E1CDEFB3200483F18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				218A3EDA1CEC422D00700283 /* MasterWorkListModel */,
 				E2D522651CDF8D820024887A /* AuctionModel */,
 				E2D522611CDF8D130024887A /* CreationModel */,
 				E2D5224E1CDF8C970024887A /* UserCommentModel */,
@@ -2494,21 +2551,10 @@
 		E22890141CDEFC8600483F18 /* WXPay */ = {
 			isa = PBXGroup;
 			children = (
-				E22890151CDEFCAE00483F18 /* SDKExport */,
+				215C96601CED56FD0084C319 /* QQSDK */,
+				215C96591CED56AC0084C319 /* WeChatSDK_1.5 */,
 			);
 			path = WXPay;
-			sourceTree = "<group>";
-		};
-		E22890151CDEFCAE00483F18 /* SDKExport */ = {
-			isa = PBXGroup;
-			children = (
-				E22890161CDEFCC600483F18 /* libWeChatSDK.a */,
-				E22890171CDEFCC600483F18 /* read_me.txt */,
-				E22890181CDEFCC600483F18 /* WechatAuthSDK.h */,
-				E22890191CDEFCC600483F18 /* WXApi.h */,
-				E228901A1CDEFCC600483F18 /* WXApiObject.h */,
-			);
-			path = SDKExport;
 			sourceTree = "<group>";
 		};
 		E228901D1CDEFD4B00483F18 /* JPushLIB */ = {
@@ -3396,18 +3442,8 @@
 				E2D524D81CDFA1850024887A /* Editing */,
 				E2D524AA1CDF9F620024887A /* other */,
 				E2D5248D1CDF9EBE0024887A /* NormalUser */,
-				E2D524881CDF9E380024887A /* SeeMyself */,
 			);
 			path = HomePage;
-			sourceTree = "<group>";
-		};
-		E2D524881CDF9E380024887A /* SeeMyself */ = {
-			isa = PBXGroup;
-			children = (
-				E2D5248A1CDF9E760024887A /* MyHomeViewController.h */,
-				E2D5248B1CDF9E760024887A /* MyHomeViewController.m */,
-			);
-			path = SeeMyself;
 			sourceTree = "<group>";
 		};
 		E2D5248D1CDF9EBE0024887A /* NormalUser */ = {
@@ -3518,6 +3554,9 @@
 				E2D524FD1CDFA2F80024887A /* MeHeaderView.h */,
 				E2D524FE1CDFA2F80024887A /* MeHeaderView.m */,
 				E2D524FF1CDFA2F80024887A /* MeHeaderView.xib */,
+				218A3EE61CEC70D300700283 /* MeTableViewCell.h */,
+				218A3EE71CEC70D300700283 /* MeTableViewCell.m */,
+				218A3EE81CEC70D300700283 /* MeTableViewCell.xib */,
 			);
 			path = HomePageView;
 			sourceTree = "<group>";
@@ -3916,6 +3955,7 @@
 				8177F8E51CE4E1CD005D2259 /* CreationTimeCell.xib in Resources */,
 				E22892A21CDF03F400483F18 /* d_nvhaier@2x.png in Resources */,
 				E228939A1CDF049500483F18 /* lxh_kunsile.gif in Resources */,
+				215C965F1CED56AC0084C319 /* read_me.txt in Resources */,
 				E22893D11CDF049500483F18 /* lxh_xuyuan@2x.png in Resources */,
 				E22893931CDF049500483F18 /* lxh_jiujie@2x.png in Resources */,
 				E22892BB1CDF03F400483F18 /* d_zhutou@2x.png in Resources */,
@@ -3958,13 +3998,13 @@
 				21D54B861CB6585B0088D386 /* InvestorTableViewCell.xib in Resources */,
 				E22893DC1CDF049500483F18 /* lxh_zhenjing.png in Resources */,
 				2168EAE41CBFA05000B7E037 /* FinanceDetailFirstCell.xib in Resources */,
+				215C96641CED56FD0084C319 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				E22893DA1CDF049500483F18 /* lxh_zaokuangzheng@2x.png in Resources */,
 				E22892B71CDF03F400483F18 /* d_youhengheng@2x.png in Resources */,
 				E22892BF1CDF03F400483F18 /* f_hufen@2x.png in Resources */,
 				E22893D61CDF049500483F18 /* lxh_zana.png in Resources */,
 				21AB0B511CC6056500B7BA03 /* XIBHeaderView.xib in Resources */,
 				E22893D51CDF049500483F18 /* lxh_zana.gif in Resources */,
-				E228901C1CDEFCC600483F18 /* read_me.txt in Resources */,
 				E22893AA1CDF049500483F18 /* lxh_paishou.gif in Resources */,
 				E22893C71CDF049500483F18 /* lxh_xiangyixiang.png in Resources */,
 				21AB0B651CC722CC00B7BA03 /* ProjectDetailsCell1.xib in Resources */,
@@ -4028,6 +4068,7 @@
 				E22893B71CDF049500483F18 /* lxh_quntiweiguan.gif in Resources */,
 				2187B9641CCE1C5700B92435 /* FinanceDetailsHeaderView.xib in Resources */,
 				E2D812FF1CD0780E00A52172 /* TopView.xib in Resources */,
+				218A3EEA1CEC70D300700283 /* MeTableViewCell.xib in Resources */,
 				E22893B61CDF049500483F18 /* lxh_qiuguanzhu@2x.png in Resources */,
 				21C414111CE2D23500F1029C /* WHC_ChoicePictureVC.xib in Resources */,
 				E22892A31CDF03F400483F18 /* d_qian@2x.png in Resources */,
@@ -4345,6 +4386,7 @@
 				2187B95F1CCE1B4200B92435 /* FinanceDetailsViewController.m in Sources */,
 				212EEE821CE0331200F94B30 /* ArtworkListModel.m in Sources */,
 				21AB0AC11CC50A4D00B7BA03 /* JPSlideNavigationBar.m in Sources */,
+				218A3EDD1CEC424200700283 /* MasterWorkListModel.m in Sources */,
 				21C4140B1CE2D23500F1029C /* MBProgressHUD+MJ.m in Sources */,
 				E2D522721CDF90680024887A /* WeiXinController.m in Sources */,
 				215EED321CB014D400A5957B /* CreationTableViewController.m in Sources */,
@@ -4362,6 +4404,7 @@
 				21AB0AC31CC50A4D00B7BA03 /* CollectViewTestVC.m in Sources */,
 				E2D524E41CDFA19A0024887A /* EditingInfoViewController.m in Sources */,
 				21C414341CE2D23500F1029C /* HMComposeToolbar.m in Sources */,
+				218A3EE01CEC42C600700283 /* MasterWorkModel.m in Sources */,
 				E2288DF61CDC290C00483F18 /* UserReplyCommentCell.m in Sources */,
 				E2D521B21CDF783B0024887A /* UserMyModel.m in Sources */,
 				E22890411CDEFDD900483F18 /* UIView+Frame.m in Sources */,
@@ -4376,6 +4419,7 @@
 				E2D524701CDF9B9C0024887A /* WalletFooterView.m in Sources */,
 				21C414201CE2D23500F1029C /* ShowImageViewController.m in Sources */,
 				21D54B1F1CB4D99E0088D386 /* CreationTableViewCell.m in Sources */,
+				218A3EE91CEC70D300700283 /* MeTableViewCell.m in Sources */,
 				E2F1C8061CE5C3F800D4B1B4 /* Progress.m in Sources */,
 				E2D5227E1CDF90FD0024887A /* CompleteUserInfoController.m in Sources */,
 				E22890381CDEFDD900483F18 /* NSDate+Interval.m in Sources */,
@@ -4519,6 +4563,7 @@
 				E2487B141CEAA63300484C5D /* TopRecordTCell.m in Sources */,
 				21AB0AC71CC50A4D00B7BA03 /* JPTableViewCell.m in Sources */,
 				21C413EB1CE2D23500F1029C /* AGIPCAlbumsController.m in Sources */,
+				215C96671CED57380084C319 /* BQLAuthEngine.m in Sources */,
 				E2D522101CDF89950024887A /* ArtworksModel.m in Sources */,
 				E2D524741CDF9B9C0024887A /* WalletTableViewCell.m in Sources */,
 				E2D524281CDF95040024887A /* ChartCell.m in Sources */,
@@ -4527,7 +4572,6 @@
 				21C414411CE2D23500F1029C /* CollectionViewCell.m in Sources */,
 				E2D521AE1CDF783B0024887A /* FollowerMyModel.m in Sources */,
 				E2D5249A1CDF9F0B0024887A /* BianJiJianJieViewController.m in Sources */,
-				E2D5248C1CDF9E760024887A /* MyHomeViewController.m in Sources */,
 				E2D521AD1CDF783B0024887A /* ArtUserFollowedMyModel.m in Sources */,
 				21D54B851CB6585B0088D386 /* InvestorTableViewCell.m in Sources */,
 				21C414051CE2D23500F1029C /* JKPhotoBrowserCell.m in Sources */,
@@ -4721,6 +4765,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/融易投/alipay",
+					"$(PROJECT_DIR)/融易投/3rd/WXPay/QQSDK",
 				);
 				GCC_PREFIX_HEADER = "融易投/Tools/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
@@ -4750,6 +4795,7 @@
 					"$(PROJECT_DIR)/融易投/alipay",
 					"$(PROJECT_DIR)/融易投/3rd/WXPay/SDKExport",
 					"$(PROJECT_DIR)/融易投/3rd/JPush/JPushLIB",
+					"$(PROJECT_DIR)/融易投/3rd/WXPay/WeChatSDK_1.5",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.efy.eftryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4772,6 +4818,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/融易投/alipay",
+					"$(PROJECT_DIR)/融易投/3rd/WXPay/QQSDK",
 				);
 				GCC_PREFIX_HEADER = "融易投/Tools/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
@@ -4801,6 +4848,7 @@
 					"$(PROJECT_DIR)/融易投/alipay",
 					"$(PROJECT_DIR)/融易投/3rd/WXPay/SDKExport",
 					"$(PROJECT_DIR)/融易投/3rd/JPush/JPushLIB",
+					"$(PROJECT_DIR)/融易投/3rd/WXPay/WeChatSDK_1.5",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.efy.eftryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
