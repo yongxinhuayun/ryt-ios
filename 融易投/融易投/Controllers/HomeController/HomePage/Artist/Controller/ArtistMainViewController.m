@@ -405,6 +405,7 @@ static NSString *ID = @"ArtistMainCell";
 //        NSString *artWorkId = cellModel.ID;
         NSString *artWorkId = @"imyt7yax314lpzzj";
         
+        
         NSString *urlStr = @"investorArtWorkView.do";
         NSDictionary *json = @{
                                @"artWorkId" : artWorkId,
