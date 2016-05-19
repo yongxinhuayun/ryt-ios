@@ -3143,11 +3143,11 @@
 		E2D524081CDF93820024887A /* MessageController */ = {
 			isa = PBXGroup;
 			children = (
-				E2D5242A1CDF956D0024887A /* Notification */,
-				E2D524141CDF94790024887A /* PrivateLetter */,
 				E2D5240A1CDF93B30024887A /* MessageTableViewController.h */,
 				E2D5240B1CDF93B30024887A /* MessageTableViewController.m */,
 				E2D5240C1CDF93B30024887A /* MessageTableViewController.storyboard */,
+				E2D5242A1CDF956D0024887A /* Notification */,
+				E2D524141CDF94790024887A /* PrivateLetter */,
 				E2D524091CDF93900024887A /* Comments */,
 			);
 			path = MessageController;

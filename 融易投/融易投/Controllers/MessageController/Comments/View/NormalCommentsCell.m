@@ -116,7 +116,7 @@
 
 -(void)clickArtworkView{
     if ([self.delegate respondsToSelector:@selector(jumpToDetailController:)]) {
-        [self.delegate jumpToDetailController:self.commentModel.artwork.ID];
+        [self.delegate jumpToDetailController:self.commentModel];
     }
 }
 

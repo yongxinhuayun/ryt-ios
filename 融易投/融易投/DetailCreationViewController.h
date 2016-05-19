@@ -7,12 +7,12 @@
 //
 
 #import "BaseScrollViewController.h"
-@class CreationModel;
+@class ArtworkModel;
 @interface DetailCreationViewController : BaseScrollViewController
 
 @property(nonatomic,strong)CycleView *cycleView;
 @property(nonatomic,strong)NSMutableArray *titleArray;
 @property(nonatomic,strong)NSMutableArray *controllersView;
-@property(nonatomic,strong)CreationModel *creationModel;
+@property(nonatomic,strong)ArtworkModel *creationModel;
 @property(nonatomic,copy) NSString *artworkId;
 @end

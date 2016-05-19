@@ -18,10 +18,10 @@
 #import "FinanceFooterView.h"
 #import "PostCommentController.h"
 #import "TopView.h"
-#import "CreationModel.h"
 #import "ProjectDetailsModel.h"
 #import "ProjectDetailsResultModel.h"
 #import "ArtworkModel.h"
+#import "authorModel.h"
 #import <MJExtension.h>
 #import "TimeAxisTableViewController.h"
 #import <UIImageView+WebCache.h>

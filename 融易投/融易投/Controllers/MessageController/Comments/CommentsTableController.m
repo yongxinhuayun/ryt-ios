@@ -78,6 +78,9 @@
     else if (step == 21 ||step == 22 ||step == 23 ||step == 24 ||step == 25){
         DetailCreationViewController *detailController = [[DetailCreationViewController alloc] init];
         detailController.artworkId = commentModel.artwork.ID;
+        detailController.creationModel = commentModel.artwork;
+        detailController.title = commentModel.artwork.title;
+        [self.navigationController pushViewController:detailController animated:YES];
 //        detailController.
     }
 }
