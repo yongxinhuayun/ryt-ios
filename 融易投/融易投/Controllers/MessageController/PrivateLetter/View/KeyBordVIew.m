@@ -47,9 +47,11 @@ CGFloat sendBtnW = 50;
 }
 -(void)initialData
 {
-    self.backImageView=[[UIImageView alloc]initWithFrame:self.bounds];
-    self.backImageView.image=[UIImage strethImageWith:@"toolbar_bottom_bar.png"];
-    [self addSubview:self.backImageView];
+    self.backgroundColor = [UIColor colorWithRed:250.0 / 255.0 green:250.0 / 255 blue:250.0 / 255.0 alpha:1.0];
+//    self.backImageView=[[UIImageView alloc]initWithFrame:self.bounds];
+//    self.backImageView.image=[UIImage strethImageWith:@"toolbar_bottom_bar.png"];
+//    self.bac
+//    [self addSubview:self.backImageView];
     
 //    self.voiceBtn=[self buttonWith:@"chat_bottom_voice_nor.png" hightLight:@"chat_bottom_voice_press.png" action:@selector(voiceBtnPress:)];
 //    [self.voiceBtn setFrame:CGRectMake(0,0, 33, 33)];

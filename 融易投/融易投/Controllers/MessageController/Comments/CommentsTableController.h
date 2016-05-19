@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CommentsTableController : UITableViewController
-
+@property(nonatomic,copy) NSString *userId;
 @end

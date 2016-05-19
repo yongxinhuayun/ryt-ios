@@ -10,6 +10,7 @@
 #import "CommentsTableController.h"
 #import "NotificationController.h"
 #import "PrivateLetterViewController.h"
+#import "PrivateLetterController.h"
 
 #import "MessageModel.h"
 #import <MJExtension.h>
@@ -78,6 +79,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if (indexPath.section == 0) {
         
         NotificationController *NoController = [NotificationController new];
@@ -86,11 +88,12 @@
     } else if (indexPath.section == 1) {
         
         CommentsTableController *commentsController = [CommentsTableController new];
+//        commentsController.userId =
         [self.navigationController pushViewController:commentsController animated:YES];
         
     } else if (indexPath.section == 2) {
         
-        PrivateLetterViewController *privateLetterVC = [[PrivateLetterViewController alloc] init];
+        PrivateLetterController *privateLetterVC = [[PrivateLetterController alloc] init];
         [self.navigationController pushViewController:privateLetterVC animated:YES];
 
     }
