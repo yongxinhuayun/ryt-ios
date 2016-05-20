@@ -52,30 +52,55 @@
 -(void)setModel:(PageInfoModel *)model{
 
     _model = model;
-        //用户头像
-        NSString *iconUrlStr = [[NSString stringWithFormat:@"%@",model.user.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    //用户头像
+    NSString *iconUrlStr = [[NSString stringWithFormat:@"%@",model.user.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURL *iconUrlURL = [NSURL URLWithString:iconUrlStr];
+    
+    [self.iconImageView  ss_setHeader:iconUrlURL];
+    
+    //用户名
+    self.userName.text = model.user.name;
+    //用户签名
+    self.signature.text = model.user.username;
+    //用户关注数
+    self.guanzhuNum.text = [NSString stringWithFormat:@"%zd",model.num];
+    //用户粉丝数
+    self.fansNum.text = [NSString stringWithFormat:@"%zd",model.followNum];
+    //投资金额
+    self.sumInvestment.text = [NSString stringWithFormat:@"%zd",model.sumInvestment];
+    //投资收益
+    self.investmentIncome.text = [NSString stringWithFormat:@"%zd",model.yield];
+
+    //投资回报率
+    float sumInvestmentFloat = NAN;
+    float yieldFloat = NAN;
+    
+    if (!isnan(sumInvestmentFloat)&&!isnan(yieldFloat)) {
         
-        NSURL *iconUrlURL = [NSURL URLWithString:iconUrlStr];
+        sumInvestmentFloat = [self.sumInvestment.text doubleValue];
+        yieldFloat = [self.investmentIncome.text doubleValue];
         
-        [self.iconImageView  ss_setHeader:iconUrlURL];
+    }else {
+    
+        sumInvestmentFloat = 0.00;
+        yieldFloat = 0.00;
+    }
+    
+
+    NSLog(@"%f----%f",sumInvestmentFloat,yieldFloat);
+    
+    float investRate = NAN;
+    
+    if (!isnan(investRate)) {
         
-        //用户名
-        self.userName.text = model.user.name;
-        //用户签名
-        self.signature.text = model.user.username;
-        //用户关注数
-        self.guanzhuNum.text = [NSString stringWithFormat:@"%zd",model.num];
-        //用户粉丝数
-        self.fansNum.text = [NSString stringWithFormat:@"%zd",model.followNum];
-        //投资金额
-        self.sumInvestment.text = [NSString stringWithFormat:@"%zd",model.sumInvestment];
-        //投资收益
-        self.investmentIncome.text = [NSString stringWithFormat:@"%zd",model.yield];
-        //投资回报率
-        CGFloat sumInvestmentFloat = model.sumInvestment;
-        CGFloat yieldFloat = model.yield;
-        self.investRate.text = [NSString stringWithFormat:@"%zd%%",((sumInvestmentFloat /yieldFloat) * 100)];
-    [self setNeedsDisplay];
+       self.investRate.text = [NSString stringWithFormat:@"%.2f%%",((yieldFloat / sumInvestmentFloat) * 100)];
+        
+    }else {
+        
+       self.investRate.text = @"0.00%";
+    }
 }
 
 

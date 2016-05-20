@@ -16,7 +16,7 @@
 - (void)ss_setHeader:(NSURL *)url
 {
     // 占位图片
-    UIImage *placeholder = [UIImage bs_circleImageNamed:@"defaultUserIcon"];
+    UIImage *placeholder = [UIImage bs_circleImageNamed:@"jibenziliao_touxiang"];
     
     // 下载图片
     [self sd_setImageWithURL:url placeholderImage:placeholder completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {

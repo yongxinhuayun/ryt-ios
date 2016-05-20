@@ -74,7 +74,7 @@
 #define MD5key @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
 
 
-//使用归档进行保存id
+//使用偏好设置进行保存id
 //NSUserDefaults  是个单例,但是取出不是shared
 #define SaveUserID(userId) [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"userId"];
 
@@ -83,7 +83,7 @@
 
 //使用归档进行用户登录信息
 //NSUserDefaults  是个单例,但是取出不是shared
-#define SaveUserInfo(userId) [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"userInfo"];
+#define SaveUserInfo(userAccount) [[NSUserDefaults standardUserDefaults] setObject:userAccount forKey:@"userInfo"];
 
 #define TakeUserInfo [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
 

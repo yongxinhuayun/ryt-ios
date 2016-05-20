@@ -26,6 +26,9 @@
 		215C96631CED56FD0084C319 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215C96611CED56FD0084C319 /* TencentOpenAPI.framework */; };
 		215C96641CED56FD0084C319 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 215C96621CED56FD0084C319 /* TencentOpenApi_IOS_Bundle.bundle */; };
 		215C96671CED57380084C319 /* BQLAuthEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 215C96661CED57380084C319 /* BQLAuthEngine.m */; };
+		215C96CB1CEEAEE10084C319 /* NewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215C96CA1CEEAEE10084C319 /* NewFeatureViewController.m */; };
+		215C96CE1CEEAF090084C319 /* NewFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 215C96CD1CEEAF090084C319 /* NewFeatureCell.m */; };
+		215C96D11CEEBB640084C319 /* StartButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 215C96D01CEEBB640084C319 /* StartButton.m */; };
 		215EED1D1CB0058D00A5957B /* FinanceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED1C1CB0058D00A5957B /* FinanceTableViewController.m */; };
 		215EED291CB0108F00A5957B /* InvestorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED281CB0108F00A5957B /* InvestorTableViewController.m */; };
 		215EED2C1CB010A500A5957B /* ArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215EED2B1CB010A500A5957B /* ArtistTableViewController.m */; };
@@ -720,6 +723,12 @@
 		215C96621CED56FD0084C319 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		215C96651CED57380084C319 /* BQLAuthEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQLAuthEngine.h; sourceTree = "<group>"; };
 		215C96661CED57380084C319 /* BQLAuthEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQLAuthEngine.m; sourceTree = "<group>"; };
+		215C96C91CEEAEE10084C319 /* NewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureViewController.h; sourceTree = "<group>"; };
+		215C96CA1CEEAEE10084C319 /* NewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureViewController.m; sourceTree = "<group>"; };
+		215C96CC1CEEAF090084C319 /* NewFeatureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureCell.h; sourceTree = "<group>"; };
+		215C96CD1CEEAF090084C319 /* NewFeatureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureCell.m; sourceTree = "<group>"; };
+		215C96CF1CEEBB640084C319 /* StartButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartButton.h; sourceTree = "<group>"; };
+		215C96D01CEEBB640084C319 /* StartButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartButton.m; sourceTree = "<group>"; };
 		215EED1B1CB0058D00A5957B /* FinanceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceTableViewController.h; sourceTree = "<group>"; };
 		215EED1C1CB0058D00A5957B /* FinanceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceTableViewController.m; sourceTree = "<group>"; };
 		215EED271CB0108F00A5957B /* InvestorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorTableViewController.h; sourceTree = "<group>"; };
@@ -1715,6 +1724,34 @@
 			path = QQSDK;
 			sourceTree = "<group>";
 		};
+		215C96C61CEEAEAB0084C319 /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				215C96C71CEEAEAB0084C319 /* Controller */,
+				215C96C81CEEAEAB0084C319 /* View */,
+			);
+			name = NewFeature;
+			path = HomeController/NewFeature;
+			sourceTree = "<group>";
+		};
+		215C96C71CEEAEAB0084C319 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				215C96C91CEEAEE10084C319 /* NewFeatureViewController.h */,
+				215C96CA1CEEAEE10084C319 /* NewFeatureViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		215C96C81CEEAEAB0084C319 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				215C96CC1CEEAF090084C319 /* NewFeatureCell.h */,
+				215C96CD1CEEAF090084C319 /* NewFeatureCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2187B9301CCDF07200B92435 /* 艺术家的界面(没数据,没有展示) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1779,6 +1816,8 @@
 				21D54B161CB4C31F0088D386 /* CommonHeader.m */,
 				212EEE411CD9D8CD00F94B30 /* CommonButton.h */,
 				212EEE421CD9D8CD00F94B30 /* CommonButton.m */,
+				215C96CF1CEEBB640084C319 /* StartButton.h */,
+				215C96D01CEEBB640084C319 /* StartButton.m */,
 				21C459DD1CE95A4100691E8D /* CommonTextView.h */,
 				21C459DE1CE95A4100691E8D /* CommonTextView.m */,
 				21C4148E1CE475CC00F1029C /* TimeFiled.h */,
@@ -2725,6 +2764,7 @@
 			isa = PBXGroup;
 			children = (
 				E2D524331CDF988F0024887A /* HomeController */,
+				215C96C61CEEAEAB0084C319 /* NewFeature */,
 				E2D524081CDF93820024887A /* MessageController */,
 				E2D522791CDF90E00024887A /* LoginController */,
 				E2D5226C1CDF90370024887A /* PayController */,
@@ -4414,6 +4454,7 @@
 				E2729AE81CD8B923006C0617 /* InstructionCell.m in Sources */,
 				E22890391CDEFDD900483F18 /* NSString+DocumentPath.m in Sources */,
 				E2D521ED1CDF79220024887A /* CNCityAreaFactory.m in Sources */,
+				215C96CB1CEEAEE10084C319 /* NewFeatureViewController.m in Sources */,
 				E2D5224C1CDF8C6E0024887A /* RecordModel.m in Sources */,
 				E2288E471CDEFAB900483F18 /* AppDelegate.m in Sources */,
 				E2D522771CDF90900024887A /* AliPayController.m in Sources */,
@@ -4538,6 +4579,7 @@
 				21C414641CE4112F00F1029C /* FaBuHeaderView.m in Sources */,
 				21C414081CE2D23500F1029C /* PhotoAlbumManager.m in Sources */,
 				E2D521EE1CDF79220024887A /* CNCityAreaModel.m in Sources */,
+				215C96D11CEEBB640084C319 /* StartButton.m in Sources */,
 				21C414061CE2D23500F1029C /* JKPromptView.m in Sources */,
 				E2729ADC1CD8B90F006C0617 /* ProjectDetailTableViewController.m in Sources */,
 				21D54B391CB4F88B0088D386 /* AuctionTableViewController.m in Sources */,
@@ -4629,6 +4671,7 @@
 				E2729AFE1CD8B9A7006C0617 /* UserCommonCell.m in Sources */,
 				E2729B021CD8B9F9006C0617 /* ProjectDetailsViewController.m in Sources */,
 				E2487B141CEAA63300484C5D /* TopRecordTCell.m in Sources */,
+				215C96CE1CEEAF090084C319 /* NewFeatureCell.m in Sources */,
 				21AB0AC71CC50A4D00B7BA03 /* JPTableViewCell.m in Sources */,
 				21C413EB1CE2D23500F1029C /* AGIPCAlbumsController.m in Sources */,
 				215C96671CED57380084C319 /* BQLAuthEngine.m in Sources */,

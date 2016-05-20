@@ -32,9 +32,16 @@
 #import "ApplyforArtViewController.h"
 #import "BQLAuthEngine.h"
 
+#import "NewFeatureViewController.h"
+
+
 static NSString *appKey = @"539b73fd73c82f1134120a57";
 static NSString *channel = @"Publish channel";
 static BOOL isProduction = FALSE;
+
+#define SSVersionKey @"curVersion"
+
+#define SSUserDefaults [NSUserDefaults standardUserDefaults]
 
 @interface AppDelegate ()
 
@@ -162,46 +169,152 @@ static BOOL isProduction = FALSE;
     //1.创建主窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-      //2.设置窗口的根控制器
-    CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
-    
-    //设置tabBar的背景颜色
-//    CGRect frame = tabBarController.tabBar.bounds;
-//    UIView *v = [[UIView alloc] initWithFrame:frame];
-//    [v setBackgroundColor:[[UIColor alloc] initWithRed:0/255.0
-//                                                 green:0/255.0
-//                                                  blue:0/255.0
-//                                                 alpha:1.0]];
-//    [tabBarController.tabBar insertSubview:v atIndex:0];
-    
-    //设置状态栏字体颜色和背景颜色
-//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    
-    CGFloat statwidth = [[UIApplication sharedApplication] statusBarFrame].size.width;
-    
-    CGFloat statheight = [[UIApplication sharedApplication] statusBarFrame].size.height;
-    
-    UIView *statusBarView=[[UIView alloc]initWithFrame:CGRectMake(0,0, statwidth, statheight)];
-    
-    statusBarView.backgroundColor = [[UIColor alloc] initWithRed:247.0 /255.0  green:247.0 /255.0  blue:247.0 /255.0  alpha:1.0];
-    
-    [tabBarController.view addSubview:statusBarView];
-    
-        //self.window.rootViewController = [MessageTableViewController new];
-        //self.window.rootViewController = [RegViewController new];
-        //self.window.rootViewController = [PersonalController new];
-    
-//    LognController *vc = [[LognController alloc] init];
-    
-    self.window.rootViewController = tabBarController;
+    //2.设置窗口的根控制器
+    self.window.rootViewController = [self defaultViewController];
+//    LognController *logn = [[LognController alloc] init];
+    //2.设置窗口的根控制器
+//    self.window.rootViewController = logn;
     
     //3.显示窗口
     [self.window makeKeyAndVisible];
     
-    
+    //4.注册通知切换控制器
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchRootViewController:) name:ChangeRootViewControllerNotification object:nil];
     
     return YES;
 }
+
+//*******************************切换控制器********************************
+-(BOOL)isNewVewsion{
+
+    //1.判断下用户有没有最先版本
+    //2.最新的版本都是保存到Info.plist
+    //3.从Info.plist文件获取最新版本
+    
+    //1>获取Info.plist
+    //    NSString *infoPath = [[NSBundle mainBundle] pathForResource:@"Info.plist" ofType:nil];
+    //    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:infoPath];
+    //获取Info.plist方法二:
+    NSDictionary *dict = [NSBundle mainBundle].infoDictionary;
+    NSString *curVersion = dict[@"CFBundleShortVersionString"];
+    
+    //2>获取上一次的版本号
+    //利用偏好设置
+    NSString *lastVersion = [SSUserDefaults objectForKey:SSVersionKey];
+    
+    //3>判断  之前的最新版本号 lastVersion
+    if ([curVersion  isEqualToString:lastVersion]) {
+        //版本号相同
+        //进入主框架的界面
+        NSLog(@"不是新版本,进入主框架的界面");
+        
+        return NO;
+    }else{ //有最新的版本
+        //保存最新的版本号
+        //保存到偏好设置
+        [SSUserDefaults setObject:curVersion forKey:SSVersionKey];
+        
+        //进入新特性界面
+        NSLog(@"有新版本,进入新特性界面");
+        
+        return YES;
+    }
+}
+
+
+-(UIViewController *)defaultViewController {
+
+    if ([self isNewVewsion]) {
+        
+        NewFeatureViewController *newFea = [[NewFeatureViewController alloc] init];
+        
+        return newFea;
+
+    }else {
+    
+        //设置窗口的根控制器
+        CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
+        
+        //设置tabBar的背景颜色
+        //    CGRect frame = tabBarController.tabBar.bounds;
+        //    UIView *v = [[UIView alloc] initWithFrame:frame];
+        //    [v setBackgroundColor:[[UIColor alloc] initWithRed:0/255.0
+        //                                                 green:0/255.0
+        //                                                  blue:0/255.0
+        //                                                 alpha:1.0]];
+        //    [tabBarController.tabBar insertSubview:v atIndex:0];
+        
+        //设置状态栏字体颜色和背景颜色
+        //    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+        
+        CGFloat statwidth = [[UIApplication sharedApplication] statusBarFrame].size.width;
+        
+        CGFloat statheight = [[UIApplication sharedApplication] statusBarFrame].size.height;
+        
+        UIView *statusBarView=[[UIView alloc]initWithFrame:CGRectMake(0,0, statwidth, statheight)];
+        
+        statusBarView.backgroundColor = [[UIColor alloc] initWithRed:247.0 /255.0  green:247.0 /255.0  blue:247.0 /255.0  alpha:1.0];
+        
+        [tabBarController.view addSubview:statusBarView];
+        
+        return tabBarController;
+    }
+    
+}
+
+-(void)switchRootViewController:(NSNotification *)notice{
+    
+    //获取通知传递的信息
+    NSDictionary *info = notice.userInfo;
+    
+    NSString *str = info[@"message"];
+    
+    if ([str isEqualToString:@"2"]) { //登录
+        
+        LognController *logn = [[LognController alloc] init];
+        //2.设置窗口的根控制器
+        self.window.rootViewController = logn;
+        
+    }else if([str isEqualToString:@"3"]){ //注册
+        RegViewController *reg = [[RegViewController alloc] init];
+        
+        //2.设置窗口的根控制器
+        self.window.rootViewController = reg;
+    
+    }else {
+    
+        //设置窗口的根控制器
+        CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
+        
+        //设置tabBar的背景颜色
+        //    CGRect frame = tabBarController.tabBar.bounds;
+        //    UIView *v = [[UIView alloc] initWithFrame:frame];
+        //    [v setBackgroundColor:[[UIColor alloc] initWithRed:0/255.0
+        //                                                 green:0/255.0
+        //                                                  blue:0/255.0
+        //                                                 alpha:1.0]];
+        //    [tabBarController.tabBar insertSubview:v atIndex:0];
+        
+        //设置状态栏字体颜色和背景颜色
+        //    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+        
+        CGFloat statwidth = [[UIApplication sharedApplication] statusBarFrame].size.width;
+        
+        CGFloat statheight = [[UIApplication sharedApplication] statusBarFrame].size.height;
+        
+        UIView *statusBarView=[[UIView alloc]initWithFrame:CGRectMake(0,0, statwidth, statheight)];
+        
+        statusBarView.backgroundColor = [[UIColor alloc] initWithRed:247.0 /255.0  green:247.0 /255.0  blue:247.0 /255.0  alpha:1.0];
+        
+        [tabBarController.view addSubview:statusBarView];
+        
+        //2.设置窗口的根控制器
+        self.window.rootViewController = tabBarController;
+        
+    }
+}
+
+
 
 //*******************************JPush********************************
 
