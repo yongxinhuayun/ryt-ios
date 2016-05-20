@@ -62,14 +62,14 @@
                         <action selector="forgetPWDBtnClick:" destination="-1" eventType="touchUpInside" id="3IK-3C-ioS"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="首页-快速登录两侧横线" translatesAutoresizingMaskIntoConstraints="NO" id="M6J-dQ-7nL">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="denglu_fenggexian244" translatesAutoresizingMaskIntoConstraints="NO" id="M6J-dQ-7nL">
                     <rect key="frame" x="27" y="458" width="104" height="1"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="104" id="Sv5-wA-Obw"/>
                         <constraint firstAttribute="height" constant="1" id="Vi4-z8-z3p"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="首页-快速登录两侧横线" translatesAutoresizingMaskIntoConstraints="NO" id="uKx-he-EOd">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="denglu_fenggexian244" translatesAutoresizingMaskIntoConstraints="NO" id="uKx-he-EOd">
                     <rect key="frame" x="246" y="458" width="104" height="1"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="ycb-LE-HVq"/>
@@ -142,9 +142,9 @@
         </view>
     </objects>
     <resources>
+        <image name="denglu_fenggexian244" width="1" height="1"/>
         <image name="denglu_kedianjianniu" width="187" height="47"/>
         <image name="denglu_shurukuang" width="188" height="40"/>
         <image name="denglu_weixindianji" width="47" height="47"/>
-        <image name="首页-快速登录两侧横线" width="208" height="1"/>
     </resources>
 </document>

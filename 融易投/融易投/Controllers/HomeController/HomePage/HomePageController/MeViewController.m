@@ -67,7 +67,7 @@ static NSString *ID = @"MeTableViewCell";
     //加载头部视图数据
     //设置头部视图
     MeHeaderView *meheaderView = [MeHeaderView meHeaderView];
-    
+
     self.meheaderView = meheaderView;
     
     self.tableView.tableHeaderView = self.meheaderView;
@@ -321,7 +321,17 @@ static NSString *ID = @"MeTableViewCell";
 -(void)loadData
 {
     //参数
-    NSString *userId = @"ieatht97wfw30hfd";
+    //有值代表着登录,没值就是游客
+    NSString *userId = TakeUserID;
+    
+    if (userId == nil) {
+        
+        userId = @"";
+    }else{
+    
+        userId = TakeUserID;
+    }
+    
     
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";

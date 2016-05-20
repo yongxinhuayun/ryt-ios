@@ -8,16 +8,15 @@
 
 #import "LognController.h"
 
-#import <CommonCrypto/CommonDigest.h>
-#import <CommonCrypto/CommonHMAC.h>
-
 #import "RegViewController.h"
 #import "ForgetPasswordViewController.h"
 
 #import <SVProgressHUD.h>
-#import "BQLAuthEngine.h"
 
-#define serverULR @"http://j.efeiyi.com:8080/app-wikiServer/app/login.do"
+#import <MJExtension.h>
+
+#import "BQLAuthEngine.h"
+#import "UserAccount.h"
 
 @interface LognController ()
 {
@@ -43,6 +42,13 @@
      _bqlAuthEngine = [[BQLAuthEngine alloc] init];
     
     [self setUpNavBar];
+    
+    [UserAccount mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"ID"          :@"id",
+                 };
+    }];
 }
 
 // 设置导航条
@@ -77,7 +83,7 @@
 //        [SVProgressHUD showWithStatus:@"正在登录中..."];
 //    }
     
-    [self test];
+    [self loadData];
 }
 
 //手机号码的正则表达式
@@ -106,12 +112,11 @@
         
         NSLog(@"failure:%@",error);
     }];
-    
-    
 }
 - (IBAction)registerBtnClick:(id)sender {
     
     RegViewController *reg = [[RegViewController alloc] init];
+    
     [self.navigationController pushViewController:reg animated:YES];
 }
 
@@ -125,160 +130,64 @@
 
 -(void)loadData
 {
-    //时间
-    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
-    NSTimeInterval a =[date timeIntervalSince1970] * 1000;
-    NSString *timeString = [NSString stringWithFormat:@"%f", a];
-    
-    NSArray *strArray = [timeString componentsSeparatedByString:@"."];
-    
-    NSLog(@"%@",strArray.firstObject);
-    
     //参数
     NSString *username = self.usernameTextField.text;
     NSString *password = self.passwordTextField.text;
-    NSString *timestamp = strArray.firstObject;
-    NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
-    
-    NSLog(@"username=%@,password=%@,timestamp=%@",username,password,timestamp);
-    
-    NSLog(@"111");
-    
-    NSArray *arra = @[@"username",@"password",@"timestamp"];
-    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
-    NSLog(@"%@",sortArr);
-    
-    NSString *signmsg = [NSString stringWithFormat:@"password=%@&timestamp=%@&username=%@&key=%@",password,timestamp,username,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [self md5:signmsg];
-    
-    //对key进行自然排序
-    //    for (NSString *s in [dict allKeys]) {
-    //        NSLog(@"value: %@", s);
-    //    }
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
-    // 1.创建请求
-    NSURL *url = [NSURL URLWithString:@"http://j.efeiyi.com:8080/app-wikiServer/app/login.do"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = @"POST";
-    
-    // 2.设置请求头
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    // 3.设置请求体
+
+    NSString *urlStr = @"login.do";
+
     NSDictionary *json = @{
                            @"username" : username,
                            @"password" : password,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
                            };
     
-    //    NSData --> NSDictionary
-    // NSDictionary --> NSData
-    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
-    request.HTTPBody = data;
-    
-    
-    // 4.发送请求
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-//        NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-//        NSLog(@"%@",obj);
-
-        //5. 解析从服务器获取的JSON数据
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        
-        NSLog(@"%@",dict);
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
         
         /*
          {
-         "userInfo":{"id":"imhipoyk18s4k52u","username":"18513234278","name":null,"name2":null,"password":"11111111","status":1,"confirmPassword":null,"oldPassword":null,"enabled":true,"accountExpired":false,"accountLocked":false,"credentialsExpired":false,"utype":null,"lastLoginDatetime":null,"lastLogoutDatetime":null,"createDatetime":1459503521000,"source":null,"fullName":"null[18513234278]","credentialsNonExpired":true,"accountNonExpired":true,"accountNonLocked":true},
-         "resultCode":"0",
-         "resultMsg":"成功"
+         "count1":0,"userInfo":{"id":"imhfp1yr4636pj49","username":"18513234278","name":null,"name2":"18513234278","password":"11111111","status":1,"confirmPassword":null,"oldPassword":null,"enabled":true,"accountExpired":false,"accountLocked":false,"credentialsExpired":false,"utype":null,"lastLoginDatetime":null,"lastLogoutDatetime":null,"createDatetime":1459498453000,"source":null,"fullName":"null[18513234278]","accountNonExpired":true,"accountNonLocked":true,"credentialsNonExpired":true},"roiMoney":0.00,"flag":"1","rate":0.00,"investsMoney":0.00,"resultCode":"0","count":0,"userBrief":null,"resultMsg":"成功"
          }
          */
+        
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        
+        UserAccount *userAccount = [UserAccount mj_objectWithKeyValues:dict[@"userInfo"]];
+        
+        NSString *ID = userAccount.ID;
+
+        SaveUserID(ID);
+        
+//        NSString *a = TakeUserID;
+//        SSLog(@"%@",a);
         
         NSString *LognInfo = dict[@"resultMsg"];
         
         if (dict[@"resultCode"] != 0) {
             
-             [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"登录%@",LognInfo]];
-            
-            
-            
+            [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"登录%@",LognInfo]];
+            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+
         }else { //登录失败
             
-           [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"%@",LognInfo]];
+            [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"%@",LognInfo]];
+            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
         }
         
+
+        //在主线程刷新UI数据
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            [SVProgressHUD dismiss];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:ChangeRootViewControllerNotification object:self userInfo:@{@"message":@"1"}];
+            
+        }];
+      
         
     }];
 }
-
--(void)test {
-
-    //时间
-    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
-    NSTimeInterval a =[date timeIntervalSince1970] * 1000;
-    NSString *timeString = [NSString stringWithFormat:@"%f", a];
-    
-    NSArray *strArray = [timeString componentsSeparatedByString:@"."];
-    
-    NSLog(@"%@",strArray.firstObject);
-    
-    //参数
-    NSString *username = self.usernameTextField.text;
-    NSString *password = self.passwordTextField.text;
-    NSString *timestamp = strArray.firstObject;
-    NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
-    
-    
-    NSArray *arra = @[@"username",@"password",@"timestamp"];
-    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
-    NSLog(@"%@",sortArr);
-    
-    NSString *signmsg = [NSString stringWithFormat:@"password=%@&timestamp=%@&username=%@&key=%@",password,timestamp,username,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
-    
-    
-    // 3.设置请求体
-    NSDictionary *json = @{
-                           @"username" : username,
-                           @"password" : password,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
-                           };
-    
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:serverULR Parameters:json showHUDView:self.view success:^(id respondObj) {
-        
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
-    }];
-    
-}
-
-
--(NSString *) md5: (NSString *) inPutText
-{
-    const char *cStr = [inPutText UTF8String];
-    unsigned char result[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(cStr, strlen(cStr), result);
-    
-    return [[NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
-             result[0], result[1], result[2], result[3],
-             result[4], result[5], result[6], result[7],
-             result[8], result[9], result[10], result[11],
-             result[12], result[13], result[14], result[15]
-             ] lowercaseString];
-}
-
-
 
 @end

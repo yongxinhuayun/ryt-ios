@@ -34,7 +34,7 @@ NSString * const ProjectDetailsArtWorkIdNotification = @"ProjectDetailsArtWorkId
 
 
 
-
+NSString * const ChangeRootViewControllerNotification = @"ChangeRootViewControllerNotification";
 
 
 @end
