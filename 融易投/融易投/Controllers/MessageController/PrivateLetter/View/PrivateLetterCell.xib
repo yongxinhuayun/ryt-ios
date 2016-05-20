@@ -20,6 +20,12 @@
                             <constraint firstAttribute="width" constant="40" id="D7E-FX-hBF"/>
                             <constraint firstAttribute="height" constant="40" id="hhz-o5-tMZ"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="喵星人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yx-kS-hW9">
                         <rect key="frame" x="64" y="11" width="42" height="17"/>
@@ -33,19 +39,19 @@
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7J-yS-d3O">
-                        <rect key="frame" x="341" y="20" width="20" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7J-yS-d3O">
+                        <rect key="frame" x="337" y="18" width="24" height="24"/>
                         <color key="backgroundColor" red="1" green="0.25941775189999999" blue="0.28726397339999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="20" id="Ewe-YT-6uM"/>
-                            <constraint firstAttribute="height" constant="20" id="F5c-ab-WUZ"/>
+                            <constraint firstAttribute="width" constant="24" id="Ewe-YT-6uM"/>
+                            <constraint firstAttribute="height" constant="24" id="F5c-ab-WUZ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="10"/>
+                                <integer key="value" value="12"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
@@ -62,6 +68,11 @@
                     <constraint firstItem="r7J-yS-d3O" firstAttribute="centerY" secondItem="UDr-rX-9Fk" secondAttribute="centerY" id="zsN-KS-jTR"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="bridge" destination="r7J-yS-d3O" id="IzL-gR-oyN"/>
+                <outlet property="userIcon" destination="UDr-rX-9Fk" id="h3v-9s-aZV"/>
+                <outlet property="userName" destination="7yx-kS-hW9" id="LNc-aM-NMA"/>
+            </connections>
             <point key="canvasLocation" x="294.5" y="269"/>
         </tableViewCell>
     </objects>

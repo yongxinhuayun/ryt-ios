@@ -13,8 +13,10 @@ typedef enum {
 }ChartMessageType;
 #import <Foundation/Foundation.h>
 
+#import "PrivateLetterModel.h"
 @interface ChartMessage : NSObject
 @property (nonatomic,assign) ChartMessageType messageType;
+@property(nonatomic,strong) PrivateLetterModel *letterModel;
 @property (nonatomic, copy) NSString *icon;
 //@property (nonatomic, copy) NSString *time;
 @property (nonatomic, copy) NSString *content;

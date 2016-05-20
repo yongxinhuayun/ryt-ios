@@ -1,4 +1,4 @@
-//
+ //
 //  PrivateLetterViewController.m
 //  融易投
 //
@@ -8,12 +8,17 @@
 
 #import "PrivateLetterViewController.h"
 
-#import "ChartMessage.h"
 #import "ChartCellFrame.h"
 #import "ChartCell.h"
 #import "KeyBordVIew.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
+#import "MessageResultModel.h"
+#import "PrivateLetterModel.h"
+#import "UserMyModel.h"
+#import <MJExtension.h>
+#import "MessageResultModel.h"
+#import "PrivateLetterModel.h"
 
 @interface PrivateLetterViewController ()<UITableViewDataSource,UITableViewDelegate,KeyBordVIewDelegate,ChartCellDelegate,AVAudioPlayerDelegate>
 
@@ -24,6 +29,7 @@
 @property (nonatomic,strong) NSString *fileName;
 @property (nonatomic,strong) AVAudioRecorder *recorder;
 @property (nonatomic,strong) AVAudioPlayer *player;
+@property(nonatomic,strong) NSMutableArray *letters;
 
 @end
 
@@ -58,12 +64,19 @@ static NSString *const cellIdentifier=@"QQChart";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     //在此处修改跟当前用户聊天的名称
     self.title=@"私信";
-    
     self.view.backgroundColor=[UIColor whiteColor];
-    
+
+    [UserMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return [NSDictionary dictionaryWithObject:@"id" forKey:@"ID"];
+    }];
+    [PrivateLetterModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return [NSDictionary dictionaryWithObject:@"id" forKey:@"ID"];
+    }];
+    [MessageResultModel mj_setupObjectClassInArray:^NSDictionary *{
+        return [NSDictionary dictionaryWithObject:@"PrivateLetterModel" forKey:@"objectList"];
+    }];
     //add UItableView
     self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-44) style:UITableViewStylePlain];
     [self.tableView registerClass:[ChartCell class] forCellReuseIdentifier:cellIdentifier];
@@ -74,21 +87,19 @@ static NSString *const cellIdentifier=@"QQChart";
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
     [self.view addSubview:self.tableView];
-    
     //add keyBorad
     self.keyBordView=[[KeyBordVIew alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height- 44, self.view.frame.size.width, 44)];
     self.keyBordView.delegate=self;
     [self.view addSubview:self.keyBordView];
-    //初始化数据
-    [self initwithData];
-    [self postLetter];
+//        [self postLetter];
+    [self loadUserLetter];
 }
 
-//进入控制器 加载聊天记录
+//进入控制器加载聊天记录
 -(void)loadUserLetter{
     //当前用户id
-    NSString *userId = @"";
-    NSString *fromUserId = @"";
+    NSString *userId = @"ioe4rahi670jsgdt";
+    NSString *fromUserId = @"iijq9f1r7apprtab";
     // 私信用户id
     NSDictionary *json = @{
                            @"userId" : userId,
@@ -97,55 +108,53 @@ static NSString *const cellIdentifier=@"QQChart";
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"commentDetail.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
+        MessageResultModel *messModel = [MessageResultModel mj_objectWithKeyValues:respondObj];
+        [self.letters addObjectsFromArray:messModel.objectList];
+        //初始化数据
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self initwithData];
+            [self.tableView reloadData];
+        });
     }];
 }
 
 
 //NSString *targetUserId = @"imhipoyk18s4k52u"; 接受者
 //NSString *fromUserId = @"imhfp1yr4636pj49"; 发送者
-
--(void)postLetter{
-    NSString *content = @"sadfasdfasdfasdfasdf";
-    NSString *targetUserId = @"ioe4rahi670jsgdt";
-    NSString *fromUserId = @"imhipoyk18s4k52u";
+//imhfp1yr4636pj49
+-(void)postLetter:(NSString *)text{
+    NSString *content = text;
+    NSString *targetUserId = @"iijq9f1r7apprtab"; // 消息接受方
+    NSString *fromUserId = @"ioe4rahi670jsgdt"; // 消息发送方
     NSDictionary *json = @{
                            @"content" : content,
                            @"targetUserId" : targetUserId,
                            @"fromUserId" : fromUserId
                            };
 //    userBinding.do
-//    15baea603d3492a52b8c8799264b1fc65b4866f3
-    NSDictionary *j = @{
-                        @"cid":@"1517bfd3f7c76cf48ea",
-                        @"username":@"18211025820",
-                        @"password":@"123456",
-                        };
-    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"pushMessage.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+//  注册cid
+//    NSDictionary *j = @{
+//                        @"cid":@"1517bfd3f7c76cf48ea",
+//                        @"username":@"18211025820",
+//                        @"password":@"123456",
+//                        };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"pushMessage.do" parameters:json showHUDView:nil andBlock:^(id respondObj) {
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
+        MessageResultModel *resultModel = [MessageResultModel mj_objectWithKeyValues:respondObj];
+        [self.letters addObjectsFromArray:resultModel.objectList];
+        
     }];
     
 }
 
-
-
-
-
-
-
 -(void)initwithData
 {
-    
     self.cellFrames=[NSMutableArray array];
-    
-    NSString *path=[[NSBundle mainBundle] pathForResource:@"messages" ofType:@"plist"];
-    NSArray *data=[NSArray arrayWithContentsOfFile:path];
-    
-    for(NSDictionary *dict in data){
-        
+    for(PrivateLetterModel *letter in self.letters){
         ChartCellFrame *cellFrame=[[ChartCellFrame alloc]init];
         ChartMessage *chartMessage=[[ChartMessage alloc]init];
-        chartMessage.dict=dict;
+        chartMessage.letterModel = letter;
         cellFrame.chartMessage=chartMessage;
         [self.cellFrames addObject:cellFrame];
     }
@@ -157,8 +166,7 @@ static NSString *const cellIdentifier=@"QQChart";
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ChartCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.delegate=self;
+    ChartCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     cell.cellFrame=self.cellFrames[indexPath.row];
     return cell;
     
@@ -168,30 +176,30 @@ static NSString *const cellIdentifier=@"QQChart";
     return [self.cellFrames[indexPath.row] cellHeight];
 }
 
--(void)chartCell:(ChartCell *)chartCell tapContent:(NSString *)content
-{
-    if(self.player.isPlaying){
-        
-        [self.player stop];
-    }
-    //播放
-    NSString *filePath=[NSString documentPathWith:content];
-    NSURL *fileUrl=[NSURL fileURLWithPath:filePath];
-    [self initPlayer];
-    NSError *error;
-    self.player=[[AVAudioPlayer alloc]initWithContentsOfURL:fileUrl error:&error];
-    [self.player setVolume:1];
-    [self.player prepareToPlay];
-    [self.player setDelegate:self];
-    [self.player play];
-    [[UIDevice currentDevice] setProximityMonitoringEnabled:YES];
-}
--(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
-{
-    [[UIDevice currentDevice]setProximityMonitoringEnabled:NO];
-    [self.player stop];
-    self.player=nil;
-}
+//-(void)chartCell:(ChartCell *)chartCell tapContent:(NSString *)content
+//{
+//    if(self.player.isPlaying){
+//        
+//        [self.player stop];
+//    }
+//    //播放
+//    NSString *filePath=[NSString documentPathWith:content];
+//    NSURL *fileUrl=[NSURL fileURLWithPath:filePath];
+//    [self initPlayer];
+//    NSError *error;
+//    self.player=[[AVAudioPlayer alloc]initWithContentsOfURL:fileUrl error:&error];
+//    [self.player setVolume:1];
+//    [self.player prepareToPlay];
+//    [self.player setDelegate:self];
+//    [self.player play];
+//    [[UIDevice currentDevice] setProximityMonitoringEnabled:YES];
+//}
+//-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+//{
+//    [[UIDevice currentDevice]setProximityMonitoringEnabled:NO];
+//    [self.player stop];
+//    self.player=nil;
+//}
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     
@@ -201,18 +209,23 @@ static NSString *const cellIdentifier=@"QQChart";
 {
     ChartCellFrame *cellFrame=[[ChartCellFrame alloc]init];
     ChartMessage *chartMessage=[[ChartMessage alloc]init];
-    
-    int random=arc4random_uniform(2);
-    NSLog(@"%d",random);
-    chartMessage.icon=[NSString stringWithFormat:@"icon%02d.jpg",random+1];
-    chartMessage.messageType=random;
-    chartMessage.content=textFiled.text;
+    chartMessage.icon = nil;
+    chartMessage.content =textFiled.text;
+    chartMessage.messageType = kMessageTo;
     cellFrame.chartMessage=chartMessage;
-    
     [self.cellFrames addObject:cellFrame];
+//
+//    int random=arc4random_uniform(2);
+//    NSLog(@"%d",random);
+//    chartMessage.icon=[NSString stringWithFormat:@"icon%02d.jpg",random+1];
+//    chartMessage.messageType=kMessageFrom;
+//    chartMessage.content=textFiled.text;
+//    cellFrame.chartMessage=chartMessage;
+//
+//    [self.cellFrames addObject:cellFrame];
     
     //发送给后台
-    [self sendPrivateLetter:textFiled];
+    [self postLetter:textFiled.text];
     
     [self.tableView reloadData];
     
@@ -220,56 +233,7 @@ static NSString *const cellIdentifier=@"QQChart";
     [self tableViewScrollCurrentIndexPath];
     
     //在此处调用服务器的接口
-//    textFiled.text = @"";
-}
-
--(void)sendPrivateLetter:(UITextField *)textFiled {
-
-    
-    //参数
-    NSString *content = textFiled.text;
-    NSString *targetUserId = @"imhipoyk18s4k52u";
-    NSString *fromUserId = @"imhipoyk18s4k52u";
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    
-    NSLog(@"content=%@,fromUserId=%@,targetUserId=%@,timestamp=%@",content,fromUserId,targetUserId,timestamp);
-    
-    NSString *signmsg = [NSString stringWithFormat:@"content=%@&fromUserId=%@&targetUserId=%@&timestamp=%@&key=%@",content,fromUserId,targetUserId,timestamp,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
-    // 3.设置请求体
-    NSDictionary *json = @{
-                           @"content" : content,
-                           @"fromUserId" : fromUserId,
-                           @"targetUserId" : targetUserId,
-                           @"timestamp" :timestamp,
-                           @"signmsg"   : signmsgMD5
-                           };
-    
-//    NSString *url = @"http://192.168.1.69:8001/app/pushMessage.do";
-   
-     NSString *url = @"http://j.efeiyi.com:8080/app-wikiServer/app/pushMessage.do";
-    
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
-        
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
-        
-        
-        //在主线程刷新UI数据
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
-            [self.tableView reloadData];
-            
-        }];
-    }];
-
-
+    textFiled.text = @"";
 }
 
 -(void)KeyBordView:(KeyBordVIew *)keyBoardView textFiledBegin:(UITextField *)textFiled
@@ -358,6 +322,13 @@ static NSString *const cellIdentifier=@"QQChart";
     [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
     [audioSession setActive:YES error:nil];
     audioSession = nil;
+}
+
+-(NSMutableArray *)letters{
+    if (!_letters) {
+        _letters = [NSMutableArray array];
+    }
+    return _letters;
 }
 
 - (void)didReceiveMemoryWarning

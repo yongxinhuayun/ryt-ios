@@ -7,20 +7,35 @@
 //
 
 #import "PrivateLetterCell.h"
+#import "PrivateLetterModel.h"
+#import "UserMyModel.h"
+#import <UIImageView+WebCache.h>
+
+@interface PrivateLetterCell()
+@property (weak, nonatomic) IBOutlet UIImageView *userIcon;
+@property (weak, nonatomic) IBOutlet UILabel *userName;
+@property (weak, nonatomic) IBOutlet UILabel *bridge;
+
+@end
 
 @implementation PrivateLetterCell
 
-
-
-
-
-
-
-
-
+-(void)setLetterModel:(PrivateLetterModel *)letterModel{
+    _letterModel = letterModel;
+    NSString *pictStr = [letterModel.fromUser.pictureUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [self.userIcon sd_setImageWithURL:[NSURL URLWithString:pictStr] placeholderImage:nil];
+    self.userName.text =letterModel.fromUser.name;
+       NSInteger count = [letterModel.isRead intValue];
+    if (count>99) {
+        self.bridge.text = @"99+";
+    }else{
+        self.bridge.text = letterModel.isRead;
+    }
+}
 
 - (void)awakeFromNib {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.userIcon.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

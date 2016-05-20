@@ -140,7 +140,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0z-Bh-1lT">
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0z-Bh-1lT">
                                                     <rect key="frame" x="78" y="11" width="14" height="14"/>
                                                     <color key="backgroundColor" red="1" green="0.25941775189999999" blue="0.28726397339999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -181,8 +181,11 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="plBridge" destination="EgD-Ab-i2Z" id="Lt4-jo-lxJ"/>
+                        <outlet property="plNumConstraint" destination="YSd-EC-yOc" id="qTF-yI-VHx"/>
                         <outlet property="sxBridge" destination="v0z-Bh-1lT" id="Ash-1e-vFX"/>
+                        <outlet property="sxNumConstraint" destination="X5W-yR-9Ju" id="hrj-2P-hB7"/>
                         <outlet property="tzBridge" destination="KrA-CQ-Otd" id="3qD-LE-5iG"/>
+                        <outlet property="tzNumConstraint" destination="zyk-a2-p8n" id="5ZS-z2-hPM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mze-h5-hGA" userLabel="First Responder" sceneMemberID="firstResponder"/>

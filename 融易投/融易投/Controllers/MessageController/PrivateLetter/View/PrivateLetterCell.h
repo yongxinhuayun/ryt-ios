@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class PrivateLetterModel;
 @interface PrivateLetterCell : UITableViewCell
+@property(nonatomic,strong)PrivateLetterModel *letterModel;
 
 @end

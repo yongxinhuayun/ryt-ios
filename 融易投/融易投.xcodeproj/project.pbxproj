@@ -502,6 +502,7 @@
 		E2729B021CD8B9F9006C0617 /* ProjectDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729B011CD8B9F9006C0617 /* ProjectDetailsViewController.m */; };
 		E2729B061CD8BB0D006C0617 /* FinanceHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729B041CD8BB0D006C0617 /* FinanceHeader.m */; };
 		E2729B071CD8BB0D006C0617 /* FinanceHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2729B051CD8BB0D006C0617 /* FinanceHeader.xib */; };
+		E2A38A371CEEA45100EAB0D3 /* PrivateLetterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A38A361CEEA45100EAB0D3 /* PrivateLetterModel.m */; };
 		E2AAF0391CE1C7B40009FD19 /* PostCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AAF0371CE1C7B40009FD19 /* PostCommentController.m */; };
 		E2AAF03A1CE1C7B40009FD19 /* PostCommentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2AAF0381CE1C7B40009FD19 /* PostCommentController.xib */; };
 		E2D05B721CB38C8C00B0F690 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B711CB38C8C00B0F690 /* CoreTelephony.framework */; };
@@ -1377,6 +1378,8 @@
 		E2729B031CD8BB0D006C0617 /* FinanceHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceHeader.h; sourceTree = "<group>"; };
 		E2729B041CD8BB0D006C0617 /* FinanceHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceHeader.m; sourceTree = "<group>"; };
 		E2729B051CD8BB0D006C0617 /* FinanceHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceHeader.xib; sourceTree = "<group>"; };
+		E2A38A351CEEA45100EAB0D3 /* PrivateLetterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivateLetterModel.h; sourceTree = "<group>"; };
+		E2A38A361CEEA45100EAB0D3 /* PrivateLetterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivateLetterModel.m; sourceTree = "<group>"; };
 		E2AAF0361CE1C7B40009FD19 /* PostCommentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCommentController.h; sourceTree = "<group>"; };
 		E2AAF0371CE1C7B40009FD19 /* PostCommentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCommentController.m; sourceTree = "<group>"; };
 		E2AAF0381CE1C7B40009FD19 /* PostCommentController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCommentController.xib; sourceTree = "<group>"; };
@@ -2885,6 +2888,7 @@
 		E2322B151CEC24B9002730E7 /* MessageModel */ = {
 			isa = PBXGroup;
 			children = (
+				E2A38A341CEEA43700EAB0D3 /* PrivateLetterModel */,
 				E2322B161CEC24E7002730E7 /* CommentModel */,
 				E2322B171CEC24E7002730E7 /* MessageResultModel */,
 			);
@@ -2922,6 +2926,15 @@
 				E2729AF41CD8B983006C0617 /* RecordTableViewCell.xib */,
 			);
 			name = "记录";
+			sourceTree = "<group>";
+		};
+		E2A38A341CEEA43700EAB0D3 /* PrivateLetterModel */ = {
+			isa = PBXGroup;
+			children = (
+				E2A38A351CEEA45100EAB0D3 /* PrivateLetterModel.h */,
+				E2A38A361CEEA45100EAB0D3 /* PrivateLetterModel.m */,
+			);
+			path = PrivateLetterModel;
 			sourceTree = "<group>";
 		};
 		E2D521951CDF77220024887A /* UserAccount */ = {
@@ -4405,6 +4418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2D812EF1CCF85D500A52172 /* BaseScrollViewController.m in Sources */,
+				E2A38A371CEEA45100EAB0D3 /* PrivateLetterModel.m in Sources */,
 				E2729AFD1CD8B9A7006C0617 /* UserCommentViewController.m in Sources */,
 				21AB0AC21CC50A4D00B7BA03 /* UIColor+JPExtension.m in Sources */,
 				21AB0AC81CC50A4D00B7BA03 /* ScrollTestVC.m in Sources */,

@@ -19,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *tzBridge;
 @property (weak, nonatomic) IBOutlet UILabel *plBridge;
 @property (weak, nonatomic) IBOutlet UILabel *sxBridge;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tzNumConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *plNumConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sxNumConstraint;
 
 @property(nonatomic,strong) MessageModel *messageModel;
 
@@ -62,18 +65,36 @@
     }else{
         self.tzBridge.hidden = NO;
         self.tzBridge.text = [NSString stringWithFormat:@"%ld",self.messageModel.noticeNum];
+        if (self.messageModel.noticeNum > 99) {
+            self.tzNumConstraint.constant = 24;
+            self.tzBridge.text = @"99+";
+        }else if (self.messageModel.noticeNum > 9){
+            self.tzNumConstraint.constant = 18;
+        }
     }
     if (self.messageModel.commentNum == 0) {
         self.plBridge.hidden = YES;
     }else{
         self.plBridge.hidden = NO;
         self.plBridge.text =[NSString stringWithFormat:@"%ld",self.messageModel.commentNum];
+        if (self.messageModel.commentNum > 99) {
+            self.plNumConstraint.constant = 24;
+            self.plBridge.text = @"99+";
+        }else if (self.messageModel.commentNum > 9){
+            self.plNumConstraint.constant = 18;
+        }
     }
     if (self.messageModel.messageNum == 0) {
         self.sxBridge.hidden = YES;
     }else{
         self.sxBridge.hidden = NO;
         self.sxBridge.text = [NSString stringWithFormat:@"%ld",self.messageModel.messageNum];
+        if (self.messageModel.messageNum > 99) {
+            self.sxNumConstraint.constant = 24;
+            self.sxBridge.text = @"99+";
+        }else if (self.messageModel.messageNum > 9){
+            self.sxNumConstraint.constant = 18;
+        }
     }
 }
 

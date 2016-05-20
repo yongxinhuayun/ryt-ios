@@ -7,14 +7,31 @@
 //
 
 #import "PrivateLetterController.h"
-#import "PrivateLetterCell.h"
 #import "PrivateLetterViewController.h"
+#import "MessageResultModel.h"
+
+#import "PrivateLetterCell.h"
+#import "UserMyModel.h"
+#import "PrivateLetterModel.h"
+#import "UITableView+Improve.h"
+#import <MJExtension.h>
+
 @interface PrivateLetterController ()
 @property(nonatomic,copy) NSString *lastPageNum;
+@property(nonatomic,strong)NSMutableArray *letters;
 
 @end
 
 @implementation PrivateLetterController
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+//    self.navigationController.navigationBar.translucent = NO;
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+//    self.navigationController.navigationBar.translucent = YES;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,12 +39,20 @@
     self.title = @"私信";
     [self.tableView setSeparatorColor:[UIColor colorWithRed:242.0 / 255.0 green:242.0 / 255.0 blue:242.0 / 255.0 alpha:1.0]];
     [self.tableView registerNib:[UINib nibWithNibName:@"PrivateLetterCell" bundle:nil] forCellReuseIdentifier:@"PrivateCell"];
+    [UserMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return [NSDictionary dictionaryWithObject:@"id" forKey:@"ID"];
+    }];
+    [MessageResultModel mj_setupObjectClassInArray:^NSDictionary *{
+        return [NSDictionary dictionaryWithObject:@"PrivateLetterModel" forKey:@"objectList"];
+    }];
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    [self.tableView improveTableView];
 }
 
 
 //NSString *targetUserId = @"imhipoyk18s4k52u";
 //NSString *fromUserId = @"imhfp1yr4636pj49";
-// iijq9f1r7apprtab
+// iijq9f1r7apprtab 我的
 
 -(void)loadData{
     NSString * pageNum = @"1";
@@ -43,8 +68,8 @@
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"information.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
-//        MessageResultModel *resultModel = [MessageResultModel mj_objectWithKeyValues:respondObj];
-//        [self.commentArray addObjectsFromArray:resultModel.objectList];
+        MessageResultModel *resultModel = [MessageResultModel mj_objectWithKeyValues:respondObj];
+        [self.letters addObjectsFromArray:resultModel.objectList];
         //在主线程刷新UI数据
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
@@ -54,12 +79,8 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.letters.count;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,31 +91,51 @@
     return 60;
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, 15)];
-    headerView.backgroundColor = [UIColor whiteColor];
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, headerView.height, headerView.width, 1)];
-    line.backgroundColor = [UIColor colorWithRed:242.0 / 255.0 green:242.0 / 255.0 blue:242.0 / 255.0 alpha:1.0];
-    [headerView addSubview:line];
-    
-    return headerView;
-}
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, 15)];
+//    headerView.backgroundColor = [UIColor whiteColor];
+//    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, headerView.height, headerView.width, 1)];
+//    line.backgroundColor = [UIColor colorWithRed:242.0 / 255.0 green:242.0 / 255.0 blue:242.0 / 255.0 alpha:1.0];
+//    [headerView addSubview:line];
+//    
+//    return headerView;
+//}
 
--(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 15;
-}
+//static CGFloat Headerheight = 15;
+//-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    return Headerheight;
+//}
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//    if (scrollView == self.tableView)
+//    {
+//        CGFloat sectionHeaderHeight = Headerheight; //sectionHeaderHeight
+//        if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+//            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+//        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+//            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+//        }
+//    }
+//}
 
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrivateCell" forIndexPath:indexPath];
-    
+    PrivateLetterCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrivateCell" forIndexPath:indexPath];
+    PrivateLetterModel *letterModel = self.letters[indexPath.row];
+    cell.letterModel = letterModel;
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     PrivateLetterViewController *p = [[PrivateLetterViewController alloc] init];
     [self.navigationController pushViewController:p animated:YES];
+}
+
+-(NSMutableArray *)letters{
+    if (!_letters) {
+        _letters = [NSMutableArray array];
+    }
+    return _letters;
 }
 
 /*

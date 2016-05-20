@@ -40,6 +40,12 @@
     
     self.chartViewRect=CGRectMake(contentX, contentY, contentSize.width+35, contentSize.height+30);
     
-    self.cellHeight=MAX(CGRectGetMaxY(self.iconRect), CGRectGetMaxY(self.chartViewRect))+kIconMarginX;
+    self.cellHeight = MAX(CGRectGetMaxY(self.iconRect), CGRectGetMaxY(self.chartViewRect))+kIconMarginX;
+}
+-(CGFloat)cellHeight{
+    if (_cellHeight != 0) {
+        return _cellHeight;
+    }
+    return 10;
 }
 @end

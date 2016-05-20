@@ -8,6 +8,8 @@
 
 #import "ChartCell.h"
 #import "ChartContentView.h"
+#import <UIButton+WebCache.h>
+#import <UIImageView+WebCache.h>
 @interface ChartCell()<ChartContentViewDelegate>
 @property (nonatomic,strong) UIImageView *icon;
 @property (nonatomic,strong) ChartContentView *chartView;
@@ -34,17 +36,15 @@
 }
 -(void)setCellFrame:(ChartCellFrame *)cellFrame
 {
-   
     _cellFrame=cellFrame;
-    
     ChartMessage *chartMessage=cellFrame.chartMessage;
-    
     self.icon.frame=cellFrame.iconRect;
-    self.icon.image=[UIImage imageNamed:chartMessage.icon];
-   
+//    self.icon.image=[UIImage imageNamed:chartMessage.icon];
+//    [self.icon  ss_setHeader:[NSURL URLWithString:chartMessage.icon]];
+//    self.icon = chartMessage.icon;
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:chartMessage.icon] placeholderImage:nil];
     self.chartView.chartMessage=chartMessage;
     self.chartView.frame=cellFrame.chartViewRect;
-    
     //设置聊天框的背景
     [self setBackGroundImageViewImage:self.chartView from:@"sixin_lift_duihuakuang" to:@"sixin_duihuakuang"];
     self.chartView.contentLabel.text=chartMessage.content;
