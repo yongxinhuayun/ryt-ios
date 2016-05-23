@@ -45,6 +45,9 @@
 #import "ArtistUserHomeViewController.h"
 
 #import "MeTableViewCell.h"
+#import "RYTLoginManager.h"
+
+#import "UserMyModel.h"
 
 @interface MeViewController ()
 
@@ -117,6 +120,21 @@ static NSString *ID = @"MeTableViewCell";
     
     self.meheaderView.editingInfoBlcok = ^{
         
+        
+        RYTLoginManager *manger = [RYTLoginManager shareInstance];
+        
+        UserMyModel *model = [manger takeUser];
+        
+        NSString *userId = model.ID;
+        
+        if (userId == nil) {
+            
+            [manger showLoginViewIfNeed];
+            
+            return;
+        }
+
+        
         UIStoryboard *editingInfoStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([EditingInfoViewController class]) bundle:nil];
         EditingInfoViewController *editingInfoVC = [editingInfoStoryBoard instantiateInitialViewController];
         
@@ -131,6 +149,19 @@ static NSString *ID = @"MeTableViewCell";
     __weak MeViewController *weakself=self;
     
     self.meheaderView.focusBlcok = ^{
+        
+        RYTLoginManager *manger = [RYTLoginManager shareInstance];
+        
+        UserMyModel *model = [manger takeUser];
+        
+        NSString *userId = model.ID;
+        
+        if (userId == nil) {
+            
+            [manger showLoginViewIfNeed];
+            
+            return;
+        }
         
         FocusMyViewController *focusVC = [[FocusMyViewController alloc] init];
         
@@ -285,12 +316,11 @@ static NSString *ID = @"MeTableViewCell";
     }else if (indexPath.row == 2){
         
         //测试跳转到艺术家主页
-        CommonUserHomeViewController *myHomeVC = [[CommonUserHomeViewController alloc] init];
+        ArtistUserHomeViewController *artistHomeVC = [[ArtistUserHomeViewController alloc] init];
         
-        myHomeVC.model = self.model;
+        artistHomeVC.model = self.model;
         
-        [self.navigationController pushViewController:myHomeVC animated:YES];
-
+        [self.navigationController pushViewController:artistHomeVC animated:YES];
         
     }else if (indexPath.row == 3){
         
@@ -322,16 +352,26 @@ static NSString *ID = @"MeTableViewCell";
 {
     //参数
     //有值代表着登录,没值就是游客
-    NSString *userId = TakeUserID;
+//    RYTLoginManager *manger = [RYTLoginManager shareInstance];
+//    
+//    NSString *userId = manger.user.ID;
     
+    RYTLoginManager *manger = [RYTLoginManager shareInstance];
+    
+    UserMyModel *model = [manger takeUser];
+    
+    NSString *userId = model.ID;
+
     if (userId == nil) {
         
         userId = @"";
-    }else{
-    
-        userId = TakeUserID;
+        
+        SSLog(@"%@",userId);
+        
+        return;
     }
-    
+
+    SSLog(@"%@",userId);
     
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";
@@ -355,7 +395,7 @@ static NSString *ID = @"MeTableViewCell";
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.41:8080/app/my.do";
+    NSString *url = @"http://192.168.1.75:8001/app/my.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:nil success:^(id respondObj) {
         

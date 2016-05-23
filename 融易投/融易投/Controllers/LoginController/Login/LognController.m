@@ -18,6 +18,7 @@
 
 #import "BQLAuthEngine.h"
 #import "UserMyModel.h"
+#import "RYTLoginManager.h"
 
 @interface LognController ()
 {
@@ -40,13 +41,34 @@
     //初始化微信登录控制类
      _bqlAuthEngine = [[BQLAuthEngine alloc] init];
     
-    self.navigationItem.title = @"登录"; 
+    
+    [self setUpNavBar];
     
     [UserMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         return @{
                  @"ID" : @"id",
                  };
     }];
+}
+
+// 设置导航条
+-(void)setUpNavBar
+{
+    //设置导航条标题
+    self.navigationItem.title = @"登录";
+    
+    //左边
+    UIImage *image = [UIImage imageNamed:@"denglu_guanbi"];
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithImage:image style:0 target:self action:@selector(btnClick)];
+    
+    self.navigationItem.rightBarButtonItem = barButtonItem;
+}
+
+-(void)btnClick{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -72,9 +94,12 @@
         NSLog(@"failure:%@",error);
     }];
 }
+
 - (IBAction)registerBtnClick:(id)sender {
     
     RegViewController *reg = [[RegViewController alloc] init];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:reg];
+////    [self addChildViewController:nav];
     
     [self.navigationController pushViewController:reg animated:YES];
 }
@@ -82,7 +107,10 @@
 - (IBAction)forgetPWDBtnClick:(id)sender {
     
     ForgetPasswordViewController *forgetPWD = [[ForgetPasswordViewController alloc] init];
-    [self.navigationController pushViewController:forgetPWD animated:YES];
+//     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:forgetPWD];
+//     [self presentViewController:nav animated:YES completion:nil];
+    
+     [self.navigationController pushViewController:forgetPWD animated:YES];
 }
 
 
@@ -128,6 +156,12 @@
         
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
+
+        UserMyModel *userMyModel = [UserMyModel mj_objectWithKeyValues:dict[@"userInfo"]];
+        
+
+        
+
 //        NSString *a = TakeUserID;
 //        SSLog(@"%@",a);
         
@@ -136,6 +170,16 @@
          [MBProgressHUD hideHUD];
         
         if (dict[@"resultCode"] != 0) {
+
+            
+            [MBProgressHUD showSuccess:@"登录成功"];
+            
+            //登录实体类
+            RYTLoginManager *manger = [RYTLoginManager shareInstance];
+            
+            [manger loginSuccess:userMyModel];
+            
+
             NSString *registrationID = [[NSUserDefaults standardUserDefaults] valueForKey:@"registrationID"];
             UserMyModel *userMyModel = [UserMyModel mj_objectWithKeyValues:dict[@"userInfo"]];
             
@@ -146,6 +190,10 @@
             //注册 registrationID
             //    userBinding.do
             //  注册cid
+            
+            
+            SSLog(@"%@",registrationID);
+            
                 NSDictionary *json = @{
                                     @"cid":registrationID,
                                     @"username":userMyModel.username,
@@ -158,6 +206,7 @@
             }];
              [MBProgressHUD showSuccess:@"登录成功"];
 
+
         }else { //登录失败
              [MBProgressHUD showError:@"登录失败"];
         }
@@ -168,7 +217,8 @@
             
             [MBProgressHUD hideHUD];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:ChangeRootViewControllerNotification object:self userInfo:@{@"message":@"1"}];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:ChangeRootViewControllerNotification object:self userInfo:@{@"message":@"1"}];
+            [self dismissViewControllerAnimated:YES completion:nil];
             
         }];
       

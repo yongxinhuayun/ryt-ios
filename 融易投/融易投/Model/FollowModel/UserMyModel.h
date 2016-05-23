@@ -10,7 +10,7 @@
 
 #import "MasterMyModel.h"
 
-@interface UserMyModel : NSObject
+@interface UserMyModel : NSObject <NSCoding>
 
 
 /** id */

@@ -22,6 +22,13 @@
 @property(nonatomic,readonly) UserMyModel *user;
 
 /**
+ * 用户登录ID
+ * 只读属性，防止外部赋值
+ * 用户信息赋值一次
+ */
+@property(nonatomic,readonly,assign) NSString *ID;
+
+/**
  * 判断用户身份,访客或者登录
  * 如果是访客，禁用一些功能，并弹出登录窗口
  * 只读属性，不能在外部修改
@@ -34,21 +41,34 @@
  */
 -(BOOL)showLoginViewIfNeed;
 
+-(BOOL)showRegViewIfNeed;
+
 /**
  *  如果用户登录成功
  * 1. 保存用户信息
  * 2. 每次重新登录时，要向服务器注册极光 ID
  * 3. 全局通知用户登录成功
  */
--(void)loginSuccess;
+-(void)loginSuccess:(UserMyModel *)user;
 
 /**
  * 保存用户信息
  */
--(void)saveUser;
+-(void)saveUser:(UserMyModel *)user;
+
+
+/**
+ * 取用户信息
+ */
+-(UserMyModel *)takeUser;
+
+-(UIViewController *)loginVC;
+-(UIViewController *)regVC;
+//-(void)showLoginVC;
 
 /**
  *  注销、退出登录
  */
 -(BOOL)doLogout;
+
 @end

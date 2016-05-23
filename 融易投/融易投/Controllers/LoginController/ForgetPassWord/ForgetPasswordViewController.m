@@ -27,8 +27,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setUpNavBar];
+    
     self.verifyCodeTextField.delegate = self;
 }
+
+// 设置导航条
+-(void)setUpNavBar
+{
+    //设置导航条标题
+    self.navigationItem.title = @"忘记密码";
+    
+    //左边
+    UIImage *image = [UIImage imageNamed:@"fanhui"];
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithImage:image style:0 target:self action:@selector(btnClick)];
+    
+    self.navigationItem.leftBarButtonItem = barButtonItem;
+}
+
+-(void)btnClick{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 - (IBAction)sendVerifyCodeBtnClick:(id)sender {
     
      [self sendVerifyCode];
