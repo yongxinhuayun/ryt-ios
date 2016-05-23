@@ -68,16 +68,17 @@ static NSString *cellID = @"cellID";
 -(void)loadData{
     NSString * pageNum = @"1";
     NSString* pageSize = @"99";
+    NSString *userId = TakeUserID;
     // 3.设置请求体
     NSDictionary *json = @{
-                           @"userId" : @"iijq9f1r7apprtab",
+                           @"userId" : userId,
                            @"pageNum" : pageNum,
                            @"pageSize" :pageSize,
                            @"type"     :@"0"
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"information.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];        
-//        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];        
+        NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         NSLog(@"%@",modelDict);
         self.models = [NotificationModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];

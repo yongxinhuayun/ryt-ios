@@ -72,7 +72,6 @@
                                  }];
 }
 
-
 -(void)postUserComments:(UserCommentListModel *)commentModel{
     PostCommentController *postController = [[PostCommentController alloc] init];
     postController.title = [NSString stringWithFormat:@"回复%@",commentModel.creator.name];

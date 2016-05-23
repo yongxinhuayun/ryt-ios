@@ -128,12 +128,6 @@
         
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
-        UserMyModel *userMyModel = [UserMyModel mj_objectWithKeyValues:dict[@"userInfo"]];
-        
-        NSString *ID = userMyModel.ID;
-
-        SaveUserID(ID);
-        
 //        NSString *a = TakeUserID;
 //        SSLog(@"%@",a);
         
@@ -143,6 +137,11 @@
         
         if (dict[@"resultCode"] != 0) {
             NSString *registrationID = [[NSUserDefaults standardUserDefaults] valueForKey:@"registrationID"];
+            UserMyModel *userMyModel = [UserMyModel mj_objectWithKeyValues:dict[@"userInfo"]];
+            
+            NSString *ID = userMyModel.ID;
+            
+            SaveUserID(ID);
             //登录成功的时候注册用户的registrationId
             //注册 registrationID
             //    userBinding.do
