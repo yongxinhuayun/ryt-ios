@@ -138,6 +138,11 @@
 // 点击返回按钮,回到上一个界面
 - (void)back
 {
+    
+    // back 之前执行的block
+    if ([self.commonDelegate respondsToSelector:@selector(beforeBack)]) {
+        [self.commonDelegate beforeBack];
+    }
     // self -> 导航控制器
     [self popViewControllerAnimated:YES];
     

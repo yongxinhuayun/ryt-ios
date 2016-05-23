@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CommonNavigationDelegate <NSObject>
+
+@optional
+-(void)beforeBack;
+
+@end
 @interface CommonNavigationController : UINavigationController
 
-
+@property(nonatomic,weak) id<CommonNavigationDelegate> commonDelegate;
 @end

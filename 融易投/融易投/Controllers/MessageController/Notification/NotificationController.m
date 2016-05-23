@@ -14,8 +14,8 @@
 
 #import <MJExtension.h>
 #import "UITableView+Improve.h"
-
-@interface NotificationController ()
+#import "CommonNavigationController.h"
+@interface NotificationController ()<CommonNavigationDelegate>
 
 @property (nonatomic, strong) NSMutableArray *models;
 
@@ -27,6 +27,8 @@ static NSString *cellID = @"cellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    CommonNavigationController *nav = (CommonNavigationController *)self.navigationController;
+    nav.commonDelegate = self;
     self.navigationItem.title = @"通知";
     [self.tableView setSeparatorColor:[UIColor colorWithRed:208.0 / 255.0 green:209.0 / 255.0 blue:210.0 / 255.0 alpha:0.4]];
     //加载数据
@@ -46,6 +48,21 @@ static NSString *cellID = @"cellID";
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"NotificationTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
     [self.tableView improveTableView];
+}
+
+-(void)beforeBack{
+    // 点击返回按钮，清除用户私信未读的数量
+    NSString *userId = @"ioe4rahi670jsgdt";
+    NSString *group = @"notification";
+    NSDictionary *json = @{
+                           @"group" : group,
+                           @"userId" : userId
+                           };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"updateWatchedStatus" parameters:json
+                                 showHUDView:nil andBlock:^(id respondObj) {
+                                     NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+                                     NSLog(@"返回结果:%@",jsonStr);
+                                 }];
 }
 
 -(void)loadData{
