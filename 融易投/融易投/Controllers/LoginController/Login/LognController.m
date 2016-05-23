@@ -190,6 +190,10 @@
             //注册 registrationID
             //    userBinding.do
             //  注册cid
+            
+            
+            SSLog(@"%@",registrationID);
+            
                 NSDictionary *json = @{
                                     @"cid":registrationID,
                                     @"username":userMyModel.username,

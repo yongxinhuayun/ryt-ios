@@ -11,7 +11,6 @@
 		2118F1E41CAE5805003BFC6B /* MyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2118F1E21CAE5805003BFC6B /* MyViewController.xib */; };
 		2118F1EA1CAE88B4003BFC6B /* navTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2118F1E91CAE88B4003BFC6B /* navTitleButton.m */; };
 		211C394A1CB36B1500DAD827 /* FinanceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 211C39481CB36B1500DAD827 /* FinanceTableViewCell.m */; };
-		211C394B1CB36B1500DAD827 /* FinanceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 211C39491CB36B1500DAD827 /* FinanceTableViewCell.xib */; };
 		212EEE431CD9D8CD00F94B30 /* CommonButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE421CD9D8CD00F94B30 /* CommonButton.m */; };
 		212EEE701CDC361100F94B30 /* SettingFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE6F1CDC361100F94B30 /* SettingFooterView.m */; };
 		212EEE721CDC362600F94B30 /* SettingFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE711CDC362600F94B30 /* SettingFooterView.xib */; };
@@ -96,6 +95,7 @@
 		21C337501CF2A343001F3CA5 /* MBProgressHUD+YXL.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C3374E1CF2A343001F3CA5 /* MBProgressHUD+YXL.m */; };
 		21C337511CF2A343001F3CA5 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21C3374F1CF2A343001F3CA5 /* MBProgressHUD.bundle */; };
 		21C3375C1CF2B207001F3CA5 /* SSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C3375B1CF2B207001F3CA5 /* SSTextField.m */; };
+		21C3375F1CF32BE0001F3CA5 /* FinanceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C3375E1CF32BE0001F3CA5 /* FinanceTableViewCell.xib */; };
 		21C413DE1CE2D23500F1029C /* ArtistMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C413151CE2D23500F1029C /* ArtistMainViewController.m */; };
 		21C413DF1CE2D23500F1029C /* ArtistUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C413171CE2D23500F1029C /* ArtistUserHomeViewController.m */; };
 		21C413E01CE2D23500F1029C /* ArtistWorksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C413191CE2D23500F1029C /* ArtistWorksViewController.m */; };
@@ -702,7 +702,6 @@
 		2118F1E91CAE88B4003BFC6B /* navTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navTitleButton.m; sourceTree = "<group>"; };
 		211C39471CB36B1500DAD827 /* FinanceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceTableViewCell.h; sourceTree = "<group>"; };
 		211C39481CB36B1500DAD827 /* FinanceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceTableViewCell.m; sourceTree = "<group>"; };
-		211C39491CB36B1500DAD827 /* FinanceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceTableViewCell.xib; sourceTree = "<group>"; };
 		212EEE411CD9D8CD00F94B30 /* CommonButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonButton.h; sourceTree = "<group>"; };
 		212EEE421CD9D8CD00F94B30 /* CommonButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonButton.m; sourceTree = "<group>"; };
 		212EEE6E1CDC361100F94B30 /* SettingFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingFooterView.h; sourceTree = "<group>"; };
@@ -854,6 +853,7 @@
 		21C3374F1CF2A343001F3CA5 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		21C3375A1CF2B207001F3CA5 /* SSTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTextField.h; sourceTree = "<group>"; };
 		21C3375B1CF2B207001F3CA5 /* SSTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTextField.m; sourceTree = "<group>"; };
+		21C3375E1CF32BE0001F3CA5 /* FinanceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceTableViewCell.xib; sourceTree = "<group>"; };
 		21C413141CE2D23500F1029C /* ArtistMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistMainViewController.h; sourceTree = "<group>"; };
 		21C413151CE2D23500F1029C /* ArtistMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistMainViewController.m; sourceTree = "<group>"; };
 		21C413161CE2D23500F1029C /* ArtistUserHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistUserHomeViewController.h; sourceTree = "<group>"; };
@@ -1876,7 +1876,7 @@
 			children = (
 				211C39471CB36B1500DAD827 /* FinanceTableViewCell.h */,
 				211C39481CB36B1500DAD827 /* FinanceTableViewCell.m */,
-				211C39491CB36B1500DAD827 /* FinanceTableViewCell.xib */,
+				21C3375E1CF32BE0001F3CA5 /* FinanceTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -4229,7 +4229,6 @@
 				E22892871CDF03F400483F18 /* d_chanzui@2x.png in Resources */,
 				21C4144D1CE2D2B200F1029C /* ReleaseVideoViewController.xib in Resources */,
 				E22892A01CDF03F400483F18 /* d_nu@2x.png in Resources */,
-				211C394B1CB36B1500DAD827 /* FinanceTableViewCell.xib in Resources */,
 				E2322B141CEC0AAB002730E7 /* NormalCommentsCell.xib in Resources */,
 				21C414161CE2D23500F1029C /* picture3.png in Resources */,
 				21D54B921CB739E60088D386 /* AuctionTableViewCell.xib in Resources */,
@@ -4328,6 +4327,7 @@
 				E2D524711CDF9B9C0024887A /* WalletFooterView.xib in Resources */,
 				E22892D91CDF03F400483F18 /* o_weibo@2x.png in Resources */,
 				E22892C81CDF03F400483F18 /* h_haha@2x.png in Resources */,
+				21C3375F1CF32BE0001F3CA5 /* FinanceTableViewCell.xib in Resources */,
 				E22892C11CDF03F400483F18 /* f_meng@2x.png in Resources */,
 				E22893961CDF049500483F18 /* lxh_juhan@2x.png in Resources */,
 				E22893811CDF049500483F18 /* lxh_haoaio@2x.png in Resources */,
