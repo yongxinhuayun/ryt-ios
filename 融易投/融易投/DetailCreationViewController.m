@@ -87,6 +87,7 @@
     NSString *urlStr = [[NSString stringWithFormat:@"%@",self.creationModel.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *picUrl = [NSURL URLWithString:urlStr];
     [self.tpView.imgView sd_setImageWithURL:picUrl];
+    self.tpView.titleLabel.text = self.creationModel.title;
     //加载用户信息
     // 存放在tpView中
     //头像userPicture

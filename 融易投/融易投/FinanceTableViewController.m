@@ -81,13 +81,11 @@ static NSString *ID = @"financeCell";
     //我们可以往底部添加额外了滚动区域25,那么整体就向上移动了,但是这样底部离tabbar会有一定的间距了,不好看
     //可以修改顶部的间距,让顶部减25就可以了
     self.tableView.contentInset = UIEdgeInsetsMake(67, 0, 50, 0);
-    
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"FinanceTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
     
     
     [FinanceModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-        
         return @{
                  @"descriptions":@"description",
                  @"ID"          :@"id",
@@ -243,6 +241,7 @@ static NSString *ID = @"financeCell";
 {
     
     FinanceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    cell.x = 0;
     
     FinanceModel *model = self.models[indexPath.row];
     
@@ -256,7 +255,7 @@ static NSString *ID = @"financeCell";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 378;
+    return 360;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

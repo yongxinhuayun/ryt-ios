@@ -8,16 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class FinanceModel;
-
-
+@class FinanceModel,Progress;
 @interface FinanceTableViewCell : UITableViewCell
-
 +(instancetype) financeCell;
-
 @property (nonatomic, strong) FinanceModel *model;
-
-
-
-
+@property (nonatomic,strong) Progress *progress;
 @end
