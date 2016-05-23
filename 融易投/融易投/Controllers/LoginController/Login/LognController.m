@@ -142,24 +142,21 @@
          [MBProgressHUD hideHUD];
         
         if (dict[@"resultCode"] != 0) {
-            
-            [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"登录%@",LognInfo]];
             NSString *registrationID = [[NSUserDefaults standardUserDefaults] valueForKey:@"registrationID"];
+            //登录成功的时候注册用户的registrationId
             //注册 registrationID
             //    userBinding.do
             //  注册cid
                 NSDictionary *json = @{
                                     @"cid":registrationID,
-                                    @"username":userAccount.username,
+                                    @"username":userMyModel.username,
                                     @"password":self.passwordTextField.text,
                                     };
             [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"userBinding.do" parameters:json showHUDView:nil andBlock:^(id respondObj) {
                 NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
                 NSLog(@"返回结果:%@",jsonStr);
-                
+              // TODO
             }];
-            
-            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
              [MBProgressHUD showSuccess:@"登录成功"];
 
         }else { //登录失败
