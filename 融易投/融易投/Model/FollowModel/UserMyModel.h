@@ -20,6 +20,9 @@
 @property (nonatomic ,strong) NSString *name;
 
 /** 名称 */
+@property (nonatomic ,strong) NSString *name2;
+
+/** 名称 */
 @property (nonatomic ,strong) NSString *username;
 
 /** 图片 */

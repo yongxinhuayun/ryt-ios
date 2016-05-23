@@ -39,6 +39,9 @@ static NSString *appKey = @"539b73fd73c82f1134120a57";
 static NSString *channel = @"Publish channel";
 static BOOL isProduction = FALSE;
 
+static NSString *BeeCloudAppID = @"130498c1-8928-433b-a01d-c26420f41818";
+static NSString *BeeCloudAppSecret = @"23b1b629-4da0-42bd-8b4c-f7124bde629a";
+
 #define SSVersionKey @"curVersion"
 
 #define SSUserDefaults [NSUserDefaults standardUserDefaults]
@@ -54,10 +57,8 @@ static BOOL isProduction = FALSE;
 {
     if ([url.scheme isEqualToString:[NSString stringWithFormat:@"%@",WXAppKey]]) {
         return  [WXApi handleOpenURL:url delegate:[[BQLAuthEngine alloc] init]];
-    }
-    else if ([url.scheme isEqualToString:[NSString stringWithFormat:@"tencent%@",QQAppID]]) {
-        return  [TencentOAuth HandleOpenURL:url];
-        //return [QQApiInterface handleOpenURL:url delegate:[[BQLAuthEngine alloc] init]];
+    }else if (![BeeCloud handleOpenUrl:url]) {
+        //handle其他类型的url
     }
     
     return YES;
@@ -67,9 +68,8 @@ static BOOL isProduction = FALSE;
 {
     if ([url.scheme isEqualToString:[NSString stringWithFormat:@"%@",WXAppKey]]) {
         return  [WXApi handleOpenURL:url delegate:[[BQLAuthEngine alloc] init]];
-    }
-    else if ([url.scheme isEqualToString:[NSString stringWithFormat:@"tencent%@",QQAppID]]) {
-        return  [TencentOAuth HandleOpenURL:url];
+    }else  if (![BeeCloud handleOpenUrl:url]) {
+        //handle其他类型的url
     }
     
     return YES;
@@ -79,9 +79,8 @@ static BOOL isProduction = FALSE;
     
     if ([url.scheme isEqualToString:[NSString stringWithFormat:@"%@",WXAppKey]]) {
         return  [WXApi handleOpenURL:url delegate:[[BQLAuthEngine alloc] init]];
-    }
-    else if ([url.scheme isEqualToString:[NSString stringWithFormat:@"tencent%@",QQAppID]]) {
-        return  [TencentOAuth HandleOpenURL:url];
+    }else if (![BeeCloud handleOpenUrl:url]) {
+        //handle其他类型的url
     }
     
     return YES;
@@ -145,10 +144,12 @@ static BOOL isProduction = FALSE;
      testSecret: 4bfdd244-574d-4bf3-b034-0c751ed34fee
      由于支付宝的政策原因，测试账号的支付宝支付不能在生产环境中使用，带来不便，敬请原谅！
      */
-
-    [BeeCloud initWithAppID:@"c5d1cba1-5e3f-4ba0-941d-9b0a371fe719" andAppSecret:@"39a7a518-9ac8-4a9e-87bc-7885f33cf18c"];
     
-    //    [BeeCloud initWithAppID:@"c5d1cba1-5e3f-4ba0-941d-9b0a371fe719" andAppSecret:@"4bfdd244-574d-4bf3-b034-0c751ed34fee" sandbox:YES];
+    //开发
+    //    [BeeCloud initWithAppID:BeeCloudAppID andAppSecret:BeeCloudAppSecret];
+    
+    //测试
+    [BeeCloud initWithAppID:BeeCloudAppID andAppSecret:BeeCloudAppSecret sandbox:YES];
     
     //开启/关闭沙箱测试模式;
     //可通过[BeeCloud getCurrentMode]查看当前模式，返回YES代表当前是sandbox环境，返回NO代表当前是生产环境
@@ -158,21 +159,14 @@ static BOOL isProduction = FALSE;
     //初始化微信
     //此处的微信appid必须是在微信开放平台创建的移动应用的appid，且必须与在『BeeCloud控制台-》微信APP支付』配置的"应用APPID"一致，否则会出现『跳转到微信客户端后只显示一个确定按钮的现象』。
     [BeeCloud initWeChatPay:WXAppKey];
-    
-    //初始化PayPal
-    [BeeCloud initPayPal:@"AVT1Ch18aTIlUJIeeCxvC7ZKQYHczGwiWm8jOwhrREc4a5FnbdwlqEB4evlHPXXUA67RAAZqZM0H8TCR"
-                  secret:@"EL-fkjkEUyxrwZAmrfn46awFXlX-h2nRkyCVhhpeVdlSRuhPJKXx3ZvUTTJqPQuAeomXA8PZ2MkX24vF"
-                 sandbox:YES];
 
-    
-    
     //1.创建主窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     //2.设置窗口的根控制器
     self.window.rootViewController = [self defaultViewController];
+    
 //    LognController *logn = [[LognController alloc] init];
-    //2.设置窗口的根控制器
 //    self.window.rootViewController = logn;
     
     //3.显示窗口

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class UserAccount;
+@class UserMyModel;
 @interface RYTLoginManager : NSObject
 
 
@@ -19,7 +19,7 @@
  * 只读属性，防止外部赋值
  * 用户信息赋值一次
  */
-@property(nonatomic,readonly) UserAccount *user;
+@property(nonatomic,readonly) UserMyModel *user;
 
 /**
  * 判断用户身份,访客或者登录

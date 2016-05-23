@@ -11,12 +11,13 @@
 #import "RegViewController.h"
 #import "ForgetPasswordViewController.h"
 
-#import <SVProgressHUD.h>
+#import "MBProgressHUD+YXL.h"
+#import "SSTextField.h"
 
 #import <MJExtension.h>
 
 #import "BQLAuthEngine.h"
-#import "UserAccount.h"
+#import "UserMyModel.h"
 
 @interface LognController ()
 {
@@ -25,22 +26,23 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *lognButton;
 
-@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-
-//@property (nonatomic ,weak)  AFHTTPSessionManager *mgr;
+@property (weak, nonatomic) IBOutlet SSTextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet SSTextField *passwordTextField;
 
 @end
+
 
 @implementation LognController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //初始化微信登录控制类
      _bqlAuthEngine = [[BQLAuthEngine alloc] init];
-    self.navigationItem.title = @"登录";
-    [UserAccount mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+    
+    self.navigationItem.title = @"登录"; 
+    
+    [UserMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         return @{
                  @"ID" : @"id",
                  };
@@ -55,39 +57,7 @@
 
 - (IBAction)lognBtnClick:(id)sender {
     
-//    if ([self isValidateMobile:self.usernameTextField.text] == NO) {
-//        
-//        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号"];
-//    }
-//    
-//    if ([self isValidatePWD:self.passwordTextField.text] == NO) {
-//        
-//        [SVProgressHUD showErrorWithStatus:@"请输入正确的密码格式"];
-//    }
-//    
-//    if ([self isValidateMobile:self.usernameTextField.text] == YES  && [self isValidatePWD:self.passwordTextField.text] == YES) {
-//        
-////        [self test];
-//        
-//        [SVProgressHUD showWithStatus:@"正在登录中..."];
-//    }
-    
     [self loadData];
-}
-
-//手机号码的正则表达式
-- (BOOL)isValidateMobile:(NSString *)mobile{
-    //手机号以13、15、18开头，八个\d数字字符
-    NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
-    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
-    return [phoneTest evaluateWithObject:mobile];
-}
-
-//密码的正则表达式
-- (BOOL)isValidatePWD:(NSString *)pwd{
-    NSString *pwdRegex = @"^[a-zA-Z]|[0-9]{6,18}$";
-    NSPredicate *pwdTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pwdRegex];
-    return [pwdTest evaluateWithObject:pwd];
 }
 
 //微信登录
@@ -119,9 +89,24 @@
 
 -(void)loadData
 {
+    
+    if (self.usernameTextField.text.length < 11) {
+        
+        [MBProgressHUD showError:@"请输入完整的手机号"];
+        return;
+    }
+    if(![self.usernameTextField isValidPhone])
+    {
+        [MBProgressHUD showError:@"请输入正确的手机号"];
+        return;
+    }
+    
+    [MBProgressHUD showMessage:nil];
+    
+    
     //参数
     NSString *username = self.usernameTextField.text;
-    NSString *password = self.passwordTextField.text;
+    NSString *password = self.passwordTextField.text ;
 
     NSString *urlStr = @"login.do";
 
@@ -143,33 +128,31 @@
         
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
-        UserAccount *userAccount = [UserAccount mj_objectWithKeyValues:dict[@"userInfo"]];
+        UserMyModel *userMyModel = [UserMyModel mj_objectWithKeyValues:dict[@"userInfo"]];
         
-        NSString *ID = userAccount.ID;
+        NSString *ID = userMyModel.ID;
 
         SaveUserID(ID);
         
 //        NSString *a = TakeUserID;
 //        SSLog(@"%@",a);
         
-        NSString *LognInfo = dict[@"resultMsg"];
+//        NSString *LognInfo = dict[@"resultMsg"];
+        
+         [MBProgressHUD hideHUD];
         
         if (dict[@"resultCode"] != 0) {
-            
-            [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"登录%@",LognInfo]];
-            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+             [MBProgressHUD showSuccess:@"登录成功"];
 
         }else { //登录失败
-            
-            [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"%@",LognInfo]];
-            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+             [MBProgressHUD showError:@"登录失败"];
         }
         
 
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
-            [SVProgressHUD dismiss];
+            [MBProgressHUD hideHUD];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:ChangeRootViewControllerNotification object:self userInfo:@{@"message":@"1"}];
             
@@ -178,5 +161,7 @@
         
     }];
 }
+
+
 
 @end
