@@ -210,7 +210,7 @@ static NSString *ID = @"ArtistMainCell";
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.41:8085/app/userMain.do";
+    NSString *url = @"http://192.168.1.75:8001/app/userMain.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         

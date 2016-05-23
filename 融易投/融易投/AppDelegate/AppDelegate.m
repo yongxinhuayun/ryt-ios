@@ -26,13 +26,13 @@
 #import "AliPayController.h"
 #import "BeeCloud.h"
 
-#import "XIBDemoViewController.h"
 #import "LognController.h"
 
 #import "ApplyforArtViewController.h"
 #import "BQLAuthEngine.h"
 
 #import "NewFeatureViewController.h"
+#import "RYTLoginManager.h"
 
 
 static NSString *appKey = @"539b73fd73c82f1134120a57";
@@ -262,51 +262,45 @@ static NSString *BeeCloudAppSecret = @"23b1b629-4da0-42bd-8b4c-f7124bde629a";
     NSDictionary *info = notice.userInfo;
     
     NSString *str = info[@"message"];
-    
+    [self setTAbBarcontroller];
     if ([str isEqualToString:@"2"]) { //登录
-        
-        LognController *logn = [[LognController alloc] init];
-        //2.设置窗口的根控制器
-        self.window.rootViewController = logn;
-        
+        RYTLoginManager *manger = [RYTLoginManager shareInstance];
+        [manger showLoginViewIfNeed];
     }else if([str isEqualToString:@"3"]){ //注册
-        RegViewController *reg = [[RegViewController alloc] init];
-        
-        //2.设置窗口的根控制器
-        self.window.rootViewController = reg;
-    
-    }else {
-    
-        //设置窗口的根控制器
-        CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
-        
-        //设置tabBar的背景颜色
-        //    CGRect frame = tabBarController.tabBar.bounds;
-        //    UIView *v = [[UIView alloc] initWithFrame:frame];
-        //    [v setBackgroundColor:[[UIColor alloc] initWithRed:0/255.0
-        //                                                 green:0/255.0
-        //                                                  blue:0/255.0
-        //                                                 alpha:1.0]];
-        //    [tabBarController.tabBar insertSubview:v atIndex:0];
-        
-        //设置状态栏字体颜色和背景颜色
-        //    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-        
-        CGFloat statwidth = [[UIApplication sharedApplication] statusBarFrame].size.width;
-        
-        CGFloat statheight = [[UIApplication sharedApplication] statusBarFrame].size.height;
-        
-        UIView *statusBarView=[[UIView alloc]initWithFrame:CGRectMake(0,0, statwidth, statheight)];
-        
-        statusBarView.backgroundColor = [[UIColor alloc] initWithRed:247.0 /255.0  green:247.0 /255.0  blue:247.0 /255.0  alpha:1.0];
-        
-        [tabBarController.view addSubview:statusBarView];
-        
-        //2.设置窗口的根控制器
-        self.tabBarController = tabBarController;
-        self.window.rootViewController = tabBarController;
-        
+        RYTLoginManager *manger = [RYTLoginManager shareInstance];
+        [manger showRegViewIfNeed];
     }
+}
+
+-(void)setTAbBarcontroller{
+    //设置窗口的根控制器
+    CommonTabBarViewController *tabBarController = [[CommonTabBarViewController alloc] init];
+    
+    //设置tabBar的背景颜色
+    //    CGRect frame = tabBarController.tabBar.bounds;
+    //    UIView *v = [[UIView alloc] initWithFrame:frame];
+    //    [v setBackgroundColor:[[UIColor alloc] initWithRed:0/255.0
+    //                                                 green:0/255.0
+    //                                                  blue:0/255.0
+    //                                                 alpha:1.0]];
+    //    [tabBarController.tabBar insertSubview:v atIndex:0];
+    
+    //设置状态栏字体颜色和背景颜色
+    //    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+    CGFloat statwidth = [[UIApplication sharedApplication] statusBarFrame].size.width;
+    
+    CGFloat statheight = [[UIApplication sharedApplication] statusBarFrame].size.height;
+    
+    UIView *statusBarView=[[UIView alloc]initWithFrame:CGRectMake(0,0, statwidth, statheight)];
+    
+    statusBarView.backgroundColor = [[UIColor alloc] initWithRed:247.0 /255.0  green:247.0 /255.0  blue:247.0 /255.0  alpha:1.0];
+    
+    [tabBarController.view addSubview:statusBarView];
+    
+    //2.设置窗口的根控制器
+    self.tabBarController = tabBarController;
+    self.window.rootViewController = tabBarController;
 }
 
 
