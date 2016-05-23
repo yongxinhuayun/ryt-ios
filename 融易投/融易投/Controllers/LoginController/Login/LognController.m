@@ -156,10 +156,12 @@
         
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
+
         UserMyModel *userMyModel = [UserMyModel mj_objectWithKeyValues:dict[@"userInfo"]];
         
 
         
+
 //        NSString *a = TakeUserID;
 //        SSLog(@"%@",a);
         
@@ -168,6 +170,7 @@
          [MBProgressHUD hideHUD];
         
         if (dict[@"resultCode"] != 0) {
+
             
             [MBProgressHUD showSuccess:@"登录成功"];
             
@@ -176,6 +179,30 @@
             
             [manger loginSuccess:userMyModel];
             
+
+            NSString *registrationID = [[NSUserDefaults standardUserDefaults] valueForKey:@"registrationID"];
+            UserMyModel *userMyModel = [UserMyModel mj_objectWithKeyValues:dict[@"userInfo"]];
+            
+            NSString *ID = userMyModel.ID;
+            
+            SaveUserID(ID);
+            //登录成功的时候注册用户的registrationId
+            //注册 registrationID
+            //    userBinding.do
+            //  注册cid
+                NSDictionary *json = @{
+                                    @"cid":registrationID,
+                                    @"username":userMyModel.username,
+                                    @"password":self.passwordTextField.text,
+                                    };
+            [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"userBinding.do" parameters:json showHUDView:nil andBlock:^(id respondObj) {
+                NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+                NSLog(@"返回结果:%@",jsonStr);
+              // TODO
+            }];
+             [MBProgressHUD showSuccess:@"登录成功"];
+
+
         }else { //登录失败
              [MBProgressHUD showError:@"登录失败"];
         }

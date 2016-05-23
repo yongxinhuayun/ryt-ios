@@ -22,6 +22,7 @@
 #import "UserCommonCell.h"
 #import "UserReplyCommentCell.h"
 #import "ArtworkCommentListModel.h"
+#import "UITableView+Improve.h"
 
 @interface UserCommentViewController ()<ArtworkCommentListModelDelegate>
 @property (nonatomic, strong) NSMutableArray *models;
@@ -63,6 +64,7 @@ static NSString *ID = @"userCommentCell";
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"UserCommonCell" bundle:nil] forCellReuseIdentifier:ID];
     [self.tableView registerNib:[UINib nibWithNibName:@"UserReplyCommentCell" bundle:nil] forCellReuseIdentifier:@"ReplyCell"];
+    [self.tableView improveTableView];
 }
 
 -(void)setUpRefresh

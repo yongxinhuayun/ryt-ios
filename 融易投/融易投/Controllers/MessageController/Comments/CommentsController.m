@@ -56,11 +56,6 @@
     
     NSString *signmsgMD5 = [self md5:signmsg];
     
-    //对key进行自然排序
-    //    for (NSString *s in [dict allKeys]) {
-    //        NSLog(@"value: %@", s);
-    //    }
-    
     NSLog(@"signmsgMD5=%@",signmsgMD5);
     NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/information.do"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -89,27 +84,6 @@
         
         NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"%@",obj);
-        
-        /*
-         
-         //字典转模型暂时不需要
-         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-         //
-         NSArray *registerArray = dict[@"userInfo"];
-         //
-         self.registers = [registerModel mj_objectArrayWithKeyValuesArray:registerArray];
-         
-         //提示用户信息
-         NSString *resultMsg = dict[@"resultMsg"];
-         
-         [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"%@",resultMsg]];
-         
-         //保存注册信息
-         [self saveUserInfo:dict[@"userInfo"]];
-         */
-        /*
-         */
-        
     }];
     
 }

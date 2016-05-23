@@ -8,6 +8,7 @@
 
 #import "PrivateLetterController.h"
 #import "PrivateLetterViewController.h"
+#import "CommonNavigationController.h"
 #import "MessageResultModel.h"
 
 #import "PrivateLetterCell.h"
@@ -16,7 +17,7 @@
 #import "UITableView+Improve.h"
 #import <MJExtension.h>
 
-@interface PrivateLetterController ()
+@interface PrivateLetterController ()<CommonNavigationDelegate>
 @property(nonatomic,copy) NSString *lastPageNum;
 @property(nonatomic,strong)NSMutableArray *letters;
 
@@ -37,6 +38,9 @@
     [super viewDidLoad];
     [ self loadData];
     self.title = @"私信";
+    CommonNavigationController *nav = (CommonNavigationController *)self.navigationController;
+    nav.commonDelegate = self;
+    
     [self.tableView setSeparatorColor:[UIColor colorWithRed:242.0 / 255.0 green:242.0 / 255.0 blue:242.0 / 255.0 alpha:1.0]];
     [self.tableView registerNib:[UINib nibWithNibName:@"PrivateLetterCell" bundle:nil] forCellReuseIdentifier:@"PrivateCell"];
     [UserMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
@@ -49,6 +53,20 @@
     [self.tableView improveTableView];
 }
 
+-(void)beforeBack{
+    // 点击返回按钮，清除用户私信未读的数量
+    NSString *userId = @"ioe4rahi670jsgdt";
+    NSString *group = @"message";
+    NSDictionary *json = @{
+                           @"group" : group,
+                           @"userId" : userId
+                           };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"updateWatchedStatus" parameters:json
+                                 showHUDView:nil andBlock:^(id respondObj) {
+                                     NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+                                     NSLog(@"返回结果:%@",jsonStr);
+                                 }];
+}
 
 //NSString *targetUserId = @"imhipoyk18s4k52u";
 //NSString *fromUserId = @"imhfp1yr4636pj49";

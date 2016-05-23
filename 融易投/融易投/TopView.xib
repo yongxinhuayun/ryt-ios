@@ -17,6 +17,18 @@
                         <constraint firstAttribute="height" constant="180" id="sYY-Ep-kia"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCe-iA-Lqp">
+                    <rect key="frame" x="16" y="152" width="102" height="24"/>
+                    <attributedString key="attributedText">
+                        <fragment content="逐鹿顺意铜雕">
+                            <attributes>
+                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="17" name="PingFangSC-Semibold"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBackground" translatesAutoresizingMaskIntoConstraints="NO" id="B2O-zk-3Ek">
                     <rect key="frame" x="14" y="195" width="50" height="50"/>
                     <constraints>
@@ -160,6 +172,7 @@
                 <constraint firstItem="KYu-hN-l4a" firstAttribute="bottom" secondItem="TlP-UW-mYJ" secondAttribute="bottom" id="3sT-Mz-WEW"/>
                 <constraint firstItem="SKc-QK-yR7" firstAttribute="top" secondItem="TlP-UW-mYJ" secondAttribute="bottom" constant="5" id="3zf-Wk-88B"/>
                 <constraint firstItem="tFa-zz-rCT" firstAttribute="trailing" secondItem="TlP-UW-mYJ" secondAttribute="trailing" id="605-b1-hCY"/>
+                <constraint firstItem="gCe-iA-Lqp" firstAttribute="leading" secondItem="An3-39-zE1" secondAttribute="leading" constant="16" id="8YW-IK-YcE"/>
                 <constraint firstItem="OI7-A0-GI5" firstAttribute="leading" secondItem="B2O-zk-3Ek" secondAttribute="trailing" constant="5" id="CRu-1j-Drx"/>
                 <constraint firstItem="umS-TY-ykK" firstAttribute="top" secondItem="TlP-UW-mYJ" secondAttribute="top" id="DLP-UZ-RsW"/>
                 <constraint firstItem="gZz-YQ-LpC" firstAttribute="leading" secondItem="5Oc-5A-vZk" secondAttribute="trailing" constant="17.5" id="DTj-CB-Jxt"/>
@@ -173,6 +186,7 @@
                 <constraint firstAttribute="bottom" secondItem="MGw-dF-Z1n" secondAttribute="bottom" constant="22" id="TnF-bB-OzC"/>
                 <constraint firstItem="5Oc-5A-vZk" firstAttribute="centerY" secondItem="MGw-dF-Z1n" secondAttribute="centerY" id="UCB-8H-cZN"/>
                 <constraint firstItem="SKc-QK-yR7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="Vpc-z6-nuX"/>
+                <constraint firstItem="gCe-iA-Lqp" firstAttribute="bottom" secondItem="An3-39-zE1" secondAttribute="bottom" constant="-14" id="WOD-vQ-Rbb"/>
                 <constraint firstItem="An3-39-zE1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Zk1-k3-uvj"/>
                 <constraint firstItem="tFa-zz-rCT" firstAttribute="bottom" secondItem="TlP-UW-mYJ" secondAttribute="bottom" id="cn5-bu-RdO"/>
                 <constraint firstItem="ggW-QH-R87" firstAttribute="leading" secondItem="TlP-UW-mYJ" secondAttribute="leading" id="cqH-2r-dqe"/>
@@ -195,6 +209,7 @@
                 <outlet property="brief" destination="TlP-UW-mYJ" id="vzA-B4-n8f"/>
                 <outlet property="finishedTime" destination="5Oc-5A-vZk" id="jSk-Mk-3af"/>
                 <outlet property="imgView" destination="An3-39-zE1" id="D7j-4w-XcV"/>
+                <outlet property="titleLabel" destination="gCe-iA-Lqp" id="QBd-Jq-nUA"/>
                 <outlet property="userName" destination="OI7-A0-GI5" id="8pr-b1-kqV"/>
                 <outlet property="userPicture" destination="B2O-zk-3Ek" id="thy-0Z-oWY"/>
                 <outlet property="userTitle" destination="6x0-Ii-7kx" id="43v-lb-knQ"/>

@@ -97,6 +97,7 @@ static NSString *BeeCloudAppSecret = @"23b1b629-4da0-42bd-8b4c-f7124bde629a";
     
     if ([JPUSHService registrationID]) {
         NSLog(@"get RegistrationID:%@",[JPUSHService registrationID]);//获取registrationID
+        [[NSUserDefaults standardUserDefaults] setValue:[JPUSHService registrationID] forKey:@"registrationID"];
     }
 }
 

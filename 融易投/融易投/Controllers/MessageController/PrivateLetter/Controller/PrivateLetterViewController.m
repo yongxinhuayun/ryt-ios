@@ -19,8 +19,9 @@
 #import <MJExtension.h>
 #import "MessageResultModel.h"
 #import "PrivateLetterModel.h"
+#import "CommonNavigationController.h"
 
-@interface PrivateLetterViewController ()<UITableViewDataSource,UITableViewDelegate,KeyBordVIewDelegate,ChartCellDelegate,AVAudioPlayerDelegate>
+@interface PrivateLetterViewController ()<UITableViewDataSource,UITableViewDelegate,KeyBordVIewDelegate,ChartCellDelegate,AVAudioPlayerDelegate,CommonNavigationDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) KeyBordVIew *keyBordView;
@@ -119,14 +120,18 @@ static NSString *const cellIdentifier=@"QQChart";
     }];
 }
 
+-(void)beforeBack{
+    NSLog(@"123");
+}
+
 
 //NSString *targetUserId = @"imhipoyk18s4k52u"; 接受者
 //NSString *fromUserId = @"imhfp1yr4636pj49"; 发送者
 //imhfp1yr4636pj49
 -(void)postLetter:(NSString *)text{
     NSString *content = text;
-    NSString *targetUserId = @"iijq9f1r7apprtab"; // 消息接受方
-    NSString *fromUserId = @"ioe4rahi670jsgdt"; // 消息发送方
+    NSString *targetUserId = @"ioe4rahi670jsgdt"; // 消息接受方
+    NSString *fromUserId = @"iijq9f1r7apprtab"; // 消息发送方
     NSDictionary *json = @{
                            @"content" : content,
                            @"targetUserId" : targetUserId,
@@ -135,7 +140,7 @@ static NSString *const cellIdentifier=@"QQChart";
 //    userBinding.do
 //  注册cid
 //    NSDictionary *j = @{
-//                        @"cid":@"1517bfd3f7c76cf48ea",
+//                        @"cid":registrationID,
 //                        @"username":@"18211025820",
 //                        @"password":@"123456",
 //                        };

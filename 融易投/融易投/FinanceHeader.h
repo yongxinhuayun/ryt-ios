@@ -11,6 +11,8 @@
 @interface FinanceHeader : UIView
 //项目图片
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 //用户头像
 @property (weak, nonatomic) IBOutlet UIImageView *userPicture;
 // 用户真实姓名

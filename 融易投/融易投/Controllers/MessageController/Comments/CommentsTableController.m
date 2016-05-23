@@ -7,6 +7,7 @@
 //
 
 #import "CommentsTableController.h"
+#import "CommonNavigationController.h"
 #import "PostCommentController.h"
 #import "DetailFinanceViewController.h"
 #import "DetailCreationViewController.h"
@@ -23,7 +24,7 @@
 #import "CommonFooter.h"
 
 
-@interface CommentsTableController ()<CommentsDelegate>
+@interface CommentsTableController ()<CommentsDelegate,CommonNavigationDelegate>
 @property(nonatomic,strong)NSMutableArray *commentArray;
 @property(nonatomic,copy) NSString *lastPageNum;
 @end
@@ -33,6 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"评论";
+    CommonNavigationController *nav = (CommonNavigationController *)self.navigationController;
+    nav.commonDelegate = self;
     [self loadData];
     [self.tableView registerNib:[UINib nibWithNibName:@"NormalCommentsCell" bundle:nil] forCellReuseIdentifier:@"CommentsCell"];
     [UserCommentListModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
@@ -52,6 +55,21 @@
     [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
     [self.tableView improveTableView];
     [self setUpRefresh];
+}
+
+-(void)beforeBack{
+    // 点击返回按钮，清除用户私信未读的数量
+    NSString *userId = @"ioe4rahi670jsgdt";
+    NSString *group = @"comment";
+    NSDictionary *json = @{
+                           @"group" : group,
+                           @"userId" : userId
+                           };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"updateWatchedStatus" parameters:json
+                                 showHUDView:nil andBlock:^(id respondObj) {
+                                     NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+                                     NSLog(@"返回结果:%@",jsonStr);
+                                 }];
 }
 
 -(void)postUserComments:(UserCommentListModel *)commentModel{

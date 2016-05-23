@@ -196,10 +196,8 @@ static NSString *ID = @"creationCell";
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
-    
     // 2.设置请求头
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
     // 3.设置请求体
     NSDictionary *json = @{
                            @"pageSize" : pageSize,

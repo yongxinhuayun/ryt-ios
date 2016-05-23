@@ -150,6 +150,7 @@
 
 //加载数据
 -(void)loadDataToController{
+    self.financeHeader.titleLabel.text = self.artworkModel.title;
     //加载图片
     NSString *urlStr = [[NSString stringWithFormat:@"%@",self.artworkModel.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *picUrl = [NSURL URLWithString:urlStr];

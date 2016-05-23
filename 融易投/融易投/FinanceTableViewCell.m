@@ -9,7 +9,7 @@
 #import "FinanceTableViewCell.h"
 
 #import "FinanceModel.h"
-
+#import "Progress.h"
 #import "UIImageView+WebCache.h"
 
 @interface FinanceTableViewCell ()
@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *userIcon;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *userInfo;
-@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UIView *progressView;
 @property (weak, nonatomic) IBOutlet UILabel *progressPercent;
 @property (weak, nonatomic) IBOutlet UILabel *targetMoney;
 @property (weak, nonatomic) IBOutlet UILabel *endTime;
@@ -36,6 +36,12 @@
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
 }
 
+-(void)awakeFromNib{
+    Progress *progress = [[Progress alloc] init];
+    progress.frame = self.progressView.bounds;
+    self.progress = progress;
+    [self.progressView addSubview:progress];
+}
 
 -(void)setModel:(FinanceModel *)model{
     
@@ -93,7 +99,7 @@
     //    NSLog(@"%@",pictureUrlURL);
     
     [self.userIcon ss_setHeader:pictureUrlURL];
-    
+    self.progress.progress = 0.8;
     self.userName.text = model.author.name;
     self.userInfo.text = model.author.username;
     
@@ -109,9 +115,9 @@
     //设置每个cell之间有个10的间距
     frame.size.height -= SSMargin;
     //设置每个cell离屏幕间距为10
-    frame.origin.x += SSMargin;
+//    frame.origin.x += SSMargin;
     //因为x向右移动了10,所以cell的左边距离屏幕为10,但是为了保证cell的右边为10,应该设置为2 * 10.因为cell向右移动了10,所以屏幕的右边还是有10的cell,所以为了保证cell的右边距离屏幕为10,应该为2倍的间距
-    frame.size.width -= 2 * SSMargin;
+//    frame.size.width -= 2 * SSMargin;
     
     [super setFrame:frame];
 }
