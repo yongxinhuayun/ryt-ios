@@ -38,24 +38,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
      _bqlAuthEngine = [[BQLAuthEngine alloc] init];
-    
-    [self setUpNavBar];
-    
+    self.navigationItem.title = @"登录";
     [UserAccount mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-        
         return @{
-                 @"ID"          :@"id",
+                 @"ID" : @"id",
                  };
     }];
-}
-
-// 设置导航条
--(void)setUpNavBar
-{
-    //设置导航条标题
-    self.navigationItem.title = @"登录";
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

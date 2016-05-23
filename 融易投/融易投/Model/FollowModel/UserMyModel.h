@@ -29,4 +29,5 @@
 /** 图片 */
 @property (nonatomic ,strong) MasterMyModel *master;
 
+
 @end

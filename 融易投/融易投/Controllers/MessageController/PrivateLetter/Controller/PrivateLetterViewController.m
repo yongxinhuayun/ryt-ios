@@ -114,6 +114,7 @@ static NSString *const cellIdentifier=@"QQChart";
         dispatch_async(dispatch_get_main_queue(), ^{
             [self initwithData];
             [self.tableView reloadData];
+            [self tableViewScrollCurrentIndexPath];
         });
     }];
 }
@@ -302,7 +303,7 @@ static NSString *const cellIdentifier=@"QQChart";
     if(self.cellFrames.count == 0) return;
     
     NSIndexPath *indexPath=[NSIndexPath indexPathForRow:self.cellFrames.count-1 inSection:0];
-    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
 }
 
 -(void)initPlayer{

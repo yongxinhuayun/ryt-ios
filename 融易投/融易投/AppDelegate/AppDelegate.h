@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class CommonTabBarViewController;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-
+@property(nonatomic,strong)CommonTabBarViewController *tabBarController;
++(instancetype)shareAppDelegate;
 @end
 

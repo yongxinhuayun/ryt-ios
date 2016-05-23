@@ -506,6 +506,7 @@
 		E2729B061CD8BB0D006C0617 /* FinanceHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729B041CD8BB0D006C0617 /* FinanceHeader.m */; };
 		E2729B071CD8BB0D006C0617 /* FinanceHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2729B051CD8BB0D006C0617 /* FinanceHeader.xib */; };
 		E2A38A371CEEA45100EAB0D3 /* PrivateLetterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A38A361CEEA45100EAB0D3 /* PrivateLetterModel.m */; };
+		E2A38A3B1CF1626500EAB0D3 /* RYTLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A38A3A1CF1626500EAB0D3 /* RYTLoginManager.m */; };
 		E2AAF0391CE1C7B40009FD19 /* PostCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AAF0371CE1C7B40009FD19 /* PostCommentController.m */; };
 		E2AAF03A1CE1C7B40009FD19 /* PostCommentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2AAF0381CE1C7B40009FD19 /* PostCommentController.xib */; };
 		E2D05B721CB38C8C00B0F690 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B711CB38C8C00B0F690 /* CoreTelephony.framework */; };
@@ -1389,6 +1390,8 @@
 		E2729B051CD8BB0D006C0617 /* FinanceHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceHeader.xib; sourceTree = "<group>"; };
 		E2A38A351CEEA45100EAB0D3 /* PrivateLetterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivateLetterModel.h; sourceTree = "<group>"; };
 		E2A38A361CEEA45100EAB0D3 /* PrivateLetterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivateLetterModel.m; sourceTree = "<group>"; };
+		E2A38A391CF1626500EAB0D3 /* RYTLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYTLoginManager.h; sourceTree = "<group>"; };
+		E2A38A3A1CF1626500EAB0D3 /* RYTLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYTLoginManager.m; sourceTree = "<group>"; };
 		E2AAF0361CE1C7B40009FD19 /* PostCommentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCommentController.h; sourceTree = "<group>"; };
 		E2AAF0371CE1C7B40009FD19 /* PostCommentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCommentController.m; sourceTree = "<group>"; };
 		E2AAF0381CE1C7B40009FD19 /* PostCommentController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCommentController.xib; sourceTree = "<group>"; };
@@ -2575,6 +2578,7 @@
 		E2288E4E1CDEFB3200483F18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E2A38A381CF1624E00EAB0D3 /* LoginManagerModel */,
 				218A3EDA1CEC422D00700283 /* MasterWorkListModel */,
 				E2322B151CEC24B9002730E7 /* MessageModel */,
 				E2D522651CDF8D820024887A /* AuctionModel */,
@@ -2975,6 +2979,15 @@
 				E2A38A361CEEA45100EAB0D3 /* PrivateLetterModel.m */,
 			);
 			path = PrivateLetterModel;
+			sourceTree = "<group>";
+		};
+		E2A38A381CF1624E00EAB0D3 /* LoginManagerModel */ = {
+			isa = PBXGroup;
+			children = (
+				E2A38A391CF1626500EAB0D3 /* RYTLoginManager.h */,
+				E2A38A3A1CF1626500EAB0D3 /* RYTLoginManager.m */,
+			);
+			path = LoginManagerModel;
 			sourceTree = "<group>";
 		};
 		E2D521951CDF77220024887A /* UserAccount */ = {
@@ -4581,6 +4594,7 @@
 				E228903A1CDEFDD900483F18 /* NSString+Emoji.m in Sources */,
 				21C414471CE2D23500F1029C /* ArtistWorksCell.m in Sources */,
 				21AB0ABF1CC50A4D00B7BA03 /* JPSlideBar+ScrollViewDelegate.m in Sources */,
+				E2A38A3B1CF1626500EAB0D3 /* RYTLoginManager.m in Sources */,
 				E2729B061CD8BB0D006C0617 /* FinanceHeader.m in Sources */,
 				21C413EA1CE2D23500F1029C /* AGImagePreviewController.m in Sources */,
 				E2D812FD1CD0780100A52172 /* TopView.m in Sources */,

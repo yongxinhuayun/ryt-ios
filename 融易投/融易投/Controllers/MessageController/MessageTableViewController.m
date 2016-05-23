@@ -31,8 +31,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self isLogin];
     [self setUpNavBar];
     [self loadDataToController];
+}
+//判断用户是否登录,如果没有登录，提示用户登录页面
+-(void)isLogin{
+    NSString *userId = TakeUserID;
+    if (userId) {
+        NSLog(@"用户已登录");
+    }else{
+        NSLog(@"用户没有登录");
+    }
 }
 
 // 设置导航条
@@ -45,13 +55,13 @@
 }
 
 -(void)loadDataToController{
-    NSString *userId = @"ioe4rahi670jsgdt";
+    NSString *userId = TakeUserID;
     NSDictionary *json = @{
                            @"userId": userId
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"informationList.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
         MessageModel *model = [MessageModel mj_objectWithKeyValues:respondObj];
         self.messageModel = model;
         [self isHidden];
@@ -109,7 +119,6 @@
     } else if (indexPath.section == 1) {
         
         CommentsTableController *commentsController = [CommentsTableController new];
-//        commentsController.userId =
         [self.navigationController pushViewController:commentsController animated:YES];
         
     } else if (indexPath.section == 2) {

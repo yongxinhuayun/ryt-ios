@@ -14,19 +14,10 @@
 @implementation ChartMessage
 
 -(void)setLetterModel:(PrivateLetterModel *)letterModel{
-    NSString *userId = @"ioe4rahi670jsgdt";
+    NSString *userId = TakeUserID;
     _letterModel = letterModel;
     NSString *iconStr =[letterModel.fromUser.pictureUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    UIImageView *img = [[UIImageView alloc] init];
-//    [img sd_setImageWithURL:[NSURL URLWithString:iconStr]];
-//    [self.icon ss_setHeader:[NSURL URLWithString:iconStr]];
     self.icon = iconStr;
-//    [self.icon sd_setImageWithURL:[NSURL URLWithString:iconStr]];
-//    [self.icon sd_setImageWithURL:[NSURL URLWithString:iconStr] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//        NSLog(@"123");
-//        NSLog(@"123213");
-//    }];
-    
     if ([letterModel.fromUser.ID isEqualToString:userId] ) {
         self.messageType = kMessageTo;
     }else{
