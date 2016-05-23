@@ -44,21 +44,17 @@
     
     //设置排名
 //    self.RankLabel.text = self.modelNum;
-    
     //设置投资者
     self.usernameLabel.text = model.truename;
-    
     //设置金额
     self.priceLabel.text = [NSString stringWithFormat:@"%ld元",model.price];
-
-    
 }
 
-//把系统的分割线去除,然后把控制器的的颜色改成要设置分割线的颜色
--(void)setFrame:(CGRect)frame
-{
-    frame.size.height -= 1;
-}
+////把系统的分割线去除,然后把控制器的的颜色改成要设置分割线的颜色
+//-(void)setFrame:(CGRect)frame
+//{
+//    frame.size.height -= 1;
+//}
 
 
 @end

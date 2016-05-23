@@ -19,14 +19,10 @@
 @interface ArtistTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray *models;
-
-
 /** 用来加载下一页数据 */
 @property (nonatomic, strong) NSString *lastPageNum;
-
 /** header标题栏 */
 @property (nonatomic, strong) UIView *subTitlesView;
-
 @end
 
 @implementation ArtistTableViewController
@@ -37,58 +33,32 @@ static NSString *ID = @"artistCell";
     [super viewDidLoad];
     
     self.lastPageNum = @"1";
-    
-    //设置tableView的内边距---实现全局穿透让tableView向上移动64 + 标题栏的高度35/向下移动tabBar的高度49
-    //运行程序,发现底部一致到了tabBar的最下面,我们应该设置成子控制器的view的显示范围为tabBar的上面
-    //同样,tabBar的高度我们也可能项目中都会用到,写在常量文件中
-    self.tableView.contentInset = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, SSTabBarH, 0);
-    //运行程序,发现滚动条上部分被标题栏和导航栏挡住了,这样会对会用造成一定的假象,造成对内容的多少判断不准确
+    self.tableView.contentInset = UIEdgeInsetsMake(SSTitlesViewH, 0, SSTabBarH, 0);
     self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, SSTabBarH, 0);
-    
-    //设置全屏灰色的分割线
-    //使用设置setFrame的方法
-    //先要把系统的分割线去除,然后把控制器的背景改成要设置分割线的颜色即可,然后在设置cell的setFrame方法中,在系统计算好的cell的高度之前让cell的高度减一,然后在赋值给系统的算好的frame
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    //    self.view.backgroundColor = [UIColor lightGrayColor];
-    
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"ArtistTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
-    
-    
     [self loadNewData];
-    
     //设置刷新控件
     [self setUpRefresh];
-    
     //添加顶部Header
     [self setUpSubTitlesView];
-
 }
 
 //添加副标题栏
 -(void)setUpSubTitlesView
 {
     UIView *subTitlesView = [[UIView alloc] init];
-    
     self.subTitlesView = subTitlesView;
-    
     subTitlesView.frame = CGRectMake(0, SSNavMaxY + SSTitlesViewH, self.view.width, SSTitlesViewH);
-    
     subTitlesView.backgroundColor = [UIColor whiteColor];
-    //2.9 设置标题栏为半透明的
-    //    subTitlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
-    
-    //    [self.tableView.tableHeaderView addSubview:subTitlesView];
-    
-    //2.1 运行程序,发现titlesView添加到了tableView,但是我们这里需要时用不同的UIViewController,所以把之前的控制器UITableViewController改成UIViewController
-    
     //2.2 添加所有的标题按钮
     [self setUpSubTitleLabel];
 }
 
 -(void)setUpSubTitleLabel
 {
-    NSArray *titles = @[@"排行", @"艺术家",@"项目总金额",@"总成交价"];
+    NSArray *titles = @[@"排行", @"艺术家",@"拍卖溢价率"];
     
     NSInteger index = titles.count;
     //2.3 设置按钮尺寸,要想拿到titlesView需设置成成员属性
