@@ -7,7 +7,7 @@
 //
 
 #import "RYTLoginManager.h"
-#import "UserAccount.h"
+#import "UserMyModel.h"
 #import "AppDelegate.h"
 #import "LognController.h"
 #import "CommonTabBarViewController.h"
@@ -27,7 +27,7 @@
         // user 只可以在这里初始化
         //
         if (!_user) {
-            _user = [UserAccount new];
+            _user = [UserMyModel new];
         }
         //判断是否为访客，如果用户的id为空，说明是访客
         if (!_user.ID) {

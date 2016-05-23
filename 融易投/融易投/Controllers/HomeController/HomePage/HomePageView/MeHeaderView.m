@@ -8,7 +8,7 @@
 
 #import "MeHeaderView.h"
 
-#import "UserAccount.h"
+
 
 
 #import "UIImageView+WebCache.h"

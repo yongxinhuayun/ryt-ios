@@ -93,6 +93,9 @@
 		21C08BC81CB01BC3002328D3 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */; };
 		21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BCC1CB01F7E002328D3 /* NSObject+FileManager.m */; };
 		21C08BD11CB02521002328D3 /* SettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C08BD01CB02521002328D3 /* SettingTableViewController.storyboard */; };
+		21C337501CF2A343001F3CA5 /* MBProgressHUD+YXL.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C3374E1CF2A343001F3CA5 /* MBProgressHUD+YXL.m */; };
+		21C337511CF2A343001F3CA5 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21C3374F1CF2A343001F3CA5 /* MBProgressHUD.bundle */; };
+		21C3375C1CF2B207001F3CA5 /* SSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C3375B1CF2B207001F3CA5 /* SSTextField.m */; };
 		21C413DE1CE2D23500F1029C /* ArtistMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C413151CE2D23500F1029C /* ArtistMainViewController.m */; };
 		21C413DF1CE2D23500F1029C /* ArtistUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C413171CE2D23500F1029C /* ArtistUserHomeViewController.m */; };
 		21C413E01CE2D23500F1029C /* ArtistWorksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C413191CE2D23500F1029C /* ArtistWorksViewController.m */; };
@@ -515,7 +518,6 @@
 		E2D05B781CB38CEA00B0F690 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B771CB38CEA00B0F690 /* libsqlite3.0.tbd */; };
 		E2D05B7A1CB38D5800B0F690 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B791CB38D5800B0F690 /* libc++.tbd */; };
 		E2D387001CB8AD6300F735F9 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D386FF1CB8AD6300F735F9 /* CoreText.framework */; };
-		E2D521981CDF77460024887A /* UserAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D521971CDF77460024887A /* UserAccount.m */; };
 		E2D5219E1CDF77C00024887A /* FromUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D5219B1CDF77C00024887A /* FromUserModel.m */; };
 		E2D5219F1CDF77C00024887A /* NotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D5219D1CDF77C00024887A /* NotificationModel.m */; };
 		E2D521AD1CDF783B0024887A /* ArtUserFollowedMyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D521A21CDF783B0024887A /* ArtUserFollowedMyModel.m */; };
@@ -847,6 +849,11 @@
 		21C08BCB1CB01F7E002328D3 /* NSObject+FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FileManager.h"; sourceTree = "<group>"; };
 		21C08BCC1CB01F7E002328D3 /* NSObject+FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FileManager.m"; sourceTree = "<group>"; };
 		21C08BD01CB02521002328D3 /* SettingTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingTableViewController.storyboard; sourceTree = "<group>"; };
+		21C3374D1CF2A343001F3CA5 /* MBProgressHUD+YXL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+YXL.h"; sourceTree = "<group>"; };
+		21C3374E1CF2A343001F3CA5 /* MBProgressHUD+YXL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+YXL.m"; sourceTree = "<group>"; };
+		21C3374F1CF2A343001F3CA5 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		21C3375A1CF2B207001F3CA5 /* SSTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTextField.h; sourceTree = "<group>"; };
+		21C3375B1CF2B207001F3CA5 /* SSTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTextField.m; sourceTree = "<group>"; };
 		21C413141CE2D23500F1029C /* ArtistMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistMainViewController.h; sourceTree = "<group>"; };
 		21C413151CE2D23500F1029C /* ArtistMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistMainViewController.m; sourceTree = "<group>"; };
 		21C413161CE2D23500F1029C /* ArtistUserHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistUserHomeViewController.h; sourceTree = "<group>"; };
@@ -1401,8 +1408,6 @@
 		E2D05B771CB38CEA00B0F690 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		E2D05B791CB38D5800B0F690 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E2D386FF1CB8AD6300F735F9 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		E2D521961CDF77460024887A /* UserAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAccount.h; sourceTree = "<group>"; };
-		E2D521971CDF77460024887A /* UserAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAccount.m; sourceTree = "<group>"; };
 		E2D5219A1CDF77C00024887A /* FromUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FromUserModel.h; sourceTree = "<group>"; };
 		E2D5219B1CDF77C00024887A /* FromUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FromUserModel.m; sourceTree = "<group>"; };
 		E2D5219C1CDF77C00024887A /* NotificationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationModel.h; sourceTree = "<group>"; };
@@ -1828,6 +1833,8 @@
 				21C459DE1CE95A4100691E8D /* CommonTextView.m */,
 				21C4148E1CE475CC00F1029C /* TimeFiled.h */,
 				21C4148F1CE475CC00F1029C /* TimeFiled.m */,
+				21C3375A1CF2B207001F3CA5 /* SSTextField.h */,
+				21C3375B1CF2B207001F3CA5 /* SSTextField.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -2044,6 +2051,16 @@
 				E2AAF0381CE1C7B40009FD19 /* PostCommentController.xib */,
 			);
 			name = "用户评论";
+			sourceTree = "<group>";
+		};
+		21C3374C1CF2A343001F3CA5 /* MBP框架（阴影分类） */ = {
+			isa = PBXGroup;
+			children = (
+				21C3374D1CF2A343001F3CA5 /* MBProgressHUD+YXL.h */,
+				21C3374E1CF2A343001F3CA5 /* MBProgressHUD+YXL.m */,
+				21C3374F1CF2A343001F3CA5 /* MBProgressHUD.bundle */,
+			);
+			path = "MBP框架（阴影分类）";
 			sourceTree = "<group>";
 		};
 		21C413121CE2D23500F1029C /* Artist */ = {
@@ -2592,7 +2609,6 @@
 				E2D521B31CDF78AB0024887A /* CNCityModel */,
 				E2D521A01CDF78130024887A /* FollowModel */,
 				E2D521991CDF779C0024887A /* NotificationModel */,
-				E2D521951CDF77220024887A /* UserAccount */,
 				E22892161CDF036400483F18 /* RegisterModel */,
 				E2288E4F1CDEFB3200483F18 /* ArtistModel */,
 			);
@@ -2638,6 +2654,7 @@
 				E22890461CDEFE4400483F18 /* HttpRequstTool.m */,
 				E22890471CDEFE4400483F18 /* MyMD5.h */,
 				E22890481CDEFE4400483F18 /* MyMD5.m */,
+				21C3374C1CF2A343001F3CA5 /* MBP框架（阴影分类） */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -2988,16 +3005,6 @@
 				E2A38A3A1CF1626500EAB0D3 /* RYTLoginManager.m */,
 			);
 			path = LoginManagerModel;
-			sourceTree = "<group>";
-		};
-		E2D521951CDF77220024887A /* UserAccount */ = {
-			isa = PBXGroup;
-			children = (
-				E2D521961CDF77460024887A /* UserAccount.h */,
-				E2D521971CDF77460024887A /* UserAccount.m */,
-			);
-			name = UserAccount;
-			path = RegisterModel/UserAccount;
 			sourceTree = "<group>";
 		};
 		E2D521991CDF779C0024887A /* NotificationModel */ = {
@@ -4244,6 +4251,7 @@
 				E22892AD1CDF03F400483F18 /* d_travel@2x.png in Resources */,
 				E22893A61CDF049500483F18 /* lxh_mobaile.gif in Resources */,
 				E22892B31CDF03F400483F18 /* d_xixi@2x.png in Resources */,
+				21C337511CF2A343001F3CA5 /* MBProgressHUD.bundle in Resources */,
 				E22893CD1CDF049500483F18 /* lxh_xiudada.png in Resources */,
 				E22893671CDF049500483F18 /* lxh_beicui.gif in Resources */,
 				E22893B01CDF049500483F18 /* lxh_qiaoqiao@2x.png in Resources */,
@@ -4573,6 +4581,7 @@
 				E2D5249C1CDF9F0B0024887A /* JianjieViewController.m in Sources */,
 				21C4142E1CE2D23500F1029C /* HMEmotionPopView.m in Sources */,
 				212EEE8F1CE048C500F94B30 /* CommonUserHomeViewController.m in Sources */,
+				21C337501CF2A343001F3CA5 /* MBProgressHUD+YXL.m in Sources */,
 				21AB0B421CC6056500B7BA03 /* XCLPageView.m in Sources */,
 				E2D5224B1CDF8C6E0024887A /* MasterModel.m in Sources */,
 				2187B95C1CCE083500B92435 /* CreationDetailsViewController.m in Sources */,
@@ -4648,7 +4657,6 @@
 				E2729AEA1CD8B923006C0617 /* ImageListViewCellCollectionViewCell.m in Sources */,
 				21C413F11CE2D23500F1029C /* AGPreviewScrollView.m in Sources */,
 				E228921C1CDF037500483F18 /* registerModel.m in Sources */,
-				E2D521981CDF77460024887A /* UserAccount.m in Sources */,
 				21C413ED1CE2D23500F1029C /* AGIPCGridCell.m in Sources */,
 				21C413EF1CE2D23500F1029C /* AGIPCPreviewController.m in Sources */,
 				21C414291CE2D23500F1029C /* DSComposePhotosView.m in Sources */,
@@ -4671,6 +4679,7 @@
 				21C414501CE2E18D00F1029C /* FabuProjectView.m in Sources */,
 				218D2B3D1CACB2F9004553B9 /* CommonTabBarViewController.m in Sources */,
 				21C414401CE2D23500F1029C /* BBFlashCtntLabel.m in Sources */,
+				21C3375C1CF2B207001F3CA5 /* SSTextField.m in Sources */,
 				E2D5219F1CDF77C00024887A /* NotificationModel.m in Sources */,
 				218D2B411CACB310004553B9 /* RankTableViewController.m in Sources */,
 				E2D522161CDF89950024887A /* ZanGuoResultModel.m in Sources */,
