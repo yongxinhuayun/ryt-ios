@@ -52,7 +52,6 @@ static NSString *ID = @"ArtistMainCell";
     
     self.lastPageIndex = @"1";
     
-    
     //    self.tableView.contentInset = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, 0, 0);
     //    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, 0, 0);
     
@@ -126,43 +125,34 @@ static NSString *ID = @"ArtistMainCell";
     
     self.lastPageIndex = @"1";
     //参数
-    NSString *userId = @"imhfp1yr4636pj49";
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
     
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";
-    //flag为1是自己看自己,为2时是看别人,还需要传递otheruserId
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
     
-    NSString *signmsg = [NSString stringWithFormat:@"pageIndex=%@&pageSize=%@&timestamp=%@&userId=%@&key=%@",pageIndex,pageSize,timestamp,userId,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
+     NSString *url = @"userMain.do";
     
     // 3.设置请求体
     NSDictionary *json = @{
                            @"userId":userId,
                            @"pageSize" : pageSize,
-                           @"pageIndex" : pageIndex,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
+                           @"pageIndex" : pageIndex
                            };
     
-    NSString *url = @"http://192.168.1.41:8085/app/userMain.do";
-    
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
-        
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
+
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
         
-    NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-    
-    ArtistObjectModel *model = [ArtistObjectModel mj_objectWithKeyValues:modelDict[@"object"]];
-    
-    self.models = model.artworkList;
+        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        //        NSLog(@"返回结果:%@",jsonStr);
+        
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        
+        ArtistObjectModel *model = [ArtistObjectModel mj_objectWithKeyValues:modelDict[@"object"]];
+        
+        self.models = model.artworkList;
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -170,6 +160,7 @@ static NSString *ID = @"ArtistMainCell";
             [self.tableView reloadData];
             
         }];
+        
     }];
 }
 
@@ -183,36 +174,23 @@ static NSString *ID = @"ArtistMainCell";
     
     self.lastPageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
     
-    NSLog(@"newPageIndex%@",self.lastPageIndex);
-    
-    NSLog(@"%d",newPageIndex);
-    
     //参数
-    NSString *userId = @"imhfp1yr4636pj49";
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
+    
     NSString *pageSize = @"20";
     NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    
-    NSString *signmsg = [NSString stringWithFormat:@"pageIndex=%@&pageSize=%@&timestamp=%@&userId=%@&key=%@",pageIndex,pageSize,timestamp,userId,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
+
+    NSString *url = @"userMain.do";
     
     // 3.设置请求体
     NSDictionary *json = @{
                            @"userId":userId,
                            @"pageSize" : pageSize,
-                           @"pageIndex" : pageIndex,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
+                           @"pageIndex" : pageIndex
                            };
-    
-    NSString *url = @"http://192.168.1.75:8001/app/userMain.do";
-    
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
+        
         
         //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         //        NSLog(@"返回结果:%@",jsonStr);
@@ -232,7 +210,6 @@ static NSString *ID = @"ArtistMainCell";
             [self.tableView reloadData];
             
         }];
-        
     }];
 }
 
@@ -308,9 +285,9 @@ static NSString *ID = @"ArtistMainCell";
         CGPoint currentTouchPosition = [touch locationInView:self.tableView];
         NSIndexPath *indexPath= [self.tableView indexPathForRowAtPoint:currentTouchPosition];
 
-        ArtworkListModel *step = self.models[indexPath.row];
+        ArtworkListModel *model = self.models[indexPath.row];
         
-        [self loadChangeData:step AndStep:@"30" AndIndexPath:indexPath];
+        [self loadChangeData:model AndStep:@"23" AndIndexPath:indexPath];
     }
 }
 
@@ -319,8 +296,6 @@ static NSString *ID = @"ArtistMainCell";
         //参数
         NSString *artworkId = model.ID;
         NSString *userId = model.author.ID;
-    
-        SSLog(@"%@",model.step);
     
         // 3.设置请求体
         NSDictionary *json = @{
@@ -402,8 +377,7 @@ static NSString *ID = @"ArtistMainCell";
         //获取点击的编辑项目的项目信息
         
         NSString *currentUserId = cellModel.author.ID;
-//        NSString *artWorkId = cellModel.ID;
-        NSString *artWorkId = @"imyt7yax314lpzzj";
+        NSString *artWorkId = cellModel.ID;
         
         
         NSString *urlStr = @"investorArtWorkView.do";
@@ -415,15 +389,12 @@ static NSString *ID = @"ArtistMainCell";
         
         [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
             
-            
 //            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
 //            NSLog(@"返回结果:%@",jsonStr);
             
             NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
             
             ProjectDetailsModel *project = [ProjectDetailsModel mj_objectWithKeyValues:modelDict[@"object"]];
-            
-            SSLog(@"%@",project);
             
             //在主线程刷新UI数据
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -433,8 +404,6 @@ static NSString *ID = @"ArtistMainCell";
                 
                  [self.navigationController pushViewController:releaseProject animated:YES];
             }];
-            
-            
         }];
     }
 }

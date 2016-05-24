@@ -55,7 +55,8 @@
 }
 
 -(void)loadDataToController{
-    NSString *userId = TakeUserID;
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
     NSDictionary *json = @{
                            @"userId": userId
                            };

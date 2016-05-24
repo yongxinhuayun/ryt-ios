@@ -83,7 +83,7 @@
         
         return maxY + bottomViewY + margin;
         
-    }else if ([self.step isEqualToString:@"24"]||[self.step isEqualToString:@"25"]){//可以点击创作完成和发布动态
+    }else if ([self.step isEqualToString:@"21"]||[self.step isEqualToString:@"22"]){//可以点击创作完成和发布动态
         
          return maxY + bottomViewY + margin;
         

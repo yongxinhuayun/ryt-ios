@@ -110,8 +110,8 @@ static NSString *ID1 = @"ArtistWorksCell";
     
     self.lastPageIndex = @"1";
     
-    
-    NSString *userId = @"ieatht97wfw30hfd";
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";
     
@@ -156,7 +156,9 @@ static NSString *ID1 = @"ArtistWorksCell";
     
     self.lastPageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
     
-    NSString *userId = @"ieatht97wfw30hfd";
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
+    
     NSString *pageSize = @"20";
     NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
     
@@ -188,8 +190,6 @@ static NSString *ID1 = @"ArtistWorksCell";
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self.tableView reloadData];
         }];
-        
-        
     }];
     
 }
@@ -412,13 +412,13 @@ static NSString *ID1 = @"ArtistWorksCell";
 -(void)deleteWorks{
     
     //参数
-    NSString *userId = @"ieatht97wfw30hfd";
+    UserMyModel *userModel = TakeLoginUserModel;
+    NSString *userId = userModel.ID;
     
     MasterWorkListModel *model = self.models[self.indexPath.row];
     
     NSString *artWorkId = model.ID;
     
-    SSLog(@"%@",artWorkId);
     
     NSString *urlStr = @"removeMasterWork.do";
     
@@ -430,12 +430,10 @@ static NSString *ID1 = @"ArtistWorksCell";
     
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
         
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
-        
-        
-        SSLog(@"%zd",self.indexPath.row);
+//        SSLog(@"%zd",self.indexPath.row);
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -450,9 +448,7 @@ static NSString *ID1 = @"ArtistWorksCell";
                                         ];
                 [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationLeft];
             }
-            
         }];
-        
     }];
 
 }

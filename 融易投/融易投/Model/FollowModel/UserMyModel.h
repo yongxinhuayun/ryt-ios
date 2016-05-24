@@ -29,7 +29,7 @@
 @property (nonatomic ,strong) NSString *pictureUrl;
 
 
-/** 图片 */
+/** 艺术家身份 */
 @property (nonatomic ,strong) MasterMyModel *master;
 
 

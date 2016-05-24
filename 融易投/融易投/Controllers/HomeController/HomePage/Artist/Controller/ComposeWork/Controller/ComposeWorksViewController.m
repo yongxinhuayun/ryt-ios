@@ -138,7 +138,10 @@
     //参数
     NSString *name = self.workName.text;
     NSString *material = self.materialText.text;
-    NSString *currentUserId = @"imhfp1yr4636pj49";
+    
+    UserMyModel *userModel = TakeLoginUserModel;
+    NSString *currentUserId = userModel.ID;
+
     NSString *createYear = self.creatTime.text;
     
     NSString *type = nil; //0:非卖品 1:可售 2:已售
@@ -229,15 +232,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

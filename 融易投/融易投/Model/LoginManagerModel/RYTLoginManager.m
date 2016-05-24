@@ -77,7 +77,7 @@
 
 -(void)saveUser:(UserMyModel *)user{
     _user = user;
-    SaveUserID(user.ID);
+    
     //归档
     //获取temp文件夹路径
     NSString *tempPath = NSTemporaryDirectory();
@@ -111,6 +111,7 @@
 
 -(void)doLogout{
     
+    _isVisitor = YES;
     //获取temp文件夹路径
     NSString *tempPath = NSTemporaryDirectory();
     //拼接文件名

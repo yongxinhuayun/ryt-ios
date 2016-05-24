@@ -170,6 +170,13 @@ static NSString *BeeCloudAppSecret = @"23b1b629-4da0-42bd-8b4c-f7124bde629a";
 //    LognController *logn = [[LognController alloc] init];
 //    self.window.rootViewController = logn;
     
+    //判断程序被杀死之前的登录状态
+    RYTLoginManager *mgr = [RYTLoginManager shareInstance];
+    UserMyModel *model = TakeLoginUserModel;
+    if (model) {
+        [mgr loginSuccess:model];
+    }
+    
     //3.显示窗口
     [self.window makeKeyAndVisible];
     
