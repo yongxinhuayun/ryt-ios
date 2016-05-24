@@ -78,6 +78,14 @@
     //设置导航条标题
     self.navigationItem.title = @"加入融艺投";
     
+    //右边
+    UIImage *image = [UIImage imageNamed:@"denglu_guanbi"];
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithImage:image style:0 target:self action:@selector(dismiss)];
+    
+    self.navigationItem.rightBarButtonItem = barButtonItem;
+    
     //左边
 //    UIImage *image = [UIImage imageNamed:@"fanhui"];
 //    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -85,6 +93,11 @@
 //    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithImage:image style:0 target:self action:@selector(btnClick)];
 //    
 //    self.navigationItem.leftBarButtonItem = barButtonItem;
+}
+
+-(void)dismiss{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)btnClick{

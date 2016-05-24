@@ -1203,14 +1203,23 @@
         
         SSLog(@"---%@---%@",[responseObject class],aString);
         
-        //[SVProgressHUD showSuccessWithStatus:@"发布成功" maskType:SVProgressHUDMaskTypeBlack];
+        
+        
+        //保存模型,赋值给控制器
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            [MBProgressHUD showSuccess:@"申请成功"];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        
         
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         SSLog(@"%@",error);
         
-        //[SVProgressHUD showSuccessWithStatus:@"发布失败" maskType:SVProgressHUDMaskTypeBlack];
+        [MBProgressHUD showSuccess:@"申请失败,请重新申请"];
     }];
 
 }
