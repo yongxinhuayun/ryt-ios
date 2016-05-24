@@ -45,7 +45,7 @@
     
 //    [self.videoView.layer addSublayer:self.layer];
     
-    NSLog(@"%@",urlVideo);
+//    NSLog(@"%@",urlVideo);
 
 //    NSURL *url = [NSURL URLWithString:@"http://v1.mukewang.com/57de8272-38a2-4cae-b734-ac55ab528aa8/L.mp4"];
 //    AVPlayerItem *item = [AVPlayerItem playerItemWithURL:url];
@@ -63,9 +63,6 @@
     self.textView.delegate = self;
     
 }
-
-
-
 
 // 设置导航条
 -(void)setUpNavBar
@@ -119,10 +116,7 @@
      SSLog(@"111");
     
     //参数
-    
-    NSString *projectTitle = @"你妹";
-    
-    NSString *title = [projectTitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *title = self.textView.text;
     
     NSString *picture_url = urlVideo.absoluteString;
     
@@ -140,7 +134,7 @@
     
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
     
-    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
+    // 1.创建请求
     NSString *url = @"http://192.168.1.41:8080/app/releaseArtworkDynamic.do";
     
     // 3.设置请求体

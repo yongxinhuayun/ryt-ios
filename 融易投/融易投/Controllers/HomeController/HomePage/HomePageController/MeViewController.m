@@ -83,10 +83,13 @@ static NSString *ID = @"MeTableViewCell";
     
     //点击跳转粉丝界面
     [self jumpFansVc];
-    
-    //获取用户信息数据
-    [self loadData];
-    
+
+    if (![self.manger isVisitor]) {
+        
+        //获取用户信息数据
+        [self loadData];
+    }
+
     //设置导航条
     [self setUpNavBar];
 }
@@ -120,11 +123,7 @@ static NSString *ID = @"MeTableViewCell";
         
         RYTLoginManager *manger = [RYTLoginManager shareInstance];
         
-        UserMyModel *model = [manger takeUser];
-        
-        NSString *userId = model.ID;
-        
-        if (userId == nil) {
+        if ([manger isVisitor]) {
             
             [manger showLoginViewIfNeed];
             
@@ -149,11 +148,7 @@ static NSString *ID = @"MeTableViewCell";
         
         RYTLoginManager *manger = [RYTLoginManager shareInstance];
         
-        UserMyModel *model = [manger takeUser];
-        
-        NSString *userId = model.ID;
-        
-        if (userId == nil) {
+        if ([manger isVisitor]) {
             
             [manger showLoginViewIfNeed];
             
@@ -300,32 +295,44 @@ static NSString *ID = @"MeTableViewCell";
     
     if (indexPath.row == 0) { //第0组
         
-        //有值代表着登录,没值就是游客
-        UserMyModel *model = TakeLoginUserModel;
+        if ([self.manger isVisitor]) {
         
-        //艺术家用户
-        if (model.master) {
+            [self.manger showLoginViewIfNeed];
             
-            ArtistUserHomeViewController *artistHomeVC = [[ArtistUserHomeViewController alloc] init];
-            
-            artistHomeVC.model = self.model;
-            
-            [self.navigationController pushViewController:artistHomeVC animated:YES];
-            
-        }else{ //普通用户
+        }else {
         
-            CommonUserHomeViewController *myHomeVC = [[CommonUserHomeViewController alloc] init];
+            //艺术家用户
+            if (self.model.user.master) {
+                
+                ArtistUserHomeViewController *artistHomeVC = [[ArtistUserHomeViewController alloc] init];
+                
+                artistHomeVC.model = self.model;
+                
+                [self.navigationController pushViewController:artistHomeVC animated:YES];
+                
+            }else{ //普通用户
+                
+                CommonUserHomeViewController *myHomeVC = [[CommonUserHomeViewController alloc] init];
+                
+                myHomeVC.model = self.model;
+                
+                [self.navigationController pushViewController:myHomeVC animated:YES];
+            }
             
-            myHomeVC.model = self.model;
-            
-            [self.navigationController pushViewController:myHomeVC animated:YES];
         }
-        
     }else if (indexPath.row == 1){
         
-        UIStoryboard *walletStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([WalletViewController class]) bundle:nil];
-        WalletViewController *walletVC = [walletStoryBoard instantiateInitialViewController];
-        [self.navigationController pushViewController:walletVC animated:YES];
+        if ([self.manger isVisitor]) {
+            
+            [self.manger showLoginViewIfNeed];
+            
+        }else {
+            
+            UIStoryboard *walletStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([WalletViewController class]) bundle:nil];
+            WalletViewController *walletVC = [walletStoryBoard instantiateInitialViewController];
+            [self.navigationController pushViewController:walletVC animated:YES];
+
+        }
         
     }else if (indexPath.row == 2){
         
@@ -336,7 +343,6 @@ static NSString *ID = @"MeTableViewCell";
         [self.navigationController pushViewController:myHomeVC animated:YES];
         
     }else if (indexPath.row == 3){
-        
         
         UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([SettingTableViewController class]) bundle:nil];
         SettingTableViewController *settingVC = [settingStoryBoard instantiateInitialViewController];
@@ -352,6 +358,7 @@ static NSString *ID = @"MeTableViewCell";
         [self.navigationController pushViewController:ideaRetroactionVC animated:YES];
         
     }
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -393,9 +400,6 @@ static NSString *ID = @"MeTableViewCell";
     
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
-        
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
@@ -421,10 +425,6 @@ static NSString *ID = @"MeTableViewCell";
             
             //点击跳转粉丝界面
             [self jumpFansVc];
-            
-            //设置导航条
-            [self setUpNavBar];
-            
         }];
 
     }];

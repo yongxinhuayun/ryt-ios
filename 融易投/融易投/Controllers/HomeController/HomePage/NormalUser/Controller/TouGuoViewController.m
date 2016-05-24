@@ -87,40 +87,26 @@ static NSString *ID = @"InvestProjectCell";
     
     self.lastPageIndex = @"1";
     //参数
-    NSString *userId = @"ieatht97wfw30hfd";
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
     
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";
-    //flag为1是自己看自己,为2时是看别人,还需要传递otheruserId
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
     
-    NSString *signmsg = [NSString stringWithFormat:@"pageIndex=%@&pageSize=%@&timestamp=%@&userId=%@&key=%@",pageIndex,pageSize,timestamp,userId,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
+    NSString *url = @"my.do";
     // 3.设置请求体
     NSDictionary *json = @{
                            @"userId":userId,
                            @"pageSize" : pageSize,
-                           @"pageIndex" : pageIndex,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
+                           @"pageIndex" : pageIndex
                            };
     
-    NSString *url = @"http://192.168.1.41:8080/app/my.do";
-    
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
-        
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
-        
-               
-        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
+        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        //        NSLog(@"返回结果:%@",jsonStr);
 
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        
         PageInfoModel *model = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
         
         self.models = model.artworks;
@@ -131,12 +117,13 @@ static NSString *ID = @"InvestProjectCell";
             [self.tableView reloadData];
             
         }];
+        
     }];
 }
 
 -(void)loadMoreData
 {
-    //8.2 取消之前的请求
+    //8.2 取消之前的请求x
     [self.tableView.mj_footer endRefreshing];
     
     //参数
@@ -144,39 +131,25 @@ static NSString *ID = @"InvestProjectCell";
     
     self.lastPageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
     
-    NSLog(@"newPageIndex%@",self.lastPageIndex);
-    
-    NSLog(@"%d",newPageIndex);
-    
     //参数
-    NSString *userId = @"ieatht97wfw30hfd";
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
+
     NSString *pageSize = @"20";
     NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    
-    NSString *signmsg = [NSString stringWithFormat:@"pageIndex=%@&pageSize=%@&timestamp=%@&userId=%@&key=%@",pageIndex,pageSize,timestamp,userId,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
+
+     NSString *url = @"my.do";
     // 3.设置请求体
     NSDictionary *json = @{
                            @"userId":userId,
                            @"pageSize" : pageSize,
-                           @"pageIndex" : pageIndex,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
+                           @"pageIndex" : pageIndex
                            };
     
-    NSString *url = @"http://192.168.1.41:8080/app/my.do";
-    
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
@@ -186,14 +159,13 @@ static NSString *ID = @"InvestProjectCell";
         
         //拼接数据
         [self.models addObjectsFromArray:moreModels];
-    
+        
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
             [self.tableView reloadData];
             
         }];
-        
     }];
 }
 

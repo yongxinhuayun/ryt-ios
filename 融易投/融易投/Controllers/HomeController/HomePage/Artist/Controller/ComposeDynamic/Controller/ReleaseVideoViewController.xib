@@ -26,7 +26,7 @@
                             <rect key="frame" x="14" y="16" width="120" height="120"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSg-6k-8tN">
-                                    <rect key="frame" x="46.5" y="46.5" width="27" height="27"/>
+                                    <rect key="frame" x="47" y="47" width="27" height="27"/>
                                     <state key="normal" backgroundImage="video-play"/>
                                     <connections>
                                         <action selector="recordVideo:" destination="-1" eventType="touchUpInside" id="C5w-kL-Dgy"/>
@@ -48,7 +48,7 @@
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创作过程中有什么想法..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOC-FN-JJq">
-                            <rect key="frame" x="151" y="23" width="131" height="14.5"/>
+                            <rect key="frame" x="151" y="23" width="131" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
