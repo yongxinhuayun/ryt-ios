@@ -88,7 +88,7 @@
 -(void)saveUser:(UserMyModel *)user{
     
     _user = user;
-    
+    SaveUserID(user.ID);
     //归档
     //获取temp文件夹路径
     NSString *tempPath = NSTemporaryDirectory();

@@ -88,23 +88,10 @@ static NSString *ID = @"artistCell";
 
 -(void)setUpRefresh
 {
-    //但是如果我们想整个项目都要用到上拉刷新和下拉刷新呢,不能把这上面的代码一个个拷贝了吧
-    //这样,我们可以使用继承,自定义刷新控件然后继承自MJRefreshNormalHeader,这里是自定义下拉刷新
-    
-//    CommonHeader *header = [CommonHeader headerWithRefreshingBlock:^{
-//        
-//        [self loadNewData];
-//        
-//    }];
-//    
-//    self.tableView.mj_header = header;
-//    
-//    //让程序一开始就加载数据
-//    [self.tableView.mj_header beginRefreshing];
-    
-    
     //同样,自定义上拉刷新
-    self.tableView.mj_footer = [CommonFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    CommonFooter *footer = [CommonFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    footer.automaticallyChangeAlpha = YES;
+    self.tableView.mj_footer = footer;
     
     //要是其他控制器也需要,直接把上面的拷贝到其他控制器就可以了
 }

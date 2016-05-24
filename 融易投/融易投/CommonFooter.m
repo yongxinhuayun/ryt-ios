@@ -26,7 +26,7 @@
     
     //关闭自动显示和隐藏的功能(需要开发者自己去显示和隐藏footer)
 //    self.automaticallyHidden = YES;
-    self.hidden = YES;
+    self.automaticallyChangeAlpha = YES;
     
     
     [self setTitle:@"加载更多数据 ..." forState:MJRefreshStateRefreshing];
