@@ -21,22 +21,17 @@
 - (void)prepare
 {
     [super prepare];
-    
     self.automaticallyChangeAlpha = YES;
-    
     // 设置颜色
     //239, 91, 112
     self.stateLabel.textColor =[UIColor colorWithRed: (239) / 255.0 green:(91) / 255.0 blue:(112) / 255.0 alpha:1];
-    self.stateLabel.hidden = YES;
+//    self.stateLabel.hidden = YES;
     self.lastUpdatedTimeLabel.hidden = YES;
-    
-
     [self setTitle:@"加载中 ..." forState:MJRefreshStateRefreshing];
     
     // 设置字体
     self.stateLabel.font = [UIFont systemFontOfSize:15];
     self.lastUpdatedTimeLabel.font = [UIFont systemFontOfSize:14];
-    
     
     // 设置普通状态的动画图片
     NSMutableArray *idleImages = [NSMutableArray array];
@@ -52,28 +47,38 @@
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"refresh%zd", i]];
         [refreshingImages addObject:image];
     }
-    [self setImages:refreshingImages forState:MJRefreshStatePulling];
     
+    [self setImages:refreshingImages forState:MJRefreshStatePulling];
     // 设置正在刷新状态的动画图片
     [self setImages:refreshingImages forState:MJRefreshStateRefreshing];
+}
 
-    
-    //    UIImageView *logo = [[UIImageView alloc] init];
-    //    logo.contentMode = UIViewContentModeCenter;
-    //    logo.image = [UIImage imageNamed:@"MainTitle"];
-    //    [self addSubview:logo];
-    //    self.logo = logo;
+- (void)setState:(MJRefreshState)state
+{
+    MJRefreshCheckState    
+    // 根据状态做事情
+    if (state == MJRefreshStateIdle) {
+        self.stateLabel.hidden = NO;
+        self.gifView.hidden = YES;
+    } else if (state == MJRefreshStatePulling) {
+        self.stateLabel.hidden = NO;
+        self.gifView.hidden = YES;
+    }else if (state == MJRefreshStateRefreshing) {
+        self.stateLabel.hidden = YES;
+        self.gifView.hidden = NO;
+        self.gifView.centerX = [UIScreen mainScreen].bounds.size.width / 2;
+        }
+    else if (state == MJRefreshStateNoMoreData) {
+        
+    }
 }
 
 // 摆放子控件
 - (void)placeSubviews
 {
     [super placeSubviews];
-    
     CGFloat x = [UIApplication sharedApplication].keyWindow.x;
-    
     self.frame = CGRectMake(x * 0.5, -61 , self.width, self.height);
-    
     //    self.logo.frame = CGRectMake(0, -60, self.width, 60);
 }
 

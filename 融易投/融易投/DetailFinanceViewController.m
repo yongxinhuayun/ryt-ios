@@ -118,36 +118,6 @@
     }];
 }
 
--(void)loadData:(NSString *)urlStr parameters:(NSDictionary *)parameters andBlock:(void(^)(id respondObj))success{
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    NSMutableString *strM = [NSMutableString string];
-    NSArray *keys = [parameters allKeys];
-    NSArray *sortedArray = [keys sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        return [obj1 compare:obj2 options:NSNumericSearch];
-    }];
-    for (NSString *dictKey in sortedArray) {
-        if (dictKey == sortedArray.lastObject) {
-            [strM appendFormat:@"%@=%@",dictKey,parameters[dictKey]];
-        }else{
-            [strM appendFormat:@"%@=%@&",dictKey,parameters[dictKey]];
-        }
-    }
-    [strM appendFormat:@"&timestamp=%@&key=%@",timestamp,appkey];
-    NSString *signmsgMD5 = [MyMD5 md5:strM];
-    NSDictionary *temp = @{
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
-                           };
-    NSMutableDictionary *p = [NSMutableDictionary dictionaryWithDictionary:parameters];
-    [p addEntriesFromDictionary:temp];
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:urlStr Parameters:p showHUDView:self.view success:^(id respondObj) {
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            success(respondObj);
-        }];
-    }];
-}
-
 //加载数据
 -(void)loadDataToController{
     self.financeHeader.titleLabel.text = self.artworkModel.title;

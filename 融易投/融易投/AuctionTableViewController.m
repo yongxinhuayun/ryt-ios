@@ -50,6 +50,18 @@ static NSString *ID = @"auctionCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIView *tableview = [[UIView alloc] initWithFrame:self.view.bounds];
+    tableview.backgroundColor = [UIColor whiteColor];
+    UILabel *label = [[UILabel alloc] init];
+    label.centerX = self.view.centerX - 32;
+    label.centerY = self.view.centerY - 64;
+    label.text = @"敬请期待...";
+    label.font = [UIFont systemFontOfSize:14];
+    [label setTextColor:[UIColor blackColor]];
+    label.width = 120;
+    label.height = 30;
+    [tableview addSubview:label];
+    self.view = tableview;
     
     self.lastPageNum = @"1";
     

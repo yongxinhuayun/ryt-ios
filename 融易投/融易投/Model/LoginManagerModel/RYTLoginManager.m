@@ -70,23 +70,12 @@
     return nav;
 }
 
-
-
-
-//-(void)showLoginVC{
-//    
-//    UIViewController *vc = [self loginVC];
-//   
-//    [[AppDelegate shareAppDelegate].tabBarController presentViewController:vc animated:YES completion:nil];
-//}
-
 -(void)loginSuccess:(UserMyModel *)user{
     _isVisitor = NO;
     [self saveUser:user];
 }
 
 -(void)saveUser:(UserMyModel *)user{
-    
     _user = user;
     
     //归档
@@ -94,18 +83,16 @@
     NSString *tempPath = NSTemporaryDirectory();
     //拼接文件名
     NSString *filePath = [tempPath stringByAppendingPathComponent:@"userMyModel.plist"];
-    
+
     //file:文件全路径
     [NSKeyedArchiver archiveRootObject:user toFile:filePath];
 }
 
 -(UserMyModel *)takeUser{
-
     //获取temp文件夹路径
     NSString *tempPath = NSTemporaryDirectory();
     //拼接文件名
     NSString *filePath = [tempPath stringByAppendingPathComponent:@"userMyModel.plist"];
-    
     //解档
     UserMyModel *userMyModel = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
     

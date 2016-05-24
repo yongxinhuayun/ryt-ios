@@ -55,8 +55,6 @@
 -(void)setImgArray:(NSMutableArray *)imgArray
 {
     _imgArray = imgArray;
-    NSInteger i = 0;
-    CGFloat margin = 40;
     [self.imageListView reloadData];
 }
 

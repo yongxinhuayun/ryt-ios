@@ -19,7 +19,6 @@
 		212EEE8D1CE048C500F94B30 /* CommonUserHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE891CE048C500F94B30 /* CommonUserHeaderView.m */; };
 		212EEE8E1CE048C500F94B30 /* CommonUserHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE8A1CE048C500F94B30 /* CommonUserHeaderView.xib */; };
 		212EEE8F1CE048C500F94B30 /* CommonUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE8C1CE048C500F94B30 /* CommonUserHomeViewController.m */; };
-		2134E37E1CBB5D3800D6E662 /* ProjectScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */; };
 		215C965E1CED56AC0084C319 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 215C965A1CED56AC0084C319 /* libWeChatSDK.a */; };
 		215C965F1CED56AC0084C319 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 215C965B1CED56AC0084C319 /* read_me.txt */; };
 		215C96631CED56FD0084C319 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215C96611CED56FD0084C319 /* TencentOpenAPI.framework */; };
@@ -59,7 +58,6 @@
 		218D2B5C1CACB5B9004553B9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218D2B5B1CACB5B9004553B9 /* Launch Screen.storyboard */; };
 		219A1E8E1CD34570002843AC /* MyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 219A1E8D1CD34570002843AC /* MyHeaderView.m */; };
 		219A1E901CD345F1002843AC /* MyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219A1E8F1CD345F1002843AC /* MyHeaderView.xib */; };
-		21AB0A1C1CC2070200B7BA03 /* InvestRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0A1B1CC2070200B7BA03 /* InvestRecordViewController.m */; };
 		21AB0AA31CC4F69C00B7BA03 /* XiangqingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0AA21CC4F69C00B7BA03 /* XiangqingViewController.m */; };
 		21AB0AA51CC4F6AE00B7BA03 /* XiangqingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0AA41CC4F6AE00B7BA03 /* XiangqingViewController.storyboard */; };
 		21AB0ABF1CC50A4D00B7BA03 /* JPSlideBar+ScrollViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0AAC1CC50A4D00B7BA03 /* JPSlideBar+ScrollViewDelegate.m */; };
@@ -716,8 +714,6 @@
 		212EEE8A1CE048C500F94B30 /* CommonUserHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonUserHeaderView.xib; sourceTree = "<group>"; };
 		212EEE8B1CE048C500F94B30 /* CommonUserHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUserHomeViewController.h; sourceTree = "<group>"; };
 		212EEE8C1CE048C500F94B30 /* CommonUserHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUserHomeViewController.m; sourceTree = "<group>"; };
-		2134E37C1CBB5D3800D6E662 /* ProjectScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectScheduleViewController.h; sourceTree = "<group>"; };
-		2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectScheduleViewController.m; sourceTree = "<group>"; };
 		215C965A1CED56AC0084C319 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		215C965B1CED56AC0084C319 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
 		215C965C1CED56AC0084C319 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -789,8 +785,6 @@
 		219A1E8D1CD34570002843AC /* MyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHeaderView.m; sourceTree = "<group>"; };
 		219A1E8F1CD345F1002843AC /* MyHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyHeaderView.xib; sourceTree = "<group>"; };
 		219AC9821CBC8EBD0052146E /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
-		21AB0A1A1CC2070200B7BA03 /* InvestRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestRecordViewController.h; sourceTree = "<group>"; };
-		21AB0A1B1CC2070200B7BA03 /* InvestRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestRecordViewController.m; sourceTree = "<group>"; };
 		21AB0AA11CC4F69C00B7BA03 /* XiangqingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XiangqingViewController.h; sourceTree = "<group>"; };
 		21AB0AA21CC4F69C00B7BA03 /* XiangqingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiangqingViewController.m; sourceTree = "<group>"; };
 		21AB0AA41CC4F6AE00B7BA03 /* XiangqingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = XiangqingViewController.storyboard; sourceTree = "<group>"; };
@@ -1858,17 +1852,6 @@
 				2168EADE1CBFA05000B7E037 /* FinanceDetailSecondCell.xib */,
 			);
 			name = View;
-			sourceTree = "<group>";
-		};
-		21AB0A151CC1E92A00B7BA03 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				2134E37C1CBB5D3800D6E662 /* ProjectScheduleViewController.h */,
-				2134E37D1CBB5D3800D6E662 /* ProjectScheduleViewController.m */,
-				21AB0A1A1CC2070200B7BA03 /* InvestRecordViewController.h */,
-				21AB0A1B1CC2070200B7BA03 /* InvestRecordViewController.m */,
-			);
-			name = Controller;
 			sourceTree = "<group>";
 		};
 		21AB0A161CC1EA0700B7BA03 /* View */ = {
@@ -3880,7 +3863,6 @@
 				21AB0B831CC8BC5E00B7BA03 /* 项目详情 */,
 				21AB0B871CC8BD2800B7BA03 /* 用户评论 */,
 				21AB0A141CC1E92300B7BA03 /* View */,
-				21AB0A151CC1E92A00B7BA03 /* Controller */,
 			);
 			name = "详情";
 			sourceTree = "<group>";
@@ -4661,7 +4643,6 @@
 				21C413EF1CE2D23500F1029C /* AGIPCPreviewController.m in Sources */,
 				21C414291CE2D23500F1029C /* DSComposePhotosView.m in Sources */,
 				21D54B181CB4C31F0088D386 /* CommonHeader.m in Sources */,
-				21AB0A1C1CC2070200B7BA03 /* InvestRecordViewController.m in Sources */,
 				21C4142D1CE2D23500F1029C /* HMEmotionListView.m in Sources */,
 				E2D521EC1CDF79220024887A /* CNCityAreaCitiesModel.m in Sources */,
 				21C413F01CE2D23500F1029C /* AGIPCToolbarItem.m in Sources */,
@@ -4752,7 +4733,6 @@
 				2187B9421CCDF14000B92435 /* TYTitlePageTabBar.m in Sources */,
 				2187B9491CCDF24700B92435 /* TableViewController.m in Sources */,
 				2118F1EA1CAE88B4003BFC6B /* navTitleButton.m in Sources */,
-				2134E37E1CBB5D3800D6E662 /* ProjectScheduleViewController.m in Sources */,
 				21C413F71CE2D23500F1029C /* ImagePickerChooseView.m in Sources */,
 				21D54B171CB4C31F0088D386 /* CommonFooter.m in Sources */,
 				E2D5244B1CDF99C70024887A /* ApplyforArtViewController.m in Sources */,

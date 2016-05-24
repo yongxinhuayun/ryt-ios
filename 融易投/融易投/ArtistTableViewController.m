@@ -96,122 +96,53 @@ static NSString *ID = @"artistCell";
     //要是其他控制器也需要,直接把上面的拷贝到其他控制器就可以了
 }
 
-
--(void)loadNewData
-{
+-(void)loadNewData{
     //8.2 取消之前的请求
     [self.tableView.mj_header endRefreshing];
-    
     self.lastPageNum = @"1";
-    
     //参数
     NSString *pageSize = @"20";
     NSString *pageNum = @"1";
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    
-    NSLog(@"pageSize=%@,pageNum=%@,timestamp=%@",pageNum,pageNum,timestamp);
-    
-    NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&key=%@",pageNum,pageSize,timestamp,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
     // 3.设置请求体
     NSDictionary *json = @{
                            @"pageSize" : pageSize,
                            @"pageNum" : pageNum,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
                            };
-    
-    NSString *url = @"http://192.168.1.41:8080/app/getArtistTopList.do";
-    
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
-        
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"getArtistTopList.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         //        NSLog(@"返回结果:%@",jsonStr);
-        
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-        
         self.models = [ArtistModel mj_objectArrayWithKeyValuesArray:modelDict[@"ArtistTopList"]];
-        
-        
-        //4. 刷新数据
-        //        [self.tableView reloadData];
-        
-        //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
             [self.tableView reloadData];
-            
         }];
     }];
 }
-
--(void)loadMoreData
-{
+-(void)loadMoreData{
     //8.2 取消之前的请求
     [self.tableView.mj_footer endRefreshing];
-    
     //参数
     NSString *pageSize = @"1";
-    
     int newPageNum = self.lastPageNum.intValue + 1;
-    
     self.lastPageNum = [NSString stringWithFormat:@"%d",newPageNum];
-    
-    NSLog(@"self.lastPageNum%@",self.lastPageNum);
-    
-    NSLog(@"%d",newPageNum);
-    
     NSString *pageNum = [NSString stringWithFormat:@"%d",newPageNum];
-    
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    
-    NSLog(@"pageSize=%@,pageNum=%@,timestamp=%@",pageNum,pageNum,timestamp);
-    
-    NSString *signmsg = [NSString stringWithFormat:@"pageNum=%@&pageSize=%@&timestamp=%@&key=%@",pageNum,pageSize,timestamp,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
     // 3.设置请求体
     NSDictionary *json = @{
                            @"pageSize" : pageSize,
                            @"pageNum" : pageNum,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
                            };
-    
-    NSString *url = @"http://192.168.1.41:8080/app/getArtistTopList.do";
-    
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
-        
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"getArtistTopList.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         //        NSLog(@"返回结果:%@",jsonStr);
-        
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-        
         NSArray *moreModels = [ArtistModel mj_objectArrayWithKeyValuesArray:modelDict[@"ArtistTopList"]];
         //拼接数据
         [self.models addObjectsFromArray:moreModels];
-        
-        //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
             [self.tableView reloadData];
-            
         }];
-        
     }];
 }
-
 
 #pragma mark - 数据源
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

@@ -33,13 +33,9 @@
 @implementation MainTableViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
+    [super viewDidLoad];    
     self.navigationController.navigationBarHidden = YES;
-    
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    
     //4.添加所有子控制器
     [self setUpChildVcs];
     
@@ -49,13 +45,6 @@
     
     //2. 添加标题栏
     [self setUpTitlesView];
-    
-    //    //4.添加所有子控制器 ---注意;添加子控制器应该写在前面,因为我们在添加scrollView的时候必须先创建好子控制器才能将子控制器的view加到scrollView中
-    //    [self setUpChildVcs];
-    
-    //10. 默认选中第0个按钮,然后添加按钮对应的子控制器的view到scrollView中
-    //为什么直接调用就行呢?
-    //因为默认运行程序,默认scrollView的偏移量是0,所以计算的索引就是0,这样就添加了第一个子控制器的view
     [self addChildVcViewIntoScrollView];
 }
 /**

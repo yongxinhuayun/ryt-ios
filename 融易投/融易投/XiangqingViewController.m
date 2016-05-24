@@ -20,10 +20,7 @@
 
 #import "JPSlideBar.h"
 #import "JPBaseTableViewController.h"
-
-#import "ProjectScheduleViewController.h"
 #import "UserCommentViewController.h"
-#import "InvestRecordViewController.h"
 
 #import "TopTabControlDefine.h"
 
