@@ -119,6 +119,7 @@
     [self addChildViewController:record2];
 
     JianjieViewController *record3 = [[JianjieViewController alloc] init];
+    record3.userModel = self.model;
     [self.controllersView addObject:record3.view];
     [self addChildViewController:record3];
 

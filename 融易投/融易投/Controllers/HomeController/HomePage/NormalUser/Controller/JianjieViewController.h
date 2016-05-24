@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class PageInfoModel;
 @interface JianjieViewController : UIViewController
 
+@property (nonatomic ,strong) PageInfoModel *userModel;
 
 @end

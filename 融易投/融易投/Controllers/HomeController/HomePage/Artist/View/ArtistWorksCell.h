@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class MasterWorkListModel;
+@class MasterWorkListModel,PageInfoModel;
 
 @interface ArtistWorksCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIButton *shanchuBtn;
 
 @property (nonatomic, strong) MasterWorkListModel *model;
+
+//根据此模型判断是否是自己看自己
+@property (nonatomic ,strong)PageInfoModel *userModel;
 
 @end

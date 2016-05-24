@@ -164,17 +164,9 @@
         }else {
 
             self.stepBtn.hidden = YES;
-            [self.stepBtn setTitle:@"" forState:UIControlStateNormal];
-            
+            [self.stepBtn setTitle:@"" forState:UIControlStateNormal];   
         }
-        
     }
-    
-    
-    
-
-    
-    
 }
 
 - (void)awakeFromNib {

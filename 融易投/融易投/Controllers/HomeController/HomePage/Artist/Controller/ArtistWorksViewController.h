@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class PageInfoModel;
 @interface ArtistWorksViewController : UITableViewController
 
 @property(nonatomic,assign) CGFloat topHeight;
 
+@property (nonatomic ,strong)PageInfoModel *userModel;
 @end
