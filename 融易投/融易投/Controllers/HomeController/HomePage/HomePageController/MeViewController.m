@@ -96,6 +96,13 @@ static NSString *ID = @"MeTableViewCell";
     
     [super viewDidLoad];
     
+    [UserMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"ID"          :@"id",
+                 };
+    }];
+    
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"MeTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
 
@@ -303,7 +310,7 @@ static NSString *ID = @"MeTableViewCell";
             if (self.model.user.master) {
                 
                 ArtistUserHomeViewController *artistHomeVC = [[ArtistUserHomeViewController alloc] init];
-                
+
                 artistHomeVC.model = self.model;
                 
                 [self.navigationController pushViewController:artistHomeVC animated:YES];
@@ -381,8 +388,6 @@ static NSString *ID = @"MeTableViewCell";
         
         return;
     }
-
-    SSLog(@"%@",userId);
     
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";

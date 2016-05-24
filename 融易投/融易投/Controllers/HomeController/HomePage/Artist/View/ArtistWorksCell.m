@@ -9,7 +9,7 @@
 #import "ArtistWorksCell.h"
 
 #import "MasterWorkListModel.h"
-
+#import "PageInfoModel.h"
 #import "UIImageView+WebCache.h"
 
 @interface ArtistWorksCell ()
@@ -52,8 +52,24 @@
     }
 }
 
+-(void)setUserModel:(PageInfoModel *)userModel{
+
+    //判断是别人看自己,还是自己看自己
+    //保存登录用户信息
+    UserMyModel *user = TakeLoginUserModel;
+    NSString *userId = user.ID;
+    
+    //别人看自己
+    if (![userModel.user.ID isEqualToString:userId]) {
+
+        self.shanchuBtn.hidden = YES;
+    }else{
+
+        self.shanchuBtn.hidden = NO;
+    }
+}
+
 - (void)awakeFromNib {
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

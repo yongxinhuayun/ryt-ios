@@ -15,6 +15,7 @@
 
 #import "MasterWorkModel.h"
 #import "MasterWorkListModel.h"
+#import "PageInfoModel.h"
 
 #import <MJExtension.h>
 
@@ -57,8 +58,7 @@ static NSString *ID1 = @"ArtistWorksCell";
     self.isfoot = YES;
     
     self.lastPageIndex = @"1";
-    
-    
+
 //    self.tableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
 //    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(44, 0, 0, 0);
     
@@ -125,8 +125,7 @@ static NSString *ID1 = @"ArtistWorksCell";
     
     
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
-        
-        
+
 //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
 //        NSLog(@"返回结果:%@",jsonStr);
       
@@ -134,16 +133,14 @@ static NSString *ID1 = @"ArtistWorksCell";
 
         MasterWorkModel *masterWorkModel = [MasterWorkModel mj_objectWithKeyValues:modelDict[@"object"]];
 
-        self.models = masterWorkModel.masterWorkList;
-
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            self.models = masterWorkModel.masterWorkList;
+            
             [self.tableView reloadData];
         }];
-        
-        
     }];
-
 }
 
 -(void)loadMoreData
@@ -183,11 +180,12 @@ static NSString *ID1 = @"ArtistWorksCell";
         
         NSArray *moreModels = masterWorkModel.masterWorkList;
         
-        //拼接数据
-        [self.models addObjectsFromArray:moreModels];
-        
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            //拼接数据
+            [self.models addObjectsFromArray:moreModels];
+            
             [self.tableView reloadData];
         }];
     }];
@@ -210,28 +208,52 @@ static NSString *ID1 = @"ArtistWorksCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ArtistWorksCell *cell = [tableView dequeueReusableCellWithIdentifier:ID1];
-    
+
     [cell.shanchuBtn addTarget:self action:@selector(shanchuZuoPin:event:) forControlEvents:UIControlEventTouchUpInside];
     
     MasterWorkListModel *model = self.models[indexPath.row];
     
     cell.model = model;
+    cell.userModel = self.userModel;
     
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
 
-    return 84;
+    //判断是别人看自己,还是自己看自己
+    //保存登录用户信息
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
+    
+    //别人看自己
+    if (![self.userModel.user.ID isEqualToString:userId]) {
+        
+        return 0;
+    }else{
+    
+        return 84;
+    }
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
 
-    FaBuHeaderView *headerView = [FaBuHeaderView faBuHeaderView];
+    //判断是别人看自己,还是自己看自己
+    //保存登录用户信息
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
     
-    [headerView.fabuBtn addTarget:self action:@selector(fabuZuoPin:) forControlEvents:UIControlEventTouchUpInside];
-    
-    return  headerView;
+    //别人看自己
+    if (![self.userModel.user.ID isEqualToString:userId]) {
+        
+        return nil;
+    }else{
+        FaBuHeaderView *headerView = [FaBuHeaderView faBuHeaderView];
+        
+        [headerView.fabuBtn addTarget:self action:@selector(fabuZuoPin:) forControlEvents:UIControlEventTouchUpInside];
+        
+        return  headerView;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -292,8 +314,6 @@ static NSString *ID1 = @"ArtistWorksCell";
     UIImage *selctedImage = info[UIImagePickerControllerOriginalImage];
     
     UIImage *workImage = [self drawImageWith:selctedImage imageWidth:SSScreenW - 2 * SSMargin];
-    
-   
     selctedImage = nil;
     
     self.createPath = [self writeImageToCaches:workImage];
