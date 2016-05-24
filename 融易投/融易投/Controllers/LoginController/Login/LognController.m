@@ -117,9 +117,7 @@
 
 -(void)loadData
 {
-    
     if (self.usernameTextField.text.length < 11) {
-        
         [MBProgressHUD showError:@"请输入完整的手机号"];
         return;
     }
@@ -128,101 +126,52 @@
         [MBProgressHUD showError:@"请输入正确的手机号"];
         return;
     }
-    
     [MBProgressHUD showMessage:nil];
-    
-    
     //参数
     NSString *username = self.usernameTextField.text;
     NSString *password = self.passwordTextField.text ;
-
     NSString *urlStr = @"login.do";
-
     NSDictionary *json = @{
                            @"username" : username,
                            @"password" : password,
                            };
-    
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
-        
-        /*
-         {
-         "count1":0,"userInfo":{"id":"imhfp1yr4636pj49","username":"18513234278","name":null,"name2":"18513234278","password":"11111111","status":1,"confirmPassword":null,"oldPassword":null,"enabled":true,"accountExpired":false,"accountLocked":false,"credentialsExpired":false,"utype":null,"lastLoginDatetime":null,"lastLogoutDatetime":null,"createDatetime":1459498453000,"source":null,"fullName":"null[18513234278]","accountNonExpired":true,"accountNonLocked":true,"credentialsNonExpired":true},"roiMoney":0.00,"flag":"1","rate":0.00,"investsMoney":0.00,"resultCode":"0","count":0,"userBrief":null,"resultMsg":"成功"
-         }
-         */
-        
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-        
-
-        UserMyModel *userMyModel = [UserMyModel mj_objectWithKeyValues:dict[@"userInfo"]];
-        
-
-        
-
-//        NSString *a = TakeUserID;
-//        SSLog(@"%@",a);
-        
-//        NSString *LognInfo = dict[@"resultMsg"];
-        
          [MBProgressHUD hideHUD];
-        
-        if (dict[@"resultCode"] != 0) {
-
-            
+        NSString *resultCode = dict[@"resultCode"];
+        if ([resultCode intValue] == 0) {
             [MBProgressHUD showSuccess:@"登录成功"];
-            
             //登录实体类
-            RYTLoginManager *manger = [RYTLoginManager shareInstance];
-            
-            [manger loginSuccess:userMyModel];
-            
-
             NSString *registrationID = [[NSUserDefaults standardUserDefaults] valueForKey:@"registrationID"];
             UserMyModel *userMyModel = [UserMyModel mj_objectWithKeyValues:dict[@"userInfo"]];
-            
-            NSString *ID = userMyModel.ID;
-            
-            SaveUserID(ID);
+            RYTLoginManager *manager = [RYTLoginManager shareInstance];
+            [manager loginSuccess:userMyModel];
             //登录成功的时候注册用户的registrationId
             //注册 registrationID
-            //    userBinding.do
-            //  注册cid
-            
-            
-            SSLog(@"%@",registrationID);
-            
+            if (![registrationID isEqualToString:@""] && (manager.takeUser != nil)) {
                 NSDictionary *json = @{
-                                    @"cid":registrationID,
-                                    @"username":userMyModel.username,
-                                    @"password":self.passwordTextField.text,
-                                    };
-            [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"userBinding.do" parameters:json showHUDView:nil andBlock:^(id respondObj) {
-                NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-                NSLog(@"返回结果:%@",jsonStr);
-              // TODO
-            }];
-             [MBProgressHUD showSuccess:@"登录成功"];
+                                       @"cid":registrationID,
+                                       @"username":userMyModel.username,
+                                       @"password":self.passwordTextField.text,
+                                       };
+                [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"userBinding.do" parameters:json showHUDView:nil andBlock:^(id respondObj) {
+                    NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+                    NSLog(@"返回结果:%@",jsonStr);
+                    // TODO
+                    //在主线程刷新UI数据
+                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                    }];
+                }];
 
-
+            }
         }else { //登录失败
              [MBProgressHUD showError:@"登录失败"];
         }
-        
-
-        //在主线程刷新UI数据
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
-            [MBProgressHUD hideHUD];
-            
-//            [[NSNotificationCenter defaultCenter] postNotificationName:ChangeRootViewControllerNotification object:self userInfo:@{@"message":@"1"}];
-            [self dismissViewControllerAnimated:YES completion:nil];
-            
-        }];
-      
-        
+//        [MBProgressHUD hideHUD];
     }];
 }
 
