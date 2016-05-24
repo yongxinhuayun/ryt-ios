@@ -36,6 +36,11 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="8rf-iN-BpS"/>
+                        </mask>
+                    </variation>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="11111111" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" background="denglu_shurukuang" translatesAutoresizingMaskIntoConstraints="NO" id="WIr-I3-aCW" customClass="SSTextField">
                     <rect key="frame" x="27" y="235" width="320" height="40"/>
@@ -99,7 +104,9 @@
             <constraints>
                 <constraint firstItem="LiZ-RE-aAW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="478" id="3ed-O2-9sQ"/>
                 <constraint firstItem="uKx-he-EOd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="151" id="5wh-Gn-acg"/>
+                <constraint firstItem="WIr-I3-aCW" firstAttribute="leading" secondItem="M6J-dQ-7nL" secondAttribute="leading" id="6IT-gA-FYl"/>
                 <constraint firstItem="M6J-dQ-7nL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27" id="9hZ-YR-zld"/>
+                <constraint firstItem="WIr-I3-aCW" firstAttribute="centerX" secondItem="z6u-QO-4EG" secondAttribute="centerX" id="B9d-24-Hus"/>
                 <constraint firstItem="QF8-bW-GW1" firstAttribute="trailing" secondItem="D5m-by-d35" secondAttribute="trailing" id="C2d-Oa-Acr"/>
                 <constraint firstItem="WIr-I3-aCW" firstAttribute="leading" secondItem="MCy-jv-0h1" secondAttribute="leading" id="CnB-Hp-Fo4"/>
                 <constraint firstItem="D5m-by-d35" firstAttribute="width" secondItem="MCy-jv-0h1" secondAttribute="width" id="DNn-Ut-DL0"/>
@@ -122,14 +129,24 @@
                 <constraint firstItem="z6u-QO-4EG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="h6B-g6-gNk"/>
                 <constraint firstItem="uKx-he-EOd" firstAttribute="centerX" secondItem="M6J-dQ-7nL" secondAttribute="centerX" id="j7J-py-hvp"/>
                 <constraint firstItem="D5m-by-d35" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kF0-eY-1fQ"/>
+                <constraint firstItem="WIr-I3-aCW" firstAttribute="leading" secondItem="D5m-by-d35" secondAttribute="leading" id="lTs-y0-H3P"/>
                 <constraint firstItem="z6u-QO-4EG" firstAttribute="top" secondItem="D5m-by-d35" secondAttribute="bottom" constant="454" id="q5g-Ov-na5"/>
                 <constraint firstItem="LiZ-RE-aAW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rrc-mc-pC3"/>
                 <constraint firstItem="D5m-by-d35" firstAttribute="leading" secondItem="MCy-jv-0h1" secondAttribute="leading" id="vvs-vA-1VN"/>
+                <constraint firstAttribute="trailing" secondItem="MCy-jv-0h1" secondAttribute="trailing" constant="12" id="wR7-5a-DIR"/>
+                <constraint firstItem="MCy-jv-0h1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="wZz-sm-S7j"/>
                 <constraint firstItem="z6u-QO-4EG" firstAttribute="centerY" secondItem="M6J-dQ-7nL" secondAttribute="centerY" id="wvj-jr-FON"/>
+                <constraint firstItem="WIr-I3-aCW" firstAttribute="trailing" secondItem="D5m-by-d35" secondAttribute="trailing" id="y2u-yr-Agf"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="f4r-xH-rDi"/>
+                    <exclude reference="wR7-5a-DIR"/>
+                    <exclude reference="wZz-sm-S7j"/>
+                    <exclude reference="DNn-Ut-DL0"/>
+                    <exclude reference="kF0-eY-1fQ"/>
+                    <exclude reference="vvs-vA-1VN"/>
                     <exclude reference="Sfb-uw-N4s"/>
                     <exclude reference="q5g-Ov-na5"/>
                     <exclude reference="Fjr-un-xRd"/>

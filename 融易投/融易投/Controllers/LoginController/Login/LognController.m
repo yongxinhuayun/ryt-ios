@@ -11,7 +11,7 @@
 #import "RegViewController.h"
 #import "ForgetPasswordViewController.h"
 
-#import "MBProgressHUD+YXL.h"
+
 #import "SSTextField.h"
 
 #import <MJExtension.h>
@@ -57,7 +57,7 @@
     //设置导航条标题
     self.navigationItem.title = @"登录";
     
-    //左边
+    //右边
     UIImage *image = [UIImage imageNamed:@"denglu_guanbi"];
     image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     

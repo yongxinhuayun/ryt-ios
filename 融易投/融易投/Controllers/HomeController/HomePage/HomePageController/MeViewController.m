@@ -52,7 +52,9 @@
 
 @property (strong, nonatomic) MeHeaderView *meheaderView;
 
-@property (nonatomic ,strong)PageInfoModel *model;
+@property (nonatomic ,strong) PageInfoModel *model;
+
+@property (nonatomic ,strong) RYTLoginManager *manger;
 
 @end
 
@@ -84,16 +86,14 @@ static NSString *ID = @"MeTableViewCell";
     
     //获取用户信息数据
     [self loadData];
+    
+    //设置导航条
+    [self setUpNavBar];
 }
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
-    //设置导航条
-    [self setUpNavBar];
-
-   
     
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"MeTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
@@ -117,7 +117,6 @@ static NSString *ID = @"MeTableViewCell";
     __weak MeViewController *weakself=self;
     
     self.meheaderView.editingInfoBlcok = ^{
-        
         
         RYTLoginManager *manger = [RYTLoginManager shareInstance];
         
@@ -182,8 +181,6 @@ static NSString *ID = @"MeTableViewCell";
     
 }
 
-
-
 // 设置导航条
 -(void)setUpNavBar
 {
@@ -191,43 +188,59 @@ static NSString *ID = @"MeTableViewCell";
     self.navigationItem.title = @"我的";
     
     //设置导航条按钮
-    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    leftButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    UIButton *navButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    navButton.titleLabel.font = [UIFont systemFontOfSize:12];
     
-    [leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [navButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
-    [leftButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    [navButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     
-    [leftButton setTitle:@"申请为艺术家" forState:UIControlStateNormal];
     
-    //运行程序,发现按钮没有出现导航条上面,因为没有设置尺寸
-    [leftButton sizeToFit];
+    RYTLoginManager *manger = [RYTLoginManager shareInstance];
+    self.manger = manger;
     
-    [leftButton addTarget:self action:@selector(applyforArt) forControlEvents:UIControlEventTouchUpInside];
+    //有值代表着登录,没值就是游客
+    UserMyModel *model = TakeLoginUserModel;
     
-    UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    if ([manger isVisitor]) {
+        
+        [navButton setTitle:@"申请为艺术家" forState:UIControlStateNormal];
+        
+        //运行程序,发现按钮没有出现导航条上面,因为没有设置尺寸
+        [navButton sizeToFit];
+        
+         [navButton addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
+        
+    }else {
+    
+        //艺术家用户
+        if (model.master) {
+            
+            [navButton setTitle:@"申请为艺术家" forState:UIControlStateNormal];
+            
+            //运行程序,发现按钮没有出现导航条上面,因为没有设置尺寸
+            [navButton sizeToFit];
+            
+            [navButton addTarget:self action:@selector(applyforArt) forControlEvents:UIControlEventTouchUpInside];
+        }else {
+            
+            [navButton setTitle:@"发起项目" forState:UIControlStateNormal];
+            
+            //运行程序,发现按钮没有出现导航条上面,因为没有设置尺寸
+            [navButton sizeToFit];
+            
+            [navButton addTarget:self action:@selector(releaseProject) forControlEvents:UIControlEventTouchUpInside];
+        }
+    }
+    
+    UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithCustomView:navButton];
     
     self.navigationItem.leftBarButtonItem = leftBarButton;
+}
+
+-(void)login{
     
-    
-    //设置导航条按钮
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightButton.titleLabel.font = [UIFont systemFontOfSize:12];
-    
-    [rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
-    [rightButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    
-    [rightButton setTitle:@"发起项目" forState:UIControlStateNormal];
-    
-    //运行程序,发现按钮没有出现导航条上面,因为没有设置尺寸
-    [rightButton sizeToFit];
-    
-    [rightButton addTarget:self action:@selector(releaseProject) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-    
-    self.navigationItem.rightBarButtonItem = rightBarButton;
+    [self.manger showLoginViewIfNeed];
 }
 
 -(void)releaseProject{
@@ -287,8 +300,11 @@ static NSString *ID = @"MeTableViewCell";
     
     if (indexPath.row == 0) { //第0组
         
+        //有值代表着登录,没值就是游客
+        UserMyModel *model = TakeLoginUserModel;
+        
         //艺术家用户
-        if (self.model.user.master) {
+        if (model.master) {
             
             ArtistUserHomeViewController *artistHomeVC = [[ArtistUserHomeViewController alloc] init];
             
@@ -313,12 +329,11 @@ static NSString *ID = @"MeTableViewCell";
         
     }else if (indexPath.row == 2){
         
-        //测试跳转到艺术家主页
-        ArtistUserHomeViewController *artistHomeVC = [[ArtistUserHomeViewController alloc] init];
+        CommonUserHomeViewController *myHomeVC = [[CommonUserHomeViewController alloc] init];
         
-        artistHomeVC.model = self.model;
+        myHomeVC.model = self.model;
         
-        [self.navigationController pushViewController:artistHomeVC animated:YES];
+        [self.navigationController pushViewController:myHomeVC animated:YES];
         
     }else if (indexPath.row == 3){
         
@@ -343,10 +358,6 @@ static NSString *ID = @"MeTableViewCell";
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return 49;
-    
-    
-
-    
 }
 
 -(void)loadData
@@ -382,8 +393,8 @@ static NSString *ID = @"MeTableViewCell";
     
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
         
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
@@ -410,6 +421,9 @@ static NSString *ID = @"MeTableViewCell";
             
             //点击跳转粉丝界面
             [self jumpFansVc];
+            
+            //设置导航条
+            [self setUpNavBar];
             
         }];
 

@@ -31,6 +31,7 @@
 #import "RYTLoginManager.h"
 #import "UserMyModel.h"
 
+#import "MBProgressHUD+YXL.h"
 // 自定义Log
 #ifdef DEBUG
 // 调试阶段 DEBUG
