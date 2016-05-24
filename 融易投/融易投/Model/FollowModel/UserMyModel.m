@@ -15,7 +15,6 @@
 
 //什么时候调用:自定义对象归档时候调用
 //作用:告诉系统对象里面那些属性需要归档
-
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.ID forKey:@"ID"];
@@ -23,6 +22,7 @@
     [aCoder encodeObject:self.name forKey:@"name2"];
     [aCoder encodeObject:self.name forKey:@"username"];
     [aCoder encodeObject:self.name forKey:@"pictureUrl"];
+    [aCoder encodeObject:self.master forKey:@"master"];
     
 }
 
@@ -44,6 +44,8 @@
         _username = [aDecoder decodeObjectForKey:@"username"];
         //pictureUrl
          _pictureUrl = [aDecoder decodeObjectForKey:@"pictureUrl"];
+        //master
+        _master = [aDecoder decodeObjectForKey:@"master"];
     }
     return self;
 }

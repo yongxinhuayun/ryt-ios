@@ -120,8 +120,18 @@
 //-(void)addObser{
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doLogout) name:<#(nullable NSString *)#> object:<#(nullable id)#>]
 //}
--(BOOL)doLogout{
-    return NO;
+
+
+-(void)doLogout{
+    
+    //获取temp文件夹路径
+    NSString *tempPath = NSTemporaryDirectory();
+    //拼接文件名
+    NSString *filePath = [tempPath stringByAppendingPathComponent:@"userMyModel.plist"];
+    
+    NSFileManager *mgr = [NSFileManager defaultManager];
+    
+    [mgr removeItemAtPath:filePath error:nil];
 }
 
 

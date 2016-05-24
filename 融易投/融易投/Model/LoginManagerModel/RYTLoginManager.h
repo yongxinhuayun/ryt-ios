@@ -69,6 +69,6 @@
 /**
  *  注销、退出登录
  */
--(BOOL)doLogout;
+-(void)doLogout;
 
 @end

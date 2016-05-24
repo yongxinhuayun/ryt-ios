@@ -45,9 +45,7 @@
 #import "ArtistUserHomeViewController.h"
 
 #import "MeTableViewCell.h"
-#import "RYTLoginManager.h"
 
-#import "UserMyModel.h"
 
 @interface MeViewController ()
 
@@ -346,19 +344,16 @@ static NSString *ID = @"MeTableViewCell";
     
     return 49;
     
+    
+
+    
 }
 
 -(void)loadData
 {
     //参数
     //有值代表着登录,没值就是游客
-//    RYTLoginManager *manger = [RYTLoginManager shareInstance];
-//    
-//    NSString *userId = manger.user.ID;
-    
-    RYTLoginManager *manger = [RYTLoginManager shareInstance];
-    
-    UserMyModel *model = [manger takeUser];
+    UserMyModel *model = TakeLoginUserModel;
     
     NSString *userId = model.ID;
 
@@ -376,31 +371,19 @@ static NSString *ID = @"MeTableViewCell";
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";
     //flag为1是自己看自己,为2时是看别人,还需要传递otheruserId
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    
-    NSString *signmsg = [NSString stringWithFormat:@"pageIndex=%@&pageSize=%@&timestamp=%@&userId=%@&key=%@",pageIndex,pageSize,timestamp,userId,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
     
     // 3.设置请求体
     NSDictionary *json = @{
                            @"userId":userId,
                            @"pageSize" : pageSize,
-                           @"pageIndex" : pageIndex,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
+                           @"pageIndex" : pageIndex
                            };
+    NSString *url = @"my.do";
     
-    NSString *url = @"http://192.168.1.75:8001/app/my.do";
-    
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:nil success:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
@@ -415,14 +398,10 @@ static NSString *ID = @"MeTableViewCell";
             //给xib赋值数据的时候,在viewDidLoad方法老是赋值为nil,所以只好写在这里
             
             //设置头部视图
-//            MeHeaderView *meheaderView = [MeHeaderView meHeaderView];
+            //            MeHeaderView *meheaderView = [MeHeaderView meHeaderView];
             //保存从xib获取的模型数据
             self.meheaderView.model = self.model;
             
-            NSLog(@"%@",self.model.user.pictureUrl);
-            
-//            self.meheaderView = meheaderView;
-
             //点击头像跳转编辑资料视图
             [self jumpeditingInfoVc];
             
@@ -431,8 +410,9 @@ static NSString *ID = @"MeTableViewCell";
             
             //点击跳转粉丝界面
             [self jumpFansVc];
-
+            
         }];
+
     }];
 }
 

@@ -25,6 +25,22 @@
 /** 图片 */
 @property (nonatomic ,strong) NSString *favicon;
 
+/** 大地址 */
+@property (nonatomic ,strong) NSString *provinceName;
+
+/** 小地址 --=详细地址 */
+@property (nonatomic ,strong) NSString *presentAddress;
+
+/** 身份证正面照片 */
+@property (nonatomic ,strong) NSString *identityFront;
+
+/** 身份证反面照片 */
+@property (nonatomic ,strong) NSString *identityBack;
+
+
+
+
+
 ///** 项目描述 */
 //@property (nonatomic ,strong) NSString *status;
 //

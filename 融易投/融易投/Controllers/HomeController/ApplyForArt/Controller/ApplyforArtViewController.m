@@ -15,8 +15,6 @@
 #import "AGImagePickerController.h"
 #import "ShowImageViewController.h"
 
-#import <CommonCrypto/CommonDigest.h>
-#import <CommonCrypto/CommonHMAC.h>
 
 #import "cityField.h"
 
@@ -1010,9 +1008,11 @@
      NSString *artCategory = self.artTextView.text;
     //资格认证
      NSString *titleCertificate = self.certificationTF.text;
+    
     //当前用户Id
-//    NSString *userId = TakeUserID;
-     NSString *userId = @"ina6pqm2d036fya5";
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
+    
     //类型
      NSString *paramType = @"0";
     

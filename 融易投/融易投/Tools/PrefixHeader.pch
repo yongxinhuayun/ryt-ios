@@ -28,6 +28,8 @@
 #import "UIImage+StrethImage.h"
 #import "NSString+DocumentPath.h"
 
+#import "RYTLoginManager.h"
+#import "UserMyModel.h"
 
 // 自定义Log
 #ifdef DEBUG
@@ -79,6 +81,8 @@
 #define SaveUserID(userId) [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"userId"];
 
 #define TakeUserID  [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+
+#define TakeLoginUserModel [[RYTLoginManager shareInstance] takeUser];
 
 
 //使用归档进行用户登录信息

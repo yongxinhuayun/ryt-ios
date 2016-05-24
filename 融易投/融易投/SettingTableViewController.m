@@ -16,6 +16,8 @@
 
 #import "SettingFooterView.h"
 
+#import "RYTLoginManager.h"
+
 @interface SettingTableViewController ()
 
 /** 缓存尺寸*/
@@ -137,6 +139,11 @@
 -(void)tuiChuLogn{
 
     SSLog(@"退出登录");
+    
+    RYTLoginManager *manager = [RYTLoginManager shareInstance];
+    [manager doLogout];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
