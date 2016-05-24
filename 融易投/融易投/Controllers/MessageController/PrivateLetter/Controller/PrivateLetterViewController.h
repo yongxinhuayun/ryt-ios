@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PrivateLetterViewController : UIViewController
-
+@property(nonatomic,copy)NSString *userId;
+@property(nonatomic,copy) NSString *fromUserId;
 @end

@@ -55,11 +55,14 @@
     [self loadData];
 }
 
+//if ([[RYTLoginManager shareInstance] showLoginViewIfNeed]) {
+//}
+
 -(void)loadData
 {
     //参数
     NSLog(@"-----%@",self.artWorkId); //imyuxey8ze7lp8h5 ---in5z7r5f2w2f73so
-    NSString *currentUserId = @"18701526255";
+//    NSString *currentUserId = @"18701526255";
     NSString *url = [[NSString alloc] init];
     if (self.isFinance) {
         url = @"artWorkCreationView.do";
@@ -67,11 +70,20 @@
     {
         url = @"investorArtWorkView.do";
     }
-    NSDictionary *JSON = @{
-                           @"artWorkId" : self.artWorkId,
-                           @"currentUserId":currentUserId
-                           };
-    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:JSON showHUDView:self.view andBlock:^(id respondObj) {
+    //获取当前用户ID
+    NSString *currentUserId = [RYTLoginManager shareInstance].takeUser.ID;
+    NSDictionary *json = [NSDictionary dictionary];
+    if (!currentUserId) {
+        json = @{
+                 @"artWorkId" : self.artWorkId,
+                 };
+    }else{
+        json = @{
+                 @"artWorkId" : self.artWorkId,
+                 @"currentUserId":currentUserId
+                 };
+    }
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         //        NSLog(@"%@",modelDict);
         //字典数组 -> 模型数组

@@ -17,7 +17,6 @@
 #import "UIImageView+WebCache.h"
 #import "FinanceModel.h"
 #import "RecordTableViewController.h"
-#import "ProjectDetailsViewController.h"
 #import "UserCommentViewController.h"
 #import "ProjectDetailTableViewController.h"
 #import "authorModel.h"
@@ -86,7 +85,7 @@
             self.artworkModel = project.artWork;
             [self loadDataToController];
             [self addFooterView];
-             [self loadInvestors];
+            [self loadInvestors];
         }];
     }];
 }
@@ -142,20 +141,21 @@
     self.financeHeader.userTitle.text = author.username;
     //项目描述brief
     self.financeHeader.userContent.text = self.artworkModel.brief;
-//     融资目标金额 investGoalMoney;
+    //     融资目标金额 investGoalMoney;
     self.financeHeader.investGoalMoney.text = [NSString stringWithFormat:@"%ld",(long)self.artworkModel.investGoalMoney];
-//    self.financeFooter.investsMoney = [NSString stringWithFormat:@"%ld 元",self.artworkModel.investsMoney];
+    //    self.financeFooter.investsMoney = [NSString stringWithFormat:@"%ld 元",self.artworkModel.investsMoney];
     //MARK:TODO
     //融资开始时间 investStartDatetime;
     //融资结束时间/创作开始时间 investEndDatetime;
     //融资金额百分比 = 已融金额 / 目标金额
     self.financeHeader.investsMoney.text = [NSString stringWithFormat:@"%ld 元",(long)self.artworkModel.investsMoney];
     CGFloat value = self.artworkModel.investsMoney / self.artworkModel.investGoalMoney;
-//    self.financeHeader.progress.progress = 0.9;
+    //    self.financeHeader.progress.progress = 0.9;
     self.financeHeader.progress.progress = value;
     self.financeHeader.progressLabel.text = [NSString stringWithFormat:@"%d%%",(int)(value * 100)];
-//    投资人数 investorsNum;
+    //    投资人数 investorsNum;
     self.financeHeader.investNum.text =[NSString stringWithFormat:@"%ld",self.projModel.investNum];
+    self.financeFooter.zan.selected = self.projModel.isPraise;
 }
 
 -(void)setupUI{
@@ -172,7 +172,7 @@
     self.cycleView.frame = self.middleView.bounds;
     self.cycleView.titleArray = self.titleArray;
     //添加控制器view
-                [self addControllersToCycleView];
+    [self addControllersToCycleView];
     [self.middleView addSubview:self.cycleView];
     //添加控制器视图 到scrollView中
     self.backgroundScrollView.contentSize = CGSizeMake(ScreenWidth,self.topview.height + self.middleView.height);
@@ -193,7 +193,7 @@
     userComment.topHeight = self.topview.height - 64;
     [self.controllersView addObject:userComment.view];
     [self addChildViewController:userComment];
-
+    
     RecordTableViewController * record1 = [[RecordTableViewController alloc] init];
     record1.ID = self.artworkId;
     record1.topHeight = self.topview.height - 64;
@@ -225,54 +225,68 @@
 
 //跳转到评论页面
 -(void)jumpPLController{
-    PostCommentController * postComment = [[PostCommentController alloc] init];
-    postComment.title = @"评论";
-    postComment.artworkId = self.artworkModel.ID;
-    postComment.currentUserId = @"imhipoyk18s4k52u";
-    postComment.messageId = self.artworkModel.ID;
-    self.isFirstIn = NO;
-    [self.navigationController pushViewController:postComment animated:YES];
+    RYTLoginManager *manager =  [RYTLoginManager shareInstance];
+    if ([manager showLoginViewIfNeed]) {
+    }else{
+        PostCommentController * postComment = [[PostCommentController alloc] init];
+        postComment.title = @"评论";
+        postComment.artworkId = self.artworkModel.ID;
+        postComment.currentUserId = [manager takeUser].ID;
+        postComment.messageId = self.artworkModel.ID;
+        self.isFirstIn = NO;
+        [self.navigationController pushViewController:postComment animated:YES];
+    }
 }
 
 -(void)jumpTZController{
+    RYTLoginManager *manager =  [RYTLoginManager shareInstance];
+    if ([manager showLoginViewIfNeed]) {
+    }else{
+        self.isFirstIn = NO;
+    }
     
-    self.isFirstIn = NO;
 }
 
 //点赞
 -(void)clickZan:(UIButton *)zan{
-    NSString *userId = @"18701526255";
-    NSString *urlStr = @"artworkPraise.do";
-    NSDictionary *json = @{
-                           @"artworkId" : self.artworkId,
-                           @"currentUserId": userId,
-                           };
-    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
-        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-        NSString *str = modelDict[@"resultMsg"];
-        if ([str isEqualToString:@"成功"]) {
-            UILabel *numLabel = [[UILabel alloc] initWithFrame:zan.frame];
-            numLabel.center = zan.center;
-            numLabel.textAlignment = NSTextAlignmentCenter;
-            numLabel.text = @"+1";
-            numLabel.textColor = [UIColor colorWithRed:1.0 green:0 blue:0 alpha:0.7];
-            [zan addSubview:numLabel];
-            [UIView animateWithDuration:0.6 animations:^{
-                CGFloat x = numLabel.centerX;
-                CGPoint p = CGPointMake(x, 0);
-                numLabel.center = p;
-                numLabel.alpha = 0;
-            } completion:^(BOOL finished) {
-                [numLabel removeFromSuperview];
-            }];
-            NSString *zanNum = [NSString stringWithFormat:@" %ld",self.artworkModel.praiseNUm + 1];
-            [zan setTitle:zanNum forState:(UIControlStateNormal)];
-        }
+    RYTLoginManager *manager =  [RYTLoginManager shareInstance];
+    if ([manager showLoginViewIfNeed]) {
+    }else{
+        NSString *userId = [[RYTLoginManager shareInstance] takeUser].ID;
+        NSString *urlStr = @"artworkPraise.do";
+        NSDictionary *json = @{
+                               @"artworkId" : self.artworkId,
+                               @"currentUserId": userId,
+                               };
+        [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+            NSLog(@"返回结果:%@",jsonStr);
+            NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+            NSString *str = modelDict[@"resultMsg"];
+            if ([str isEqualToString:@"成功"]){
+                [self addNumToZan:zan];
+            }
+        }];
+    }
+}
 
-        
+-(void)addNumToZan:(UIButton *)zan{
+    UILabel *numLabel = [[UILabel alloc] initWithFrame:zan.frame];
+    numLabel.center = zan.center;
+    numLabel.textAlignment = NSTextAlignmentCenter;
+    numLabel.text = @"+1";
+    numLabel.textColor = [UIColor colorWithRed:1.0 green:0 blue:0 alpha:0.7];
+    [zan addSubview:numLabel];
+    [UIView animateWithDuration:0.6 animations:^{
+        CGFloat x = numLabel.centerX;
+        CGPoint p = CGPointMake(x, 0);
+        numLabel.center = p;
+        numLabel.alpha = 0;
+    } completion:^(BOOL finished) {
+        [numLabel removeFromSuperview];
     }];
+    NSString *zanNum = [NSString stringWithFormat:@" %ld",self.artworkModel.praiseNUm + 1];
+    [zan setTitle:zanNum forState:(UIControlStateNormal)];
 }
 //懒加载
 -(CycleView *)cycleView{

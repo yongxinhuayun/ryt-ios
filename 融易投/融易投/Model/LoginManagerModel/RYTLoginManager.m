@@ -110,7 +110,6 @@
 
 
 -(void)doLogout{
-    
     _isVisitor = YES;
     //获取temp文件夹路径
     NSString *tempPath = NSTemporaryDirectory();
@@ -118,8 +117,8 @@
     NSString *filePath = [tempPath stringByAppendingPathComponent:@"userMyModel.plist"];
     
     NSFileManager *mgr = [NSFileManager defaultManager];
-    
     [mgr removeItemAtPath:filePath error:nil];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userId"];
 }
 
 

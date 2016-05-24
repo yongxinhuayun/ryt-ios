@@ -133,7 +133,7 @@ static NSString *ID = @"userCommentCell";
 }
 
 -(void)dealloc{
-        NSNotificationCenter *notCenter = [NSNotificationCenter defaultCenter];
+    NSNotificationCenter *notCenter = [NSNotificationCenter defaultCenter];
     [notCenter removeObserver:self];
 }
 
@@ -175,7 +175,7 @@ static NSString *ID = @"userCommentCell";
     [self jumpToUserHome:userId];
 }
 -(void)clickfatherIcon:(NSIndexPath *)indexPath{
-     ArtworkCommentListModel *model = self.models[indexPath.row];
+    ArtworkCommentListModel *model = self.models[indexPath.row];
     NSString *userId = model.fatherComment.creator.ID;
     [self jumpToUserHome:userId];
 }
@@ -203,12 +203,12 @@ static NSString *ID = @"userCommentCell";
             [self.navigationController pushViewController:commonUserHome animated:YES];
         }];
     }];
-
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     ArtworkCommentListModel *model = self.models[indexPath.row];
-
+    
     return  model.cellHeight;
 }
 
@@ -216,50 +216,50 @@ static NSString *ID = @"userCommentCell";
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
     if (self.topHeight > 0) {
-    if (scrollView == self.tableView)
-    {
-        CGFloat sectionHeaderHeight = 80; //sectionHeaderHeight
-        if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
-            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
-        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
-            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+        if (scrollView == self.tableView)
+        {
+            CGFloat sectionHeaderHeight = 80; //sectionHeaderHeight
+            if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+                scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+            } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+                scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+            }
         }
-    }
-    CGPoint offset = scrollView.contentOffset;
-    UIScrollView *superView = (UIScrollView *)scrollView.superview.superview.superview.superview;
-    if (superView.contentOffset.y >= self.topHeight) {
-        self.isfoot = NO;
-        superView.contentOffset = CGPointMake(0, self.topHeight);
-        scrollView.scrollEnabled = YES;
-    }
-    if (superView.contentOffset.y < -64) {
-        self.isfoot = YES;
-        superView.contentOffset = CGPointMake(0, -64);
-        scrollView.scrollEnabled = YES;
-    }
-    //    NSLog(@"bool = %d",self.isfoot);
-    CGFloat zeroY = superView.contentOffset.y + scrollView.contentOffset.y;
-    if (self.isfoot && scrollView.contentOffset.y > 0) {
-        superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
-        scrollView.contentOffset = CGPointZero;
-    }
-    if (!self.isfoot && scrollView.contentOffset.y < 0) {
-        superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
-    }
-    if (superView.contentOffset.y < self.topHeight && scrollView.contentOffset.y >0) {
-        superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
-        scrollView.contentOffset = CGPointZero;
-    }
-    if(superView.contentOffset.y < self.topHeight && scrollView.contentOffset.y <= 0){
-        CGFloat y = scrollView.contentOffset.y / 10;
-        zeroY = superView.contentOffset.y + y;
-        
-        if (zeroY < 0) {
-            [superView setContentOffset:CGPointMake(0, -64) animated:YES];
-        }else{
-            superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
+        CGPoint offset = scrollView.contentOffset;
+        UIScrollView *superView = (UIScrollView *)scrollView.superview.superview.superview.superview;
+        if (superView.contentOffset.y >= self.topHeight) {
+            self.isfoot = NO;
+            superView.contentOffset = CGPointMake(0, self.topHeight);
+            scrollView.scrollEnabled = YES;
         }
-    }
+        if (superView.contentOffset.y < -64) {
+            self.isfoot = YES;
+            superView.contentOffset = CGPointMake(0, -64);
+            scrollView.scrollEnabled = YES;
+        }
+        //    NSLog(@"bool = %d",self.isfoot);
+        CGFloat zeroY = superView.contentOffset.y + scrollView.contentOffset.y;
+        if (self.isfoot && scrollView.contentOffset.y > 0) {
+            superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+            scrollView.contentOffset = CGPointZero;
+        }
+        if (!self.isfoot && scrollView.contentOffset.y < 0) {
+            superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+        }
+        if (superView.contentOffset.y < self.topHeight && scrollView.contentOffset.y >0) {
+            superView.contentOffset = CGPointMake(0, superView.contentOffset.y + scrollView.contentOffset.y);
+            scrollView.contentOffset = CGPointZero;
+        }
+        if(superView.contentOffset.y < self.topHeight && scrollView.contentOffset.y <= 0){
+            CGFloat y = scrollView.contentOffset.y / 10;
+            zeroY = superView.contentOffset.y + y;
+            
+            if (zeroY < 0) {
+                [superView setContentOffset:CGPointMake(0, -64) animated:YES];
+            }else{
+                superView.contentOffset = CGPointMake(0, superView.contentOffset.y + y);
+            }
+        }
     }
 }
 //-----------------------联动-----------------------

@@ -99,12 +99,12 @@ static NSString *const cellIdentifier=@"QQChart";
 //进入控制器加载聊天记录
 -(void)loadUserLetter{
     //当前用户id
-    NSString *userId = @"ioe4rahi670jsgdt";
-    NSString *fromUserId = @"iijq9f1r7apprtab";
+//    NSString *userId = @"ioe4rahi670jsgdt";
+//    NSString *fromUserId = @"iijq9f1r7apprtab";
     // 私信用户id
     NSDictionary *json = @{
-                           @"userId" : userId,
-                           @"fromUserId" : fromUserId
+                           @"userId" : self.userId,
+                           @"fromUserId" : self.fromUserId
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"commentDetail.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
@@ -119,11 +119,6 @@ static NSString *const cellIdentifier=@"QQChart";
         });
     }];
 }
-
--(void)beforeBack{
-    NSLog(@"123");
-}
-
 
 //NSString *targetUserId = @"imhipoyk18s4k52u"; 接受者
 //NSString *fromUserId = @"imhfp1yr4636pj49"; 发送者
