@@ -34,8 +34,6 @@ static  NSString *basePath = @"http://192.168.1.75:8001/app/";
         [[AFNetworkActivityIndicatorManager sharedManager ] setEnabled:YES];
     }
     return  requstTool;
- 
-    
 }
 
 // 按字母顺序拼接字典中的字符串
@@ -163,9 +161,5 @@ static  NSString *basePath = @"http://192.168.1.75:8001/app/";
          [MBProgressHUD showHUDAddedTo:view animated:YES];
      }];
 }
-
-
-
-
 
 @end

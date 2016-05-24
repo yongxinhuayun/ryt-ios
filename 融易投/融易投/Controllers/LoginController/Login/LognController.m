@@ -151,7 +151,7 @@
             [manager loginSuccess:userMyModel];
             //登录成功的时候注册用户的registrationId
             //注册 registrationID
-            if (![registrationID isEqualToString:@""] && (manager.takeUser != nil)) {
+            if (registrationID && (manager.takeUser != nil)) {
                 NSDictionary *json = @{
                                        @"cid":registrationID,
                                        @"username":userMyModel.username,
@@ -161,13 +161,13 @@
                     NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
                     NSLog(@"返回结果:%@",jsonStr);
                     // TODO
-                    //在主线程刷新UI数据
-                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                        [self dismissViewControllerAnimated:YES completion:nil];
-                    }];
                 }];
 
             }
+            //在主线程刷新UI数据
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
         }else { //登录失败
              [MBProgressHUD showError:@"登录失败"];
         }

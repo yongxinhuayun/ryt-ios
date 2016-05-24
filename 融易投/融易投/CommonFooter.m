@@ -57,7 +57,6 @@
         }];
     } else if (state == MJRefreshStatePulling) {
         [self setTitle:@"松开就进行刷新的状态" forState:MJRefreshStatePulling];
-        
     }
 //    else if (state == MJRefreshStateRefreshing) {
 //        //        [self setTitle:@"正在刷新,,," forState:MJRefreshStateRefreshing];
