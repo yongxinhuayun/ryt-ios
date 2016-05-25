@@ -139,6 +139,8 @@ static NSString *ID = @"MeTableViewCell";
         UIStoryboard *editingInfoStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([EditingInfoViewController class]) bundle:nil];
         EditingInfoViewController *editingInfoVC = [editingInfoStoryBoard instantiateInitialViewController];
         
+        editingInfoVC.userModel = weakself.model;
+        
         [weakself.navigationController pushViewController:editingInfoVC animated:YES];
         
     };

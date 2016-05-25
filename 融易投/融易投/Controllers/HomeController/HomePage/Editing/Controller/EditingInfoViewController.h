@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class PageInfoModel;
 
 @interface EditingInfoViewController : UITableViewController
+
+@property (nonatomic ,strong) PageInfoModel *userModel;
 
 @end

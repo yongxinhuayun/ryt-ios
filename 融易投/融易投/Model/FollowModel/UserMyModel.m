@@ -19,7 +19,7 @@
 {
     [aCoder encodeObject:self.ID forKey:@"ID"];
     [aCoder encodeObject:self.name forKey:@"name"];
-    [aCoder encodeObject:self.name forKey:@"name2"];
+    [aCoder encodeObject:self.name forKey:@"signMessage"];
     [aCoder encodeObject:self.name forKey:@"username"];
     [aCoder encodeObject:self.name forKey:@"pictureUrl"];
     [aCoder encodeObject:self.master forKey:@"master"];
@@ -38,8 +38,8 @@
         _ID = [aDecoder decodeObjectForKey:@"ID"];
         //name
         _name = [aDecoder decodeObjectForKey:@"name"];
-        //name2
-        _name2 = [aDecoder decodeObjectForKey:@"name2"];
+        //signMessage
+        _signMessage = [aDecoder decodeObjectForKey:@"signMessage"];
         //username
         _username = [aDecoder decodeObjectForKey:@"username"];
         //pictureUrl

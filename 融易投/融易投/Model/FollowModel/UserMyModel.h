@@ -20,13 +20,16 @@
 @property (nonatomic ,strong) NSString *name;
 
 /** 名称 */
-@property (nonatomic ,strong) NSString *name2;
+@property (nonatomic ,strong) NSString *signMessage;
 
 /** 名称 */
 @property (nonatomic ,strong) NSString *username;
 
 /** 图片 */
 @property (nonatomic ,strong) NSString *pictureUrl;
+
+/** 性别 */
+@property (nonatomic ,strong) NSString *sex;
 
 
 /** 艺术家身份 */

@@ -1956,13 +1956,14 @@
 			name = "用户评论";
 			sourceTree = "<group>";
 		};
-		21C3374C1CF2A343001F3CA5 /* MBP框架（阴影分类） */ = {
+		21C3374C1CF2A343001F3CA5 /* MBHUD */ = {
 			isa = PBXGroup;
 			children = (
 				21C3374D1CF2A343001F3CA5 /* MBProgressHUD+YXL.h */,
 				21C3374E1CF2A343001F3CA5 /* MBProgressHUD+YXL.m */,
 				21C3374F1CF2A343001F3CA5 /* MBProgressHUD.bundle */,
 			);
+			name = MBHUD;
 			path = "MBP框架（阴影分类）";
 			sourceTree = "<group>";
 		};
@@ -2557,7 +2558,7 @@
 				E22890461CDEFE4400483F18 /* HttpRequstTool.m */,
 				E22890471CDEFE4400483F18 /* MyMD5.h */,
 				E22890481CDEFE4400483F18 /* MyMD5.m */,
-				21C3374C1CF2A343001F3CA5 /* MBP框架（阴影分类） */,
+				21C3374C1CF2A343001F3CA5 /* MBHUD */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
