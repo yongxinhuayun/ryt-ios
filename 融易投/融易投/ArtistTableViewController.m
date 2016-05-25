@@ -141,30 +141,23 @@ static NSString *ID = @"artistCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*
-     //程序一运行就只加载一次背景颜色,如果不这么写,一滚动就会变颜色
-     static UIColor *cellBgColor = nil;
-     if (cellBgColor == nil) {
-     cellBgColor = SSRandomColor;
-     }
-     
-     static NSString *ID = @"cell";
-     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-     if (cell == nil) {
-     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-     cell.backgroundColor = cellBgColor;
-     }
-     
-     cell.textLabel.text = [NSString stringWithFormat:@"%@ - %zd", self.class, indexPath.row];
-     
-     return cell;
-     */
-    
     ArtistTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
+    if(indexPath.row == 0){
+        [cell.TopBtn setBackgroundImage:[UIImage imageNamed:@"top1"] forState:(UIControlStateNormal)];
+        [cell.TopBtn setTitle:@"" forState:(UIControlStateNormal)];
+    }else if(indexPath.row == 1){
+        [cell.TopBtn setBackgroundImage:[UIImage imageNamed:@"top2"] forState:(UIControlStateNormal)];
+        [cell.TopBtn setTitle:@"" forState:(UIControlStateNormal)];
+    }else if(indexPath.row == 2){
+        [cell.TopBtn setBackgroundImage:[UIImage imageNamed:@"top3"] forState:(UIControlStateNormal)];
+        [cell.TopBtn setTitle:@"" forState:(UIControlStateNormal)];
+    }else{
+        [cell.TopBtn setBackgroundImage:nil forState:(UIControlStateNormal)];
+        [cell.TopBtn setTitle:[NSString stringWithFormat:@"%ld",indexPath.row + 1] forState:(UIControlStateNormal)];
+    }
     ArtistModel *model = self.models[indexPath.row];
     
-    cell.model = model;
+    cell.artistModel = model;
     
     cell.RankLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row + 1];
     

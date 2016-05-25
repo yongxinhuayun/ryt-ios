@@ -11,7 +11,7 @@
 
 @interface ArtistTableViewCell ()
 
-@property (weak, nonatomic) IBOutlet UIButton *TopBtn;
+
 @property (weak, nonatomic) IBOutlet UIImageView *userIcon;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
@@ -37,15 +37,37 @@
     
 }
 
+-(void)setInvestorModel:(InvestorModel *)investorModel{
+    _investorModel = investorModel;
+    if (SSScreenW == 375) {
+        self.topBtnConstraint.constant = 50;
+    }else{
+        self.topBtnConstraint.constant = 40;
+    }
+}
+
+-(void)setArtistModel:(ArtistModel *)artistModel{
+    _artistModel = artistModel;
+    if (SSScreenW == 375) {
+        self.topBtnConstraint.constant = 50;
+    }else{
+        self.topBtnConstraint.constant = 40;
+    }
+    //设置头像
+//        NSString *picture_urlStr = [[NSString stringWithFormat:@"%@",artistModel.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    
+//        NSURL *picture_urlURL = [NSURL URLWithString:picture_urlStr];
+//    
+//        [self.userIcon sd_setImageWithURL:picture_urlURL];
+
+    
+}
+
 -(void)setModel:(ArtistModel *)model{
     
-        _model= model;
+//        _model= model;
     
-    if (SSScreenW == 375) {
-      self.topBtnConstraint.constant = 50;
-    }else{
-    self.topBtnConstraint.constant = 40;
-    }
+
     
         //设置头像
         //    NSString *picture_urlStr = [[NSString stringWithFormat:@"%@",model.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

@@ -20,7 +20,10 @@
                             <constraint firstAttribute="width" constant="22" id="k31-yf-QVp"/>
                             <constraint firstAttribute="height" constant="22" id="rEM-0c-kFz"/>
                         </constraints>
-                        <state key="normal" title="1" backgroundImage="top1"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="1" backgroundImage="top1">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBackground" translatesAutoresizingMaskIntoConstraints="NO" id="vqI-xQ-kGP">
                         <rect key="frame" x="151" y="5" width="50" height="50"/>
