@@ -10,10 +10,11 @@
 #import "RecordModel.h"
 #import "RecordModelList.h"
 #import "UserMyModel.h"
-
+#import <UIImageView+WebCache.h>
 
 @interface TopRecordTCell()
-@property (weak, nonatomic) IBOutlet UIButton *top1Icon;
+@property (weak, nonatomic) IBOutlet UIButton *top1ICon;
+
 @property (weak, nonatomic) IBOutlet UIButton *top2Icon;
 @property (weak, nonatomic) IBOutlet UIButton *top3Icon;
 
@@ -65,8 +66,11 @@
         if (i == 0) {
             NSString *urlStr = [[NSString stringWithFormat:@"%@",model.creator.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             UIImageView *imgView = [[UIImageView alloc] init];
+//            imgView.frame = self.top1Icon.bounds;
             [imgView ss_setHeader:[NSURL URLWithString:urlStr]];
-            [self.top1Icon setImage:imgView.image forState:(UIControlStateNormal)];
+//            [imgView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:@""]];
+            [self.top1ICon setBackgroundImage:imgView.image forState:(UIControlStateNormal)];
+//            [self.top1ICon setImage:imgView.image forState:(UIControlStateNormal)];
             self.top1Name.text = model.creator.name;
             NSDate * date = [NSDate dateWithTimeIntervalSince1970:model.createDatetime / 1000];
             NSDateFormatter *dfm = [[NSDateFormatter alloc] init];
@@ -77,7 +81,7 @@
             NSString *urlStr = [[NSString stringWithFormat:@"%@",model.creator.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             UIImageView *imgView = [[UIImageView alloc] init];
             [imgView ss_setHeader:[NSURL URLWithString:urlStr]];
-            [self.top2Icon setImage:imgView.image forState:(UIControlStateNormal)];
+            [self.top2Icon setBackgroundImage:imgView.image forState:(UIControlStateNormal)];
             self.top2Name.text = model.creator.name;
             NSDate * date = [NSDate dateWithTimeIntervalSince1970:model.createDatetime / 1000];
             NSDateFormatter *dfm = [[NSDateFormatter alloc] init];
@@ -91,7 +95,7 @@
             NSString *urlStr = [[NSString stringWithFormat:@"%@",model.creator.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             UIImageView *imgView = [[UIImageView alloc] init];
             [imgView ss_setHeader:[NSURL URLWithString:urlStr]];
-            [self.top3Icon setImage:imgView.image forState:(UIControlStateNormal)];
+            [self.top3Icon setBackgroundImage:imgView.image forState:(UIControlStateNormal)];
             self.top3Name.text = model.creator.name;
             NSDate * date = [NSDate dateWithTimeIntervalSince1970:model.createDatetime / 1000];
             NSDateFormatter *dfm = [[NSDateFormatter alloc] init];

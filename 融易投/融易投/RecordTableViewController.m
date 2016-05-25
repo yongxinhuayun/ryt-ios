@@ -263,7 +263,6 @@
             scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
         }
     }
-    CGPoint offset = scrollView.contentOffset;
     UIScrollView *superView = (UIScrollView *)scrollView.superview.superview.superview.superview;
     if (superView.contentOffset.y >= self.topHeight) {
         self.isfoot = NO;

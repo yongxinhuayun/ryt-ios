@@ -11,12 +11,19 @@
 
 @interface ArtistTableViewCell ()
 
-
-@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIButton *TopBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *userIcon;
-@property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userName;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
+
+
+//@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+//@property (weak, nonatomic) IBOutlet UIImageView *userIcon;
+//@property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topBtnConstraint;
 @end
 
 @implementation ArtistTableViewCell
@@ -26,10 +33,20 @@
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
 }
 
+-(void)awakeFromNib{
+    
+}
+
 -(void)setModel:(ArtistModel *)model{
     
         _model= model;
-        
+    
+    if (SSScreenW == 375) {
+      self.topBtnConstraint.constant = 50;
+    }else{
+    self.topBtnConstraint.constant = 40;
+    }
+    
         //设置头像
         //    NSString *picture_urlStr = [[NSString stringWithFormat:@"%@",model.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         //
@@ -39,14 +56,14 @@
         
         //设置排名
         
-        //设置投资者
-        self.usernameLabel.text = model.truename;
-        
-        //设置项目总金额
-        self.priceLabel.text = [NSString stringWithFormat:@"%ld元",model.bidding_rate];
-    
-        //设置总成交价
-        self.totalPriceLabel.text = [NSString stringWithFormat:@"%ld元",model.bidding_rate];
+//        //设置投资者
+//        self.usernameLabel.text = model.truename;
+//        
+//        //设置项目总金额
+//        self.priceLabel.text = [NSString stringWithFormat:@"%ld元",model.bidding_rate];
+//    
+//        //设置总成交价
+//        self.totalPriceLabel.text = [NSString stringWithFormat:@"%ld元",model.bidding_rate];
     }
     
 //把系统的分割线去除,然后把控制器的的颜色改成要设置分割线的颜色

@@ -14,6 +14,7 @@
 #import "CycleView.h"
 #import "FinanceHeader.h"
 #import "DetailFinanceViewController.h"
+#import "investmentController.h"
 #import "UIImageView+WebCache.h"
 #import "FinanceModel.h"
 #import "RecordTableViewController.h"
@@ -266,6 +267,9 @@
     RYTLoginManager *manager =  [RYTLoginManager shareInstance];
     if ([manager showLoginViewIfNeed]) {
     }else{
+        investmentController *invController = [[investmentController alloc] init];
+        invController.title = @"投资";
+        [self.navigationController pushViewController:invController animated:YES];
         self.isFirstIn = NO;
     }
     
