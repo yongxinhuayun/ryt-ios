@@ -73,6 +73,7 @@
 		21AB0B581CC605F500B7BA03 /* XCLSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B571CC605F500B7BA03 /* XCLSegmentView.m */; };
 		21AB0B811CC787C700B7BA03 /* InvestorArtWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B7F1CC787C700B7BA03 /* InvestorArtWorkViewController.m */; };
 		21AB0B821CC787C700B7BA03 /* InvestorArtWorkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0B801CC787C700B7BA03 /* InvestorArtWorkViewController.xib */; };
+		21B12A201CF59D8A00485B47 /* WXLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B12A1F1CF59D8A00485B47 /* WXLoginModel.m */; };
 		21C08BC81CB01BC3002328D3 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */; };
 		21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BCC1CB01F7E002328D3 /* NSObject+FileManager.m */; };
 		21C08BD11CB02521002328D3 /* SettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C08BD01CB02521002328D3 /* SettingTableViewController.storyboard */; };
@@ -796,6 +797,8 @@
 		21AB0B7E1CC787C700B7BA03 /* InvestorArtWorkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorArtWorkViewController.h; sourceTree = "<group>"; };
 		21AB0B7F1CC787C700B7BA03 /* InvestorArtWorkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorArtWorkViewController.m; sourceTree = "<group>"; };
 		21AB0B801CC787C700B7BA03 /* InvestorArtWorkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvestorArtWorkViewController.xib; sourceTree = "<group>"; };
+		21B12A1E1CF59D8A00485B47 /* WXLoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXLoginModel.h; sourceTree = "<group>"; };
+		21B12A1F1CF59D8A00485B47 /* WXLoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXLoginModel.m; sourceTree = "<group>"; };
 		21C08BC61CB01BC3002328D3 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		21C08BCB1CB01F7E002328D3 /* NSObject+FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FileManager.h"; sourceTree = "<group>"; };
@@ -1956,6 +1959,15 @@
 			name = "用户评论";
 			sourceTree = "<group>";
 		};
+		21B12A1D1CF59D5E00485B47 /* WXLoginModel */ = {
+			isa = PBXGroup;
+			children = (
+				21B12A1E1CF59D8A00485B47 /* WXLoginModel.h */,
+				21B12A1F1CF59D8A00485B47 /* WXLoginModel.m */,
+			);
+			path = WXLoginModel;
+			sourceTree = "<group>";
+		};
 		21C3374C1CF2A343001F3CA5 /* MBHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -2499,6 +2511,7 @@
 		E2288E4E1CDEFB3200483F18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				21B12A1D1CF59D5E00485B47 /* WXLoginModel */,
 				E2A38A381CF1624E00EAB0D3 /* LoginManagerModel */,
 				218A3EDA1CEC422D00700283 /* MasterWorkListModel */,
 				E2322B151CEC24B9002730E7 /* MessageModel */,
@@ -4415,6 +4428,7 @@
 				E2D521AF1CDF783B0024887A /* MasterMyModel.m in Sources */,
 				21C413FE1CE2D23500F1029C /* JKAssetsCollectionFooterView.m in Sources */,
 				E2322B0E1CEC07CB002730E7 /* CommentsTableController.m in Sources */,
+				21B12A201CF59D8A00485B47 /* WXLoginModel.m in Sources */,
 				E2D5228A1CDF917C0024887A /* ForgetPasswordViewController.m in Sources */,
 				21C4145B1CE30C4200F1029C /* ReleaseProjectCell1.m in Sources */,
 				E2729AF51CD8B983006C0617 /* RecordTableViewController.m in Sources */,

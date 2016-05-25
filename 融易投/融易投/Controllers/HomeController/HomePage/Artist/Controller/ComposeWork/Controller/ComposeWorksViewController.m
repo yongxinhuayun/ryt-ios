@@ -175,8 +175,8 @@
                            @"timestamp" : timestamp,
                            @"signmsg"   : signmsgMD5
                            };
-    
-    NSString *url = @"http://192.168.1.41:8080/app/saveMasterWork.do";
+    /*
+    NSString *url = @"http://192.168.1.75:8001/app/saveMasterWork.do";
     
     AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
     
@@ -226,6 +226,30 @@
             
         }];
     }];
+     */
+    
+    NSString *url = @"saveMasterWork.do";
+    
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
+        
+        [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"pictureUrl" fileName:@"pictureUrl.jpg" mimeType:@"application/octet-stream" error:nil];
+        
+    } showHUDView:nil success:^(id respondObj) {
+        
+//        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+//        SSLog(@"%@",aString);
+        [SVProgressHUD showInfoWithStatus:@"发布成功"];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        
+        //在主线程刷新UI数据
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            [SVProgressHUD dismiss];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {

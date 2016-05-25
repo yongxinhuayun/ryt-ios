@@ -216,7 +216,7 @@ static NSString *ID = @"MeTableViewCell";
     }else {
     
         //艺术家用户
-        if (model.master) {
+        if (!model.master) {
             
             [navButton setTitle:@"申请为艺术家" forState:UIControlStateNormal];
             

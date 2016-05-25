@@ -36,6 +36,7 @@ static  NSString *basePath = @"http://192.168.1.75:8001/app/";
     return  requstTool;
 }
 
+
 // 按字母顺序拼接字典中的字符串
 -(NSString *)appendStringWithDictionary:(NSDictionary *)dictionary{
     NSMutableString *strM = [NSMutableString string];
@@ -115,23 +116,38 @@ static  NSString *basePath = @"http://192.168.1.75:8001/app/";
     }];
 }
 
--(void)handlerNetworkingPOSTRequstWithServerUrl:(NSString *)server_url  Parameters:(id )param constructingBodyWithBlock:(id)constructingBodyWithBlock showHUDView:(UIView *)view  success:(requstSuccessBlock )successBlock{
+-(void)handlerNetworkingPOSTRequstWithServerUrl:(NSString *)server_url  Parameters:(id )param constructingBodyWithBlock:(constructingBodyWithBlock)constructingBodyWithBlock showHUDView:(UIView *)view  success:(requstSuccessBlock )successBlock{
     if (!server_url){
         return;
     }
     if (view){
         [MBProgressHUD showHUDAddedTo:view animated:YES];
     }
-    
+    NSMutableString *url = [NSMutableString stringWithString:basePath];
+    [url appendString:server_url];
     //    __weak HttpRequstTool *weakself=self;
-    NSURL *requstURL=[NSURL URLWithString: server_url];
+    NSURL *requstURL=[NSURL URLWithString: url];
     NSLog(@"参数:%@",param);
     NSLog(@"%@",requstURL);
     // 设置请求格式
     self.sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
     // 设置返回格式
     self.sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [self.sessionManager POST:requstURL.absoluteString parameters:param constructingBodyWithBlock:constructingBodyWithBlock progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    
+    
+//    [self.sessionManager POST:requstURL.absoluteString parameters:param constructingBodyWithBlock:constructingBodyWithBlock progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        [MBProgressHUD hideHUDForView:view animated:YES];
+//        successBlock(responseObject);
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"%@",error);
+//        if (view){
+//            [MBProgressHUD hideHUDForView:view animated:YES];
+//        }
+//    }];
+    
+    [self.sessionManager POST:requstURL.absoluteString parameters:param  constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        constructingBodyWithBlock(formData);
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [MBProgressHUD hideHUDForView:view animated:YES];
         successBlock(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

@@ -58,6 +58,9 @@
     
     NSURL *iconUrlURL = [NSURL URLWithString:iconUrlStr];
     
+    SSLog(@"%@",iconUrlURL);
+    //pictureUrl":"http://rongyitou2.efeiyi.com/headPortrait/18513234278headPortrait.jpg"
+    
     [self.iconImageView  ss_setHeader:iconUrlURL];
     
     //用户名

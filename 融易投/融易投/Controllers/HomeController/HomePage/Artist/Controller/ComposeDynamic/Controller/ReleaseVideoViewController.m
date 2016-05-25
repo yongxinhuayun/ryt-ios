@@ -134,10 +134,6 @@
     
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
     
-    // 1.创建请求
-    NSString *url = @"http://192.168.1.41:8080/app/releaseArtworkDynamic.do";
-    
-    // 3.设置请求体
     NSDictionary *json = @{
                            @"content" : title,
                            @"file" : picture_url,
@@ -146,6 +142,9 @@
                            @"timestamp" : timestamp,
                            @"signmsg"   : signmsgMD5
                            };
+    /*
+    NSString *url = @"http://192.168.1.75:8001/app/releaseArtworkDynamic.do";
+    
     
     AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
     
@@ -188,6 +187,39 @@
         SSLog(@"%@",error);
         
         //        [SVProgressHUD showSuccessWithStatus:@"发布失败 " maskType:SVProgressHUDMaskTypeBlack];
+    }];
+     */
+    
+    NSString *url = @"releaseArtworkDynamic.do";
+    
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
+        
+        //_fileName = [NSString stringWithFormat:@"output-%@.mp4",[formater stringFromDate:[NSDate date]]];
+        
+        // [formData appendPartWithFileURL:_filePathURL name:@"file" fileName:_fileName mimeType:dict[@"contenttype"] error:nil];
+        
+        //        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+        //        [formater setDateFormat:@"yyyyMMddHHmmss"];
+        //        NSString *_fileName = [NSString stringWithFormat:@"output-%@.mp4",[formater stringFromDate:[NSDate date]]];
+        //NSURL *urlStr = [NSURL URLWithString:]
+        
+        [formData appendPartWithFileURL:urlVideo name:@"file" fileName:@"video.mov" mimeType:@"application/octet-stream" error:nil];
+        
+        
+        
+        //          [formData appendPartWithFileURL:[NSURL URLWithString:picture_url] name:@"file" fileName:@"ii.mov" mimeType:@"application/octet-stream" error:nil];
+        
+    } showHUDView:nil success:^(id respondObj) {
+        
+        //        NSString *aString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        //        SSLog(@"---%@---%@",[respondObj class],aString);
+        
+        [MBProgressHUD showSuccess:@"发布成功"];
+        //保存模型,赋值给控制器
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            //取消modal
+            [self dismissViewControllerAnimated:self completion:nil];
+        }];
     }];
 }
 
