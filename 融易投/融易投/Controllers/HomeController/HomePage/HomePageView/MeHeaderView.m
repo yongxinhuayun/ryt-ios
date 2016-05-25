@@ -63,7 +63,7 @@
     //用户名
     self.userName.text = model.user.name;
     //用户签名
-    self.signature.text = model.user.username;
+    self.signature.text = model.user.signMessage;
     //用户关注数
     self.guanzhuNum.text = [NSString stringWithFormat:@"%zd",model.num];
     //用户粉丝数

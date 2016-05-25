@@ -16,11 +16,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入昵称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yc8-Dr-uU5">
-                    <rect key="frame" x="0.0" y="74" width="375" height="30"/>
-                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入昵称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yc8-Dr-uU5">
+                    <rect key="frame" x="14" y="74" width="347" height="49"/>
+                    <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="jbR-G9-boM"/>
+                        <constraint firstAttribute="height" constant="49" id="jbR-G9-boM"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -28,8 +28,8 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Yc8-Dr-uU5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YZa-zb-skL"/>
-                <constraint firstAttribute="trailing" secondItem="Yc8-Dr-uU5" secondAttribute="trailing" id="snY-fa-NUm"/>
+                <constraint firstItem="Yc8-Dr-uU5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="YZa-zb-skL"/>
+                <constraint firstAttribute="trailing" secondItem="Yc8-Dr-uU5" secondAttribute="trailing" constant="14" id="snY-fa-NUm"/>
                 <constraint firstItem="Yc8-Dr-uU5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="tHm-ng-B4O"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

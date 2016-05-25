@@ -11,6 +11,8 @@
 #import "EditingNickNameViewController.h"
 #import "EditingSignatureViewController.h"
 #import "AddressViewController.h"
+#import "PageInfoModel.h"
+#import <MJExtension.h>
 
 @interface EditingInfoViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -29,6 +31,24 @@
     [super viewDidLoad];
 
     [self setUpNavBar];
+    
+    [self setupUserInfo];
+}
+
+-(void)setupUserInfo{
+
+    //设置网络上的用户信息
+    [self.iconImageView ss_setHeader:[NSURL URLWithString:self.userModel.user.pictureUrl]];
+    self.nickNameLabel.text = self.userModel.user.name;
+    self.signatureLabel.text = self.userModel.user.signMessage;
+    
+    if ([self.userModel.user.sex isEqualToString:@"0"]) {
+        self.sexLabel.text = @"保密";
+    }else if ([self.userModel.user.sex isEqualToString:@"1"]) {
+        self.sexLabel.text = @"男";
+    }else if ([self.userModel.user.sex isEqualToString:@"2"]) {
+        self.sexLabel.text = @"女";
+    }
 }
 
 // 设置导航条
@@ -61,14 +81,10 @@
             editingNickNameVC.valueBlcok = ^(NSString *str){
                 
                 self.nickNameLabel.text = str;
-               
             };
-            
             
             //顺传
             editingNickNameVC.nickName = self.nickNameLabel.text;
-            
-            
             [self.navigationController pushViewController:editingNickNameVC animated:YES];
             
         }else if (indexPath.row == 1){
@@ -92,10 +108,19 @@
             [self editingSex];
         }else if (indexPath.row == 3){
             
-            AddressViewController *addressVC = [[AddressViewController alloc] init];
-            [self.navigationController pushViewController:addressVC animated:YES];
+//            AddressViewController *addressVC = [[AddressViewController alloc] init];
+//            [self.navigationController pushViewController:addressVC animated:YES];
         }
     
+    }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    if (indexPath.section != 0) {
+        return 49;
+    }else{
+        return 64;
     }
 }
 
@@ -150,31 +175,24 @@
 {
     //移除原来的图片
     self.iconImageView.image = nil;
+    self.view.layer.cornerRadius = 25;
+    self.view.layer.masksToBounds = YES;
     
     //保存被选中图片
     //UIImagePickerControllerEditedImage
     UIImage *selctedImage = info[UIImagePickerControllerOriginalImage];
     
-    //取消modal
-    [self dismissViewControllerAnimated:self completion:nil];
-    
-    //    self.drawView.image = selctedImage;
-    //    SSLog(@"%@",selctedImage);
-    
     UIImage *newImage = [self drawImageWith:selctedImage imageWidth:100];
-    //    NSLog(@"newImage = %d",);
-    
-    
-    //    NSData *data = UIImagePNGRepresentation(newImage);
-    //    NSString *filename = @"image";
-    
+
     self.iconImageView.image = newImage;
     
     selctedImage = nil;
     
     self.createPath = [self writeImageToCaches:newImage];
     
-    //    SSLog(@"%@",self.createPath);
+    SSLog(@"%@",self.createPath);
+    
+    [self chageUserPictureUrlToData];
 }
 
 -(NSString *)writeImageToCaches:(UIImage *)newImage{
@@ -184,7 +202,7 @@
     
     NSString *createPath = [NSString stringWithFormat:@"%@/", cachePath];
     
-    NSString *iconName = @"iocnInfo.png";
+    NSString *iconName = @"headPortrait.jpg";
     NSString *path = [NSString stringWithFormat:@"%@%@",createPath,iconName];
     
     SSLog(@"%@",path);
@@ -232,17 +250,20 @@
     UIAlertAction *menAction = [UIAlertAction actionWithTitle:@"男" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
         
         self.sexLabel.text = @"男";
+        [self chageSexToData:@"1"];
         
     }];
     
     UIAlertAction *womenAction = [UIAlertAction actionWithTitle:@"女" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
         
         self.sexLabel.text = @"女";
+         [self chageSexToData:@"2"];
     }];
     
     UIAlertAction *keepSecretAction = [UIAlertAction actionWithTitle:@"保密" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
         
        self.sexLabel.text = @"保密";
+         [self chageSexToData:@"0"];
     }];
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action)
@@ -258,5 +279,111 @@
     
     [self presentViewController:alertController animated:YES completion:nil];
 }
+
+-(void)chageSexToData:(NSString *)sex{
+
+    //1 男 2 女
+    //参数
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
+    NSString *type = @"14";
+    NSString *content = sex;
+    
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"userId":userId,
+                           @"type" : type,
+                           @"content" : content
+                           };
+    NSString *url = @"editProfile.do";
+    
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
+        
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        
+        UserMyModel *model = [UserMyModel mj_objectWithKeyValues:modelDict[@"userInfo"]];
+        [MBProgressHUD hideHUD];
+        if (model) {
+            [MBProgressHUD showSuccess:@"修改性别成功"];
+        }
+    }];
+
+}
+
+-(void)chageUserPictureUrlToData{
+    
+    //1 男 2 女
+    //参数
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
+    NSString *type = @"10";
+    NSString *headPortrait = self.createPath;
+    NSString *timestamp = [MyMD5 timestamp];
+    NSString *appkey = MD5key;
+    
+    NSString *signmsg = [NSString stringWithFormat:@"timestamp=%@&type=%@&userId=%@&key=%@",timestamp,type,userId,appkey];
+    
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+    
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"userId":userId,
+                           @"type" : type,
+                           @"headPortrait":headPortrait,
+                           @"timestamp":timestamp,
+                           @"signmsg"   : signmsgMD5
+                           };
+    
+    NSString *url = @"http://192.168.1.75:8001/app/editProfile.do";
+    
+    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
+    
+    // 设置请求格式
+    manger.requestSerializer = [AFJSONRequestSerializer serializer];
+    // 设置返回格式
+    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manger POST:url parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"headPortrait" fileName:@"headPortrait.jpg" mimeType:@"application/octet-stream" error:nil];
+        
+        
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+//        NSString *jsonStr=[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
+        
+        UserMyModel *model = [UserMyModel mj_objectWithKeyValues:modelDict[@"userInfo"]];
+        [MBProgressHUD hideHUD];
+        if (model) {
+            [MBProgressHUD showSuccess:@"修改照片成功"];
+            //保存模型,赋值给控制器
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                //取消modal
+                [self dismissViewControllerAnimated:self completion:nil];
+            }];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        SSLog(@"%@",error);
+        
+        //在主线程刷新UI数据
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            [MBProgressHUD showError:@"修改照片失败,请重新修改"];
+            
+            //取消modal
+            [self dismissViewControllerAnimated:self completion:nil];
+            
+        }];
+    }];
+}
+
 
 @end

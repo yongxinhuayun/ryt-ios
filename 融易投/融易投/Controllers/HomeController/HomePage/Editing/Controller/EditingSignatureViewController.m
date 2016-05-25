@@ -9,6 +9,7 @@
 #import "EditingSignatureViewController.h"
 
 #import <SVProgressHUD.h>
+#import <MJExtension.h>
 
 @interface EditingSignatureViewController ()<UITextFieldDelegate>
 
@@ -47,7 +48,7 @@
 {
     if (self.signatureTF.text.length > 30) {
         
-        [SVProgressHUD showErrorWithStatus:@"最多输入30个子"];
+        [SVProgressHUD showErrorWithStatus:@"最多输入30个字"];
     }
 }
 
@@ -66,6 +67,7 @@
     
     //设置导航条按钮
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightButton.titleLabel.font = [UIFont systemFontOfSize:12];
     
     [rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
@@ -91,7 +93,38 @@
         _valueBlcok(self.signatureTF.text);
     }
     
-    [self.navigationController popViewControllerAnimated:YES];
+    //参数
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
+    NSString *type = @"13";
+    NSString *content = self.signatureTF.text;
+    
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"userId":userId,
+                           @"type" : type,
+                           @"content" : content
+                           };
+    NSString *url = @"editProfile.do";
+    
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
+        
+        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        //        NSLog(@"返回结果:%@",jsonStr);
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        
+        UserMyModel *model = [UserMyModel mj_objectWithKeyValues:modelDict[@"userInfo"]];
+        [MBProgressHUD hideHUD];
+        if (model) {
+            [MBProgressHUD showSuccess:@"修改个性签名成功"];
+            //保存模型,赋值给控制器
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self.navigationController popViewControllerAnimated:YES];
+                
+            }];
+        }
+    }];
 }
 
 

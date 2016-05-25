@@ -24,7 +24,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPU-pb-VLw">
-                    <rect key="frame" x="76" y="72" width="30" height="27"/>
+                    <rect key="frame" x="76" y="67" width="30" height="27"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="关注">
                         <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -34,7 +34,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sov-JL-u8c">
-                    <rect key="frame" x="222" y="72" width="30" height="27"/>
+                    <rect key="frame" x="222" y="67" width="30" height="27"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="粉丝">
                         <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -49,8 +49,8 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个性签名:一句话20字以内" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kC1-ep-Jim">
-                    <rect key="frame" x="94" y="139" width="138" height="14"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="个性签名:一句话20字以内" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kC1-ep-Jim">
+                    <rect key="frame" x="95" y="139" width="138" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -91,8 +91,8 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5OV-Qu-Pgn">
-                    <rect key="frame" x="238" y="179" width="21" height="14"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5OV-Qu-Pgn">
+                    <rect key="frame" x="239" y="179" width="20" height="14"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -111,7 +111,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zhuce_yanzhengmashurukuang" translatesAutoresizingMaskIntoConstraints="NO" id="aLR-RG-AIH">
-                    <rect key="frame" x="124" y="185" width="2" height="15"/>
+                    <rect key="frame" x="124" y="186" width="2" height="15"/>
                     <color key="backgroundColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="2" id="eUh-zj-Xmz"/>
@@ -119,7 +119,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zhuce_yanzhengmashurukuang" translatesAutoresizingMaskIntoConstraints="NO" id="Rv4-Ef-qJO">
-                    <rect key="frame" x="202" y="185" width="2" height="15"/>
+                    <rect key="frame" x="202" y="186" width="2" height="15"/>
                     <color key="backgroundColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="2" id="NjC-Mt-Y6O"/>
@@ -145,7 +145,7 @@
                 <constraint firstItem="Rv4-Ef-qJO" firstAttribute="leading" secondItem="4I7-QK-s5h" secondAttribute="trailing" constant="14" id="GCc-mI-vRa"/>
                 <constraint firstItem="OWe-gu-CCo" firstAttribute="centerY" secondItem="tTk-mT-RlM" secondAttribute="centerY" id="IyS-fP-sNi"/>
                 <constraint firstItem="5OV-Qu-Pgn" firstAttribute="centerY" secondItem="Pfj-dk-40F" secondAttribute="centerY" id="JQE-B3-eR6"/>
-                <constraint firstItem="kPU-pb-VLw" firstAttribute="top" secondItem="H0X-Gu-acm" secondAttribute="bottom" constant="5" id="KjT-ro-sfO"/>
+                <constraint firstItem="kPU-pb-VLw" firstAttribute="top" secondItem="H0X-Gu-acm" secondAttribute="bottom" id="KjT-ro-sfO"/>
                 <constraint firstItem="w7F-z7-Aye" firstAttribute="top" secondItem="Pfj-dk-40F" secondAttribute="bottom" id="N16-PM-png"/>
                 <constraint firstItem="tTk-mT-RlM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="O8h-0e-dsq"/>
                 <constraint firstItem="jt3-UQ-nYP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="QLb-4U-fqt"/>
@@ -159,7 +159,7 @@
                 <constraint firstItem="kPU-pb-VLw" firstAttribute="centerX" secondItem="H0X-Gu-acm" secondAttribute="centerX" id="hNn-lf-yLh"/>
                 <constraint firstItem="tTk-mT-RlM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="19" id="l93-be-bv8"/>
                 <constraint firstAttribute="trailing" secondItem="3UZ-Bk-vFm" secondAttribute="trailing" id="lXU-zO-y27"/>
-                <constraint firstItem="Sov-JL-u8c" firstAttribute="top" secondItem="OWe-gu-CCo" secondAttribute="bottom" constant="5" id="mVS-z9-Sxj"/>
+                <constraint firstItem="Sov-JL-u8c" firstAttribute="top" secondItem="OWe-gu-CCo" secondAttribute="bottom" id="mVS-z9-Sxj"/>
                 <constraint firstItem="aLR-RG-AIH" firstAttribute="leading" secondItem="w7F-z7-Aye" secondAttribute="trailing" constant="14" id="n28-dw-Aa8"/>
                 <constraint firstItem="jt3-UQ-nYP" firstAttribute="centerY" secondItem="Pfj-dk-40F" secondAttribute="centerY" id="nYy-hf-tF7"/>
                 <constraint firstItem="Sov-JL-u8c" firstAttribute="centerX" secondItem="OWe-gu-CCo" secondAttribute="centerX" id="ne1-67-myG"/>

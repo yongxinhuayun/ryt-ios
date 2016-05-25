@@ -17,19 +17,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请编辑个性签名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r1l-PG-K8f">
-                    <rect key="frame" x="0.0" y="66" width="375" height="60"/>
+                    <rect key="frame" x="14" y="74" width="347" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="ahi-K5-sid"/>
+                        <constraint firstAttribute="height" constant="50" id="ahi-K5-sid"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="r1l-PG-K8f" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="66" id="qth-0W-6eo"/>
-                <constraint firstItem="r1l-PG-K8f" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ujh-uT-n1w"/>
-                <constraint firstAttribute="trailing" secondItem="r1l-PG-K8f" secondAttribute="trailing" id="z0o-7r-GNO"/>
+                <constraint firstItem="r1l-PG-K8f" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="qth-0W-6eo"/>
+                <constraint firstItem="r1l-PG-K8f" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="ujh-uT-n1w"/>
+                <constraint firstAttribute="trailing" secondItem="r1l-PG-K8f" secondAttribute="trailing" constant="14" id="z0o-7r-GNO"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="196.5" y="322.5"/>
