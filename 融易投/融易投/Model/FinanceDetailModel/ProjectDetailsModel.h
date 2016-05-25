@@ -33,6 +33,7 @@ typedef enum {
 /**** 辅助属性 ****/
 /** 所有图片 */
 @property (nonatomic ,strong) NSMutableArray *images;
+@property (nonatomic,strong) NSMutableArray *investPeople;
 /** cell的高度 */
 -(CGFloat)cellHeight:(CellType)Type;
 @end

@@ -476,6 +476,9 @@
 		E236C3241CB4E27E009DCBF0 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E236C3231CB4E27E009DCBF0 /* PushConfig.plist */; };
 		E2487B141CEAA63300484C5D /* TopRecordTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2487B121CEAA63300484C5D /* TopRecordTCell.m */; };
 		E2487B151CEAA63300484C5D /* TopRecordTCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2487B131CEAA63300484C5D /* TopRecordTCell.xib */; };
+		E266FFAC1CF5477200006EA2 /* FinanceHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E266FFAB1CF5477200006EA2 /* FinanceHeader.m */; };
+		E266FFB01CF5521800006EA2 /* MoreInvestorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E266FFAE1CF5521800006EA2 /* MoreInvestorCell.m */; };
+		E266FFB11CF5521800006EA2 /* MoreInvestorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E266FFAF1CF5521800006EA2 /* MoreInvestorCell.xib */; };
 		E2729ADC1CD8B90F006C0617 /* ProjectDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729ADB1CD8B90F006C0617 /* ProjectDetailTableViewController.m */; };
 		E2729AE61CD8B923006C0617 /* IntroduceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729ADE1CD8B923006C0617 /* IntroduceTableViewCell.m */; };
 		E2729AE71CD8B923006C0617 /* IntroduceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2729ADF1CD8B923006C0617 /* IntroduceTableViewCell.xib */; };
@@ -489,7 +492,6 @@
 		E2729AFD1CD8B9A7006C0617 /* UserCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729AF91CD8B9A7006C0617 /* UserCommentViewController.m */; };
 		E2729AFE1CD8B9A7006C0617 /* UserCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729AFB1CD8B9A7006C0617 /* UserCommonCell.m */; };
 		E2729AFF1CD8B9A7006C0617 /* UserCommonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2729AFC1CD8B9A7006C0617 /* UserCommonCell.xib */; };
-		E2729B061CD8BB0D006C0617 /* FinanceHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729B041CD8BB0D006C0617 /* FinanceHeader.m */; };
 		E2729B071CD8BB0D006C0617 /* FinanceHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2729B051CD8BB0D006C0617 /* FinanceHeader.xib */; };
 		E2A38A371CEEA45100EAB0D3 /* PrivateLetterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A38A361CEEA45100EAB0D3 /* PrivateLetterModel.m */; };
 		E2A38A3B1CF1626500EAB0D3 /* RYTLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A38A3A1CF1626500EAB0D3 /* RYTLoginManager.m */; };
@@ -1320,6 +1322,10 @@
 		E2487B111CEAA63300484C5D /* TopRecordTCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopRecordTCell.h; sourceTree = "<group>"; };
 		E2487B121CEAA63300484C5D /* TopRecordTCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopRecordTCell.m; sourceTree = "<group>"; };
 		E2487B131CEAA63300484C5D /* TopRecordTCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopRecordTCell.xib; sourceTree = "<group>"; };
+		E266FFAB1CF5477200006EA2 /* FinanceHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceHeader.m; sourceTree = "<group>"; };
+		E266FFAD1CF5521800006EA2 /* MoreInvestorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreInvestorCell.h; sourceTree = "<group>"; };
+		E266FFAE1CF5521800006EA2 /* MoreInvestorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreInvestorCell.m; sourceTree = "<group>"; };
+		E266FFAF1CF5521800006EA2 /* MoreInvestorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreInvestorCell.xib; sourceTree = "<group>"; };
 		E2729ADA1CD8B90F006C0617 /* ProjectDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailTableViewController.h; sourceTree = "<group>"; };
 		E2729ADB1CD8B90F006C0617 /* ProjectDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailTableViewController.m; sourceTree = "<group>"; };
 		E2729ADD1CD8B923006C0617 /* IntroduceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroduceTableViewCell.h; sourceTree = "<group>"; };
@@ -1344,7 +1350,6 @@
 		E2729AFB1CD8B9A7006C0617 /* UserCommonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCommonCell.m; sourceTree = "<group>"; };
 		E2729AFC1CD8B9A7006C0617 /* UserCommonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCommonCell.xib; sourceTree = "<group>"; };
 		E2729B031CD8BB0D006C0617 /* FinanceHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceHeader.h; sourceTree = "<group>"; };
-		E2729B041CD8BB0D006C0617 /* FinanceHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceHeader.m; sourceTree = "<group>"; };
 		E2729B051CD8BB0D006C0617 /* FinanceHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceHeader.xib; sourceTree = "<group>"; };
 		E2A38A351CEEA45100EAB0D3 /* PrivateLetterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivateLetterModel.h; sourceTree = "<group>"; };
 		E2A38A361CEEA45100EAB0D3 /* PrivateLetterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivateLetterModel.m; sourceTree = "<group>"; };
@@ -1777,11 +1782,14 @@
 				E2F1C8041CE5C3F800D4B1B4 /* Progress.h */,
 				E2F1C8051CE5C3F800D4B1B4 /* Progress.m */,
 				E2729B031CD8BB0D006C0617 /* FinanceHeader.h */,
-				E2729B041CD8BB0D006C0617 /* FinanceHeader.m */,
+				E266FFAB1CF5477200006EA2 /* FinanceHeader.m */,
 				E2729B051CD8BB0D006C0617 /* FinanceHeader.xib */,
 				E2F1C8071CE5CB5800D4B1B4 /* investorListCell.h */,
 				E2F1C8081CE5CB5800D4B1B4 /* investorListCell.m */,
 				E2F1C8091CE5CB5800D4B1B4 /* investorListCell.xib */,
+				E266FFAD1CF5521800006EA2 /* MoreInvestorCell.h */,
+				E266FFAE1CF5521800006EA2 /* MoreInvestorCell.m */,
+				E266FFAF1CF5521800006EA2 /* MoreInvestorCell.xib */,
 				2168EAD71CBFA05000B7E037 /* FinanceDetailFirstCell.h */,
 				2168EAD81CBFA05000B7E037 /* FinanceDetailFirstCell.m */,
 				2168EAD91CBFA05000B7E037 /* FinanceDetailFirstCell.xib */,
@@ -4031,6 +4039,7 @@
 				E22893B21CDF049500483F18 /* lxh_qiubite.png in Resources */,
 				E22892AC1CDF03F400483F18 /* d_touxiao@2x.png in Resources */,
 				E22892E11CDF03F400483F18 /* w_weifeng@2x.png in Resources */,
+				E266FFB11CF5521800006EA2 /* MoreInvestorCell.xib in Resources */,
 				E2D5247A1CDF9BB00024887A /* WithdrawTableViewController.storyboard in Resources */,
 				E22892B41CDF03F400483F18 /* d_xu@2x.png in Resources */,
 				E22892CA1CDF03F400483F18 /* h_ok@2x.png in Resources */,
@@ -4424,6 +4433,7 @@
 				218A3EE01CEC42C600700283 /* MasterWorkModel.m in Sources */,
 				E2288DF61CDC290C00483F18 /* UserReplyCommentCell.m in Sources */,
 				E2D521B21CDF783B0024887A /* UserMyModel.m in Sources */,
+				E266FFB01CF5521800006EA2 /* MoreInvestorCell.m in Sources */,
 				E22890411CDEFDD900483F18 /* UIView+Frame.m in Sources */,
 				21C413DE1CE2D23500F1029C /* ArtistMainViewController.m in Sources */,
 				21C413E91CE2D23500F1029C /* AGImagePickerController.m in Sources */,
@@ -4443,6 +4453,7 @@
 				E2D5224D1CDF8C6E0024887A /* RecordModelList.m in Sources */,
 				E2D522131CDF89950024887A /* PageInfoListModel.m in Sources */,
 				E2D522151CDF89950024887A /* ZanguoArtworkModel.m in Sources */,
+				E266FFAC1CF5477200006EA2 /* FinanceHeader.m in Sources */,
 				21C4148C1CE46D5A00F1029C /* ComposeWorksViewController.m in Sources */,
 				21C414901CE475CC00F1029C /* TimeFiled.m in Sources */,
 				E2D524231CDF94FB0024887A /* KeyBordVIew.m in Sources */,
@@ -4478,7 +4489,6 @@
 				21C414471CE2D23500F1029C /* ArtistWorksCell.m in Sources */,
 				21AB0ABF1CC50A4D00B7BA03 /* JPSlideBar+ScrollViewDelegate.m in Sources */,
 				E2A38A3B1CF1626500EAB0D3 /* RYTLoginManager.m in Sources */,
-				E2729B061CD8BB0D006C0617 /* FinanceHeader.m in Sources */,
 				21C413EA1CE2D23500F1029C /* AGImagePreviewController.m in Sources */,
 				E2D812FD1CD0780100A52172 /* TopView.m in Sources */,
 				E228903D1CDEFDD900483F18 /* UIImage+Antialias.m in Sources */,

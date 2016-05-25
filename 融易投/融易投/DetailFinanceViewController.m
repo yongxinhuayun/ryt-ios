@@ -29,7 +29,7 @@
 #import "ArtworkModel.h"
 #import "Progress.h"
 #import "RecordModelList.h"
-@interface DetailFinanceViewController ()<UIScrollViewDelegate,FinanceFooterViewDelegate>
+@interface DetailFinanceViewController ()<UIScrollViewDelegate,FinanceFooterViewDelegate,FinanceHeaderDelegate>
 @property(nonatomic,strong) FinanceHeader *financeHeader;
 @property(nonatomic,assign) BOOL isFirstIn;
 @property(nonatomic,strong)ProjectDetailsModel *projModel;
@@ -63,19 +63,32 @@
     [RecordModelList mj_setupObjectClassInArray:^NSDictionary *{
         return @{
                  @"artworkInvestTopList":@"RecordModel",
-                 @"artworkInvestList":@"RecordModel"
+                 @"artworkInvestList":@"RecordModel",
                  };
     }];
+    [ProjectDetailsModel mj_setupObjectClassInArray:^NSDictionary *{
+        return @{
+                 @"investPeople" : @"UserMyModel"
+                 };
+    }];
+    
 }
 -(void)loadData{
     // 3.设置请求体
-    NSString *userId = @"imhipoyk18s4k52u";
-    NSString *urlStr = @"investorArtWorkView.do";
-    NSDictionary *json = @{
-                           @"artWorkId" : self.artworkId,
-                           @"currentUserId": userId,
-                           };
-    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+//    NSString *userId = @"imhipoyk18s4k52u";
+    NSString *userId = [[RYTLoginManager shareInstance] takeUser].ID;
+    NSDictionary *json = [NSDictionary dictionary];
+    if (userId) {
+        json = @{
+                 @"artWorkId" : self.artworkId,
+                 @"currentUserId": userId,
+                 };
+    }else{
+        json = @{
+                 @"artWorkId" : self.artworkId,
+                 };
+    }
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"investorArtWorkView.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
@@ -85,11 +98,11 @@
             self.artworkModel = project.artWork;
             [self loadDataToController];
             [self addFooterView];
-            [self loadInvestors];
+//            [self loadInvestors];
         }];
     }];
 }
-
+/*
 -(void)loadInvestors{
     NSString *pageIndex = @"1";
     NSString *pageSize = @"20";
@@ -116,7 +129,7 @@
         self.financeHeader.artworkInvestors = arrayM;
     }];
 }
-
+*/
 //加载数据
 -(void)loadDataToController{
     self.financeHeader.titleLabel.text = self.artworkModel.title;
@@ -156,10 +169,13 @@
     //    投资人数 investorsNum;
     self.financeHeader.investNum.text =[NSString stringWithFormat:@"%ld",self.projModel.investNum];
     self.financeFooter.zan.selected = self.projModel.isPraise;
+    self.financeHeader.investPeople = self.projModel.investPeople;
+//    [self.financeHeader.investPeople addObjectsFromArray:self.projModel.investPeople];
 }
 
 -(void)setupUI{
     FinanceHeader *tView = [[[NSBundle mainBundle] loadNibNamed:@"FinanceHeader" owner:nil options:nil] lastObject];
+    tView.delegate = self;
     self.financeHeader = tView;
     self.financeHeader.width = ScreenWidth;
     self.topview.height = tView.height;
@@ -177,6 +193,14 @@
     //添加控制器视图 到scrollView中
     self.backgroundScrollView.contentSize = CGSizeMake(ScreenWidth,self.topview.height + self.middleView.height);
     self.backgroundScrollView.delegate = self;
+}
+
+-(void)scrollToRecordAndTop{
+    NSLog(@"滑动顶部");
+    CGPoint offSet = CGPointMake(0, self.financeHeader.height - 64);
+    [self.backgroundScrollView setContentOffset:offSet animated:YES];
+    CGPoint recordOffset = CGPointMake(ScreenWidth * 2, 0);
+    [self.cycleView.bottomScrollView setContentOffset:recordOffset animated:NO];
 }
 
 //添加子控制器
