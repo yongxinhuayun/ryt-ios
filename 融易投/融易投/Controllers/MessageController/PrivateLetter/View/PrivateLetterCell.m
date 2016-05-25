@@ -27,9 +27,13 @@
     self.userName.text =letterModel.fromUser.name;
        NSInteger count = [letterModel.isRead intValue];
     if (count>99) {
+        self.bridge.hidden = NO;
         self.bridge.text = @"99+";
-    }else{
+    }else if(count < 10 && count > 0){
+        self.bridge.hidden = NO;
         self.bridge.text = letterModel.isRead;
+    }else{
+        self.bridge.hidden = YES;
     }
 }
 

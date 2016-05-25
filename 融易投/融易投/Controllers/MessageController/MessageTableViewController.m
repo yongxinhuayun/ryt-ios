@@ -29,20 +29,13 @@
 
 @implementation MessageTableViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self isLogin];
-    [self setUpNavBar];
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self loadDataToController];
 }
-//判断用户是否登录,如果没有登录，提示用户登录页面
--(void)isLogin{
-    NSString *userId = TakeUserID;
-    if (userId) {
-        NSLog(@"用户已登录");
-    }else{
-        NSLog(@"用户没有登录");
-    }
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setUpNavBar];
 }
 
 // 设置导航条
@@ -57,17 +50,20 @@
 -(void)loadDataToController{
     UserMyModel *model = TakeLoginUserModel;
     NSString *userId = model.ID;
-    NSDictionary *json = @{
-                           @"userId": userId
-                           };
-    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"informationList.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
-        MessageModel *model = [MessageModel mj_objectWithKeyValues:respondObj];
-        self.messageModel = model;
-        [self isHidden];
-        [self.tableView reloadData];
-    }];
+    if (userId) {
+        NSDictionary *json = @{
+                               @"userId": userId
+                               };
+        [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"informationList.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+            //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+            //        NSLog(@"返回结果:%@",jsonStr);
+            MessageModel *model = [MessageModel mj_objectWithKeyValues:respondObj];
+            self.messageModel = model;
+            [self isHidden];
+            [self.tableView reloadData];
+        }];
+    }
+
 }
 
 -(void)isHidden{
@@ -111,22 +107,23 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    if (indexPath.section == 0) {
-        
-        NotificationController *NoController = [NotificationController new];
-        [self.navigationController pushViewController:NoController animated:YES];
-        
-    } else if (indexPath.section == 1) {
-        
-        CommentsTableController *commentsController = [CommentsTableController new];
-        [self.navigationController pushViewController:commentsController animated:YES];
-        
-    } else if (indexPath.section == 2) {
-        
-        PrivateLetterController *privateLetterVC = [[PrivateLetterController alloc] init];
-        [self.navigationController pushViewController:privateLetterVC animated:YES];
-
+    if ([[RYTLoginManager shareInstance] showLoginViewIfNeed]) {
+    }else{
+        if (indexPath.section == 0) {
+            
+            NotificationController *NoController = [NotificationController new];
+            [self.navigationController pushViewController:NoController animated:YES];
+            
+        } else if (indexPath.section == 1) {
+            
+            CommentsTableController *commentsController = [CommentsTableController new];
+            [self.navigationController pushViewController:commentsController animated:YES];
+            
+        } else if (indexPath.section == 2) {
+            
+            PrivateLetterController *privateLetterVC = [[PrivateLetterController alloc] init];
+            [self.navigationController pushViewController:privateLetterVC animated:YES];
+        }
     }
 
 }

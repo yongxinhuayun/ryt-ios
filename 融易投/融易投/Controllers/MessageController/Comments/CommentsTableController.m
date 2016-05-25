@@ -115,7 +115,7 @@
     NSString* pageSize = @"99";
     // 3.设置请求体
     NSDictionary *json = @{
-                           @"userId" : @"iijq9f1r7apprtab",
+                           @"userId" : [[RYTLoginManager shareInstance] takeUser].ID,
                            @"pageNum" : pageNum,
                            @"pageSize" :pageSize,
                            @"type"     :@"1"
@@ -143,7 +143,7 @@
     NSString *pageNum = [NSString stringWithFormat:@"%d",newPageNum];
     // 3.设置请求体
     NSDictionary *json = @{
-                           @"userId" : @"iijq9f1r7apprtab",
+                           @"userId" : [[RYTLoginManager shareInstance] takeUser].ID,
                            @"pageNum" : pageNum,
                            @"pageSize" :pageSize,
                            @"type"     :@"1"

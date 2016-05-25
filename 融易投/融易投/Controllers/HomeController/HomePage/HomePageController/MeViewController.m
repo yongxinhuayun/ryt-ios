@@ -17,8 +17,6 @@
 
 #import <WechatShortVideoController.h>
 
-#import "ArtistViewController.h"
-
 #import "ApplyforArtViewController.h"
 #import "ComposeProjectViewController.h"
 

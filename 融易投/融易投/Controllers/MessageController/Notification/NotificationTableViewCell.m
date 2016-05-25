@@ -36,9 +36,10 @@
     NSString *str = [model.fromUser.pictureUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *pictureURL = [NSURL URLWithString:str];
     NSLog(@"%@",str);
-    [self.userIcon ss_setHeader:pictureURL];
-    ;
-//    self.imageView
+//    [self.userIcon ss_setHeader:pictureURL];
+    [self.userIcon sd_setImageWithURL:pictureURL placeholderImage:[UIImage imageNamed:@"defaultBackground"]];
+    self.userIcon.layer.cornerRadius = 25;
+    self.userIcon.layer.masksToBounds = YES;
 }
 
 @end
