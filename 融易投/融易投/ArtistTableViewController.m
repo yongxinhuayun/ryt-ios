@@ -65,26 +65,17 @@ static NSString *ID = @"artistCell";
     //    CGFloat titleButtonW = self.titlesView.width / 5;
     CGFloat SubTitleLabelW = self.subTitlesView.width / index;
     CGFloat SubTitleLabelH = self.subTitlesView.height;
-    
-    
     //2.4 遍历添加所有标题按钮
     for (NSInteger i = 0; i < index; i++) {
-        
-        
         UILabel *label = [[UILabel alloc] init];
-        
         label.frame = CGRectMake(i * SubTitleLabelW, 0, SubTitleLabelW, SubTitleLabelH);
-        
         label.text = titles[i];
-        
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:14];
         label.textColor = [UIColor grayColor];
-        
         [self.subTitlesView addSubview:label];
     }
 }
-
 
 -(void)setUpRefresh
 {
@@ -92,8 +83,6 @@ static NSString *ID = @"artistCell";
     CommonFooter *footer = [CommonFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     footer.automaticallyChangeAlpha = YES;
     self.tableView.mj_footer = footer;
-    
-    //要是其他控制器也需要,直接把上面的拷贝到其他控制器就可以了
 }
 
 -(void)loadNewData{
@@ -185,6 +174,10 @@ static NSString *ID = @"artistCell";
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     return self.subTitlesView;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

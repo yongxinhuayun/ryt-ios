@@ -22,7 +22,8 @@
     NSString *url = [[NSString stringWithFormat:@"%@",model.creator.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     UIImageView *imgView = [[UIImageView alloc] init];
     [imgView ss_setHeader:[NSURL URLWithString:url]];
-    [self.userIcon setImage:imgView.image forState:(UIControlStateNormal)];
+//    [self.userIcon setImage:imgView.image forState:(UIControlStateNormal)];
+    [self.userIcon setBackgroundImage:imgView.image forState:(UIControlStateNormal)];
     self.userName.text = model.creator.name;
     self.price.text = [NSString stringWithFormat:@"%ld 元",model.price];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:model.createDatetime / 1000];

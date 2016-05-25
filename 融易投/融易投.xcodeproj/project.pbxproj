@@ -480,6 +480,8 @@
 		E266FFAC1CF5477200006EA2 /* FinanceHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E266FFAB1CF5477200006EA2 /* FinanceHeader.m */; };
 		E266FFB01CF5521800006EA2 /* MoreInvestorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E266FFAE1CF5521800006EA2 /* MoreInvestorCell.m */; };
 		E266FFB11CF5521800006EA2 /* MoreInvestorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E266FFAF1CF5521800006EA2 /* MoreInvestorCell.xib */; };
+		E266FFBB1CF58F5300006EA2 /* investmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E266FFB91CF58F5300006EA2 /* investmentController.m */; };
+		E266FFBC1CF58F5300006EA2 /* investmentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E266FFBA1CF58F5300006EA2 /* investmentController.xib */; };
 		E2729ADC1CD8B90F006C0617 /* ProjectDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729ADB1CD8B90F006C0617 /* ProjectDetailTableViewController.m */; };
 		E2729AE61CD8B923006C0617 /* IntroduceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729ADE1CD8B923006C0617 /* IntroduceTableViewCell.m */; };
 		E2729AE71CD8B923006C0617 /* IntroduceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2729ADF1CD8B923006C0617 /* IntroduceTableViewCell.xib */; };
@@ -1329,6 +1331,9 @@
 		E266FFAD1CF5521800006EA2 /* MoreInvestorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreInvestorCell.h; sourceTree = "<group>"; };
 		E266FFAE1CF5521800006EA2 /* MoreInvestorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreInvestorCell.m; sourceTree = "<group>"; };
 		E266FFAF1CF5521800006EA2 /* MoreInvestorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreInvestorCell.xib; sourceTree = "<group>"; };
+		E266FFB81CF58F5300006EA2 /* investmentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = investmentController.h; sourceTree = "<group>"; };
+		E266FFB91CF58F5300006EA2 /* investmentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = investmentController.m; sourceTree = "<group>"; };
+		E266FFBA1CF58F5300006EA2 /* investmentController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = investmentController.xib; sourceTree = "<group>"; };
 		E2729ADA1CD8B90F006C0617 /* ProjectDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailTableViewController.h; sourceTree = "<group>"; };
 		E2729ADB1CD8B90F006C0617 /* ProjectDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailTableViewController.m; sourceTree = "<group>"; };
 		E2729ADD1CD8B923006C0617 /* IntroduceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroduceTableViewCell.h; sourceTree = "<group>"; };
@@ -2899,6 +2904,16 @@
 			path = MessageResultModel;
 			sourceTree = "<group>";
 		};
+		E266FFB21CF5871F00006EA2 /* 投资 */ = {
+			isa = PBXGroup;
+			children = (
+				E266FFB81CF58F5300006EA2 /* investmentController.h */,
+				E266FFB91CF58F5300006EA2 /* investmentController.m */,
+				E266FFBA1CF58F5300006EA2 /* investmentController.xib */,
+			);
+			name = "投资";
+			sourceTree = "<group>";
+		};
 		E2729AEF1CD8B975006C0617 /* 记录 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3784,6 +3799,7 @@
 		E2DDB1A41CABA701007438E4 /* 详情 */ = {
 			isa = PBXGroup;
 			children = (
+				E266FFB21CF5871F00006EA2 /* 投资 */,
 				E2729AEF1CD8B975006C0617 /* 记录 */,
 				21AB0B5D1CC70E1400B7BA03 /* Test */,
 				21AB0B831CC8BC5E00B7BA03 /* 项目详情 */,
@@ -4054,6 +4070,7 @@
 				E22892AC1CDF03F400483F18 /* d_touxiao@2x.png in Resources */,
 				E22892E11CDF03F400483F18 /* w_weifeng@2x.png in Resources */,
 				E266FFB11CF5521800006EA2 /* MoreInvestorCell.xib in Resources */,
+				E266FFBC1CF58F5300006EA2 /* investmentController.xib in Resources */,
 				E2D5247A1CDF9BB00024887A /* WithdrawTableViewController.storyboard in Resources */,
 				E22892B41CDF03F400483F18 /* d_xu@2x.png in Resources */,
 				E22892CA1CDF03F400483F18 /* h_ok@2x.png in Resources */,
@@ -4397,6 +4414,7 @@
 				E2D524221CDF94FB0024887A /* ChartMessage.m in Sources */,
 				21C4140C1CE2D23500F1029C /* WHC_Asset.m in Sources */,
 				E2D522231CDF8AF50024887A /* ArtistModel.m in Sources */,
+				E266FFBB1CF58F5300006EA2 /* investmentController.m in Sources */,
 				E2D524651CDF9B910024887A /* WalletViewController.m in Sources */,
 				E2D5224A1CDF8C6E0024887A /* FinanceModel.m in Sources */,
 				21C414001CE2D23500F1029C /* JKAssetsGroupsView.m in Sources */,
@@ -4797,8 +4815,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4837,7 +4855,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "beadd937-265c-46f8-852b-19ef56b77481";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/TOM/Desktop/ryt-ios/融易投/融易投/JPushLIB";
@@ -4850,8 +4868,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4890,7 +4908,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "beadd937-265c-46f8-852b-19ef56b77481";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/TOM/Desktop/ryt-ios/融易投/融易投/JPushLIB";
