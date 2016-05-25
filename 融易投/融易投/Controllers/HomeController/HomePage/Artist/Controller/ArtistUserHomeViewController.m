@@ -36,6 +36,15 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    [self setUpNavBar];
+}
+
+// 设置导航条
+-(void)setUpNavBar
+{
+    //设置导航条标题
+    self.navigationItem.title = self.model.user.name;
 }
 
 -(void)setupUI{

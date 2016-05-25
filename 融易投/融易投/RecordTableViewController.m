@@ -50,8 +50,8 @@
     NSString *pageIndex = @"1";
     // 3.设置请求体
     NSDictionary *json = @{
-//                           @"artWorkId":self.ID,
-                           @"artWorkId":@"qydeyugqqiugd2",
+                           @"artWorkId":self.ID,
+//                           @"artWorkId":@"in5z7r5f2w2f73so",
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex,
                            };
@@ -83,7 +83,7 @@
     NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
     // 3.设置请求体
     NSDictionary *json = @{
-                           @"artWorkId":@"qydeyugqqiugd2",
+                           @"artWorkId":self.ID,
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex,
                            };
