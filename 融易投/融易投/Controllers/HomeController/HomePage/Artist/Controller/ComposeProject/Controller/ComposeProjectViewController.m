@@ -405,10 +405,6 @@ BOOL isPop = NO;
     
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
     
-    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-    NSString *url = @"http://192.168.1.41:8080/app/initNewArtWork.do";
-    
-    // 3.设置请求体
     NSDictionary *json = @{
                            @"title" : title,
                            @"brief" : brief,
@@ -420,6 +416,9 @@ BOOL isPop = NO;
                            @"timestamp" : timestamp,
                            @"signmsg"   : signmsgMD5
                            };
+    
+    /*
+    NSString *url = @"http://192.168.1.75:8001/app/initNewArtWork.do";
     
     AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
     
@@ -489,8 +488,53 @@ BOOL isPop = NO;
             
         }];
     }];
+     
+     */
     
+    NSString *url = @"releaseArtworkDynamic.do";
     
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
+        
+        if (self.createPath) {
+            
+            [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"picture_url" fileName:@"picture_url.jpg" mimeType:@"application/octet-stream" error:nil];
+        }else {
+            
+            [formData appendPartWithFileURL:[NSURL fileURLWithPath:picture_url] name:@"picture_url" fileName:@"picture_url.jpg" mimeType:@"application/octet-stream" error:nil];
+        }
+        
+    } showHUDView:nil success:^(id respondObj) {
+        
+//        NSString *aString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        SSLog(@"%@",aString);
+        //{"artworkId":"imyapayc1rttrjbz","resultCode":"0","resultMsg":"成功"}
+        
+        ArtWorkIdModel *artWorkId = [ArtWorkIdModel mj_objectWithKeyValues:respondObj];
+        
+        [SVProgressHUD showInfoWithStatus:@"发布成功"];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        
+        //在主线程刷新UI数据
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            [SVProgressHUD dismiss];
+            
+            UIStoryboard *releaseStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
+            ReleaseViewController *releaseVC = [releaseStoryBoard instantiateInitialViewController];
+            isPop = YES;
+            
+            //发起新项目传递的artWorkId
+            releaseVC.artWorkIdModel = artWorkId;
+            //编辑项目传递的模型
+            releaseVC.projectModel = self.projectModel;
+            
+            //传递图片数组
+            releaseVC.imageArray = self.imageArray;
+            
+            [self.navigationController pushViewController:releaseVC animated:YES];
+            
+        }];
+    }];
 }
 
 //实现相机的代理方法

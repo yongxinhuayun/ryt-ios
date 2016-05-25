@@ -320,10 +320,7 @@
     NSString *signmsg = [NSString stringWithFormat:@"artworkId=%@&timestamp=%@&key=%@",artworkId,timestamp,appkey];
     
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    // 1.创建请求
-    NSString *url = @"http://192.168.1.41:8080/app/releaseArtworkDynamic.do";
-    
-    // 3.设置请求体
+
     NSDictionary *json = @{
                            @"content" : description,
                            @"file"        :file,
@@ -331,7 +328,10 @@
                            @"artworkId"   : artworkId,
                            @"timestamp" : timestamp,
                            @"signmsg"   : signmsgMD5
-                           };
+                        };
+    /*
+    // 1.创建请求
+    NSString *url = @"http://192.168.1.75:8001/app/releaseArtworkDynamic.do";
     
     AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
     
@@ -383,6 +383,50 @@
         
         //[SVProgressHUD showSuccessWithStatus:@"发布失败" maskType:SVProgressHUDMaskTypeBlack];
     }];
+     */
+    
+    NSString *url = @"releaseArtworkDynamic.do";
+    
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
+        
+        NSInteger imgCount = 0;
+        
+        //        for (UIImage *image in self.photosView2.selectedPhotos) {
+        for (int i = 0; i < self.imagePickerArray.count; i++) {
+            
+            UIImage *image  =  [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray objectAtIndex:i]).thumbnail];
+            
+            NSData *data = UIImageJPEGRepresentation(image, 1.0);
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            
+            formatter.dateFormat = @"yyyyMMddHHmmssSSS";
+            
+            NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(imgCount)];
+            
+            NSLog(@"%@",fileName);
+            
+            [formData appendPartWithFileData:data name:@"file" fileName:fileName mimeType:@"application/octet-stream"];
+            
+            imgCount++;
+            
+            NSLog(@"%ld",imgCount);
+            
+        }
+        
+    } showHUDView:nil success:^(id respondObj) {
+        
+//        NSString *aString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        SSLog(@"---%@---%@",[respondObj class],aString);
+        
+        [MBProgressHUD showSuccess:@"发布成功"];
+        //保存模型,赋值给控制器
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            //取消modal
+            [self dismissViewControllerAnimated:self completion:nil];
+        }];
+    }];
+
     
 }
 

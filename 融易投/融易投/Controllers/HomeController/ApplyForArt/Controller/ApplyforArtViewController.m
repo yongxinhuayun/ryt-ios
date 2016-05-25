@@ -457,20 +457,31 @@
     headViewHeight = CGRectGetMaxY(querenBtn.frame);
     
     //描述确认按钮
-    UILabel *querenLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding + 20, headViewHeight + padding, 170, 10)];
+    UILabel *querenLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding + 20, headViewHeight + padding, 150, 10)];
+//    UILabel *querenLabel = [[UILabel alloc] init];
+//    querenLabel.x = padding + 200;
+//    querenLabel.y = headViewHeight + padding;
+//    querenLabel.height = 10;
+//    [querenLabel sizeToFit];
     querenLabel.text = @"点击确认提交即表示同意";
-    querenLabel.font = [UIFont systemFontOfSize:15];
+    if (iPhone4 || iPhone5) {
+        querenLabel.font = [UIFont systemFontOfSize:10];
+    }else{
+        querenLabel.font = [UIFont systemFontOfSize:12];
+    }
     querenLabel.textColor = [UIColor blackColor];
     [headView addSubview:querenLabel];
     
     //描述确认协议按钮
     UIButton *querenInfoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    querenInfoBtn.frame = CGRectMake(CGRectGetMaxX(querenLabel.frame) - 30, headViewHeight + 5, 200, 20);
+    querenInfoBtn.frame = CGRectMake(CGRectGetMaxX(querenLabel.frame), headViewHeight + 5, 200, 20);
     [querenInfoBtn setTitle:@"《融艺投艺术家协议》" forState:UIControlStateNormal];
-    querenInfoBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-    [querenInfoBtn setTitleColor: [UIColor blackColor] forState:UIControlStateNormal];
-//    querenInfoBtn.backgroundColor = [UIColor orangeColor];
-    
+    [querenInfoBtn setTitleColor:SSColor(239, 91, 112) forState:UIControlStateNormal];
+    if (iPhone4 || iPhone5) {
+        querenInfoBtn.titleLabel.font = [UIFont systemFontOfSize:10];
+    }else{
+        querenInfoBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    }
     [headView addSubview:querenInfoBtn];
     
     //上面的总高度

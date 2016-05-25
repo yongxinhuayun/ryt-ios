@@ -19,6 +19,7 @@
 #import "BQLAuthEngine.h"
 #import "UserMyModel.h"
 #import "RYTLoginManager.h"
+#import "WXLoginModel.h"
 
 @interface LognController ()
 {
@@ -29,6 +30,8 @@
 
 @property (weak, nonatomic) IBOutlet SSTextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet SSTextField *passwordTextField;
+
+@property (nonatomic, strong) WXLoginModel *WXModel;
 
 @end
 
@@ -89,9 +92,68 @@
         
         NSLog(@"success:%@",response);
         
+        NSDictionary *dict = (NSDictionary *)response;
+        
+        WXLoginModel *WXModel = [WXLoginModel mj_objectWithKeyValues:dict];
+        self.WXModel = WXModel;
+        
+        [self weixinLoadData];
+
     } Failure:^(NSError *error) {
         
         NSLog(@"failure:%@",error);
+    }];
+}
+
+-(void)weixinLoadData
+{
+    //参数
+    NSString *nickname = self.WXModel.nickname;
+    NSString *unionid = self.WXModel.unionid;
+    NSString *headimgurl = self.WXModel.headimgurl;
+    
+    NSString *urlStr = @"WxLogin.do";
+    NSDictionary *json = @{
+                           @"nickname" : nickname,
+                           @"unionid" : unionid,
+                           @"headimgurl":headimgurl
+                           };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
+        
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        [MBProgressHUD hideHUD];
+        NSString *resultCode = dict[@"resultCode"];
+        if ([resultCode intValue] == 0) {
+            [MBProgressHUD showSuccess:@"登录成功"];
+            //登录实体类
+            NSString *registrationID = [[NSUserDefaults standardUserDefaults] valueForKey:@"registrationID"];
+            UserMyModel *userMyModel = [UserMyModel mj_objectWithKeyValues:dict[@"userInfo"]];
+            RYTLoginManager *manager = [RYTLoginManager shareInstance];
+            [manager loginSuccess:userMyModel];
+            //登录成功的时候注册用户的registrationId
+            //注册 registrationID
+            if (registrationID && (manager.takeUser != nil)) {
+                NSDictionary *json = @{
+                                       @"cid":registrationID,
+                                       @"id":userMyModel.ID
+                                       };
+                [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"wxBinding.do" parameters:json showHUDView:nil andBlock:^(id respondObj) {
+//                    NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//                    NSLog(@"返回结果:%@",jsonStr);
+                    // TODO
+                }];
+                
+            }
+            //在主线程刷新UI数据
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
+        }else { //登录失败
+            [MBProgressHUD showError:@"登录失败"];
+        }
+        
     }];
 }
 
@@ -137,8 +199,8 @@
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
          [MBProgressHUD hideHUD];
         NSString *resultCode = dict[@"resultCode"];
@@ -158,8 +220,8 @@
                                        @"password":self.passwordTextField.text,
                                        };
                 [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"userBinding.do" parameters:json showHUDView:nil andBlock:^(id respondObj) {
-                    NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-                    NSLog(@"返回结果:%@",jsonStr);
+//                    NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//                    NSLog(@"返回结果:%@",jsonStr);
                     // TODO
                 }];
 

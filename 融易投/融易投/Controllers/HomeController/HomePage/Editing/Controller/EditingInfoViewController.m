@@ -315,6 +315,7 @@
 
 -(void)chageUserPictureUrlToData{
     
+    /*
     //1 男 2 女
     //参数
     UserMyModel *model = TakeLoginUserModel;
@@ -353,8 +354,8 @@
         
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-//        NSString *jsonStr=[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
         
@@ -382,6 +383,54 @@
             [self dismissViewControllerAnimated:self completion:nil];
             
         }];
+    }];
+    */
+    
+    
+     //1 男 2 女
+     //参数
+     UserMyModel *model = TakeLoginUserModel;
+     NSString *userId = model.ID;
+     NSString *headPortrait = self.createPath;
+     NSString *timestamp = [MyMD5 timestamp];
+     NSString *appkey = MD5key;
+     
+     NSString *signmsg = [NSString stringWithFormat:@"timestamp=%@&userId=%@&key=%@",timestamp,userId,appkey];
+     
+     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+     
+     // 3.设置请求体
+     NSDictionary *json = @{
+                             @"userId":userId,
+                             @"headPortrait":headPortrait,
+                             @"timestamp":timestamp,
+                             @"signmsg"   : signmsgMD5
+                             };
+     
+     NSString *url = @"editPicUrl.do";
+    
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
+        
+        [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"headPortrait" fileName:@"headPortrait.jpg" mimeType:@"application/octet-stream" error:nil];
+        
+    } showHUDView:nil success:^(id respondObj) {
+        
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        
+        UserMyModel *model = [UserMyModel mj_objectWithKeyValues:modelDict[@"userInfo"]];
+        [MBProgressHUD hideHUD];
+        if (model) {
+            [MBProgressHUD showSuccess:@"修改照片成功"];
+            //保存模型,赋值给控制器
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                //取消modal
+                [self dismissViewControllerAnimated:self completion:nil];
+            }];
+            
+        }
     }];
 }
 
