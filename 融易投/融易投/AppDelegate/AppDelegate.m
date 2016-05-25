@@ -86,12 +86,13 @@ static NSString *BeeCloudAppSecret = @"23b1b629-4da0-42bd-8b4c-f7124bde629a";
     return YES;
 }
 
-- (void)networkDidReceiveMessage:(NSNotification *)notification {
-    NSDictionary * userInfo = [notification userInfo];
-    NSString *content = [userInfo valueForKey:@"content"];
-    NSDictionary *extras = [userInfo valueForKey:@"extras"];
-    NSString *customizeField1 = [extras valueForKey:@"customizeField1"]; //自定义参数，key是自己定义的
-}
+//- (void)networkDidReceiveMessage:(NSNotification *)notification {
+//    NSDictionary * userInfo = [notification userInfo];
+//    NSString *content = [userInfo valueForKey:@"content"];
+//    NSDictionary *extras = [userInfo valueForKey:@"extras"];
+//    NSString *customizeField1 = [extras valueForKey:@"customizeField1"]; //自定义参数，key是自己定义的
+//}
+
 - (void)networkDidLogin:(NSNotification *)notification {
     
     
@@ -100,7 +101,6 @@ static NSString *BeeCloudAppSecret = @"23b1b629-4da0-42bd-8b4c-f7124bde629a";
         [[NSUserDefaults standardUserDefaults] setValue:[JPUSHService registrationID] forKey:@"registrationID"];
     }
 }
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -222,6 +222,7 @@ static NSString *BeeCloudAppSecret = @"23b1b629-4da0-42bd-8b4c-f7124bde629a";
         return YES;
     }
 }
+
 
 
 -(UIViewController *)defaultViewController {
@@ -349,20 +350,22 @@ static NSString *BeeCloudAppSecret = @"23b1b629-4da0-42bd-8b4c-f7124bde629a";
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    
-    // Required,For systems with less than or equal to iOS6
+    // 接受通知之后进入这个代理方法
     [JPUSHService handleRemoteNotification:userInfo];
     NSLog(@">>>>>>>>>2userInfo%@",[self logDic:userInfo]);
+    
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
+//    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    // IOS 7 Support Required
-    completionHandler(UIBackgroundFetchResultNewData);
-    
-    [JPUSHService handleRemoteNotification:userInfo];
-    NSLog(@">>>>>>>>>1userInfo%@",[self logDic:userInfo]);
-    
-}
+//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+//    // IOS 7 Support Required
+//    completionHandler(UIBackgroundFetchResultNewData);
+//    
+//    [JPUSHService handleRemoteNotification:userInfo];
+//    NSLog(@">>>>>>>>>1userInfo%@",[self logDic:userInfo]);
+//    
+//}
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     

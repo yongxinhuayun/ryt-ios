@@ -57,4 +57,8 @@
     return _backgroundScrollView;
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"y = %f",scrollView.contentOffset.y);
+}
+
 @end

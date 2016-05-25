@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 @class Progress;
+@protocol FinanceHeaderDelegate <NSObject>
+-(void)scrollToRecordAndTop;
+@end
 @interface FinanceHeader : UIView
 //项目图片
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
@@ -34,7 +37,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *time;
 //投资人数
 @property (weak, nonatomic) IBOutlet UILabel *investNum;
+@property (nonatomic,strong) NSMutableArray *investPeople;
 //
 @property (weak, nonatomic) IBOutlet UICollectionView *artworkInvestList;
-@property(nonatomic,strong)NSArray *artworkInvestors;
+@property(weak,nonatomic) id<FinanceHeaderDelegate> delegate;
 @end

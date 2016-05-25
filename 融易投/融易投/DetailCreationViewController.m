@@ -138,9 +138,9 @@
 //添加子控制器
 -(void)addControllersToCycleView{
     //添加控制器view
-    TimeAxisTableViewController *time = [[TimeAxisTableViewController alloc] init];
-    [self.controllersView addObject:time.view];
-    [self addChildViewController:time];
+//    TimeAxisTableViewController *time = [[TimeAxisTableViewController alloc] init];
+//    [self.controllersView addObject:time.view];
+//    [self addChildViewController:time];
     
     ProjectDetailTableViewController * pro1 = [[ProjectDetailTableViewController alloc] init];
     pro1.artWorkId = self.creationModel.ID;
@@ -256,7 +256,8 @@
 
 -(NSMutableArray *)titleArray{
     if (!_titleArray) {
-        NSArray *array = @[@"项目进度",@"项目详情",@"用户评论",@"投资记录"];
+        //@"项目进度"
+        NSArray *array = @[@"项目详情",@"用户评论",@"投资记录"];
         _titleArray = [NSMutableArray arrayWithArray:array];
     }
     return _titleArray;
