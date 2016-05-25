@@ -165,7 +165,6 @@ static NSString *ID = @"MeTableViewCell";
         FocusMyViewController *focusVC = [[FocusMyViewController alloc] init];
         
         [weakself.navigationController pushViewController:focusVC animated:YES];
-        
     };
     
 }
@@ -196,8 +195,7 @@ static NSString *ID = @"MeTableViewCell";
     [navButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     [navButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    
-    
+
     RYTLoginManager *manger = [RYTLoginManager shareInstance];
     self.manger = manger;
     
@@ -238,6 +236,21 @@ static NSString *ID = @"MeTableViewCell";
     UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithCustomView:navButton];
     
     self.navigationItem.leftBarButtonItem = leftBarButton;
+    
+    
+    //设置导航条按钮
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightButton setImage:[UIImage imageNamed:@"fenxiang"] forState:UIControlStateNormal];
+    [rightButton sizeToFit];
+    [rightButton addTarget:self action:@selector(share) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem = rightBarButton;
+
+}
+-(void)share{
+    
+    SSLog(@"share");
+    
 }
 
 -(void)login{
