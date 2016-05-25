@@ -124,12 +124,32 @@ static NSString *ID = @"ZanguoProjectCell";
         
         ZanGuoResultModel *model = [ZanGuoResultModel mj_objectWithKeyValues:modelDict];
         
-        self.models = model.pageInfoList;
+        
+        
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
-            [self.tableView reloadData];
+            self.models = model.pageInfoList;
             
+            if (self.models.count) {
+                
+                [self.tableView reloadData];
+                
+            }else{
+                
+                UIView *touGuoview = [[UIView alloc] initWithFrame:self.view.bounds];
+                touGuoview.backgroundColor = [UIColor whiteColor];
+                UILabel *label = [[UILabel alloc] init];
+                label.center = CGPointMake(self.view.width * 0.3, self.view.height * 0.4);
+                label.text = @"还没有赞过任何项目...";
+                label.textColor = [UIColor grayColor];
+                label.font = [UIFont systemFontOfSize:14];
+                label.height = 30;
+                [label sizeToFit];
+                [touGuoview addSubview:label];
+                self.view = touGuoview;
+                [self.view layoutIfNeeded];
+            }
         }];
     }];
 }

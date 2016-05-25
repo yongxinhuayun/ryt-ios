@@ -48,11 +48,34 @@
     //投资收益
     self.inverstProfitLabel.text = [NSString stringWithFormat:@"%zd",self.model.yield];
     //投资回报率
-    CGFloat sumInvestmentFloat = self.model.sumInvestment;
-    CGFloat yieldFloat = self.model.yield;
-    self.InvestRateLabel.text = [NSString stringWithFormat:@"%zd%%",((sumInvestmentFloat /yieldFloat) * 100)];
-
+    //投资回报率
+    float sumInvestmentFloat = NAN;
+    float yieldFloat = NAN;
     
+    if (!isnan(sumInvestmentFloat)&&!isnan(yieldFloat)) {
+        
+        sumInvestmentFloat = [self.inverstMoneyLabel.text doubleValue];
+        yieldFloat = [self.inverstProfitLabel.text doubleValue];
+        
+    }else {
+        
+        sumInvestmentFloat = 0.00;
+        yieldFloat = 0.00;
+    }
+    
+    
+    NSLog(@"%f----%f",sumInvestmentFloat,yieldFloat);
+    
+    float investRate = NAN;
+    
+    if (!isnan(investRate)) {
+        
+        self.InvestRateLabel.text = [NSString stringWithFormat:@"%.2f%%",((yieldFloat / sumInvestmentFloat) * 100)];
+        
+    }else {
+        
+        self.InvestRateLabel.text = @"0.00%";
+    }
 }
 
 @end

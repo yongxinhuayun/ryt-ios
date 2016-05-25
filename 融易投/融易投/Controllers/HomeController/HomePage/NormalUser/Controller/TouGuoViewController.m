@@ -54,6 +54,8 @@ static NSString *ID = @"InvestProjectCell";
                  };
     }];
     
+
+    
     [self loadNewData];
     
     //设置刷新控件
@@ -104,22 +106,38 @@ static NSString *ID = @"InvestProjectCell";
     
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
 
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
         PageInfoModel *model = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
-        
-        self.models = model.artworks;
-        
+
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
-            [self.tableView reloadData];
+            self.models = model.artworks;
             
+            if (self.models.count) {
+                
+                [self.tableView reloadData];
+                
+            }else{
+                
+                UIView *touGuoview = [[UIView alloc] initWithFrame:self.view.bounds];
+                touGuoview.backgroundColor = [UIColor whiteColor];
+                UILabel *label = [[UILabel alloc] init];
+                label.center = CGPointMake(self.view.width * 0.3, self.view.height * 0.4);
+                label.text = @"还没有投资过任何项目...";
+                label.textColor = [UIColor grayColor];
+                label.font = [UIFont systemFontOfSize:14];
+                label.height = 30;
+                [label sizeToFit];
+                [touGuoview addSubview:label];
+                self.view = touGuoview;
+                [self.view layoutIfNeeded];
+            }
         }];
-        
     }];
 }
 

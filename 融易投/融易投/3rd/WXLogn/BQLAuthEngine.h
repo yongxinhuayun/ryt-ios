@@ -179,17 +179,6 @@ typedef NS_ENUM(NSInteger, AuthErrorCode)
     AuthErrorUnsupport      = -5    /**< 微信不支持    */
 };
 
-
-
-
-
-
-
-
-
-
-
-
 #pragma 遵守微信SDK代理
 @interface BQLAuthEngine : NSObject <WXApiDelegate,TencentSessionDelegate,QQApiInterfaceDelegate>
 
