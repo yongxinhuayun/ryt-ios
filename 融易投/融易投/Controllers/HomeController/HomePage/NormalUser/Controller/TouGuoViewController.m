@@ -18,6 +18,10 @@
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 
+#import "DetailFinanceViewController.h"
+#import "DetailCreationViewController.h"
+
+
 @interface TouGuoViewController ()
 
 @property (nonatomic, strong) NSMutableArray *models;
@@ -54,7 +58,12 @@ static NSString *ID = @"InvestProjectCell";
                  };
     }];
     
-
+    [ArtworksModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"ID"          :@"id"
+                 };
+    }];
     
     [self loadNewData];
     
@@ -219,6 +228,45 @@ static NSString *ID = @"InvestProjectCell";
     
     
     return 374;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+     ArtworksModel *model = self.models[indexPath.row];
+    
+    if ([model.step isEqualToString:@"10"]){
+        
+        [MBProgressHUD showError:@"审核待审核,请您耐心等待"];
+        
+    }else if ([model.step isEqualToString:@"11"]){
+        
+        [MBProgressHUD showError:@"审核审核中,请您耐心等待"];
+        
+    }else if ([model.step isEqualToString:@"13"]){
+        
+        [MBProgressHUD showError:@"审核未通过,请您耐心等待"];
+        
+    }else if ([model.step isEqualToString:@"14"]){
+        
+        //跳转
+        DetailFinanceViewController *detail = [[DetailFinanceViewController alloc] init];
+        detail.artworkId = model.ID;
+        [self.navigationController pushViewController:detail animated:YES];
+        
+    }else if ([model.step isEqualToString:@"21"]||[model.step isEqualToString:@"22"]||[model.step isEqualToString:@"24"]||[model.step isEqualToString:@"25"]){
+        
+        DetailCreationViewController *creationDetailsVC = [[DetailCreationViewController alloc] init];
+        creationDetailsVC.artworkId = model.ID;
+        [self.navigationController pushViewController:creationDetailsVC animated:YES];
+        
+    }else if([model.step isEqualToString:@"100"]) {
+        
+        [MBProgressHUD showError:@"项目可以编辑"];
+    }else {
+        
+        [MBProgressHUD showError:@"拍卖即将开始"];
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 //-----------------------联动-----------------------

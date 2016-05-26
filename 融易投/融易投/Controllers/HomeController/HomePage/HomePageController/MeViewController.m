@@ -44,6 +44,7 @@
 
 #import "MeTableViewCell.h"
 #import "BQLAuthEngine.h"
+#import "ShareViewHUD.h"
 
 
 @interface MeViewController ()
@@ -56,6 +57,8 @@
 @property (nonatomic ,strong) PageInfoModel *model;
 
 @property (nonatomic ,strong) RYTLoginManager *manger;
+
+@property (nonatomic, strong) ShareViewHUD *shareHUD;
 
 @end
 
@@ -252,17 +255,68 @@ static NSString *ID = @"MeTableViewCell";
     
     SSLog(@"share");
     
+    
+    //创建遮盖
+    ShareViewHUD *shareHUD = [ShareViewHUD shareViewHUD];
+    self.shareHUD = shareHUD;
+    
+    [shareHUD.WXButton addTarget:self action:@selector(wxBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [shareHUD.friendButton addTarget:self action:@selector(friendBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [shareHUD.quxiaoBtn addTarget:self action:@selector(quxiaoBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    shareHUD.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];//都为0代表是黑色
+    //    cover.alpha = 0.7 这么写的话,里面的子控件会都是半透明的
+    shareHUD.bounds = [UIApplication sharedApplication].keyWindow.bounds;
+    //设置圆角距
+    shareHUD.center = [UIApplication sharedApplication].keyWindow.center;
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:shareHUD];
+}
+
+-(void)wxBtnClick:(UIButton *)btn{
+    
     UIImage *thumb = [UIImage imageNamed:@"wait.png"];
     [_bqlAuthEngine authShareToWeChatWithLink:@"专访张小龙：产品之上的世界观" Description:@"微信的平台化发展方向是否真的会让这个原本简洁的产品变得臃肿？在国际化发展方向上，微信面临的问题真的是文化差异壁垒吗？腾讯高级副总裁、微信产品负责人张小龙给出了自己的回复。" ThumbImage:thumb Url:@"http://tech.qq.com/zt2012/tmtdecode/252.htm" Scene:ShareToWXSceneSession Success:^(id response) {
         
         // 成功授权、在这里你可以提示用户已分享成功、并进行下面的操作
         NSLog(@"success:%@",response);
         
+            [self quxiaoBtnClick:nil];
+        
     } Failure:^(NSError *error) {
         
         // 错误返回授权错误码，请自行对照错误码查看错误原因
         NSLog(@"failure:%@",error);
+        
+         [self quxiaoBtnClick:nil];
     }];
+    
+}
+
+-(void)friendBtnClick:(UIButton *)btn{
+    
+    UIImage *thumb = [UIImage imageNamed:@"wait.png"];
+    
+    [_bqlAuthEngine authShareToWeChatWithLink:@"专访张小龙：产品之上的世界观" Description:@"微信的平台化发展方向是否真的会让这个原本简洁的产品变得臃肿？在国际化发展方向上，微信面临的问题真的是文化差异壁垒吗？腾讯高级副总裁、微信产品负责人张小龙给出了自己的回复。" ThumbImage:thumb Url:@"http://tech.qq.com/zt2012/tmtdecode/252.htm" Scene:WXSceneTimeline Success:^(id response) {
+        
+        // 成功授权、在这里你可以提示用户已分享成功、并进行下面的操作
+        NSLog(@"success:%@",response);
+        
+            [self quxiaoBtnClick:nil];
+        
+    } Failure:^(NSError *error) {
+        
+        // 错误返回授权错误码，请自行对照错误码查看错误原因
+        NSLog(@"failure:%@",error);
+        
+         [self quxiaoBtnClick:nil];
+    }];
+    
+}
+
+-(void)quxiaoBtnClick:(UIButton *)btn{
+   
+    [self.shareHUD removeFromSuperview];
     
 }
 

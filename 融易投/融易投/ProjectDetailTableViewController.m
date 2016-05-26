@@ -72,6 +72,10 @@
     }
     //获取当前用户ID
     NSString *currentUserId = [RYTLoginManager shareInstance].takeUser.ID;
+    
+//    SSLog(@"%@",currentUserId);
+//    SSLog(@"%@",self.artWorkId);
+    
     NSDictionary *json = [NSDictionary dictionary];
     if (!currentUserId) {
         json = @{

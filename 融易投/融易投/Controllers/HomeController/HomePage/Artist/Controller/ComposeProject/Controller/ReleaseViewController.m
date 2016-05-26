@@ -497,8 +497,6 @@ static NSString *ID2 = @"ReleaseProjectCell2";
     
          [self sendStatusWithImage];
     }
-    
-   
 }
 
 - (void)sendChangeImage
@@ -530,8 +528,8 @@ static NSString *ID2 = @"ReleaseProjectCell2";
     
     NSString *financing_aq = self.cell2.textView.text;
     
-    //    NSString *artworkId = self.artWorkIdModel.artworkId;
-    NSString *artworkId = @"imyt7yax314lpzzj";
+    NSString *artworkId = self.artWorkIdModel.artworkId;
+//    NSString *artworkId = @"imyt7yax314lpzzj";
     
     NSString *timestamp = [MyMD5 timestamp];
     

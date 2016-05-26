@@ -65,6 +65,11 @@
     NSString *urlStr = @"artWorkCreationView.do";
     NSString *userId = [[RYTLoginManager shareInstance] takeUser].ID;
     NSDictionary *json = [NSDictionary dictionary];
+    
+    
+//    SSLog(@"%@",userId);
+//    SSLog(@"%@",self.artworkId);
+    
     if (userId) {
         json = @{
                  @"artWorkId" : self.artworkId,
@@ -75,6 +80,9 @@
                  @"artWorkId" : self.artworkId,
                  };
     }
+    
+    SSLog(@"%@",self.artworkId);
+    
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
