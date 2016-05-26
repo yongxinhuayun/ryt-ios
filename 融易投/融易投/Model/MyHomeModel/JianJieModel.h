@@ -11,6 +11,18 @@
 @interface JianJieModel : NSObject
 
 /**  */
-@property (nonatomic ,strong) NSString *userBrief;
+@property (nonatomic ,strong) NSString *ID;
+
+/**  */
+@property (nonatomic ,strong) NSString *status;
+
+/**  */
+@property (nonatomic ,strong) NSString *type;
+
+/**  */
+@property (nonatomic ,strong) NSString *content;
+
+/**  */
+@property (nonatomic ,strong) NSString *signer;
 
 @end

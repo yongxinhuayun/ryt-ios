@@ -43,10 +43,13 @@
 #import "ArtistUserHomeViewController.h"
 
 #import "MeTableViewCell.h"
+#import "BQLAuthEngine.h"
 
 
 @interface MeViewController ()
-
+{
+    BQLAuthEngine *_bqlAuthEngine;
+}
 
 @property (strong, nonatomic) MeHeaderView *meheaderView;
 
@@ -63,8 +66,6 @@ static NSString *ID = @"MeTableViewCell";
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-
-
     //加载头部视图数据
     //设置头部视图
     MeHeaderView *meheaderView = [MeHeaderView meHeaderView];
@@ -95,6 +96,9 @@ static NSString *ID = @"MeTableViewCell";
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    //初始化微信类
+    _bqlAuthEngine = [[BQLAuthEngine alloc] init];
     
     [UserMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         
@@ -135,16 +139,13 @@ static NSString *ID = @"MeTableViewCell";
             return;
         }
 
-        
         UIStoryboard *editingInfoStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([EditingInfoViewController class]) bundle:nil];
         EditingInfoViewController *editingInfoVC = [editingInfoStoryBoard instantiateInitialViewController];
         
         editingInfoVC.userModel = weakself.model;
         
         [weakself.navigationController pushViewController:editingInfoVC animated:YES];
-        
     };
-    
 }
 
 -(void)jumpFocusVc{
@@ -200,7 +201,7 @@ static NSString *ID = @"MeTableViewCell";
     self.manger = manger;
     
     //有值代表着登录,没值就是游客
-    UserMyModel *model = TakeLoginUserModel;
+    SSLog(@"%@",self.model.user.master);
     
     if ([manger isVisitor]) {
         
@@ -214,15 +215,7 @@ static NSString *ID = @"MeTableViewCell";
     }else {
     
         //艺术家用户
-        if (!model.master) {
-            
-            [navButton setTitle:@"申请为艺术家" forState:UIControlStateNormal];
-            
-            //运行程序,发现按钮没有出现导航条上面,因为没有设置尺寸
-            [navButton sizeToFit];
-            
-            [navButton addTarget:self action:@selector(applyforArt) forControlEvents:UIControlEventTouchUpInside];
-        }else {
+        if (self.model.user.master) {
             
             [navButton setTitle:@"发起项目" forState:UIControlStateNormal];
             
@@ -230,6 +223,14 @@ static NSString *ID = @"MeTableViewCell";
             [navButton sizeToFit];
             
             [navButton addTarget:self action:@selector(releaseProject) forControlEvents:UIControlEventTouchUpInside];
+        }else {
+            
+            [navButton setTitle:@"申请为艺术家" forState:UIControlStateNormal];
+            
+            //运行程序,发现按钮没有出现导航条上面,因为没有设置尺寸
+            [navButton sizeToFit];
+            
+            [navButton addTarget:self action:@selector(applyforArt) forControlEvents:UIControlEventTouchUpInside];
         }
     }
     
@@ -250,6 +251,18 @@ static NSString *ID = @"MeTableViewCell";
 -(void)share{
     
     SSLog(@"share");
+    
+    UIImage *thumb = [UIImage imageNamed:@"wait.png"];
+    [_bqlAuthEngine authShareToWeChatWithLink:@"专访张小龙：产品之上的世界观" Description:@"微信的平台化发展方向是否真的会让这个原本简洁的产品变得臃肿？在国际化发展方向上，微信面临的问题真的是文化差异壁垒吗？腾讯高级副总裁、微信产品负责人张小龙给出了自己的回复。" ThumbImage:thumb Url:@"http://tech.qq.com/zt2012/tmtdecode/252.htm" Scene:ShareToWXSceneSession Success:^(id response) {
+        
+        // 成功授权、在这里你可以提示用户已分享成功、并进行下面的操作
+        NSLog(@"success:%@",response);
+        
+    } Failure:^(NSError *error) {
+        
+        // 错误返回授权错误码，请自行对照错误码查看错误原因
+        NSLog(@"failure:%@",error);
+    }];
     
 }
 
@@ -443,6 +456,8 @@ static NSString *ID = @"MeTableViewCell";
             
             //点击跳转粉丝界面
             [self jumpFansVc];
+            
+            [self setUpNavBar];
         }];
 
     }];

@@ -59,17 +59,18 @@
                            };
     
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
+        
 //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
 //        NSLog(@"返回结果:%@",jsonStr);
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
-        JianJieModel *model = [JianJieModel mj_objectWithKeyValues:modelDict];
+        JianJieModel *model = [JianJieModel mj_objectWithKeyValues:modelDict[@"userBrief"]];
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
 
-            if (model.userBrief == nil) {
+            if (model.content == nil) {
                 
                 self.YiBianJiView.hidden = YES;
                 self.WeiBianjiView.hidden = NO;
@@ -78,7 +79,8 @@
                 self.YiBianJiView.hidden = NO;
                 self.WeiBianjiView.hidden = YES;
                 
-                self.textView.text = model.userBrief;
+                self.textView.text = model.content;
+                self.textView.userInteractionEnabled = NO;
             }
             
         }];

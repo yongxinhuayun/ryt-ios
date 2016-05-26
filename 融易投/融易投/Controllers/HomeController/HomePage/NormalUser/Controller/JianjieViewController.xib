@@ -52,15 +52,15 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zrv-ZR-E9e">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="还没有编辑简介" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vw9-dp-44p">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="还没有编辑简介" translatesAutoresizingMaskIntoConstraints="NO" id="vw9-dp-44p">
+                            <rect key="frame" x="14" y="0.0" width="347" height="667"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="vw9-dp-44p" secondAttribute="trailing" id="Iqh-1a-wbm"/>
-                        <constraint firstItem="vw9-dp-44p" firstAttribute="leading" secondItem="Zrv-ZR-E9e" secondAttribute="leading" id="J6X-qG-Q92"/>
+                        <constraint firstAttribute="trailing" secondItem="vw9-dp-44p" secondAttribute="trailing" constant="14" id="Iqh-1a-wbm"/>
+                        <constraint firstItem="vw9-dp-44p" firstAttribute="leading" secondItem="Zrv-ZR-E9e" secondAttribute="leading" constant="14" id="J6X-qG-Q92"/>
                         <constraint firstItem="vw9-dp-44p" firstAttribute="top" secondItem="Zrv-ZR-E9e" secondAttribute="top" id="T5y-lY-Gvc"/>
                         <constraint firstAttribute="bottom" secondItem="vw9-dp-44p" secondAttribute="bottom" id="fLT-Z7-5s8"/>
                     </constraints>

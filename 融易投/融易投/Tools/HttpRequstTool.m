@@ -116,6 +116,37 @@ static  NSString *basePath = @"http://192.168.1.75:8001/app/";
     }];
 }
 
+-(void)handlerNetworkingPOSTRequstWithBaseUrl:(NSString *)base_url  Parameters:(id )param showHUDView:(UIView *)view  success:(requstSuccessBlock )successBlock
+{
+    if (!base_url){
+        return;
+    }
+    if (view){
+        [MBProgressHUD showHUDAddedTo:view animated:YES];
+    }
+    NSMutableString *url = [NSMutableString stringWithString:basePath];
+    [url appendString:base_url];
+    //    __weak HttpRequstTool *weakself=self;
+    NSURL *requstURL=[NSURL URLWithString: url];
+    NSLog(@"参数:%@",param);
+    NSLog(@"%@",requstURL);
+    // 设置请求格式
+    self.sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
+    // 设置返回格式
+    self.sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [self.sessionManager POST:requstURL.absoluteString parameters:param success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [MBProgressHUD hideHUDForView:view animated:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            successBlock(responseObject);
+        });
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+        if (view){
+            [MBProgressHUD hideHUDForView:view animated:YES];
+        }
+    }];
+}
+
 -(void)handlerNetworkingPOSTRequstWithServerUrl:(NSString *)server_url  Parameters:(id )param constructingBodyWithBlock:(constructingBodyWithBlock)constructingBodyWithBlock showHUDView:(UIView *)view  success:(requstSuccessBlock )successBlock{
     if (!server_url){
         return;
