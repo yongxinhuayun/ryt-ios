@@ -20,6 +20,7 @@
 #import "MessageResultModel.h"
 #import "PrivateLetterModel.h"
 #import "CommonNavigationController.h"
+#import <UIImageView+WebCache.h>
 
 @interface PrivateLetterViewController ()<UITableViewDataSource,UITableViewDelegate,KeyBordVIewDelegate,ChartCellDelegate,AVAudioPlayerDelegate,CommonNavigationDelegate>
 
@@ -94,6 +95,17 @@ static NSString *const cellIdentifier=@"QQChart";
     [self.view addSubview:self.keyBordView];
 //        [self postLetter];
     [self loadUserLetter];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLetterWindow:) name:@"PRIVATE_LETTER" object:nil];
+}
+
+-(void)updateLetterWindow:(NSNotification *)notification{
+    NSDictionary *userInfo = notification.object;
+    // 接收到通知，获取通知发送过来的用户ID，判断 是否为当前聊天窗口
+    NSLog(@"userId  = %@",userInfo[@"userId"]);
+    NSString *userId = userInfo[@"userId"];
+    if ([userId isEqualToString:self.fromUserId]) {
+        [self loadUserLetter];
+    }
 }
 
 //进入控制器加载聊天记录
@@ -106,7 +118,7 @@ static NSString *const cellIdentifier=@"QQChart";
                            @"userId" : self.userId,
                            @"fromUserId" : self.fromUserId
                            };
-    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"commentDetail.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"commentDetail.do" parameters:json showHUDView:nil andBlock:^(id respondObj) {
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
         MessageResultModel *messModel = [MessageResultModel mj_objectWithKeyValues:respondObj];
@@ -125,8 +137,8 @@ static NSString *const cellIdentifier=@"QQChart";
 //imhfp1yr4636pj49
 -(void)postLetter:(NSString *)text{
     NSString *content = text;
-    NSString *targetUserId = @"ioe4rahi670jsgdt"; // 消息接受方
-    NSString *fromUserId = @"iijq9f1r7apprtab"; // 消息发送方
+    NSString *targetUserId = self.fromUserId; // 消息接受方
+    NSString *fromUserId = self.userId; // 消息发送方
     NSDictionary *json = @{
                            @"content" : content,
                            @"targetUserId" : targetUserId,
@@ -210,7 +222,9 @@ static NSString *const cellIdentifier=@"QQChart";
 {
     ChartCellFrame *cellFrame=[[ChartCellFrame alloc]init];
     ChartMessage *chartMessage=[[ChartMessage alloc]init];
-    chartMessage.icon = nil;
+    //获取当前用户的头像
+    NSString *iconStr = [[RYTLoginManager shareInstance] takeUser].pictureUrl;
+    chartMessage.icon = iconStr;
     chartMessage.content =textFiled.text;
     chartMessage.messageType = kMessageTo;
     cellFrame.chartMessage=chartMessage;

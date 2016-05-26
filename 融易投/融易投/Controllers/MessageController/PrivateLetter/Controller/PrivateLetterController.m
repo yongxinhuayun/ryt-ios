@@ -28,6 +28,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.translucent = NO;
+    [self loadData];
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -36,7 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [ self loadData];
+//    [ self loadData];
     self.title = @"私信";
     
     [self.tableView setSeparatorColor:[UIColor colorWithRed:242.0 / 255.0 green:242.0 / 255.0 blue:242.0 / 255.0 alpha:1.0]];
@@ -49,8 +50,13 @@
     }];
     self.tableView.backgroundColor = [UIColor whiteColor];
     [self.tableView improveTableView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLetterWindow:) name:@"PRIVATE_LETTER" object:nil];
 }
 
+-(void)updateLetterWindow:(NSNotification *)notification{
+    // 接收到 用户的通知，修改
+    [self loadData];
+}
 -(void)loadData{
     NSString * pageNum = @"1";
     self.lastPageNum = pageNum;
@@ -66,6 +72,8 @@
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
         MessageResultModel *resultModel = [MessageResultModel mj_objectWithKeyValues:respondObj];
+        self.letters = [NSMutableArray array];
+//        self.letters = resultModel.objectList;
         [self.letters addObjectsFromArray:resultModel.objectList];
         //在主线程刷新UI数据
         dispatch_async(dispatch_get_main_queue(), ^{

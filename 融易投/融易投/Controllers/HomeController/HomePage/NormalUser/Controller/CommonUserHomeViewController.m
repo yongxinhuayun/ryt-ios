@@ -54,6 +54,7 @@
     tView.delegate = self;
     tView.model = self.model;
     self.topview.height = tView.height;
+    self.topview.width = SSScreenW;
     tView.backgroundColor = [UIColor whiteColor];
     tView.width = SSScreenW;
     //    [tView.imgView setBackgroundColor:[UIColor whiteColor]];
@@ -76,18 +77,21 @@
 
 -(void)postPrivateLetter{
     // 拿到当前用户的ID，如果为空，提醒用户进行登录
-    RYTLoginManager *manager = [RYTLoginManager shareInstance] ;
+    RYTLoginManager *manager = [RYTLoginManager shareInstance];
     if (![manager showLoginViewIfNeed]) {
         //用户登录成功，获取用户的ID
         // targetUserId : 私信接受者,当前被查看的用户
         // fromUserId : 私信发送者,当前登录的用户
-        NSString *fromUserId = [manager takeUser].ID;
-        NSString *targetUserId = self.model.user.ID;
-        //
-        PrivateLetterViewController *letterController = [[PrivateLetterViewController alloc] init];
-        letterController.fromUserId = fromUserId;
-        letterController.userId = targetUserId;
-        [self.navigationController pushViewController:letterController animated:YES];
+        NSString *fromUserId = self.model.user.ID;
+        NSString *targetUserId = [manager takeUser].ID;
+        if (![fromUserId isEqualToString:targetUserId]){
+            
+            PrivateLetterViewController *letterController = [[PrivateLetterViewController alloc] init];
+            letterController.fromUserId = fromUserId;
+            letterController.userId = targetUserId;
+            [self.navigationController pushViewController:letterController animated:YES];
+        }
+
     }
 }
 

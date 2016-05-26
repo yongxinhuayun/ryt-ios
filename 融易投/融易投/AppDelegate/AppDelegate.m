@@ -353,6 +353,10 @@ static NSString *BeeCloudAppSecret = @"23b1b629-4da0-42bd-8b4c-f7124bde629a";
     // 接受通知之后进入这个代理方法
     [JPUSHService handleRemoteNotification:userInfo];
     NSLog(@">>>>>>>>>2userInfo%@",[self logDic:userInfo]);
+    // 判断推送的类型，发送不同的通知
+    if (userInfo[@"userId"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PRIVATE_LETTER" object:userInfo];
+    }
     
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
 //    [[UIApplication sharedApplication] cancelAllLocalNotifications];

@@ -14,7 +14,7 @@
 @implementation ChartMessage
 
 -(void)setLetterModel:(PrivateLetterModel *)letterModel{
-    NSString *userId = TakeUserID;
+    NSString *userId = [[RYTLoginManager shareInstance] takeUser].ID;
     _letterModel = letterModel;
     NSString *iconStr =[letterModel.fromUser.pictureUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     self.icon = iconStr;

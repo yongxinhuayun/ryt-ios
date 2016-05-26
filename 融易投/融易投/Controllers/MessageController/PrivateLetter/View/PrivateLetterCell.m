@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *userIcon;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *bridge;
+@property (weak, nonatomic) IBOutlet UILabel *content;
 
 @end
 
@@ -26,6 +27,7 @@
     [self.userIcon sd_setImageWithURL:[NSURL URLWithString:pictStr] placeholderImage:nil];
     self.userName.text =letterModel.fromUser.name;
        NSInteger count = [letterModel.isRead intValue];
+    self.content.text = letterModel.content;
     if (count>99) {
         self.bridge.hidden = NO;
         self.bridge.text = @"99+";

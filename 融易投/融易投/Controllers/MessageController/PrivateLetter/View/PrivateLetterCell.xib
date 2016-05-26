@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBackground" translatesAutoresizingMaskIntoConstraints="NO" id="UDr-rX-9Fk">
@@ -34,7 +34,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最后一条聊天记录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ld9-oU-VmE">
-                        <rect key="frame" x="64" y="33" width="96" height="14.5"/>
+                        <rect key="frame" x="64" y="33" width="96" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -70,6 +70,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="bridge" destination="r7J-yS-d3O" id="IzL-gR-oyN"/>
+                <outlet property="content" destination="Ld9-oU-VmE" id="7MW-dD-HN4"/>
                 <outlet property="userIcon" destination="UDr-rX-9Fk" id="h3v-9s-aZV"/>
                 <outlet property="userName" destination="7yx-kS-hW9" id="LNc-aM-NMA"/>
             </connections>

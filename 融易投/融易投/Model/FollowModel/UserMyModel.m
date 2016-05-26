@@ -19,9 +19,9 @@
 {
     [aCoder encodeObject:self.ID forKey:@"ID"];
     [aCoder encodeObject:self.name forKey:@"name"];
-    [aCoder encodeObject:self.name forKey:@"signMessage"];
-    [aCoder encodeObject:self.name forKey:@"username"];
-    [aCoder encodeObject:self.name forKey:@"pictureUrl"];
+    [aCoder encodeObject:self.signMessage forKey:@"signMessage"];
+    [aCoder encodeObject:self.username forKey:@"username"];
+    [aCoder encodeObject:self.pictureUrl forKey:@"pictureUrl"];
     
 }
 
