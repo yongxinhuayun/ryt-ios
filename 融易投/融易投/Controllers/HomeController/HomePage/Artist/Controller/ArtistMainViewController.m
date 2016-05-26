@@ -253,29 +253,29 @@ static NSString *ID = @"ArtistMainCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-//    ArtworkListModel *model = self.models[indexPath.row];
-//    
-//    if ([model.step isEqualToString:@"12"]||[model.step isEqualToString:@"14"]||[model.step isEqualToString:@"15"]){
-//
-//        //跳转
-//        DetailFinanceViewController *detail = [[DetailFinanceViewController alloc] init];
-//        detail.artworkId = model.ID;
-//        
-//        // 传递数据
-//        detail.navigationItem.title = model.title;
-//        [self.navigationController pushViewController:detail animated:YES];
-//        
-//    }else if ([model.step isEqualToString:@"21"]||[model.step isEqualToString:@"22"]||[model.step isEqualToString:@"23"]||[model.step isEqualToString:@"24"]){
-//        
-//        DetailCreationViewController *creationDetailsVC = [[DetailCreationViewController alloc] init];
-//        creationDetailsVC.artworkId = model.ID;
-//        creationDetailsVC.title = model.title;
-//        
-//        [self.navigationController pushViewController:creationDetailsVC animated:YES];
-//    }else {
-//        
-//        SSLog(@"111");
-//    }
+    ArtworkListModel *model = self.models[indexPath.row];
+    
+    if ([model.step isEqualToString:@"12"]||[model.step isEqualToString:@"14"]||[model.step isEqualToString:@"15"]){
+
+        //跳转
+        DetailFinanceViewController *detail = [[DetailFinanceViewController alloc] init];
+        detail.artworkId = model.ID;
+        
+        // 传递数据
+        detail.navigationItem.title = model.title;
+        [self.navigationController pushViewController:detail animated:YES];
+        
+    }else if ([model.step isEqualToString:@"21"]||[model.step isEqualToString:@"22"]||[model.step isEqualToString:@"23"]||[model.step isEqualToString:@"24"]){
+        
+        DetailCreationViewController *creationDetailsVC = [[DetailCreationViewController alloc] init];
+        creationDetailsVC.artworkId = model.ID;
+        creationDetailsVC.title = model.title;
+        
+        [self.navigationController pushViewController:creationDetailsVC animated:YES];
+    }else {
+        
+        SSLog(@"111");
+    }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

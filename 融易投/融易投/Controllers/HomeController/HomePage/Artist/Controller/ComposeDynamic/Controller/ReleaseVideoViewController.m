@@ -193,7 +193,6 @@
     NSString *url = @"releaseArtworkDynamic.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
-        
         //_fileName = [NSString stringWithFormat:@"output-%@.mp4",[formater stringFromDate:[NSDate date]]];
         
         // [formData appendPartWithFileURL:_filePathURL name:@"file" fileName:_fileName mimeType:dict[@"contenttype"] error:nil];
@@ -204,12 +203,11 @@
         //NSURL *urlStr = [NSURL URLWithString:]
         
         [formData appendPartWithFileURL:urlVideo name:@"file" fileName:@"video.mov" mimeType:@"application/octet-stream" error:nil];
-        
-        
-        
         //          [formData appendPartWithFileURL:[NSURL URLWithString:picture_url] name:@"file" fileName:@"ii.mov" mimeType:@"application/octet-stream" error:nil];
+
+    } showHUDView:nil progress:^(id progress) {
         
-    } showHUDView:nil success:^(id respondObj) {
+    } success:^(id respondObj) {
         
         //        NSString *aString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         //        SSLog(@"---%@---%@",[respondObj class],aString);

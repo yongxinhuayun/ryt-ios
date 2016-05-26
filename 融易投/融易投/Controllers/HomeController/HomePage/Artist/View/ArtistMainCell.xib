@@ -14,7 +14,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="344" height="399"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerImage" translatesAutoresizingMaskIntoConstraints="NO" id="djt-TV-SUh">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oej-rI-t7X" userLabel="进度条" customClass="SSProgressView">
+                        <rect key="frame" x="122" y="77" width="100" height="100"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="1s4-Bw-xtN"/>
+                            <constraint firstAttribute="height" constant="100" id="jUt-3M-WPN"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="rVc-sK-xZF"/>
+                            <constraint firstAttribute="width" constant="100" id="tJ0-qx-sxe"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBackground" translatesAutoresizingMaskIntoConstraints="NO" id="djt-TV-SUh">
                         <rect key="frame" x="10" y="10" width="324" height="233"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="233" id="7QL-Wl-8Hx"/>
@@ -39,7 +49,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目描述:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9X-EV-T7t">
-                        <rect key="frame" x="10" y="305" width="324" height="14"/>
+                        <rect key="frame" x="10" y="304" width="324" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -96,11 +106,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="d9X-EV-T7t" firstAttribute="leading" secondItem="djt-TV-SUh" secondAttribute="leading" id="1A1-Ur-vlq"/>
+                    <constraint firstItem="oej-rI-t7X" firstAttribute="centerX" secondItem="djt-TV-SUh" secondAttribute="centerX" id="4NR-fz-tvU"/>
                     <constraint firstItem="4pg-Xp-wpL" firstAttribute="top" secondItem="d9X-EV-T7t" secondAttribute="bottom" constant="10" id="7y8-7z-W2L"/>
                     <constraint firstAttribute="trailing" secondItem="djt-TV-SUh" secondAttribute="trailing" constant="10" id="EYD-Xv-JJl"/>
                     <constraint firstItem="A3N-QX-hff" firstAttribute="leading" secondItem="djt-TV-SUh" secondAttribute="leading" id="IOA-zv-Mbh"/>
                     <constraint firstItem="xHK-qA-PlK" firstAttribute="centerY" secondItem="3l8-ea-yQB" secondAttribute="centerY" id="IjR-1L-vT8"/>
                     <constraint firstItem="bCv-cT-5zQ" firstAttribute="trailing" secondItem="djt-TV-SUh" secondAttribute="trailing" id="K9k-6V-iKa"/>
+                    <constraint firstItem="oej-rI-t7X" firstAttribute="centerY" secondItem="djt-TV-SUh" secondAttribute="centerY" id="Lwl-ko-kIi"/>
                     <constraint firstAttribute="bottom" secondItem="d9X-EV-T7t" secondAttribute="bottom" constant="10" id="Q4Z-Wh-Hu3"/>
                     <constraint firstItem="djt-TV-SUh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="QLC-3Z-WTG"/>
                     <constraint firstItem="bCv-cT-5zQ" firstAttribute="centerY" secondItem="A3N-QX-hff" secondAttribute="centerY" id="SdV-dD-3mH"/>
@@ -125,6 +137,7 @@
                 <outlet property="btn1" destination="smO-12-V8n" id="QGE-fk-DQL"/>
                 <outlet property="btn2" destination="6mh-aG-wgr" id="2Yd-cT-Nof"/>
                 <outlet property="iconImageView" destination="djt-TV-SUh" id="96P-jC-bWw"/>
+                <outlet property="progressView" destination="oej-rI-t7X" id="1sH-Wr-9BT"/>
                 <outlet property="projectDes" destination="d9X-EV-T7t" id="89I-mb-4AD"/>
                 <outlet property="projectTitle" destination="A3N-QX-hff" id="2PV-F5-Wo6"/>
                 <outlet property="projectTotal" destination="xHK-qA-PlK" id="bNL-Au-B1n"/>
@@ -135,7 +148,7 @@
     </objects>
     <resources>
         <image name="btnBackground" width="41" height="40"/>
-        <image name="headerImage" width="214" height="221"/>
+        <image name="defaultBackground" width="83" height="97"/>
         <image name="yishujiafabudongtai_anniu" width="165" height="35"/>
     </resources>
 </document>

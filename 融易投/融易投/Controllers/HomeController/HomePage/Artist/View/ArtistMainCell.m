@@ -10,6 +10,7 @@
 #import "ArtworkListModel.h"
 
 #import "UIImageView+WebCache.h"
+#import "SSProgressView.h"
 
 @interface ArtistMainCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -20,6 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *stepBtn;
 
+@property (weak, nonatomic) IBOutlet SSProgressView *progressView;
 
 @end
 
@@ -35,7 +37,20 @@
     
     NSURL *pictureUrlURL = [NSURL URLWithString:pictureUrlStr];
     
-    [self.iconImageView sd_setImageWithURL:pictureUrlURL placeholderImage:[UIImage imageNamed:@"defaultBackground"]];
+//    [self.iconImageView sd_setImageWithURL:pictureUrlURL placeholderImage:[UIImage imageNamed:@"defaultBackground"]];
+    
+    // 覆盖进度
+    self.progressView.progress = model.pictureProgress;
+    
+    // 下载图片
+    [self.iconImageView sd_setImageWithURL:pictureUrlURL placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        self.progressView.hidden = NO;
+        self.progressView.progress = 1.0 * receivedSize / expectedSize;
+        model.pictureProgress = self.progressView.progress;
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.progressView.hidden = YES;
+        model.pictureProgress = 1.0;
+    }];
     
     self.projectTitle.text = model.title;
     self.projectTotal.text = [NSString stringWithFormat:@"%ld",model.investGoalMoney];

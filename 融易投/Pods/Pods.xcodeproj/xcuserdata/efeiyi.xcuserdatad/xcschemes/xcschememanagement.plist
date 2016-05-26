@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DACircularProgress.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FMDB.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -28,15 +33,11 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>0</integer>
 		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
@@ -47,8 +48,6 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>SCRecorder.xcscheme</key>
 		<dict>
@@ -64,8 +63,6 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>WechatShortVideo.xcscheme</key>
 		<dict>
@@ -75,17 +72,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>135503B428DAAAE5DB7410B27BE66E58</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1E74A613EC4A1FB9203793BAE7FB7A68</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5FEA2FED53480CF2017445F090886975</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>864B5977FB3034725D08DF2C317038AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -95,12 +92,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9171E2A69137DBBD1209B313E30968E4</key>
+		<key>928353533005A4198EBDA5B700D37B64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>928353533005A4198EBDA5B700D37B64</key>
+		<key>9775596B3CA16905FC8F66DA8E2A3C67</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -115,17 +112,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B667A3A4B3A1AE8801ECB06AD6A779DE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>C9FD7B5A1A559AEDA6F017981F409D95</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE2B12AB7A6D995150B9DF143C548278</key>
+		<key>DB95310C041ECF6D962B0EFBA42BA155</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E06CAF820DE55967C7FE6BDF4ABA5E4F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4F8710C3D417534FCAB87FE90DC2BAD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
