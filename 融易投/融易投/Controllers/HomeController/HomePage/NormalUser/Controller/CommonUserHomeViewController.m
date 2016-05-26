@@ -15,10 +15,11 @@
 #import "TouGuoViewController.h"
 #import "ZanGuoViewController.h"
 #import "JianjieViewController.h"
+#import "PrivateLetterViewController.h"
 
 #import "PageInfoModel.h"
 
-@interface CommonUserHomeViewController ()
+@interface CommonUserHomeViewController ()<CommonUserHeaderViewDelegate>
 
 @end
 
@@ -50,11 +51,8 @@
 //    if (tView.otherView.hidden) {
 //        self.topview.height = tView.height - 26;
 //    }
-    
-    [tView.focusBtn addTarget:self action:@selector(guanzhuBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    
+    tView.delegate = self;
     tView.model = self.model;
-    
     self.topview.height = tView.height;
     tView.backgroundColor = [UIColor whiteColor];
     tView.width = SSScreenW;
@@ -73,6 +71,27 @@
     [self.middleView addSubview:self.cycleView];
     //添加控制器视图 到scrollView中
     self.backgroundScrollView.contentSize = CGSizeMake(SSScreenW,self.topview.height + self.middleView.height);
+}
+
+
+-(void)postPrivateLetter{
+    // 拿到当前用户的ID，如果为空，提醒用户进行登录
+    RYTLoginManager *manager = [RYTLoginManager shareInstance] ;
+    if (![manager showLoginViewIfNeed]) {
+        //用户登录成功，获取用户的ID
+        // targetUserId : 私信接受者,当前被查看的用户
+        // fromUserId : 私信发送者,当前登录的用户
+        NSString *fromUserId = [manager takeUser].ID;
+        NSString *targetUserId = self.model.user.ID;
+        //
+        PrivateLetterViewController *letterController = [[PrivateLetterViewController alloc] init];
+        letterController.fromUserId = fromUserId;
+        letterController.userId = targetUserId;
+        [self.navigationController pushViewController:letterController animated:YES];
+    }
+}
+
+-(void)addConcern{
 
 }
 

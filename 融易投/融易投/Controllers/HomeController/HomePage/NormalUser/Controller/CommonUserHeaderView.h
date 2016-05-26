@@ -10,6 +10,13 @@
 
 @class PageInfoModel;
 
+@protocol CommonUserHeaderViewDelegate <NSObject>
+//发送私信
+@optional
+-(void)postPrivateLetter;
+-(void)addConcern;
+@end
+
 @interface CommonUserHeaderView : UIView
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 
@@ -28,7 +35,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *otherViewTopCons;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *otherViewBottomCons;
 
-
+@property (nonatomic,weak) id<CommonUserHeaderViewDelegate>delegate;
 @property (nonatomic ,strong)PageInfoModel *model;
 
 @end
