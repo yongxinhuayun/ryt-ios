@@ -78,4 +78,11 @@
     }
 }
 
+- (IBAction)clickLetter:(UIButton *)sender {
+    // 点击发送私信
+    if ([self.delegate respondsToSelector:@selector(postPrivateLetter)]) {
+        [self.delegate postPrivateLetter];
+    }
+}
+
 @end

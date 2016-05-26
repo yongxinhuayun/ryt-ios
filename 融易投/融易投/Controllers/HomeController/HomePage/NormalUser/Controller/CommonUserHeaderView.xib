@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -62,18 +62,21 @@
                         <constraint firstAttribute="height" constant="77" id="Orq-Ob-HGf"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FZp-hi-aD9">
-                    <rect key="frame" x="120" y="181" width="72" height="21"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZp-hi-aD9">
+                    <rect key="frame" x="120" y="181" width="72" height="22"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37a-Hg-Pbo">
                             <rect key="frame" x="0.0" y="0.0" width="18" height="22"/>
                             <state key="normal" image="guanzhuhouq"/>
                             <state key="selected" image="guanzhuhou"/>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6P-9m-tty">
-                            <rect key="frame" x="54" y="1" width="18" height="22"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6P-9m-tty">
+                            <rect key="frame" x="54" y="0.0" width="18" height="22"/>
                             <state key="normal" image="sixinqian"/>
                             <state key="selected" image="sixinhou"/>
+                            <connections>
+                                <action selector="clickLetter:" destination="dBJ-Ss-3Eq" eventType="touchUpInside" id="5gA-ww-1bg"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
