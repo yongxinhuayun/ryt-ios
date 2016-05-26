@@ -100,21 +100,17 @@
 -(void)loadData
 {
     //参数
-    NSString *userId = @"ieatht97wfw30hfd";
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
     NSString *type = @"2"; //1 签名 2 简介
     NSString *content = self.textView.text;
-    
-    NSLog(@"%@",content);
     
     NSString *timestamp = [MyMD5 timestamp];
     NSString *appkey = MD5key;
     
     NSString *signmsg = [NSString stringWithFormat:@"timestamp=%@&type=%@&userId=%@&key=%@",timestamp,type,userId,appkey];
-    NSLog(@"%@",signmsg);
     
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
     
     // 3.设置请求体
     NSDictionary *json = @{
@@ -125,13 +121,12 @@
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.41:8080/app/saveUserBrief.do";
+    NSString *url = @"saveUserBrief.do";
     
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithBaseUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
         
-        
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
