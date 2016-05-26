@@ -44,14 +44,84 @@
     self.totalMoney.text = [NSString stringWithFormat:@"%ld",model.artwork.investGoalMoney];
     
     //判断当前项目处于什么状态
+    UserMyModel *userModel = TakeLoginUserModel;
     
-    if ([model.artwork.step isEqualToString:@"12"]||[model.artwork.step isEqualToString:@"14"]||[model.artwork.step isEqualToString:@"15"]){
+    //自己看自己
+    if ([model.user.ID isEqualToString:userModel.ID]) {
         
-        [self.projectStepBtn setTitle:@"融资阶段" forState:UIControlStateNormal];
+        //当艺术家看自己的项目时
+        if ([model.artwork.step isEqualToString:@"10"]) {
+            [self.projectStepBtn setTitle:@"项目待审核" forState:UIControlStateNormal];
+        }else if ([model.artwork.step isEqualToString:@"11"]){
+            [self.projectStepBtn setTitle:@"项目审核中" forState:UIControlStateNormal];
+        }else if ([model.artwork.step isEqualToString:@"13"]) {
+            [self.projectStepBtn setTitle:@"审核未通过" forState:UIControlStateNormal];
+        }else if ([model.artwork.step isEqualToString:@"14"]) {
+            [self.projectStepBtn setTitle:@"融资中" forState:UIControlStateNormal];
+        }else if ([model.artwork.step isEqualToString:@"21"]) {
+            [self.projectStepBtn setTitle:@"创作中" forState:UIControlStateNormal];
+        }else if ([model.artwork.step isEqualToString:@"22"]) {
+            [self.projectStepBtn setTitle:@"创作延时" forState:UIControlStateNormal];
+        }else if ([model.artwork.step isEqualToString:@"24"]) {
+            [self.projectStepBtn setTitle:@"创作完成审核中" forState:UIControlStateNormal];
+        }else if ([model.artwork.step isEqualToString:@"25"]) {
+            [self.projectStepBtn setTitle:@"创作完成被驳回" forState:UIControlStateNormal];
+        }else if ([model.artwork.step isEqualToString:@"100"]){
+            [self.projectStepBtn setTitle:@"编辑阶段,尚未提交" forState:UIControlStateNormal];
+        }else {
+            [self.projectStepBtn setTitle:@"" forState:UIControlStateNormal];
+        }
         
-    }else if ([model.artwork.step isEqualToString:@"21"]||[model.artwork.step isEqualToString:@"22"]||[model.artwork.step isEqualToString:@"23"]||[model.artwork.step isEqualToString:@"24"]){
+        /*
+         else if ([model.step isEqualToString:@"30"]) {
+         
+         self.stepBtn.hidden = NO;
+         [self.stepBtn setTitle:@"拍卖前" forState:UIControlStateNormal];
+         }else if ([model.step isEqualToString:@"32"]) {
+         
+         self.stepBtn.hidden = NO;
+         [self.stepBtn setTitle:@"拍卖中" forState:UIControlStateNormal];
+         }else if ([model.step isEqualToString:@"32"]) {
+         
+         self.stepBtn.hidden = NO;
+         [self.stepBtn setTitle:@"拍卖结束" forState:UIControlStateNormal];
+         }else if ([model.step isEqualToString:@"33"]) {
+         
+         self.stepBtn.hidden = NO;
+         [self.stepBtn setTitle:@"流拍" forState:UIControlStateNormal];
+         }else if ([model.step isEqualToString:@"34"]) {
+         
+         self.stepBtn.hidden = NO;
+         [self.stepBtn setTitle:@"待支付尾款" forState:UIControlStateNormal];
+         }else if ([model.step isEqualToString:@"35"]) {
+         
+         self.stepBtn.hidden = NO;
+         [self.stepBtn setTitle:@"待发放" forState:UIControlStateNormal];
+         }else if ([model.step isEqualToString:@"36"]) {
+         
+         self.stepBtn.hidden = NO;
+         [self.stepBtn setTitle:@"已发送" forState:UIControlStateNormal];
+         }else{
+         
+         self.stepBtn.hidden = YES;
+         [self.stepBtn setTitle:@"" forState:UIControlStateNormal];
+         }
+         */
+    }else{ //别人看自己
         
-        [self.projectStepBtn setTitle:@"创作阶段" forState:UIControlStateNormal];
+        //当其他用户看艺术家主页项目时
+        if ([model.artwork.step isEqualToString:@"10"]||[model.artwork.step isEqualToString:@"11"]){
+            [self.projectStepBtn setTitle:@"审核阶段" forState:UIControlStateNormal];
+            
+        }else if ([model.artwork.step isEqualToString:@"12"]||[model.artwork.step isEqualToString:@"14"]||[model.artwork.step isEqualToString:@"15"]){
+            
+            [self.projectStepBtn setTitle:@"融资阶段" forState:UIControlStateNormal];
+            
+        }else if ([model.artwork.step isEqualToString:@"21"]||[model.artwork.step isEqualToString:@"22"]||[model.artwork.step isEqualToString:@"23"]||[model.artwork.step isEqualToString:@"24"]||[model.artwork.step isEqualToString:@"25"]){
+            [self.projectStepBtn setTitle:@"创作阶段" forState:UIControlStateNormal];
+        }else {
+            [self.projectStepBtn setTitle:@"拍卖阶段" forState:UIControlStateNormal];
+        }
     }
     
         

@@ -73,6 +73,10 @@
 		21AB0B821CC787C700B7BA03 /* InvestorArtWorkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0B801CC787C700B7BA03 /* InvestorArtWorkViewController.xib */; };
 		21B12A201CF59D8A00485B47 /* WXLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B12A1F1CF59D8A00485B47 /* WXLoginModel.m */; };
 		21B99BA21CF6AB7200E682F8 /* SSProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B99BA11CF6AB7200E682F8 /* SSProgressView.m */; };
+		21B99BA51CF6E22800E682F8 /* UIScrollView+UITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B99BA41CF6E22800E682F8 /* UIScrollView+UITouch.m */; };
+		21B99BA81CF6F99F00E682F8 /* ShareViewHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B99BA71CF6F99F00E682F8 /* ShareViewHUD.m */; };
+		21B99BAA1CF6F9AD00E682F8 /* ShareViewHUD.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B99BA91CF6F9AD00E682F8 /* ShareViewHUD.xib */; };
+		21B99BAD1CF6FE4800E682F8 /* WXButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B99BAC1CF6FE4800E682F8 /* WXButton.m */; };
 		21C08BC81CB01BC3002328D3 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */; };
 		21C08BCD1CB01F7E002328D3 /* NSObject+FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C08BCC1CB01F7E002328D3 /* NSObject+FileManager.m */; };
 		21C08BD11CB02521002328D3 /* SettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C08BD01CB02521002328D3 /* SettingTableViewController.storyboard */; };
@@ -165,8 +169,6 @@
 		21C414341CE2D23500F1029C /* HMComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C413B71CE2D23500F1029C /* HMComposeToolbar.m */; };
 		21C414351CE2D23500F1029C /* HMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C413B91CE2D23500F1029C /* HMTextView.m */; };
 		21C414361CE2D23500F1029C /* ComposeProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C413BD1CE2D23500F1029C /* ComposeProjectViewController.m */; };
-		21C414381CE2D23500F1029C /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C413C01CE2D23500F1029C /* ComposeViewController.m */; };
-		21C414391CE2D23500F1029C /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C413C11CE2D23500F1029C /* ComposeViewController.xib */; };
 		21C4143A1CE2D23500F1029C /* HMComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C413C31CE2D23500F1029C /* HMComposeViewController.m */; };
 		21C4143B1CE2D23500F1029C /* imageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C413C51CE2D23500F1029C /* imageViewController.m */; };
 		21C4143E1CE2D23500F1029C /* ReleaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C413CA1CE2D23500F1029C /* ReleaseViewController.m */; };
@@ -801,6 +803,13 @@
 		21B12A1F1CF59D8A00485B47 /* WXLoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXLoginModel.m; sourceTree = "<group>"; };
 		21B99BA01CF6AB7200E682F8 /* SSProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSProgressView.h; sourceTree = "<group>"; };
 		21B99BA11CF6AB7200E682F8 /* SSProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSProgressView.m; sourceTree = "<group>"; };
+		21B99BA31CF6E22800E682F8 /* UIScrollView+UITouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+UITouch.h"; sourceTree = "<group>"; };
+		21B99BA41CF6E22800E682F8 /* UIScrollView+UITouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+UITouch.m"; sourceTree = "<group>"; };
+		21B99BA61CF6F99F00E682F8 /* ShareViewHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewHUD.h; sourceTree = "<group>"; };
+		21B99BA71CF6F99F00E682F8 /* ShareViewHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewHUD.m; sourceTree = "<group>"; };
+		21B99BA91CF6F9AD00E682F8 /* ShareViewHUD.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareViewHUD.xib; sourceTree = "<group>"; };
+		21B99BAB1CF6FE4800E682F8 /* WXButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXButton.h; sourceTree = "<group>"; };
+		21B99BAC1CF6FE4800E682F8 /* WXButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXButton.m; sourceTree = "<group>"; };
 		21C08BC61CB01BC3002328D3 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		21C08BC71CB01BC3002328D3 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		21C08BCB1CB01F7E002328D3 /* NSObject+FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FileManager.h"; sourceTree = "<group>"; };
@@ -960,9 +969,6 @@
 		21C413B91CE2D23500F1029C /* HMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMTextView.m; sourceTree = "<group>"; };
 		21C413BC1CE2D23500F1029C /* ComposeProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeProjectViewController.h; sourceTree = "<group>"; };
 		21C413BD1CE2D23500F1029C /* ComposeProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeProjectViewController.m; sourceTree = "<group>"; };
-		21C413BF1CE2D23500F1029C /* ComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
-		21C413C01CE2D23500F1029C /* ComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
-		21C413C11CE2D23500F1029C /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
 		21C413C21CE2D23500F1029C /* HMComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMComposeViewController.h; sourceTree = "<group>"; };
 		21C413C31CE2D23500F1029C /* HMComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMComposeViewController.m; sourceTree = "<group>"; };
 		21C413C41CE2D23500F1029C /* imageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageViewController.h; sourceTree = "<group>"; };
@@ -1770,6 +1776,8 @@
 				21D54B161CB4C31F0088D386 /* CommonHeader.m */,
 				212EEE411CD9D8CD00F94B30 /* CommonButton.h */,
 				212EEE421CD9D8CD00F94B30 /* CommonButton.m */,
+				21B99BAB1CF6FE4800E682F8 /* WXButton.h */,
+				21B99BAC1CF6FE4800E682F8 /* WXButton.m */,
 				215C96CF1CEEBB640084C319 /* StartButton.h */,
 				215C96D01CEEBB640084C319 /* StartButton.m */,
 				21C459DD1CE95A4100691E8D /* CommonTextView.h */,
@@ -1780,6 +1788,8 @@
 				21C3375B1CF2B207001F3CA5 /* SSTextField.m */,
 				21B99BA01CF6AB7200E682F8 /* SSProgressView.h */,
 				21B99BA11CF6AB7200E682F8 /* SSProgressView.m */,
+				21B99BA31CF6E22800E682F8 /* UIScrollView+UITouch.h */,
+				21B99BA41CF6E22800E682F8 /* UIScrollView+UITouch.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -2284,9 +2294,6 @@
 				21C413C91CE2D23500F1029C /* ReleaseViewController.h */,
 				21C413CA1CE2D23500F1029C /* ReleaseViewController.m */,
 				21C413CB1CE2D23500F1029C /* ReleaseViewController.storyboard */,
-				21C413BF1CE2D23500F1029C /* ComposeViewController.h */,
-				21C413C01CE2D23500F1029C /* ComposeViewController.m */,
-				21C413C11CE2D23500F1029C /* ComposeViewController.xib */,
 				21C413C21CE2D23500F1029C /* HMComposeViewController.h */,
 				21C413C31CE2D23500F1029C /* HMComposeViewController.m */,
 				21C413C41CE2D23500F1029C /* imageViewController.h */,
@@ -3600,6 +3607,9 @@
 				E2D525041CDFA2FF0024887A /* IdeaRetroactionViewController.xib */,
 				E2D525051CDFA2FF0024887A /* MeViewController.h */,
 				E2D525061CDFA2FF0024887A /* MeViewController.m */,
+				21B99BA61CF6F99F00E682F8 /* ShareViewHUD.h */,
+				21B99BA71CF6F99F00E682F8 /* ShareViewHUD.m */,
+				21B99BA91CF6F9AD00E682F8 /* ShareViewHUD.xib */,
 			);
 			path = HomePageController;
 			sourceTree = "<group>";
@@ -4256,6 +4266,7 @@
 				E22892CD1CDF03F400483F18 /* h_ye@2x.png in Resources */,
 				E22892D21CDF03F400483F18 /* o_fahongbao@2x.png in Resources */,
 				E22892DF1CDF03F400483F18 /* w_shachenbao@2x.png in Resources */,
+				21B99BAA1CF6F9AD00E682F8 /* ShareViewHUD.xib in Resources */,
 				E22892A51CDF03F400483F18 /* d_shengbing@2x.png in Resources */,
 				E22892CE1CDF03F400483F18 /* info.plist in Resources */,
 				E22892C61CDF03F400483F18 /* h_buyao@2x.png in Resources */,
@@ -4318,7 +4329,6 @@
 				E22893921CDF049500483F18 /* lxh_jiujie.png in Resources */,
 				E228936B1CDF049500483F18 /* lxh_beidian.png in Resources */,
 				E22893B81CDF049500483F18 /* lxh_quntiweiguan.png in Resources */,
-				21C414391CE2D23500F1029C /* ComposeViewController.xib in Resources */,
 				E22893BA1CDF049500483F18 /* lxh_shuaishuaishou.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4432,6 +4442,7 @@
 				21C413EC1CE2D23500F1029C /* AGIPCAssetsController.m in Sources */,
 				21C414241CE2D23500F1029C /* WhoCanSeeViewController.m in Sources */,
 				21C414091CE2D23500F1029C /* UIView+JKPicker.m in Sources */,
+				21B99BAD1CF6FE4800E682F8 /* WXButton.m in Sources */,
 				21C414231CE2D23500F1029C /* UITableView+Improve.m in Sources */,
 				E2D5245C1CDF9B590024887A /* BillTableViewController.m in Sources */,
 				E2322B131CEC0AAB002730E7 /* NormalCommentsCell.m in Sources */,
@@ -4565,6 +4576,7 @@
 				E228903B1CDEFDD900483F18 /* NSString+Extension.m in Sources */,
 				21C413FD1CE2D23500F1029C /* JKAssets.m in Sources */,
 				E2D522841CDF914A0024887A /* RegViewController.m in Sources */,
+				21B99BA81CF6F99F00E682F8 /* ShareViewHUD.m in Sources */,
 				E2D524301CDF958C0024887A /* NotificationController.m in Sources */,
 				E2F282051CE576A400E10330 /* DynamicTimeCell.m in Sources */,
 				E2729AEA1CD8B923006C0617 /* ImageListViewCellCollectionViewCell.m in Sources */,
@@ -4634,6 +4646,7 @@
 				21C414051CE2D23500F1029C /* JKPhotoBrowserCell.m in Sources */,
 				E228903C1CDEFDD900483F18 /* UIBarButtonItem+Item.m in Sources */,
 				E2D5249F1CDF9F0B0024887A /* ZanGuoViewController.m in Sources */,
+				21B99BA51CF6E22800E682F8 /* UIScrollView+UITouch.m in Sources */,
 				E2D5241A1CDF94F00024887A /* PrivateLetterViewController.m in Sources */,
 				E2D522381CDF8C5F0024887A /* ArtworkdirectionModel.m in Sources */,
 				21C413E71CE2D23500F1029C /* AGImagePickerController+Helper.m in Sources */,
@@ -4654,7 +4667,6 @@
 				E2D5225B1CDF8CEC0024887A /* ArtworkCommentListModel.m in Sources */,
 				21C414311CE2D23500F1029C /* HMEmotionToolbar.m in Sources */,
 				E2D522491CDF8C6E0024887A /* authorModel.m in Sources */,
-				21C414381CE2D23500F1029C /* ComposeViewController.m in Sources */,
 				E2D813021CD09A7800A52172 /* CycleView.m in Sources */,
 				2187B9421CCDF14000B92435 /* TYTitlePageTabBar.m in Sources */,
 				2187B9491CCDF24700B92435 /* TableViewController.m in Sources */,

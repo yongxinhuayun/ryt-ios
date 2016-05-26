@@ -22,6 +22,7 @@
 
 #import <SVProgressHUD.h>
 #import "UIImageView+WebCache.h"
+#import "UIScrollView+UITouch.h"
 
 @interface ComposeProjectViewController ()<UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIScrollViewDelegate>
 
@@ -94,13 +95,9 @@ BOOL isPop = NO;
     
     [composeProjectView.nextBtn addTarget:self action:@selector(nextBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    
     [self.scrollView addSubview:composeProjectView];
     
-    
     [self.view addSubview:self.scrollView];
-    
-
     
     [self setUpNavBar];
     
@@ -179,24 +176,23 @@ BOOL isPop = NO;
 }
 
 
--(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{
-    if ([@"\n" isEqualToString:text])
-    {
-        if ([self.composeProjectView.progectTextView.text length]) {
-            [self.composeProjectView.progectTextView resignFirstResponder];
-        }
-        else
-        {
-            return NO;
-        }
-    }
-    return YES;
-}
-
-
-
-
+//-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+//{
+//    if ([@"\n" isEqualToString:text])
+//    {
+//        if ([self.composeProjectView.progectTextView.text length]) {
+//            [self.composeProjectView.progectTextView resignFirstResponder];
+//            [self.composeProjectView.progectTextView resignFirstResponder];
+//            [self.composeProjectView.projecTotaltTextField resignFirstResponder];
+//            [self.composeProjectView.projectTimeTextField resignFirstResponder];
+//        }
+//        else
+//        {
+//            return NO;
+//        }
+//    }
+//    return YES;
+//}
 
 -(void)tap {
     
@@ -287,10 +283,7 @@ BOOL isPop = NO;
     
     
     if ([self panduanWeiKong]) {
-        
-        
         [self loadData];
-
     }
 }
 
@@ -357,18 +350,19 @@ BOOL isPop = NO;
     //    NSString *title = [projectTitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSString *title =  self.composeProjectView.projectTextField.text;
-//     NSString *title = @"asdsf";
     NSString *brief = self.composeProjectView.progectTextView.text;
     NSString *duration = self.composeProjectView.projectTimeTextField.text;
-    NSString *userId = @"imhfp1yr4636pj49";
+    
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
     
     NSString *picture_url;
     NSString *artWorkId;
     
     if (self.projectModel) {
         
-//        artWorkId = self.projectModel.artWork.ID;
-       artWorkId = @"imyt7yax314lpzzj";
+        artWorkId = self.projectModel.artWork.ID;
+//       artWorkId = @"imyt7yax314lpzzj";
     }else{
         
         artWorkId = @"";
@@ -491,7 +485,7 @@ BOOL isPop = NO;
      
      */
     
-    NSString *url = @"releaseArtworkDynamic.do";
+    NSString *url = @"initNewArtWork.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
         
@@ -507,8 +501,9 @@ BOOL isPop = NO;
         
     } success:^(id respondObj) {
         
-        //        NSString *aString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        //        SSLog(@"%@",aString);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        
         //{"artworkId":"imyapayc1rttrjbz","resultCode":"0","resultMsg":"成功"}
         
         ArtWorkIdModel *artWorkId = [ArtWorkIdModel mj_objectWithKeyValues:respondObj];

@@ -19,6 +19,9 @@
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 
+#import "DetailFinanceViewController.h"
+#import "DetailCreationViewController.h"
+
 @interface ZanGuoViewController ()
 
 @property (nonatomic, strong) NSMutableArray *models;
@@ -60,6 +63,13 @@ static NSString *ID = @"ZanguoProjectCell";
     [ZanGuoResultModel mj_setupObjectClassInArray:^NSDictionary *{
         return @{
                  @"pageInfoList" : @"PageInfoListModel",
+                 };
+    }];
+    
+    [ZanguoArtworkModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"ID"          :@"id"
                  };
     }];
     
@@ -235,6 +245,48 @@ static NSString *ID = @"ZanguoProjectCell";
     
     
     return 374;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    PageInfoListModel *model = self.models[indexPath.row];
+    
+    SSLog(@"%@",model.artwork.ID);
+    
+    if ([model.artwork.step isEqualToString:@"10"]){
+        
+        [MBProgressHUD showError:@"审核待审核,请您耐心等待"];
+        
+    }else if ([model.artwork.step isEqualToString:@"11"]){
+        
+        [MBProgressHUD showError:@"审核审核中,请您耐心等待"];
+        
+    }else if ([model.artwork.step isEqualToString:@"13"]){
+        
+        [MBProgressHUD showError:@"审核未通过,请您耐心等待"];
+        
+    }else if ([model.artwork.step isEqualToString:@"14"]){
+        
+        //跳转
+        DetailFinanceViewController *detail = [[DetailFinanceViewController alloc] init];
+        detail.artworkId = model.artwork.ID;
+        [self.navigationController pushViewController:detail animated:YES];
+        
+    }else if ([model.artwork.step isEqualToString:@"21"]||[model.artwork.step isEqualToString:@"22"]||[model.artwork.step isEqualToString:@"24"]||[model.artwork.step isEqualToString:@"25"]){
+        
+        DetailCreationViewController *creationDetailsVC = [[DetailCreationViewController alloc] init];
+        creationDetailsVC.artworkId = model.artwork.ID;
+        [self.navigationController pushViewController:creationDetailsVC animated:YES];
+        
+    }else if([model.artwork.step isEqualToString:@"100"]) {
+        
+        [MBProgressHUD showError:@"项目可以编辑"];
+    }else {
+        
+        [MBProgressHUD showError:@"拍卖即将开始"];
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 //-----------------------联动-----------------------
