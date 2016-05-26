@@ -28,7 +28,6 @@
     [self.userPic setBackgroundImage:imgView.image forState:(UIControlStateNormal)];
     [self.userName setTitle:model.creator.name forState:(UIControlStateNormal)];
     self.replyTime.text = [self getTime:model.createDatetime];
-    
     self.content.text = model.content;
 }
 -(NSString *)getTime:(NSInteger)creatTime{

@@ -89,14 +89,14 @@
 //    21；22；23；24；25	创作阶段
     if(step == 12 ||step == 14 ||step == 15){
         DetailFinanceViewController *detailController = [[DetailFinanceViewController alloc] init];
-        detailController.artworkModel = commentModel.artwork;
+//        detailController.artworkModel = commentModel.artwork;
         detailController.artworkId = commentModel.artwork.ID;
         [self.navigationController pushViewController:detailController animated:YES];
     }
     else if (step == 21 ||step == 22 ||step == 23 ||step == 24 ||step == 25){
         DetailCreationViewController *detailController = [[DetailCreationViewController alloc] init];
         detailController.artworkId = commentModel.artwork.ID;
-        detailController.creationModel = commentModel.artwork;
+//        detailController.creationModel = commentModel.artwork;
         detailController.title = commentModel.artwork.title;
         [self.navigationController pushViewController:detailController animated:YES];
 //        detailController.
