@@ -49,9 +49,14 @@
 
     self.flowLayout.itemSize = CGSizeMake(40 ,40);
     self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    
-
 }
+- (IBAction)clickUserIcon:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(jumpToUserHome)]) {
+        [self.delegate jumpToUserHome];
+    }
+}
+
+
 
 -(void)setInvestPeople:(NSMutableArray *)investPeople{
     _investPeople = investPeople;
@@ -110,9 +115,15 @@
     if (!self.isMax) {
         NSDictionary *model1 = self.investPeople[indexPath.row];
         //拿到用户的ID，进行跳转
+        if ([self.delegate respondsToSelector:@selector(jumpToUserHomeByIndexPath:)]) {
+            [self.delegate jumpToUserHomeByIndexPath:indexPath];
+        }
     }else{
         if (indexPath.row < self.investorCount - 1) {
             // 在这里，说明点击的是用户的头像
+            if ([self.delegate respondsToSelector:@selector(jumpToUserHomeByIndexPath:)]) {
+                [self.delegate jumpToUserHomeByIndexPath:indexPath];
+            }
         }else{
             // 在这里，说明点击的是更多
             if ([self.delegate respondsToSelector:@selector(scrollToRecordAndTop)]) {

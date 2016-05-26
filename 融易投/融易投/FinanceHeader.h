@@ -10,6 +10,8 @@
 @class Progress;
 @protocol FinanceHeaderDelegate <NSObject>
 -(void)scrollToRecordAndTop;
+-(void)jumpToUserHome;
+-(void)jumpToUserHomeByIndexPath:(NSIndexPath *)indexPath;
 @end
 @interface FinanceHeader : UIView
 //项目图片

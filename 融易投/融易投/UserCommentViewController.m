@@ -167,7 +167,10 @@ static NSString *ID = @"userCommentCell";
 -(void)clickUserIconOrName:(NSIndexPath *)indexPath{
     ArtworkCommentListModel *model = self.models[indexPath.row];
     NSString *userId = model.creator.ID;
-    [self jumpToUserHome:userId];
+    if (userId) {
+        [self jumpToUserHome:userId];
+    }
+    
 }
 -(void)clickUserIcon:(NSIndexPath *)indexPath{
     ArtworkCommentListModel *model = self.models[indexPath.row];
