@@ -414,10 +414,12 @@
             
         }
         
-    } showHUDView:nil success:^(id respondObj) {
+    } showHUDView:nil progress:^(id progress) {
         
-//        NSString *aString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        SSLog(@"---%@---%@",[respondObj class],aString);
+    } success:^(id respondObj) {
+        
+        //        NSString *aString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        //        SSLog(@"---%@---%@",[respondObj class],aString);
         
         [MBProgressHUD showSuccess:@"发布成功"];
         //保存模型,赋值给控制器
@@ -425,9 +427,8 @@
             //取消modal
             [self dismissViewControllerAnimated:self completion:nil];
         }];
-    }];
-
-    
+        
+    }];    
 }
 
 - (void)didReceiveMemoryWarning {

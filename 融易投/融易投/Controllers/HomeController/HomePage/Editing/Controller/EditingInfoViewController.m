@@ -413,7 +413,10 @@
         
         [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"headPortrait" fileName:@"headPortrait.jpg" mimeType:@"application/octet-stream" error:nil];
         
-    } showHUDView:nil success:^(id respondObj) {
+        
+    } showHUDView:nil progress:^(id progress) {
+        
+    } success:^(id respondObj) {
         
 //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
 //        NSLog(@"返回结果:%@",jsonStr);

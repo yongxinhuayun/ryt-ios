@@ -22,7 +22,6 @@
     [aCoder encodeObject:self.name forKey:@"signMessage"];
     [aCoder encodeObject:self.name forKey:@"username"];
     [aCoder encodeObject:self.name forKey:@"pictureUrl"];
-    [aCoder encodeObject:self.master forKey:@"master"];
     
 }
 
@@ -44,8 +43,6 @@
         _username = [aDecoder decodeObjectForKey:@"username"];
         //pictureUrl
          _pictureUrl = [aDecoder decodeObjectForKey:@"pictureUrl"];
-        //master
-        _master = [aDecoder decodeObjectForKey:@"master"];
     }
     return self;
 }

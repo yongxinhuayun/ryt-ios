@@ -87,6 +87,9 @@ static  NSString *basePath = @"http://192.168.1.75:8001/app/";
     }
 }
 
+/**
+ *  需要传递加密的参数
+ */
 -(void)handlerNetworkingPOSTRequstWithServerUrl:(NSString *)server_url  Parameters:(id )param showHUDView:(UIView *)view  success:(requstSuccessBlock )successBlock
 {
     if (!server_url){
@@ -116,6 +119,9 @@ static  NSString *basePath = @"http://192.168.1.75:8001/app/";
     }];
 }
 
+/**
+ *  不需要传递加密的参数
+ */
 -(void)handlerNetworkingPOSTRequstWithBaseUrl:(NSString *)base_url  Parameters:(id )param showHUDView:(UIView *)view  success:(requstSuccessBlock )successBlock
 {
     if (!base_url){
@@ -147,7 +153,10 @@ static  NSString *basePath = @"http://192.168.1.75:8001/app/";
     }];
 }
 
--(void)handlerNetworkingPOSTRequstWithServerUrl:(NSString *)server_url  Parameters:(id )param constructingBodyWithBlock:(constructingBodyWithBlock)constructingBodyWithBlock showHUDView:(UIView *)view  success:(requstSuccessBlock )successBlock{
+/**
+ *  POST上传文件
+ */
+-(void)handlerNetworkingPOSTRequstWithServerUrl:(NSString *)server_url  Parameters:(id )param constructingBodyWithBlock:(constructingBodyWithBlock)constructingBodyWithBlock showHUDView:(UIView *)view progress:(updateProgressBlock )progressBlock success:(requstSuccessBlock )successBlock{
     if (!server_url){
         return;
     }
@@ -176,9 +185,23 @@ static  NSString *basePath = @"http://192.168.1.75:8001/app/";
 //        }
 //    }];
     
-    [self.sessionManager POST:requstURL.absoluteString parameters:param  constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//    [self.sessionManager POST:requstURL.absoluteString parameters:param  constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//        constructingBodyWithBlock(formData);
+//    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        [MBProgressHUD hideHUDForView:view animated:YES];
+//        successBlock(responseObject);
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"%@",error);
+//        if (view){
+//            [MBProgressHUD hideHUDForView:view animated:YES];
+//        }
+//    }];
+    
+    [self.sessionManager POST:requstURL.absoluteString parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         constructingBodyWithBlock(formData);
-    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        progressBlock(uploadProgress);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [MBProgressHUD hideHUDForView:view animated:YES];
         successBlock(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

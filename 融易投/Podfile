@@ -12,5 +12,5 @@ pod 'FMDB'
 pod 'WechatShortVideo'
 pod 'Masonry'
 pod 'BeeCloud'
-
+pod 'DACircularProgress'
 

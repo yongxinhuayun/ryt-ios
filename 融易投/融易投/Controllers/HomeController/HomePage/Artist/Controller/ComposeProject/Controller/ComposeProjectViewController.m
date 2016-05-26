@@ -503,10 +503,12 @@ BOOL isPop = NO;
             [formData appendPartWithFileURL:[NSURL fileURLWithPath:picture_url] name:@"picture_url" fileName:@"picture_url.jpg" mimeType:@"application/octet-stream" error:nil];
         }
         
-    } showHUDView:nil success:^(id respondObj) {
+    } showHUDView:nil progress:^(id progress) {
         
-//        NSString *aString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        SSLog(@"%@",aString);
+    } success:^(id respondObj) {
+        
+        //        NSString *aString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        //        SSLog(@"%@",aString);
         //{"artworkId":"imyapayc1rttrjbz","resultCode":"0","resultMsg":"成功"}
         
         ArtWorkIdModel *artWorkId = [ArtWorkIdModel mj_objectWithKeyValues:respondObj];
@@ -534,6 +536,7 @@ BOOL isPop = NO;
             [self.navigationController pushViewController:releaseVC animated:YES];
             
         }];
+
     }];
 }
 

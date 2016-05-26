@@ -26,6 +26,7 @@ PODS:
     - BeeCloud/Core
   - BeeCloud/Wx (3.4.2):
     - BeeCloud/Core
+  - DACircularProgress (2.3.1)
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
@@ -45,6 +46,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.0.0-beta.2)
   - BeeCloud
+  - DACircularProgress
   - FMDB
   - Masonry
   - MBProgressHUD (~> 0.9.1)
@@ -57,6 +59,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   BeeCloud: a2d9f90641c891d0cb86cd1b011a066ace4ddf88
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1

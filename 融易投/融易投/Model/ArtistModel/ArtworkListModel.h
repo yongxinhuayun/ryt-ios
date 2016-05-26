@@ -46,4 +46,7 @@
 /** 辅助属性 --- cell的高度 */
 @property (nonatomic,assign) CGFloat cellHeight;
 
+/** 这个帖子图片的下载进度 */
+@property (nonatomic, assign) CGFloat pictureProgress;
+
 @end
