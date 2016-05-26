@@ -16,17 +16,18 @@
  *  objectList里面author这个key对应的数据
  */
 
+@property(nonatomic,copy) NSString *ID;
 /** 描述 */
-@property (nonatomic ,strong) NSString *descriptions;
+@property (nonatomic ,copy) NSString *descriptions;
 
 /** 项目作者简介 */
-@property (nonatomic ,strong) NSString *username;
+@property (nonatomic ,copy) NSString *username;
 
 /** 项目作者真是姓名 */
-@property (nonatomic ,strong) NSString *name;
+@property (nonatomic ,copy) NSString *name;
 
 /** 头像 */
-@property (nonatomic ,strong) NSString *pictureUrl;
+@property (nonatomic ,copy) NSString *pictureUrl;
 
 /** 创作者信息 */
 @property (nonatomic, strong) MasterModel *master;

@@ -90,15 +90,11 @@
     }];
 }
 
-
-
-
 #pragma mark - Text View Delegate
 -(void)textViewDidChange:(UITextView *)textView
 {
     self.placeholder.hidden = [textView.text length];
 }
-
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {

@@ -14,7 +14,7 @@
 #import "CommonFooter.h"
 
 #import "InvestorModel.h"
-#import "InvestorTableViewCell.h"
+#import "ArtistTableViewCell.h"
 
 @interface InvestorTableViewController ()
 
@@ -25,7 +25,7 @@
 @property (nonatomic, strong) UIView *subTitlesView;
 @end
 @implementation InvestorTableViewController
-static NSString *ID = @"investorCell";
+static NSString *ID = @"artistCell";
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -43,7 +43,7 @@ static NSString *ID = @"investorCell";
 //    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, SSTabBarH, 0);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //注册创建cell ,这样注册就不用在XIB设置ID
-    [self.tableView registerNib:[UINib nibWithNibName:@"InvestorTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ArtistTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
     //设置刷新控件
     [self setUpRefresh];
     //添加顶部Header
@@ -100,8 +100,8 @@ static NSString *ID = @"investorCell";
                            @"pageNum" : pageNum,
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"getInvestorTopList.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        //        NSLog(@"返回结果:%@",jsonStr);
+                NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+                NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         self.models = [InvestorModel mj_objectArrayWithKeyValuesArray:modelDict[@"InvestorTopList"]];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -124,8 +124,8 @@ static NSString *ID = @"investorCell";
                            @"pageNum" : pageNum,
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"getInvestorTopList.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        //        NSLog(@"返回结果:%@",jsonStr);
+                NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+                NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         NSArray *moreModels = [InvestorModel mj_objectArrayWithKeyValuesArray:modelDict[@"InvestorTopList"]];
         //拼接数据
@@ -143,9 +143,22 @@ static NSString *ID = @"investorCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    InvestorTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    ArtistTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if(indexPath.row == 0){
+        [cell.TopBtn setBackgroundImage:[UIImage imageNamed:@"top1"] forState:(UIControlStateNormal)];
+        [cell.TopBtn setTitle:@"" forState:(UIControlStateNormal)];
+    }else if(indexPath.row == 1){
+        [cell.TopBtn setBackgroundImage:[UIImage imageNamed:@"top2"] forState:(UIControlStateNormal)];
+        [cell.TopBtn setTitle:@"" forState:(UIControlStateNormal)];
+    }else if(indexPath.row == 2){
+        [cell.TopBtn setBackgroundImage:[UIImage imageNamed:@"top3"] forState:(UIControlStateNormal)];
+        [cell.TopBtn setTitle:@"" forState:(UIControlStateNormal)];
+    }else{
+        [cell.TopBtn setBackgroundImage:nil forState:(UIControlStateNormal)];
+        [cell.TopBtn setTitle:[NSString stringWithFormat:@"%ld",indexPath.row + 1] forState:(UIControlStateNormal)];
+    }
     InvestorModel *model = self.models[indexPath.row];
-    cell.model = model;
+    cell.investorModel = model;
     cell.RankLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row + 1];
     return cell;
 }
@@ -157,6 +170,10 @@ static NSString *ID = @"investorCell";
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     return self.subTitlesView;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
 }
 
 @end

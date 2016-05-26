@@ -15,6 +15,7 @@
 #import "FinanceHeader.h"
 #import "DetailFinanceViewController.h"
 #import "investmentController.h"
+#import "CommonUserHomeViewController.h"
 #import "UIImageView+WebCache.h"
 #import "FinanceModel.h"
 #import "RecordTableViewController.h"
@@ -30,6 +31,7 @@
 #import "ArtworkModel.h"
 #import "Progress.h"
 #import "RecordModelList.h"
+#import "PageInfoModel.h"
 @interface DetailFinanceViewController ()<UIScrollViewDelegate,FinanceFooterViewDelegate,FinanceHeaderDelegate>
 @property(nonatomic,strong) FinanceHeader *financeHeader;
 @property(nonatomic,assign) BOOL isFirstIn;
@@ -58,6 +60,11 @@
     [ArtworkModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         return @{
                  @"descriptions":@"description",
+                 @"ID"          :@"id",
+                 };
+    }];
+    [authorModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{
                  @"ID"          :@"id",
                  };
     }];
@@ -103,34 +110,7 @@
         }];
     }];
 }
-/*
--(void)loadInvestors{
-    NSString *pageIndex = @"1";
-    NSString *pageSize = @"20";
-    NSString *urlStr = @"investorArtWorkInvest.do";
-    NSDictionary *json  = @{
-                            @"artWorkId" : self.artworkId,
-                            @"pageIndex" : pageIndex,
-                            @"pageSize" : pageSize
-                            };
-    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",jsonStr);
-        NSMutableArray *arrayM = [NSMutableArray array];
-        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-        RecordModelList *model = [RecordModelList mj_objectWithKeyValues:modelDict[@"object"]];
-        //拼接数据
-        NSArray *topList = model.artworkInvestTopList;
-        [arrayM addObjectsFromArray:topList];
-        NSMutableArray *arrM = [NSMutableArray array];
-        if (model.artworkInvestList != nil) {
-            [arrM addObject:model.artworkInvestList];
-            [arrayM addObjectsFromArray:arrM];
-        }
-        self.financeHeader.artworkInvestors = arrayM;
-    }];
-}
-*/
+
 //加载数据
 -(void)loadDataToController{
     self.financeHeader.titleLabel.text = self.artworkModel.title;
@@ -204,6 +184,58 @@
     [self.cycleView.bottomScrollView setContentOffset:recordOffset animated:NO];
 }
 
+-(void)jumpToUserHome{
+    NSLog(@"跳转到项目发起人的主页");
+    // 获取作者信息
+    authorModel *author = self.artworkModel.author;
+    // 判断作者是否为艺术家，如果是艺术家，跳转到艺术家主页，如果不是艺术家跳转到个人主页
+    if (!author.master) {
+        // 作者是艺术家
+    }else{// 作者不是艺术家
+        // 获取用户的ID
+        [self jumpToUserHome:author.ID];
+    }
+}
+
+-(void)jumpToUserHomeByIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"跳转到投资人的主页");
+    //通过indexPath 获取投资人信息
+     NSDictionary *model = self.projModel.investPeople[indexPath.row];
+    if (!model[@"master"]) {
+    }else{
+        [self jumpToUserHome:model[@"id"]];
+    }
+}
+
+-(void)jumpToUserHome:(NSString *)userId{
+    RYTLoginManager *manager =  [RYTLoginManager shareInstance];
+    if ([manager showLoginViewIfNeed]) {
+    }else{
+        NSString *pageSize = @"20";
+        NSString *pageIndex = @"1";
+        // 3.设置请求体
+        NSDictionary *json = @{
+                               @"userId":userId,
+                               @"pageSize" : pageSize,
+                               @"pageIndex" : pageIndex,
+                               };
+        [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"my.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+            NSLog(@"返回结果:%@",jsonStr);
+            NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+            PageInfoModel *pageModel = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
+            //保存模型,赋值给控制器
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                CommonUserHomeViewController *commonUserHome = [[CommonUserHomeViewController alloc] init];
+                commonUserHome.model = pageModel;
+                NSString *title = [NSString stringWithFormat:@"%@的个人主页",pageModel.user.name];
+                commonUserHome.title = title;
+                [self.navigationController pushViewController:commonUserHome animated:YES];
+            }];
+        }];
+    }
+}
+
 //添加子控制器
 -(void)addControllersToCycleView{
     //添加控制器view
@@ -233,6 +265,7 @@
         count++;
     }
 }
+
 //设置底部按钮
 - (void)addFooterView {
     CGFloat y = SSScreenH - 44;

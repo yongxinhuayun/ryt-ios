@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class ArtistModel;
+@class ArtistModel,InvestorModel;
 
 @interface ArtistTableViewCell : UITableViewCell
 
-
-@property (nonatomic, strong) ArtistModel *model;
+@property (weak, nonatomic) IBOutlet UIButton *TopBtn;
+@property (nonatomic, strong) ArtistModel *artistModel;
+@property (nonatomic, strong) InvestorModel *investorModel;
 
 //排行控件
 @property (weak, nonatomic) IBOutlet UILabel *RankLabel;

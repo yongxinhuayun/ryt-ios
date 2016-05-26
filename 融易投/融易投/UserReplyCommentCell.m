@@ -39,7 +39,7 @@
     NSURL *url = [NSURL URLWithString:urlStr];
     UIImageView *imgView = [[UIImageView alloc] init];
     [imgView ss_setHeader:url];
-    [self.userPic setImage:imgView.image forState:(UIControlStateNormal)];
+    [self.userPic setBackgroundImage:imgView.image forState:(UIControlStateNormal)];
     [self.userName setTitle:model.creator.name forState:(UIControlStateNormal)];
     ArtworkCommentListModel *fatherComment = [[ArtworkCommentListModel alloc] init];
     fatherComment = model.fatherComment;

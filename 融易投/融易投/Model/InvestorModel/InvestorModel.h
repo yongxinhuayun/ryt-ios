@@ -10,11 +10,13 @@
 
 @interface InvestorModel : NSObject
 
+@property(nonatomic,copy) NSString *user_id;
 /** 投资者姓名 */
 @property (nonatomic ,strong) NSString *truename;
-
 /** 投资价格 */
 @property (nonatomic ,assign) NSInteger price;
+@property(nonatomic,assign) NSInteger rois;
+@property(nonatomic,copy) NSString *username;
 
 
 
