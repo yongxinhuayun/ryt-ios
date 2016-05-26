@@ -13,6 +13,6 @@
 @property(nonatomic,strong)CycleView *cycleView;
 @property(nonatomic,strong)NSMutableArray *titleArray;
 @property(nonatomic,strong)NSMutableArray *controllersView;
-@property(nonatomic,strong)ArtworkModel *creationModel;
 @property(nonatomic,copy) NSString *artworkId;
+//@property(nonatomic,copy)NSString *creationID;
 @end

@@ -37,6 +37,7 @@
 @property(nonatomic,assign) BOOL isFirstIn;
 @property(nonatomic,strong)ProjectDetailsModel *projModel;
 @property(nonatomic,strong)FinanceFooterView *financeFooter;
+@property(nonatomic,strong)ArtworkModel *artworkModel;
 @end
 
 @implementation DetailFinanceViewController
@@ -104,6 +105,7 @@
             ProjectDetailsModel *project = [ProjectDetailsModel mj_objectWithKeyValues:modelDict[@"object"]];
             self.projModel = project;
             self.artworkModel = project.artWork;
+
             [self loadDataToController];
             [self addFooterView];
 //            [self loadInvestors];
