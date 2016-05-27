@@ -67,7 +67,7 @@
     [imgView sd_setImageWithURL:[NSURL URLWithString:iconStr] placeholderImage:[UIImage imageNamed:@"defaultBackground"]];
     [self.userIcon setBackgroundImage:imgView.image forState:(UIControlStateNormal)];
     self.userName.text = artistModel.truename;
-    self.priceLabel.text = [NSString stringWithFormat:@"%ld 元",artistModel.bidding_rate];
+    self.priceLabel.text = [NSString stringWithFormat:@"%ld 元",artistModel.invest_goal_money];
     //设置头像
 //        NSString *picture_urlStr = [[NSString stringWithFormat:@"%@",artistModel.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 //    

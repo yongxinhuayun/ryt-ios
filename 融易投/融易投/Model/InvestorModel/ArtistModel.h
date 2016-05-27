@@ -10,13 +10,28 @@
 
 @interface ArtistModel : NSObject
 
+/*
+ *  艺术家的id
+ */
+@property(nonatomic,copy) NSString *author_id;
 
-@property(nonatomic,copy) NSString *user_id;
-
-/** 投资者姓名 */
+/*
+ * 艺术家姓名 
+ */
 @property (nonatomic ,strong) NSString *truename;
 
-/** 投资价格 */
-@property (nonatomic ,assign) NSInteger bidding_rate;
+/*
+ * invest_goal_money
+ */
+@property (nonatomic,assign) NSInteger invest_goal_money;
+
+/*
+ * turnover
+ */
+@property(nonatomic,copy) NSString *turnover;
+
+/*
+ *  头像
+ */
 @property(nonatomic,copy) NSString *picture;
 @end

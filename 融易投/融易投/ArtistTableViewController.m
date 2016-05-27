@@ -170,11 +170,11 @@ static NSString *ID = @"artistCell";
 
 -(void)jumpToUserHome:(NSIndexPath *)indexPath{
     ArtistModel *model = self.models[indexPath.row];
-    NSString *userId = model.user_id;
+    NSString *userId = model.author_id;
     if (userId) {
             ArtistUserHomeViewController *home = [[ArtistUserHomeViewController alloc] init];
-            home.userId = model.user_id;
-        home.navigationItem.title = model.truename;
+            home.userId = model.author_id;
+        home.title = model.truename;
             [self.navigationController pushViewController:home animated:YES];
     }
 }
