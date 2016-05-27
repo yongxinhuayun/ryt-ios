@@ -23,7 +23,7 @@
 
 /**  */
 @property (nonatomic ,strong) UserMyModel *user;
-
+@property(nonatomic,copy) NSString *followStatus;
 /** 粉丝数 */
 @property (nonatomic ,assign) NSInteger followNum;
 

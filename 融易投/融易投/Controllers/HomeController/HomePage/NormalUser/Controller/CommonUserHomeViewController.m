@@ -102,8 +102,15 @@
     if (![manager showLoginViewIfNeed]) {
         // 如果用户登录了，获取当前用户的ID
         NSString *userId = [manager takeUser].ID;
+        // 获取当前将要被关注的用户ID
+        NSString *followId = self.model.user.ID;
+//        NSString *identifier =  0为关注，1为取消关注
+        
+        
+        NSDictionary *json = @{
+                               @"userId" : userId,
+                               };
     }
-
 }
 
 -(void)guanzhuBtnClick:(UIButton *)btn{
