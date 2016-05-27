@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2118F1EA1CAE88B4003BFC6B /* navTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2118F1E91CAE88B4003BFC6B /* navTitleButton.m */; };
+		211C031A1CF7D37A006167EF /* BillTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211C03181CF7D37A006167EF /* BillTableViewController.m */; };
 		211C394A1CB36B1500DAD827 /* FinanceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 211C39481CB36B1500DAD827 /* FinanceTableViewCell.m */; };
 		212EEE431CD9D8CD00F94B30 /* CommonButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE421CD9D8CD00F94B30 /* CommonButton.m */; };
 		212EEE701CDC361100F94B30 /* SettingFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE6F1CDC361100F94B30 /* SettingFooterView.m */; };
@@ -585,7 +586,6 @@
 		E2D524441CDF994C0024887A /* FocusMyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D524421CDF994C0024887A /* FocusMyTableViewCell.xib */; };
 		E2D5244B1CDF99C70024887A /* ApplyforArtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524491CDF99C70024887A /* ApplyforArtViewController.m */; };
 		E2D5244C1CDF99C70024887A /* ApplyforArtViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D5244A1CDF99C70024887A /* ApplyforArtViewController.storyboard */; };
-		E2D5245C1CDF9B590024887A /* BillTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D5245B1CDF9B590024887A /* BillTableViewController.m */; };
 		E2D524601CDF9B6C0024887A /* PayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D5245E1CDF9B6C0024887A /* PayTableViewController.m */; };
 		E2D524611CDF9B6C0024887A /* PayTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D5245F1CDF9B6C0024887A /* PayTableViewController.storyboard */; };
 		E2D524651CDF9B910024887A /* WalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524631CDF9B910024887A /* WalletViewController.m */; };
@@ -682,6 +682,8 @@
 		0CFB6E4A926D52C7C2AE4F6C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2118F1E81CAE88B4003BFC6B /* navTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navTitleButton.h; sourceTree = "<group>"; };
 		2118F1E91CAE88B4003BFC6B /* navTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navTitleButton.m; sourceTree = "<group>"; };
+		211C03171CF7D37A006167EF /* BillTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillTableViewController.h; sourceTree = "<group>"; };
+		211C03181CF7D37A006167EF /* BillTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillTableViewController.m; sourceTree = "<group>"; };
 		211C39471CB36B1500DAD827 /* FinanceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceTableViewCell.h; sourceTree = "<group>"; };
 		211C39481CB36B1500DAD827 /* FinanceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceTableViewCell.m; sourceTree = "<group>"; };
 		212EEE411CD9D8CD00F94B30 /* CommonButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonButton.h; sourceTree = "<group>"; };
@@ -1520,8 +1522,6 @@
 		E2D524481CDF99C70024887A /* ApplyforArtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyforArtViewController.h; sourceTree = "<group>"; };
 		E2D524491CDF99C70024887A /* ApplyforArtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyforArtViewController.m; sourceTree = "<group>"; };
 		E2D5244A1CDF99C70024887A /* ApplyforArtViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ApplyforArtViewController.storyboard; sourceTree = "<group>"; };
-		E2D5245A1CDF9B590024887A /* BillTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillTableViewController.h; sourceTree = "<group>"; };
-		E2D5245B1CDF9B590024887A /* BillTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillTableViewController.m; sourceTree = "<group>"; };
 		E2D5245D1CDF9B6C0024887A /* PayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayTableViewController.h; sourceTree = "<group>"; };
 		E2D5245E1CDF9B6C0024887A /* PayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayTableViewController.m; sourceTree = "<group>"; };
 		E2D5245F1CDF9B6C0024887A /* PayTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PayTableViewController.storyboard; sourceTree = "<group>"; };
@@ -1664,6 +1664,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		211C03151CF7D37A006167EF /* Bill */ = {
+			isa = PBXGroup;
+			children = (
+				211C03161CF7D37A006167EF /* Controller */,
+				211C03191CF7D37A006167EF /* View */,
+			);
+			path = Bill;
+			sourceTree = "<group>";
+		};
+		211C03161CF7D37A006167EF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				211C03171CF7D37A006167EF /* BillTableViewController.h */,
+				211C03181CF7D37A006167EF /* BillTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		211C03191CF7D37A006167EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		215C96591CED56AC0084C319 /* WeChatSDK_1.5 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3363,37 +3388,12 @@
 		E2D5244D1CDF9AE10024887A /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				E2D5244E1CDF9AE10024887A /* Bill */,
+				211C03151CF7D37A006167EF /* Bill */,
 				E2D524511CDF9AE10024887A /* Recharge */,
 				E2D524541CDF9AE10024887A /* Wallet */,
 				E2D524571CDF9AE10024887A /* Withdraw */,
 			);
 			path = Wallet;
-			sourceTree = "<group>";
-		};
-		E2D5244E1CDF9AE10024887A /* Bill */ = {
-			isa = PBXGroup;
-			children = (
-				E2D5244F1CDF9AE10024887A /* Controller */,
-				E2D524501CDF9AE10024887A /* View */,
-			);
-			path = Bill;
-			sourceTree = "<group>";
-		};
-		E2D5244F1CDF9AE10024887A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				E2D5245A1CDF9B590024887A /* BillTableViewController.h */,
-				E2D5245B1CDF9B590024887A /* BillTableViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		E2D524501CDF9AE10024887A /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		E2D524511CDF9AE10024887A /* Recharge */ = {
@@ -4444,7 +4444,6 @@
 				21C414091CE2D23500F1029C /* UIView+JKPicker.m in Sources */,
 				21B99BAD1CF6FE4800E682F8 /* WXButton.m in Sources */,
 				21C414231CE2D23500F1029C /* UITableView+Improve.m in Sources */,
-				E2D5245C1CDF9B590024887A /* BillTableViewController.m in Sources */,
 				E2322B131CEC0AAB002730E7 /* NormalCommentsCell.m in Sources */,
 				21AB0B581CC605F500B7BA03 /* XCLSegmentView.m in Sources */,
 				E2D524721CDF9B9C0024887A /* WalletHeaderView.m in Sources */,
@@ -4517,6 +4516,7 @@
 				212EEE851CE0341400F94B30 /* ArtistObjectModel.m in Sources */,
 				21C4146E1CE4220800F1029C /* CoverHUDView.m in Sources */,
 				E2D521FA1CDF7A230024887A /* cityField.m in Sources */,
+				211C031A1CF7D37A006167EF /* BillTableViewController.m in Sources */,
 				E2D5225E1CDF8CEC0024887A /* CreatorModel.m in Sources */,
 				21C414331CE2D23500F1029C /* HMComposePhotosView.m in Sources */,
 				21B99BA21CF6AB7200E682F8 /* SSProgressView.m in Sources */,
@@ -4823,8 +4823,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4863,7 +4863,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "beadd937-265c-46f8-852b-19ef56b77481";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/TOM/Desktop/ryt-ios/融易投/融易投/JPushLIB";
@@ -4876,8 +4876,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4916,7 +4916,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "beadd937-265c-46f8-852b-19ef56b77481";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/TOM/Desktop/ryt-ios/融易投/融易投/JPushLIB";

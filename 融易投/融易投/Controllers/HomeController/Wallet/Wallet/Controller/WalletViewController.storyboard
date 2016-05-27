@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="612" width="375" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFW-km-Xil">
-                                        <rect key="frame" x="187" y="0.0" width="187.5" height="55"/>
+                                        <rect key="frame" x="187" y="0.0" width="188" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                         <state key="normal" title="充值">
                                             <color key="titleColor" red="0.93725490199999995" green="0.35686274509999999" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -31,7 +31,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWc-V9-AJ4">
-                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="55"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="188" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                         <state key="normal" title="提现">
                                             <color key="titleColor" red="0.93725490196078431" green="0.35686274509803922" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
