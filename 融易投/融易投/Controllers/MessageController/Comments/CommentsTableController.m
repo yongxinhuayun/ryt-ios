@@ -121,9 +121,8 @@
                            @"type"     :@"1"
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"information.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-                NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-                NSLog(@"返回结果:%@",jsonStr);
-        
+//                NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//                NSLog(@"返回结果:%@",jsonStr);
         MessageResultModel *resultModel = [MessageResultModel mj_objectWithKeyValues:respondObj];
         [self.commentArray addObjectsFromArray:resultModel.objectList];
         //在主线程刷新UI数据
@@ -149,9 +148,8 @@
                            @"type"     :@"1"
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"information.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
-        
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
         MessageResultModel *resultModel = [MessageResultModel mj_objectWithKeyValues:respondObj];
         if (resultModel.objectList) {
             [self.commentArray addObjectsFromArray:resultModel.objectList];

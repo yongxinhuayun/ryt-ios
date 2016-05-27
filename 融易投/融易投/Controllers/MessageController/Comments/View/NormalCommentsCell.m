@@ -78,8 +78,10 @@
         [self.HFUserNameBtn setTitle:name forState:(UIControlStateNormal)];
         
         self.HFContent.text = commentModel.fatherArtworkCommentBean.content;
-        // 具有父评论的时候，设置content 首行缩进        
+        // 具有父评论的时候，设置content 首行缩进
+        [self.HFUserName sizeToFit];
         self.content.attributedText = [self setAttributesString:commentModel.content withFrame:self.HFUserName.frame firstLineHeadIndent:20];
+        [self.HFUserNameBtn sizeToFit];
         self.HFContent.attributedText = [self setAttributesString:commentModel.fatherArtworkCommentBean.content withFrame:self.HFUserNameBtn.frame firstLineHeadIndent:20];
     }else{
         self.HFUserName.hidden = YES;
