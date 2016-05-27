@@ -16,10 +16,13 @@
 #import "ZanGuoViewController.h"
 #import "JianjieViewController.h"
 #import "PrivateLetterViewController.h"
+#import <MJExtension.h>
 
 #import "PageInfoModel.h"
 
 @interface CommonUserHomeViewController ()<CommonUserHeaderViewDelegate>
+
+@property (nonatomic ,strong)PageInfoModel *model;
 
 @end
 
@@ -28,8 +31,9 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
-    
-    [self setupUI];
+
+    [self loadNewData];
+
 }
 - (void)viewDidLoad {
     
@@ -53,6 +57,7 @@
 //    }
     tView.delegate = self;
     tView.model = self.model;
+    
     self.topview.height = tView.height;
     self.topview.width = SSScreenW;
     tView.backgroundColor = [UIColor whiteColor];
@@ -74,6 +79,67 @@
     self.backgroundScrollView.contentSize = CGSizeMake(SSScreenW,self.topview.height + self.middleView.height);
 }
 
+-(void)loadNewData
+{
+    //参数
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *currentId = model.ID;
+    
+    NSString *userId = self.userId;
+    
+    
+    SSLog(@"%@",currentId);
+    SSLog(@"%@",userId);
+    
+    NSString *pageSize = @"20";
+    NSString *pageIndex = @"1";
+    
+    NSString *url = @"my.do";
+    
+    NSDictionary *json = @{
+                           @"userId":userId,
+                           @"currentId":currentId,
+                           @"pageSize" : pageSize,
+                           @"pageIndex" : pageIndex
+                           };
+    
+    // 创建一个组
+    dispatch_group_t group = dispatch_group_create();
+    
+    // 添加当前操作到组中
+    dispatch_group_enter(group);
+    
+    
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+        
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        
+        PageInfoModel *model = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
+        
+        self.model = model;
+        
+        //// 从组中移除一个操作
+        dispatch_group_leave(group);
+    }];
+    
+    /// 当所有添加到组中的操作都被移除之后就会调用
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+
+        
+        // 6.回到主线程更新UI
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            NSLog(@"更新UI %@", [NSThread currentThread]);
+            
+            [self setupUI];
+        });
+    });
+
+}
 
 -(void)postPrivateLetter{
     // 拿到当前用户的ID，如果为空，提醒用户进行登录
@@ -124,7 +190,6 @@
                            @"currentUserId": currentUserId,
                            };
     
-    
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
         
@@ -149,6 +214,11 @@
     //添加控制器view
     TouGuoViewController *record1 = [[TouGuoViewController alloc] init];
     record1.topHeight = self.topview.height - 64;
+    record1.model = self.model;
+    record1.userId = self.userId;
+    
+    SSLog(@"%@",self.userId);
+    
     [self.controllersView addObject:record1.view];
     [self addChildViewController:record1];
 

@@ -19,8 +19,12 @@
 #import "ArtistMainViewController.h"
 
 #import "PageInfoModel.h"
+#import <MJExtension.h>
 
 @interface ArtistUserHomeViewController ()<CommonUserHeaderViewDelegate>
+
+@property (nonatomic ,strong)PageInfoModel *model;
+
 @end
 
 @implementation ArtistUserHomeViewController
@@ -30,7 +34,7 @@
     
     self.navigationController.navigationBarHidden = NO;
     
-    [self setupUI];
+    [self loadNewData];
 }
 - (void)viewDidLoad {
     
@@ -76,6 +80,69 @@
     
 }
 
+
+-(void)loadNewData
+{
+    //参数
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *currentId = model.ID;
+    
+    NSString *userId = self.userId;
+    
+    
+    SSLog(@"%@",currentId);
+    SSLog(@"%@",userId);
+    
+    NSString *pageSize = @"20";
+    NSString *pageIndex = @"1";
+    
+    NSString *url = @"my.do";
+    
+    NSDictionary *json = @{
+                           @"userId":userId,
+                           @"currentId":currentId,
+                           @"pageSize" : pageSize,
+                           @"pageIndex" : pageIndex
+                           };
+    
+    // 创建一个组
+    dispatch_group_t group = dispatch_group_create();
+    
+    // 添加当前操作到组中
+    dispatch_group_enter(group);
+    
+    
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+        
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        
+        PageInfoModel *model = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
+        
+        self.model = model;
+        
+        //// 从组中移除一个操作
+        dispatch_group_leave(group);
+    }];
+    
+    /// 当所有添加到组中的操作都被移除之后就会调用
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        
+        
+        // 6.回到主线程更新UI
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            NSLog(@"更新UI %@", [NSThread currentThread]);
+            
+            [self setupUI];
+        });
+    });
+    
+}
+
 -(void)addControllersToCycleView{
     
     //添加控制器view
@@ -97,6 +164,7 @@
     
     TouGuoViewController *record4 = [[TouGuoViewController alloc] init];
     record4.topHeight = self.topview.height - 64;
+    record4.userId = self.userId;
     [self.controllersView addObject:record4.view];
     [self addChildViewController:record4];
     

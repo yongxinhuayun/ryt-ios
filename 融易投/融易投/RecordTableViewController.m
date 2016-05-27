@@ -230,7 +230,8 @@
             //保存模型,赋值给控制器
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 CommonUserHomeViewController *commonUserHome = [[CommonUserHomeViewController alloc] init];
-                commonUserHome.model = pageModel;
+//                commonUserHome.model = pageModel;
+                commonUserHome.userId = userId;
                 NSString *title = [NSString stringWithFormat:@"%@的个人主页",pageModel.user.name];
                 commonUserHome.title = title;
                 [self.navigationController pushViewController:commonUserHome animated:YES];

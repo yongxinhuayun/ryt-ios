@@ -72,10 +72,45 @@
 }
 
 -(void)send{
-
-
     SSLog(@"111");
     
+    //参数
+    //有值代表着登录,没值就是游客
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
+    
+    NSString *content = self.textView.text;
+    NSString *email = self.textField.text;
+    NSString *timestamp = [MyMD5 timestamp];
+    NSString *appkey = MD5key;
+    
+    NSString *signmsg = [NSString stringWithFormat:@"content=%@&timestamp=%@&userId=%@&key=%@",content,timestamp,userId,appkey];
+    
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+    
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"userId":userId,
+                           @"content" : content,
+                           @"email" : email,
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5
+                           };
+    
+    NSString *url = @"feedBack.do";
+    
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithBaseUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        
+        [MBProgressHUD showSuccess:modelDict[@"resultMsg"]];
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+    }];
 }
 
 #pragma mark - Text View Delegate

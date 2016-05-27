@@ -60,6 +60,8 @@
 
 @property (nonatomic, strong) ShareViewHUD *shareHUD;
 
+@property (nonatomic, strong) NSString *shareURL;
+
 @end
 
 @implementation MeViewController
@@ -275,8 +277,48 @@ static NSString *ID = @"MeTableViewCell";
 
 -(void)wxBtnClick:(UIButton *)btn{
     
+    [self loadShareURL];
+    
     UIImage *thumb = [UIImage imageNamed:@"wait.png"];
-    [_bqlAuthEngine authShareToWeChatWithLink:@"专访张小龙：产品之上的世界观" Description:@"微信的平台化发展方向是否真的会让这个原本简洁的产品变得臃肿？在国际化发展方向上，微信面临的问题真的是文化差异壁垒吗？腾讯高级副总裁、微信产品负责人张小龙给出了自己的回复。" ThumbImage:thumb Url:@"http://tech.qq.com/zt2012/tmtdecode/252.htm" Scene:ShareToWXSceneSession Success:^(id response) {
+    
+//    [_bqlAuthEngine authShareToWeChatWithLink:@"专访张小龙：产品之上的世界观" Description:@"微信的平台化发展方向是否真的会让这个原本简洁的产品变得臃肿？在国际化发展方向上，微信面临的问题真的是文化差异壁垒吗？腾讯高级副总裁、微信产品负责人张小龙给出了自己的回复。" ThumbImage:thumb Url:@"http://tech.qq.com/zt2012/tmtdecode/252.htm" Scene:ShareToWXSceneSession Success:^(id response) {
+//        
+//        // 成功授权、在这里你可以提示用户已分享成功、并进行下面的操作
+//        NSLog(@"success:%@",response);
+//        
+//            [self quxiaoBtnClick:nil];
+//        
+//    } Failure:^(NSError *error) {
+//        
+//        // 错误返回授权错误码，请自行对照错误码查看错误原因
+//        NSLog(@"failure:%@",error);
+//        
+//         [self quxiaoBtnClick:nil];
+//    }];
+
+    [_bqlAuthEngine authShareToWeChatWithLink:@"专访张小龙：产品之上的世界观" Description:@"微信的平台化发展方向是否真的会让这个原本简洁的产品变得臃肿？在国际化发展方向上，微信面临的问题真的是文化差异壁垒吗？腾讯高级副总裁、微信产品负责人张小龙给出了自己的回复。" ThumbImage:thumb Url:self.shareURL Scene:ShareToWXSceneSession Success:^(id response) {
+        
+        // 成功授权、在这里你可以提示用户已分享成功、并进行下面的操作
+        NSLog(@"success:%@",response);
+        
+        [self quxiaoBtnClick:nil];
+        
+    } Failure:^(NSError *error) {
+        
+        // 错误返回授权错误码，请自行对照错误码查看错误原因
+        NSLog(@"failure:%@",error);
+        
+        [self quxiaoBtnClick:nil];
+    }];
+}
+
+-(void)friendBtnClick:(UIButton *)btn{
+    
+    [self loadShareURL];
+    
+    UIImage *thumb = [UIImage imageNamed:@"wait.png"];
+    
+    [_bqlAuthEngine authShareToWeChatWithLink:@"专访张小龙：产品之上的世界观" Description:@"微信的平台化发展方向是否真的会让这个原本简洁的产品变得臃肿？在国际化发展方向上，微信面临的问题真的是文化差异壁垒吗？腾讯高级副总裁、微信产品负责人张小龙给出了自己的回复。" ThumbImage:thumb Url:self.shareURL Scene:ShareToWXSceneTimeline Success:^(id response) {
         
         // 成功授权、在这里你可以提示用户已分享成功、并进行下面的操作
         NSLog(@"success:%@",response);
@@ -293,24 +335,39 @@ static NSString *ID = @"MeTableViewCell";
     
 }
 
--(void)friendBtnClick:(UIButton *)btn{
+-(void)loadShareURL{
+
+    //参数
+    //有值代表着登录,没值就是游客
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
     
-    UIImage *thumb = [UIImage imageNamed:@"wait.png"];
+    SSLog(@"%@",userId);
     
-    [_bqlAuthEngine authShareToWeChatWithLink:@"专访张小龙：产品之上的世界观" Description:@"微信的平台化发展方向是否真的会让这个原本简洁的产品变得臃肿？在国际化发展方向上，微信面临的问题真的是文化差异壁垒吗？腾讯高级副总裁、微信产品负责人张小龙给出了自己的回复。" ThumbImage:thumb Url:@"http://tech.qq.com/zt2012/tmtdecode/252.htm" Scene:WXSceneTimeline Success:^(id response) {
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"userId":userId
+                           };
+    
+    NSString *url = @"toShareView.do";
+    
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-        // 成功授权、在这里你可以提示用户已分享成功、并进行下面的操作
-        NSLog(@"success:%@",response);
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
         
-            [self quxiaoBtnClick:nil];
         
-    } Failure:^(NSError *error) {
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
-        // 错误返回授权错误码，请自行对照错误码查看错误原因
-        NSLog(@"failure:%@",error);
+        self.shareURL = modelDict[@"url"];
         
-         [self quxiaoBtnClick:nil];
+        //保存模型,赋值给控制器
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+
+        }];
+        
     }];
+
     
 }
 
@@ -393,7 +450,10 @@ static NSString *ID = @"MeTableViewCell";
                 
                 ArtistUserHomeViewController *artistHomeVC = [[ArtistUserHomeViewController alloc] init];
 
-                artistHomeVC.model = self.model;
+                UserMyModel *model = TakeLoginUserModel;
+                artistHomeVC.userId =  model.ID;
+                
+                SSLog(@"%@",self.model.user.ID);
                 
                 [self.navigationController pushViewController:artistHomeVC animated:YES];
                 
@@ -401,7 +461,10 @@ static NSString *ID = @"MeTableViewCell";
                 
                 CommonUserHomeViewController *myHomeVC = [[CommonUserHomeViewController alloc] init];
                 
-                myHomeVC.model = self.model;
+                UserMyModel *model = TakeLoginUserModel;
+                myHomeVC.userId =  model.ID;
+                
+                SSLog(@"%@",self.model.user.ID);
                 
                 [self.navigationController pushViewController:myHomeVC animated:YES];
             }
@@ -425,7 +488,8 @@ static NSString *ID = @"MeTableViewCell";
         
         CommonUserHomeViewController *myHomeVC = [[CommonUserHomeViewController alloc] init];
         
-        myHomeVC.model = self.model;
+        UserMyModel *model = TakeLoginUserModel;
+        myHomeVC.userId =  model.ID;
         
         [self.navigationController pushViewController:myHomeVC animated:YES];
         
@@ -459,7 +523,6 @@ static NSString *ID = @"MeTableViewCell";
     //参数
     //有值代表着登录,没值就是游客
     UserMyModel *model = TakeLoginUserModel;
-    
     NSString *userId = model.ID;
 
     if (userId == nil) {
@@ -471,24 +534,24 @@ static NSString *ID = @"MeTableViewCell";
         return;
     }
     
-    NSString *pageSize = @"20";
-    NSString *pageIndex = @"1";
-    //flag为1是自己看自己,为2时是看别人,还需要传递otheruserId
+    SSLog(@"%@",userId);
+    
     
     // 3.设置请求体
     NSDictionary *json = @{
-                           @"userId":userId,
-                           @"pageSize" : pageSize,
-                           @"pageIndex" : pageIndex
+                           @"userId":userId
                            };
-    NSString *url = @"my.do";
+    
+    NSString *url = @"user.do";
     
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
-        PageInfoModel *model = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
+        PageInfoModel *model = [PageInfoModel mj_objectWithKeyValues:modelDict[@"data"]];
         
         //保存模型,赋值给控制器
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -498,7 +561,7 @@ static NSString *ID = @"MeTableViewCell";
             //给xib赋值数据的时候,在viewDidLoad方法老是赋值为nil,所以只好写在这里
             
             //设置头部视图
-            //            MeHeaderView *meheaderView = [MeHeaderView meHeaderView];
+//            MeHeaderView *meheaderView = [MeHeaderView meHeaderView];
             //保存从xib获取的模型数据
             self.meheaderView.model = self.model;
             

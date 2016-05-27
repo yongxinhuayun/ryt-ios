@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class PageInfoModel;
 @interface TouGuoViewController : UITableViewController
 
 @property(nonatomic,assign) CGFloat topHeight;
+
+@property (nonatomic ,strong)PageInfoModel *model;
+
+@property (nonatomic ,strong)NSString *userId;
 
 @end

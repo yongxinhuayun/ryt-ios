@@ -16,6 +16,8 @@
 @property(nonatomic,strong)NSMutableArray *titleArray;
 @property(nonatomic,strong)NSMutableArray *controllersView;
 
-@property (nonatomic ,strong)PageInfoModel *model;
+
+
+@property (nonatomic ,strong)NSString *userId;
 
 @end
