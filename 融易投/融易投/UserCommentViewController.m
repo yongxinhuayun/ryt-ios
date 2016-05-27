@@ -182,7 +182,7 @@ static NSString *ID = @"userCommentCell";
             postCon.currentUserId = currentId;
             postCon.fatherCommentId = model.ID;
             postCon.artworkId = self.artWorkId;
-            postCon.title = [NSString stringWithFormat:@"回复%@",model.creator.username];
+            postCon.title = [NSString stringWithFormat:@"回复%@",model.creator.name];
             [self.navigationController pushViewController:postCon animated:YES];
         }
     }

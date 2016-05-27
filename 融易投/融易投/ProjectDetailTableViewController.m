@@ -144,7 +144,9 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     // 需要通过模型计算cell的高度
     if (indexPath.section == 0) {
+        NSLog(@"```````````````%f",[self.model cellHeight:cellBrief]);
         return [self.model cellHeight:cellBrief];
+//        return 60;
     }else if (indexPath.section == 1){
         return [self.model cellHeight:(cellInstru)];
     }else{

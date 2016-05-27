@@ -14,14 +14,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="206.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-5a-Mvk">
-                        <rect key="frame" x="24" y="21" width="327" height="70"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mXB-Bi-bDD">
-                        <rect key="frame" x="14" y="101" width="347" height="105.5"/>
+                        <rect key="frame" x="14" y="90" width="347" height="116.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="E01-Td-yYr">
                             <size key="itemSize" width="50" height="50"/>
@@ -30,6 +24,12 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-5a-Mvk">
+                        <rect key="frame" x="24" y="10" width="327" height="70"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="dVB-5a-Mvk" secondAttribute="trailing" constant="24" id="Bx6-SY-sQz"/>
@@ -37,7 +37,7 @@
                     <constraint firstItem="mXB-Bi-bDD" firstAttribute="top" secondItem="dVB-5a-Mvk" secondAttribute="bottom" constant="10" id="TBt-Bh-TQD"/>
                     <constraint firstItem="dVB-5a-Mvk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="Wrf-kO-XXy"/>
                     <constraint firstItem="mXB-Bi-bDD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="cag-39-7JM"/>
-                    <constraint firstItem="dVB-5a-Mvk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="xB1-yC-u6H"/>
+                    <constraint firstItem="dVB-5a-Mvk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="xB1-yC-u6H"/>
                     <constraint firstAttribute="trailing" secondItem="mXB-Bi-bDD" secondAttribute="trailing" constant="14" id="yOd-qC-eyH"/>
                 </constraints>
             </tableViewCellContentView>

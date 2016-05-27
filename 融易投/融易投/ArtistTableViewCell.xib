@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistCell" id="GR1-To-ebr" customClass="ArtistTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="artistCell" id="GR1-To-ebr" customClass="ArtistTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="412" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GR1-To-ebr" id="e7M-H2-HkN">
@@ -25,48 +25,52 @@
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBackground" translatesAutoresizingMaskIntoConstraints="NO" id="vqI-xQ-kGP">
-                        <rect key="frame" x="151" y="5" width="50" height="50"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="投资者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Hb-Bb-Lxh">
+                        <rect key="frame" x="210" y="21" width="42" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20000元" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzl-h2-LVI">
+                        <rect key="frame" x="327" y="21" width="60" height="17"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="0M9-bI-JbG"/>
-                            <constraint firstAttribute="width" constant="50" id="TCO-hD-2Fh"/>
+                            <constraint firstAttribute="width" constant="60" id="s0B-7Y-Jd0"/>
                         </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38a-Cn-UDo">
+                        <rect key="frame" x="159" y="7.5" width="44" height="44.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="Iyy-eO-Pux"/>
+                            <constraint firstAttribute="height" constant="44" id="OQC-Pc-YZ8"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="defaultBackground"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="25"/>
+                                <integer key="value" value="22"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="投资者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Hb-Bb-Lxh">
-                        <rect key="frame" x="211" y="21" width="42" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzl-h2-LVI">
-                        <rect key="frame" x="338.5" y="21" width="48.5" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Rzl-h2-LVI" secondAttribute="trailing" constant="25" id="13u-a7-knE"/>
                     <constraint firstItem="dbP-a9-chi" firstAttribute="leading" secondItem="e7M-H2-HkN" secondAttribute="leading" constant="50" id="25d-wa-eGZ"/>
-                    <constraint firstItem="3Hb-Bb-Lxh" firstAttribute="leading" secondItem="vqI-xQ-kGP" secondAttribute="trailing" constant="10" id="3lF-Ip-bYG"/>
-                    <constraint firstItem="3Hb-Bb-Lxh" firstAttribute="centerY" secondItem="vqI-xQ-kGP" secondAttribute="centerY" id="BMs-fZ-dNu"/>
-                    <constraint firstItem="vqI-xQ-kGP" firstAttribute="centerX" secondItem="e7M-H2-HkN" secondAttribute="centerX" constant="-30" id="EBb-XZ-cMR"/>
-                    <constraint firstItem="Rzl-h2-LVI" firstAttribute="centerY" secondItem="vqI-xQ-kGP" secondAttribute="centerY" id="i0O-ZZ-l3d"/>
+                    <constraint firstItem="3Hb-Bb-Lxh" firstAttribute="centerY" secondItem="38a-Cn-UDo" secondAttribute="centerY" id="Cpb-Ss-z4I"/>
+                    <constraint firstItem="Rzl-h2-LVI" firstAttribute="centerY" secondItem="e7M-H2-HkN" secondAttribute="centerY" id="Op1-gT-IYH"/>
+                    <constraint firstItem="38a-Cn-UDo" firstAttribute="centerX" secondItem="e7M-H2-HkN" secondAttribute="centerX" constant="-25" id="dzw-i8-O2H"/>
+                    <constraint firstItem="38a-Cn-UDo" firstAttribute="centerY" secondItem="e7M-H2-HkN" secondAttribute="centerY" id="eXP-Pd-lMa"/>
+                    <constraint firstItem="3Hb-Bb-Lxh" firstAttribute="centerX" secondItem="e7M-H2-HkN" secondAttribute="centerX" constant="25" id="tEQ-Rt-6Ya"/>
                     <constraint firstItem="dbP-a9-chi" firstAttribute="centerY" secondItem="e7M-H2-HkN" secondAttribute="centerY" id="wCy-Yw-cpQ"/>
-                    <constraint firstItem="vqI-xQ-kGP" firstAttribute="centerY" secondItem="e7M-H2-HkN" secondAttribute="centerY" id="wMx-wk-u9O"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="TopBtn" destination="dbP-a9-chi" id="L2t-iV-D3W"/>
                 <outlet property="priceLabel" destination="Rzl-h2-LVI" id="J82-9u-KyO"/>
                 <outlet property="topBtnConstraint" destination="25d-wa-eGZ" id="Al5-N1-JpN"/>
-                <outlet property="userIcon" destination="vqI-xQ-kGP" id="1xh-jj-UiZ"/>
+                <outlet property="userIcon" destination="38a-Cn-UDo" id="o4Z-bh-1dr"/>
                 <outlet property="userName" destination="3Hb-Bb-Lxh" id="AO4-uF-NhW"/>
             </connections>
             <point key="canvasLocation" x="191" y="229"/>

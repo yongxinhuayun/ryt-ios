@@ -15,5 +15,5 @@
 
 /** 投资价格 */
 @property (nonatomic ,assign) NSInteger bidding_rate;
-
+@property(nonatomic,copy) NSString *picture;
 @end

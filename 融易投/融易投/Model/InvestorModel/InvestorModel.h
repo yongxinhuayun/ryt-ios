@@ -17,6 +17,7 @@
 @property (nonatomic ,assign) NSInteger price;
 @property(nonatomic,assign) NSInteger rois;
 @property(nonatomic,copy) NSString *username;
+@property(nonatomic,copy) NSString *picture;
 
 
 

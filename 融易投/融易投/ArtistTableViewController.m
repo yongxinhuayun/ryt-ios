@@ -33,8 +33,8 @@ static NSString *ID = @"artistCell";
     [super viewDidLoad];
     
     self.lastPageNum = @"1";
-    self.tableView.contentInset = UIEdgeInsetsMake(SSTitlesViewH, 0, SSTabBarH, 0);
-    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, SSTabBarH, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(SSTitlesViewH , 0, SSTabBarH, 0);
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH , 0, SSTabBarH, 0);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"ArtistTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
@@ -121,8 +121,8 @@ static NSString *ID = @"artistCell";
                            @"pageNum" : pageNum,
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"getArtistTopList.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        //        NSLog(@"返回结果:%@",jsonStr);
+                NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+                NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         NSArray *moreModels = [ArtistModel mj_objectArrayWithKeyValuesArray:modelDict[@"ArtistTopList"]];
         //拼接数据
@@ -176,6 +176,10 @@ static NSString *ID = @"artistCell";
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return @"11111";
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return self.subTitlesView.height;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

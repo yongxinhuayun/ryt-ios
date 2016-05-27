@@ -168,6 +168,10 @@ static NSString *ID = @"artistCell";
     return @"11111";
 }
 
+-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return self.subTitlesView.height;
+}
+
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     return self.subTitlesView;
 }

@@ -77,8 +77,8 @@
     postController.title = [NSString stringWithFormat:@"回复%@",commentModel.creator.name];
     postController.artworkId = commentModel.artwork.ID;
     // 当前用户的ID
-    postController.currentUserId = @"iijq9f1r7apprtab";
-    postController.fatherCommentId = commentModel.fatherArtworkCommentBean.creator.ID;
+    postController.currentUserId = [[RYTLoginManager shareInstance] takeUser].ID;
+    postController.fatherCommentId = commentModel.fatherArtworkCommentBean.ID;
     [self.navigationController pushViewController:postController animated:YES];
 }
 

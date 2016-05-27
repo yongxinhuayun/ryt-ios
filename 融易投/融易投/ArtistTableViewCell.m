@@ -8,11 +8,13 @@
 
 #import "ArtistTableViewCell.h"
 #import "ArtistModel.h"
-
+#import "InvestorModel.h"
+#import <UIImageView+WebCache.h>
 @interface ArtistTableViewCell ()
 
 
-@property (weak, nonatomic) IBOutlet UIImageView *userIcon;
+@property (weak, nonatomic) IBOutlet UIButton *userIcon;
+
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
@@ -44,6 +46,13 @@
     }else{
         self.topBtnConstraint.constant = 40;
     }
+    NSString *iconStr = [[NSString stringWithFormat:@"%@",investorModel.picture] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    [self.userIcon sd_setImageWithURL:[NSURL URLWithString:iconStr] placeholderImage:[UIImage imageNamed:@"defaultBackground"]];
+    UIImageView *imgView = [[UIImageView alloc] init];
+    [imgView sd_setImageWithURL:[NSURL URLWithString:iconStr] placeholderImage:[UIImage imageNamed:@"defaultBackground"]];
+    [self.userIcon setBackgroundImage:imgView.image forState:(UIControlStateNormal)];
+    self.userName.text = investorModel.truename;
+    self.priceLabel.text = [NSString stringWithFormat:@"%ld 元",investorModel.price];
 }
 
 -(void)setArtistModel:(ArtistModel *)artistModel{
@@ -53,6 +62,12 @@
     }else{
         self.topBtnConstraint.constant = 40;
     }
+    NSString *iconStr = [[NSString stringWithFormat:@"%@",artistModel.picture] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    UIImageView *imgView = [[UIImageView alloc] init];
+    [imgView sd_setImageWithURL:[NSURL URLWithString:iconStr] placeholderImage:[UIImage imageNamed:@"defaultBackground"]];
+    [self.userIcon setBackgroundImage:imgView.image forState:(UIControlStateNormal)];
+    self.userName.text = artistModel.truename;
+    self.priceLabel.text = [NSString stringWithFormat:@"%ld 元",artistModel.bidding_rate];
     //设置头像
 //        NSString *picture_urlStr = [[NSString stringWithFormat:@"%@",artistModel.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 //    
