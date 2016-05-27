@@ -20,8 +20,7 @@
 
 #import "PageInfoModel.h"
 
-@interface ArtistUserHomeViewController ()
-
+@interface ArtistUserHomeViewController ()<CommonUserHeaderViewDelegate>
 @end
 
 @implementation ArtistUserHomeViewController
@@ -55,7 +54,7 @@
     //    }
     
     tView.model = self.model;
-
+    tView.delegate = self;
     self.topview.height = tView.height;
     tView.backgroundColor = [UIColor whiteColor];
     tView.width = SSScreenW;

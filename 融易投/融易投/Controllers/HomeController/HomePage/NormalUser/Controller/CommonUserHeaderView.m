@@ -85,4 +85,13 @@
     }
 }
 
+- (IBAction)clickConcern:(UIButton *)sender {
+    //加关注
+    if ([self.delegate respondsToSelector:@selector(addConcern)]) {
+        [self.delegate addConcern];
+    }
+}
+
+
+
 @end

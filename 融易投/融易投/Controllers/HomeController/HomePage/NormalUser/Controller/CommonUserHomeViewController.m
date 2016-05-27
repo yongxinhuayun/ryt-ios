@@ -95,7 +95,14 @@
     }
 }
 
+// 添加关注
 -(void)addConcern{
+    //判断当前用户是否登录
+    RYTLoginManager *manager = [RYTLoginManager shareInstance];
+    if (![manager showLoginViewIfNeed]) {
+        // 如果用户登录了，获取当前用户的ID
+        NSString *userId = [manager takeUser].ID;
+    }
 
 }
 
