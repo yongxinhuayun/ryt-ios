@@ -160,15 +160,18 @@
                         <constraint firstItem="w2s-qr-8Uq" firstAttribute="leading" secondItem="LMU-dz-0F8" secondAttribute="trailing" constant="10" id="xiB-Id-6Jm"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="您投资的作品将在融资成功后进行拍卖，若拍卖成功，所得收益按照所投金额占屏幕金额比例分配，作为投资者回报，返回到您的个人账户中" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ikk-SW-oOh">
-                    <rect key="frame" x="14" y="316" width="347" height="43"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您投资的作品将在融资成功后进行拍卖，若拍卖成功，所得收益按照所投金额占屏幕金额比例分配，作为投资者回报，返回到您的个人账户中" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ikk-SW-oOh">
+                    <rect key="frame" x="14" y="328" width="347" height="43"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXx-pB-QhE">
-                    <rect key="frame" x="14" y="261" width="347" height="34"/>
+                    <rect key="frame" x="14" y="261" width="347" height="42"/>
                     <color key="backgroundColor" red="0.89803921568627454" green="0.2627450980392157" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="Y8E-WL-8mk"/>
+                    </constraints>
                     <state key="normal" title="投资2元">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </state>

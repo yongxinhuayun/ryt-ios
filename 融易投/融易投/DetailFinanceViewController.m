@@ -270,9 +270,9 @@
 
 //设置底部按钮
 - (void)addFooterView {
-    CGFloat y = SSScreenH - 44;
+    CGFloat y = SSScreenH - 49;
     CGFloat w = SSScreenW;
-    CGFloat h = 44;
+    CGFloat h = 49;
     FinanceFooterView *bottomView = [[[NSBundle mainBundle] loadNibNamed:@"FinanceFooterView" owner:nil options:nil] lastObject];
     bottomView.delegate = self;
     bottomView.widthConstraint.constant = 170;
