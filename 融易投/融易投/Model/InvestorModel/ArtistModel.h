@@ -10,6 +10,9 @@
 
 @interface ArtistModel : NSObject
 
+
+@property(nonatomic,copy) NSString *user_id;
+
 /** 投资者姓名 */
 @property (nonatomic ,strong) NSString *truename;
 

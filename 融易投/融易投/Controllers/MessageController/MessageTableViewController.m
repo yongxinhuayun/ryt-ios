@@ -125,7 +125,6 @@
             [self.navigationController pushViewController:privateLetterVC animated:YES];
         }
     }
-
 }
 
 //懒加载

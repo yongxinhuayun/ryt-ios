@@ -7,6 +7,7 @@
 //
 
 #import "ArtistTableViewController.h"
+#import "ArtistUserHomeViewController.h"
 
 #import <MJExtension.h>
 
@@ -160,8 +161,22 @@ static NSString *ID = @"artistCell";
     cell.artistModel = model;
     
     cell.RankLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row + 1];
-    
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self jumpToUserHome:indexPath];
+}
+
+-(void)jumpToUserHome:(NSIndexPath *)indexPath{
+    ArtistModel *model = self.models[indexPath.row];
+    NSString *userId = model.user_id;
+    if (userId) {
+            ArtistUserHomeViewController *home = [[ArtistUserHomeViewController alloc] init];
+            home.userId = model.user_id;
+        home.navigationItem.title = model.truename;
+            [self.navigationController pushViewController:home animated:YES];
+    }
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{

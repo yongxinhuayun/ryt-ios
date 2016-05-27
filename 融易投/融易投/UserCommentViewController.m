@@ -8,6 +8,7 @@
 
 #import "UserCommentViewController.h"
 #import "CommonUserHomeViewController.h"
+#import "ArtistUserHomeViewController.h"
 #import "PostCommentController.h"
 #import "CommonHeader.h"
 #import "CommonFooter.h"
@@ -190,50 +191,33 @@ static NSString *ID = @"userCommentCell";
 }
 
 -(void)clickUserIconOrName:(NSIndexPath *)indexPath{
+    [self jumpToUserHome:indexPath];
+}
+-(void)clickUserIcon:(NSIndexPath *)indexPath{
+    [self jumpToUserHome:indexPath];
+}
+
+-(void)clickfatherIcon:(NSIndexPath *)indexPath{
+    [self jumpToUserHome:indexPath];
+}
+
+-(void)jumpToUserHome:(NSIndexPath *)indexPath{
     ArtworkCommentListModel *model = self.models[indexPath.row];
     NSString *userId = model.creator.ID;
     if (userId) {
-        [self jumpToUserHome:userId];
-    }
-    
-}
--(void)clickUserIcon:(NSIndexPath *)indexPath{
-    ArtworkCommentListModel *model = self.models[indexPath.row];
-    NSString *userId = model.creator.ID;
-    [self jumpToUserHome:userId];
-}
--(void)clickfatherIcon:(NSIndexPath *)indexPath{
-    ArtworkCommentListModel *model = self.models[indexPath.row];
-    NSString *userId = model.fatherComment.creator.ID;
-    [self jumpToUserHome:userId];
-}
-
--(void)jumpToUserHome:(NSString *)userId{
-    NSString *pageSize = @"20";
-    NSString *pageIndex = @"1";
-    NSString *currentId = [[RYTLoginManager shareInstance] takeUser].ID;
-    // 3.设置请求体
-    NSDictionary *json = @{
-                           @"currentId" : currentId,
-                           @"userId" : userId,
-                           @"pageSize" : pageSize,
-                           @"pageIndex" : pageIndex,
-                           };
-    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"my.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
-        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-        PageInfoModel *pageModel = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
-        //保存模型,赋值给控制器
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        if (model.creator.master) {
+            ArtistUserHomeViewController *home = [[ArtistUserHomeViewController alloc] init];
+            home.userId = model.creator.ID;
+            home.title = model.creator.name;
+            home.navigationItem.title = model.creator.name;
+            [self.navigationController pushViewController:home animated:YES];
+        }else{
             CommonUserHomeViewController *commonUserHome = [[CommonUserHomeViewController alloc] init];
-//            commonUserHome.model = pageModel;
             commonUserHome.userId = userId;
-            NSString *title = [NSString stringWithFormat:@"%@的个人主页",pageModel.user.name];
-            commonUserHome.title = title;
+            commonUserHome.navigationItem.title = model.creator.name;
             [self.navigationController pushViewController:commonUserHome animated:YES];
-        }];
-    }];
+        }
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

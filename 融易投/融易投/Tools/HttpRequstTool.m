@@ -97,6 +97,7 @@ static  NSString *basePath = @"http://192.168.1.75:8080/app/";
         return;
     }
     if (view){
+        [MBProgressHUD hideHUD];
         [MBProgressHUD showHUDAddedTo:view animated:YES];
     }
 //    __weak HttpRequstTool *weakself=self;

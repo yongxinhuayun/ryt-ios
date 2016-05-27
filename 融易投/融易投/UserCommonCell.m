@@ -30,6 +30,7 @@
     self.replyTime.text = [self getTime:model.createDatetime];
     self.content.text = model.content;
 }
+
 -(NSString *)getTime:(NSInteger)creatTime{
     NSDate *newCreationEmdTimesp = [NSDate dateWithTimeIntervalSince1970:creatTime / 1000];
     //设置时间格式

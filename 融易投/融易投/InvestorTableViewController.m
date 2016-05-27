@@ -7,6 +7,7 @@
 //
 
 #import "InvestorTableViewController.h"
+#import "CommonUserHomeViewController.h"
 
 #import <MJExtension.h>
 
@@ -161,6 +162,21 @@ static NSString *ID = @"artistCell";
     cell.investorModel = model;
     cell.RankLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row + 1];
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self jumpToUserHome:indexPath];
+}
+
+-(void)jumpToUserHome:(NSIndexPath *)indexPath{
+    InvestorModel *model = self.models[indexPath.row];
+    NSString *userId = model.user_id;
+    if (userId) {
+            CommonUserHomeViewController *commonUserHome = [[CommonUserHomeViewController alloc] init];
+            commonUserHome.userId = userId;
+        commonUserHome.navigationItem.title = model.truename;
+            [self.navigationController pushViewController:commonUserHome animated:YES];
+    }
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
