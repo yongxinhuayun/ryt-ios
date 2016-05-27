@@ -38,7 +38,7 @@
     //用户名
     self.userLabel.text = self.model.user.name;
     //用户签名
-    self.userNickNameLabel.text = self.model.user.signMessage;
+    self.userNickNameLabel.text = self.model.user.userBrief.signer;
     //用户关注数
     self.guanzhuLabel.text = [NSString stringWithFormat:@"%zd",self.model.num];
     //用户粉丝数

@@ -13,9 +13,14 @@
 /**  */
 @property (nonatomic ,strong) NSString *ID;
 
-/** 个性签名 */
+/**  */
+@property (nonatomic ,strong) NSString *status;
+
+/** 简介 */
 @property (nonatomic ,strong) NSString *content;
 
 
+/** 个性签名 */
+@property (nonatomic ,strong) NSString *signer;
 
 @end

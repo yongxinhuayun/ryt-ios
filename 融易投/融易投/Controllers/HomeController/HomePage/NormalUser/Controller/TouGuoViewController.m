@@ -93,30 +93,34 @@ static NSString *ID = @"InvestProjectCell";
 
 -(void)loadNewData
 {
-    //8.2 取消之前的请求
     [self.tableView.mj_header endRefreshing];
     
     self.lastPageIndex = @"1";
     //参数
     UserMyModel *model = TakeLoginUserModel;
-    NSString *userId = model.ID;
-//    NSString *userId = @"ieatht97wfw30hfd";
+    NSString *currentId = model.ID;
+    
+    NSString *userId = self.userId;
+    
+    SSLog(@"%@",currentId);
+    SSLog(@"%@",userId);
     
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";
     
     NSString *url = @"my.do";
-    // 3.设置请求体
+
     NSDictionary *json = @{
                            @"userId":userId,
+                           @"currentId":currentId,
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex
                            };
     
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
 
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
@@ -161,25 +165,31 @@ static NSString *ID = @"InvestProjectCell";
     self.lastPageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
     
     //参数
-        UserMyModel *model = TakeLoginUserModel;
-        NSString *userId = model.ID;
-//    NSString *userId = @"ieatht97wfw30hfd";
-
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *currentId = model.ID;
+    
+    NSString *userId = self.model.user.ID;
+    
     NSString *pageSize = @"20";
     NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
+    
+    NSString *url = @"my.do";
 
-     NSString *url = @"my.do";
     // 3.设置请求体
     NSDictionary *json = @{
                            @"userId":userId,
+                           @"currentId":currentId,
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex
                            };
+
+
+
     
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         

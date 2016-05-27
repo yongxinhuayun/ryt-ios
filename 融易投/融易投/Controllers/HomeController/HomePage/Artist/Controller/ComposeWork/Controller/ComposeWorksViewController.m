@@ -176,20 +176,46 @@
                            @"signmsg"   : signmsgMD5
                            };
     
-    NSString *url = @"http://192.168.1.75:8001/app/saveMasterWork.do";
+
+    NSString *url = @"saveMasterWork.do";
     
-    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
+         [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"pictureUrl" fileName:@"pictureUrl.jpg" mimeType:@"application/octet-stream" error:nil];
+    } showHUDView:nil progress:^(id progress) {
+        
+        SSLog(@"%@",progress);
+        
+    } success:^(id respondObj) {
+        
+        NSString *aString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+
+        SSLog(@"%@",aString);
+        
+        
+        [SVProgressHUD showInfoWithStatus:@"发布成功"];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        
+        //在主线程刷新UI数据
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            [SVProgressHUD dismiss];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        
+    }];
     
-    // 设置请求格式
-    manger.requestSerializer = [AFJSONRequestSerializer serializer];
-    // 设置返回格式
-    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
-    
-//    [manger POST:<#(nonnull NSString *)#> parameters:<#(nullable id)#> constructingBodyWithBlock:<#^(id<AFMultipartFormData>  _Nonnull formData)block#> progress:^(NSProgress * _Nonnull uploadProgress) {
-//        
-//    } success:<#^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)success#> failure:<#^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)failure#>]
-    
+    /*
+     
+     NSString *url = @"http://192.168.1.75:8001/app/saveMasterWork.do";
+     
+     AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
+     
+     // 设置请求格式
+     manger.requestSerializer = [AFJSONRequestSerializer serializer];
+     // 设置返回格式
+     manger.responseSerializer = [AFHTTPResponseSerializer serializer];
+     
     [manger POST:url parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
         [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"pictureUrl" fileName:@"pictureUrl.jpg" mimeType:@"application/octet-stream" error:nil];
@@ -230,32 +256,7 @@
             
         }];
     }];
-     
-    
-    /*
-    NSString *url = @"saveMasterWork.do";
-    
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
-        
-        [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"pictureUrl" fileName:@"pictureUrl.jpg" mimeType:@"application/octet-stream" error:nil];
-        
-    } showHUDView:nil success:^(id respondObj) {
-        
-//        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-//        SSLog(@"%@",aString);
-        [SVProgressHUD showInfoWithStatus:@"发布成功"];
-        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-        
-        //在主线程刷新UI数据
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
-            [SVProgressHUD dismiss];
-            
-            [self.navigationController popViewControllerAnimated:YES];
-        }];
-    }];
      */
-
 }
 
 - (void)didReceiveMemoryWarning {

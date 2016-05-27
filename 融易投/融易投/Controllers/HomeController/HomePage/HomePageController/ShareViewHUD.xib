@@ -15,14 +15,15 @@
                     <rect key="frame" x="0.0" y="457" width="375" height="210"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Av-ge-R26" customClass="WXButton">
-                            <rect key="frame" x="235" y="65" width="45" height="45"/>
+                            <rect key="frame" x="238" y="65" width="90" height="90"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="45" id="BAH-aS-jgF"/>
-                                <constraint firstAttribute="height" constant="45" id="D02-En-XSM"/>
+                                <constraint firstAttribute="width" constant="90" id="BAH-aS-jgF"/>
+                                <constraint firstAttribute="height" constant="90" id="D02-En-XSM"/>
                                 <constraint firstAttribute="height" constant="42" id="yg9-6M-wit"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <state key="normal" title="朋友圈" image="fenxiang_pengyouquan">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <variation key="default">
                                 <mask key="constraints">
@@ -31,14 +32,15 @@
                             </variation>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPA-am-J89" customClass="WXButton">
-                            <rect key="frame" x="95" y="65" width="45" height="45"/>
+                            <rect key="frame" x="48" y="65" width="90" height="90"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="45" id="Ssq-6F-K7y"/>
-                                <constraint firstAttribute="width" constant="45" id="nAh-U5-3uM"/>
+                                <constraint firstAttribute="height" constant="90" id="Ssq-6F-K7y"/>
+                                <constraint firstAttribute="width" constant="90" id="nAh-U5-3uM"/>
                                 <constraint firstAttribute="height" constant="42" id="wqJ-pr-2fH"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <state key="normal" title="微信" image="fenxiang_weixin">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <variation key="default">
                                 <mask key="constraints">
@@ -70,14 +72,16 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="0Av-ge-R26" firstAttribute="centerX" secondItem="Jg9-VF-eWQ" secondAttribute="centerX" constant="95" id="0ac-Hd-2KH"/>
                         <constraint firstItem="qPA-am-J89" firstAttribute="top" secondItem="Jg9-VF-eWQ" secondAttribute="bottom" constant="27" id="7XS-gc-xxN"/>
                         <constraint firstItem="9hc-Oh-poC" firstAttribute="leading" secondItem="R1P-BL-OIH" secondAttribute="leading" id="7mj-3B-bH6"/>
                         <constraint firstItem="Vul-Rx-xjb" firstAttribute="leading" secondItem="R1P-BL-OIH" secondAttribute="leading" id="91e-e2-Kt9"/>
                         <constraint firstItem="0Av-ge-R26" firstAttribute="width" secondItem="qPA-am-J89" secondAttribute="width" id="DlP-Bk-8cw"/>
                         <constraint firstAttribute="height" constant="210" id="G6I-73-IYP"/>
                         <constraint firstItem="Jg9-VF-eWQ" firstAttribute="centerX" secondItem="R1P-BL-OIH" secondAttribute="centerX" id="Jm4-DW-PtR"/>
-                        <constraint firstItem="qPA-am-J89" firstAttribute="leading" secondItem="R1P-BL-OIH" secondAttribute="leading" constant="95" id="RXX-Rk-YJS"/>
+                        <constraint firstItem="qPA-am-J89" firstAttribute="leading" secondItem="R1P-BL-OIH" secondAttribute="leading" constant="40" id="RXX-Rk-YJS"/>
                         <constraint firstItem="Jg9-VF-eWQ" firstAttribute="top" secondItem="R1P-BL-OIH" secondAttribute="top" constant="20" id="Ul2-UD-cEk"/>
+                        <constraint firstItem="Jg9-VF-eWQ" firstAttribute="centerX" secondItem="qPA-am-J89" secondAttribute="centerX" constant="95" id="YGd-gK-IMh"/>
                         <constraint firstItem="0Av-ge-R26" firstAttribute="centerY" secondItem="qPA-am-J89" secondAttribute="centerY" id="ZBT-WI-lr0"/>
                         <constraint firstAttribute="trailing" secondItem="9hc-Oh-poC" secondAttribute="trailing" id="Zgm-89-MPK"/>
                         <constraint firstItem="0Av-ge-R26" firstAttribute="height" secondItem="qPA-am-J89" secondAttribute="height" id="Zhj-xX-blT"/>
@@ -86,6 +90,12 @@
                         <constraint firstAttribute="bottom" secondItem="Vul-Rx-xjb" secondAttribute="bottom" id="xif-Q8-T4o"/>
                         <constraint firstItem="Vul-Rx-xjb" firstAttribute="top" secondItem="9hc-Oh-poC" secondAttribute="bottom" id="ykc-cK-FD0"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="RXX-Rk-YJS"/>
+                            <exclude reference="vVR-8M-gA0"/>
+                        </mask>
+                    </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>

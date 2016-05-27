@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "MasterMyModel.h"
+#import "UserBriefMyModel.h"
 
 @interface UserMyModel : NSObject <NSCoding>
 
@@ -31,6 +32,8 @@
 /** 性别 */
 @property (nonatomic ,strong) NSString *sex;
 
+/** userBrief */
+@property (nonatomic ,strong) UserBriefMyModel *userBrief;
 
 /** 艺术家身份 */
 @property (nonatomic ,strong) MasterMyModel *master;
