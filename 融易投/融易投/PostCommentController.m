@@ -81,8 +81,10 @@
         SSLog(@"%@",modelDict);
         NSString *result = modelDict[@"resultMsg"];
         if ([result isEqualToString:@"成功"]) {
+            if (self.messageId) {
+                // 对动态进行评论
+            }else{
                 NSNotificationCenter *notCenter = [NSNotificationCenter defaultCenter];
-            if (!self.fatherCommentId) {
                 [notCenter postNotificationName:@"POSTCOMMENT" object:nil];
             }
             [self.navigationController popViewControllerAnimated:YES];

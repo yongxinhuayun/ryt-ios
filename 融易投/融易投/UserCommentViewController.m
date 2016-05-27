@@ -8,6 +8,7 @@
 
 #import "UserCommentViewController.h"
 #import "CommonUserHomeViewController.h"
+#import "PostCommentController.h"
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 
@@ -16,6 +17,7 @@
 #import "UserCommonResultModel.h"
 #import "UserCommentObjectModel.h"
 #import "ArtworkCommentListModel.h"
+#import "ArtworkMessageModel.h"
 #import "CreatorModel.h"
 #import "PageInfoModel.h"
 #import "UserMyModel.h"
@@ -52,6 +54,9 @@ static NSString *ID = @"userCommentCell";
                  };
     }];
     [ArtworkCommentListModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{@"ID":@"id"};
+    }];
+    [ArtworkMessageModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         return @{@"ID":@"id"};
     }];
     [CreatorModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
@@ -164,6 +169,26 @@ static NSString *ID = @"userCommentCell";
     }
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    // 获取评论信息
+    ArtworkCommentListModel *model = self.models[indexPath.row];
+    PostCommentController *postCon = [[PostCommentController alloc] init];
+    RYTLoginManager *manager = [RYTLoginManager shareInstance];
+    if (![manager showLoginViewIfNeed]) {
+        // 当前用户的ID
+        NSString *currentId = manager.takeUser.ID;
+        //判断当前用户ID,与发表评论的人的ID 是否 相同
+        if (![currentId isEqualToString:model.creator.ID]) {
+            postCon.currentUserId = currentId;
+            postCon.fatherCommentId = model.ID;
+            postCon.artworkId = self.artWorkId;
+            postCon.title = [NSString stringWithFormat:@"回复%@",model.creator.username];
+            [self.navigationController pushViewController:postCon animated:YES];
+        }
+    }
+    
+}
+
 -(void)clickUserIconOrName:(NSIndexPath *)indexPath{
     ArtworkCommentListModel *model = self.models[indexPath.row];
     NSString *userId = model.creator.ID;
@@ -186,9 +211,11 @@ static NSString *ID = @"userCommentCell";
 -(void)jumpToUserHome:(NSString *)userId{
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";
+    NSString *currentId = [[RYTLoginManager shareInstance] takeUser].ID;
     // 3.设置请求体
     NSDictionary *json = @{
-                           @"userId":userId,
+                           @"currentId" : currentId,
+                           @"userId" : userId,
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex,
                            };
@@ -206,7 +233,6 @@ static NSString *ID = @"userCommentCell";
             [self.navigationController pushViewController:commonUserHome animated:YES];
         }];
     }];
-    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

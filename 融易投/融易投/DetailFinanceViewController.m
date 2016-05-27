@@ -292,7 +292,6 @@
         postComment.title = @"评论";
         postComment.artworkId = self.artworkModel.ID;
         postComment.currentUserId = [manager takeUser].ID;
-        postComment.messageId = self.artworkModel.ID;
         self.isFirstIn = NO;
         [self.navigationController pushViewController:postComment animated:YES];
     }

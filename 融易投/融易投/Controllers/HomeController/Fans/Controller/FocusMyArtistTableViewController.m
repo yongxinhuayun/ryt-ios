@@ -247,7 +247,7 @@ static NSString *ID = @"focusMyCell";
 
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-
+            [self.tableView.mj_footer endRefreshing];
             [self.tableView reloadData];
 
         }];

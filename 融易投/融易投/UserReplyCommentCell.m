@@ -59,17 +59,13 @@
     if ([self.delegate respondsToSelector:@selector(clickUserIcon:)]) {
         [self.delegate clickUserIcon:self.indexPath];
     }
-    NSLog(@"跳转到用户信息页面 %@",self.indexPath);
+//    NSLog(@"跳转到用户信息页面 %@",self.indexPath);
 }
 - (IBAction)clickFatherName:(UIButton *)sender {
     if ([self.delegate respondsToSelector:@selector(clickfatherIcon:)]) {
         [self.delegate clickfatherIcon:self.indexPath];
     }
 }
-
-
-
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
 }
