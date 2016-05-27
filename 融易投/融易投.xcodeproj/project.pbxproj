@@ -585,7 +585,6 @@
 		E2D524441CDF994C0024887A /* FocusMyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D524421CDF994C0024887A /* FocusMyTableViewCell.xib */; };
 		E2D5244B1CDF99C70024887A /* ApplyforArtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524491CDF99C70024887A /* ApplyforArtViewController.m */; };
 		E2D5244C1CDF99C70024887A /* ApplyforArtViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D5244A1CDF99C70024887A /* ApplyforArtViewController.storyboard */; };
-		E2D5245C1CDF9B590024887A /* BillTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D5245B1CDF9B590024887A /* BillTableViewController.m */; };
 		E2D524601CDF9B6C0024887A /* PayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D5245E1CDF9B6C0024887A /* PayTableViewController.m */; };
 		E2D524611CDF9B6C0024887A /* PayTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D5245F1CDF9B6C0024887A /* PayTableViewController.storyboard */; };
 		E2D524651CDF9B910024887A /* WalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524631CDF9B910024887A /* WalletViewController.m */; };
@@ -1520,8 +1519,6 @@
 		E2D524481CDF99C70024887A /* ApplyforArtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyforArtViewController.h; sourceTree = "<group>"; };
 		E2D524491CDF99C70024887A /* ApplyforArtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyforArtViewController.m; sourceTree = "<group>"; };
 		E2D5244A1CDF99C70024887A /* ApplyforArtViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ApplyforArtViewController.storyboard; sourceTree = "<group>"; };
-		E2D5245A1CDF9B590024887A /* BillTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillTableViewController.h; sourceTree = "<group>"; };
-		E2D5245B1CDF9B590024887A /* BillTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillTableViewController.m; sourceTree = "<group>"; };
 		E2D5245D1CDF9B6C0024887A /* PayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayTableViewController.h; sourceTree = "<group>"; };
 		E2D5245E1CDF9B6C0024887A /* PayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayTableViewController.m; sourceTree = "<group>"; };
 		E2D5245F1CDF9B6C0024887A /* PayTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PayTableViewController.storyboard; sourceTree = "<group>"; };
@@ -3363,37 +3360,11 @@
 		E2D5244D1CDF9AE10024887A /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				E2D5244E1CDF9AE10024887A /* Bill */,
 				E2D524511CDF9AE10024887A /* Recharge */,
 				E2D524541CDF9AE10024887A /* Wallet */,
 				E2D524571CDF9AE10024887A /* Withdraw */,
 			);
 			path = Wallet;
-			sourceTree = "<group>";
-		};
-		E2D5244E1CDF9AE10024887A /* Bill */ = {
-			isa = PBXGroup;
-			children = (
-				E2D5244F1CDF9AE10024887A /* Controller */,
-				E2D524501CDF9AE10024887A /* View */,
-			);
-			path = Bill;
-			sourceTree = "<group>";
-		};
-		E2D5244F1CDF9AE10024887A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				E2D5245A1CDF9B590024887A /* BillTableViewController.h */,
-				E2D5245B1CDF9B590024887A /* BillTableViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		E2D524501CDF9AE10024887A /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		E2D524511CDF9AE10024887A /* Recharge */ = {
@@ -4444,7 +4415,6 @@
 				21C414091CE2D23500F1029C /* UIView+JKPicker.m in Sources */,
 				21B99BAD1CF6FE4800E682F8 /* WXButton.m in Sources */,
 				21C414231CE2D23500F1029C /* UITableView+Improve.m in Sources */,
-				E2D5245C1CDF9B590024887A /* BillTableViewController.m in Sources */,
 				E2322B131CEC0AAB002730E7 /* NormalCommentsCell.m in Sources */,
 				21AB0B581CC605F500B7BA03 /* XCLSegmentView.m in Sources */,
 				E2D524721CDF9B9C0024887A /* WalletHeaderView.m in Sources */,
@@ -4823,8 +4793,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4863,7 +4833,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "beadd937-265c-46f8-852b-19ef56b77481";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/TOM/Desktop/ryt-ios/融易投/融易投/JPushLIB";
@@ -4876,8 +4846,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4916,7 +4886,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "beadd937-265c-46f8-852b-19ef56b77481";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/TOM/Desktop/ryt-ios/融易投/融易投/JPushLIB";
