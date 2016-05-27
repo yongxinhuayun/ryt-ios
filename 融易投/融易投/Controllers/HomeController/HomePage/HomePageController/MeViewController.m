@@ -68,16 +68,12 @@
 
 static NSString *ID = @"MeTableViewCell";
 
+static BOOL firstUpdate = YES;
+
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-    //加载头部视图数据
-    //设置头部视图
-    MeHeaderView *meheaderView = [MeHeaderView meHeaderView];
 
-    self.meheaderView = meheaderView;
-    
-    self.tableView.tableHeaderView = self.meheaderView;
     
     //点击头像跳转编辑资料视图
     [self jumpeditingInfoVc];
@@ -87,20 +83,36 @@ static NSString *ID = @"MeTableViewCell";
     
     //点击跳转粉丝界面
     [self jumpFansVc];
-
+    
     if (![self.manger isVisitor]) {
-        
-        //获取用户信息数据
-        [self loadData];
+
+        if (firstUpdate) {
+            
+            //获取用户信息数据
+            [self loadData];
+        }
     }
 
     //设置导航条
     [self setUpNavBar];
+    
+    
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+
+    firstUpdate = NO;
 }
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    //加载头部视图数据
+    //设置头部视图
+    MeHeaderView *meheaderView = [MeHeaderView meHeaderView];
+    self.meheaderView = meheaderView;
+    self.tableView.tableHeaderView = self.meheaderView;
     
     //初始化微信类
     _bqlAuthEngine = [[BQLAuthEngine alloc] init];
@@ -119,6 +131,14 @@ static NSString *ID = @"MeTableViewCell";
     [self improveTableView];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //4.跟新我的界面的数据控制器
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateMeViewDataController) name:UpdateMeViewDataControllerNotification object:nil];
+}
+
+-(void)updateMeViewDataController{
+
+    //获取用户信息数据
+    [self loadData];
 }
 
 -(void)improveTableView
@@ -527,6 +547,7 @@ static NSString *ID = @"MeTableViewCell";
 
     if (userId == nil) {
         
+        self.meheaderView.model = nil;
         userId = @"";
         
         SSLog(@"%@",userId);
@@ -575,6 +596,7 @@ static NSString *ID = @"MeTableViewCell";
             [self jumpFansVc];
             
             [self setUpNavBar];
+            
         }];
 
     }];

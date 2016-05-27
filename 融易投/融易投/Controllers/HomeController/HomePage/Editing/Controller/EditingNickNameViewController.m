@@ -114,6 +114,8 @@
         [MBProgressHUD hideHUD];
         if (model) {
             [MBProgressHUD showSuccess:@"修改昵称成功"];
+            //发送通知,修改我的界面的数据
+            [[NSNotificationCenter defaultCenter] postNotificationName:UpdateMeViewDataControllerNotification object:self];
             //保存模型,赋值给控制器
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 [self.navigationController popViewControllerAnimated:YES];

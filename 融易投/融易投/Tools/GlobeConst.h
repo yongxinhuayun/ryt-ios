@@ -34,4 +34,7 @@ UIKIT_EXTERN NSString * const ProjectDetailsArtWorkIdNotification;
 /** 通知：切换控制器 */
 UIKIT_EXTERN NSString * const ChangeRootViewControllerNotification;
 
+/** 通知：切换控制器 */
+UIKIT_EXTERN NSString * const UpdateMeViewDataControllerNotification;
+
 @end

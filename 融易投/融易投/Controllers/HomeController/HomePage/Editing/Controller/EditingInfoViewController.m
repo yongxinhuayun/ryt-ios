@@ -314,79 +314,7 @@
 }
 
 -(void)chageUserPictureUrlToData{
-    
-    /*
-    //1 男 2 女
-    //参数
-    UserMyModel *model = TakeLoginUserModel;
-    NSString *userId = model.ID;
-    NSString *type = @"10";
-    NSString *headPortrait = self.createPath;
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    
-    NSString *signmsg = [NSString stringWithFormat:@"timestamp=%@&type=%@&userId=%@&key=%@",timestamp,type,userId,appkey];
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    // 3.设置请求体
-    NSDictionary *json = @{
-                           @"userId":userId,
-                           @"type" : type,
-                           @"headPortrait":headPortrait,
-                           @"timestamp":timestamp,
-                           @"signmsg"   : signmsgMD5
-                           };
-    
-    NSString *url = @"http://192.168.1.75:8001/app/editProfile.do";
-    
-    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
-    
-    // 设置请求格式
-    manger.requestSerializer = [AFJSONRequestSerializer serializer];
-    // 设置返回格式
-    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
-    [manger POST:url parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        
-        [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"headPortrait" fileName:@"headPortrait.jpg" mimeType:@"application/octet-stream" error:nil];
-        
-        
-    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSString *jsonStr=[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
-        
-        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
-        
-        UserMyModel *model = [UserMyModel mj_objectWithKeyValues:modelDict[@"userInfo"]];
-        [MBProgressHUD hideHUD];
-        if (model) {
-            [MBProgressHUD showSuccess:@"修改照片成功"];
-            //保存模型,赋值给控制器
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                //取消modal
-                [self dismissViewControllerAnimated:self completion:nil];
-            }];
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        SSLog(@"%@",error);
-        
-        //在主线程刷新UI数据
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
-            [MBProgressHUD showError:@"修改照片失败,请重新修改"];
-            
-            //取消modal
-            [self dismissViewControllerAnimated:self completion:nil];
-            
-        }];
-    }];
-    */
-    
-    
+
      //1 男 2 女
      //参数
      UserMyModel *model = TakeLoginUserModel;
@@ -426,7 +354,12 @@
         UserMyModel *model = [UserMyModel mj_objectWithKeyValues:modelDict[@"userInfo"]];
         [MBProgressHUD hideHUD];
         if (model) {
+            
             [MBProgressHUD showSuccess:@"修改照片成功"];
+            
+            //发送通知,修改我的界面的数据
+            [[NSNotificationCenter defaultCenter] postNotificationName:UpdateMeViewDataControllerNotification object:self];
+            
             //保存模型,赋值给控制器
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 //取消modal
