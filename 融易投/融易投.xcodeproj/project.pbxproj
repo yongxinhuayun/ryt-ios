@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2118F1EA1CAE88B4003BFC6B /* navTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2118F1E91CAE88B4003BFC6B /* navTitleButton.m */; };
+		211C031A1CF7D37A006167EF /* BillTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211C03181CF7D37A006167EF /* BillTableViewController.m */; };
 		211C394A1CB36B1500DAD827 /* FinanceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 211C39481CB36B1500DAD827 /* FinanceTableViewCell.m */; };
 		212EEE431CD9D8CD00F94B30 /* CommonButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE421CD9D8CD00F94B30 /* CommonButton.m */; };
 		212EEE701CDC361100F94B30 /* SettingFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE6F1CDC361100F94B30 /* SettingFooterView.m */; };
@@ -681,6 +682,8 @@
 		0CFB6E4A926D52C7C2AE4F6C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2118F1E81CAE88B4003BFC6B /* navTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navTitleButton.h; sourceTree = "<group>"; };
 		2118F1E91CAE88B4003BFC6B /* navTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navTitleButton.m; sourceTree = "<group>"; };
+		211C03171CF7D37A006167EF /* BillTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillTableViewController.h; sourceTree = "<group>"; };
+		211C03181CF7D37A006167EF /* BillTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillTableViewController.m; sourceTree = "<group>"; };
 		211C39471CB36B1500DAD827 /* FinanceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceTableViewCell.h; sourceTree = "<group>"; };
 		211C39481CB36B1500DAD827 /* FinanceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceTableViewCell.m; sourceTree = "<group>"; };
 		212EEE411CD9D8CD00F94B30 /* CommonButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonButton.h; sourceTree = "<group>"; };
@@ -1661,6 +1664,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		211C03151CF7D37A006167EF /* Bill */ = {
+			isa = PBXGroup;
+			children = (
+				211C03161CF7D37A006167EF /* Controller */,
+				211C03191CF7D37A006167EF /* View */,
+			);
+			path = Bill;
+			sourceTree = "<group>";
+		};
+		211C03161CF7D37A006167EF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				211C03171CF7D37A006167EF /* BillTableViewController.h */,
+				211C03181CF7D37A006167EF /* BillTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		211C03191CF7D37A006167EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		215C96591CED56AC0084C319 /* WeChatSDK_1.5 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3360,6 +3388,7 @@
 		E2D5244D1CDF9AE10024887A /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				211C03151CF7D37A006167EF /* Bill */,
 				E2D524511CDF9AE10024887A /* Recharge */,
 				E2D524541CDF9AE10024887A /* Wallet */,
 				E2D524571CDF9AE10024887A /* Withdraw */,
@@ -4487,6 +4516,7 @@
 				212EEE851CE0341400F94B30 /* ArtistObjectModel.m in Sources */,
 				21C4146E1CE4220800F1029C /* CoverHUDView.m in Sources */,
 				E2D521FA1CDF7A230024887A /* cityField.m in Sources */,
+				211C031A1CF7D37A006167EF /* BillTableViewController.m in Sources */,
 				E2D5225E1CDF8CEC0024887A /* CreatorModel.m in Sources */,
 				21C414331CE2D23500F1029C /* HMComposePhotosView.m in Sources */,
 				21B99BA21CF6AB7200E682F8 /* SSProgressView.m in Sources */,
