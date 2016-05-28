@@ -4823,8 +4823,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4863,7 +4863,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "beadd937-265c-46f8-852b-19ef56b77481";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/TOM/Desktop/ryt-ios/融易投/融易投/JPushLIB";
@@ -4876,8 +4876,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4916,7 +4916,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "beadd937-265c-46f8-852b-19ef56b77481";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/TOM/Desktop/ryt-ios/融易投/融易投/JPushLIB";

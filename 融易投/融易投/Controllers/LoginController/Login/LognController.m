@@ -120,8 +120,8 @@
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         [MBProgressHUD hideHUD];
         NSString *resultCode = dict[@"resultCode"];
@@ -148,6 +148,8 @@
             }
             //在主线程刷新UI数据
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                //发送通知,修改我的界面的数据
+                [[NSNotificationCenter defaultCenter] postNotificationName:UpdateMeViewDataControllerNotification object:self];
                 [self dismissViewControllerAnimated:YES completion:nil];
             }];
         }else { //登录失败
@@ -228,6 +230,9 @@
             }
             //在主线程刷新UI数据
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                
+                //发送通知,修改我的界面的数据
+                [[NSNotificationCenter defaultCenter] postNotificationName:UpdateMeViewDataControllerNotification object:self];
                 [self dismissViewControllerAnimated:YES completion:nil];
             }];
         }else { //登录失败

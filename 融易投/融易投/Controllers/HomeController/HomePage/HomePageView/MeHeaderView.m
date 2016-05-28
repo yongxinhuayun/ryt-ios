@@ -53,6 +53,25 @@
 
     _model = model;
     
+    if (!model) {
+        //头像
+        self.iconImageView.image = [UIImage imageNamed:@"jibenziliao_touxiang"];
+        //用户名
+        self.userName.text = @"游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客";
+        //用户签名
+        self.signature.text = @"个性签名:一句话20字以内";
+        //用户关注数
+        self.guanzhuNum.text = @"0";
+        //用户粉丝数
+        self.fansNum.text = @"0";
+        //投资金额
+        self.sumInvestment.text = @"0";
+        //投资收益
+        self.investmentIncome.text = @"0";
+        //投资回报率
+        self.investRate.text = @"0.00%";
+    }
+    
     //用户头像
     NSString *iconUrlStr = [[NSString stringWithFormat:@"%@",model.user.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
@@ -66,7 +85,7 @@
     //用户名
     self.userName.text = model.user.name;
     //用户签名
-    self.signature.text = model.user.signMessage;
+    self.signature.text = model.user.userBrief.signer;
     //用户关注数
     self.guanzhuNum.text = [NSString stringWithFormat:@"%zd",model.num];
     //用户粉丝数

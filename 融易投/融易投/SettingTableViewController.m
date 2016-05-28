@@ -143,6 +143,9 @@
     RYTLoginManager *manager = [RYTLoginManager shareInstance];
     [manager doLogout];
     
+    //发送通知,修改我的界面的数据
+    [[NSNotificationCenter defaultCenter] postNotificationName:UpdateMeViewDataControllerNotification object:self];
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 

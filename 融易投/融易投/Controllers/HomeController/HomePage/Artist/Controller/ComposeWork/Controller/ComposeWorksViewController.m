@@ -10,6 +10,7 @@
 #import "TimeFiled.h"
 
 #import <SVProgressHUD.h>
+#import <MBProgressHUD.h>
 
 @interface ComposeWorksViewController ()
 
@@ -181,17 +182,36 @@
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
          [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"pictureUrl" fileName:@"pictureUrl.jpg" mimeType:@"application/octet-stream" error:nil];
-    } showHUDView:nil progress:^(id progress) {
+    } showHUDView:nil progress:^(NSProgress * _Nonnull progress) {
         
-        SSLog(@"%@",progress);
+        SSLog(@"%zd",[progress totalUnitCount]);
+        SSLog(@"%zd",[progress completedUnitCount]);
+        
+        CGFloat totalPro = [progress totalUnitCount];
+        CGFloat currentPro = [progress completedUnitCount];
+        
+        int delta =  (int)(currentPro/totalPro * 28);
+
+        SSLog(@"%zd",[progress completedUnitCount] / [progress totalUnitCount]);
+        
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"update%zd", delta]];
+        
+        [SVProgressHUD showImage:image status:nil];
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+        
+        if ([progress completedUnitCount] / [progress completedUnitCount] == 1) {
+            
+            [SVProgressHUD dismiss];
+        }
+        
+        
         
     } success:^(id respondObj) {
         
-        NSString *aString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-
-        SSLog(@"%@",aString);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         
-        
+        self.navigationItem.rightBarButtonItem.enabled = YES;
         [SVProgressHUD showInfoWithStatus:@"发布成功"];
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
         

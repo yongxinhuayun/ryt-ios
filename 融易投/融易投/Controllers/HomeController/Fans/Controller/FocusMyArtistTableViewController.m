@@ -84,13 +84,14 @@ static NSString *ID = @"focusMyCell";
     
     self.lastPageIndex = @"1";
     //参数
-    NSString *userId = @"ieatht97wfw30hfd";
-//     NSString *userId = TakeUserID;
+    UserMyModel *userModel = TakeLoginUserModel;
+    NSString *userId = userModel.ID;
     NSString *otherUserId = @"ieatht97wfw30hfd";
     
     NSString *flag = @"1";
     
     //相等为自己看自己,flag为1
+    //flag为1是自己看自己,为2时是看别人,还需要传递otheruserId
     if ([userId isEqualToString:otherUserId]) {
         
         flag = @"1";
@@ -104,75 +105,36 @@ static NSString *ID = @"focusMyCell";
     
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";
-    //flag为1是自己看自己,为2时是看别人,还需要传递otheruserId
-        NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    
-    NSString *signmsg = [NSString stringWithFormat:@"pageIndex=%@&pageSize=%@&timestamp=%@&type=%@&userId=%@&key=%@",pageIndex,pageSize,timestamp,type,userId,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
+
     // 3.设置请求体
     NSDictionary *json = @{
                            @"userId":userId,
                            @"type":type,
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex,
-                           @"flag": flag,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
+                           @"flag": flag
                            };
     
-    NSString *url = @"http://192.168.1.41:8080/app/userFollowed.do";
+    NSString *url = @"userFollowed.do";
     
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         
-        /*
-         {"pageInfoList":
-                [{"artUserFollowed":{
-                                "id":"5",
-                                "user":{"id":"ieatht97wfw30hfd","username":"15110008479","name":"温群英","name2":"温群英","password":"388d079e06c2bb84c6fb092a15c3e0e0a8b01e52","status":1,"confirmPassword":null,"oldPassword":null,"enabled":true,"accountExpired":false,"accountLocked":false,"credentialsExpired":false,"utype":10000,"lastLoginDatetime":null,"lastLogoutDatetime":null,"createDatetime":1441684108000,"source":null,"fullName":"温群英[15110008479]","accountNonExpired":true,"accountNonLocked":true,"credentialsNonExpired":true},
-                                "follower":                                                                         {"id":"icjxkedl0000b6i0","username":"123123","name":"魏立中","name2":null,"password":"123123","status":1,"confirmPassword":null,"oldPassword":null,"enabled":true,"accountExpired":true,"accountLocked":false,"credentialsExpired":true,"utype":10000,"lastLoginDatetime":null,"lastLogoutDatetime":null,"createDatetime":null,"source":null,"fullName":"魏立中[123123]","accountNonExpired":false,"accountNonLocked":true,"credentialsNonExpired":false},
-                                "status":"1",
-                                "type":"1",
-                                "createDatetime":1461641660000},
-                "userBrief":null,
-                "master":
-                        {"id":"ich9th9y00008h8v","brief":"中国工艺美术大师、高级工艺美术师、福建省工艺美术大师、中国工艺美术学会会员、美国海外艺术家协会理事、福建省工艺美术学会常务理事、协会会员、首届厦门工艺美术学会常务付理事长。","title":"","favicon":"photo/20150729144701.jpg","birthday":"1939年","level":"1","content":"","presentAddress":"福建","backgroundUrl":"background/蔡水况.jpg","provinceName":"福建","theStatus":"1","logoUrl":"logo/蔡水况.jpg","masterSpeech":null,"artCategory":null,"titleCertificate":null,"feedback":"份","identityFront":null,"identityBack":null},
-                "flag":null},
-            {"artUserFollowed":
-                {"id":"111",
-                 "user":
-                        {"id":"ieatht97wfw30hfd","username":"15110008479","name":"温群英","name2":"温群英","password":"388d079e06c2bb84c6fb092a15c3e0e0a8b01e52","status":1,"confirmPassword":null,"oldPassword":null,"enabled":true,"accountExpired":false,"accountLocked":false,"credentialsExpired":false,"utype":10000,"lastLoginDatetime":null,"lastLogoutDatetime":null,"createDatetime":1441684108000,"source":null,"fullName":"温群英[15110008479]","accountNonExpired":true,"accountNonLocked":true,"credentialsNonExpired":true},
-                "follower":{"id":"ieatht97wfw30hfd","username":"15110008479","name":"温群英","name2":"温群英","password":"388d079e06c2bb84c6fb092a15c3e0e0a8b01e52","status":1,"confirmPassword":null,"oldPassword":null,"enabled":true,"accountExpired":false,"accountLocked":false,"credentialsExpired":false,"utype":10000,"lastLoginDatetime":null,"lastLogoutDatetime":null,"createDatetime":1441684108000,"source":null,"fullName":"温群英[15110008479]","accountNonExpired":true,"accountNonLocked":true,"credentialsNonExpired":true},
-                "status":"1",
-                "type":"1",
-                "createDatetime":1461917208000},
-         "userBrief":null,
-         "master":{"id":"ich9th9y00008h8v","brief":"中国工艺美术大师、高级工艺美术师、福建省工艺美术大师、中国工艺美术学会会员、美国海外艺术家协会理事、福建省工艺美术学会常务理事、协会会员、首届厦门工艺美术学会常务付理事长。","title":"","favicon":"photo/20150729144701.jpg","birthday":"1939年","level":"1","content":"","presentAddress":"福建","backgroundUrl":"background/蔡水况.jpg","provinceName":"福建","theStatus":"1","logoUrl":"logo/蔡水况.jpg","masterSpeech":null,"artCategory":null,"titleCertificate":null,"feedback":"份","identityFront":null,"identityBack":null},"flag":null}],"resultCode":"0","resultMsg":"请求成功","followsNum":2}
-         
-         */
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
-            NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-    
-            self.models = [PageInfoListMyModel mj_objectArrayWithKeyValuesArray:modelDict[@"pageInfoList"]];
-    
-//            NSLog(@"11111111111111%@",self.models);
-    
-    
-            //在主线程刷新UI数据
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-    
-                [self.tableView reloadData];
-    
-            }];
+        self.models = [PageInfoListMyModel mj_objectArrayWithKeyValuesArray:modelDict[@"pageInfoList"]];
+
+        //在主线程刷新UI数据
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            [self.tableView reloadData];
+            
+        }];
+        
     }];
+
 }
 
 -(void)loadMoreData
@@ -185,13 +147,9 @@ static NSString *ID = @"focusMyCell";
     
     self.lastPageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
     
-    NSLog(@"newPageIndex%@",self.lastPageIndex);
-    
-    NSLog(@"%d",newPageIndex);
-    
     //参数
-    NSString *userId = @"ieatht97wfw30hfd";
-    //     NSString *userId = TakeUserID;
+    UserMyModel *userModel = TakeLoginUserModel;
+    NSString *userId = userModel.ID;
     NSString *otherUserId = @"ieatht97wfw30hfd";
     
     NSString *flag = @"1";
@@ -210,48 +168,34 @@ static NSString *ID = @"focusMyCell";
     
     NSString *pageSize = @"20";
     NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    
-    NSString *signmsg = [NSString stringWithFormat:@"pageIndex=%@&pageSize=%@&timestamp=%@&type=%@&userId=%@&key=%@",pageIndex,pageSize,timestamp,type,userId,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
     // 3.设置请求体
     NSDictionary *json = @{
                            @"userId":userId,
                            @"type":type,
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex,
-                           @"flag": flag,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
+                           @"flag": flag
                            };
+     NSString *url = @"userFollowed.do";
     
-    NSString *url = @"http://192.168.1.41:8080/app/userFollowed.do";
-    
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
-
+        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        //        NSLog(@"返回结果:%@",jsonStr);
+        
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-
+        
         NSArray *moreModels =  [PageInfoListMyModel mj_objectArrayWithKeyValuesArray:modelDict[@"pageInfoList"]];
         //拼接数据
         [self.models addObjectsFromArray:moreModels];
-
-
+        
+        
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self.tableView.mj_footer endRefreshing];
             [self.tableView reloadData];
-
+            
         }];
-        
     }];
 }
 

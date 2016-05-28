@@ -12,7 +12,7 @@
 typedef void(^requstSuccessBlock)(id respondObj);
 
 typedef void(^constructingBodyWithBlock)(id formData);
-typedef void(^updateProgressBlock)(id progress);
+typedef void(^updateProgressBlock)(NSProgress * _Nonnull progress);
 
 typedef enum {
     POST,

@@ -83,8 +83,9 @@ static NSString *ID = @"focusMyCell";
     [self.tableView.mj_header endRefreshing];
     
     self.lastPageIndex = @"1";
+    NSString *pageSize = @"20";
+    NSString *pageIndex = @"1";
 
-    
     //参数
     NSString *userId = @"ieatht97wfw30hfd";
     //     NSString *userId = TakeUserID;
@@ -103,42 +104,26 @@ static NSString *ID = @"focusMyCell";
 
     
     NSString *type = @"2";
-    
-    NSString *pageSize = @"20";
-    NSString *pageIndex = @"1";
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    
-    NSString *signmsg = [NSString stringWithFormat:@"pageIndex=%@&pageSize=%@&timestamp=%@&type=%@&userId=%@&key=%@",pageIndex,pageSize,timestamp,type,userId,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
+
     // 3.设置请求体
     NSDictionary *json = @{
                            @"userId":userId,
                            @"type":type,
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex,
-                           @"flag": flag,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
+                           @"flag": flag
                            };
     
-    NSString *url = @"http://192.168.1.41:8080/app/userFollowed.do";
+    NSString *url = @"userFollowed.do";
     
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
-        
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
         self.models = [PageInfoListMyModel mj_objectArrayWithKeyValuesArray:modelDict[@"pageInfoList"]];
-        
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -146,6 +131,7 @@ static NSString *ID = @"focusMyCell";
             [self.tableView reloadData];
             
         }];
+        
     }];
 }
 
@@ -159,14 +145,10 @@ static NSString *ID = @"focusMyCell";
     
     self.lastPageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
     
-    NSLog(@"newPageIndex%@",self.lastPageIndex);
-    
-    NSLog(@"%d",newPageIndex);
-    
     //参数
-    NSString *userId = @"ieatht97wfw30hfd";
-//     NSString *userId = TakeUserID;
-    NSString *otherUserId = @"ieatht97wfw30hfs";
+    UserMyModel *userModel = TakeLoginUserModel;
+    NSString *userId = userModel.ID;
+    NSString *otherUserId = @"ieatht97wfw30hfd";
     
     NSString *flag = @"1";
     
@@ -183,15 +165,6 @@ static NSString *ID = @"focusMyCell";
     
     NSString *pageSize = @"20";
     NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
-    NSString *timestamp = [MyMD5 timestamp];
-    NSString *appkey = MD5key;
-    
-    NSString *signmsg = [NSString stringWithFormat:@"pageIndex=%@&pageSize=%@&timestamp=%@&type=%@&userId=%@&key=%@",pageIndex,pageSize,timestamp,type,userId,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
     
     // 3.设置请求体
     NSDictionary *json = @{
@@ -199,14 +172,12 @@ static NSString *ID = @"focusMyCell";
                            @"type":type,
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex,
-                           @"flag": flag,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
+                           @"flag": flag
                            };
     
-    NSString *url = @"http://192.168.1.41:8080/app/userFollowed.do";
+    NSString *url = @"userFollowed.do";
     
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json showHUDView:self.view success:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
         //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         //        NSLog(@"返回结果:%@",jsonStr);
@@ -220,11 +191,10 @@ static NSString *ID = @"focusMyCell";
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
+            [self.tableView.mj_footer endRefreshing];
             [self.tableView reloadData];
             
         }];
-        
     }];
 }
 
