@@ -47,6 +47,7 @@
     self.inverstMoneyLabel.text = [NSString stringWithFormat:@"%zd",self.model.sumInvestment];
     //投资收益
     self.inverstProfitLabel.text = [NSString stringWithFormat:@"%zd",self.model.yield];
+    self.focusBtn.selected = self.model.followed;
     //投资回报率
     //投资回报率
     float sumInvestmentFloat = NAN;

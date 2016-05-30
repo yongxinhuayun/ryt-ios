@@ -38,4 +38,6 @@
 @property (nonatomic,weak) id<CommonUserHeaderViewDelegate>delegate;
 @property (nonatomic ,strong)PageInfoModel *model;
 
+
+
 @end

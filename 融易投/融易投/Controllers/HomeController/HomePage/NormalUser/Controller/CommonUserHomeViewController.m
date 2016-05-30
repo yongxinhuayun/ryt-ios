@@ -23,6 +23,7 @@
 @interface CommonUserHomeViewController ()<CommonUserHeaderViewDelegate>
 
 @property (nonatomic ,strong)PageInfoModel *model;
+@property (nonatomic,strong)CommonUserHeaderView *HeaderView;
 
 @end
 
@@ -48,7 +49,7 @@
 //    }
     tView.delegate = self;
     tView.model = self.model;
-    
+    self.HeaderView = tView;
     self.topview.height = tView.height;
     self.topview.width = SSScreenW;
     tView.backgroundColor = [UIColor whiteColor];
@@ -73,7 +74,7 @@
 -(void)loadNewData
 {
     //参数
-    UserMyModel *model = TakeLoginUserModel;
+    UserMyModel *model = [[RYTLoginManager shareInstance] takeUser];
     NSString *currentId = model.ID;
     NSString *userId = self.userId;
     NSString *pageSize = @"20";
@@ -140,10 +141,34 @@
         NSString *userId = [manager takeUser].ID;
         // 获取当前将要被关注的用户ID
         NSString *followId = self.model.user.ID;
-//        NSString *identifier =  0为关注，1为取消关注
-        NSDictionary *json = @{
-                               @"userId" : userId,
-                               };
+//        NSString *identifier 0 为关注，1 为取消关注
+        NSString *identifier = self.model.followed ? @"1" : @"0";
+        // followType 1:普通用户 2:艺术家
+        NSString *followType = self.model.user.master ? @"2" : @"1";
+        NSDictionary *json = [ NSDictionary dictionary];
+        if (![self.model.artUserFollowId isEqualToString:@""]) {
+            json = @{
+                     @"identifier" :identifier,
+//                     @"followType" : followType,
+                     @"artUserFollowId" : self.model.artUserFollowId
+            };
+        }else{
+            json = @{
+                     @"userId" : userId,
+                     @"followId" : followId,
+                     @"identifier" :identifier,
+                     @"followType" : followType,
+                     };
+        }
+        [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"changeFollowStatus.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+            NSString *str = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",str);
+            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+            NSString *resultCode = result[@"resultCode"];
+            if ([resultCode isEqualToString:@"0"]) {
+                self.HeaderView.focusBtn.selected = !self.HeaderView.focusBtn.selected;
+            }
+        }];
     }
 }
 
