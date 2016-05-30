@@ -204,23 +204,11 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
-
     [super viewWillAppear:animated];
-    
-    NSLog(@"%@",urlVideo);
-    
     if (urlVideo == nil) {
-        
         return;
-        
     }else{
-        
         self.addVideoBtn.hidden = YES;
-        
-//        [self player];
-        
-//        [self.videoView removeFromSuperview];
-        
         XMGPlayerView *playerView = [XMGPlayerView playerView];
         playerView.frame = CGRectMake(0, 0, 120, 120);
         [self.videoView insertSubview:playerView atIndex:0];
@@ -257,8 +245,6 @@
 //        self.playerView.frame = CGRectMake(0, 0,120 , 120);
 //        self.playerView.transform = CGAffineTransformMakeRotation(M_PI_2);
     }
-    
-    
 }
 
 - (IBAction)recordVideo:(id)sender {
@@ -270,8 +256,6 @@
 }
 
 -(void)finishWechatShortVideoCapture:(NSURL *)filePath{
-    
-    
     urlVideo = filePath;
 }
 
@@ -302,6 +286,9 @@
     hud = nil;
 }
 
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self.playerView];
+}
 
 //-(void)viewDidLayoutSubviews
 //{

@@ -48,19 +48,13 @@
 
 static NSString *ID = @"ArtistMainCell";
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.isfoot = YES;
-    
     self.lastPageIndex = @"1";
-    
-    //    self.tableView.contentInset = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, 0, 0);
-    //    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, 0, 0);
-    
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"ArtistMainCell" bundle:nil] forCellReuseIdentifier:ID];
-    
     [ArtistObjectModel mj_setupObjectClassInArray:^NSDictionary *{
         return @{
                  @"artworkList" : @"ArtworkListModel",
@@ -84,14 +78,13 @@ static NSString *ID = @"ArtistMainCell";
     [UserMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         
         return @{
-                 @"ID"          :@"id",
+                 @"ID" : @"id",
                  };
     }];
-
+    
     [ArtworkModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-        
         return @{
-                 @"ID"          :@"id",
+                 @"ID":@"id",
                  };
     }];
     
@@ -103,22 +96,8 @@ static NSString *ID = @"ArtistMainCell";
 }
 -(void)setUpRefresh
 {
-    //    CommonHeader *header = [CommonHeader headerWithRefreshingBlock:^{
-    //
-    //        [self loadNewData];
-    //
-    //    }];
-    //
-    //    self.tableView.mj_header = header;
-    
-    //让程序一开始就加载数据
-    //    [self.tableView.mj_header beginRefreshing];
-    
-    
     //同样,自定义上拉刷新
     self.tableView.mj_footer = [CommonFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-    
-    //要是其他控制器也需要,直接把上面的拷贝到其他控制器就可以了
 }
 
 -(void)loadNewData
@@ -134,7 +113,7 @@ static NSString *ID = @"ArtistMainCell";
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";
     
-     NSString *url = @"userMain.do";
+    NSString *url = @"userMain.do";
     
     // 3.设置请求体
     NSDictionary *json = @{
@@ -143,7 +122,7 @@ static NSString *ID = @"ArtistMainCell";
                            @"pageIndex" : pageIndex
                            };
     
-
+    
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
         
@@ -183,7 +162,7 @@ static NSString *ID = @"ArtistMainCell";
     
     NSString *pageSize = @"20";
     NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
-
+    
     NSString *url = @"userMain.do";
     
     // 3.设置请求体
@@ -231,8 +210,8 @@ static NSString *ID = @"ArtistMainCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ArtistMainCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-//    [cell.btn1 addTarget:self action:@selector(cellBtn1Clicked:event:) forControlEvents:UIControlEventTouchUpInside];
-//    [cell.btn2 addTarget:self action:@selector(cellBtn2Clicked:event:) forControlEvents:UIControlEventTouchUpInside];
+    //    [cell.btn1 addTarget:self action:@selector(cellBtn1Clicked:event:) forControlEvents:UIControlEventTouchUpInside];
+    //    [cell.btn2 addTarget:self action:@selector(cellBtn2Clicked:event:) forControlEvents:UIControlEventTouchUpInside];
     cell.indexPath = indexPath;
     cell.delegate = self;
     ArtworkListModel *model = self.models[indexPath.row];
@@ -267,7 +246,7 @@ static NSString *ID = @"ArtistMainCell";
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 //传递点击当前cell的数据模型
                 releaseProject.projectModel = project;
-//                releaseProject
+                //                releaseProject
                 [self.navigationController pushViewController:releaseProject animated:YES];
             }];
         }];
@@ -346,44 +325,44 @@ static NSString *ID = @"ArtistMainCell";
 
 -(void)loadChangeData:(ArtworkListModel *)model AndStep:(NSString *)step AndIndexPath:(NSIndexPath *)indexPath
 {
-        //参数
-        NSString *artworkId = model.ID;
-        NSString *userId = model.author.ID;
-        // 3.设置请求体
-        NSDictionary *json = @{
-                               @"artworkId":artworkId,
-                               @"userId" : userId,
-                               @"step" : step,
-                               };
-        NSString *url = @"updateArtWork.do";
-        [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
-//            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//            NSLog(@"返回结果:%@",jsonStr);
-            
-            NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-            BianJiJianJieModel *model = [BianJiJianJieModel mj_objectWithKeyValues:modelDict];
-            
-            [SVProgressHUD showInfoWithStatus:model.resultMsg];
-            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-            
-            [self loadNewData];
-    
-            //在主线程刷新UI数据
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                [SVProgressHUD dismiss];
-                [self.tableView reloadData];
-                [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
-//                if (indexPath!= nil) {
-//                    
-//                    //局部刷新数据
-//                    NSArray *indexPaths = @[
-//                                            indexPath,
-//                                            ];
-//                    
-//                    [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
-//                }
-            }];
+    //参数
+    NSString *artworkId = model.ID;
+    NSString *userId = model.author.ID;
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"artworkId":artworkId,
+                           @"userId" : userId,
+                           @"step" : step,
+                           };
+    NSString *url = @"updateArtWork.do";
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
+        //            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        //            NSLog(@"返回结果:%@",jsonStr);
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        BianJiJianJieModel *model = [BianJiJianJieModel mj_objectWithKeyValues:modelDict];
+        
+        [SVProgressHUD showInfoWithStatus:model.resultMsg];
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        
+        [self loadNewData];
+        
+        //在主线程刷新UI数据
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [SVProgressHUD dismiss];
+            [self.tableView reloadData];
+            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
+            //                if (indexPath!= nil) {
+            //
+            //                    //局部刷新数据
+            //                    NSArray *indexPaths = @[
+            //                                            indexPath,
+            //                                            ];
+            //
+            //                    [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+            //                }
         }];
+    }];
 }
 
 
@@ -402,17 +381,17 @@ static NSString *ID = @"ArtistMainCell";
     }];
     UIAlertAction *picAction = [UIAlertAction actionWithTitle:@"从手机相册选择" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
         
-    //之前的
-//        UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
-//        ReleaseViewController *settingVC = [settingStoryBoard instantiateInitialViewController];
-////        [self presentViewController:settingVC animated:YES completion:nil];
-//         [self.navigationController pushViewController:settingVC animated:YES];
+        //之前的
+        //        UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
+        //        ReleaseViewController *settingVC = [settingStoryBoard instantiateInitialViewController];
+        ////        [self presentViewController:settingVC animated:YES completion:nil];
+        //         [self.navigationController pushViewController:settingVC animated:YES];
         
-    //现在的
-    UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleasePicViewController class]) bundle:nil];
-    ReleasePicViewController *releasePicVC = [settingStoryBoard instantiateInitialViewController];
+        //现在的
+        UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleasePicViewController class]) bundle:nil];
+        ReleasePicViewController *releasePicVC = [settingStoryBoard instantiateInitialViewController];
         releasePicVC.artworkId = artworkId;
-     [self.navigationController pushViewController:releasePicVC animated:YES];
+        [self.navigationController pushViewController:releasePicVC animated:YES];
         
     }];
     
@@ -425,7 +404,7 @@ static NSString *ID = @"ArtistMainCell";
     [alertController addAction:videoAction];
     [alertController addAction:picAction];
     [alertController addAction:cancelAction];
-
+    
 }
 
 //-----------------------联动-----------------------

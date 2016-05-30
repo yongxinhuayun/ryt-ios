@@ -175,13 +175,11 @@
 {
     NSInteger dMin = duration / 60;
     NSInteger dSec = (NSInteger)duration % 60;
-
     NSInteger cMin = currentTime / 60;
     NSInteger cSec = (NSInteger)currentTime % 60;
-
+    
     NSString *durationString = [NSString stringWithFormat:@"%02ld:%02ld", dMin, dSec];
     NSString *currentString = [NSString stringWithFormat:@"%02ld:%02ld", cMin, cSec];
-
     return [NSString stringWithFormat:@"%@/%@", currentString, durationString];
 }
 

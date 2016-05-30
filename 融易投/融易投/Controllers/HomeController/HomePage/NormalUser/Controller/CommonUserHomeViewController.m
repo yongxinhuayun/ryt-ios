@@ -75,61 +75,41 @@
     //参数
     UserMyModel *model = TakeLoginUserModel;
     NSString *currentId = model.ID;
-    
     NSString *userId = self.userId;
-    
-    
-    SSLog(@"%@",currentId);
-    SSLog(@"%@",userId);
-    
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";
-    
     NSString *url = @"my.do";
-    
     NSDictionary *json = @{
                            @"userId":userId,
                            @"currentId":currentId,
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex
                            };
-    
     // 创建一个组
     dispatch_group_t group = dispatch_group_create();
-    
     // 添加当前操作到组中
     dispatch_group_enter(group);
     
-    
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-        
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-        
         PageInfoModel *model = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
-        
         self.model = model;
         
         //// 从组中移除一个操作
         dispatch_group_leave(group);
     }];
-    
     /// 当所有添加到组中的操作都被移除之后就会调用
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-
-        
         // 6.回到主线程更新UI
         dispatch_async(dispatch_get_main_queue(), ^{
-            
             NSLog(@"更新UI %@", [NSThread currentThread]);
-            
             [self setupUI];
         });
     });
-
 }
 
 -(void)postPrivateLetter{
@@ -148,7 +128,6 @@
             letterController.userId = targetUserId;
             [self.navigationController pushViewController:letterController animated:YES];
         }
-
     }
 }
 
@@ -162,8 +141,6 @@
         // 获取当前将要被关注的用户ID
         NSString *followId = self.model.user.ID;
 //        NSString *identifier =  0为关注，1为取消关注
-        
-        
         NSDictionary *json = @{
                                @"userId" : userId,
                                };
