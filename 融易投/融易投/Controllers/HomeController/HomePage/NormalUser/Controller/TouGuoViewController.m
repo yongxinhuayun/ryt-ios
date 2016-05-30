@@ -102,9 +102,6 @@ static NSString *ID = @"InvestProjectCell";
     
     NSString *userId = self.userId;
     
-    SSLog(@"%@",currentId);
-    SSLog(@"%@",userId);
-    
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";
     
@@ -168,7 +165,7 @@ static NSString *ID = @"InvestProjectCell";
     UserMyModel *model = TakeLoginUserModel;
     NSString *currentId = model.ID;
     
-    NSString *userId = self.model.user.ID;
+    NSString *userId = self.userId;
     
     NSString *pageSize = @"20";
     NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
@@ -183,9 +180,6 @@ static NSString *ID = @"InvestProjectCell";
                            @"pageIndex" : pageIndex
                            };
 
-
-
-    
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];

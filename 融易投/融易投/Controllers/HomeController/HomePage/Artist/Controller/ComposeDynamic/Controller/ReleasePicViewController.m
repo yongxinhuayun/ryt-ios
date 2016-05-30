@@ -308,19 +308,11 @@
     }
     
     NSArray *file = tempArray.copy;
-
-    
     NSString *artworkId = self.artworkId;
-    
     NSString *timestamp = [MyMD5 timestamp];
-    
     NSString *appkey = MD5key;
-    
-    
     NSString *signmsg = [NSString stringWithFormat:@"artworkId=%@&timestamp=%@&key=%@",artworkId,timestamp,appkey];
-    
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-
     NSDictionary *json = @{
                            @"content" : description,
                            @"file"        :file,

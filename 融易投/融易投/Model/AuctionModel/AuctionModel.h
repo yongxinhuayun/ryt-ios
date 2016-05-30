@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "authorModel.h"
+#import "UserMyModel.h"
 
 @interface AuctionModel : NSObject
 
@@ -38,8 +38,22 @@
 /** 最新出价时间 */
 @property (nonatomic ,assign) NSInteger bewBiddingDate;
 
+/** 拍卖金额 */
+@property (nonatomic ,assign) NSInteger investsMoney;
+/** 起拍价格 */
+@property (nonatomic ,assign) NSInteger startingPrice;
+
+/** 出价次数 */
+@property (nonatomic ,assign) NSInteger investNum;
+
+/** 拍卖得主 */
+@property (nonatomic ,copy) NSString *winner;
+
 /** 作者信息 */
-@property (nonatomic, strong) authorModel *author;
+@property (nonatomic, strong) UserMyModel *author;
+
+/** 辅助属性 --- cell的高度 */
+@property (nonatomic,assign) CGFloat cellH;
 
 
 @end

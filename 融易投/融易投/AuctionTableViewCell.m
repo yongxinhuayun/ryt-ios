@@ -22,18 +22,23 @@
 @property (weak, nonatomic) IBOutlet UILabel *userInfo;
 
 /** 拍卖前-整体 */
+@property (weak, nonatomic) IBOutlet UIView *auctionBeforeView;
 @property (weak, nonatomic) IBOutlet UILabel *auctionTimeLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *auctionTimeLabel2;
+@property (weak, nonatomic) IBOutlet UILabel *auctionPrice;
 
 /** 拍卖中-整体 */
+@property (weak, nonatomic) IBOutlet UIView *auctingView;
 @property (weak, nonatomic) IBOutlet UILabel *auctionMoney;
 @property (weak, nonatomic) IBOutlet UILabel *auctionNum;
 @property (weak, nonatomic) IBOutlet UILabel *auctionUpdateTime;
 
 
 /** 拍卖后-整体 */
+@property (weak, nonatomic) IBOutlet UIView *auctionAfterView;
 @property (weak, nonatomic) IBOutlet UILabel *auctionUser;
 @property (weak, nonatomic) IBOutlet UILabel *strikePrice;
+@property (weak, nonatomic) IBOutlet UIImageView *fengexianImage;
 
 @end
 
@@ -54,15 +59,18 @@
     
     NSURL *picture_urlURL = [NSURL URLWithString:picture_urlStr];
     
-    [self.bgImageView sd_setImageWithURL:picture_urlURL placeholderImage:[UIImage imageNamed:@"基本资料-未传头像"]];
+    [self.bgImageView sd_setImageWithURL:picture_urlURL placeholderImage:[UIImage imageNamed:@"defaultBackground"]];
+    
     
     model.step = @"30";
-    
     if ([model.step isEqualToString:@"30"]) {
         
         self.auctionBeforeView.hidden = NO;
         self.auctingView.hidden = YES;
         self.auctionAfterView.hidden = YES;
+        self.fengexianImage.hidden = NO;
+        
+        self.auctionPrice.text = [NSString stringWithFormat:@"%zd元",model.investsMoney];
         
         //拍卖时间  --- 需要拍卖起始时间和结束时间相减
         //设置时间格式
@@ -90,25 +98,28 @@
         self.auctingView.hidden = NO;
         self.auctionBeforeView.hidden = YES;
         self.auctionAfterView.hidden = YES;
+        self.fengexianImage.hidden = NO;
         
-        self.auctionMoney.text = [NSString stringWithFormat:@"%ld",model.newBidingPrice];
+        self.auctionMoney.text = [NSString stringWithFormat:@"%ld",model.bewBiddingDate];
         
-        self.auctionNum.text = @"1000次";
+        self.auctionNum.text = [NSString stringWithFormat:@"%ld",model.investNum];
         
     }else if ([model.step isEqualToString:@"32"]) {
         
         self.auctionAfterView.hidden = NO;
         self.auctionBeforeView.hidden = YES;
         self.auctingView.hidden = YES;
+        self.fengexianImage.hidden = NO;
         
-        self.auctionUser.text = @"董鑫";
-        self.strikePrice.text = @"1000元";
+        self.auctionUser.text = model.winner;
+        self.strikePrice.text = [NSString stringWithFormat:@"%ld",model.investNum];
         
     }else {
         
         self.auctionAfterView.hidden = YES;
         self.auctionBeforeView.hidden = YES;
         self.auctingView.hidden = YES;
+        self.fengexianImage.hidden = YES;
     }
     
     //创作标题
@@ -124,46 +135,23 @@
     [self.userIcon ss_setHeader:pictureUrlURL];
     
     self.userName.text = model.author.name;
-    self.userInfo.text = model.author.username;
+    self.userInfo.text = model.author.userBrief.content;
 }
 
-//把系统的分割线去除,然后把控制器的的颜色改成要设置分割线的颜色
--(void)setFrame:(CGRect)frame
-{
-    frame.size.height -= SSMargin * 2;
-    
-    //设置每个cell离屏幕间距为10
-    frame.origin.x += SSMargin;
-    //因为x向右移动了10,所以cell的左边距离屏幕为10,但是为了保证cell的右边为10,应该设置为2 * 10.因为cell向右移动了10,所以屏幕的右边还是有10的cell,所以为了保证cell的右边距离屏幕为10,应该为2倍的间距
-    frame.size.width -= 2 * SSMargin;
-    
-    [super setFrame:frame];
-}
+////把系统的分割线去除,然后把控制器的的颜色改成要设置分割线的颜色
+//-(void)setFrame:(CGRect)frame
+//{
+//    frame.size.height -= SSMargin * 2;
+//    
+//    //设置每个cell离屏幕间距为10
+//    frame.origin.x += SSMargin;
+//    //因为x向右移动了10,所以cell的左边距离屏幕为10,但是为了保证cell的右边为10,应该设置为2 * 10.因为cell向右移动了10,所以屏幕的右边还是有10的cell,所以为了保证cell的右边距离屏幕为10,应该为2倍的间距
+//    frame.size.width -= 2 * SSMargin;
+//    
+//    [super setFrame:frame];
+//}
 
--(CGFloat)cellHeight{
-    
-    
-    // 重新调用内部布局
-    [self layoutIfNeeded];
-    
-    if (self.auctionBeforeView.hidden == YES) {
-        
-        return self.auctionBeforeView.height;
-        
-    }else if(self.auctingView.hidden == YES){
-    
-        return SSMargin * 12 + self.auctingView.height;
-        
-    }else if(self.auctionAfterView.hidden == YES){
-        
-        return self.auctionAfterView.height;
-        
-    }else {
-    
-        return SSMargin;
-    }
-    
-}
+
 
 
 @end
