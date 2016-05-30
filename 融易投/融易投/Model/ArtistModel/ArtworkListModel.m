@@ -31,65 +31,27 @@
      maxY = maxY + briefH + margin * 2;
     
     //判断当前项目处于什么状态
-    
-//    if ([self.step isEqualToString:@"12"]||[self.step isEqualToString:@"14"]||[self.step isEqualToString:@"15"]){ //融资阶段
-//    }else if ([self.step isEqualToString:@"21"]||[self.step isEqualToString:@"22"]||[self.step isEqualToString:@"23"]||[self.step isEqualToString:@"24"]){//创作阶段
-//    }else {
-//    }
-    
-//    if ([self.step isEqualToString:@"10"]) {
-//        
-//        
-//    }else if ([self.step isEqualToString:@"11"]){
-//        
-//    }else if ([self.step isEqualToString:@"12"]) {
-//        
-//        
-//    }else if ([self.step isEqualToString:@"13"]) {
-//        
-//        
-//    }else if ([self.step isEqualToString:@"14"]) {
-//        
-//        
-//    }else if ([self.step isEqualToString:@"15"]) {
-//        
-//        
-//    }else if ([self.step isEqualToString:@"20"]) {
-//        
-//        
-//    }else if ([self.step isEqualToString:@"21"]) {
-//        
-//        
-//    }else if ([self.step isEqualToString:@"22"]) {
-//        
-//        
-//    }else if ([self.step isEqualToString:@"23"]) {
-//        
-//        
-//    }else if ([self.step isEqualToString:@"24"]) {
-//        
-//        
-//    }else if ([self.step isEqualToString:@"25"]) {
-//        
-//        
-//    }
-    
-//    self.step = @"24";
-//    self.step = @"100";
-    
+    UserMyModel *userModel = TakeLoginUserModel;
     CGFloat bottomViewY = 50;
+    //自己看自己
+    if ([self.author.ID isEqualToString:userModel.ID]) {
+        
+        if ([self.step isEqualToString:@"100"]){ //可以编辑项目
+            
+            return maxY + bottomViewY + margin;
+            
+        }else if ([self.step isEqualToString:@"21"]||[self.step isEqualToString:@"22"]){//可以点击创作完成和发布动态
+            
+            return maxY + bottomViewY + margin;
+            
+        }else {//其他什么也不显示
+            
+            return maxY + margin;
+        }
+        
+    }else {  //别人看自己
     
-    if ([self.step isEqualToString:@"100"]){ //可以编辑项目
-        
-        return maxY + bottomViewY + margin;
-        
-    }else if ([self.step isEqualToString:@"21"]||[self.step isEqualToString:@"22"]){//可以点击创作完成和发布动态
-        
-         return maxY + bottomViewY + margin;
-        
-    }else {//其他什么也不显示
-        
-        return maxY;
+         return maxY + margin;
     }
 }
 

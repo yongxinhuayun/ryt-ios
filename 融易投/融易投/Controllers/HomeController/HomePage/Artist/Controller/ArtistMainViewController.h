@@ -12,4 +12,6 @@
 
 @property(nonatomic,assign) CGFloat topHeight;
 
+@property (nonatomic ,strong)NSString *userId;
+
 @end

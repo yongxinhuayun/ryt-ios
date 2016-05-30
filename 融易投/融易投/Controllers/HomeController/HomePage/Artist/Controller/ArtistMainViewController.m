@@ -100,6 +100,9 @@ static NSString *ID = @"ArtistMainCell";
     //设置刷新控件
     [self setUpRefresh];
     
+    
+    self.tableView.estimatedRowHeight = 400;
+    
 }
 -(void)setUpRefresh
 {
@@ -129,7 +132,11 @@ static NSString *ID = @"ArtistMainCell";
     self.lastPageIndex = @"1";
     //参数
     UserMyModel *model = TakeLoginUserModel;
-    NSString *userId = model.ID;
+    NSString *currentId = model.ID;
+    NSString *userId = self.userId;
+    
+    SSLog(@"%@",currentId);
+    SSLog(@"%@",userId);
     
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";
@@ -139,6 +146,7 @@ static NSString *ID = @"ArtistMainCell";
     // 3.设置请求体
     NSDictionary *json = @{
                            @"userId":userId,
+                           @"currentId":currentId,
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex
                            };
@@ -147,8 +155,8 @@ static NSString *ID = @"ArtistMainCell";
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
         
-        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        //        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
@@ -179,7 +187,8 @@ static NSString *ID = @"ArtistMainCell";
     
     //参数
     UserMyModel *model = TakeLoginUserModel;
-    NSString *userId = model.ID;
+    NSString *currentId = model.ID;
+    NSString *userId = self.userId;
     
     NSString *pageSize = @"20";
     NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
@@ -189,6 +198,7 @@ static NSString *ID = @"ArtistMainCell";
     // 3.设置请求体
     NSDictionary *json = @{
                            @"userId":userId,
+                           @"currentId":currentId,
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex
                            };

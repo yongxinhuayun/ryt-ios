@@ -310,7 +310,7 @@
     NSArray *file = tempArray.copy;
 
     
-    NSString *artworkId = [[NSUserDefaults standardUserDefaults]objectForKey:@"artworkId"];
+    NSString *artworkId = [[NSUserDefaults standardUserDefaults] objectForKey:@"artworkId"];
     
     NSString *timestamp = [MyMD5 timestamp];
     

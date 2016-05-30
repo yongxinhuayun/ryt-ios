@@ -66,26 +66,30 @@
         if ([model.step isEqualToString:@"10"]) {
             
             self.stepBtn.hidden = NO;
+            self.bottomView.hidden = YES;
             [self.stepBtn setTitle:@"项目待审核" forState:UIControlStateNormal];
             
         }else if ([model.step isEqualToString:@"11"]){
             
             self.stepBtn.hidden = NO;
+            self.bottomView.hidden = YES;
             [self.stepBtn setTitle:@"项目审核中" forState:UIControlStateNormal];
             
         }else if ([model.step isEqualToString:@"13"]) {
             
             self.stepBtn.hidden = NO;
+            self.bottomView.hidden = YES;
             [self.stepBtn setTitle:@"审核未通过" forState:UIControlStateNormal];
         }else if ([model.step isEqualToString:@"14"]) {
             
             self.stepBtn.hidden = NO;
+            self.bottomView.hidden = YES;
             [self.stepBtn setTitle:@"融资中" forState:UIControlStateNormal];
         }else if ([model.step isEqualToString:@"21"]) {
-            self.stepBtn.hidden = NO;
-            [self.stepBtn setTitle:@"创作中" forState:UIControlStateNormal];
             
+            self.stepBtn.hidden = NO;
             self.bottomView.hidden = NO;
+            [self.stepBtn setTitle:@"创作中" forState:UIControlStateNormal];
             [self.btn1 setTitle:@"创作完成" forState:UIControlStateNormal];
             [self.btn2 setTitle:@"发布动态" forState:UIControlStateNormal];
 
@@ -93,28 +97,30 @@
         }else if ([model.step isEqualToString:@"22"]) {
             
             self.stepBtn.hidden = NO;
-            [self.stepBtn setTitle:@"创作延时" forState:UIControlStateNormal];
-            
             self.bottomView.hidden = NO;
+            [self.stepBtn setTitle:@"创作延时" forState:UIControlStateNormal];
             [self.btn1 setTitle:@"创作完成" forState:UIControlStateNormal];
             [self.btn2 setTitle:@"发布动态" forState:UIControlStateNormal];
 
         }else if ([model.step isEqualToString:@"24"]) {
             
             self.stepBtn.hidden = NO;
+            self.bottomView.hidden = YES;
             [self.stepBtn setTitle:@"创作完成审核中" forState:UIControlStateNormal];
         }else if ([model.step isEqualToString:@"25"]) {
             
             self.stepBtn.hidden = NO;
+            self.bottomView.hidden = YES;
             [self.stepBtn setTitle:@"创作完成被驳回" forState:UIControlStateNormal];
         }else if ([model.step isEqualToString:@"100"]){
-            
+            self.stepBtn.hidden = YES;
             self.bottomView.hidden = NO;
             [self.btn1 setTitle:@"提交项目" forState:UIControlStateNormal];
             [self.btn2 setTitle:@"编辑项目" forState:UIControlStateNormal];
             
         }else {
-            
+        
+            self.stepBtn.hidden = YES;
             self.bottomView.hidden = YES;
         }
         
@@ -159,20 +165,24 @@
         if ([model.step isEqualToString:@"10"]||[model.step isEqualToString:@"11"]){
             
             self.stepBtn.hidden = NO;
+            self.bottomView.hidden = YES;
             [self.stepBtn setTitle:@"审核阶段" forState:UIControlStateNormal];
             
         }else if ([model.step isEqualToString:@"12"]||[model.step isEqualToString:@"14"]||[model.step isEqualToString:@"15"]){
 
             self.stepBtn.hidden = NO;
+             self.bottomView.hidden = YES;
             [self.stepBtn setTitle:@"融资阶段" forState:UIControlStateNormal];
 
         }else if ([model.step isEqualToString:@"21"]||[model.step isEqualToString:@"22"]||[model.step isEqualToString:@"23"]||[model.step isEqualToString:@"24"]||[model.step isEqualToString:@"25"]){
 
             self.stepBtn.hidden = NO;
+            self.bottomView.hidden = YES;
             [self.stepBtn setTitle:@"创作阶段" forState:UIControlStateNormal];
         }else {
 
             self.stepBtn.hidden = YES;
+             self.bottomView.hidden = YES;
             [self.stepBtn setTitle:@"" forState:UIControlStateNormal];   
         }
     }

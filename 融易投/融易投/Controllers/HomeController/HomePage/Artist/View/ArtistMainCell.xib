@@ -24,12 +24,6 @@
                             <constraint firstAttribute="width" constant="100" id="tJ0-qx-sxe"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBackground" translatesAutoresizingMaskIntoConstraints="NO" id="djt-TV-SUh">
-                        <rect key="frame" x="10" y="10" width="324" height="233"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="233" id="7QL-Wl-8Hx"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="四不猴铜雕" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3N-QX-hff">
                         <rect key="frame" x="10" y="253" width="70" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -103,6 +97,12 @@
                             <constraint firstAttribute="bottom" secondItem="smO-12-V8n" secondAttribute="bottom" constant="10" id="zXA-vr-3GZ"/>
                         </constraints>
                     </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBackground" translatesAutoresizingMaskIntoConstraints="NO" id="djt-TV-SUh">
+                        <rect key="frame" x="10" y="10" width="324" height="233"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="233" id="7QL-Wl-8Hx"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="d9X-EV-T7t" firstAttribute="leading" secondItem="djt-TV-SUh" secondAttribute="leading" id="1A1-Ur-vlq"/>

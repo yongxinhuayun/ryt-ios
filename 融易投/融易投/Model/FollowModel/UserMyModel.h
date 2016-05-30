@@ -16,6 +16,8 @@
 
 /** id */
 @property (nonatomic ,strong) NSString *ID;
+/** 描述 */
+@property (nonatomic ,copy) NSString *descriptions;
 
 /** 名称 */
 @property (nonatomic ,strong) NSString *name;

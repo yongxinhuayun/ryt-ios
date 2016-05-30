@@ -57,7 +57,7 @@
         //头像
         self.iconImageView.image = [UIImage imageNamed:@"jibenziliao_touxiang"];
         //用户名
-        self.userName.text = @"游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客游客";
+        self.userName.text = @"游客";
         //用户签名
         self.signature.text = @"个性签名:一句话20字以内";
         //用户关注数
@@ -70,6 +70,8 @@
         self.investmentIncome.text = @"0";
         //投资回报率
         self.investRate.text = @"0.00%";
+        
+        return;
     }
     
     //用户头像

@@ -137,6 +137,7 @@
     
     //添加控制器view
     ArtistMainViewController *record1 = [[ArtistMainViewController alloc] init];
+    record1.userId = self.userId;
     record1.topHeight = self.topview.height - 64;
     [self.controllersView addObject:record1.view];
     [self addChildViewController:record1];
