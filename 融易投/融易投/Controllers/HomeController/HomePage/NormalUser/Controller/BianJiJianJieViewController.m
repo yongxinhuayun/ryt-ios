@@ -141,6 +141,9 @@
             
             [SVProgressHUD dismiss];
             
+            //发送通知,修改我的界面的数据
+            [[NSNotificationCenter defaultCenter] postNotificationName:UpdateJianJieViewDataControllerNotification object:self];
+            
             [self.navigationController popViewControllerAnimated:YES];
             
         }];

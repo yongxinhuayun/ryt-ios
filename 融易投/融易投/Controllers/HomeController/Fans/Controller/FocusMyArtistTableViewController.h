@@ -10,4 +10,6 @@
 
 @interface FocusMyArtistTableViewController : UITableViewController
 
+@property (nonatomic ,strong)NSString *userId;
+
 @end

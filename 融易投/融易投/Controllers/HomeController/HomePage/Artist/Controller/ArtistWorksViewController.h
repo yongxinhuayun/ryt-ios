@@ -13,4 +13,6 @@
 @property(nonatomic,assign) CGFloat topHeight;
 
 @property (nonatomic ,strong)PageInfoModel *userModel;
+
+@property (nonatomic ,strong)NSString *userId;
 @end

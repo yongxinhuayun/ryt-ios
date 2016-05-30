@@ -31,7 +31,7 @@
     UserMyModel *model = TakeLoginUserModel;
     NSString *userId = model.ID;
     
-    if (![self.userModel.user.ID isEqualToString:userId]) {
+    if (![self.userId isEqualToString:userId]) {
         
         self.YiBianJiView.hidden = NO;
         self.bianjiBtn.hidden = YES;
@@ -44,24 +44,32 @@
     }
 
     [self loadData];
+    
+    //4.跟新我的界面的数据控制器
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateMeViewDataController) name:UpdateJianJieViewDataControllerNotification object:nil];
+}
+
+-(void)updateMeViewDataController{
+    
+    //获取用户信息数据
+    [self loadData];
 }
 
 -(void)loadData
 {
     //参数
-    UserMyModel *model = TakeLoginUserModel;
-    NSString *userId = model.ID;
+    NSString *userId = self.userId;
    
      NSString *url = @"intro.do";
     // 3.设置请求体
-    NSDictionary *json = @{
+    NSDictionary *json = @{ 
                            @"userId":userId
                            };
     
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
@@ -82,10 +90,7 @@
                 self.textView.text = model.content;
                 self.textView.userInteractionEnabled = NO;
             }
-            
         }];
-        
-       
     }];
 }
 

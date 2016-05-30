@@ -110,8 +110,8 @@ static NSString *ID1 = @"ArtistWorksCell";
     
     self.lastPageIndex = @"1";
     
-    UserMyModel *model = TakeLoginUserModel;
-    NSString *userId = model.ID;
+
+    NSString *userId = self.userId;
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";
     
@@ -126,8 +126,8 @@ static NSString *ID1 = @"ArtistWorksCell";
     
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
 
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
       
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
 
@@ -153,8 +153,7 @@ static NSString *ID1 = @"ArtistWorksCell";
     
     self.lastPageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
     
-    UserMyModel *model = TakeLoginUserModel;
-    NSString *userId = model.ID;
+    NSString *userId = self.userId;
     
     NSString *pageSize = @"20";
     NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
@@ -171,8 +170,8 @@ static NSString *ID1 = @"ArtistWorksCell";
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
         
-        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        //        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         

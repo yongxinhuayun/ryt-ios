@@ -39,5 +39,7 @@ NSString * const ChangeRootViewControllerNotification = @"ChangeRootViewControll
 
 NSString * const UpdateMeViewDataControllerNotification = @"UpdateMeViewDataControllerNotification";
 
+NSString * const UpdateJianJieViewDataControllerNotification = @"UpdateJianJieViewDataControllerNotification";
+
 
 @end

@@ -188,7 +188,10 @@ static BOOL firstUpdate = YES;
             return;
         }
         
+        //从我的跳过去的userId就是当前登录的用户
         FocusMyViewController *focusVC = [[FocusMyViewController alloc] init];
+        UserMyModel *model = TakeLoginUserModel;
+        focusVC.userId =  model.ID;
         
         [weakself.navigationController pushViewController:focusVC animated:YES];
     };

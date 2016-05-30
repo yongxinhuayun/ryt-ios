@@ -20,6 +20,7 @@
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 #import "DetailCreationViewController.h"
+#import "DetailCreationH5WebController.h"
 
 @interface CreationTableViewController ()
 
@@ -149,6 +150,7 @@ static NSString *ID = @"creationCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    /*
     DetailCreationViewController *creationDetailsVC = [[DetailCreationViewController alloc] init];
     CreationModel *model = self.models[indexPath.row];
     creationDetailsVC.artworkId = model.ID;
@@ -157,6 +159,15 @@ static NSString *ID = @"creationCell";
     
     creationDetailsVC.title = model.title;
     [self.navigationController pushViewController:creationDetailsVC animated:YES];
+     */
+    
+    DetailCreationH5WebController *H5VC = [[DetailCreationH5WebController alloc] init];
+//    CreationModel *model = self.models[indexPath.row];
+//    creationDetailsVC.artworkId = model.ID;
+    
+//    creationDetailsVC.title = model.title;
+    [self.navigationController pushViewController:H5VC animated:YES];
+    
 }
 
 @end

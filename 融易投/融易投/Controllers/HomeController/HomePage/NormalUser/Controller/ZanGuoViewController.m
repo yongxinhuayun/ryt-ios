@@ -109,7 +109,9 @@ static NSString *ID = @"ZanguoProjectCell";
     self.lastPageIndex = @"1";
     //参数
     UserMyModel *model = TakeLoginUserModel;
-    NSString *userId = model.ID;
+    NSString *currentId = model.ID;
+    
+    NSString *userId = self.userId;
     
     NSString *type = @"1";
     
@@ -121,6 +123,7 @@ static NSString *ID = @"ZanguoProjectCell";
     // 3.设置请求体
     NSDictionary *json = @{
                            @"userId":userId,
+                           @"currentId":currentId,
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex,
                            @"type" :type
@@ -128,8 +131,8 @@ static NSString *ID = @"ZanguoProjectCell";
     
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        //        NSLog(@"返回结果:%@",jsonStr);
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
         ZanGuoResultModel *model = [ZanGuoResultModel mj_objectWithKeyValues:modelDict];
@@ -180,23 +183,27 @@ static NSString *ID = @"ZanguoProjectCell";
     
     //参数
     UserMyModel *model = TakeLoginUserModel;
-    NSString *userId = model.ID;
+    NSString *currentId = model.ID;
+    NSString *userId = self.userId;
     
     NSString *pageSize = @"20";
     NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
+    NSString *type = @"1";
     
     NSString *url = @"followed.do";
    
     // 3.设置请求体
     NSDictionary *json = @{
                            @"userId":userId,
+                           @"currentId":currentId,
                            @"pageSize" : pageSize,
-                           @"pageIndex" : pageIndex
+                           @"pageIndex" : pageIndex,
+                           @"type":type
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        //        NSLog(@"返回结果:%@",jsonStr);
+//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        NSLog(@"返回结果:%@",jsonStr);
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         

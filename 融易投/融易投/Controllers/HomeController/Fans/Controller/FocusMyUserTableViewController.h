@@ -10,4 +10,6 @@
 
 @interface FocusMyUserTableViewController : UITableViewController
 
+@property (nonatomic ,strong)NSString *userId;
+
 @end

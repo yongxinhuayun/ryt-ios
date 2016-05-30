@@ -62,7 +62,7 @@
     [self.bgImageView sd_setImageWithURL:picture_urlURL placeholderImage:[UIImage imageNamed:@"defaultBackground"]];
     
     
-    model.step = @"30";
+//    model.step = @"30";
     if ([model.step isEqualToString:@"30"]) {
         
         self.auctionBeforeView.hidden = NO;

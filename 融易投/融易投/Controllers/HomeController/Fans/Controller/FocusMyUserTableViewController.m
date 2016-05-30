@@ -87,9 +87,9 @@ static NSString *ID = @"focusMyCell";
     NSString *pageIndex = @"1";
 
     //参数
-    NSString *userId = @"ieatht97wfw30hfd";
-    //     NSString *userId = TakeUserID;
-    NSString *otherUserId = @"ieatht97wfw30hfd";
+    UserMyModel *userModel = TakeLoginUserModel;
+    NSString *userId = userModel.ID;
+    NSString *otherUserId = self.userId;
     
     NSString *flag = @"1";
     
@@ -108,6 +108,7 @@ static NSString *ID = @"focusMyCell";
     // 3.设置请求体
     NSDictionary *json = @{
                            @"userId":userId,
+                           @"otherUserId":otherUserId,
                            @"type":type,
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex,
@@ -148,7 +149,7 @@ static NSString *ID = @"focusMyCell";
     //参数
     UserMyModel *userModel = TakeLoginUserModel;
     NSString *userId = userModel.ID;
-    NSString *otherUserId = @"ieatht97wfw30hfd";
+    NSString *otherUserId = self.userId;
     
     NSString *flag = @"1";
     
@@ -169,6 +170,7 @@ static NSString *ID = @"focusMyCell";
     // 3.设置请求体
     NSDictionary *json = @{
                            @"userId":userId,
+                           @"otherUserId":otherUserId,
                            @"type":type,
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex,

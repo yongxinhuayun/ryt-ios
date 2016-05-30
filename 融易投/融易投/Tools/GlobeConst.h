@@ -34,7 +34,9 @@ UIKIT_EXTERN NSString * const ProjectDetailsArtWorkIdNotification;
 /** 通知：切换控制器 */
 UIKIT_EXTERN NSString * const ChangeRootViewControllerNotification;
 
-/** 通知：切换控制器 */
+/** 通知：跟新我的控制器的界面 */
 UIKIT_EXTERN NSString * const UpdateMeViewDataControllerNotification;
+/** 通知：跟新简介控制器的界面  */
+UIKIT_EXTERN NSString * const UpdateJianJieViewDataControllerNotification;
 
 @end

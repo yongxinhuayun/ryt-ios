@@ -86,7 +86,7 @@ static NSString *ID = @"focusMyCell";
     //参数
     UserMyModel *userModel = TakeLoginUserModel;
     NSString *userId = userModel.ID;
-    NSString *otherUserId = userId;
+    NSString *otherUserId = self.userId;
     
     NSString *flag = @"1";
     
@@ -151,7 +151,7 @@ static NSString *ID = @"focusMyCell";
     //参数
     UserMyModel *userModel = TakeLoginUserModel;
     NSString *userId = userModel.ID;
-    NSString *otherUserId = @"ieatht97wfw30hfd";
+    NSString *otherUserId = self.userId;
     
     NSString *flag = @"1";
     
@@ -172,6 +172,7 @@ static NSString *ID = @"focusMyCell";
     // 3.设置请求体
     NSDictionary *json = @{
                            @"userId":userId,
+                           @"otherUserId":otherUserId,
                            @"type":type,
                            @"pageSize" : pageSize,
                            @"pageIndex" : pageIndex,

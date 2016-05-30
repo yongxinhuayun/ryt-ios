@@ -143,11 +143,13 @@
     
     JianjieViewController *record2 = [[JianjieViewController alloc] init];
     record2.userModel = self.model;
+    record2.userId = self.userId;
     [self.controllersView addObject:record2.view];
     [self addChildViewController:record2];
     
     ArtistWorksViewController *record3 = [[ArtistWorksViewController alloc] init];
     record3.userModel = self.model;
+    record3.userId = self.userId;
     record3.topHeight = self.topview.height - 64;
     [self.controllersView addObject:record3.view];
     [self addChildViewController:record3];
@@ -160,6 +162,7 @@
     
     ZanGuoViewController *record5 = [[ZanGuoViewController alloc] init];
     record5.topHeight = self.topview.height - 64;
+    record5.userId = self.userId;
     [self.controllersView addObject:record5.view];
     [self addChildViewController:record5];
     
