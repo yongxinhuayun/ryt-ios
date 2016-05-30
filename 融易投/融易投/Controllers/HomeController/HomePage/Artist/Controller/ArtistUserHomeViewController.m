@@ -24,6 +24,7 @@
 @interface ArtistUserHomeViewController ()<CommonUserHeaderViewDelegate>
 
 @property (nonatomic ,strong)PageInfoModel *model;
+@property(nonatomic,assign) BOOL isFirstIn;
 
 @end
 
@@ -32,11 +33,19 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
-    
-    [self loadNewData];
+    if (self.isFirstIn) {
+        [self loadNewData];
+    }
 }
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.isFirstIn = NO;
+}
+
 - (void)viewDidLoad {    
     [super viewDidLoad];
+    self.isFirstIn = YES;
 }
 
 -(void)setupUI{
