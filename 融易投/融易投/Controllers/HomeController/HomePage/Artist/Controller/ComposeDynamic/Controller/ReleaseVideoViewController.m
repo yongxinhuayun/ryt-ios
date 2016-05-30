@@ -11,57 +11,49 @@
 #import "XMGPlayerView.h"
 
 #import <WechatShortVideoController.h>
-
-@interface ReleaseVideoViewController ()<WechatShortVideoDelegate,UITextViewDelegate>
+#import <UIKit/UIKit.h>
+@interface ReleaseVideoViewController ()<WechatShortVideoDelegate,UITextViewDelegate,MBProgressHUDDelegate>
 {
     NSURL *urlVideo;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *videoView;
-
 /** 播放器 */
 @property (nonatomic ,strong) AVPlayer *player;
-
 @property (nonatomic, weak) AVPlayerLayer *layer;
-
 @property (nonatomic, weak) XMGPlayerView *playerView;
 @property (weak, nonatomic) IBOutlet UIButton *addVideoBtn;
-
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
+@property(nonatomic,strong) MBProgressHUD *progressHUD;
 
 @end
 
 @implementation ReleaseVideoViewController
 
-
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self setUpNavBar];
-    
     [self setUpTextView];
-    
-//    [self.videoView.layer addSublayer:self.layer];
-    
-//    NSLog(@"%@",urlVideo);
-
-//    NSURL *url = [NSURL URLWithString:@"http://v1.mukewang.com/57de8272-38a2-4cae-b734-ac55ab528aa8/L.mp4"];
-//    AVPlayerItem *item = [AVPlayerItem playerItemWithURL:url];
-
 }
 
--(void)setUpTextView{
+-(MBProgressHUD *)progressHUD{
+    if (!_progressHUD) {
+        _progressHUD = [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication] keyWindow] animated:YES];
+        self.progressHUD.delegate = self;
+        _progressHUD.mode = MBProgressHUDModeDeterminate;
+    }
+    return _progressHUD;
+}
 
+
+-(void)setUpTextView{
     //让textView在左上角出现光标
     self.automaticallyAdjustsScrollViewInsets = false;
-    
     //设置placeholderLabel隐藏
     self.placeholderLabel.hidden = [self.textView.text length];
-        
     self.textView.delegate = self;
-    
 }
 
 // 设置导航条
@@ -69,71 +61,43 @@
 {
     //设置导航条按钮
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    
     [leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
     [leftButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    
     [leftButton setTitle:@"取消" forState:UIControlStateNormal];
-    
     //运行程序,发现按钮没有出现导航条上面,因为没有设置尺寸
     [leftButton sizeToFit];
-    
     [leftButton addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
-    
     self.navigationItem.leftBarButtonItem = leftBarButton;
 
-    
     //设置导航条按钮
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    
     [rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
     [rightButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    
     [rightButton setTitle:@"发送" forState:UIControlStateNormal];
-    
     //运行程序,发现按钮没有出现导航条上面,因为没有设置尺寸
     [rightButton sizeToFit];
-    
     [rightButton addTarget:self action:@selector(send) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-    
     self.navigationItem.rightBarButtonItem = rightBarButton;
-    
 }
 
 -(void)cancel{
-    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)send {
-    
-     SSLog(@"111");
-    
     //参数
     NSString *title = self.textView.text;
-    
     NSString *picture_url = urlVideo.absoluteString;
-    
     NSLog(@"%@",picture_url);
-    
-    NSString *artworkId = @"qydeyugqqiugd6";
-    
+    NSString *artworkId = self.artworkId;
     NSString *timestamp = [MyMD5 timestamp];
-    
     NSString *appkey = MD5key;
-    
     NSString *signmsg = [NSString stringWithFormat:@"artworkId=%@&timestamp=%@&key=%@",artworkId,timestamp,appkey];
-    
-    NSLog(@"%@",signmsg);
-    
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
     NSDictionary *json = @{
                            @"content" : title,
                            @"file" : picture_url,
@@ -200,24 +164,31 @@
         //        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
         //        [formater setDateFormat:@"yyyyMMddHHmmss"];
         //        NSString *_fileName = [NSString stringWithFormat:@"output-%@.mp4",[formater stringFromDate:[NSDate date]]];
-        //NSURL *urlStr = [NSURL URLWithString:]
+        //NSURL *urlStr = [NSURL URLithString:]
         
         [formData appendPartWithFileURL:urlVideo name:@"file" fileName:@"video.mov" mimeType:@"application/octet-stream" error:nil];
         //          [formData appendPartWithFileURL:[NSURL URLWithString:picture_url] name:@"file" fileName:@"ii.mov" mimeType:@"application/octet-stream" error:nil];
 
     } showHUDView:nil progress:^(id progress) {
+        NSProgress *p = (NSProgress *)progress;
         
+        dispatch_async(dispatch_get_main_queue(), ^{
+            float total = p.totalUnitCount;
+            float completed = p.completedUnitCount;
+            float i = completed / total;
+        self.progressHUD.progress = i;
+            if (i == 1) {
+                self.progressHUD.labelText = [NSString stringWithFormat:@"发布成功"];
+                self.progressHUD.mode = MBProgressHUDModeCustomView;
+                [self.progressHUD hide:YES afterDelay:1];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        });
     } success:^(id respondObj) {
-        
         //        NSString *aString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         //        SSLog(@"---%@---%@",[respondObj class],aString);
-        
-        [MBProgressHUD showSuccess:@"发布成功"];
+//        [MBProgressHUD showSuccess:@"发布成功"];
         //保存模型,赋值给控制器
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            //取消modal
-            [self dismissViewControllerAnimated:self completion:nil];
-        }];
     }];
 }
 
@@ -296,6 +267,11 @@
         }
     }
     return YES;
+}
+
+-(void)hudWasHidden:(MBProgressHUD *)hud{
+    [hud removeFromSuperview];
+    hud = nil;
 }
 
 

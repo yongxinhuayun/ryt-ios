@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ReleaseVideoViewController : UIViewController
-
+@property(nonatomic,copy) NSString *artworkId;
 @end

@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ArtistMainCellDelegate <NSObject>
+@required
+-(void)PostDynamic:(UIButton *)sender indexPath:(NSIndexPath *)indexPath;
+-(void)FinishCreation:(UIButton *)sender indexPath:(NSIndexPath *)indexPath;
+@end
+
 @class ArtworkListModel;
 
 @interface ArtistMainCell : UITableViewCell
@@ -16,7 +22,8 @@
 
 //对控制器就行实现按钮监听
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (nonatomic,strong) NSIndexPath *indexPath;
 @property (weak, nonatomic) IBOutlet UIButton *btn1;
 @property (weak, nonatomic) IBOutlet UIButton *btn2;
-
+@property(weak ,nonatomic) id<ArtistMainCellDelegate>delegate;
 @end

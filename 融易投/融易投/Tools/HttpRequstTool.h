@@ -25,11 +25,11 @@ typedef enum {
 /**
  *  不需要传递加密的参数
  */
--(void)handlerNetworkingPOSTRequstWithServerUrl:(NSString *)server_url  Parameters:(id )param showHUDView:(UIView *)view  success:(requstSuccessBlock )successBlock;
+-(void)handlerNetworkingPOSTRequstWithServerUrl:(NSString *)server_url  Parameters:(id )param showHUDView:(UIView *)view  success:(requstSuccessBlock)successBlock;
 /**
  *  需要传递加密的参数
  */
--(void)handlerNetworkingPOSTRequstWithBaseUrl:(NSString *)base_url  Parameters:(id )param showHUDView:(UIView *)view  success:(requstSuccessBlock )successBlock;
+-(void)handlerNetworkingPOSTRequstWithBaseUrl:(NSString *)base_url  Parameters:(id )param showHUDView:(UIView *)view  success:(requstSuccessBlock)successBlock;
 /**
  *  POST上传文件
  */

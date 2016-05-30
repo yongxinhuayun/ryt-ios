@@ -20,13 +20,13 @@ static HttpRequstTool *requstTool=nil ;
 @end
 
 @implementation HttpRequstTool
-//static  NSString *basePath = @"http://192.168.1.75:8080/app/";
+static  NSString *basePath = @"http://192.168.1.75:8080/app/";
 //static  NSString *basePath = @"http://192.168.1.75:8001/app/";
 
 //static  NSString *basePath = @"http://192.168.1.41:8080/app/";
 //static  NSString *basePath = @"http://192.168.1.41:8080/app/";
 // 阿里云服务器
-static NSString *basePath = @"http://craft.efeiyi.com/app-wikiServer/app/";
+//static NSString *basePath = @"http://craft.efeiyi.com/app-wikiServer/app/";
 +(HttpRequstTool *)shareInstance
 {
     if (!requstTool ) {

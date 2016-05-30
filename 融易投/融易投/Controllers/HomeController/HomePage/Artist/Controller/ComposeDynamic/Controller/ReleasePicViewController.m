@@ -310,7 +310,7 @@
     NSArray *file = tempArray.copy;
 
     
-    NSString *artworkId = [[NSUserDefaults standardUserDefaults]objectForKey:@"artworkId"];
+    NSString *artworkId = self.artworkId;
     
     NSString *timestamp = [MyMD5 timestamp];
     
@@ -403,29 +403,22 @@
             formatter.dateFormat = @"yyyyMMddHHmmssSSS";
             
             NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(imgCount)];
-            
-            NSLog(@"%@",fileName);
-            
+//            NSLog(@"%@",fileName);
             [formData appendPartWithFileData:data name:@"file" fileName:fileName mimeType:@"application/octet-stream"];
-            
             imgCount++;
-            
-            NSLog(@"%ld",imgCount);
-            
+//            NSLog(@"%ld",imgCount);            
         }
-        
     } showHUDView:nil progress:^(id progress) {
-        
     } success:^(id respondObj) {
         
-        //        NSString *aString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        //        SSLog(@"---%@---%@",[respondObj class],aString);
-        
-        [MBProgressHUD showSuccess:@"发布成功"];
+                NSString *aString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+                SSLog(@"---%@---%@",[respondObj class],aString);
         //保存模型,赋值给控制器
+        [MBProgressHUD showSuccess:@"发布成功"];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             //取消modal
-            [self dismissViewControllerAnimated:self completion:nil];
+            [self.navigationController popViewControllerAnimated:YES];
+            
         }];
         
     }];    

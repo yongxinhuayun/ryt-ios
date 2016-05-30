@@ -178,6 +178,18 @@
     }
 }
 
+- (IBAction)clickComposeBtn:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(PostDynamic:indexPath:)]) {
+        [self.delegate PostDynamic:sender indexPath:self.indexPath];
+    }
+}
+
+- (IBAction)clickFinishBtn:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(FinishCreation:indexPath:)]) {
+        [self.delegate FinishCreation:sender indexPath:self.indexPath];
+    }
+}
+
 - (void)awakeFromNib {
     // Initialization code
 }

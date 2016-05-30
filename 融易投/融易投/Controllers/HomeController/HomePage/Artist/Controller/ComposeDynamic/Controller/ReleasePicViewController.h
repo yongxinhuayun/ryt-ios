@@ -10,4 +10,5 @@
 
 @interface ReleasePicViewController : UITableViewController
 
+@property (nonatomic, copy)NSString *artworkId;
 @end

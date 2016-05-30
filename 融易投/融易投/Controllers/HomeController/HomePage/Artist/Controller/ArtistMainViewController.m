@@ -31,7 +31,7 @@
 #import "DetailFinanceViewController.h"
 #import "DetailCreationViewController.h"
 
-@interface ArtistMainViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface ArtistMainViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate,ArtistMainCellDelegate>
 
 @property (nonatomic, strong) NSMutableArray *models;
 
@@ -230,18 +230,61 @@ static NSString *ID = @"ArtistMainCell";
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     ArtistMainCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
-    [cell.btn1 addTarget:self action:@selector(cellBtn1Clicked:event:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [cell.btn2 addTarget:self action:@selector(cellBtn2Clicked:event:) forControlEvents:UIControlEventTouchUpInside];
-    
+//    [cell.btn1 addTarget:self action:@selector(cellBtn1Clicked:event:) forControlEvents:UIControlEventTouchUpInside];
+//    [cell.btn2 addTarget:self action:@selector(cellBtn2Clicked:event:) forControlEvents:UIControlEventTouchUpInside];
+    cell.indexPath = indexPath;
+    cell.delegate = self;
     ArtworkListModel *model = self.models[indexPath.row];
-    
     cell.model = model;
-    
     return cell;
+}
+//发布动态按钮事件
+-(void)PostDynamic:(UIButton *)sender indexPath:(NSIndexPath *)indexPath{
+    ArtworkListModel *cellModel = self.models[indexPath.row];
+    if ([sender.titleLabel.text isEqualToString:@"发布动态"]) {
+        //发布动态
+        [self publishState:cellModel.ID];
+    }else {
+        //传递点击当前cell的数据模型
+        
+        ComposeProjectViewController *releaseProject = [[ComposeProjectViewController alloc] init];
+        //获取点击的编辑项目的项目信息
+        NSString *currentUserId = cellModel.author.ID;
+        NSString *artWorkId = cellModel.ID;
+        NSString *urlStr = @"investorArtWorkView.do";
+        NSDictionary *json = @{
+                               @"artWorkId" : artWorkId,
+                               @"currentUserId": currentUserId,
+                               };
+        [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
+            
+            //            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+            //            NSLog(@"返回结果:%@",jsonStr);
+            NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+            ProjectDetailsModel *project = [ProjectDetailsModel mj_objectWithKeyValues:modelDict[@"object"]];
+            //在主线程刷新UI数据
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                //传递点击当前cell的数据模型
+                releaseProject.projectModel = project;
+//                releaseProject
+                [self.navigationController pushViewController:releaseProject animated:YES];
+            }];
+        }];
+    }
+}
+//创作完成事件
+-(void)FinishCreation:(UIButton *)sender indexPath:(NSIndexPath *)indexPath{
+    if ([sender.titleLabel.text isEqualToString:@"提交项目"]) {
+        //提交项目
+        ArtworkListModel *step = self.models[indexPath.row];
+        [self loadChangeData:step AndStep:@"10" AndIndexPath:indexPath];
+    }else {
+        //创作完成
+        sender.superview.hidden = YES;
+        ArtworkListModel *model = self.models[indexPath.row];
+        [self loadChangeData:model AndStep:@"23" AndIndexPath:indexPath];
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -256,75 +299,47 @@ static NSString *ID = @"ArtistMainCell";
     ArtworkListModel *model = self.models[indexPath.row];
     
     if ([model.step isEqualToString:@"10"]){
-
         [MBProgressHUD showError:@"审核待审核,请您耐心等待"];
-        
     }else if ([model.step isEqualToString:@"11"]){
-        
         [MBProgressHUD showError:@"审核审核中,请您耐心等待"];
-        
     }else if ([model.step isEqualToString:@"13"]){
-        
         [MBProgressHUD showError:@"审核未通过,请您耐心等待"];
-        
     }else if ([model.step isEqualToString:@"14"]){
-        
         //跳转
         DetailFinanceViewController *detail = [[DetailFinanceViewController alloc] init];
         detail.artworkId = model.ID;
         [self.navigationController pushViewController:detail animated:YES];
-        
     }else if ([model.step isEqualToString:@"21"]||[model.step isEqualToString:@"22"]||[model.step isEqualToString:@"24"]||[model.step isEqualToString:@"25"]){
-        
         DetailCreationViewController *creationDetailsVC = [[DetailCreationViewController alloc] init];
         creationDetailsVC.artworkId = model.ID;
         [self.navigationController pushViewController:creationDetailsVC animated:YES];
-        
     }else if([model.step isEqualToString:@"100"]) {
-        
         [MBProgressHUD showError:@"项目可以编辑"];
     }else {
-        
         [MBProgressHUD showError:@"拍卖即将开始"];
     }
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)cellBtn1Clicked:(UIButton *)btn event:(id)event
 {
-    
     SSLog(@"btn1Click");
-    
     if ([btn.titleLabel.text isEqualToString:@"提交项目"]) {
-        
         //提交项目
-        SSLog(@"提交项目");
-
         NSSet *touches =[event allTouches];
         UITouch *touch =[touches anyObject];
         CGPoint currentTouchPosition = [touch locationInView:self.tableView];
         NSIndexPath *indexPath= [self.tableView indexPathForRowAtPoint:currentTouchPosition];
-        
         ArtworkListModel *step = self.models[indexPath.row];
-        
         [self loadChangeData:step AndStep:@"10" AndIndexPath:indexPath];
-        
-    
     }else {
-        
         //创作完成
-        SSLog(@"创作完成");
-        
         btn.superview.hidden = YES;
-        
         NSSet *touches =[event allTouches];
         UITouch *touch =[touches anyObject];
         CGPoint currentTouchPosition = [touch locationInView:self.tableView];
         NSIndexPath *indexPath= [self.tableView indexPathForRowAtPoint:currentTouchPosition];
-
         ArtworkListModel *model = self.models[indexPath.row];
-        
         [self loadChangeData:model AndStep:@"23" AndIndexPath:indexPath];
     }
 }
@@ -334,23 +349,18 @@ static NSString *ID = @"ArtistMainCell";
         //参数
         NSString *artworkId = model.ID;
         NSString *userId = model.author.ID;
-    
         // 3.设置请求体
         NSDictionary *json = @{
                                @"artworkId":artworkId,
                                @"userId" : userId,
                                @"step" : step,
                                };
-    
         NSString *url = @"updateArtWork.do";
-    
         [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
-            
 //            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
 //            NSLog(@"返回结果:%@",jsonStr);
             
             NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-            
             BianJiJianJieModel *model = [BianJiJianJieModel mj_objectWithKeyValues:modelDict];
             
             [SVProgressHUD showInfoWithStatus:model.resultMsg];
@@ -360,14 +370,9 @@ static NSString *ID = @"ArtistMainCell";
     
             //在主线程刷新UI数据
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                
-                
                 [SVProgressHUD dismiss];
-                
                 [self.tableView reloadData];
-                
                 [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
-                
 //                if (indexPath!= nil) {
 //                    
 //                    //局部刷新数据
@@ -377,95 +382,24 @@ static NSString *ID = @"ArtistMainCell";
 //                    
 //                    [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
 //                }
-                
-                
-            }];
-            
-        }];
-}
-
-- (void)cellBtn2Clicked:(UIButton *)btn event:(id)event
-{
-    
-    SSLog(@"btn2Click");
-    
-    if ([btn.titleLabel.text isEqualToString:@"发布动态"]) {
-        
-        //发布动态
-        [self publishState];
-        
-    }else {
-        
-        //编辑项目
-        // 弹出发微博控制器
-//        ReleaseProjectViewController *releaseProject = [[ReleaseProjectViewController alloc] init];
-//        
-//        [self.navigationController pushViewController:releaseProject animated:YES];
-        
-        //传递点击当前cell的数据模型
-        NSSet *touches =[event allTouches];
-        UITouch *touch =[touches anyObject];
-        CGPoint currentTouchPosition = [touch locationInView:self.tableView];
-        NSIndexPath *indexPath= [self.tableView indexPathForRowAtPoint:currentTouchPosition];
-        ArtworkListModel *cellModel = self.models[indexPath.row];
-        
-        ComposeProjectViewController *releaseProject = [[ComposeProjectViewController alloc] init];
-
-        
-        //获取点击的编辑项目的项目信息
-        
-        NSString *currentUserId = cellModel.author.ID;
-        NSString *artWorkId = cellModel.ID;
-        
-        
-        NSString *urlStr = @"investorArtWorkView.do";
-        NSDictionary *json = @{
-                               @"artWorkId" : artWorkId,
-                               @"currentUserId": currentUserId,
-                               };
-        
-        
-        [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
-            
-//            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//            NSLog(@"返回结果:%@",jsonStr);
-            
-            NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-            
-            ProjectDetailsModel *project = [ProjectDetailsModel mj_objectWithKeyValues:modelDict[@"object"]];
-            
-            //在主线程刷新UI数据
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                
-                //传递点击当前cell的数据模型
-                releaseProject.projectModel = project;
-                
-                 [self.navigationController pushViewController:releaseProject animated:YES];
             }];
         }];
-    }
 }
 
 
 //发布动态
--(void)publishState{
-
+-(void)publishState:(NSString *)artworkId{
     //创建UIAlertController是为了让用户去选择照片来源,拍照或者相册.
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:0];
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-    
     imagePickerController.delegate = self;
     //设置选择图片的截取框
     //    imagePickerController.allowsEditing = YES;
-    
     UIAlertAction *videoAction = [UIAlertAction actionWithTitle:@"视频" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
-        
         ReleaseVideoViewController *videoVc = [[ReleaseVideoViewController alloc] init];
-        
+        videoVc.artworkId = artworkId;
         [self.navigationController pushViewController:videoVc animated:YES];
     }];
-    
-    
     UIAlertAction *picAction = [UIAlertAction actionWithTitle:@"从手机相册选择" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
         
     //之前的
@@ -477,6 +411,7 @@ static NSString *ID = @"ArtistMainCell";
     //现在的
     UIStoryboard *settingStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleasePicViewController class]) bundle:nil];
     ReleasePicViewController *releasePicVC = [settingStoryBoard instantiateInitialViewController];
+        releasePicVC.artworkId = artworkId;
      [self.navigationController pushViewController:releasePicVC animated:YES];
         
     }];
