@@ -98,7 +98,7 @@
             investorListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"investorCell" forIndexPath:indexPath];
             NSDictionary *model1 = self.investPeople[indexPath.row];
             
-            if (model1) {
+            if (model1 != nil) {
                 NSString *pricUrl = [[NSString stringWithString:model1[@"pictureUrl"]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
                 [cell.userPicture ss_setHeader:[NSURL URLWithString:pricUrl]];
             }
