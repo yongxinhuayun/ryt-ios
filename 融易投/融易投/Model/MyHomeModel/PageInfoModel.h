@@ -26,7 +26,8 @@
 @property(nonatomic,copy) NSString *followStatus;
 /** 粉丝数 */
 @property (nonatomic ,assign) NSInteger followNum;
-
+@property(nonatomic,assign) BOOL followed;
+@property(nonatomic,copy) NSString *artUserFollowId;
 /** 赞过的 */
 @property (nonatomic ,assign) NSInteger num;
 
