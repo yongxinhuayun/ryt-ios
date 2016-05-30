@@ -12,7 +12,7 @@
 
 #import <WechatShortVideoController.h>
 #import <UIKit/UIKit.h>
-@interface ReleaseVideoViewController ()<WechatShortVideoDelegate,UITextViewDelegate,MBProgressHUDDelegate>
+@interface ReleaseVideoViewController ()<WechatShortVideoDelegate,UITextViewDelegate,MBProgressHUDDelegate,XMGPlayerViewDelegate>
 {
     NSURL *urlVideo;
 }
@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
 @property(nonatomic,strong) MBProgressHUD *progressHUD;
+@property (nonatomic,strong) UIView *preView;
 
 @end
 
@@ -36,6 +37,13 @@
     [super viewDidLoad];
     [self setUpNavBar];
     [self setUpTextView];
+}
+
+-(UIView *)preView{
+    if (!_preView) {
+        _preView = [[UIView alloc] init];
+    }
+    return _preView;
 }
 
 -(MBProgressHUD *)progressHUD{
@@ -215,22 +223,43 @@
         
         XMGPlayerView *playerView = [XMGPlayerView playerView];
         playerView.frame = CGRectMake(0, 0, 120, 120);
-        
         [self.videoView insertSubview:playerView atIndex:0];
         self.playerView = playerView;
-        
-       
+        self.playerView.delegate = self;
         AVPlayerItem *item = [AVPlayerItem playerItemWithURL:urlVideo];
-        
-//        NSURL *url = [NSURL URLWithString:@"http://v1.mukewang.com/57de8272-38a2-4cae-b734-ac55ab528aa8/L.mp4"];
-//        AVPlayerItem *item = [AVPlayerItem playerItemWithURL:url];
-        
         self.playerView.playerItem = item;
-
     }
-
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
+-(void)playerViewDidClickFullScreen:(BOOL)isFull{
+    if (isFull) {
+        self.preView = self.view;
+        
+        self.view = self.playerView;
+        self.navigationController.navigationBar.hidden = YES;
+        self.playerView.width = SSScreenW;
+        self.playerView.height = SSScreenH;
+        [self prefersStatusBarHidden];
+    }else{
+        [UIApplication sharedApplication].statusBarHidden = NO;
+        self.navigationController.navigationBar.hidden = NO;
+        
+        self.view = self.preView;
+        [self.videoView insertSubview:self.playerView atIndex:0];
+        self.preView = self.view;
+        self.playerView.width = 120;
+        self.playerView.height = 120;
+//        self.playerView.frame = CGRectMake(0, 0,120 , 120);
+//        self.playerView.transform = CGAffineTransformMakeRotation(M_PI_2);
+    }
+    
+    
+}
 
 - (IBAction)recordVideo:(id)sender {
     
@@ -244,7 +273,6 @@
     
     
     urlVideo = filePath;
-
 }
 
 #pragma mark - Text View Delegate

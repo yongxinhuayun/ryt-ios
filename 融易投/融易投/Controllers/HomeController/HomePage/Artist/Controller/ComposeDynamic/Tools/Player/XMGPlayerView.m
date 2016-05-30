@@ -63,6 +63,15 @@
     [self addProgressTimer];
 
     self.playOrPauseBtn.selected = YES;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackFinished:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.player.currentItem];
+}
+
+-(void)playbackFinished:(NSNotification *)notification{
+    NSLog(@"视频播放完成.");
+    // 播放完成后重复播放
+    // 跳到最新的时间点开始播放
+    [_player seekToTime:CMTimeMake(0, 1)];
+    [_player play];
 }
 
 - (void)layoutSubviews
@@ -174,6 +183,10 @@
     NSString *currentString = [NSString stringWithFormat:@"%02ld:%02ld", cMin, cSec];
 
     return [NSString stringWithFormat:@"%@/%@", currentString, durationString];
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
