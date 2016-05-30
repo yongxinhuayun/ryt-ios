@@ -98,8 +98,11 @@
             investorListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"investorCell" forIndexPath:indexPath];
             NSDictionary *model1 = self.investPeople[indexPath.row];
             
-            NSString *pricUrl = [[NSString stringWithString:model1[@"pictureUrl"]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            [cell.userPicture ss_setHeader:[NSURL URLWithString:pricUrl]];
+            if (model1) {
+                NSString *pricUrl = [[NSString stringWithString:model1[@"pictureUrl"]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                [cell.userPicture ss_setHeader:[NSURL URLWithString:pricUrl]];
+            }
+            
             return cell;
         }else{
             MoreInvestorCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MoreInvestorCell" forIndexPath:indexPath];

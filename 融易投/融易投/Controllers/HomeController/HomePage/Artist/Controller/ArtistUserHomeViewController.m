@@ -7,7 +7,7 @@
 //
 
 #import "ArtistUserHomeViewController.h"
-
+#import "PrivateLetterViewController.h"
 #import "TopView.h"
 #import "CycleView.h"
 #import "CommonUserHeaderView.h"
@@ -24,6 +24,7 @@
 @interface ArtistUserHomeViewController ()<CommonUserHeaderViewDelegate>
 
 @property (nonatomic ,strong)PageInfoModel *model;
+@property (nonatomic,strong) CommonUserHeaderView *HeaderView;
 @property(nonatomic,assign) BOOL isFirstIn;
 
 @end
@@ -60,8 +61,8 @@
     self.topview.height = tView.height;
     tView.backgroundColor = [UIColor whiteColor];
     tView.width = SSScreenW;
+    self.topview.width = SSScreenW;
     //    [tView.imgView setBackgroundColor:[UIColor whiteColor]];
-    
     [self.topview addSubview:tView];
     self.middleView.frame = CGRectMake(0, CGRectGetHeight(self.topview.frame), SSScreenW, SSScreenH - CGRectGetMaxY(self.navigationController.navigationBar.frame));
     self.middleView.backgroundColor = [UIColor blueColor];
@@ -76,6 +77,65 @@
     //添加控制器视图 到scrollView中
     self.backgroundScrollView.contentSize = CGSizeMake(SSScreenW,self.topview.height + self.middleView.height);
     
+}
+
+//
+-(void)postPrivateLetter{
+    // 拿到当前用户的ID，如果为空，提醒用户进行登录
+    RYTLoginManager *manager = [RYTLoginManager shareInstance];
+    if (![manager showLoginViewIfNeed]) {
+        //用户登录成功，获取用户的ID
+        // targetUserId : 私信接受者,当前被查看的用户
+        // fromUserId : 私信发送者,当前登录的用户
+        NSString *fromUserId = self.model.user.ID;
+        NSString *targetUserId = [manager takeUser].ID;
+        if (![fromUserId isEqualToString:targetUserId]){
+            PrivateLetterViewController *letterController = [[PrivateLetterViewController alloc] init];
+            letterController.fromUserId = fromUserId;
+            letterController.userId = targetUserId;
+            [self.navigationController pushViewController:letterController animated:YES];
+        }
+    }
+}
+
+// 添加关注
+-(void)addConcern{
+    //判断当前用户是否登录
+    RYTLoginManager *manager = [RYTLoginManager shareInstance];
+    if (![manager showLoginViewIfNeed]) {
+        // 如果用户登录了，获取当前用户的ID
+        NSString *userId = [manager takeUser].ID;
+        // 获取当前将要被关注的用户ID
+        NSString *followId = self.model.user.ID;
+        //        NSString *identifier 0 为关注，1 为取消关注
+        NSString *identifier = self.model.followed ? @"1" : @"0";
+        // followType 1:普通用户 2:艺术家
+        NSString *followType = self.model.user.master ? @"2" : @"1";
+        NSDictionary *json = [ NSDictionary dictionary];
+        if (![self.model.artUserFollowId isEqualToString:@""]) {
+            json = @{
+                     @"identifier" :identifier,
+                     //                     @"followType" : followType,
+                     @"artUserFollowId" : self.model.artUserFollowId
+                     };
+        }else{
+            json = @{
+                     @"userId" : userId,
+                     @"followId" : followId,
+                     @"identifier" :identifier,
+                     @"followType" : followType,
+                     };
+        }
+        [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"changeFollowStatus.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+            NSString *str = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",str);
+            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+            NSString *resultCode = result[@"resultCode"];
+            if ([resultCode isEqualToString:@"0"]) {
+                self.HeaderView.focusBtn.selected = !self.HeaderView.focusBtn.selected;
+            }
+        }];
+    }
 }
 
 
