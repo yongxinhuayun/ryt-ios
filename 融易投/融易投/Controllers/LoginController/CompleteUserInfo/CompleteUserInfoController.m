@@ -234,7 +234,7 @@
     
     // 3.设置请求体
     NSDictionary *json = @{
-                           @"username" : @"18513234278",
+                           @"username" : username,
                            @"nickname" : nickname,
                            @"headPortrait":headPortrait,
                            @"sex"      : sex,
@@ -271,7 +271,7 @@
     }];
     */
     
-    NSString *url = @"releaseArtworkDynamic.do";
+    NSString *url = @"completeUserInfo.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
        [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"headPortrait" fileName:@"headPortrait.jpg" mimeType:@"application/octet-stream" error:nil];

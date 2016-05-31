@@ -136,6 +136,18 @@
 
 //发送验证码
 - (IBAction)geName:(UIButton *)btn {
+
+    if (self.phoneNumTextField.text.length < 11) {
+        
+        [MBProgressHUD showError:@"请输入完整的手机号"];
+        return;
+    }
+    if(![self.phoneNumTextField isValidPhone])
+    {
+        [MBProgressHUD showError:@"请输入正确的手机号"];
+        return;
+    }
+    [MBProgressHUD showMessage:nil];
     
     btn.enabled=NO;
     
@@ -164,17 +176,6 @@
 //发送验证码
 -(void)loadDataget
 {
-    if (self.phoneNumTextField.text.length < 11) {
-        
-        [MBProgressHUD showError:@"请输入完整的手机号"];
-        return;
-    }
-    if(![self.phoneNumTextField isValidPhone])
-    {
-        [MBProgressHUD showError:@"请输入正确的手机号"];
-        return;
-    }
-    [MBProgressHUD showMessage:nil];
     //参数
     NSString *username = self.phoneNumTextField.text;
     NSString *urlStr = @"sendCode.do";
