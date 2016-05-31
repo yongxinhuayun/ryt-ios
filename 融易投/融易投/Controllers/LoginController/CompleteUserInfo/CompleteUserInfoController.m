@@ -7,6 +7,7 @@
 //
 
 #import "CompleteUserInfoController.h"
+#import "LognController.h"
 
 #import <AFNetworking.h>
 #import "UIImageView+WebCache.h"
@@ -16,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @property (weak, nonatomic) IBOutlet UITextField *nicknameTextField;
+@property (weak, nonatomic) IBOutlet UIButton *maleBtn;
+@property (weak, nonatomic) IBOutlet UIButton *femaleBtn;
 
 @property (strong,nonatomic) NSString *createPath;
 
@@ -31,6 +34,8 @@
     
     //设置图片能够点击
     //记住:UIImageView默认情况下是不能接收事件的,如果要执行点击方法,必须把默认的User interaction Enable 改成yes
+    self.imageView.layer.cornerRadius = 40;
+    self.imageView.layer.masksToBounds = YES;
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
     
     [self.imageView addGestureRecognizer:tapGesture];
@@ -44,7 +49,7 @@
     
     imagePickerController.delegate = self;
     //设置选择图片的截取框
-    //    imagePickerController.allowsEditing = YES;
+    imagePickerController.allowsEditing = YES;
     
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"从相册选取" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
         
@@ -141,23 +146,13 @@
     //取消modal
     [self dismissViewControllerAnimated:self completion:nil];
     
-    //    self.drawView.image = selctedImage;
-    //    SSLog(@"%@",selctedImage);
-    
     UIImage *newImage = [self drawImageWith:selctedImage imageWidth:100];
-    //    NSLog(@"newImage = %d",);
-    
-    
-    //    NSData *data = UIImagePNGRepresentation(newImage);
-    //    NSString *filename = @"image";
     
     self.imageView.image = newImage;
     
     selctedImage = nil;
     
     self.createPath = [self writeImageToCaches:newImage];
-    
-    //    SSLog(@"%@",self.createPath);
 }
 
 -(NSString *)writeImageToCaches:(UIImage *)newImage{
@@ -206,18 +201,28 @@
     // 4.关闭上下文
     return newImage;
 }
+- (IBAction)sexBtnClick:(UIButton *)btn {
+    
+    btn.selected = !btn.selected;
+}
 
 
 -(void)loadData
 {
     //参数
-     NSString *username = @"18513234278";
+     NSString *username = self.username;
     NSString *nickname = self.nicknameTextField.text;
     
     NSString *headPortrait = self.createPath;
-    NSLog(@"%@",headPortrait);
     
-    NSString *sex = @"1";
+     NSString *sex = @"1";
+    if (self.maleBtn.selected) {
+        sex = @"1";
+    }else{
+        sex = @"2";
+    }
+    
+   
     NSString *timestamp = [MyMD5 timestamp];
     NSString *appkey = MD5key;
     
@@ -225,8 +230,7 @@
     
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
     
-    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-    NSString *url = @"http://192.168.1.69:8001/app/completeUserInfo.do";
+
     
     // 3.设置请求体
     NSDictionary *json = @{
@@ -238,8 +242,8 @@
                            @"signmsg"   : signmsgMD5
                            };
     
-    //     [HttpRequstTool shareInstance];
-    
+    /*
+    NSString *url = @"http://192.168.1.69:8001/app/completeUserInfo.do";
     AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
     
     // 设置请求格式
@@ -265,7 +269,26 @@
         
         SSLog(@"%@",error);
     }];
+    */
     
+    NSString *url = @"releaseArtworkDynamic.do";
+    
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
+       [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"headPortrait" fileName:@"headPortrait.jpg" mimeType:@"application/octet-stream" error:nil];
+    } showHUDView:nil progress:^(id progress) {
+        
+    } success:^(id respondObj) {
+        NSString *aString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        SSLog(@"---%@---%@",[respondObj class],aString);
+        
+        //保存模型,赋值给控制器
+        [MBProgressHUD showSuccess:@"上传成功"];
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            LognController *logn = [[LognController alloc] init];
+            [self.navigationController pushViewController:logn animated:YES];
+        }];
+        
+    }];
     
 }
 

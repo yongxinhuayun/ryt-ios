@@ -18,7 +18,7 @@
 
 #import "cityField.h"
 
-@interface ApplyforArtViewController ()<UITextViewDelegate,UIGestureRecognizerDelegate>
+@interface ApplyforArtViewController ()<UITextViewDelegate,UIGestureRecognizerDelegate,MBProgressHUDDelegate>
 
 @property (nonatomic,weak)UITextField *nameTextView;
 @property (nonatomic,weak)UITextField *phoneTextView;
@@ -62,9 +62,21 @@
 //imagePicker队列
 @property (nonatomic,strong)NSMutableArray *imagePickerArray4;
 
+//提示上传进度
+@property(nonatomic,strong) MBProgressHUD *progressHUD;
+
 @end
 
 @implementation ApplyforArtViewController
+
+-(MBProgressHUD *)progressHUD{
+    if (!_progressHUD) {
+        _progressHUD = [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication] keyWindow] animated:YES];
+        self.progressHUD.delegate = self;
+        _progressHUD.mode = MBProgressHUDModeDeterminate;
+    }
+    return _progressHUD;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -457,7 +469,7 @@
     headViewHeight = CGRectGetMaxY(querenBtn.frame);
     
     //描述确认按钮
-    UILabel *querenLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding + 20, headViewHeight + padding, 150, 10)];
+    UILabel *querenLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding + 50, headViewHeight + padding, 135, 10)];
 //    UILabel *querenLabel = [[UILabel alloc] init];
 //    querenLabel.x = padding + 200;
 //    querenLabel.y = headViewHeight + padding;
@@ -474,7 +486,12 @@
     
     //描述确认协议按钮
     UIButton *querenInfoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    querenInfoBtn.frame = CGRectMake(CGRectGetMaxX(querenLabel.frame), headViewHeight + 5, 200, 20);
+    
+    if (iPhone4 || iPhone5) {
+       querenInfoBtn.frame = CGRectMake(CGRectGetMaxX(querenLabel.frame) - 33, headViewHeight + 5, 120, 20);
+    }else{
+        querenInfoBtn.frame = CGRectMake(CGRectGetMaxX(querenLabel.frame) - 20, headViewHeight + 5, 150, 20);
+    }
     [querenInfoBtn setTitle:@"《融艺投艺术家协议》" forState:UIControlStateNormal];
     [querenInfoBtn setTitleColor:SSColor(239, 91, 112) forState:UIControlStateNormal];
     if (iPhone4 || iPhone5) {
@@ -977,9 +994,6 @@
 }
 
 -(void)saveData{
-    
-
-        
         self.str1 =self.nameTextView.text;
         self.str2 =  self.phoneTextView.text;
         self.str3 =self.districtTextView.text;
@@ -987,27 +1001,20 @@
         self.str5 = self.certificationTF.text;
         self.str6 =self.districtTextView.text;
         self.str7 = self.artTextView.text;
-
 }
 
 -(void)takeData{
-    
-        
         self.nameTextView.text = self.str1;
         self.phoneTextView.text = self.str2;
         self.districtTextView.text = self.str3;
         self.addressTextView.text = self.str4;
         self.certificationTF.text = self.str5;
         self.districtTextView.text = self.str6;
-        self.artTextView.text = self.str7;
-
-    
+        self.artTextView.text = self.str7;  
 }
 
 
 -(void)querentijiao{
-
-    SSLog(@"111");
     
     //参数
     //籍贯
@@ -1036,8 +1043,6 @@
     
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
 
-    
-    
     //图片数组
     NSMutableArray *tempArray1 = [NSMutableArray array];
     
@@ -1107,12 +1112,6 @@
     NSString *identityFront = @"identityFront.png";
     NSString *identityBack = @"identityBack.png";
     
-    
-
-    // 1.创建请求 http://j.efeiyi.com:8080/app-wikiServer/
-    NSString *url = @"http://192.168.1.41:8080/app/applyArtMaster.do";
-    
-    // 3.设置请求体
     NSDictionary *json = @{
                            @"province" : province,
                            @"provinceName" : provinceName,
@@ -1128,7 +1127,9 @@
                            @"timestamp" : timestamp,
                            @"signmsg"   : signmsgMD5
                            };
-    
+    /*
+    NSString *url = @"http://192.168.1.41:8080/app/applyArtMaster.do";
+     
     AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
     
     // 设置请求格式
@@ -1232,7 +1233,109 @@
         
         [MBProgressHUD showSuccess:@"申请失败,请重新申请"];
     }];
+    */
+    
+    NSString *url = @"releaseArtworkDynamic.do";
+    
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
 
+        NSInteger imgCount = 0;
+        
+        //身份证正反面2张图片
+        //        UIImage *identityFrontImage2 = [UIImage imageWithCGImage:(__bridge CGImageRef _Nonnull)(identityFrontImage)];
+        UIImage *identityFrontImage2  =  [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray1 objectAtIndex:0]).thumbnail];
+        NSLog(@"%@",[self.imagePickerArray1.firstObject class]);
+        
+        NSData *data1 = UIImageJPEGRepresentation(identityFrontImage2, 1.0);
+        NSLog(@"data1 = %@",data1);
+        [formData appendPartWithFileData:data1 name:@"identityFront" fileName:identityFront mimeType:@"application/octet-stream"];
+        
+        //        UIImage *identityBackImage2 = [UIImage imageWithCGImage:(__bridge CGImageRef _Nonnull)(identityBackImage)];
+        UIImage *identityBackImage2  =  [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray1 objectAtIndex:1]).thumbnail];
+        NSData *data2 = UIImageJPEGRepresentation(identityBackImage2, 1.0);
+        [formData appendPartWithFileData:data2 name:@"identityBack" fileName:identityBack mimeType:@"application/octet-stream"];
+        
+        //三张作品图片
+        
+        for (int i = 0; i < self.imagePickerArray2.count; i++) {
+            
+            UIImage *image  =  [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray2 objectAtIndex:i]).thumbnail];
+            
+            NSData *data = UIImageJPEGRepresentation(image, 1.0);
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            
+            formatter.dateFormat = @"yyyyMMddHHmmssSSS";
+            
+            NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(imgCount)];
+            
+            NSLog(@"%@",fileName);
+            
+            [formData appendPartWithFileData:data name:@"one" fileName:fileName mimeType:@"application/octet-stream"];
+        }
+        
+        for (int i = 0; i < self.imagePickerArray3.count; i++) {
+            
+            UIImage *image  =  [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray3 objectAtIndex:i]).thumbnail];
+            
+            NSData *data = UIImageJPEGRepresentation(image, 1.0);
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            
+            formatter.dateFormat = @"yyyyMMddHHmmssSSS";
+            
+            NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(imgCount)];
+            
+            NSLog(@"%@",fileName);
+            
+            [formData appendPartWithFileData:data name:@"two" fileName:fileName mimeType:@"application/octet-stream"];
+        }
+        
+        for (int i = 0; i < self.imagePickerArray4.count; i++) {
+            
+            UIImage *image  =  [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray4 objectAtIndex:i]).thumbnail];
+            
+            NSData *data = UIImageJPEGRepresentation(image, 1.0);
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            
+            formatter.dateFormat = @"yyyyMMddHHmmssSSS";
+            
+            NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(imgCount)];
+            
+            NSLog(@"%@",fileName);
+            
+            [formData appendPartWithFileData:data name:@"three" fileName:fileName mimeType:@"application/octet-stream"];
+        }
+    } showHUDView:nil progress:^(id progress) {
+        NSProgress *p = (NSProgress *)progress;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            float total = p.totalUnitCount;
+            float completed = p.completedUnitCount;
+            float i = completed / total;
+            self.progressHUD.progress = i;
+            if (i == 1) {
+                self.progressHUD.labelText = [NSString stringWithFormat:@"发布成功"];
+                self.progressHUD.mode = MBProgressHUDModeCustomView;
+                [self.progressHUD hide:YES afterDelay:1];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        });
+    } success:^(id respondObj) {
+        
+        NSString *aString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        
+        SSLog(@"---%@---%@",[respondObj class],aString);
+        
+        //保存模型,赋值给控制器
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            [MBProgressHUD showSuccess:@"申请成功"];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -165,10 +165,10 @@ static NSString *BeeCloudAppSecret = @"23b1b629-4da0-42bd-8b4c-f7124bde629a";
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     //2.设置窗口的根控制器
-    self.window.rootViewController = [self defaultViewController];
+//    self.window.rootViewController = [self defaultViewController];
     
-//    LognController *logn = [[LognController alloc] init];
-//    self.window.rootViewController = logn;
+    CompleteUserInfoController *logn = [[CompleteUserInfoController alloc] init];
+    self.window.rootViewController = logn;
     
     //判断程序被杀死之前的登录状态
     RYTLoginManager *mgr = [RYTLoginManager shareInstance];
