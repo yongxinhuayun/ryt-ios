@@ -47,10 +47,44 @@ static NSString *ID = @"focusMyCell";
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"FocusMyTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
     
+    //字典转模型
+    [self dictToModel];
+    
     [self loadNewData];
     
     //设置刷新控件
     [self setUpRefresh];
+}
+-(void)dictToModel{
+    
+    [ArtUserFollowedMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"ID"          :@"id"
+                 };
+    }];
+    
+    [UserMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"ID"          :@"id"
+                 };
+    }];
+    
+    [FollowerMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"ID"          :@"id"
+                 };
+    }];
+    
+    [MasterMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"ID"          :@"id"
+                 };
+    }];
+    
 }
 
 -(void)setUpRefresh
@@ -90,6 +124,8 @@ static NSString *ID = @"focusMyCell";
     UserMyModel *userModel = TakeLoginUserModel;
     NSString *userId = userModel.ID;
     NSString *otherUserId = self.userId;
+    
+    SSLog(@"%@",otherUserId);
     
     NSString *flag = @"1";
     

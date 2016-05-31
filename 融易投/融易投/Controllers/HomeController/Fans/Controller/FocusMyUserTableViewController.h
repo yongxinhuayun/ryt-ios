@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FocusBasicTableViewController.h"
 
-@interface FocusMyUserTableViewController : UITableViewController
-
-@property (nonatomic ,strong)NSString *userId;
+@interface FocusMyUserTableViewController : FocusBasicTableViewController
 
 @end

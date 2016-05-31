@@ -38,5 +38,7 @@ UIKIT_EXTERN NSString * const ChangeRootViewControllerNotification;
 UIKIT_EXTERN NSString * const UpdateMeViewDataControllerNotification;
 /** 通知：跟新简介控制器的界面  */
 UIKIT_EXTERN NSString * const UpdateJianJieViewDataControllerNotification;
+/** 通知：传递userId通知  */
+UIKIT_EXTERN NSString * const SenduserIdNotification;
 
 @end

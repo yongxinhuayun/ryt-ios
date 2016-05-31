@@ -47,10 +47,47 @@ static NSString *ID = @"focusMyCell";
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"FocusMyTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
     
+    //字典转模型
+    [self dictToModel];
+    
+
+    
     [self loadNewData];
     
     //设置刷新控件
     [self setUpRefresh];
+}
+
+-(void)dictToModel{
+    
+    [ArtUserFollowedMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"ID"          :@"id"
+                 };
+    }];
+    
+    [UserMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"ID"          :@"id"
+                 };
+    }];
+    
+    [FollowerMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"ID"          :@"id"
+                 };
+    }];
+    
+    [MasterMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        
+        return @{
+                 @"ID"          :@"id"
+                 };
+    }];
+    
 }
 
 -(void)setUpRefresh
@@ -126,7 +163,7 @@ static NSString *ID = @"focusMyCell";
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
         self.models = [PageInfoListMyModel mj_objectArrayWithKeyValuesArray:modelDict[@"pageInfoList"]];
-
+        
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
@@ -178,12 +215,13 @@ static NSString *ID = @"focusMyCell";
                            @"pageIndex" : pageIndex,
                            @"flag": flag
                            };
+    
      NSString *url = @"userFollowed.do";
     
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        //        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
@@ -194,7 +232,6 @@ static NSString *ID = @"focusMyCell";
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.tableView.mj_footer endRefreshing];
             [self.tableView reloadData];
             
         }];
@@ -209,8 +246,8 @@ static NSString *ID = @"focusMyCell";
 
 #pragma mark - Table view data source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
     return self.models.count;
 }
 
@@ -227,7 +264,6 @@ static NSString *ID = @"focusMyCell";
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     
     return 60;
 }

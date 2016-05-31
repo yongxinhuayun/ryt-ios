@@ -41,5 +41,7 @@ NSString * const UpdateMeViewDataControllerNotification = @"UpdateMeViewDataCont
 
 NSString * const UpdateJianJieViewDataControllerNotification = @"UpdateJianJieViewDataControllerNotification";
 
+NSString * const SenduserIdNotification = @"SenduserId";
+
 
 @end

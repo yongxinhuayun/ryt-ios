@@ -24,19 +24,19 @@
 -(void)setModel:(PageInfoListMyModel *)model{
     
     _model = model;
-    
+
     //代表type为1,model.master有值,为艺术家
-    if (model.master) {
+    if (model.artUserFollowed.follower.master) {
         
-        NSString *pictureUrlStr = [[NSString stringWithFormat:@"http://tenant.efeiyi.com/%@",model.master.favicon] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *pictureUrlStr = [[NSString stringWithFormat:@"%@",model.artUserFollowed.follower.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
         NSURL *pictureUrlURL = [NSURL URLWithString:pictureUrlStr];
         
         [self.iconImageView ss_setHeader:pictureUrlURL];
         
         self.userNameLabel.text = model.artUserFollowed.follower.name;
-        
-        self.descriptionLabel.text = model.master.title;
+
+        self.descriptionLabel.text = model.artUserFollowed.follower.userBrief.content;
     }else { //代表type为2,model.master无值,为普通用户
     
         NSString *pictureUrlStr = [[NSString stringWithFormat:@"%@",model.artUserFollowed.follower.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -47,7 +47,7 @@
         
         self.userNameLabel.text = model.artUserFollowed.follower.name;
         
-        self.descriptionLabel.text = model.userBrief.content;
+        self.descriptionLabel.text = model.artUserFollowed.follower.userBrief.content;
     }
     
     //flag为1 为已关注
@@ -61,8 +61,6 @@
         self.focusBtn.selected = NO;
         self.focusBtn.userInteractionEnabled = YES;
     }
-    
-    
 }
 - (IBAction)focusBtnClick:(UIButton *)sender {
     
