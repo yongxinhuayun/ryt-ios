@@ -112,29 +112,31 @@
         // followType 1:普通用户 2:艺术家
         NSString *followType = self.model.user.master ? @"2" : @"1";
         NSDictionary *json = [ NSDictionary dictionary];
-        if (![self.model.artUserFollowId isEqualToString:@""]) {
-            json = @{
-                     @"identifier" :identifier,
-                     //                     @"followType" : followType,
-                     @"artUserFollowId" : self.model.artUserFollowId
-                     };
-        }else{
-            json = @{
-                     @"userId" : userId,
-                     @"followId" : followId,
-                     @"identifier" :identifier,
-                     @"followType" : followType,
-                     };
-        }
-        [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"changeFollowStatus.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-            NSString *str = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-            NSLog(@"%@",str);
-            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-            NSString *resultCode = result[@"resultCode"];
-            if ([resultCode isEqualToString:@"0"]) {
-                self.HeaderView.focusBtn.selected = !self.HeaderView.focusBtn.selected;
+        if (![userId isEqualToString:followId]) {
+            if (![self.model.artUserFollowId isEqualToString:@""]) {
+                json = @{
+                         @"identifier" :identifier,
+                         //                     @"followType" : followType,
+                         @"artUserFollowId" : self.model.artUserFollowId
+                         };
+            }else{
+                json = @{
+                         @"userId" : userId,
+                         @"followId" : followId,
+                         @"identifier" :identifier,
+                         @"followType" : followType,
+                         };
             }
-        }];
+            [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"changeFollowStatus.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+                NSString *str = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+                NSLog(@"%@",str);
+                NSDictionary *result = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+                NSString *resultCode = result[@"resultCode"];
+                if ([resultCode isEqualToString:@"0"]) {
+                    self.HeaderView.focusBtn.selected = !self.HeaderView.focusBtn.selected;
+                }
+            }];
+        }
     }
 }
 

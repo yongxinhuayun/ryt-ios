@@ -475,7 +475,7 @@ static BOOL firstUpdate = YES;
 
                 UserMyModel *model = TakeLoginUserModel;
                 artistHomeVC.userId =  model.ID;
-                
+                artistHomeVC.title = model.name;
                 SSLog(@"%@",self.model.user.ID);
                 
                 [self.navigationController pushViewController:artistHomeVC animated:YES];
