@@ -12,6 +12,9 @@
 #import "ZanguoArtworkModel.h"
 
 #import "UIImageView+WebCache.h"
+#import "ArtworkModel.h"
+#import "authorModel.h"
+#import "MasterModel.h"
 
 @interface ZanguoProjectCell ()
 
@@ -29,44 +32,44 @@
 @implementation ZanguoProjectCell
 
 
--(void)setModel:(PageInfoListModel *)model{
+-(void)setModel:(ArtworkModel *)model{
     
     _model = model;
     
-    NSString *pictureUrlStr = [[NSString stringWithFormat:@"%@",model.artwork.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *pictureUrlStr = [[NSString stringWithFormat:@"%@",model.picture_url] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSURL *pictureUrlURL = [NSURL URLWithString:pictureUrlStr];
     
     [self.backgroundImage sd_setImageWithURL:pictureUrlURL placeholderImage:[UIImage imageNamed:@"defaultBackground"]];
     
-    self.title.text = model.artwork.title;
+    self.title.text = model.title;
     
-    self.totalMoney.text = [NSString stringWithFormat:@"%ld",model.artwork.investGoalMoney];
+    self.totalMoney.text = [NSString stringWithFormat:@"%ld",model.investGoalMoney];
     
     //判断当前项目处于什么状态
     UserMyModel *userModel = TakeLoginUserModel;
     
     //自己看自己
-    if ([model.user.ID isEqualToString:userModel.ID]) {
+    if ([model.author.ID isEqualToString:userModel.ID]) {
         
         //当艺术家看自己的项目时
-        if ([model.artwork.step isEqualToString:@"10"]) {
+        if ([model.step isEqualToString:@"10"]) {
             [self.projectStepBtn setTitle:@"项目待审核" forState:UIControlStateNormal];
-        }else if ([model.artwork.step isEqualToString:@"11"]){
+        }else if ([model.step isEqualToString:@"11"]){
             [self.projectStepBtn setTitle:@"项目审核中" forState:UIControlStateNormal];
-        }else if ([model.artwork.step isEqualToString:@"13"]) {
+        }else if ([model.step isEqualToString:@"13"]) {
             [self.projectStepBtn setTitle:@"审核未通过" forState:UIControlStateNormal];
-        }else if ([model.artwork.step isEqualToString:@"14"]) {
+        }else if ([model.step isEqualToString:@"14"]) {
             [self.projectStepBtn setTitle:@"融资中" forState:UIControlStateNormal];
-        }else if ([model.artwork.step isEqualToString:@"21"]) {
+        }else if ([model.step isEqualToString:@"21"]) {
             [self.projectStepBtn setTitle:@"创作中" forState:UIControlStateNormal];
-        }else if ([model.artwork.step isEqualToString:@"22"]) {
+        }else if ([model.step isEqualToString:@"22"]) {
             [self.projectStepBtn setTitle:@"创作延时" forState:UIControlStateNormal];
-        }else if ([model.artwork.step isEqualToString:@"24"]) {
+        }else if ([model.step isEqualToString:@"24"]) {
             [self.projectStepBtn setTitle:@"创作完成审核中" forState:UIControlStateNormal];
-        }else if ([model.artwork.step isEqualToString:@"25"]) {
+        }else if ([model.step isEqualToString:@"25"]) {
             [self.projectStepBtn setTitle:@"创作完成被驳回" forState:UIControlStateNormal];
-        }else if ([model.artwork.step isEqualToString:@"100"]){
+        }else if ([model.step isEqualToString:@"100"]){
             [self.projectStepBtn setTitle:@"编辑阶段,尚未提交" forState:UIControlStateNormal];
         }else {
             [self.projectStepBtn setTitle:@"" forState:UIControlStateNormal];
@@ -110,14 +113,14 @@
     }else{ //别人看自己
         
         //当其他用户看艺术家主页项目时
-        if ([model.artwork.step isEqualToString:@"10"]||[model.artwork.step isEqualToString:@"11"]){
+        if ([model.step isEqualToString:@"10"]||[model.step isEqualToString:@"11"]){
             [self.projectStepBtn setTitle:@"审核阶段" forState:UIControlStateNormal];
             
-        }else if ([model.artwork.step isEqualToString:@"12"]||[model.artwork.step isEqualToString:@"14"]||[model.artwork.step isEqualToString:@"15"]){
+        }else if ([model.step isEqualToString:@"12"]||[model.step isEqualToString:@"14"]||[model.step isEqualToString:@"15"]){
             
             [self.projectStepBtn setTitle:@"融资阶段" forState:UIControlStateNormal];
             
-        }else if ([model.artwork.step isEqualToString:@"21"]||[model.artwork.step isEqualToString:@"22"]||[model.artwork.step isEqualToString:@"23"]||[model.artwork.step isEqualToString:@"24"]||[model.artwork.step isEqualToString:@"25"]){
+        }else if ([model.step isEqualToString:@"21"]||[model.step isEqualToString:@"22"]||[model.step isEqualToString:@"23"]||[model.step isEqualToString:@"24"]||[model.step isEqualToString:@"25"]){
             [self.projectStepBtn setTitle:@"创作阶段" forState:UIControlStateNormal];
         }else {
             [self.projectStepBtn setTitle:@"拍卖阶段" forState:UIControlStateNormal];
@@ -126,14 +129,14 @@
     
         
     //作者信息
-    NSString *iconUrlStr = [[NSString stringWithFormat:@"%@",model.artwork.author.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *iconUrlStr = [[NSString stringWithFormat:@"%@",model.author.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSURL *iconUrlURL = [NSURL URLWithString:iconUrlStr];
     
     [self.userIcon ss_setHeader:iconUrlURL];
     
-    self.userName.text = model.artwork.author.name;
-    self.userTitle.text = model.artwork.author.master.title;
+    self.userName.text = model.author.name;
+    self.userTitle.text = model.author.master.title;
     
 }
 

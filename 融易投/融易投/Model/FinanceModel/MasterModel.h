@@ -12,5 +12,6 @@
 
 /** 用户申请为大师的信息 */
 @property (nonatomic ,strong) NSString *brief;
+@property (nonatomic,strong) NSString *title;
 
 @end

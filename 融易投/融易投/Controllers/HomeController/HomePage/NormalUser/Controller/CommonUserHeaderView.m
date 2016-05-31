@@ -11,6 +11,9 @@
 #import "PageInfoModel.h"
 
 @interface CommonUserHeaderView ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *otherViewConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *InverstConstraint;
+
 
 
 @end

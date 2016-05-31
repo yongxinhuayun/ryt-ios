@@ -13,6 +13,7 @@
 #import "ZanGuoResultModel.h"
 #import "PageInfoListModel.h"
 #import "ZanguoArtworkModel.h"
+#import "ArtworkModel.h"
 
 #import <MJExtension.h>
 
@@ -47,34 +48,29 @@ static NSString *ID = @"ZanguoProjectCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
-    
     self.lastPageIndex = @"1";
-    
     self.isfoot = YES;
-    
-    
-    //    self.tableView.contentInset = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, 0, 0);
-    //    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, 0, 0);
-    
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"ZanguoProjectCell" bundle:nil] forCellReuseIdentifier:ID];
     
     [ZanGuoResultModel mj_setupObjectClassInArray:^NSDictionary *{
         return @{
-                 @"pageInfoList" : @"PageInfoListModel",
+                 
+                 @"pageInfoList" : @"ArtworkModel",
                  };
     }];
-    
     [ZanguoArtworkModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-        
         return @{
-                 @"ID"          :@"id"
+                 @"ID" : @"id"
                  };
     }];
     
+    [ArtworkModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+    return @{
+             @"ID" : @"id"
+             };
+}];
     [self loadNewData];
-    
     //设置刷新控件
     [self setUpRefresh];
 
@@ -131,25 +127,16 @@ static NSString *ID = @"ZanguoProjectCell";
     
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-        
         ZanGuoResultModel *model = [ZanGuoResultModel mj_objectWithKeyValues:modelDict];
-        
-        
-        
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
             self.models = model.pageInfoList;
-            
             if (self.models.count) {
-                
                 [self.tableView reloadData];
-                
-            }else{
-                
+            }else{                
                 UIView *touGuoview = [[UIView alloc] initWithFrame:self.view.bounds];
                 touGuoview.backgroundColor = [UIColor whiteColor];
                 UILabel *label = [[UILabel alloc] init];
@@ -202,8 +189,8 @@ static NSString *ID = @"ZanguoProjectCell";
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
@@ -241,7 +228,7 @@ static NSString *ID = @"ZanguoProjectCell";
     
     ZanguoProjectCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
-    PageInfoListModel *model = self.models[indexPath.row];
+    ArtworkModel *model = self.models[indexPath.row];
     
     cell.model = model;
     
@@ -256,36 +243,36 @@ static NSString *ID = @"ZanguoProjectCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    PageInfoListModel *model = self.models[indexPath.row];
+    ArtworkModel *model = self.models[indexPath.row];
     
-    SSLog(@"%@",model.artwork.ID);
+    SSLog(@"%@",model.ID);
     
-    if ([model.artwork.step isEqualToString:@"10"]){
+    if ([model.step isEqualToString:@"10"]){
         
         [MBProgressHUD showError:@"审核待审核,请您耐心等待"];
         
-    }else if ([model.artwork.step isEqualToString:@"11"]){
+    }else if ([model.step isEqualToString:@"11"]){
         
         [MBProgressHUD showError:@"审核审核中,请您耐心等待"];
         
-    }else if ([model.artwork.step isEqualToString:@"13"]){
+    }else if ([model.step isEqualToString:@"13"]){
         
         [MBProgressHUD showError:@"审核未通过,请您耐心等待"];
         
-    }else if ([model.artwork.step isEqualToString:@"14"]){
+    }else if ([model.step isEqualToString:@"14"]){
         
         //跳转
         DetailFinanceViewController *detail = [[DetailFinanceViewController alloc] init];
-        detail.artworkId = model.artwork.ID;
+        detail.artworkId = model.ID;
         [self.navigationController pushViewController:detail animated:YES];
         
-    }else if ([model.artwork.step isEqualToString:@"21"]||[model.artwork.step isEqualToString:@"22"]||[model.artwork.step isEqualToString:@"24"]||[model.artwork.step isEqualToString:@"25"]){
+    }else if ([model.step isEqualToString:@"21"]||[model.step isEqualToString:@"22"]||[model.step isEqualToString:@"24"]||[model.step isEqualToString:@"25"]){
         
         DetailCreationViewController *creationDetailsVC = [[DetailCreationViewController alloc] init];
-        creationDetailsVC.artworkId = model.artwork.ID;
+        creationDetailsVC.artworkId = model.ID;
         [self.navigationController pushViewController:creationDetailsVC animated:YES];
         
-    }else if([model.artwork.step isEqualToString:@"100"]) {
+    }else if([model.step isEqualToString:@"100"]) {
         
         [MBProgressHUD showError:@"项目可以编辑"];
     }else {

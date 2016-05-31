@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class PageInfoListModel;
+@class ArtworkModel;
 
 @interface ZanguoProjectCell : UITableViewCell
 
-@property (nonatomic, strong) PageInfoListModel *model;
+@property (nonatomic, strong) ArtworkModel *model;
 
 @end

@@ -202,41 +202,46 @@
 
 -(void)clickUserBtnIcon:(NSIndexPath *)indexPath{
     RecordModel *recModel = self.artList[indexPath.row];
-    [self jumpToUserHome:recModel.creator.ID];
+    [self jumpToUserHome:recModel.creator.ID userName:recModel.creator.name];
 }
 
 -(void)clickUserBtn:(NSInteger)tag{
     RecordModel *recModel = self.artTopList[tag - 1];
-    [self jumpToUserHome:recModel.creator.ID];
+    [self jumpToUserHome:recModel.creator.ID userName:recModel.creator.name];
+    
 }
 
--(void)jumpToUserHome:(NSString *)userId{
+-(void)jumpToUserHome:(NSString *)userId userName:(NSString *)title{
     RYTLoginManager *manager =  [RYTLoginManager shareInstance];
     if ([manager showLoginViewIfNeed]) {
     }else{
-        NSString *pageSize = @"20";
-        NSString *pageIndex = @"1";
-        // 3.设置请求体
-        NSDictionary *json = @{
-                               @"userId":userId,
-                               @"pageSize" : pageSize,
-                               @"pageIndex" : pageIndex,
-                               };
-        [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"my.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-            NSLog(@"返回结果:%@",jsonStr);
-            NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-            PageInfoModel *pageModel = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
-            //保存模型,赋值给控制器
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                CommonUserHomeViewController *commonUserHome = [[CommonUserHomeViewController alloc] init];
-//                commonUserHome.model = pageModel;
-                commonUserHome.userId = userId;
-                NSString *title = [NSString stringWithFormat:@"%@的个人主页",pageModel.user.name];
-                commonUserHome.title = title;
-                [self.navigationController pushViewController:commonUserHome animated:YES];
-            }];
-        }];
+        CommonUserHomeViewController *commonUserHome = [[CommonUserHomeViewController alloc] init];
+        commonUserHome.userId = userId;
+        commonUserHome.title = title;
+        [self.navigationController pushViewController:commonUserHome animated:YES];
+        
+        
+        
+        
+        
+//        NSString *pageSize = @"20";
+//        NSString *pageIndex = @"1";
+//        // 3.设置请求体
+//        NSDictionary *json = @{
+//                               @"userId":userId,
+//                               @"pageSize" : pageSize,
+//                               @"pageIndex" : pageIndex,
+//                               };
+//        [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"my.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+//            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//            NSLog(@"返回结果:%@",jsonStr);
+//            NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+//            PageInfoModel *pageModel = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
+//            //保存模型,赋值给控制器
+//            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//
+//            }];
+//        }];
     }
 }
 

@@ -203,6 +203,7 @@
                 </mask>
             </variation>
             <connections>
+                <outlet property="InverstConstraint" destination="HDA-23-zQV" id="Urz-Cc-Z1e"/>
                 <outlet property="InvestRateLabel" destination="em4-Zz-eai" id="03D-7n-wPl"/>
                 <outlet property="fansLabel" destination="Vyg-X3-lei" id="cBF-Id-RYn"/>
                 <outlet property="focusBtn" destination="37a-Hg-Pbo" id="GpU-CK-kWy"/>
@@ -210,7 +211,8 @@
                 <outlet property="iconImageView" destination="p6r-0F-K1v" id="V0E-yC-JvJ"/>
                 <outlet property="inverstMoneyLabel" destination="9g3-eQ-x3l" id="bZO-tA-hFs"/>
                 <outlet property="inverstProfitLabel" destination="oci-i5-mjI" id="NKp-Jw-GoM"/>
-                <outlet property="otherView" destination="FZp-hi-aD9" id="a2S-nO-sHG"/>
+                <outlet property="otherView" destination="FZp-hi-aD9" id="SAi-dT-wMH"/>
+                <outlet property="otherViewConstraint" destination="a9E-3h-Ufx" id="Dxg-tQ-ELi"/>
                 <outlet property="privateLetterBtn" destination="c6P-9m-tty" id="U1e-iF-3GG"/>
                 <outlet property="userLabel" destination="JG7-fS-daP" id="sKg-3E-91f"/>
                 <outlet property="userNickNameLabel" destination="Ops-5U-Cnf" id="Epe-vh-7ha"/>

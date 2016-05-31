@@ -113,7 +113,7 @@
     }];
 }
 
-//加载数据
+//加载数据ju
 -(void)loadDataToController{
     self.financeHeader.titleLabel.text = self.artworkModel.title;
     //加载图片
@@ -195,7 +195,7 @@
         // 作者是艺术家
     }else{// 作者不是艺术家
         // 获取用户的ID
-        [self jumpToUserHome:author.ID];
+        [self jumpToUserHome:author.ID userName:author.name];
     }
 }
 
@@ -205,37 +205,20 @@
      NSDictionary *model = self.projModel.investPeople[indexPath.row];
     if (!model[@"master"]) {
     }else{
-        [self jumpToUserHome:model[@"id"]];
+         [self jumpToUserHome:model[@"id"] userName:model[@"name"]];
     }
 }
 
--(void)jumpToUserHome:(NSString *)userId{
+-(void)jumpToUserHome:(NSString *)userId userName:(NSString *)title{
     RYTLoginManager *manager =  [RYTLoginManager shareInstance];
     if ([manager showLoginViewIfNeed]) {
     }else{
-        NSString *pageSize = @"20";
-        NSString *pageIndex = @"1";
-        // 3.设置请求体
-        NSDictionary *json = @{
-                               @"userId":userId,
-                               @"pageSize" : pageSize,
-                               @"pageIndex" : pageIndex,
-                               };
-        [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"my.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-            NSLog(@"返回结果:%@",jsonStr);
-            NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-            PageInfoModel *pageModel = [PageInfoModel mj_objectWithKeyValues:modelDict[@"pageInfo"]];
-            //保存模型,赋值给控制器
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                CommonUserHomeViewController *commonUserHome = [[CommonUserHomeViewController alloc] init];
-//                commonUserHome.model = pageModel;
-                commonUserHome.userId = userId;
-                NSString *title = [NSString stringWithFormat:@"%@的个人主页",pageModel.user.name];
-                commonUserHome.title = title;
-                [self.navigationController pushViewController:commonUserHome animated:YES];
-            }];
-        }];
+        CommonUserHomeViewController *commonUserHome = [[CommonUserHomeViewController alloc] init];
+        //                commonUserHome.model = pageModel;
+        commonUserHome.userId = userId;
+        commonUserHome.title = title;
+        [self.navigationController pushViewController:commonUserHome animated:YES];
+
     }
 }
 

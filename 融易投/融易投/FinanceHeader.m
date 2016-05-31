@@ -116,7 +116,7 @@
     // 如果点击的是用户的头像，跳转到用户的主页
     // 如果点击的是更多，滑动到顶部，并且选中投资记录
     if (!self.isMax) {
-        NSDictionary *model1 = self.investPeople[indexPath.row];
+//        NSDictionary *model1 = self.investPeople[indexPath.row];
         //拿到用户的ID，进行跳转
         if ([self.delegate respondsToSelector:@selector(jumpToUserHomeByIndexPath:)]) {
             [self.delegate jumpToUserHomeByIndexPath:indexPath];
