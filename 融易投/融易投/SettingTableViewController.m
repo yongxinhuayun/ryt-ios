@@ -112,17 +112,13 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-
-    SettingFooterView *footerView = [SettingFooterView settingFooterView];
     
-    [footerView.tuiChuBtn addTarget:self action:@selector(tuiChuLogn) forControlEvents:UIControlEventTouchUpInside];
-
-    if (section == 2) {
-        
+    if ([[RYTLoginManager shareInstance] takeUser] && section == 2) {
+        SettingFooterView *footerView = [SettingFooterView settingFooterView];
+        [footerView.tuiChuBtn addTarget:self action:@selector(tuiChuLogn)forControlEvents:UIControlEventTouchUpInside];
         return footerView;
-        
     }else{
-
+        
         return nil;
     }
 }
