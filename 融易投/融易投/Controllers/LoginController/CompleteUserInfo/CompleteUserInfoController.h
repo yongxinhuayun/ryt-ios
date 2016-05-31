@@ -10,4 +10,6 @@
 
 @interface CompleteUserInfoController : UIViewController
 
+@property (nonatomic ,strong) NSString *username;
+
 @end

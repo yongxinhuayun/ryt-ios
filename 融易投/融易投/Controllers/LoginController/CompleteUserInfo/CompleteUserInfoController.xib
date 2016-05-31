@@ -7,7 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompleteUserInfoController">
             <connections>
+                <outlet property="femaleBtn" destination="b86-sM-PQW" id="PGf-eC-TsQ"/>
                 <outlet property="imageView" destination="qp1-N4-VQg" id="fYk-um-lL2"/>
+                <outlet property="maleBtn" destination="Qdm-3k-9Xy" id="HvU-E5-2VB"/>
                 <outlet property="nicknameTextField" destination="RuK-CY-fRw" id="Xfk-ks-8dt"/>
                 <outlet property="view" destination="tMa-eL-7Mp" id="5HF-CX-vKK"/>
             </connections>
@@ -35,6 +37,12 @@
                         <constraint firstAttribute="width" constant="80" id="BDu-sv-cwg"/>
                         <constraint firstAttribute="height" constant="80" id="Hp6-pG-aJP"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="40"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称" minimumFontSize="17" background="denglu_shurukuang" translatesAutoresizingMaskIntoConstraints="NO" id="RuK-CY-fRw">
                     <rect key="frame" x="94" y="294" width="187" height="44"/>
@@ -51,12 +59,6 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jibenziliao_xuanzhong_nan" translatesAutoresizingMaskIntoConstraints="NO" id="jql-TH-YUV">
-                    <rect key="frame" x="152" y="353" width="41" height="41"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jibenziliao_xuanzhong_nv" translatesAutoresizingMaskIntoConstraints="NO" id="ecU-c5-ovI">
-                    <rect key="frame" x="217" y="353" width="41" height="41"/>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jibenziliao_shurukuang" translatesAutoresizingMaskIntoConstraints="NO" id="3j9-QC-Vgf">
                     <rect key="frame" x="94" y="406" width="188" height="30"/>
                     <constraints>
@@ -75,28 +77,43 @@
                         <action selector="completeBtnClick:" destination="-1" eventType="touchUpInside" id="zUH-Xu-xOn"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdm-3k-9Xy">
+                    <rect key="frame" x="152" y="353" width="41" height="41"/>
+                    <state key="normal" image="jibenziliao_weixuanzhong_nan"/>
+                    <state key="selected" image="jibenziliao_xuanzhong_nan"/>
+                    <connections>
+                        <action selector="sexBtnClick:" destination="-1" eventType="touchUpInside" id="Ira-hV-wEj"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b86-sM-PQW">
+                    <rect key="frame" x="217" y="353" width="41" height="41"/>
+                    <state key="normal" image="jibenziliao_weixuanzhong_nv"/>
+                    <state key="selected" image="jibenziliao_xuanzhong_nv"/>
+                    <connections>
+                        <action selector="sexBtnClick:" destination="-1" eventType="touchUpInside" id="j08-xy-sd8"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="qp1-N4-VQg" firstAttribute="top" secondItem="tMa-eL-7Mp" secondAttribute="top" constant="139" id="1ec-5t-prK"/>
                 <constraint firstItem="dkv-cp-p5F" firstAttribute="top" secondItem="RuK-CY-fRw" secondAttribute="bottom" constant="36" id="2Zc-z1-QXY"/>
                 <constraint firstItem="3j9-QC-Vgf" firstAttribute="top" secondItem="r5q-dA-ZgZ" secondAttribute="bottom" constant="-15" id="5nN-Gf-0l9"/>
+                <constraint firstItem="r5q-dA-ZgZ" firstAttribute="centerX" secondItem="Qdm-3k-9Xy" secondAttribute="centerX" id="IZd-02-97y"/>
                 <constraint firstItem="3j9-QC-Vgf" firstAttribute="centerX" secondItem="tMa-eL-7Mp" secondAttribute="centerX" id="Ohz-UF-VQa"/>
-                <constraint firstItem="jql-TH-YUV" firstAttribute="top" secondItem="RuK-CY-fRw" secondAttribute="bottom" constant="15" id="RJw-yz-xli"/>
-                <constraint firstItem="ecU-c5-ovI" firstAttribute="leading" secondItem="jql-TH-YUV" secondAttribute="trailing" constant="24" id="UJz-Ai-x81"/>
                 <constraint firstItem="qp1-N4-VQg" firstAttribute="centerX" secondItem="tMa-eL-7Mp" secondAttribute="centerX" id="UXn-Az-ZAA"/>
                 <constraint firstItem="3e6-bj-2bf" firstAttribute="height" secondItem="RuK-CY-fRw" secondAttribute="height" id="WR0-Ya-Cou"/>
-                <constraint firstItem="ecU-c5-ovI" firstAttribute="centerY" secondItem="jql-TH-YUV" secondAttribute="centerY" id="Wmm-Mx-6S3"/>
                 <constraint firstItem="dkv-cp-p5F" firstAttribute="leading" secondItem="RuK-CY-fRw" secondAttribute="leading" id="a0O-sh-fQa"/>
-                <constraint firstItem="r5q-dA-ZgZ" firstAttribute="centerX" secondItem="jql-TH-YUV" secondAttribute="centerX" id="awn-Ox-Jug"/>
-                <constraint firstItem="jql-TH-YUV" firstAttribute="leading" secondItem="dkv-cp-p5F" secondAttribute="trailing" constant="24" id="brY-7O-c9r"/>
+                <constraint firstItem="b86-sM-PQW" firstAttribute="leading" secondItem="Qdm-3k-9Xy" secondAttribute="trailing" constant="24" id="blw-0V-MjW"/>
+                <constraint firstItem="r5q-dA-ZgZ" firstAttribute="top" secondItem="Qdm-3k-9Xy" secondAttribute="bottom" constant="10" id="coC-2g-vwW"/>
                 <constraint firstItem="3e6-bj-2bf" firstAttribute="centerX" secondItem="tMa-eL-7Mp" secondAttribute="centerX" id="dw3-Fj-0ja"/>
+                <constraint firstItem="Qdm-3k-9Xy" firstAttribute="top" secondItem="RuK-CY-fRw" secondAttribute="bottom" constant="15" id="eXe-us-g0V"/>
+                <constraint firstItem="djo-eR-iG8" firstAttribute="centerX" secondItem="b86-sM-PQW" secondAttribute="centerX" id="fW3-XE-p9v"/>
                 <constraint firstItem="RuK-CY-fRw" firstAttribute="centerX" secondItem="tMa-eL-7Mp" secondAttribute="centerX" id="gxT-U0-lOz"/>
-                <constraint firstItem="r5q-dA-ZgZ" firstAttribute="top" secondItem="jql-TH-YUV" secondAttribute="bottom" constant="10" id="ibt-Il-tLa"/>
+                <constraint firstItem="Qdm-3k-9Xy" firstAttribute="leading" secondItem="dkv-cp-p5F" secondAttribute="trailing" constant="24" id="hoW-ee-grw"/>
                 <constraint firstItem="3e6-bj-2bf" firstAttribute="top" secondItem="3j9-QC-Vgf" secondAttribute="bottom" constant="15" id="ke7-UX-7Z1"/>
                 <constraint firstItem="RuK-CY-fRw" firstAttribute="top" secondItem="qp1-N4-VQg" secondAttribute="bottom" constant="75" id="lFz-er-ILP"/>
-                <constraint firstItem="djo-eR-iG8" firstAttribute="centerX" secondItem="ecU-c5-ovI" secondAttribute="centerX" id="rg9-W4-7o1"/>
-                <constraint firstItem="djo-eR-iG8" firstAttribute="top" secondItem="ecU-c5-ovI" secondAttribute="bottom" constant="10" id="sWU-SA-Mnd"/>
+                <constraint firstItem="b86-sM-PQW" firstAttribute="centerY" secondItem="Qdm-3k-9Xy" secondAttribute="centerY" id="rfS-4S-Je9"/>
                 <constraint firstItem="djo-eR-iG8" firstAttribute="centerY" secondItem="r5q-dA-ZgZ" secondAttribute="centerY" id="sYI-gL-Ht4"/>
                 <constraint firstItem="3e6-bj-2bf" firstAttribute="width" secondItem="RuK-CY-fRw" secondAttribute="width" id="yTV-Ry-raC"/>
             </constraints>
@@ -109,6 +126,8 @@
         <image name="jibenziliao_anniu" width="187" height="47"/>
         <image name="jibenziliao_shurukuang" width="188" height="40"/>
         <image name="jibenziliao_touxiang" width="80" height="80"/>
+        <image name="jibenziliao_weixuanzhong_nan" width="41" height="41"/>
+        <image name="jibenziliao_weixuanzhong_nv" width="41" height="41"/>
         <image name="jibenziliao_xuanzhong_nan" width="41" height="41"/>
         <image name="jibenziliao_xuanzhong_nv" width="41" height="41"/>
     </resources>

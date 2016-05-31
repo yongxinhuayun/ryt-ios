@@ -7,18 +7,25 @@
 //
 
 #import "ForgetPasswordViewController.h"
-//#import "NSString+MD5.h"
-
-#import <CommonCrypto/CommonDigest.h>
-#import <CommonCrypto/CommonHMAC.h>
-
+#import "SSTextField.h"
 
 
 @interface ForgetPasswordViewController ()<UITextFieldDelegate>
+{
+    int countSecond;
+    NSTimer *countTimer;
+}
 
-@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UIButton *verifyCodeBtn;
+@property (weak, nonatomic) IBOutlet SSTextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *verifyCodeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *PWDTextField;
+
+/** 验证验证码成功 0 为成功  保存起来注册的时候根据辞职进行判断 */
+@property (nonatomic ,strong) NSString *resultCode;
+
+/** 注册信息提示 */
+@property (nonatomic ,strong) NSString *resultMsg;
 
 @end
 
@@ -29,6 +36,7 @@
     
     [self setUpNavBar];
     
+    countSecond=60;
     self.verifyCodeTextField.delegate = self;
 }
 
@@ -52,234 +60,158 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+//发送验证码
+- (IBAction)sendVerifyCodeBtnClick:(UIButton *)btn {
 
-- (IBAction)sendVerifyCodeBtnClick:(id)sender {
+    if (self.usernameTextField.text.length < 11) {
+        [MBProgressHUD showError:@"请输入完整的手机号"];
+        return;
+    }
+    if(![self.usernameTextField isValidPhone])
+    {
+        [MBProgressHUD showError:@"请输入正确的手机号"];
+        return;
+    }
+    [MBProgressHUD showMessage:nil];
     
-     [self sendVerifyCode];
+    btn.enabled=NO;
+    
+    [btn setTitle:[NSString stringWithFormat:@"%@(%d)",@"重发",countSecond] forState:UIControlStateDisabled];
+    countTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(count:) userInfo:nil repeats:YES];
+    
+    //发送验证码
+    [self sendVerifyCode];
 }
-- (IBAction)changePasswordBtnClick:(id)sender {
+
+-(void)count:(NSTimer *)timer{
     
-    [self changePassword];
+    countSecond -- ;
+    [self.verifyCodeBtn setTitle:[NSString stringWithFormat:@"%@(%d)",@"重发",countSecond] forState:UIControlStateDisabled];
+    if(countSecond == 0){
+        self.verifyCodeBtn.enabled = YES;
+        [timer invalidate];
+        countSecond = 60;
+        [self.verifyCodeBtn setTitle:[NSString stringWithFormat:@"%@(%d)",@"重发",countSecond] forState:UIControlStateDisabled];
+    }
 }
-- (IBAction)validateVerifyCode:(id)sender {
+
+//修改密码
+- (IBAction)wanchengBtnClick:(UIButton *)btn {
     
+    if (self.usernameTextField.text.length < 11) {
+        
+        [MBProgressHUD showError:@"请输入完整的手机号"];
+        return;
+    }
+    if(![self.usernameTextField isValidPhone])
+    {
+        [MBProgressHUD showError:@"请输入正确的手机号"];
+        return;
+    }
+    //验证验证码
     [self validateVerifyCode];
 }
 
 //验证验证码
 -(void)validateVerifyCode{
 
-    //时间
-    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
-    NSTimeInterval a =[date timeIntervalSince1970] * 1000;
-    NSString *timeString = [NSString stringWithFormat:@"%f", a];
-    
-    NSArray *strArray = [timeString componentsSeparatedByString:@"."];
-    
-    NSLog(@"%@",strArray.firstObject);
-    
     //参数
     NSString *username = self.usernameTextField.text;
     NSString *code = self.verifyCodeTextField.text;
-    NSString *timestamp = strArray.firstObject;
-    NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
-    
-    NSString *signmsg = [NSString stringWithFormat:@"code=%@&timestamp=%@&username=%@&key=%@",code,timestamp,username,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [self md5:signmsg];
-    
-    //对key进行自然排序
-    //    for (NSString *s in [dict allKeys]) {
-    //        NSLog(@"value: %@", s);
-    //    }
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
-    // 1.创建请求
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/verifyCode.do"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = @"POST";
-    
-    // 2.设置请求头
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    // 3.设置请求体
+    NSString *urlStr = @"verifyCode.do";
     NSDictionary *json = @{
                            @"username" : username,
-                           @"code" : code,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
+                           @"code" : code
                            };
     
-    //    NSData --> NSDictionary
-    // NSDictionary --> NSData
-    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
-    request.HTTPBody = data;
-    
-    // 4.发送请求
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-        NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",obj);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        //字典转模型暂时不需要
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        NSString *resultCode = dict[@"resultCode"];
+        if ([resultCode intValue] == 0) {
+            [MBProgressHUD showSuccess:@"验证码发送成功"];
+            self.resultCode = resultCode;
+        }else { //登录失败
+            [MBProgressHUD showError:@"验证码发送失败,请重新发送"];
+        }
+        //在主线程刷新UI数据
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            [MBProgressHUD hideHUD];
+            
+            if ([self.resultCode isEqualToString:@"0"]) {
+                //更改密码
+                [self changePassword];
+            }
+        }];
         
     }];
-
-    
 }
 
 //发送验证码
 -(void)sendVerifyCode{
-
-    //时间
-    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
-    NSTimeInterval a =[date timeIntervalSince1970] * 1000;
-    NSString *timeString = [NSString stringWithFormat:@"%f", a];
-    
-    NSArray *strArray = [timeString componentsSeparatedByString:@"."];
-    
-    NSLog(@"%@",strArray.firstObject);
     
     //参数
     NSString *username = self.usernameTextField.text;
-    NSString *timestamp = strArray.firstObject;
-    NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
     
+    NSString *urlStr = @"sendCode.do";
     
-    NSArray *arra = @[@"username",@"password",@"timestamp"];
-    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
-    NSLog(@"%@",sortArr);
-    
-    NSString *signmsg = [NSString stringWithFormat:@"timestamp=%@&username=%@&key=%@",timestamp,username,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [self md5:signmsg];
-    
-    //对key进行自然排序
-    //    for (NSString *s in [dict allKeys]) {
-    //        NSLog(@"value: %@", s);
-    //    }
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
-    // 1.创建请求
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/sendCode.do"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = @"POST";
-    
-    // 2.设置请求头
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    // 3.设置请求体
     NSDictionary *json = @{
-                           @"username" : username,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
+                           @"username" : username
                            };
     
-    //    NSData --> NSDictionary
-    // NSDictionary --> NSData
-    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
-    request.HTTPBody = data;
-    
-    // 4.发送请求
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-        NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",obj);
-        
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        //字典转模型暂时不需要
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        //提示用户信息
+        [MBProgressHUD hideHUD];
+        NSString *resultCode = dict[@"resultCode"];
+        if ( [resultCode intValue] == 0) {
+            [MBProgressHUD showSuccess:@"验证码发送成功"];
+        }else { //登录失败
+            [MBProgressHUD showError:@"验证码发送失败"];
+        }
     }];
-
 }
 
 //更改密码
 -(void)changePassword{
     
-    //时间
-    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
-    NSTimeInterval a =[date timeIntervalSince1970] * 1000;
-    NSString *timeString = [NSString stringWithFormat:@"%f", a];
-    
-    NSArray *strArray = [timeString componentsSeparatedByString:@"."];
-    
-    NSLog(@"%@",strArray.firstObject);
-    
     //参数
     NSString *username = self.usernameTextField.text;
     NSString *password = self.PWDTextField.text;
-    NSString *timestamp = strArray.firstObject;
-    NSString *appkey = @"BL2QEuXUXNoGbNeHObD4EzlX+KuGc70U";
-    
-    NSLog(@"username=%@,password=%@,timestamp=%@",username,password,timestamp);
-    
-    
-    NSArray *arra = @[@"username",@"password",@"timestamp"];
-    NSArray *sortArr = [arra sortedArrayUsingSelector:@selector(compare:)];
-    NSLog(@"%@",sortArr);
-    
-    NSString *signmsg = [NSString stringWithFormat:@"password=%@&timestamp=%@&username=%@&key=%@",password,timestamp,username,appkey];
-    NSLog(@"%@",signmsg);
-    
-    NSString *signmsgMD5 = [self md5:signmsg];
-    
-    //对key进行自然排序
-    //    for (NSString *s in [dict allKeys]) {
-    //        NSLog(@"value: %@", s);
-    //    }
-    
-    NSLog(@"signmsgMD5=%@",signmsgMD5);
-    
-    // 1.创建请求
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.69:8001/app/retrievePassword.do"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = @"POST";
-    
-    // 2.设置请求头
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    // 3.设置请求体
+
+    NSString *urlStr = @"retrievePassword.do";
     NSDictionary *json = @{
                            @"username" : username,
-                           @"password" : password,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
+                           @"password" : password
                            };
-    
-    //    NSData --> NSDictionary
-    // NSDictionary --> NSData
-    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
-    request.HTTPBody = data;
-    
-    // 4.发送请求
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-        NSString *obj =  [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",obj);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        //字典转模型暂时不需要
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        //在主线程刷新UI数据
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            NSString *resultCode = dict[@"resultCode"];
+            if ([resultCode intValue] == 0) {
+                [MBProgressHUD showSuccess:@"更改密码成功"];
+                [self.navigationController popViewControllerAnimated:YES];
+            }else { //登录失败
+                [MBProgressHUD showError:@"更改失败,请重新更改"];
+            }
         
+        }];
     }];
-
-    
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
-}
-
--(NSString *) md5: (NSString *) inPutText
-{
-    const char *cStr = [inPutText UTF8String];
-    unsigned char result[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(cStr, strlen(cStr), result);
-    
-    return [[NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
-             result[0], result[1], result[2], result[3],
-             result[4], result[5], result[6], result[7],
-             result[8], result[9], result[10], result[11],
-             result[12], result[13], result[14], result[15]
-             ] lowercaseString];
-}
-
-
-
 @end
+

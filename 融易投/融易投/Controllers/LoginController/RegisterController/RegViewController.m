@@ -17,6 +17,7 @@
 #import "MBProgressHUD+YXL.h"
 #import "SSTextField.h"
 #import "BQLAuthEngine.h"
+#import "CompleteUserInfoController.h"
 
 @interface RegViewController () <UITextFieldDelegate>
 {
@@ -30,9 +31,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *verifyCodeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passWordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *verifyCodeBtn;
-
-//模型数组
-@property (nonatomic, strong) NSArray *registers;
 
 /** 验证验证码成功 0 为成功  保存起来注册的时候根据辞职进行判断 */
 @property (nonatomic ,strong) NSString *resultCode;
@@ -121,9 +119,6 @@
     }
     //验证验证码
     [self loadDataAuth];
-    if ([self.resultCode isEqualToString:@"0"]) {
-        [self loadData];
-    }
 }
 
 //微信登录
@@ -141,6 +136,18 @@
 
 //发送验证码
 - (IBAction)geName:(UIButton *)btn {
+
+    if (self.phoneNumTextField.text.length < 11) {
+        
+        [MBProgressHUD showError:@"请输入完整的手机号"];
+        return;
+    }
+    if(![self.phoneNumTextField isValidPhone])
+    {
+        [MBProgressHUD showError:@"请输入正确的手机号"];
+        return;
+    }
+    [MBProgressHUD showMessage:nil];
     
     btn.enabled=NO;
     
@@ -169,17 +176,6 @@
 //发送验证码
 -(void)loadDataget
 {
-    if (self.phoneNumTextField.text.length < 11) {
-        
-        [MBProgressHUD showError:@"请输入完整的手机号"];
-        return;
-    }
-    if(![self.phoneNumTextField isValidPhone])
-    {
-        [MBProgressHUD showError:@"请输入正确的手机号"];
-        return;
-    }
-    [MBProgressHUD showMessage:nil];
     //参数
     NSString *username = self.phoneNumTextField.text;
     NSString *urlStr = @"sendCode.do";
@@ -220,8 +216,8 @@
                            @"code" : code
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         //字典转模型暂时不需要
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         NSString *resultCode = dict[@"resultCode"];
@@ -233,7 +229,13 @@
         }
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            
             [MBProgressHUD hideHUD];
+            
+            if ([self.resultCode isEqualToString:@"0"]) {
+                [self loadData];
+            }
 
         }];
     }];
@@ -255,12 +257,16 @@
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
-//        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//        NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        /*
+         {"userInfo":{"id":"iov6cksh23ba7r7p","username":"18210800956","name":null,"name2":null,"password":"11111111","status":1,"confirmPassword":null,"oldPassword":null,"enabled":true,"accountExpired":false,"accountLocked":false,"credentialsExpired":false,"utype":null,"lastLoginDatetime":null,"lastLogoutDatetime":null,"createDatetime":1464682845759,"unionid":null,"pictureUrl":null,"source":null,"accountNonExpired":true,"accountNonLocked":true,"credentialsNonExpired":true,"fullName":"null[18210800956]"},"resultCode":"0","resultMsg":"注册成功！"}
+         */
+        
         //字典转模型暂时不需要
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-        NSArray *registerArray = dict[@"userInfo"];
-        self.registers = [registerModel mj_objectArrayWithKeyValuesArray:registerArray];
+        NSDictionary *registDict = dict[@"userInfo"];
+        NSString *username = registDict[@"username"];
         //提示用户信息
         [MBProgressHUD hideHUD];
         //在主线程刷新UI数据
@@ -268,7 +274,9 @@
             NSString *resultCode = dict[@"resultCode"];
             if ([resultCode intValue] == 0) {
                 [MBProgressHUD showSuccess:@"注册成功"];
-                [self.navigationController popViewControllerAnimated:YES];
+                CompleteUserInfoController *completeUserInfoVC = [[CompleteUserInfoController alloc] init];
+                completeUserInfoVC.username = username;
+                [self.navigationController pushViewController:completeUserInfoVC animated:YES];
             }else { //登录失败
                 [MBProgressHUD showError:@"注册失败"];
             }
