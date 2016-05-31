@@ -137,8 +137,8 @@ static NSString *ID = @"focusMyCell";
         flag = @"2";
     }
     
-    // type为1时时艺术家,为2时为用户
-    NSString *type = @"1";
+    // type为2时时艺术家,为1时为用户
+    NSString *type = @"2";
     
     NSString *pageSize = @"20";
     NSString *pageIndex = @"1";
@@ -155,7 +155,7 @@ static NSString *ID = @"focusMyCell";
     
     NSString *url = @"userFollowed.do";
     
-    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
@@ -202,7 +202,7 @@ static NSString *ID = @"focusMyCell";
     }
     
     
-    NSString *type = @"1";
+    NSString *type = @"2";
     
     NSString *pageSize = @"20";
     NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
@@ -218,7 +218,7 @@ static NSString *ID = @"focusMyCell";
     
      NSString *url = @"userFollowed.do";
     
-    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
