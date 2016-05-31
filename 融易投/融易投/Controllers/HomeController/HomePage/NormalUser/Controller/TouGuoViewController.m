@@ -254,12 +254,14 @@ static NSString *ID = @"InvestProjectCell";
         //跳转
         DetailFinanceViewController *detail = [[DetailFinanceViewController alloc] init];
         detail.artworkId = model.ID;
+        detail.title = model.title;
         [self.navigationController pushViewController:detail animated:YES];
         
     }else if ([model.step isEqualToString:@"21"]||[model.step isEqualToString:@"22"]||[model.step isEqualToString:@"24"]||[model.step isEqualToString:@"25"]){
         
         DetailCreationViewController *creationDetailsVC = [[DetailCreationViewController alloc] init];
         creationDetailsVC.artworkId = model.ID;
+        creationDetailsVC.title = model.title;
         [self.navigationController pushViewController:creationDetailsVC animated:YES];
         
     }else if([model.step isEqualToString:@"100"]) {

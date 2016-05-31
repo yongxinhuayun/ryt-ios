@@ -8,9 +8,13 @@
 
 #import "ArtistUserHomeViewController.h"
 #import "PrivateLetterViewController.h"
+#import "CommonUserHomeViewController.h"
+#import "EditingInfoViewController.h"
+#import "FocusMyViewController.h"
 #import "TopView.h"
 #import "CycleView.h"
 #import "CommonUserHeaderView.h"
+#import "MeHeaderView.h"
 
 #import "TouGuoViewController.h"
 #import "ZanGuoViewController.h"
@@ -25,6 +29,7 @@
 
 @property (nonatomic ,strong)PageInfoModel *model;
 @property (nonatomic,strong) CommonUserHeaderView *HeaderView;
+@property (nonatomic,strong) MeHeaderView *meheaderView;
 @property(nonatomic,assign) BOOL isFirstIn;
 
 @end
@@ -50,20 +55,31 @@
 }
 
 -(void)setupUI{
+    if (![[[RYTLoginManager shareInstance] takeUser].ID isEqualToString:self.model.user.ID]) {
+        CommonUserHeaderView *tView = [[[NSBundle mainBundle] loadNibNamed:@"CommonUserHeaderView" owner:nil options:nil] lastObject];
+        tView.delegate = self;
+        tView.model = self.model;
+        self.HeaderView = tView;
+        self.topview.height = tView.height;
+        self.topview.width = SSScreenW;
+        tView.backgroundColor = [UIColor whiteColor];
+        tView.width = SSScreenW;
+        [self.topview addSubview:tView];
+    }else{
+        MeHeaderView *tView = [[[NSBundle mainBundle] loadNibNamed:@"MeHeaderView" owner:nil options:nil] lastObject];
+        tView.model = self.model;
+        self.topview.height = tView.height;
+        self.topview.width = SSScreenW;
+        tView.backgroundColor = [UIColor whiteColor];
+        tView.width = SSScreenW;
+        self.meheaderView = tView;
+        [self jumpFansVc];
+        [self jumpFocusVc];
+        [self jumpeditingInfoVc];
+        [self.topview addSubview:tView];
+    }
     
-    CommonUserHeaderView *tView = [[[NSBundle mainBundle] loadNibNamed:@"CommonUserHeaderView" owner:nil options:nil] lastObject];
-    //    if (tView.otherView.hidden) {
-    //        self.topview.height = tView.height - 26;
-    //    }
     
-    tView.model = self.model;
-    tView.delegate = self;
-    self.topview.height = tView.height;
-    tView.backgroundColor = [UIColor whiteColor];
-    tView.width = SSScreenW;
-    self.topview.width = SSScreenW;
-    //    [tView.imgView setBackgroundColor:[UIColor whiteColor]];
-    [self.topview addSubview:tView];
     self.middleView.frame = CGRectMake(0, CGRectGetHeight(self.topview.frame), SSScreenW, SSScreenH - CGRectGetMaxY(self.navigationController.navigationBar.frame));
     self.middleView.backgroundColor = [UIColor blueColor];
     //    CycleView *cycleView = [[CycleView alloc] initWithFrame:self.middleView.bounds];
@@ -76,6 +92,68 @@
     [self.middleView addSubview:self.cycleView];
     //添加控制器视图 到scrollView中
     self.backgroundScrollView.contentSize = CGSizeMake(SSScreenW,self.topview.height + self.middleView.height);
+    
+}
+
+-(void)jumpeditingInfoVc{
+    
+    __weak ArtistUserHomeViewController *weakself = self;
+    
+    self.meheaderView.editingInfoBlcok = ^{
+        
+        RYTLoginManager *manger = [RYTLoginManager shareInstance];
+        
+        if ([manger isVisitor]) {
+            
+            [manger showLoginViewIfNeed];
+            
+            return;
+        }
+        
+        UIStoryboard *editingInfoStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([EditingInfoViewController class]) bundle:nil];
+        EditingInfoViewController *editingInfoVC = [editingInfoStoryBoard instantiateInitialViewController];
+        
+        editingInfoVC.userModel = weakself.model;
+        
+        [weakself.navigationController pushViewController:editingInfoVC animated:YES];
+    };
+}
+
+-(void)jumpFocusVc{
+    
+    __weak ArtistUserHomeViewController *weakself=self;
+    
+    self.meheaderView.focusBlcok = ^{
+        
+        RYTLoginManager *manger = [RYTLoginManager shareInstance];
+        
+        if ([manger isVisitor]) {
+            
+            [manger showLoginViewIfNeed];
+            
+            return;
+        }
+        
+        //从我的跳过去的userId就是当前登录的用户
+        FocusMyViewController *focusVC = [[FocusMyViewController alloc] init];
+        UserMyModel *model = TakeLoginUserModel;
+        focusVC.userId =  model.ID;
+        
+        [weakself.navigationController pushViewController:focusVC animated:YES];
+    };
+    
+}
+
+-(void)jumpFansVc{
+    
+//    __weak ArtistUserHomeViewController *weakself= self;
+    
+    self.meheaderView.fansBlcok = ^{
+        
+        //        FocusViewController *focusVC = [[FocusViewController alloc] init];
+        //        [weakself.navigationController pushViewController:focusVC animated:YES];
+        
+    };
     
 }
 

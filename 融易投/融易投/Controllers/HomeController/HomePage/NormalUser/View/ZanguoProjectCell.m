@@ -10,7 +10,8 @@
 
 #import "PageInfoListModel.h"
 #import "ZanguoArtworkModel.h"
-
+#import "CommonButton.h"
+#import "CommonBtn.h"
 #import "UIImageView+WebCache.h"
 #import "ArtworkModel.h"
 #import "authorModel.h"
@@ -26,11 +27,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *userTitle;
 
 @property (weak, nonatomic) IBOutlet UIButton *projectStepBtn;
+//@property (weak, nonatomic) IBOutlet CommonButton *praiseBtn;
+
+@property (weak, nonatomic) IBOutlet CommonBtn *praiseBtn;
 
 @end
 
 @implementation ZanguoProjectCell
-
 
 -(void)setModel:(ArtworkModel *)model{
     
@@ -67,7 +70,7 @@
             [self.projectStepBtn setTitle:@"创作延时" forState:UIControlStateNormal];
         }else if ([model.step isEqualToString:@"24"]) {
             [self.projectStepBtn setTitle:@"创作完成审核中" forState:UIControlStateNormal];
-        }else if ([model.step isEqualToString:@"25"]) {
+        }else if ([model .step isEqualToString:@"25"]) {
             [self.projectStepBtn setTitle:@"创作完成被驳回" forState:UIControlStateNormal];
         }else if ([model.step isEqualToString:@"100"]){
             [self.projectStepBtn setTitle:@"编辑阶段,尚未提交" forState:UIControlStateNormal];
@@ -127,7 +130,7 @@
         }
     }
     
-        
+    
     //作者信息
     NSString *iconUrlStr = [[NSString stringWithFormat:@"%@",model.author.pictureUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
@@ -137,9 +140,10 @@
     
     self.userName.text = model.author.name;
     self.userTitle.text = model.author.master.title;
-    
+    [self.praiseBtn setTitle:[NSString stringWithFormat:@"%ld",model.praiseNUm] forState:(UIControlStateNormal)];
+    [self.praiseBtn setTitleColor:[UIColor colorWithRed:240.0 / 255.0 green:90.0 / 255.0 blue:72.0 / 255.0 alpha:1.0] forState:(UIControlStateSelected)];
+    self.praiseBtn.selected = YES;
 }
-
 
 - (void)awakeFromNib {
     // Initialization code

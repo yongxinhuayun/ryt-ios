@@ -84,6 +84,7 @@
     //添加控制器视图 到scrollView中
     self.backgroundScrollView.contentSize = CGSizeMake(SSScreenW,self.topview.height + self.middleView.height);
 }
+
 -(void)jumpeditingInfoVc{
     
     __weak CommonUserHomeViewController *weakself = self;
@@ -145,8 +146,8 @@
     };
     
 }
--(void)loadNewData
-{
+
+-(void)loadNewData{
     //参数
     UserMyModel *model = [[RYTLoginManager shareInstance] takeUser];
     NSString *currentId = model.ID;

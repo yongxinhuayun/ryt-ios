@@ -139,12 +139,10 @@
 //    
 //    NSLog(@"%@",self.model.num);
     
-    if ([self.model.num isEqualToString:@""]) {
-        
+    if ([[NSString stringWithFormat:@"%ld",self.model.praise] isEqualToString:@""]) {
          [self.dianzanBtn setTitle:@"0" forState:UIControlStateNormal];
     }
-    
-    [self.dianzanBtn setTitle:self.model.num forState:UIControlStateNormal];
+    [self.dianzanBtn setTitle:[NSString stringWithFormat:@"%ld",self.model.praise] forState:UIControlStateNormal];
 
 }
 
@@ -159,7 +157,7 @@
         //1. 按钮变成选中图片
         [button setImage:[UIImage imageNamed:@"dianzanqian"] forState:UIControlStateNormal];
         //2. 点赞数加一,直接修改模型中的数据,因为模型中的顶是个字符串,所以需要拼接
-        self.model.num = [NSString stringWithFormat:@"%zd",self.model.num.integerValue - 1];
+        self.model.num = [NSString stringWithFormat:@"%zd",self.model.praise - 1];
         self.model.is_zan = NO;
         
     }else{ //赞

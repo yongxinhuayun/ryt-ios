@@ -534,6 +534,9 @@
 		E266FFB11CF5521800006EA2 /* MoreInvestorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E266FFAF1CF5521800006EA2 /* MoreInvestorCell.xib */; };
 		E266FFBB1CF58F5300006EA2 /* investmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E266FFB91CF58F5300006EA2 /* investmentController.m */; };
 		E266FFBC1CF58F5300006EA2 /* investmentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E266FFBA1CF58F5300006EA2 /* investmentController.xib */; };
+		E26DAB751CFD823200BE2442 /* ZanguoProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E26DAB731CFD823200BE2442 /* ZanguoProjectCell.m */; };
+		E26DAB761CFD823200BE2442 /* ZanguoProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E26DAB741CFD823200BE2442 /* ZanguoProjectCell.xib */; };
+		E26DAB791CFD89D300BE2442 /* CommonBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = E26DAB781CFD89D300BE2442 /* CommonBtn.m */; };
 		E2729ADC1CD8B90F006C0617 /* ProjectDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729ADB1CD8B90F006C0617 /* ProjectDetailTableViewController.m */; };
 		E2729AE61CD8B923006C0617 /* IntroduceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2729ADE1CD8B923006C0617 /* IntroduceTableViewCell.m */; };
 		E2729AE71CD8B923006C0617 /* IntroduceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2729ADF1CD8B923006C0617 /* IntroduceTableViewCell.xib */; };
@@ -659,8 +662,6 @@
 		E2D5249F1CDF9F0B0024887A /* ZanGuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524991CDF9F0B0024887A /* ZanGuoViewController.m */; };
 		E2D524A61CDF9F390024887A /* InvestProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524A11CDF9F390024887A /* InvestProjectCell.m */; };
 		E2D524A71CDF9F390024887A /* InvestProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D524A21CDF9F390024887A /* InvestProjectCell.xib */; };
-		E2D524A81CDF9F390024887A /* ZanguoProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524A41CDF9F390024887A /* ZanguoProjectCell.m */; };
-		E2D524A91CDF9F390024887A /* ZanguoProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D524A51CDF9F390024887A /* ZanguoProjectCell.xib */; };
 		E2D524E41CDFA19A0024887A /* EditingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524DC1CDFA19A0024887A /* EditingInfoViewController.m */; };
 		E2D524E51CDFA19A0024887A /* EditingInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D524DD1CDFA19A0024887A /* EditingInfoViewController.storyboard */; };
 		E2D524E61CDFA19A0024887A /* EditingNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524DF1CDFA19A0024887A /* EditingNickNameViewController.m */; };
@@ -1446,6 +1447,11 @@
 		E266FFB81CF58F5300006EA2 /* investmentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = investmentController.h; sourceTree = "<group>"; };
 		E266FFB91CF58F5300006EA2 /* investmentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = investmentController.m; sourceTree = "<group>"; };
 		E266FFBA1CF58F5300006EA2 /* investmentController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = investmentController.xib; sourceTree = "<group>"; };
+		E26DAB721CFD823200BE2442 /* ZanguoProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZanguoProjectCell.h; sourceTree = "<group>"; };
+		E26DAB731CFD823200BE2442 /* ZanguoProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZanguoProjectCell.m; sourceTree = "<group>"; };
+		E26DAB741CFD823200BE2442 /* ZanguoProjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZanguoProjectCell.xib; sourceTree = "<group>"; };
+		E26DAB771CFD89D300BE2442 /* CommonBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonBtn.h; sourceTree = "<group>"; };
+		E26DAB781CFD89D300BE2442 /* CommonBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonBtn.m; sourceTree = "<group>"; };
 		E2729ADA1CD8B90F006C0617 /* ProjectDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailTableViewController.h; sourceTree = "<group>"; };
 		E2729ADB1CD8B90F006C0617 /* ProjectDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailTableViewController.m; sourceTree = "<group>"; };
 		E2729ADD1CD8B923006C0617 /* IntroduceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroduceTableViewCell.h; sourceTree = "<group>"; };
@@ -1664,9 +1670,6 @@
 		E2D524A01CDF9F390024887A /* InvestProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestProjectCell.h; sourceTree = "<group>"; };
 		E2D524A11CDF9F390024887A /* InvestProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestProjectCell.m; sourceTree = "<group>"; };
 		E2D524A21CDF9F390024887A /* InvestProjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvestProjectCell.xib; sourceTree = "<group>"; };
-		E2D524A31CDF9F390024887A /* ZanguoProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZanguoProjectCell.h; sourceTree = "<group>"; };
-		E2D524A41CDF9F390024887A /* ZanguoProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZanguoProjectCell.m; sourceTree = "<group>"; };
-		E2D524A51CDF9F390024887A /* ZanguoProjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZanguoProjectCell.xib; sourceTree = "<group>"; };
 		E2D524DB1CDFA19A0024887A /* EditingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingInfoViewController.h; sourceTree = "<group>"; };
 		E2D524DC1CDFA19A0024887A /* EditingInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingInfoViewController.m; sourceTree = "<group>"; };
 		E2D524DD1CDFA19A0024887A /* EditingInfoViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditingInfoViewController.storyboard; sourceTree = "<group>"; };
@@ -2010,6 +2013,8 @@
 				21D54B161CB4C31F0088D386 /* CommonHeader.m */,
 				212EEE411CD9D8CD00F94B30 /* CommonButton.h */,
 				212EEE421CD9D8CD00F94B30 /* CommonButton.m */,
+				E26DAB771CFD89D300BE2442 /* CommonBtn.h */,
+				E26DAB781CFD89D300BE2442 /* CommonBtn.m */,
 				21B99BAB1CF6FE4800E682F8 /* WXButton.h */,
 				21B99BAC1CF6FE4800E682F8 /* WXButton.m */,
 				215C96CF1CEEBB640084C319 /* StartButton.h */,
@@ -3771,9 +3776,9 @@
 				E2D524A01CDF9F390024887A /* InvestProjectCell.h */,
 				E2D524A11CDF9F390024887A /* InvestProjectCell.m */,
 				E2D524A21CDF9F390024887A /* InvestProjectCell.xib */,
-				E2D524A31CDF9F390024887A /* ZanguoProjectCell.h */,
-				E2D524A41CDF9F390024887A /* ZanguoProjectCell.m */,
-				E2D524A51CDF9F390024887A /* ZanguoProjectCell.xib */,
+				E26DAB721CFD823200BE2442 /* ZanguoProjectCell.h */,
+				E26DAB731CFD823200BE2442 /* ZanguoProjectCell.m */,
+				E26DAB741CFD823200BE2442 /* ZanguoProjectCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4301,6 +4306,7 @@
 				E22893D51CDF049500483F18 /* lxh_zana.gif in Resources */,
 				E22893AA1CDF049500483F18 /* lxh_paishou.gif in Resources */,
 				E22893C71CDF049500483F18 /* lxh_xiangyixiang.png in Resources */,
+				E26DAB761CFD823200BE2442 /* ZanguoProjectCell.xib in Resources */,
 				E22893B51CDF049500483F18 /* lxh_qiuguanzhu.png in Resources */,
 				E228928F1CDF03F400483F18 /* d_guzhang@2x.png in Resources */,
 				E22893BD1CDF049500483F18 /* lxh_toule.gif in Resources */,
@@ -4348,7 +4354,6 @@
 				E228929B1CDF03F400483F18 /* d_kun@2x.png in Resources */,
 				E22892921CDF03F400483F18 /* d_han@2x.png in Resources */,
 				E22892DE1CDF03F400483F18 /* w_fuyun@2x.png in Resources */,
-				E2D524A91CDF9F390024887A /* ZanguoProjectCell.xib in Resources */,
 				E22892BD1CDF03F400483F18 /* d_zuohengheng@2x.png in Resources */,
 				21C414281CE2D23500F1029C /* 麦粒-app-30.jpg in Resources */,
 				E22893A71CDF049500483F18 /* lxh_oye.gif in Resources */,
@@ -4701,6 +4706,7 @@
 				212EEE431CD9D8CD00F94B30 /* CommonButton.m in Sources */,
 				E228904C1CDEFE4400483F18 /* MyMD5.m in Sources */,
 				21C413FA1CE2D23500F1029C /* HMEmotionTool.m in Sources */,
+				E26DAB751CFD823200BE2442 /* ZanguoProjectCell.m in Sources */,
 				E2D524121CDF93BC0024887A /* CommentsController.m in Sources */,
 				2187B9401CCDF14000B92435 /* TYSlidePageScrollView.m in Sources */,
 				21C4144C1CE2D2B200F1029C /* ReleaseVideoViewController.m in Sources */,
@@ -4822,7 +4828,6 @@
 				E2F281F31CE55E4600E10330 /* PMTimeCell.m in Sources */,
 				21C4143E1CE2D23500F1029C /* ReleaseViewController.m in Sources */,
 				21C4141F1CE2D23500F1029C /* ShowImageView.m in Sources */,
-				E2D524A81CDF9F390024887A /* ZanguoProjectCell.m in Sources */,
 				E2D524431CDF994C0024887A /* FocusMyTableViewCell.m in Sources */,
 				21C4143A1CE2D23500F1029C /* HMComposeViewController.m in Sources */,
 				2168EAE61CBFA05000B7E037 /* FinanceDetailSecondCell.m in Sources */,
@@ -4859,6 +4864,7 @@
 				21C413ED1CE2D23500F1029C /* AGIPCGridCell.m in Sources */,
 				21C413EF1CE2D23500F1029C /* AGIPCPreviewController.m in Sources */,
 				21C414291CE2D23500F1029C /* DSComposePhotosView.m in Sources */,
+				E26DAB791CFD89D300BE2442 /* CommonBtn.m in Sources */,
 				21D54B181CB4C31F0088D386 /* CommonHeader.m in Sources */,
 				21C4142D1CE2D23500F1029C /* HMEmotionListView.m in Sources */,
 				E2D521EC1CDF79220024887A /* CNCityAreaCitiesModel.m in Sources */,

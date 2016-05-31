@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -57,13 +57,6 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEQ-2X-d3T" customClass="CommonButton">
-                        <rect key="frame" x="250" y="328" width="61" height="22"/>
-                        <state key="normal" title="1000" image="dianzanqian">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <state key="selected" image="dianzanhou"/>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cga-Wf-OUf">
                         <rect key="frame" x="191" y="238" width="120" height="30"/>
                         <constraints>
@@ -80,12 +73,22 @@
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2x-bS-jJA" customClass="CommonBtn">
+                        <rect key="frame" x="259" y="329" width="46" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="100" image="dianzanqian">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" image="dianzanhou">
+                            <color key="titleShadowColor" red="0.91764705882352937" green="0.26666666666666666" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="aEQ-2X-d3T" firstAttribute="centerY" secondItem="xcR-G1-zdc" secondAttribute="centerY" id="1wY-Iv-Fb7"/>
                     <constraint firstItem="dBZ-Sl-gjd" firstAttribute="centerY" secondItem="xcR-G1-zdc" secondAttribute="centerY" id="2at-SM-UUS"/>
                     <constraint firstItem="OMc-wV-czi" firstAttribute="leading" secondItem="aZA-e0-saK" secondAttribute="leading" id="4Xa-sI-NEi"/>
                     <constraint firstItem="aZA-e0-saK" firstAttribute="top" secondItem="TST-M3-OI4" secondAttribute="top" constant="22" id="9R0-Of-PqI"/>
+                    <constraint firstItem="T2x-bS-jJA" firstAttribute="centerY" secondItem="xcR-G1-zdc" secondAttribute="centerY" id="CFj-yy-uN7"/>
                     <constraint firstItem="ShR-EN-I7X" firstAttribute="leading" secondItem="aZA-e0-saK" secondAttribute="leading" id="ED9-Kk-AQN"/>
                     <constraint firstAttribute="trailing" secondItem="aZA-e0-saK" secondAttribute="trailing" constant="14" id="EDk-3U-ZBe"/>
                     <constraint firstItem="i7k-0G-kNm" firstAttribute="leading" secondItem="dBZ-Sl-gjd" secondAttribute="trailing" constant="5" id="Fal-VK-teu"/>
@@ -93,7 +96,6 @@
                     <constraint firstItem="cga-Wf-OUf" firstAttribute="trailing" secondItem="aZA-e0-saK" secondAttribute="trailing" id="Gav-32-gcI"/>
                     <constraint firstItem="aZA-e0-saK" firstAttribute="leading" secondItem="TST-M3-OI4" secondAttribute="leading" constant="14" id="IWQ-zf-SiC"/>
                     <constraint firstItem="T9v-xY-hmb" firstAttribute="leading" secondItem="ShR-EN-I7X" secondAttribute="trailing" constant="5" id="Vea-Dh-CQi"/>
-                    <constraint firstItem="aEQ-2X-d3T" firstAttribute="trailing" secondItem="aZA-e0-saK" secondAttribute="trailing" id="YIc-LO-j2d"/>
                     <constraint firstItem="xcR-G1-zdc" firstAttribute="top" secondItem="ShR-EN-I7X" secondAttribute="bottom" constant="21" id="Z8g-TQ-gz7"/>
                     <constraint firstItem="dBZ-Sl-gjd" firstAttribute="leading" secondItem="kdQ-dd-Opm" secondAttribute="trailing" constant="5" id="adB-Nd-JuP"/>
                     <constraint firstItem="kdQ-dd-Opm" firstAttribute="leading" secondItem="xcR-G1-zdc" secondAttribute="trailing" constant="10" id="cnD-tn-Pcu"/>
@@ -102,11 +104,13 @@
                     <constraint firstItem="xcR-G1-zdc" firstAttribute="leading" secondItem="aZA-e0-saK" secondAttribute="leading" id="jEX-GH-jNF"/>
                     <constraint firstItem="cga-Wf-OUf" firstAttribute="centerY" secondItem="OMc-wV-czi" secondAttribute="centerY" id="n4L-t3-dJP"/>
                     <constraint firstItem="ShR-EN-I7X" firstAttribute="top" secondItem="OMc-wV-czi" secondAttribute="bottom" constant="10" id="pfo-ce-vmX"/>
+                    <constraint firstAttribute="trailing" secondItem="T2x-bS-jJA" secondAttribute="trailing" constant="20" id="wCs-0T-MB2"/>
                     <constraint firstItem="kdQ-dd-Opm" firstAttribute="centerY" secondItem="xcR-G1-zdc" secondAttribute="centerY" id="x8u-yQ-Xpy"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="backgroundImage" destination="aZA-e0-saK" id="YSd-6m-pXj"/>
+                <outlet property="praiseBtn" destination="T2x-bS-jJA" id="AKS-5i-YNG"/>
                 <outlet property="projectStepBtn" destination="cga-Wf-OUf" id="fqp-pH-9Nb"/>
                 <outlet property="title" destination="OMc-wV-czi" id="LpH-bw-ASN"/>
                 <outlet property="totalMoney" destination="T9v-xY-hmb" id="APw-qJ-k25"/>

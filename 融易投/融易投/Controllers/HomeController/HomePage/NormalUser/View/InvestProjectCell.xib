@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="325" height="374"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="325" height="374"/>
+                <rect key="frame" x="0.0" y="0.0" width="325" height="373.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UuT-t9-qSG">
@@ -58,9 +58,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PM8-Nh-GSy" customClass="CommonButton">
-                        <rect key="frame" x="260" y="329" width="51" height="20"/>
+                        <rect key="frame" x="268" y="329" width="43" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal" title="1000" image="dianzanqian">
+                        <state key="normal" title="100" image="dianzanqian">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <state key="selected" image="dianzanhou"/>
