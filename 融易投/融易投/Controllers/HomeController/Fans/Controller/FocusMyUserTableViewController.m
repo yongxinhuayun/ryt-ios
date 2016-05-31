@@ -125,8 +125,6 @@ static NSString *ID = @"focusMyCell";
     NSString *userId = userModel.ID;
     NSString *otherUserId = self.userId;
     
-    SSLog(@"%@",otherUserId);
-    
     NSString *flag = @"1";
     
     //相等为自己看自己,flag为1
@@ -139,7 +137,7 @@ static NSString *ID = @"focusMyCell";
     }
 
     
-    NSString *type = @"2";
+    NSString *type = @"1";
 
     // 3.设置请求体
     NSDictionary *json = @{
@@ -153,7 +151,7 @@ static NSString *ID = @"focusMyCell";
     
     NSString *url = @"userFollowed.do";
     
-    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
@@ -198,7 +196,7 @@ static NSString *ID = @"focusMyCell";
         flag = @"2";
     }
 
-    NSString *type = @"2";
+    NSString *type = @"1";
     
     NSString *pageSize = @"20";
     NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
@@ -215,10 +213,10 @@ static NSString *ID = @"focusMyCell";
     
     NSString *url = @"userFollowed.do";
     
-    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         
-                NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-                NSLog(@"返回结果:%@",jsonStr);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
