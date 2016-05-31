@@ -12,10 +12,9 @@
 
 #import "FocusMyUserTableViewController.h"
 #import "FocusMyArtistTableViewController.h"
+#import "FocusBasicTableViewController.h"
 
-@interface FocusMyViewController ()
-
-
+@interface FocusMyViewController () <UIScrollViewDelegate>
 
 /** 标题栏 */
 @property (nonatomic, strong) UIView *titlesView;
@@ -216,21 +215,13 @@
 -(void)addChildVcViewIntoScrollView
 {
     //13. 取出对应位置的子控制器
-//    NSUInteger index = self.scrollView.contentOffset.x / self.scrollView.width;
-//    UIViewController *childVc = self.childViewControllers[index];
-//    if (childVc.view.superview) return;
-//    childVc.view.frame = self.scrollView.bounds;
-//    [self.scrollView addSubview:childVc.view];
-    
-    FocusMyUserTableViewController *userVC = self.childViewControllers[0];
-    userVC.userId = self.userId;
-    FocusMyArtistTableViewController *artisrVC = self.childViewControllers[1];
-    artisrVC.userId = self.userId;
-    userVC.view.frame = self.scrollView.bounds;
-    artisrVC.view.frame = self.scrollView.bounds;
-    
-    [self.scrollView addSubview:userVC.view];
-    [self.scrollView addSubview:artisrVC.view];
+    NSUInteger index = self.scrollView.contentOffset.x / self.scrollView.width;
+    FocusBasicTableViewController *childVc = self.childViewControllers[index];
+    childVc.userId = self.userId;
+
+    if (childVc.view.superview) return;
+    childVc.view.frame = self.scrollView.bounds;
+    [self.scrollView addSubview:childVc.view];
 }
 
 #pragma mark - <UIScrollViewDelegate>
