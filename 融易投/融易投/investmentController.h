@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface investmentController : UIViewController
-
+@property(nonatomic,copy) NSString *userId;
+@property(nonatomic,copy) NSString *artworkId;
 @end

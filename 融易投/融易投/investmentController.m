@@ -7,6 +7,7 @@
 //
 
 #import "investmentController.h"
+#import "HttpRequstTool.h"
 
 @interface investmentController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *TMoney;
@@ -63,6 +64,7 @@
 // 投资
 - (IBAction)clickTZBtn:(id)sender {
     NSLog(@"投资");
+    [self TZ];
     // 获取用户投资金额
     if (self.moneyTextField.text.length > 0) {
         // 用户输入的金额
@@ -85,6 +87,29 @@
         NSLog(@"用户投资了%ld元",money);
     }
 }
+
+-(void)TZ{
+    NSInteger price = 2;
+    NSString *userId = self.userId;
+    NSString *artworkId = self.artworkId;
+    //判断用户余额是否充足
+    
+    NSDictionary *json = @{
+                           @"price" : [NSString stringWithFormat:@"%ld",price],
+                           @"userId" : userId,
+                           @"artworkId" : artworkId
+                           };
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"artworkInvest.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
+        NSString *jsonStr = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",jsonStr);
+        
+    }];
+}
+
+
+
+
+
 
 -(void)theSameButton{
     NSArray *btnArray = @[self.TMoney,self.FMoeny,self.TenMoney,self.TEMoeny,self.EMoeny,self.AllMoeny];
@@ -131,15 +156,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
