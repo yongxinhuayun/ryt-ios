@@ -486,7 +486,7 @@ static BOOL firstUpdate = YES;
                 
                 UserMyModel *model = TakeLoginUserModel;
                 myHomeVC.userId =  model.ID;
-                
+                myHomeVC.title = model.name;
                 SSLog(@"%@",self.model.user.ID);
                 
                 [self.navigationController pushViewController:myHomeVC animated:YES];
@@ -513,7 +513,7 @@ static BOOL firstUpdate = YES;
         
         UserMyModel *model = TakeLoginUserModel;
         myHomeVC.userId =  model.ID;
-        
+        myHomeVC.title = @"拍卖订单";
         [self.navigationController pushViewController:myHomeVC animated:YES];
         
     }else if (indexPath.row == 3){
