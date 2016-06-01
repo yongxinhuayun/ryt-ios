@@ -14,18 +14,13 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *otherViewConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *InverstConstraint;
 
-
-
 @end
 
 @implementation CommonUserHeaderView
 
 -(void)awakeFromNib{
 
-//    self.otherView.hidden = YES;
-//    self.otherView.height = 0;
-//    self.otherViewTopCons = 0;
-//    self.otherViewBottomCons = 0;
+    [self FocusBtnClick:nil];
 }
 
 -(void)setModel:(PageInfoModel *)model{
@@ -94,6 +89,22 @@
     if ([self.delegate respondsToSelector:@selector(addConcern)]) {
         [self.delegate addConcern];
     }
+}
+
+- (IBAction)FocusBtnClick:(UIButton *)sender {
+    
+    if (_focusBlcok != nil) {
+        _focusBlcok();
+    }
+    
+}
+
+- (IBAction)FansBtnClick:(UIButton *)sender {
+    
+    if (_fansBlcok != nil) {
+        _fansBlcok();
+    }
+    
 }
 
 

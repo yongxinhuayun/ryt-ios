@@ -3751,10 +3751,10 @@
 		E2D524871CDF9E380024887A /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				21C413121CE2D23500F1029C /* Artist */,
 				E2D524FB1CDFA2B90024887A /* HomePageController */,
 				E2D524FC1CDFA2B90024887A /* HomePageView */,
 				E2D524D81CDFA1850024887A /* Editing */,
+				21C413121CE2D23500F1029C /* Artist */,
 				E2D5248D1CDF9EBE0024887A /* NormalUser */,
 			);
 			path = HomePage;

@@ -64,6 +64,8 @@
         self.topview.width = SSScreenW;
         tView.backgroundColor = [UIColor whiteColor];
         tView.width = SSScreenW;
+        [self jumpFansVc];
+        [self jumpFocusVc];
         [self.topview addSubview:tView];
     }else{
         MeHeaderView *tView = [[[NSBundle mainBundle] loadNibNamed:@"MeHeaderView" owner:nil options:nil] lastObject];
@@ -75,7 +77,7 @@
         self.meheaderView = tView;
         [self jumpFansVc];
         [self jumpFocusVc];
-        [self jumpeditingInfoVc];
+//        [self jumpeditingInfoVc];
         [self.topview addSubview:tView];
     }
     
@@ -134,12 +136,55 @@
             return;
         }
         
-        //从我的跳过去的userId就是当前登录的用户
-        FocusMyViewController *focusVC = [[FocusMyViewController alloc] init];
-        UserMyModel *model = TakeLoginUserModel;
-        focusVC.userId =  model.ID;
+        if ([[[RYTLoginManager shareInstance] takeUser].ID isEqualToString:weakself.userId]) {
         
-        [weakself.navigationController pushViewController:focusVC animated:YES];
+            //从我的跳过去的userId就是当前登录的用户
+            FocusMyViewController *focusVC = [[FocusMyViewController alloc] init];
+            UserMyModel *model = TakeLoginUserModel;
+            focusVC.userId =  model.ID;
+            
+            [weakself.navigationController pushViewController:focusVC animated:YES];
+
+            
+        }else{
+        
+            //从其他用户跳过去
+            FocusMyViewController *focusVC = [[FocusMyViewController alloc] init];
+            focusVC.userId =  weakself.userId;
+            
+            [weakself.navigationController pushViewController:focusVC animated:YES];
+
+        }
+        
+    };
+    
+    self.HeaderView.focusBlcok = ^{
+        
+        RYTLoginManager *manger = [RYTLoginManager shareInstance];
+        
+        if ([manger isVisitor]) {
+            
+            [manger showLoginViewIfNeed];
+            
+            return;
+        }
+        
+        if ([[[RYTLoginManager shareInstance] takeUser].ID isEqualToString:weakself.userId]) {
+            
+            //从我的跳过去的userId就是当前登录的用户
+            FocusMyViewController *focusVC = [[FocusMyViewController alloc] init];
+            UserMyModel *model = TakeLoginUserModel;
+            focusVC.userId =  model.ID;
+            [weakself.navigationController pushViewController:focusVC animated:YES];
+            
+        }else{
+            
+            //从其他用户跳过去
+            FocusMyViewController *focusVC = [[FocusMyViewController alloc] init];
+            focusVC.userId =  weakself.userId;
+            [weakself.navigationController pushViewController:focusVC animated:YES];
+            
+        }
     };
     
 }
