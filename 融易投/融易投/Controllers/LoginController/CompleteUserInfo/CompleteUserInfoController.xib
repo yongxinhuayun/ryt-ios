@@ -20,19 +20,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djo-eR-iG8">
-                    <rect key="frame" x="230" y="404" width="14" height="17"/>
+                    <rect key="frame" x="230" y="379" width="14" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5q-dA-ZgZ">
-                    <rect key="frame" x="165" y="404" width="14" height="17"/>
+                    <rect key="frame" x="165" y="379" width="14" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jibenziliao_touxiang" translatesAutoresizingMaskIntoConstraints="NO" id="qp1-N4-VQg">
-                    <rect key="frame" x="147" y="139" width="80" height="80"/>
+                    <rect key="frame" x="147" y="114" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="BDu-sv-cwg"/>
                         <constraint firstAttribute="height" constant="80" id="Hp6-pG-aJP"/>
@@ -45,7 +45,7 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称" minimumFontSize="17" background="denglu_shurukuang" translatesAutoresizingMaskIntoConstraints="NO" id="RuK-CY-fRw">
-                    <rect key="frame" x="94" y="294" width="187" height="44"/>
+                    <rect key="frame" x="94" y="269" width="187" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="DDn-O2-bNG"/>
                         <constraint firstAttribute="width" constant="187" id="MNq-c2-DQu"/>
@@ -54,22 +54,21 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性别" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkv-cp-p5F">
-                    <rect key="frame" x="94" y="374" width="34" height="21"/>
+                    <rect key="frame" x="94" y="349" width="34" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jibenziliao_shurukuang" translatesAutoresizingMaskIntoConstraints="NO" id="3j9-QC-Vgf">
-                    <rect key="frame" x="94" y="406" width="188" height="30"/>
+                    <rect key="frame" x="94" y="381" width="188" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="aEe-Ph-BsP"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3e6-bj-2bf">
-                    <rect key="frame" x="94" y="451" width="187" height="44"/>
-                    <state key="normal" title="完成" backgroundImage="jibenziliao_anniu">
-                        <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
+                    <rect key="frame" x="94" y="426" width="187" height="44"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="完成" backgroundImage="zhuce_kedianji"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
                         <rect key="frame" x="72" y="317" width="187" height="44"/>
                     </variation>
@@ -78,25 +77,25 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdm-3k-9Xy">
-                    <rect key="frame" x="152" y="353" width="41" height="41"/>
-                    <state key="normal" image="jibenziliao_weixuanzhong_nan"/>
+                    <rect key="frame" x="152" y="328" width="41" height="41"/>
+                    <state key="normal" backgroundImage="jibenziliao_weixuanzhong_nan"/>
                     <state key="selected" image="jibenziliao_xuanzhong_nan"/>
                     <connections>
-                        <action selector="sexBtnClick:" destination="-1" eventType="touchUpInside" id="Ira-hV-wEj"/>
+                        <action selector="maleBtnClick:" destination="-1" eventType="touchUpInside" id="qV3-t5-Ytd"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b86-sM-PQW">
-                    <rect key="frame" x="217" y="353" width="41" height="41"/>
-                    <state key="normal" image="jibenziliao_weixuanzhong_nv"/>
-                    <state key="selected" image="jibenziliao_xuanzhong_nv"/>
+                    <rect key="frame" x="217" y="328" width="41" height="41"/>
+                    <state key="normal" backgroundImage="jibenziliao_weixuanzhong_nv"/>
+                    <state key="selected" backgroundImage="jibenziliao_xuanzhong_nv"/>
                     <connections>
-                        <action selector="sexBtnClick:" destination="-1" eventType="touchUpInside" id="j08-xy-sd8"/>
+                        <action selector="femaleBtnClick:" destination="-1" eventType="touchUpInside" id="Wd1-IR-rGI"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="qp1-N4-VQg" firstAttribute="top" secondItem="tMa-eL-7Mp" secondAttribute="top" constant="139" id="1ec-5t-prK"/>
+                <constraint firstItem="qp1-N4-VQg" firstAttribute="top" secondItem="tMa-eL-7Mp" secondAttribute="top" constant="114" id="1ec-5t-prK"/>
                 <constraint firstItem="dkv-cp-p5F" firstAttribute="top" secondItem="RuK-CY-fRw" secondAttribute="bottom" constant="36" id="2Zc-z1-QXY"/>
                 <constraint firstItem="3j9-QC-Vgf" firstAttribute="top" secondItem="r5q-dA-ZgZ" secondAttribute="bottom" constant="-15" id="5nN-Gf-0l9"/>
                 <constraint firstItem="r5q-dA-ZgZ" firstAttribute="centerX" secondItem="Qdm-3k-9Xy" secondAttribute="centerX" id="IZd-02-97y"/>
@@ -123,12 +122,12 @@
     </objects>
     <resources>
         <image name="denglu_shurukuang" width="188" height="40"/>
-        <image name="jibenziliao_anniu" width="187" height="47"/>
         <image name="jibenziliao_shurukuang" width="188" height="40"/>
         <image name="jibenziliao_touxiang" width="80" height="80"/>
         <image name="jibenziliao_weixuanzhong_nan" width="41" height="41"/>
         <image name="jibenziliao_weixuanzhong_nv" width="41" height="41"/>
         <image name="jibenziliao_xuanzhong_nan" width="41" height="41"/>
         <image name="jibenziliao_xuanzhong_nv" width="41" height="41"/>
+        <image name="zhuce_kedianji" width="187" height="47"/>
     </resources>
 </document>

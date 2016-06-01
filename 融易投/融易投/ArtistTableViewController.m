@@ -112,7 +112,7 @@ static NSString *ID = @"artistCell";
     //8.2 取消之前的请求
     [self.tableView.mj_footer endRefreshing];
     //参数
-    NSString *pageSize = @"1";
+    NSString *pageSize = @"20";
     int newPageNum = self.lastPageNum.intValue + 1;
     self.lastPageNum = [NSString stringWithFormat:@"%d",newPageNum];
     NSString *pageNum = [NSString stringWithFormat:@"%d",newPageNum];

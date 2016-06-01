@@ -13,15 +13,11 @@
 #import "UIImageView+WebCache.h"
 
 @interface CompleteUserInfoController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
-
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-
 @property (weak, nonatomic) IBOutlet UITextField *nicknameTextField;
 @property (weak, nonatomic) IBOutlet UIButton *maleBtn;
 @property (weak, nonatomic) IBOutlet UIButton *femaleBtn;
-
 @property (strong,nonatomic) NSString *createPath;
-
 @end
 
 @implementation CompleteUserInfoController
@@ -89,45 +85,42 @@
 // 设置导航条
 -(void)setUpNavBar
 {
-    // UINavigationItem:描述导航条内容
-    // UIBarButtonItem:描述导航条按钮内容
-    
     //设置导航条标题
     self.navigationItem.title = @"基本资料";
     
-    //设置导航条按钮
-//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"jibenziliao_guanbi"] highImage:nil target:self action:@selector(dismissVc)];
+    //右边
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"denglu_guanbi"] highImage:nil target:self action:@selector(dismiss)];
 }
 
-// 点击标签按钮,进入标签界面
-//- (void)dismissVc {
-//    
-//    [self.navigationController popViewControllerAnimated:YES];
-//}
+-(void)dismiss{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     [self.nicknameTextField resignFirstResponder];
 }
 
-//- (IBAction)uploadSexBtnClick:(id)sender {
-//    
-//    
-//    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"性别" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-//    
-//    
-//    [alertController addAction:[UIAlertAction actionWithTitle:@"男" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//        self.sexLabel.text = @"男";
-//    }]];
-//    
-//    [alertController addAction:[UIAlertAction actionWithTitle:@"女" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//        self.sexLabel.text = @"女";
-//    }]];
-//    
-//    [self presentViewController:alertController animated:YES completion:nil];
-//    
-//}
-
+/*
+- (IBAction)uploadSexBtnClick:(id)sender {
+    
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"性别" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"男" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        self.sexLabel.text = @"男";
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"女" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        self.sexLabel.text = @"女";
+    }]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+}
+*/
 - (IBAction)completeBtnClick:(id)sender {
     
     [self loadData];
@@ -201,9 +194,22 @@
     // 4.关闭上下文
     return newImage;
 }
-- (IBAction)sexBtnClick:(UIButton *)btn {
+- (IBAction)maleBtnClick:(UIButton *)btn {
     
     btn.selected = !btn.selected;
+    
+    if (self.femaleBtn.selected) {
+        self.femaleBtn.selected = NO;
+    }
+}
+
+- (IBAction)femaleBtnClick:(UIButton *)btn {
+    
+    btn.selected = !btn.selected;
+    
+    if (self.maleBtn.selected) {
+        self.maleBtn.selected = NO;
+    }
 }
 
 

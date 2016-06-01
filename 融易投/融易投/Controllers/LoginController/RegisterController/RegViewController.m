@@ -31,6 +31,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *verifyCodeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passWordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *verifyCodeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *readBtn;
+@property (weak, nonatomic) IBOutlet UIButton *protocolBtn;
+@property (weak, nonatomic) IBOutlet UIButton *regBtn;
 
 /** 验证验证码成功 0 为成功  保存起来注册的时候根据辞职进行判断 */
 @property (nonatomic ,strong) NSString *resultCode;
@@ -77,20 +80,7 @@
     self.navigationItem.title = @"加入融艺投";
     
     //右边
-    UIImage *image = [UIImage imageNamed:@"denglu_guanbi"];
-    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithImage:image style:0 target:self action:@selector(dismiss)];
-    
-    self.navigationItem.rightBarButtonItem = barButtonItem;
-    
-    //左边
-//    UIImage *image = [UIImage imageNamed:@"fanhui"];
-//    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//    
-//    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithImage:image style:0 target:self action:@selector(btnClick)];
-//    
-//    self.navigationItem.leftBarButtonItem = barButtonItem;
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"denglu_guanbi"] highImage:nil target:self action:@selector(dismiss)];
 }
 
 -(void)dismiss{
@@ -234,7 +224,15 @@
             [MBProgressHUD hideHUD];
             
             if ([self.resultCode isEqualToString:@"0"]) {
-                [self loadData];
+                
+                if (self.regBtn.enabled) {
+                    [self loadData];
+                }else{
+                
+                    [MBProgressHUD showError:@"请阅读并同意[融艺投]用户协议"];
+                }
+                
+                
             }
 
         }];
@@ -283,6 +281,26 @@
         }];
     }];
 }
+
+//弹出用户协议
+- (IBAction)protocolBtnClick:(UIButton *)btn {
+    
+    
+}
+
+//用户是否已读用户协议按钮
+- (IBAction)readBtnClick:(UIButton *)btn {
+    
+    btn.selected = !btn.selected;
+    
+    if (btn.selected) {
+        self.regBtn.enabled = YES;
+    }else{
+        self.regBtn.enabled = NO;
+    }
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

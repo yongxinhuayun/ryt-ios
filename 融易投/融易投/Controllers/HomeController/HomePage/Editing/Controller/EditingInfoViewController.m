@@ -14,7 +14,7 @@
 #import "PageInfoModel.h"
 #import <MJExtension.h>
 
-@interface EditingInfoViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface EditingInfoViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate,MBProgressHUDDelegate>
 
 @property (strong,nonatomic) NSString *createPath;
 
@@ -22,10 +22,20 @@
 @property (weak, nonatomic) IBOutlet UILabel *sexLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nickNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *signatureLabel;
+@property(nonatomic,strong) MBProgressHUD *progressHUD;
 
 @end
 
 @implementation EditingInfoViewController
+
+-(MBProgressHUD *)progressHUD{
+    if (!_progressHUD) {
+        _progressHUD = [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication] keyWindow] animated:YES];
+        self.progressHUD.delegate = self;
+        _progressHUD.mode = MBProgressHUDModeDeterminate;
+    }
+    return _progressHUD;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -340,10 +350,22 @@
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
         
         [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"headPortrait" fileName:@"headPortrait.jpg" mimeType:@"application/octet-stream" error:nil];
-        
-        
     } showHUDView:nil progress:^(id progress) {
         
+        NSProgress *p = (NSProgress *)progress;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            float total = p.totalUnitCount;
+            float completed = p.completedUnitCount;
+            float i = completed / total;
+            self.progressHUD.progress = i;
+            if (i == 1) {
+                self.progressHUD.labelText = [NSString stringWithFormat:@"发布成功"];
+                self.progressHUD.mode = MBProgressHUDModeCustomView;
+                [self.progressHUD hide:YES afterDelay:1];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        });
     } success:^(id respondObj) {
         
 //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];

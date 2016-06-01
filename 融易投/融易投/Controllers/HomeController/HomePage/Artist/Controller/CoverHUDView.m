@@ -15,12 +15,17 @@
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+
+    [UIView animateWithDuration:0.2 animations:^{
+        self.alpha = 0;
+        self.subView.alpha = 0;
+    } completion:^(BOOL finished) {
+        self.alpha = 0.5;
+        self.subView.alpha = 1;
+        [self removeFromSuperview];
+        [self.subView removeFromSuperview];
+    }];
 }
-*/
 
 @end

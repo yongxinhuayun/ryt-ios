@@ -21,6 +21,23 @@
 
 @implementation FocusMyTableViewCell
 
+-(void)awakeFromNib{
+
+    //设置图片能够点击
+    //记住:UIImageView默认情况下是不能接收事件的,如果要执行点击方法,必须把默认的User interaction Enable 改成yes
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
+    
+    self.iconImageView.userInteractionEnabled = YES;
+    [self.iconImageView addGestureRecognizer:tapGesture];
+}
+
+-(void)tap {
+    
+    if ([self.delegate respondsToSelector:@selector(clickUserIcon:)]) {
+        [self.delegate clickUserIcon:self.indexPath];
+    }
+}
+
 -(void)setModel:(PageInfoListMyModel *)model{
     
     _model = model;
@@ -83,25 +100,27 @@
         // 获取当前将要被关注的用户ID
         NSString *followId = self.model.artUserFollowed.follower.ID;
         //        NSString *identifier 0 为关注，1 为取消关注
-        
-        //因为后台返回的数据有时候可能为nil,当nil时即为关注
+        //因为后台返回的数据有时候可能为nil,当nil时即为关注,1为关注,2为未关注
         if (self.model.flag == nil) {
-            self.model.flag = @"0";
+            self.model.flag = @"1";
         }
         
-        NSString *identifier = self.model.flag ? @"1" : @"0";
-        // followType 1:普通用户 2:艺术家
-        NSString *followType = self.model.artUserFollowed.follower.master ? @"2" : @"1";
+        NSString *identifier = self.model.flag ? @"1" : @"2";
+        // followType 1:艺术家 2:普通用户
+        NSString *followType = self.model.artUserFollowed.follower.master ? @"1" : @"2";
         NSDictionary *json = [ NSDictionary dictionary];
         
         //看别人即为既能关注也能取消关注
-        if (![userId isEqualToString:followId]) {
+        //查看别人的ID
+        NSString *otherID = self.model.artUserFollowed.user.ID;
+        if (![userId isEqualToString:otherID]) {
             
             if (![self.model.artUserFollowed.ID isEqualToString:@""]) {
                 json = @{ //取消关注
+                         @"userId" : userId,
+                         @"followId" : followId,
                          @"identifier" :identifier,
-                         //                     @"followType" : followType,
-                         @"artUserFollowId" : self.model.artUserFollowed.ID
+                         @"followType" : followType,
                          };
             }else{ //关注
                 json = @{
@@ -114,9 +133,10 @@
         }else{ //自己看自己即为取消关注
         
             json = @{ //取消关注
+                     @"userId" : userId,
+                     @"followId" : followId,
                      @"identifier" :identifier,
-                     //                     @"followType" : followType,
-                     @"artUserFollowId" : self.model.artUserFollowed.ID
+                     @"followType" : followType,
                      };
         }
         
@@ -135,9 +155,9 @@
     }
 }
 
-- (void)awakeFromNib {
-    // Initialization code
-}
+//- (void)awakeFromNib {
+//    // Initialization code
+//}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

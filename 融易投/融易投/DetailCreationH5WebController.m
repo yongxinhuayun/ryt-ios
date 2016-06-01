@@ -23,7 +23,6 @@
 }
 
 -(void)setupWebView{
-
     NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"src-H5" ofType:@".bundle"];
     NSString *htmlPath = [bundlePath stringByAppendingPathComponent:@"A2.html"];
     NSString *jsPath = [bundlePath stringByAppendingPathComponent:@"shop2016"];
