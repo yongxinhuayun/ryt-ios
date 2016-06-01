@@ -39,5 +39,9 @@
 @property (nonatomic ,strong)PageInfoModel *model;
 
 
+@property (nonatomic ,strong) void(^focusBlcok)();
+
+@property (nonatomic ,strong) void(^fansBlcok)();
+
 
 @end

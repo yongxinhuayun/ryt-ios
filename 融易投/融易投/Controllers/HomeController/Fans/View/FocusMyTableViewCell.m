@@ -50,9 +50,11 @@
         self.descriptionLabel.text = model.artUserFollowed.follower.userBrief.content;
     }
     
+    SSLog(@"%@",model.flag);
+    
     //如果是自己看自己的关注,那么都是已经关注过的,所以直接显示关注状态
     UserMyModel *userModel = TakeLoginUserModel;
-     NSString *userId = userModel.ID;
+    NSString *userId = userModel.ID;
     if ([userId isEqualToString:model.artUserFollowed.user.ID]) {
         
         self.focusBtn.selected = YES;
