@@ -1,0 +1,103 @@
+@charset "UTF-8";
+* { box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; }
+
+.fl, .bd, .tz2016, .tz2016 .swiper-container, .tz2016 .swiper-container .swiper-slide .itam-img, .tz2016 .man, .tz2016 .man .page, .tz2016 .man .page .mp, .tz2016 .man .page .mp .pic img, .tz2016 .man .page .mp .n-page, .tz2016 .man .page .mp .n-page .name, .tz2016 .man .page .mp .n-page .rank, .tz2016 .man .page .mp .n-page strong, .tz2016 .man .page .t-page, .tz2016 .man .money, .tz2016 .man .money .yet-money, .tz2016 .man .money .plan-money, .tz2016 .man .money .plan-money .line, .tz2016 .man .money .plan-money .line .bottom .top, .tz2016 .man .money .msg, .tz2016 .man .money .msg .aim, .tz2016 .man .money .msg .time, .tz2016 .man .predict, .tz2016 .man .investor, .tz2016 .man .investor h5, .tz2016 .flow, .tz2016 .flow .flow-pic, .tz2016 .flow .flow-pic img, .tz2016 .flow .flow-explain, .tz2016 .details, .tz2016 .details h5, .tz2016 .details .content, .tz2016 .details .content p, .tz2016 .details .content img, .tz2016 .details .content .list, .tz2016 .discuss, .tz2016 .discuss ul, .tz2016 .discuss ul li, .tz2016 .discuss ul li .pic a > img, .tz2016 .discuss ul li .box, .tz2016 .discuss ul li .box .name, .tz2016 .discuss ul li .box .name span:nth-child(1), .tz2016 .discuss ul li .box .content, .tz2016 .discuss ul li .box .content .reply, .tz2016 .b-box, .tz2016 .b-box .timeline, .tz2016 .b-box .timeline .title, .tz2016 .b-box .timeline .title .r-txt, .tz2016 .b-box .timeline .title .r-txt span, .tz2016 .b-box .timeline .page, .tz2016 .b-box .timeline .page .list, .tz2016 .b-box .timeline .page .list p, .tz2016 .b-box .timeline .page .list img, .tz2016 .b-box .timeline .page p, .tz2016 .b-box .timeline .page img, .tz2016 .b-box .timeline .page .button { float: left; }
+
+.fr, .tz2016 .man .money .plan-money .num, .tz2016 .man .money .msg .number, .tz2016 .discuss ul li .box .name span:nth-child(2) { float: right; }
+
+.wb, .bd, .tz2016, .tz2016 .swiper-container, .tz2016 .swiper-container .swiper-slide .itam-img, .tz2016 .man, .tz2016 .man .page, .tz2016 .man .page .mp, .tz2016 .man .page .mp .pic img, .tz2016 .man .page .mp .n-page, .tz2016 .man .page .t-page, .tz2016 .man .money, .tz2016 .man .money .yet-money, .tz2016 .man .money .plan-money, .tz2016 .man .money .plan-money .line .bottom .top, .tz2016 .man .money .msg, .tz2016 .man .predict, .tz2016 .man .investor, .tz2016 .man .investor h5, .tz2016 .flow, .tz2016 .flow .flow-pic, .tz2016 .flow .flow-pic img, .tz2016 .flow .flow-explain, .tz2016 .details, .tz2016 .details h5, .tz2016 .details .content, .tz2016 .details .content p, .tz2016 .details .content img, .tz2016 .details .content .list, .tz2016 .discuss, .tz2016 .discuss ul, .tz2016 .discuss ul li, .tz2016 .discuss ul li .pic a > img, .tz2016 .discuss ul li .box, .tz2016 .discuss ul li .box .name, .tz2016 .discuss ul li .box .content, .tz2016 .discuss ul li .box .content .reply, .tz2016 .b-box, .tz2016 .b-box .timeline, .tz2016 .b-box .timeline .title, .tz2016 .b-box .timeline .title .r-txt, .tz2016 .b-box .timeline .page, .tz2016 .b-box .timeline .page .list, .tz2016 .b-box .timeline .page .list p, .tz2016 .b-box .timeline .page .list img, .tz2016 .b-box .timeline .page p, .tz2016 .b-box .timeline .page img, .tz2016 .b-box .timeline .page .button { width: 100%; }
+
+.wh { width: 100%; float: left; position: relative; }
+
+.bd { border-bottom: 1px solid #e2e2e2; }
+
+.nav-pic2 ul { width: 100%; float: left; }
+.nav-pic2 ul li { width: 10%; padding: 3px; float: left; }
+.nav-pic2 ul li a { width: 100%; height: 100%; float: left; }
+.nav-pic2 ul li img { width: 100%; -webkit-border-radius: 30px; border-radius: 30px; }
+
+/*投资*/
+.tz2016 .swiper-container { margin-top: 9px; }
+.tz2016 .swiper-container .swiper-slide span { position: absolute; left: 11px; bottom: 13px; font-size: 16px; line-height: 16px; color: white; }
+.tz2016 .man { padding: 0 14px; border-bottom: 1px solid #e2e2e2; margin-bottom: 12px; }
+.tz2016 .man .page { padding-bottom: 17px; }
+.tz2016 .man .page .mp { position: relative; padding-left: 43px; }
+.tz2016 .man .page .mp .pic { position: absolute; left: 0; top: 15px; width: 32px; height: 32px; border-radius: 10px; }
+.tz2016 .man .page .mp .pic img { border-radius: 32px; }
+.tz2016 .man .page .mp .n-page { padding: 24px 0; }
+.tz2016 .man .page .mp .n-page .name, .tz2016 .man .page .mp .n-page .rank { font-size: 15px; line-height: 15px; color: black; }
+.tz2016 .man .page .mp .n-page strong { margin: 3px 8px 0; background: #000; width: 1px; height: 10px; }
+.tz2016 .man .page .t-page { padding: 0 15px; text-align: center; }
+.tz2016 .man .page .t-page i { width: 15px; height: 15px; position: absolute; left: 0; top: 0; }
+.tz2016 .man .page .t-page i:before { content: ''; width: 2px; height: 15px; background: #ef5b70; position: absolute; left: 0; top: 0; }
+.tz2016 .man .page .t-page i:after { content: ''; width: 15px; height: 2px; background: #ef5b70; position: absolute; left: 0; top: 0; }
+.tz2016 .man .page .t-page em { width: 15px; height: 15px; position: absolute; bottom: 0; right: 0; }
+.tz2016 .man .page .t-page em:before { content: ''; width: 15px; height: 2px; background: #ef5b70; position: absolute; right: 0; bottom: 0; }
+.tz2016 .man .page .t-page em:after { content: ''; width: 2px; height: 15px; background: #ef5b70; position: absolute; right: 0; bottom: 0; }
+.tz2016 .man .page .t-page span { width: 100%; float: left; font-size: 14px; color: #666; line-height: 17px; padding: 0 15px; }
+.tz2016 .man .money .yet-money { padding: 13px 0 17px; }
+.tz2016 .man .money .yet-money p { font-size: 13px; line-height: 13px; color: #666666; font-weight: bold; }
+.tz2016 .man .money .yet-money p span { font-size: 14px; line-height: 14px; color: black; font-weight: bold; }
+.tz2016 .man .money .plan-money .line { width: 84%; position: relative; }
+.tz2016 .man .money .plan-money .line .bottom { width: 100%; position: absolute; left: 0; top: 50%; height: 10px; margin-top: 2px; z-index: 1; background: #ccc; overflow: hidden; }
+.tz2016 .man .money .plan-money .line .bottom .top { z-index: 2; background: #000; height: 10px; }
+.tz2016 .man .money .plan-money .line .bottom .top:before { content: ''; width: 10px; height: 10px; float: right; background: #000; transfrom: rotate(45deg); -webkit-transform: rotate(45deg); -ms-transfrom: rotate(45deg); -o-transfrom: rotate(45deg); -moz-transform: rotate(45deg); margin-right: -3px; }
+.tz2016 .man .money .plan-money .num { font-size: 14px; line-height: 14px; color: black; font-weight: bold; }
+.tz2016 .man .money .msg { margin-top: 17px; padding-bottom: 14px; }
+.tz2016 .man .money .msg .a-money { font-size: 14px; line-height: 14px; color: black; }
+.tz2016 .man .money .msg .txt { font-size: 13px; line-height: 13px; color: gray; margin-top: 5px; }
+.tz2016 .man .money .msg .aim { width: 33%; text-align: left; }
+.tz2016 .man .money .msg .time { width: 34%; text-align: center; }
+.tz2016 .man .money .msg .number { width: 33%; text-align: right; }
+.tz2016 .man .predict { padding: 14px 0; font-size: 14px; line-height: 14px; color: black; }
+.tz2016 .man .predict span { padding-right: 5px; }
+.tz2016 .man .investor { padding: 15px 0; }
+.tz2016 .man .investor h5 { font-size: 15px; line-height: 15px; color: #333333; margin-bottom: 15px; }
+.tz2016 .flow { padding: 0 14px; }
+.tz2016 .flow .flow-pic { padding-bottom: 10px; border-bottom: 1px solid #e2e2e2; }
+.tz2016 .flow .flow-explain { padding-bottom: 10px; }
+.tz2016 .flow .flow-explain h5 { padding: 20px 0; font-size: 14px; line-height: 14px; color: #333333; }
+.tz2016 .flow .flow-explain p { font-size: 12px; color: #666; line-height: 18px; margin-bottom: 3px; }
+.tz2016 .details { margin-top: -1px; border-top: 1px solid #e2e2e2; padding: 0 14px 12px; }
+.tz2016 .details h5 { padding: 20px 0; font-size: 14px; line-height: 14px; color: black; border-bottom: 1px solid #e2e2e2; margin-bottom: 22px; }
+.tz2016 .details .content p { line-height: 18px; font-size: 14px; color: #000; margin-bottom: 8px; }
+.tz2016 .details .content img { margin-bottom: 10px; }
+.tz2016 .details .content .list { position: relative; }
+.tz2016 .details .content .list .issue { position: absolute; width: 8%; left: 0; top: 0; font-size: 14px; line-height: 14px; color: black; }
+.tz2016 .details .content .list .answer { padding-left: 8%; }
+.tz2016 .details .content .list .answer p { font-size: 14px; line-height: 14px; }
+.tz2016 .details .content .list .answer p:nth-child(1) { color: #000; }
+.tz2016 .details .content .list .answer p:nth-child(2) { color: #808080; }
+.tz2016 .discuss ul { padding: 0 14px; margin-top: -1px; }
+.tz2016 .discuss ul li { padding: 21px 0; border-top: 1px solid #e2e2e2; position: relative; }
+.tz2016 .discuss ul li .pic { position: absolute; left: 0; top: 10px; width: 35px; height: 35px; }
+.tz2016 .discuss ul li .pic a > img { border-radius: 35px; }
+.tz2016 .discuss ul li .box { padding-left: 46px; }
+.tz2016 .discuss ul li .box .name { font-size: 15px; line-height: 15px; color: #0763c6; margin-bottom: 15px; }
+.tz2016 .discuss ul li .box .name span:nth-child(2) { color: #999; }
+.tz2016 .discuss ul li .box .content { font-size: 14px; color: #000; line-height: 17px; }
+.tz2016 .discuss ul li .box .content .reply { font-size: 14px; color: #000; }
+.tz2016 .discuss ul li .box .content .reply a { color: #0763c6; font-size: 14px; }
+.tz2016 .b-box { padding: 40px 14px; }
+.tz2016 .b-box .timeline { margin-bottom: 10px; }
+.tz2016 .b-box .timeline .title { padding-left: 25px; position: relative; line-height: 14px; margin-bottom: 10px; }
+.tz2016 .b-box .timeline .title .rz-icon { background-position: 0 -149px; }
+.tz2016 .b-box .timeline .title .l-icon { width: 15px; height: 15px; position: absolute; left: 5px; top: 0; background-image: url("../images/icon-btn.png"); background-size: 150% auto; }
+.tz2016 .b-box .timeline .title .r-txt span { font-size: 15px; line-height: 15px; color: black; }
+.tz2016 .b-box .timeline .title .r-txt span:nth-child(1) { padding-right: 32px; }
+.tz2016 .b-box .timeline .title .r-txt span:nth-child(2) { padding-right: 11px; }
+.tz2016 .b-box .timeline .page { margin-left: 11px; border-left: 2px solid #e3e3e3; padding: 0 14px 24px 71px; position: relative; }
+.tz2016 .b-box .timeline .page .list p { font-size: 14px; color: #666; line-height: 20px; }
+.tz2016 .b-box .timeline .page .list p a { font-size: 14px; line-height: 14px; color: #0763c6; display: inline-block; }
+.tz2016 .b-box .timeline .page .list p span { font-size: 14px; line-height: 14px; color: #666666; }
+.tz2016 .b-box .timeline .page .list img { margin: 10px 0; }
+.tz2016 .b-box .timeline .page .p-head { position: absolute; left: 12px; top: 0; font-size: 14px; color: #666; line-height: 20px; }
+.tz2016 .b-box .timeline .page p { font-size: 14px; color: #666; line-height: 20px; }
+.tz2016 .b-box .timeline .page p a { font-size: 12px; line-height: 12px; color: #0763c6; display: inline-block; }
+.tz2016 .b-box .timeline .page p span { font-size: 12px; line-height: 12px; color: #666666; }
+.tz2016 .b-box .timeline .page img { margin: 10px 0; }
+.tz2016 .b-box .timeline .page .button { text-align: center; padding-top: 15px; border-top: 1px solid #e2e2e2; line-height: 12px; }
+.tz2016 .b-box .timeline .page .button a { display: inline-block; font-size: 15px; line-height: 15px; color: #ef5b70; }
+.tz2016 .b-box .timeline.cz .title .l-icon { background-position: 0 -164px; }
+.tz2016 .b-box .timeline.dt .title .l-icon { background-position: 2px -503px; background-size: 260% auto; }
+.tz2016 .b-box .timeline.pm .title .l-icon { background-position: 0 -180px; }

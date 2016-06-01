@@ -1,0 +1,595 @@
+@charset "utf-8";
+*{
+  box-sizing : border-box;
+  -webkit-box-sizing : border-box;
+  -moz-box-sizing : border-box;
+}
+//高度垂直方法 @mixin @include heightCT($height)
+@mixin heightCT($height){
+  height:$height ;
+  line-height: $height;
+}
+//文字行高字号颜色 @include txtLh($txt,$color)
+@mixin txtLh($txt,$color){
+  font-size: $txt;
+  line-height: $txt;
+  color: $color;
+}
+//高度&&宽度的方法 @include WH($wd,$hg)
+@mixin WH($wd,$hg){
+  width: $wd ;
+  height: $hg;
+}
+//宽100%;float:left @include WF()
+@mixin WF(){
+  @extend .fl;
+  @extend .wb;
+}
+//宽100%；flaot:left;变量height @include WFG($Bheight)
+@mixin WFG($Bheight){
+  @extend .fl;
+  @extend .wb;
+  height:$Bheight;
+}
+//过渡动画 @include tst($transit)
+@mixin tst($transit){
+  transition: all $transit;
+  -webkit-transition: all $transit;
+  -ms-transition: all $transit;
+  -o-transition: all $transit;
+  -moz-transition: all $transit;
+}
+//旋转 @include rte($num)
+@mixin rte($num){
+  transfrom: rotate($num);
+  -webkit-transform: rotate($num);
+  -ms-transfrom: rotate($num);
+  -o-transfrom: rotate($num);
+  -moz-transform: rotate($num);
+}
+//定制按钮 宽，高，字颜色，背景，边框，边框颜色 @include cstBtn($width,$height,$color,$bg)
+@mixin cstBtn($width,$height,$color,$bg,$fz){
+  width: $width;
+  height: $height;
+  color: $color;
+  background: $bg;
+  text-align: center;
+  line-height: $height;
+  font-size: $fz;
+}
+//继承 @extend
+.fl{
+  float: left
+}
+.fr{
+  float: right;
+}
+.wb{
+  width: 100%
+}
+.wh{
+  width: 100%;
+  float: left;
+  position: relative;
+}
+.bd{
+  @include WF();
+  border-bottom: 1px solid #e2e2e2;
+}
+.nav-pic2 {
+  ul{
+    width:100%;
+    float: left;
+    li{
+      width:10%;
+      padding:3px;
+      float: left;
+      a{
+        width:100%;
+        height:100%;
+        float: left;}
+      img{
+        width:100%;
+        -webkit-border-radius:30px;
+        border-radius:30px;
+      }
+      &.close{
+
+      }
+    }
+  }
+}
+/*投资*/
+.tz2016{
+  @include WF();
+  //轮播图
+  .swiper-container{
+    @include WF();
+    margin-top: 9px;
+    .swiper-slide{
+      .itam-img{
+        @include WF()
+      }
+      span{
+        position: absolute;
+        left: 11px;
+        bottom: 13px;
+        @include txtLh(16px,#fff);
+      }
+    }
+  }
+
+  //投资人信息
+  .man{
+    @include WF();
+    padding: 0 14px;
+    border-bottom: 1px solid #e2e2e2;
+    margin-bottom: 12px;
+    .page{
+      @include WF();
+      padding-bottom: 17px;
+      .mp{
+        @include WF();
+        position: relative;
+        padding-left: 43px;
+        .pic{
+          position: absolute;
+          left: 0;
+          top: 15px;
+          width: 32px;
+          height: 32px;
+          border-radius: 10px;
+          img{
+            @include WF();
+            border-radius: 32px;
+          }
+        }
+        .n-page{
+          @include WF();
+          padding: 24px 0;
+          .name,.rank{
+            @include txtLh(15px,#000);
+            @extend .fl;
+          }
+          strong{
+            @extend .fl;
+            margin:  3px 8px 0;
+            background: #000;
+            width: 1px;
+            height: 10px;
+          }
+        }
+      }
+      .t-page{
+        @include WF();
+        padding: 0 15px;
+        text-align: center;
+        i{
+          width: 15px;
+          height: 15px;
+          position: absolute;
+          left: 0;
+          top: 0;
+
+        }
+        i:before{
+          content: '';
+          width: 2px;
+          height: 15px;
+          background: #ef5b70;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        i:after{
+          content: '';
+          width: 15px;
+          height: 2px;
+          background: #ef5b70;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        em{
+          width: 15px;
+          height: 15px;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
+
+        em:before{
+          content: '';
+          width: 15px;
+          height: 2px;
+          background: #ef5b70;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+        }
+        em:after{
+          content: '';
+          width: 2px;
+          height: 15px;
+          background: #ef5b70;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+        }
+        span{
+          width: 100%;
+          float: left;
+          font-size: 14px;
+          color: #666;
+          line-height: 17px;
+          padding: 0 15px;
+        }
+      }
+    }
+    .money{
+      @include WF();
+      .yet-money{
+        @include WF();
+        padding: 13px 0 17px;
+        p{
+          @include txtLh(13px,#666);
+          font-weight: bold;
+          span{
+            @include txtLh(14px,#000);
+            font-weight: bold;
+          }
+        }
+      }
+      .plan-money{
+        @include WF();
+        .line{
+          width: 84%;
+          @extend .fl;
+          position: relative;
+
+          .bottom{
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            height: 10px;
+            margin-top: 2px;
+            z-index: 1;
+            background: #ccc;
+            overflow: hidden;
+            .top{
+              z-index: 2;
+              background: #000;
+              height: 10px;
+              @include WF();
+            }
+            .top:before{
+              content: '';
+              width: 10px;
+              height: 10px;
+              float: right;
+              background: #000;
+              @include rte(45deg);
+              margin-right: -3px;
+            }
+          }
+        }
+        .num{
+          @extend .fr;
+          @include txtLh(14px,#000);
+          font-weight: bold;
+        }
+      }
+      .msg{
+        margin-top: 17px ;
+        padding-bottom: 14px;
+        @include WF();
+        .a-money{
+          @include txtLh(14px,#000);
+        }
+        .txt{
+          @include txtLh(13px,#808080);
+          margin-top: 5px;
+        }
+        .aim{
+          width: 33%;
+          @extend .fl;
+          text-align: left;
+        }
+        .time{
+          width: 34%;
+          text-align: center;
+          @extend .fl;
+        }
+        .number{
+          width: 33%;
+          @extend .fr;
+          text-align: right;
+        }
+      }
+
+    }
+    .predict{
+      @include WF();
+      padding: 14px 0;
+      @include txtLh(14px,#000);
+      span{
+        padding-right: 5px;
+      }
+    }
+    .investor{
+      @include WF();
+      padding: 15px 0;
+      h5{
+        @include WF();
+        @include txtLh(15px,#333);
+        margin-bottom: 15px;
+      }
+
+    }
+  }
+  //投资流程
+  .flow{
+    @include WF();
+    padding: 0 14px;
+    .flow-pic{
+      @include WF();
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e2e2e2;
+      img{
+        @include WF();
+      }
+    }
+    .flow-explain{
+      @include WF();
+      padding-bottom: 10px;
+      h5{
+        padding: 20px 0;
+        @include txtLh(14px,#333);
+      }
+      p{
+        font-size: 12px;
+        color: #666;
+        line-height: 18px;
+        margin-bottom: 3px;
+      }
+    }
+  }
+  //项目详情
+  .details{
+    margin-top: -1px;
+    @include WF();
+    border-top: 1px solid #e2e2e2;
+    padding: 0 14px 12px;
+    h5{
+      padding: 20px 0;
+      @include WF();
+      @include txtLh(14px,#000);
+      border-bottom: 1px solid #e2e2e2;
+      margin-bottom: 22px;
+    }
+    .content{
+      @include WF();
+      p{
+        @include WF();
+        line-height: 18px;
+        font-size: 14px;
+        color: #000;
+        margin-bottom: 8px;
+      }
+      img{
+        @include WF();
+        margin-bottom: 10px;
+      }
+      .list{
+        @include WF();
+        position: relative;
+        .issue{
+          position: absolute;
+          width: 8%;
+          left: 0;
+          top: 0;
+          @include txtLh(14px,#000);
+        }
+        .answer{
+          padding-left: 8%;
+          p{
+            font-size: 14px;
+            line-height: 14px;
+          }
+          p:nth-child(1){
+            color: #000;
+          }
+          p:nth-child(2){
+            color: #808080;
+          }
+        }
+
+      }
+    }
+
+  }
+  //评论
+  .discuss{
+    @include WF();
+    ul{
+      @include WF();
+      padding: 0 14px;
+      margin-top: -1px;
+      li{
+        @include WF();
+        padding: 21px 0;
+        border-top: 1px solid #e2e2e2;
+        position: relative;
+        .pic{
+          position: absolute;
+          left: 0;
+          top: 10px;
+          @include WH(35px,35px);
+          a>img{
+            @include WF();
+            border-radius: 35px;
+          }
+        }
+        .box{
+          @include WF();
+          padding-left: 46px;
+          .name{
+            @include WF();
+            @include txtLh(15px,#0763c6);
+            margin-bottom: 15px;
+            span:nth-child(1){
+              @extend .fl;
+            }
+            span:nth-child(2){
+              @extend .fr;
+              color: #999;
+            }
+          }
+          .content{
+            @include WF();
+            font-size: 14px;
+            color: #000;
+            line-height: 17px;
+            .reply{
+              @include WF();
+              font-size: 14px;
+              color: #000;
+              a{
+                color: #0763c6;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  //时间线
+  .b-box{
+    @include WF();
+    padding: 40px 14px;
+    .timeline{
+      @include WF();
+      margin-bottom: 10px;
+      .title{
+        @include WF();
+        padding-left: 25px;
+        position: relative;
+        line-height: 14px;
+        margin-bottom: 10px;
+        .rz-icon{
+                   background-position: 0 -149px;
+        }
+        .l-icon{
+          @include WH(15px,15px);
+          position: absolute;
+          left: 5px;
+          top: 0;
+ 
+          background-image: url("../images/icon-btn.png");
+          background-size: 150% auto;
+
+        }
+        .r-txt{
+          @include WF();
+          span{
+            @include txtLh(15px,#000);
+            @extend .fl;
+          }
+          span:nth-child(1){
+            padding-right: 32px;
+          }
+          span:nth-child(2){
+            padding-right: 11px;
+          }
+        }
+      }
+      .page{
+        @include WF();
+        margin-left: 11px;
+        border-left: 2px solid #e3e3e3;
+        padding: 0 14px 24px 71px;
+        position: relative;
+        .list{
+          @include WF();
+          p{
+            @include WF();
+            font-size: 14px;
+            color: #666;
+            line-height: 20px;
+            a{
+              @include txtLh(14px,#0763c6);
+              display: inline-block;
+            }
+            span{
+              @include txtLh(14px,#666);
+            }
+          }
+          img{
+            @include WF();
+            margin: 10px 0;
+          }
+        }
+        .p-head{
+          position: absolute;
+          left: 12px;
+          top: 0;
+          font-size: 14px;
+          color: #666;
+          line-height: 20px;
+        }
+        p{
+          @include WF();
+          font-size: 14px;
+          color: #666;
+          line-height: 20px;
+          a{
+            @include txtLh(12px,#0763c6);
+            display: inline-block;
+          }
+          span{
+            @include txtLh(12px,#666);
+          }
+        }
+        img{
+          @include WF();
+          margin: 10px 0;
+        }
+        .button{
+          @include WF();
+          text-align: center;
+          padding-top: 15px;
+          border-top: 1px solid #e2e2e2;
+          line-height: 12px;
+          a{
+            display: inline-block;
+            @include txtLh(15px,#ef5b70);
+          }
+        }
+      }
+    }
+    .timeline.cz{
+      .title{
+        .l-icon{
+          background-position: 0 -164px;
+        }
+      }
+    }
+    .timeline.dt{
+      .title{
+        .l-icon{
+          background-position: 2px -503px;
+          background-size: 260% auto;
+        }
+      }
+    }
+    .timeline.pm{
+      .title{
+        .l-icon{
+          background-position: 0 -180px;
+        }
+      }
+    }
+  }
+}

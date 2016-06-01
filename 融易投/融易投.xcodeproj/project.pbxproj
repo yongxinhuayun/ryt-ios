@@ -558,6 +558,9 @@
 		E2AAF03A1CE1C7B40009FD19 /* PostCommentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2AAF0381CE1C7B40009FD19 /* PostCommentController.xib */; };
 		E2CAC6AD1CFE77BF0061516E /* PointView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC6AC1CFE77BF0061516E /* PointView.m */; };
 		E2CAC6AF1CFE77CB0061516E /* PointView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2CAC6AE1CFE77CB0061516E /* PointView.xib */; };
+		E2CAC6B41CFED9F80061516E /* src-H5.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E2CAC6B31CFED9F80061516E /* src-H5.bundle */; };
+		E2CAC6FF1CFEDF8F0061516E /* testController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC6FD1CFEDF8F0061516E /* testController.m */; };
+		E2CAC7001CFEDF8F0061516E /* testController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2CAC6FE1CFEDF8F0061516E /* testController.xib */; };
 		E2D05B721CB38C8C00B0F690 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B711CB38C8C00B0F690 /* CoreTelephony.framework */; };
 		E2D05B741CB38CB100B0F690 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B731CB38CB100B0F690 /* SystemConfiguration.framework */; };
 		E2D05B761CB38CD000B0F690 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B751CB38CD000B0F690 /* libz.tbd */; };
@@ -1492,6 +1495,10 @@
 		E2CAC6AB1CFE77BF0061516E /* PointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointView.h; sourceTree = "<group>"; };
 		E2CAC6AC1CFE77BF0061516E /* PointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointView.m; sourceTree = "<group>"; };
 		E2CAC6AE1CFE77CB0061516E /* PointView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PointView.xib; sourceTree = "<group>"; };
+		E2CAC6B31CFED9F80061516E /* src-H5.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "src-H5.bundle"; sourceTree = "<group>"; };
+		E2CAC6FC1CFEDF8F0061516E /* testController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testController.h; sourceTree = "<group>"; };
+		E2CAC6FD1CFEDF8F0061516E /* testController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testController.m; sourceTree = "<group>"; };
+		E2CAC6FE1CFEDF8F0061516E /* testController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = testController.xib; sourceTree = "<group>"; };
 		E2D05B711CB38C8C00B0F690 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		E2D05B731CB38CB100B0F690 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E2D05B751CB38CD000B0F690 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -3211,6 +3218,13 @@
 			path = LoginManagerModel;
 			sourceTree = "<group>";
 		};
+		E2CAC6B01CFED4BB0061516E /* HTML5 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HTML5;
+			sourceTree = "<group>";
+		};
 		E2D521991CDF779C0024887A /* NotificationModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -3924,11 +3938,13 @@
 		E2DDB0E51CAB66DB007438E4 /* 融易投 */ = {
 			isa = PBXGroup;
 			children = (
+				E2CAC6B31CFED9F80061516E /* src-H5.bundle */,
 				E2288E441CDEFA8C00483F18 /* AppDelegate */,
 				E22890421CDEFE0700483F18 /* Tools */,
 				E2288E481CDEFB0500483F18 /* 3rd */,
 				E2288E4E1CDEFB3200483F18 /* Model */,
 				E22892131CDF01B400483F18 /* Controllers */,
+				E2CAC6B01CFED4BB0061516E /* HTML5 */,
 				218D2B371CACB2E3004553B9 /* Main */,
 				E2DDB19A1CABA64E007438E4 /* Controller */,
 				E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */,
@@ -4087,6 +4103,9 @@
 				2137E9A01CFC390900F201D6 /* DetailCreationH5WebController.xib */,
 				8177F8D91CE4DC0F005D2259 /* TimeAxisTableViewController.h */,
 				8177F8DA1CE4DC0F005D2259 /* TimeAxisTableViewController.m */,
+				E2CAC6FC1CFEDF8F0061516E /* testController.h */,
+				E2CAC6FD1CFEDF8F0061516E /* testController.m */,
+				E2CAC6FE1CFEDF8F0061516E /* testController.xib */,
 			);
 			name = "详情";
 			sourceTree = "<group>";
@@ -4357,6 +4376,7 @@
 				21AB0AA51CC4F6AE00B7BA03 /* XiangqingViewController.storyboard in Resources */,
 				2137EADE1CFC455900F201D6 /* C01艺术家-别人看艺术家主页.html in Resources */,
 				E22892B21CDF03F400483F18 /* d_xiongmao@2x.png in Resources */,
+				E2CAC6B41CFED9F80061516E /* src-H5.bundle in Resources */,
 				E22893AB1CDF049500483F18 /* lxh_pili.gif in Resources */,
 				E22892D81CDF03F400483F18 /* o_lvsidai@2x.png in Resources */,
 				2137EAE21CFC455900F201D6 /* D04忘记密码.html in Resources */,
@@ -4422,6 +4442,7 @@
 				2137EAFD1CFC455900F201D6 /* swiper.min.js in Resources */,
 				E2D524731CDF9B9C0024887A /* WalletHeaderView.xib in Resources */,
 				21C414611CE3135E00F1029C /* ReleaseProjectCell2.xib in Resources */,
+				E2CAC7001CFEDF8F0061516E /* testController.xib in Resources */,
 				E22893A91CDF049500483F18 /* lxh_oye@2x.png in Resources */,
 				2137EADF1CFC455900F201D6 /* D01基本资料.html in Resources */,
 				E22893BE1CDF049500483F18 /* lxh_toule.png in Resources */,
@@ -4866,6 +4887,7 @@
 				E2D5243E1CDF99430024887A /* FocusMyUserTableViewController.m in Sources */,
 				E2D557BE1CD21D04003F0F4A /* DetailCreationViewController.m in Sources */,
 				E228904B1CDEFE4400483F18 /* HttpRequstTool.m in Sources */,
+				E2CAC6FF1CFEDF8F0061516E /* testController.m in Sources */,
 				21C413F91CE2D23500F1029C /* LocationViewController.m in Sources */,
 				E2D5223C1CDF8C5F0024887A /* MasterDetailsModel.m in Sources */,
 				E2D521F51CDF79FC0024887A /* City.m in Sources */,

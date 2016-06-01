@@ -150,6 +150,7 @@ static NSString *ID = @"creationCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     /*
     DetailCreationViewController *creationDetailsVC = [[DetailCreationViewController alloc] init];
     CreationModel *model = self.models[indexPath.row];
