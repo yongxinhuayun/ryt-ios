@@ -17,7 +17,12 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
-    [self removeFromSuperview];
+    [UIView animateWithDuration:0.25 animations:^{
+        self.alpha = 0;
+    } completion:^(BOOL finished) {
+        self.alpha = 1;
+        [self removeFromSuperview];
+    }];
 }
 
 @end

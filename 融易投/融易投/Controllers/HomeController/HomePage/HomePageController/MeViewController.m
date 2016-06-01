@@ -386,18 +386,19 @@ static BOOL firstUpdate = YES;
         
         //保存模型,赋值给控制器
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-
+            
         }];
-        
     }];
-
-    
 }
 
 -(void)quxiaoBtnClick:(UIButton *)btn{
-   
-    [self.shareHUD removeFromSuperview];
     
+    [UIView animateWithDuration:0.25 animations:^{
+        self.shareHUD.alpha = 0;
+    } completion:^(BOOL finished) {
+        self.shareHUD.alpha = 1;
+        [self.shareHUD removeFromSuperview];
+    }];
 }
 
 -(void)login{

@@ -7,6 +7,8 @@
 //
 
 #import "FocusMyUserTableViewController.h"
+#import "CommonUserHomeViewController.h"
+#import "ArtistUserHomeViewController.h"
 
 #import "FocusMyTableViewCell.h"
 
@@ -17,7 +19,7 @@
 #import "CommonHeader.h"
 #import "CommonFooter.h"
 
-@interface FocusMyUserTableViewController ()
+@interface FocusMyUserTableViewController ()<focusMyTableViewCellDelegate>
 
 @property (nonatomic, strong) NSMutableArray *models;
 
@@ -54,6 +56,16 @@ static NSString *ID = @"focusMyCell";
     
     //设置刷新控件
     [self setUpRefresh];
+    
+    //去除多余的线
+    [self improveTableView];
+}
+-(void)improveTableView
+{
+    self.tableView.tableFooterView = [[UIView alloc]init];  //删除多余的行
+    if ([self respondsToSelector:@selector(setSeparatorInset:)]) {  //防止分割线显示不
+        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    }
 }
 -(void)dictToModel{
     
@@ -136,8 +148,8 @@ static NSString *ID = @"focusMyCell";
         flag = @"2";
     }
 
-    
-    NSString *type = @"1";
+    // type为1是艺术家,为2时为用户
+    NSString *type = @"2";
 
     // 3.设置请求体
     NSDictionary *json = @{
@@ -196,7 +208,7 @@ static NSString *ID = @"focusMyCell";
         flag = @"2";
     }
 
-    NSString *type = @"1";
+    NSString *type = @"2";
     
     NSString *pageSize = @"20";
     NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
@@ -250,18 +262,42 @@ static NSString *ID = @"focusMyCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    FocusMyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    FocusMyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
     
     PageInfoListMyModel *model = self.models[indexPath.row];
     
     cell.model = model;
+    cell.delegate = self;
+    cell.indexPath = indexPath;
     
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
     return 60;
+}
+
+#pragma mark - cell delegate
+-(void)clickUserIcon:(NSIndexPath *)indexPath{
+    [self jumpToUserHome:indexPath];
+}
+
+-(void)jumpToUserHome:(NSIndexPath *)indexPath{
+    PageInfoListMyModel *model = self.models[indexPath.row];
+    NSString *userId = model.artUserFollowed.user.ID;
+    if (userId) {
+        if (model.artUserFollowed.user.master) {
+            ArtistUserHomeViewController *home = [[ArtistUserHomeViewController alloc] init];
+            home.userId = model.artUserFollowed.user.ID;
+            home.title = model.artUserFollowed.user.name;
+            home.navigationItem.title = model.artUserFollowed.user.name;
+            [self.navigationController pushViewController:home animated:YES];
+        }else{
+            CommonUserHomeViewController *commonUserHome = [[CommonUserHomeViewController alloc] init];
+            commonUserHome.userId = userId;
+            commonUserHome.navigationItem.title = model.artUserFollowed.user.name;
+            [self.navigationController pushViewController:commonUserHome animated:YES];
+        }
+    }
 }
 @end

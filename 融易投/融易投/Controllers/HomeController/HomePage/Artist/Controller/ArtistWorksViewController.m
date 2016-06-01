@@ -411,7 +411,15 @@ static NSString *ID1 = @"ArtistWorksCell";
 
 -(void)quxiaoBtnClick:(UIButton *)btn{
     
-    [self.cover removeFromSuperview];
+    [UIView animateWithDuration:0.2 animations:^{
+        self.cover.alpha = 0;
+        self.cover.subView.alpha = 0;
+    } completion:^(BOOL finished) {
+        self.cover.alpha = 0.5;
+        self.cover.subView.alpha = 1;
+        [self.cover removeFromSuperview];
+        [self.cover.subView removeFromSuperview];
+    }];
 }
 
 //删除作品的确定操作

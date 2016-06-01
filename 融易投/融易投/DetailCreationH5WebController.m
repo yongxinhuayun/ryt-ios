@@ -27,13 +27,14 @@
 
 -(void)setupWebView{
 
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"A2创作详情.html" withExtension:nil];
+//    NSURL *url = [[NSBundle mainBundle] URLForResource:@"A2创作详情.html" withExtension:nil];
 //    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
     
-    //创建请求
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    [self.webView loadRequest:request];
+    NSString * bundlePath = [[ NSBundle mainBundle] pathForResource: @ "src-H5" ofType :@ "bundle"];
+    NSString *Path= [bundlePath stringByAppendingPathComponent :@"A2.html"];
+    NSString *jsPath = [bundlePath stringByAppendingPathComponent:@"shop2016"];
+    NSString *htmlStr = [NSString stringWithContentsOfFile:Path encoding:NSUTF8StringEncoding error:nil];
+    [self.webView loadHTMLString:htmlStr baseURL:[NSURL URLWithString:jsPath]];
     
     //让webView 自适应
     self.webView.scalesPageToFit = YES;

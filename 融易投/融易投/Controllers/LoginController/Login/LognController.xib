@@ -18,21 +18,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5m-by-d35">
-                    <rect key="frame" x="27" y="308" width="320" height="40"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="登陆" backgroundImage="denglu_kedianjianniu">
-                        <color key="titleColor" red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="lognBtnClick:" destination="-1" eventType="touchUpInside" id="ViL-CM-O8l"/>
-                    </connections>
-                </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18513234278" placeholder="输手机号" textAlignment="natural" minimumFontSize="17" background="denglu_shurukuang" translatesAutoresizingMaskIntoConstraints="NO" id="MCy-jv-0h1" customClass="SSTextField">
-                    <rect key="frame" x="27" y="173" width="320" height="40"/>
+                    <rect key="frame" x="80" y="114" width="215" height="47"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="320" id="8rf-iN-BpS"/>
-                        <constraint firstAttribute="height" constant="40" id="PJA-Kz-2pU"/>
+                        <constraint firstAttribute="height" constant="47" id="PJA-Kz-2pU"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -43,12 +33,12 @@
                     </variation>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="11111111" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" background="denglu_shurukuang" translatesAutoresizingMaskIntoConstraints="NO" id="WIr-I3-aCW" customClass="SSTextField">
-                    <rect key="frame" x="27" y="235" width="320" height="40"/>
+                    <rect key="frame" x="80" y="183" width="215" height="47"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits" spellCheckingType="yes" secureTextEntry="YES"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FkC-9V-X4Q">
-                    <rect key="frame" x="27" y="369" width="44" height="26"/>
+                    <rect key="frame" x="80" y="325" width="44" height="26"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <state key="normal" title="快速注册">
                         <color key="titleColor" red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
@@ -58,7 +48,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QF8-bW-GW1">
-                    <rect key="frame" x="297" y="369" width="50" height="26"/>
+                    <rect key="frame" x="245" y="325" width="50" height="26"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <state key="normal" title="忘记密码?">
                         <color key="titleColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,28 +58,28 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="denglu_fenggexian244" translatesAutoresizingMaskIntoConstraints="NO" id="M6J-dQ-7nL">
-                    <rect key="frame" x="27" y="458" width="104" height="1"/>
+                    <rect key="frame" x="27" y="536" width="104" height="1"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="104" id="Sv5-wA-Obw"/>
                         <constraint firstAttribute="height" constant="1" id="Vi4-z8-z3p"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="denglu_fenggexian244" translatesAutoresizingMaskIntoConstraints="NO" id="uKx-he-EOd">
-                    <rect key="frame" x="246" y="458" width="104" height="1"/>
+                    <rect key="frame" x="246" y="536" width="104" height="1"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="ycb-LE-HVq"/>
                         <constraint firstAttribute="width" constant="104" id="ylV-Cy-Qbb"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6u-QO-4EG">
-                    <rect key="frame" x="167" y="446" width="40" height="24"/>
+                    <rect key="frame" x="167" y="524" width="40" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <state key="normal" title="快速登录">
                         <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiZ-RE-aAW">
-                    <rect key="frame" x="167" y="478" width="40" height="40"/>
+                    <rect key="frame" x="167" y="562" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="NRN-e6-V4N"/>
                         <constraint firstAttribute="height" constant="40" id="j40-fD-Ncb"/>
@@ -97,6 +87,17 @@
                     <state key="normal" image="denglu_weixindianji"/>
                     <connections>
                         <action selector="weixinBtnClick:" destination="-1" eventType="touchUpInside" id="iBV-cW-3hu"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5m-by-d35">
+                    <rect key="frame" x="80" y="263" width="215" height="47"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="登录" backgroundImage="zhuce_kedianji">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="disabled" backgroundImage="zhuce_bukedianji"/>
+                    <connections>
+                        <action selector="lognBtnClick:" destination="-1" eventType="touchUpInside" id="ViL-CM-O8l"/>
                     </connections>
                 </button>
             </subviews>
@@ -116,13 +117,15 @@
                 <constraint firstItem="WIr-I3-aCW" firstAttribute="top" secondItem="MCy-jv-0h1" secondAttribute="bottom" constant="22" id="P3A-l2-Jsf"/>
                 <constraint firstItem="FkC-9V-X4Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="369" id="Pnl-eF-Yay"/>
                 <constraint firstItem="WIr-I3-aCW" firstAttribute="width" secondItem="MCy-jv-0h1" secondAttribute="width" id="Po0-vX-0JZ"/>
+                <constraint firstItem="LiZ-RE-aAW" firstAttribute="top" secondItem="z6u-QO-4EG" secondAttribute="bottom" constant="14" id="QdD-7u-HcX"/>
+                <constraint firstItem="D5m-by-d35" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="SSB-0C-fmH"/>
                 <constraint firstItem="z6u-QO-4EG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="454" id="Sfb-uw-N4s"/>
                 <constraint firstItem="LiZ-RE-aAW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="140" id="Uim-Ec-Bzz"/>
                 <constraint firstAttribute="trailing" secondItem="uKx-he-EOd" secondAttribute="trailing" constant="25" id="VQt-Mv-NnD"/>
                 <constraint firstItem="D5m-by-d35" firstAttribute="height" secondItem="MCy-jv-0h1" secondAttribute="height" id="Vgg-xb-2DZ"/>
                 <constraint firstItem="WIr-I3-aCW" firstAttribute="height" secondItem="MCy-jv-0h1" secondAttribute="height" id="YbK-pm-Tlz"/>
                 <constraint firstItem="QF8-bW-GW1" firstAttribute="centerY" secondItem="FkC-9V-X4Q" secondAttribute="centerY" id="eOt-Eo-T67"/>
-                <constraint firstItem="MCy-jv-0h1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="173" id="efo-7D-lzo"/>
+                <constraint firstItem="MCy-jv-0h1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="114" id="efo-7D-lzo"/>
                 <constraint firstItem="MCy-jv-0h1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="f4r-xH-rDi"/>
                 <constraint firstItem="D5m-by-d35" firstAttribute="top" secondItem="WIr-I3-aCW" secondAttribute="bottom" constant="33" id="fBz-wI-Pny"/>
                 <constraint firstItem="FkC-9V-X4Q" firstAttribute="leading" secondItem="D5m-by-d35" secondAttribute="leading" id="fZz-cy-P5o"/>
@@ -130,13 +133,17 @@
                 <constraint firstItem="uKx-he-EOd" firstAttribute="centerX" secondItem="M6J-dQ-7nL" secondAttribute="centerX" id="j7J-py-hvp"/>
                 <constraint firstItem="D5m-by-d35" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kF0-eY-1fQ"/>
                 <constraint firstItem="WIr-I3-aCW" firstAttribute="leading" secondItem="D5m-by-d35" secondAttribute="leading" id="lTs-y0-H3P"/>
+                <constraint firstItem="uKx-he-EOd" firstAttribute="centerY" secondItem="z6u-QO-4EG" secondAttribute="centerY" id="mEs-Qg-NKL"/>
+                <constraint firstItem="FkC-9V-X4Q" firstAttribute="top" secondItem="D5m-by-d35" secondAttribute="bottom" constant="15" id="ogd-7c-Z1m"/>
                 <constraint firstItem="z6u-QO-4EG" firstAttribute="top" secondItem="D5m-by-d35" secondAttribute="bottom" constant="454" id="q5g-Ov-na5"/>
                 <constraint firstItem="LiZ-RE-aAW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rrc-mc-pC3"/>
+                <constraint firstAttribute="trailing" secondItem="D5m-by-d35" secondAttribute="trailing" constant="80" id="sYp-Ry-4Oh"/>
                 <constraint firstItem="D5m-by-d35" firstAttribute="leading" secondItem="MCy-jv-0h1" secondAttribute="leading" id="vvs-vA-1VN"/>
                 <constraint firstAttribute="trailing" secondItem="MCy-jv-0h1" secondAttribute="trailing" constant="12" id="wR7-5a-DIR"/>
                 <constraint firstItem="MCy-jv-0h1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="wZz-sm-S7j"/>
                 <constraint firstItem="z6u-QO-4EG" firstAttribute="centerY" secondItem="M6J-dQ-7nL" secondAttribute="centerY" id="wvj-jr-FON"/>
                 <constraint firstItem="WIr-I3-aCW" firstAttribute="trailing" secondItem="D5m-by-d35" secondAttribute="trailing" id="y2u-yr-Agf"/>
+                <constraint firstAttribute="bottom" secondItem="LiZ-RE-aAW" secondAttribute="bottom" constant="65" id="yXk-aa-qkk"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
@@ -144,14 +151,20 @@
                     <exclude reference="f4r-xH-rDi"/>
                     <exclude reference="wR7-5a-DIR"/>
                     <exclude reference="wZz-sm-S7j"/>
+                    <exclude reference="6IT-gA-FYl"/>
+                    <exclude reference="B9d-24-Hus"/>
                     <exclude reference="DNn-Ut-DL0"/>
                     <exclude reference="kF0-eY-1fQ"/>
                     <exclude reference="vvs-vA-1VN"/>
+                    <exclude reference="Pnl-eF-Yay"/>
+                    <exclude reference="Lel-bx-vP4"/>
                     <exclude reference="Sfb-uw-N4s"/>
                     <exclude reference="q5g-Ov-na5"/>
+                    <exclude reference="3ed-O2-9sQ"/>
                     <exclude reference="Fjr-un-xRd"/>
                     <exclude reference="Uim-Ec-Bzz"/>
                     <exclude reference="5wh-Gn-acg"/>
+                    <exclude reference="Oni-PT-jP9"/>
                     <exclude reference="j7J-py-hvp"/>
                 </mask>
             </variation>
@@ -160,8 +173,9 @@
     </objects>
     <resources>
         <image name="denglu_fenggexian244" width="1" height="1"/>
-        <image name="denglu_kedianjianniu" width="187" height="47"/>
         <image name="denglu_shurukuang" width="188" height="40"/>
         <image name="denglu_weixindianji" width="47" height="47"/>
+        <image name="zhuce_bukedianji" width="187" height="47"/>
+        <image name="zhuce_kedianji" width="187" height="47"/>
     </resources>
 </document>

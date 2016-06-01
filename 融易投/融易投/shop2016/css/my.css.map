@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAEI,eAAI;EACF,KAAK,EAAC,IAAI;EACV,MAAM,EAAC,IAAI;EACX,qBAAqB,EAAC,KAAK;EAC3B,aAAa,EAAC,KAAK",
-"sources": ["../../../../???/src-H5/shop2016/scss/my.scss"],
-"names": [],
-"file": "my.css"
-}
