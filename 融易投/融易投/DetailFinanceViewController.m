@@ -288,6 +288,7 @@
         investmentController *invController = [[investmentController alloc] init];
         invController.userId = [manager takeUser].ID;
         invController.artworkId = self.artworkModel.ID;
+        invController.investGoalMoney = self.artworkModel.investGoalMoney - self.artworkModel.investsMoney;
         invController.title = @"投资";
         [self.navigationController pushViewController:invController animated:YES];
         self.isFirstIn = NO;

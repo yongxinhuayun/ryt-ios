@@ -74,7 +74,7 @@ static NSString *ID = @"creationCell";
     //让程序一开始就加载数据
     [self.tableView.mj_header beginRefreshing];
     //同样,自定义上拉刷新
-    self.tableView.mj_footer = [CommonFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData1)];
+    self.tableView.mj_footer = [CommonFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
 
@@ -101,7 +101,7 @@ static NSString *ID = @"creationCell";
     }];
 }
 
--(void)loadMoreData1{
+-(void)loadMoreData{
     [self.tableView.mj_header endRefreshing];
     //参数
     NSString *pageSize = @"20";
@@ -116,7 +116,7 @@ static NSString *ID = @"creationCell";
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"artWorkCreationList.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         //5. 解析从服务器获取的JSON数据
-                NSString *jsonString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//                NSString *jsonString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         //13. 字典数组 -> 模型数组
         NSArray *moreModels = [CreationModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];

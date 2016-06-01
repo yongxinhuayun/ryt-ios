@@ -99,7 +99,16 @@
     //    NSLog(@"%@",pictureUrlURL);
     
     [self.userIcon ss_setHeader:pictureUrlURL];
-    self.progress.progress = 0.8;
+    
+//    self.progress.progress = ;
+    // 投资进度
+    float total = model.investGoalMoney;
+    float money = model.investsMoney;
+    float p = money / total;
+    NSInteger percent = p * 100;
+    self.progress.progress = p;
+    self.progressPercent.text = [NSString stringWithFormat:@"%ld%%",percent];
+    
     self.userName.text = model.author.name;
     self.userInfo.text = model.author.username;
     

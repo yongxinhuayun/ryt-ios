@@ -7,13 +7,10 @@
 //
 
 #import "DetailCreationH5WebController.h"
-
 #import <WebKit/WebKit.h>
 
 @interface DetailCreationH5WebController () <UIWebViewDelegate>
-@property (weak, nonatomic) IBOutlet UIWebView *webView; 
-
-
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 @end
 
 @implementation DetailCreationH5WebController
@@ -28,39 +25,33 @@
 -(void)setupWebView{
 
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"A2创作详情.html" withExtension:nil];
-//    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
-    
     //创建请求
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
     [self.webView loadRequest:request];
-    
     //让webView 自适应
     self.webView.scalesPageToFit = YES;
-    
     //设置webView的代理
     self.webView.delegate = self;
 }
 
+
+
+
+
+
+
+
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSLog(@"shouldStartLoadWithRequest");
-    
     //当点击按钮的时候会调到这个方法
     NSLog(@"%@",request.URL.absoluteString);
-    
     NSString *urlStr = request.URL.absoluteString;
-    
     NSString *format = @"rongyitou://";
     if ([urlStr hasPrefix:format]) {
-        
-        
         NSString *str = [urlStr substringFromIndex:format.length];
-        
-        
         NSArray *subStrArray = [str componentsSeparatedByString:@"?"];
         NSLog(@"%@",subStrArray);
-        
         //9.1 此时的方法名是正确的
         //        (
         //         "callWithNumber_andContext_",
@@ -68,12 +59,9 @@
         //         )
         
         NSString *methodStr = [[subStrArray firstObject] stringByReplacingOccurrencesOfString:@"_" withString:@":"];
-        
         //把方法名封装成方法
         SEL selector = NSSelectorFromString(methodStr);
-        
         //9.2 修改参数,因为中间有&符号,所以根据这个符号分离参数
-        
         NSString *paramStr = [subStrArray lastObject];
         NSArray *subParamArray = [paramStr componentsSeparatedByString:@"&"];
         NSLog(@"%@",subParamArray);

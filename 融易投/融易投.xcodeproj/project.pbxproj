@@ -529,6 +529,7 @@
 		E236C3241CB4E27E009DCBF0 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E236C3231CB4E27E009DCBF0 /* PushConfig.plist */; };
 		E2487B141CEAA63300484C5D /* TopRecordTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2487B121CEAA63300484C5D /* TopRecordTCell.m */; };
 		E2487B151CEAA63300484C5D /* TopRecordTCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2487B131CEAA63300484C5D /* TopRecordTCell.xib */; };
+		E26027DE1CFE7311002077E6 /* ResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E26027DD1CFE7311002077E6 /* ResultModel.m */; };
 		E266FFAC1CF5477200006EA2 /* FinanceHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E266FFAB1CF5477200006EA2 /* FinanceHeader.m */; };
 		E266FFB01CF5521800006EA2 /* MoreInvestorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E266FFAE1CF5521800006EA2 /* MoreInvestorCell.m */; };
 		E266FFB11CF5521800006EA2 /* MoreInvestorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E266FFAF1CF5521800006EA2 /* MoreInvestorCell.xib */; };
@@ -555,6 +556,8 @@
 		E2A38A3B1CF1626500EAB0D3 /* RYTLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A38A3A1CF1626500EAB0D3 /* RYTLoginManager.m */; };
 		E2AAF0391CE1C7B40009FD19 /* PostCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AAF0371CE1C7B40009FD19 /* PostCommentController.m */; };
 		E2AAF03A1CE1C7B40009FD19 /* PostCommentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2AAF0381CE1C7B40009FD19 /* PostCommentController.xib */; };
+		E2CAC6AD1CFE77BF0061516E /* PointView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC6AC1CFE77BF0061516E /* PointView.m */; };
+		E2CAC6AF1CFE77CB0061516E /* PointView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2CAC6AE1CFE77CB0061516E /* PointView.xib */; };
 		E2D05B721CB38C8C00B0F690 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B711CB38C8C00B0F690 /* CoreTelephony.framework */; };
 		E2D05B741CB38CB100B0F690 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B731CB38CB100B0F690 /* SystemConfiguration.framework */; };
 		E2D05B761CB38CD000B0F690 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B751CB38CD000B0F690 /* libz.tbd */; };
@@ -1440,6 +1443,8 @@
 		E2487B111CEAA63300484C5D /* TopRecordTCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopRecordTCell.h; sourceTree = "<group>"; };
 		E2487B121CEAA63300484C5D /* TopRecordTCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopRecordTCell.m; sourceTree = "<group>"; };
 		E2487B131CEAA63300484C5D /* TopRecordTCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopRecordTCell.xib; sourceTree = "<group>"; };
+		E26027DC1CFE7311002077E6 /* ResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultModel.h; sourceTree = "<group>"; };
+		E26027DD1CFE7311002077E6 /* ResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultModel.m; sourceTree = "<group>"; };
 		E266FFAB1CF5477200006EA2 /* FinanceHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceHeader.m; sourceTree = "<group>"; };
 		E266FFAD1CF5521800006EA2 /* MoreInvestorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreInvestorCell.h; sourceTree = "<group>"; };
 		E266FFAE1CF5521800006EA2 /* MoreInvestorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreInvestorCell.m; sourceTree = "<group>"; };
@@ -1484,6 +1489,9 @@
 		E2AAF0361CE1C7B40009FD19 /* PostCommentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCommentController.h; sourceTree = "<group>"; };
 		E2AAF0371CE1C7B40009FD19 /* PostCommentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCommentController.m; sourceTree = "<group>"; };
 		E2AAF0381CE1C7B40009FD19 /* PostCommentController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCommentController.xib; sourceTree = "<group>"; };
+		E2CAC6AB1CFE77BF0061516E /* PointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointView.h; sourceTree = "<group>"; };
+		E2CAC6AC1CFE77BF0061516E /* PointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointView.m; sourceTree = "<group>"; };
+		E2CAC6AE1CFE77CB0061516E /* PointView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PointView.xib; sourceTree = "<group>"; };
 		E2D05B711CB38C8C00B0F690 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		E2D05B731CB38CB100B0F690 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E2D05B751CB38CD000B0F690 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -2767,6 +2775,7 @@
 		E2288E4E1CDEFB3200483F18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E26027DB1CFE7300002077E6 /* ResultModel */,
 				21B12A1D1CF59D5E00485B47 /* WXLoginModel */,
 				E2A38A381CF1624E00EAB0D3 /* LoginManagerModel */,
 				218A3EDA1CEC422D00700283 /* MasterWorkListModel */,
@@ -3147,12 +3156,24 @@
 			path = MessageResultModel;
 			sourceTree = "<group>";
 		};
+		E26027DB1CFE7300002077E6 /* ResultModel */ = {
+			isa = PBXGroup;
+			children = (
+				E26027DC1CFE7311002077E6 /* ResultModel.h */,
+				E26027DD1CFE7311002077E6 /* ResultModel.m */,
+			);
+			path = ResultModel;
+			sourceTree = "<group>";
+		};
 		E266FFB21CF5871F00006EA2 /* 投资 */ = {
 			isa = PBXGroup;
 			children = (
 				E266FFB81CF58F5300006EA2 /* investmentController.h */,
 				E266FFB91CF58F5300006EA2 /* investmentController.m */,
 				E266FFBA1CF58F5300006EA2 /* investmentController.xib */,
+				E2CAC6AB1CFE77BF0061516E /* PointView.h */,
+				E2CAC6AC1CFE77BF0061516E /* PointView.m */,
+				E2CAC6AE1CFE77CB0061516E /* PointView.xib */,
 			);
 			name = "投资";
 			sourceTree = "<group>";
@@ -4432,6 +4453,7 @@
 				21C4141A1CE2D23500F1029C /* XMGPlayerView.xib in Resources */,
 				E22892B91CDF03F400483F18 /* d_zhajipijiu@2x.png in Resources */,
 				E22893711CDF049500483F18 /* lxh_biefanwo.png in Resources */,
+				E2CAC6AF1CFE77CB0061516E /* PointView.xib in Resources */,
 				E22892E31CDF03F400483F18 /* w_xiayu@2x.png in Resources */,
 				2137EB011CFC455900F201D6 /* layout.scss in Resources */,
 				E22892AD1CDF03F400483F18 /* d_travel@2x.png in Resources */,
@@ -4785,6 +4807,7 @@
 				E2D5249C1CDF9F0B0024887A /* JianjieViewController.m in Sources */,
 				21C4142E1CE2D23500F1029C /* HMEmotionPopView.m in Sources */,
 				212EEE8F1CE048C500F94B30 /* CommonUserHomeViewController.m in Sources */,
+				E2CAC6AD1CFE77BF0061516E /* PointView.m in Sources */,
 				21C337501CF2A343001F3CA5 /* MBProgressHUD+YXL.m in Sources */,
 				21AB0B421CC6056500B7BA03 /* XCLPageView.m in Sources */,
 				E2D5224B1CDF8C6E0024887A /* MasterModel.m in Sources */,
@@ -4827,6 +4850,7 @@
 				21AB0AE11CC5152C00B7BA03 /* TopTabControl.m in Sources */,
 				E2F281F31CE55E4600E10330 /* PMTimeCell.m in Sources */,
 				21C4143E1CE2D23500F1029C /* ReleaseViewController.m in Sources */,
+				E26027DE1CFE7311002077E6 /* ResultModel.m in Sources */,
 				21C4141F1CE2D23500F1029C /* ShowImageView.m in Sources */,
 				E2D524431CDF994C0024887A /* FocusMyTableViewCell.m in Sources */,
 				21C4143A1CE2D23500F1029C /* HMComposeViewController.m in Sources */,
