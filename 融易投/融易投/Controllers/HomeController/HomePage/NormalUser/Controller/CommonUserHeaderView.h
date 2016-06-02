@@ -40,7 +40,6 @@
 
 
 @property (nonatomic ,strong) void(^focusBlcok)();
-
 @property (nonatomic ,strong) void(^fansBlcok)();
 
 

@@ -360,10 +360,10 @@
             float i = completed / total;
             self.progressHUD.progress = i;
             if (i == 1) {
-                self.progressHUD.labelText = [NSString stringWithFormat:@"发布成功"];
+                self.progressHUD.labelText = [NSString stringWithFormat:@"修改照片成功"];
                 self.progressHUD.mode = MBProgressHUDModeCustomView;
                 [self.progressHUD hide:YES afterDelay:1];
-                [self.navigationController popViewControllerAnimated:YES];
+
             }
         });
     } success:^(id respondObj) {
@@ -377,7 +377,7 @@
         [MBProgressHUD hideHUD];
         if (model) {
             
-            [MBProgressHUD showSuccess:@"修改照片成功"];
+//            [MBProgressHUD showSuccess:@"修改照片成功"];
             
             //发送通知,修改我的界面的数据
             [[NSNotificationCenter defaultCenter] postNotificationName:UpdateMeViewDataControllerNotification object:self];

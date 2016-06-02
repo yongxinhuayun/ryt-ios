@@ -15,7 +15,7 @@
 @property (strong, nonatomic) BCBaseResp *orderList;
 @property (strong, nonatomic) NSString *billTitle;
 
-
+@property (strong, nonatomic) NSString *url;
 @end
 
 @implementation PayTableViewController
@@ -47,16 +47,112 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.row == 0) { //支付宝支付
-        
-        [self ALiDoPay];
-        
-    }else { //微信支付
-        
-        [self WXDoPay];
-    }
+//    if (indexPath.row == 0) { //支付宝支付
+//        
+//        [self ALiDoPay];
+//        
+//    }else { //微信支付
+//        
+//        [self WXDoPay];
+//    }
+    
+    [self pay];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)pay{
+
+    //参数
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *userId = model.ID;
+    
+    NSString *money = @"0.01";
+    
+    NSString *action = @"invest";
+    NSString *type = @"1";
+    NSString *artWorkId = @"ionzy9cd2lbf7yss";
+    
+    NSString *url = @"pay/main.do";
+    
+    NSDictionary *json = @{
+                           @"userId":userId,
+                           @"money": money,
+                           @"action" : action,
+                           @"type" : type,
+                           @"artWorkId":artWorkId 
+                           };
+    
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
+        
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        NSString *url = modelDict[@"url"];
+        
+        SSLog(@"%@",url);
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+
+            self.url = url;
+        }];
+
+    }];
+    
+    UIViewController *webVC = [[UIViewController alloc] init];
+    webVC.view.frame = self.view.bounds;
+    
+    UIWebView *webView = [[UIWebView alloc] init];
+    [webVC.view addSubview:webView];
+    //创建请求
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.url]];
+    
+    [webView loadRequest:request];
+    
+    //让webView 自适应
+    webView.scalesPageToFit = YES;
+    
+    [self presentViewController:webVC animated:YES completion:nil];
+    
+    
+//    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
+//        
+//        UserMyModel *model = TakeLoginUserModel;
+//        NSString *userId = model.ID;
+//        NSData *data1 =[userId dataUsingEncoding:NSUTF8StringEncoding];
+//        [formData appendPartWithFileData:data1 name:@"userId" fileName:@"userId" mimeType:@"application/octet-stream"];
+//        
+//        
+//        NSString *money = @"0.01";
+//        NSData *data2 =[money dataUsingEncoding:NSUTF8StringEncoding];
+//        [formData appendPartWithFileData:data2 name:@"money" fileName:@"money" mimeType:@"application/octet-stream"];
+//        
+//        NSString *action = @"invest";
+//        NSData *data3 =[action dataUsingEncoding:NSUTF8StringEncoding];
+//        [formData appendPartWithFileData:data3 name:@"action" fileName:@"action" mimeType:@"application/octet-stream"];
+//        
+//        NSString *type = @"1";
+//        NSData *data4 =[type dataUsingEncoding:NSUTF8StringEncoding];
+//        [formData appendPartWithFileData:data4 name:@"type" fileName:@"type" mimeType:@"application/octet-stream"];
+//        
+//        NSString *artWorkId = @"ionzy9cd2lbf7yss";
+//        NSData *data5 =[artWorkId dataUsingEncoding:NSUTF8StringEncoding];
+//        [formData appendPartWithFileData:data5 name:@"artWorkId" fileName:@"artWorkId" mimeType:@"application/octet-stream"];
+//
+//    } showHUDView:nil progress:^(id progress) {
+//        
+//    } success:^(id respondObj) {
+//        
+//        NSString *aString = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+//        SSLog(@"---%@---%@",[respondObj class],aString);
+//        
+//         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+//        NSString *url = modelDict[@"url"];
+//
+//        SSLog(@"%@",url);
+//        
+//        }];
 }
 
 //微信、支付宝、银联、百度钱包

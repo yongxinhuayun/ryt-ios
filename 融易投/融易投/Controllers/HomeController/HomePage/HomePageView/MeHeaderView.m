@@ -47,6 +47,7 @@
     [self.iconImageView addGestureRecognizer:tapGesture];
     
     [self FocusBtnClick:nil];
+    [self FansBtnClick:nil];
 }
 
 -(void)setModel:(PageInfoModel *)model{
