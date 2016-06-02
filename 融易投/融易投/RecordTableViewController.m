@@ -34,6 +34,33 @@
 
 @implementation RecordTableViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // 刷新
+    self.lastPageIndex = @"1";
+    [self loadNewData];
+    //设置刷新控件
+    [self setUpRefresh];
+    [RecordModelList mj_setupObjectClassInArray:^NSDictionary *{
+        return @{
+                 @"artworkInvestTopList":@"RecordModel",
+                 @"artworkInvestList":@"RecordModel"
+                 };
+    }];
+    [RecordModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{@"ID":@"id"};
+    }];
+    [UserMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{@"ID":@"id"};
+    }];
+    self.isfoot = YES;
+    // 注册cell
+    [self.tableView registerNib:[UINib nibWithNibName:@"RecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"RecordCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"TopRecordTCell" bundle:nil] forCellReuseIdentifier:@"TopRecordCell"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadNewData) name:@"TZSUCESS" object:nil];
+}
+
 //--------------
 -(void)setUpRefresh
 {
@@ -113,32 +140,7 @@
 }
 //--------------
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // 刷新
-    self.lastPageIndex = @"1";
-    [self loadNewData];
-    //设置刷新控件
-    [self setUpRefresh];
-    [RecordModelList mj_setupObjectClassInArray:^NSDictionary *{
-        return @{
-                 @"artworkInvestTopList":@"RecordModel",
-                 @"artworkInvestList":@"RecordModel"
-                 };
-    }];
-    [RecordModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-      return @{@"ID":@"id"};
-    }];
-    [UserMyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-        return @{@"ID":@"id"};
-    }];
-    self.isfoot = YES;
-    // 注册cell
-    [self.tableView registerNib:[UINib nibWithNibName:@"RecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"RecordCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"TopRecordTCell" bundle:nil] forCellReuseIdentifier:@"TopRecordCell"];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -1,0 +1,268 @@
+.h-box{
+  width:100%;
+  float: left;
+  margin-bottom:30px;
+  .h-user{
+    width:100%;
+    height:77px;
+    float:left;
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    img {
+      width:77px;
+      height:77px;
+      -webkit-border-radius:100px;
+      border-radius:100px;
+    }
+    span {
+      flex:1;
+      p{
+        color: #666;
+        font-size:12px;
+        line-height:20px;
+        &:first-child{
+          margin-top:18px;
+        }
+      }
+      &:nth-of-type(1){
+        p{
+          width:80px;
+          float: right;
+        }
+      }
+      &:nth-of-type(3){
+        p{
+          width:80px;
+          float: left;
+        }
+      }
+    }
+  }
+  .h-title{
+    width:100%;
+    float: left;
+    text-align: center;
+    margin-top:15px;
+    h2{font-size:15px;font-weight: normal;}
+    h3{
+      font-size:12px;
+      color:#666;
+      font-weight: normal;
+      margin-top:5px;
+    }
+  }
+  .h-icons{
+    width:100%;
+    float: left;
+    margin-top:25px;
+    text-align: center;
+    a{
+      display: inline-block;
+      margin:0 10px;
+      i{
+        background:url(../images/icon-my.png) no-repeat;
+        background-size:38px auto;
+        width:19px;
+        height:18px;
+        display: inline-block;
+      }
+      .icon-gz{background-position: 0 0;}
+      .icon-sx{background-position: 0 -18px;}
+      &.active{
+        .icon-gz{background-position:-19px 0;}
+        .icon-sx{background-position:-19px -18px;}
+      }
+    }
+  }
+  .h-info {
+    width:100%;
+    height:30px;
+    padding:0 50px;
+    margin-top: 25px;
+    float: left;
+    display: flex;
+    text-align: center;
+    span{
+      flex:1;
+      line-height:15px;
+      font-size:12px;
+      color: #333;
+      &:nth-of-type(2){
+        position: relative;
+        &:before{
+          content: '';
+          width:1px;
+          height:11px;
+          background: #ccc;
+          position: absolute;
+          top:50%;
+          left:0;
+          margin-top:-5px;
+        }
+        &:after{
+          content: '';
+          width:1px;
+          height:11px;
+          background: #ccc;
+          position: absolute;
+          top:50%;
+          right:0;
+          margin-top:-5px;
+        }
+      }
+    }
+  }
+}
+//da shi xin xi
+.tips{
+  width:100%;
+  line-height:13px;
+  float: left;
+  margin-top:150px;
+  margin-bottom:150px;
+  text-align: center;
+  font-size: 14px;
+  color: #808080;
+}
+//ti shi xin xi
+.invest-num{
+  width:100%;
+  float: left;
+  font-size: 14px;
+  line-height:50px;
+}
+//
+.pro-list{
+  padding:0 14px;
+  li{
+    width:100%;
+    float: left;
+    margin-top:-1px;
+    padding-top:20px;
+    padding-bottom: 20px;
+    border-top: 1px solid #e2e2e2;
+    .img{
+      width:100%;
+      float: left;
+    }
+    .info {
+      width:100%;
+      float: left;
+      margin-top:10px;
+      line-height:20px;
+      position: relative;
+      p{
+        padding-right: 65px;
+        &:nth-of-type(1){font-size:14px}
+        &:nth-of-type(2){font-size:12px;color: #666;}
+      }
+      a{
+        width:65px;
+        height:20px;
+        line-height:20px;
+        text-align: center;
+        color: #fff;
+        background: #f4b2b2;
+        font-size:10px;
+        position: absolute;
+        top:0;
+        right:0;
+        -webkit-border-radius:30px;
+        border-radius:30px;
+      }
+    }
+    .info-des{
+      width:100%;
+      float: left;
+      line-height:16px;
+      font-size:12px;
+      color: #808080;
+    }
+    .pep{
+      width:100%;
+      float: left;
+      margin-top: 10px;
+      height: 32px;
+      line-height:32px;
+      position: relative;
+      padding-right:60px;
+      img{
+        width: 32px;
+        height: 32px;
+        -webkit-border-radius:30px;
+        border-radius:30px;
+        float: left;
+        margin-right: 10px;
+      }
+      span{
+        float:left;font-size: 13px;
+        i{
+          width:1px;
+          height:8px;
+          background: #000;
+          display:inline-block;
+          margin:0 8px;
+        }
+      }
+      a{
+        &.like {
+          color: #000;
+          font-size: 13px;
+          position: absolute;
+          top:0;
+          right:0;
+          &:after{
+            content: '';
+            background:url(../images/icon-my.png) no-repeat 0 -36px;
+            background-size:38px auto;
+            width:19px;
+            height:19px;
+            display:inline-block;
+            margin-left:5px;
+            position: relative;
+            top:1px;
+          }
+        }
+        &.active{
+          color: #ef5b70;
+          &:after{
+            background-position:-19px -36px;
+          }
+        }
+      }
+    }
+  }
+}
+//zuo pin lie biao
+.summary {
+  width:100%;
+  float: left;
+  padding:10px 15px;
+  font-size:12px;
+  line-height:20px;
+  .edit{
+    width:165px;
+    height:42px;
+    line-height:42px;
+    text-align: center;
+    color: #fff;
+    background: #ef5b70;
+    display: inline-block;
+    margin-top: 15px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+  }
+}
+//jian jie
+.my{
+  .com-nav {
+    .tabs-nav .swiper-wrapper .swiper-slide{
+      margin:0 15px;
+      padding:0;
+      text-align: center;
+      flex:1;
+    }
+  }
+  //dao hang
+}
