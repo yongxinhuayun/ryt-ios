@@ -8,13 +8,26 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="testController">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="CxG-yt-5gI" id="Ij0-qz-IEU"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CxG-yt-5gI">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                </webView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="CxG-yt-5gI" secondAttribute="trailing" id="4sW-Wa-bLs"/>
+                <constraint firstAttribute="bottom" secondItem="CxG-yt-5gI" secondAttribute="bottom" id="MGV-XS-s7f"/>
+                <constraint firstItem="CxG-yt-5gI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="N71-xu-qq0"/>
+                <constraint firstItem="CxG-yt-5gI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eLi-0N-Q5e"/>
+            </constraints>
         </view>
     </objects>
 </document>

@@ -9,6 +9,7 @@
 #import "testController.h"
 
 @interface testController ()
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
@@ -16,7 +17,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.navigationController.navigationBarHidden = NO;
+    
+    NSString *bundle = [[NSBundle mainBundle] bundlePath];
+    NSString * bundlePath = [[ NSBundle mainBundle] pathForResource: @"src-H5" ofType :@"bundle"];
+    NSString *Path= [bundlePath stringByAppendingPathComponent :@"A2.html"];
+    NSString *jsPath = [bundlePath stringByAppendingPathComponent:@"shop2016"];
+    NSString *htmlStr = [NSString stringWithContentsOfFile:Path encoding:NSUTF8StringEncoding error:nil];
+    [self.webView loadHTMLString:htmlStr baseURL:[NSURL URLWithString:bundle]];
+    self.webView.dataDetectorTypes = UIDataDetectorTypeAll;
+    self.webView.scrollView.bounces = NO;
+}
+
+-(void)test{
+
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -55,6 +55,8 @@
 // 设置导航条
 -(void)setUpNavBar
 {
+    [self.tableView setContentInset:UIEdgeInsetsMake(-25, 0, 0, 0)];
+    [self.tableView setSeparatorColor:[UIColor colorWithRed:224.0 / 255.0 green:225.0 / 255 blue:226.0 / 255.0 alpha:1.0]];
     //设置导航条标题
     self.navigationItem.title = @"设置";
 }
