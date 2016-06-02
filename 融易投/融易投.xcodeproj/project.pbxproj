@@ -139,7 +139,6 @@
 		21C414111CE2D23500F1029C /* WHC_ChoicePictureVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C4137D1CE2D23500F1029C /* WHC_ChoicePictureVC.xib */; };
 		21C414121CE2D23500F1029C /* WHC_PictureListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C4137F1CE2D23500F1029C /* WHC_PictureListVC.m */; };
 		21C414131CE2D23500F1029C /* WHC_PictureListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C413801CE2D23500F1029C /* WHC_PictureListVC.xib */; };
-		21C414141CE2D23500F1029C /* picture1.png in Resources */ = {isa = PBXBuildFile; fileRef = 21C413811CE2D23500F1029C /* picture1.png */; };
 		21C414151CE2D23500F1029C /* picture2.png in Resources */ = {isa = PBXBuildFile; fileRef = 21C413821CE2D23500F1029C /* picture2.png */; };
 		21C414161CE2D23500F1029C /* picture3.png in Resources */ = {isa = PBXBuildFile; fileRef = 21C413831CE2D23500F1029C /* picture3.png */; };
 		21C414171CE2D23500F1029C /* picture4.png in Resources */ = {isa = PBXBuildFile; fileRef = 21C413841CE2D23500F1029C /* picture4.png */; };
@@ -523,7 +522,6 @@
 		E2AAF03A1CE1C7B40009FD19 /* PostCommentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2AAF0381CE1C7B40009FD19 /* PostCommentController.xib */; };
 		E2CAC6AD1CFE77BF0061516E /* PointView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC6AC1CFE77BF0061516E /* PointView.m */; };
 		E2CAC6AF1CFE77CB0061516E /* PointView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2CAC6AE1CFE77CB0061516E /* PointView.xib */; };
-		E2CAC6B41CFED9F80061516E /* src-H5.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E2CAC6B31CFED9F80061516E /* src-H5.bundle */; };
 		E2CAC6FF1CFEDF8F0061516E /* testController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC6FD1CFEDF8F0061516E /* testController.m */; };
 		E2CAC7001CFEDF8F0061516E /* testController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2CAC6FE1CFEDF8F0061516E /* testController.xib */; };
 		E2D05B721CB38C8C00B0F690 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B711CB38C8C00B0F690 /* CoreTelephony.framework */; };
@@ -1424,7 +1422,6 @@
 		E2CAC6AB1CFE77BF0061516E /* PointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointView.h; sourceTree = "<group>"; };
 		E2CAC6AC1CFE77BF0061516E /* PointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointView.m; sourceTree = "<group>"; };
 		E2CAC6AE1CFE77CB0061516E /* PointView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PointView.xib; sourceTree = "<group>"; };
-		E2CAC6B31CFED9F80061516E /* src-H5.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "src-H5.bundle"; sourceTree = "<group>"; };
 		E2CAC6FC1CFEDF8F0061516E /* testController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testController.h; sourceTree = "<group>"; };
 		E2CAC6FD1CFEDF8F0061516E /* testController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testController.m; sourceTree = "<group>"; };
 		E2CAC6FE1CFEDF8F0061516E /* testController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = testController.xib; sourceTree = "<group>"; };
@@ -3790,7 +3787,6 @@
 		E2DDB0E51CAB66DB007438E4 /* 融易投 */ = {
 			isa = PBXGroup;
 			children = (
-				E2CAC6B31CFED9F80061516E /* src-H5.bundle */,
 				E2288E441CDEFA8C00483F18 /* AppDelegate */,
 				E22890421CDEFE0700483F18 /* Tools */,
 				E2288E481CDEFB0500483F18 /* 3rd */,
@@ -4105,7 +4101,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21C414141CE2D23500F1029C /* picture1.png in Resources */,
 				E22893991CDF049500483F18 /* lxh_koubishi@2x.png in Resources */,
 				21C414441CE2D23500F1029C /* ArtistMainCell.xib in Resources */,
 				E22892951CDF03F400483F18 /* d_heng@2x.png in Resources */,
@@ -4205,7 +4200,6 @@
 				E22893691CDF049500483F18 /* lxh_beicui@2x.png in Resources */,
 				21AB0AA51CC4F6AE00B7BA03 /* XiangqingViewController.storyboard in Resources */,
 				E22892B21CDF03F400483F18 /* d_xiongmao@2x.png in Resources */,
-				E2CAC6B41CFED9F80061516E /* src-H5.bundle in Resources */,
 				E22893AB1CDF049500483F18 /* lxh_pili.gif in Resources */,
 				E22892D81CDF03F400483F18 /* o_lvsidai@2x.png in Resources */,
 				E22892AE1CDF03F400483F18 /* d_tu@2x.png in Resources */,
