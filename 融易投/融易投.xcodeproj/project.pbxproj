@@ -522,6 +522,23 @@
 		E2CAC6AF1CFE77CB0061516E /* PointView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2CAC6AE1CFE77CB0061516E /* PointView.xib */; };
 		E2CAC6FF1CFEDF8F0061516E /* testController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC6FD1CFEDF8F0061516E /* testController.m */; };
 		E2CAC7001CFEDF8F0061516E /* testController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2CAC6FE1CFEDF8F0061516E /* testController.xib */; };
+		E2CAC7DB1CFFD72A0061516E /* ArtworkFinishedController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7DA1CFFD72A0061516E /* ArtworkFinishedController.m */; };
+		E2CAC7DF1CFFDA980061516E /* ArtworkFinishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7DD1CFFDA980061516E /* ArtworkFinishCell.m */; };
+		E2CAC7E01CFFDA980061516E /* ArtworkFinishCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2CAC7DE1CFFDA980061516E /* ArtworkFinishCell.xib */; };
+		E2CAC7E41CFFDCEA0061516E /* AddImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7E21CFFDCEA0061516E /* AddImageCell.m */; };
+		E2CAC7E51CFFDCEA0061516E /* AddImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2CAC7E31CFFDCEA0061516E /* AddImageCell.xib */; };
+		E2CAC7FF1CFFE8DA0061516E /* HMAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7E81CFFE8DA0061516E /* HMAlbum.m */; };
+		E2CAC8001CFFE8DA0061516E /* HMAlbumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7EA1CFFE8DA0061516E /* HMAlbumTableViewCell.m */; };
+		E2CAC8011CFFE8DA0061516E /* HMAlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7EC1CFFE8DA0061516E /* HMAlbumTableViewController.m */; };
+		E2CAC8021CFFE8DA0061516E /* HMImageGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7EE1CFFE8DA0061516E /* HMImageGridCell.m */; };
+		E2CAC8031CFFE8DA0061516E /* HMImageGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7F01CFFE8DA0061516E /* HMImageGridViewController.m */; };
+		E2CAC8041CFFE8DA0061516E /* HMImageGridViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7F21CFFE8DA0061516E /* HMImageGridViewLayout.m */; };
+		E2CAC8051CFFE8DA0061516E /* HMImagePicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E2CAC7F31CFFE8DA0061516E /* HMImagePicker.bundle */; };
+		E2CAC8061CFFE8DA0061516E /* HMImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7F51CFFE8DA0061516E /* HMImagePickerController.m */; };
+		E2CAC8071CFFE8DA0061516E /* HMImageSelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7F81CFFE8DA0061516E /* HMImageSelectButton.m */; };
+		E2CAC8081CFFE8DA0061516E /* HMPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7FA1CFFE8DA0061516E /* HMPreviewViewController.m */; };
+		E2CAC8091CFFE8DA0061516E /* HMSelectCounterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7FC1CFFE8DA0061516E /* HMSelectCounterButton.m */; };
+		E2CAC80A1CFFE8DA0061516E /* HMViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7FE1CFFE8DA0061516E /* HMViewerViewController.m */; };
 		E2D05B721CB38C8C00B0F690 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B711CB38C8C00B0F690 /* CoreTelephony.framework */; };
 		E2D05B741CB38CB100B0F690 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B731CB38CB100B0F690 /* SystemConfiguration.framework */; };
 		E2D05B761CB38CD000B0F690 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B751CB38CD000B0F690 /* libz.tbd */; };
@@ -1420,6 +1437,38 @@
 		E2CAC6FC1CFEDF8F0061516E /* testController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testController.h; sourceTree = "<group>"; };
 		E2CAC6FD1CFEDF8F0061516E /* testController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testController.m; sourceTree = "<group>"; };
 		E2CAC6FE1CFEDF8F0061516E /* testController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = testController.xib; sourceTree = "<group>"; };
+		E2CAC7D91CFFD72A0061516E /* ArtworkFinishedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArtworkFinishedController.h; path = ../../ArtworkFinishedController.h; sourceTree = "<group>"; };
+		E2CAC7DA1CFFD72A0061516E /* ArtworkFinishedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArtworkFinishedController.m; path = ../../ArtworkFinishedController.m; sourceTree = "<group>"; };
+		E2CAC7DC1CFFDA980061516E /* ArtworkFinishCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArtworkFinishCell.h; path = ../../ArtworkFinishCell.h; sourceTree = "<group>"; };
+		E2CAC7DD1CFFDA980061516E /* ArtworkFinishCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArtworkFinishCell.m; path = ../../ArtworkFinishCell.m; sourceTree = "<group>"; };
+		E2CAC7DE1CFFDA980061516E /* ArtworkFinishCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArtworkFinishCell.xib; path = ../../ArtworkFinishCell.xib; sourceTree = "<group>"; };
+		E2CAC7E11CFFDCEA0061516E /* AddImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddImageCell.h; path = ../../AddImageCell.h; sourceTree = "<group>"; };
+		E2CAC7E21CFFDCEA0061516E /* AddImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddImageCell.m; path = ../../AddImageCell.m; sourceTree = "<group>"; };
+		E2CAC7E31CFFDCEA0061516E /* AddImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddImageCell.xib; path = ../../AddImageCell.xib; sourceTree = "<group>"; };
+		E2CAC7E71CFFE8DA0061516E /* HMAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMAlbum.h; sourceTree = "<group>"; };
+		E2CAC7E81CFFE8DA0061516E /* HMAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMAlbum.m; sourceTree = "<group>"; };
+		E2CAC7E91CFFE8DA0061516E /* HMAlbumTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMAlbumTableViewCell.h; sourceTree = "<group>"; };
+		E2CAC7EA1CFFE8DA0061516E /* HMAlbumTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMAlbumTableViewCell.m; sourceTree = "<group>"; };
+		E2CAC7EB1CFFE8DA0061516E /* HMAlbumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMAlbumTableViewController.h; sourceTree = "<group>"; };
+		E2CAC7EC1CFFE8DA0061516E /* HMAlbumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMAlbumTableViewController.m; sourceTree = "<group>"; };
+		E2CAC7ED1CFFE8DA0061516E /* HMImageGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMImageGridCell.h; sourceTree = "<group>"; };
+		E2CAC7EE1CFFE8DA0061516E /* HMImageGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMImageGridCell.m; sourceTree = "<group>"; };
+		E2CAC7EF1CFFE8DA0061516E /* HMImageGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMImageGridViewController.h; sourceTree = "<group>"; };
+		E2CAC7F01CFFE8DA0061516E /* HMImageGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMImageGridViewController.m; sourceTree = "<group>"; };
+		E2CAC7F11CFFE8DA0061516E /* HMImageGridViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMImageGridViewLayout.h; sourceTree = "<group>"; };
+		E2CAC7F21CFFE8DA0061516E /* HMImageGridViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMImageGridViewLayout.m; sourceTree = "<group>"; };
+		E2CAC7F31CFFE8DA0061516E /* HMImagePicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HMImagePicker.bundle; sourceTree = "<group>"; };
+		E2CAC7F41CFFE8DA0061516E /* HMImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMImagePickerController.h; sourceTree = "<group>"; };
+		E2CAC7F51CFFE8DA0061516E /* HMImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMImagePickerController.m; sourceTree = "<group>"; };
+		E2CAC7F61CFFE8DA0061516E /* HMImagePickerGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMImagePickerGlobal.h; sourceTree = "<group>"; };
+		E2CAC7F71CFFE8DA0061516E /* HMImageSelectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMImageSelectButton.h; sourceTree = "<group>"; };
+		E2CAC7F81CFFE8DA0061516E /* HMImageSelectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMImageSelectButton.m; sourceTree = "<group>"; };
+		E2CAC7F91CFFE8DA0061516E /* HMPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPreviewViewController.h; sourceTree = "<group>"; };
+		E2CAC7FA1CFFE8DA0061516E /* HMPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPreviewViewController.m; sourceTree = "<group>"; };
+		E2CAC7FB1CFFE8DA0061516E /* HMSelectCounterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSelectCounterButton.h; sourceTree = "<group>"; };
+		E2CAC7FC1CFFE8DA0061516E /* HMSelectCounterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSelectCounterButton.m; sourceTree = "<group>"; };
+		E2CAC7FD1CFFE8DA0061516E /* HMViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMViewerViewController.h; sourceTree = "<group>"; };
+		E2CAC7FE1CFFE8DA0061516E /* HMViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMViewerViewController.m; sourceTree = "<group>"; };
 		E2D05B711CB38C8C00B0F690 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		E2D05B731CB38CB100B0F690 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E2D05B751CB38CD000B0F690 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -2081,6 +2130,8 @@
 				21C413151CE2D23500F1029C /* ArtistMainViewController.m */,
 				21C413181CE2D23500F1029C /* ArtistWorksViewController.h */,
 				21C413191CE2D23500F1029C /* ArtistWorksViewController.m */,
+				E2CAC7D91CFFD72A0061516E /* ArtworkFinishedController.h */,
+				E2CAC7DA1CFFD72A0061516E /* ArtworkFinishedController.m */,
 				21C4146C1CE4220800F1029C /* CoverHUDView.h */,
 				21C4146D1CE4220800F1029C /* CoverHUDView.m */,
 				21C4146F1CE4221200F1029C /* CoverHUDView.xib */,
@@ -2415,6 +2466,12 @@
 				21C413DB1CE2D23500F1029C /* ArtistWorksCell.h */,
 				21C413DC1CE2D23500F1029C /* ArtistWorksCell.m */,
 				21C413DD1CE2D23500F1029C /* ArtistWorksCell.xib */,
+				E2CAC7DC1CFFDA980061516E /* ArtworkFinishCell.h */,
+				E2CAC7DD1CFFDA980061516E /* ArtworkFinishCell.m */,
+				E2CAC7DE1CFFDA980061516E /* ArtworkFinishCell.xib */,
+				E2CAC7E11CFFDCEA0061516E /* AddImageCell.h */,
+				E2CAC7E21CFFDCEA0061516E /* AddImageCell.m */,
+				E2CAC7E31CFFDCEA0061516E /* AddImageCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2591,6 +2648,7 @@
 				E2288E4B1CDEFB0500483F18 /* Extensions */,
 				E2288E4C1CDEFB0500483F18 /* JPush */,
 				E2288E4D1CDEFB0500483F18 /* MJRefresh */,
+				E2CAC7E61CFFE8CD0061516E /* HMImagePicker */,
 			);
 			path = 3rd;
 			sourceTree = "<group>";
@@ -3098,6 +3156,37 @@
 			children = (
 			);
 			path = HTML5;
+			sourceTree = "<group>";
+		};
+		E2CAC7E61CFFE8CD0061516E /* HMImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7E71CFFE8DA0061516E /* HMAlbum.h */,
+				E2CAC7E81CFFE8DA0061516E /* HMAlbum.m */,
+				E2CAC7E91CFFE8DA0061516E /* HMAlbumTableViewCell.h */,
+				E2CAC7EA1CFFE8DA0061516E /* HMAlbumTableViewCell.m */,
+				E2CAC7EB1CFFE8DA0061516E /* HMAlbumTableViewController.h */,
+				E2CAC7EC1CFFE8DA0061516E /* HMAlbumTableViewController.m */,
+				E2CAC7ED1CFFE8DA0061516E /* HMImageGridCell.h */,
+				E2CAC7EE1CFFE8DA0061516E /* HMImageGridCell.m */,
+				E2CAC7EF1CFFE8DA0061516E /* HMImageGridViewController.h */,
+				E2CAC7F01CFFE8DA0061516E /* HMImageGridViewController.m */,
+				E2CAC7F11CFFE8DA0061516E /* HMImageGridViewLayout.h */,
+				E2CAC7F21CFFE8DA0061516E /* HMImageGridViewLayout.m */,
+				E2CAC7F31CFFE8DA0061516E /* HMImagePicker.bundle */,
+				E2CAC7F41CFFE8DA0061516E /* HMImagePickerController.h */,
+				E2CAC7F51CFFE8DA0061516E /* HMImagePickerController.m */,
+				E2CAC7F61CFFE8DA0061516E /* HMImagePickerGlobal.h */,
+				E2CAC7F71CFFE8DA0061516E /* HMImageSelectButton.h */,
+				E2CAC7F81CFFE8DA0061516E /* HMImageSelectButton.m */,
+				E2CAC7F91CFFE8DA0061516E /* HMPreviewViewController.h */,
+				E2CAC7FA1CFFE8DA0061516E /* HMPreviewViewController.m */,
+				E2CAC7FB1CFFE8DA0061516E /* HMSelectCounterButton.h */,
+				E2CAC7FC1CFFE8DA0061516E /* HMSelectCounterButton.m */,
+				E2CAC7FD1CFFE8DA0061516E /* HMViewerViewController.h */,
+				E2CAC7FE1CFFE8DA0061516E /* HMViewerViewController.m */,
+			);
+			path = HMImagePicker;
 			sourceTree = "<group>";
 		};
 		E2D521991CDF779C0024887A /* NotificationModel */ = {
@@ -4106,6 +4195,7 @@
 				21C413FB1CE2D23500F1029C /* JKImagePickerController.strings in Resources */,
 				E2F282061CE576A400E10330 /* DynamicTimeCell.xib in Resources */,
 				21C08BD11CB02521002328D3 /* SettingTableViewController.storyboard in Resources */,
+				E2CAC7E01CFFDA980061516E /* ArtworkFinishCell.xib in Resources */,
 				E22892C91CDF03F400483F18 /* h_lai@2x.png in Resources */,
 				E22893CA1CDF049500483F18 /* lxh_xiaohaha.png in Resources */,
 				E228938F1CDF049500483F18 /* lxh_jiekexun.png in Resources */,
@@ -4196,6 +4286,7 @@
 				E22892D81CDF03F400483F18 /* o_lvsidai@2x.png in Resources */,
 				E22892AE1CDF03F400483F18 /* d_tu@2x.png in Resources */,
 				E2D525081CDFA2FF0024887A /* IdeaRetroactionViewController.xib in Resources */,
+				E2CAC7E51CFFDCEA0061516E /* AddImageCell.xib in Resources */,
 				E22892E41CDF03F400483F18 /* w_yueliang@2x.png in Resources */,
 				E22893D31CDF049500483F18 /* lxh_youyali.png in Resources */,
 				E22893911CDF049500483F18 /* lxh_jiujie.gif in Resources */,
@@ -4219,6 +4310,7 @@
 				E22893A31CDF049500483F18 /* lxh_meigui.gif in Resources */,
 				E22893881CDF049500483F18 /* lxh_haoxihuan.gif in Resources */,
 				E2D524861CDF9CCB0024887A /* AddressViewController.xib in Resources */,
+				E2CAC8051CFFE8DA0061516E /* HMImagePicker.bundle in Resources */,
 				E22893D21CDF049500483F18 /* lxh_youyali.gif in Resources */,
 				E22892D31CDF03F400483F18 /* o_feiji@2x.png in Resources */,
 				E22893C81CDF049500483F18 /* lxh_xiangyixiang@2x.png in Resources */,
@@ -4520,6 +4612,7 @@
 				E2288E471CDEFAB900483F18 /* AppDelegate.m in Sources */,
 				E2D522771CDF90900024887A /* AliPayController.m in Sources */,
 				E2D524221CDF94FB0024887A /* ChartMessage.m in Sources */,
+				E2CAC7E41CFFDCEA0061516E /* AddImageCell.m in Sources */,
 				21C4140C1CE2D23500F1029C /* WHC_Asset.m in Sources */,
 				E2D522231CDF8AF50024887A /* ArtistModel.m in Sources */,
 				E266FFBB1CF58F5300006EA2 /* investmentController.m in Sources */,
@@ -4561,6 +4654,7 @@
 				218D2B3C1CACB2F9004553B9 /* CommonNavigationController.m in Sources */,
 				E2D524E61CDFA19A0024887A /* EditingNickNameViewController.m in Sources */,
 				E2D5221D1CDF8A3A0024887A /* HMEmotionAttachment.m in Sources */,
+				E2CAC7DF1CFFDA980061516E /* ArtworkFinishCell.m in Sources */,
 				E2D521AF1CDF783B0024887A /* MasterMyModel.m in Sources */,
 				21C413FE1CE2D23500F1029C /* JKAssetsCollectionFooterView.m in Sources */,
 				E2322B0E1CEC07CB002730E7 /* CommentsTableController.m in Sources */,
@@ -4569,6 +4663,7 @@
 				21C4145B1CE30C4200F1029C /* ReleaseProjectCell1.m in Sources */,
 				E2729AF51CD8B983006C0617 /* RecordTableViewController.m in Sources */,
 				E2D524851CDF9CCB0024887A /* AddressViewController.m in Sources */,
+				E2CAC8031CFFE8DA0061516E /* HMImageGridViewController.m in Sources */,
 				21AB0AC31CC50A4D00B7BA03 /* CollectViewTestVC.m in Sources */,
 				E2D524E41CDFA19A0024887A /* EditingInfoViewController.m in Sources */,
 				21C414341CE2D23500F1029C /* HMComposeToolbar.m in Sources */,
@@ -4623,6 +4718,7 @@
 				21C4146E1CE4220800F1029C /* CoverHUDView.m in Sources */,
 				E2D521FA1CDF7A230024887A /* cityField.m in Sources */,
 				211C031A1CF7D37A006167EF /* BillTableViewController.m in Sources */,
+				E2CAC8081CFFE8DA0061516E /* HMPreviewViewController.m in Sources */,
 				E2D5225E1CDF8CEC0024887A /* CreatorModel.m in Sources */,
 				21C414331CE2D23500F1029C /* HMComposePhotosView.m in Sources */,
 				21B99BA21CF6AB7200E682F8 /* SSProgressView.m in Sources */,
@@ -4630,18 +4726,23 @@
 				E22A9A1E1CED587C002520E7 /* PrivateLetterController.m in Sources */,
 				21C413E01CE2D23500F1029C /* ArtistWorksViewController.m in Sources */,
 				E2D522901CDF91AA0024887A /* LognController.m in Sources */,
+				E2CAC8011CFFE8DA0061516E /* HMAlbumTableViewController.m in Sources */,
 				21C413E31CE2D23500F1029C /* ReleasePicViewController.m in Sources */,
 				21ECC20C1CFFC6200024EFD4 /* FansMyViewController.m in Sources */,
 				E228903A1CDEFDD900483F18 /* NSString+Emoji.m in Sources */,
+				E2CAC7DB1CFFD72A0061516E /* ArtworkFinishedController.m in Sources */,
 				21C414471CE2D23500F1029C /* ArtistWorksCell.m in Sources */,
 				21AB0ABF1CC50A4D00B7BA03 /* JPSlideBar+ScrollViewDelegate.m in Sources */,
 				E2A38A3B1CF1626500EAB0D3 /* RYTLoginManager.m in Sources */,
+				E2CAC8091CFFE8DA0061516E /* HMSelectCounterButton.m in Sources */,
 				21C413EA1CE2D23500F1029C /* AGImagePreviewController.m in Sources */,
 				E2D812FD1CD0780100A52172 /* TopView.m in Sources */,
 				E228903D1CDEFDD900483F18 /* UIImage+Antialias.m in Sources */,
+				E2CAC7FF1CFFE8DA0061516E /* HMAlbum.m in Sources */,
 				2187B9431CCDF14000B92435 /* UIScrollView+ty_swizzle.m in Sources */,
 				21ECC2021CFFC5460024EFD4 /* FocusMyTableViewCell.m in Sources */,
 				21C413EE1CE2D23500F1029C /* AGIPCGridItem.m in Sources */,
+				E2CAC8061CFFE8DA0061516E /* HMImagePickerController.m in Sources */,
 				E2D525071CDFA2FF0024887A /* IdeaRetroactionViewController.m in Sources */,
 				21C4143B1CE2D23500F1029C /* imageViewController.m in Sources */,
 				E2D5223A1CDF8C5F0024887A /* AuthorDetailModel.m in Sources */,
@@ -4689,6 +4790,7 @@
 				E2F282051CE576A400E10330 /* DynamicTimeCell.m in Sources */,
 				E2729AEA1CD8B923006C0617 /* ImageListViewCellCollectionViewCell.m in Sources */,
 				21C413F11CE2D23500F1029C /* AGPreviewScrollView.m in Sources */,
+				E2CAC8041CFFE8DA0061516E /* HMImageGridViewLayout.m in Sources */,
 				E228921C1CDF037500483F18 /* registerModel.m in Sources */,
 				21C413ED1CE2D23500F1029C /* AGIPCGridCell.m in Sources */,
 				21C413EF1CE2D23500F1029C /* AGIPCPreviewController.m in Sources */,
@@ -4721,6 +4823,7 @@
 				21C414431CE2D23500F1029C /* ArtistMainCell.m in Sources */,
 				E2D524311CDF958C0024887A /* NotificationTableViewCell.m in Sources */,
 				21C414211CE2D23500F1029C /* UIButton+AGIPC.m in Sources */,
+				E2CAC80A1CFFE8DA0061516E /* HMViewerViewController.m in Sources */,
 				E2729AE61CD8B923006C0617 /* IntroduceTableViewCell.m in Sources */,
 				E2F281F81CE565A500E10330 /* FinanceTimeCell.m in Sources */,
 				21C08BC81CB01BC3002328D3 /* SettingTableViewController.m in Sources */,
@@ -4740,6 +4843,7 @@
 				E2487B141CEAA63300484C5D /* TopRecordTCell.m in Sources */,
 				21ECC2101CFFC7B80024EFD4 /* FansTableViewCell.m in Sources */,
 				215C96CE1CEEAF090084C319 /* NewFeatureCell.m in Sources */,
+				E2CAC8071CFFE8DA0061516E /* HMImageSelectButton.m in Sources */,
 				21AB0AC71CC50A4D00B7BA03 /* JPTableViewCell.m in Sources */,
 				21C413EB1CE2D23500F1029C /* AGIPCAlbumsController.m in Sources */,
 				215C96671CED57380084C319 /* BQLAuthEngine.m in Sources */,
@@ -4759,6 +4863,7 @@
 				21B99BA51CF6E22800E682F8 /* UIScrollView+UITouch.m in Sources */,
 				E2D5241A1CDF94F00024887A /* PrivateLetterViewController.m in Sources */,
 				E2D522381CDF8C5F0024887A /* ArtworkdirectionModel.m in Sources */,
+				E2CAC8001CFFE8DA0061516E /* HMAlbumTableViewCell.m in Sources */,
 				21C413E71CE2D23500F1029C /* AGImagePickerController+Helper.m in Sources */,
 				21C414351CE2D23500F1029C /* HMTextView.m in Sources */,
 				E2D522641CDF8D300024887A /* CreationModel.m in Sources */,
@@ -4767,6 +4872,7 @@
 				E2D524211CDF94FB0024887A /* ChartContentView.m in Sources */,
 				E22890401CDEFDD900483F18 /* UIImageView+Header.m in Sources */,
 				215EED1D1CB0058D00A5957B /* FinanceTableViewController.m in Sources */,
+				E2CAC8021CFFE8DA0061516E /* HMImageGridCell.m in Sources */,
 				E2D524811CDF9CA70024887A /* CNCityPickerView.m in Sources */,
 				E2D5225C1CDF8CEC0024887A /* ArtworkMessageCreatorModel.m in Sources */,
 				E2D5219E1CDF77C00024887A /* FromUserModel.m in Sources */,

@@ -63,6 +63,7 @@
     if ([model.author.ID isEqualToString:userModel.ID]) {
         
         //当艺术家看自己的项目时
+        model.step = @"22";
         if ([model.step isEqualToString:@"10"]) {
             
             self.stepBtn.hidden = NO;
