@@ -71,7 +71,7 @@
 //    [self.webView stringByEvaluatingJavaScriptFromString:js1];
     
     //方式二:给JS传递参数
-    NSString *js2 = [NSString stringWithFormat:@"getParamObject2('%@','%@','%@','%@');",artWorkId,currentUserId,signmsgMD5,timestamp];
+    NSString *js2 = [NSString stringWithFormat:@"sendParam('%@','%@','%@','%@');",artWorkId,currentUserId,signmsgMD5,timestamp];
     [self.webView stringByEvaluatingJavaScriptFromString:js2];
 }
 
