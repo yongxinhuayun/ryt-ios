@@ -225,6 +225,8 @@
 		21ECC20C1CFFC6200024EFD4 /* FansMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ECC20B1CFFC6200024EFD4 /* FansMyViewController.m */; };
 		21ECC2101CFFC7B80024EFD4 /* FansTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ECC20E1CFFC7B80024EFD4 /* FansTableViewCell.m */; };
 		21ECC2111CFFC7B80024EFD4 /* FansTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21ECC20F1CFFC7B80024EFD4 /* FansTableViewCell.xib */; };
+		21ECC3531CFFDB570024EFD4 /* H5 in Resources */ = {isa = PBXBuildFile; fileRef = 21ECC3521CFFDB570024EFD4 /* H5 */; };
+		21ECC3591CFFE3010024EFD4 /* NSObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ECC3581CFFE3010024EFD4 /* NSObject+Extension.m */; };
 		8177F8DB1CE4DC0F005D2259 /* TimeAxisTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8177F8DA1CE4DC0F005D2259 /* TimeAxisTableViewController.m */; };
 		8177F8E41CE4E1CD005D2259 /* CreationTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8177F8E21CE4E1CD005D2259 /* CreationTimeCell.m */; };
 		8177F8E51CE4E1CD005D2259 /* CreationTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8177F8E31CE4E1CD005D2259 /* CreationTimeCell.xib */; };
@@ -1091,6 +1093,9 @@
 		21ECC20D1CFFC7B80024EFD4 /* FansTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FansTableViewCell.h; sourceTree = "<group>"; };
 		21ECC20E1CFFC7B80024EFD4 /* FansTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FansTableViewCell.m; sourceTree = "<group>"; };
 		21ECC20F1CFFC7B80024EFD4 /* FansTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FansTableViewCell.xib; sourceTree = "<group>"; };
+		21ECC3521CFFDB570024EFD4 /* H5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = H5; sourceTree = "<group>"; };
+		21ECC3571CFFE3010024EFD4 /* NSObject+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Extension.h"; sourceTree = "<group>"; };
+		21ECC3581CFFE3010024EFD4 /* NSObject+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Extension.m"; sourceTree = "<group>"; };
 		8177F8D91CE4DC0F005D2259 /* TimeAxisTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeAxisTableViewController.h; sourceTree = "<group>"; };
 		8177F8DA1CE4DC0F005D2259 /* TimeAxisTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeAxisTableViewController.m; sourceTree = "<group>"; };
 		8177F8E11CE4E1CD005D2259 /* CreationTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreationTimeCell.h; sourceTree = "<group>"; };
@@ -1902,6 +1907,8 @@
 				21B99BA11CF6AB7200E682F8 /* SSProgressView.m */,
 				21B99BA31CF6E22800E682F8 /* UIScrollView+UITouch.h */,
 				21B99BA41CF6E22800E682F8 /* UIScrollView+UITouch.m */,
+				21ECC3571CFFE3010024EFD4 /* NSObject+Extension.h */,
+				21ECC3581CFFE3010024EFD4 /* NSObject+Extension.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -3875,6 +3882,7 @@
 				E2288E4E1CDEFB3200483F18 /* Model */,
 				E22892131CDF01B400483F18 /* Controllers */,
 				E2CAC6B01CFED4BB0061516E /* HTML5 */,
+				21ECC3521CFFDB570024EFD4 /* H5 */,
 				218D2B371CACB2E3004553B9 /* Main */,
 				E2DDB19A1CABA64E007438E4 /* Controller */,
 				E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */,
@@ -4374,6 +4382,7 @@
 				E22893CD1CDF049500483F18 /* lxh_xiudada.png in Resources */,
 				E22893671CDF049500483F18 /* lxh_beicui.gif in Resources */,
 				E22893B01CDF049500483F18 /* lxh_qiaoqiao@2x.png in Resources */,
+				21ECC3531CFFDB570024EFD4 /* H5 in Resources */,
 				E22893B31CDF049500483F18 /* lxh_qiubite@2x.png in Resources */,
 				E2487B151CEAA63300484C5D /* TopRecordTCell.xib in Resources */,
 				E22892991CDF03F400483F18 /* d_kelian@2x.png in Resources */,
@@ -4729,6 +4738,7 @@
 				E2CAC8011CFFE8DA0061516E /* HMAlbumTableViewController.m in Sources */,
 				21C413E31CE2D23500F1029C /* ReleasePicViewController.m in Sources */,
 				21ECC20C1CFFC6200024EFD4 /* FansMyViewController.m in Sources */,
+				21ECC3591CFFE3010024EFD4 /* NSObject+Extension.m in Sources */,
 				E228903A1CDEFDD900483F18 /* NSString+Emoji.m in Sources */,
 				E2CAC7DB1CFFD72A0061516E /* ArtworkFinishedController.m in Sources */,
 				21C414471CE2D23500F1029C /* ArtistWorksCell.m in Sources */,
@@ -5041,7 +5051,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5094,7 +5104,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

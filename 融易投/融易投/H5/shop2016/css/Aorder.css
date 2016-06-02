@@ -1,0 +1,107 @@
+.fl, .bd, .pm_order, .pm_order .phead, .pm_order .phead .number, .pm_order .pbody, .pm_order .pbody .ppic img, .pm_order .pbody .pcontent, .pm_order .pbody .pcontent .hone, .pm_order .pbody .pcontent .htext, .pm_order .pbody .pcontent .hmoney, .pm_details, .pm_details .time, .pm_details .pm_page {
+  float: left; }
+
+.fr {
+  float: right; }
+
+.wb, .bd, .pm_order, .pm_order .phead, .pm_order .pbody, .pm_order .pbody .ppic img, .pm_order .pbody .pcontent, .pm_order .pbody .pcontent .hone, .pm_order .pbody .pcontent .htext, .pm_order .pbody .pcontent .hmoney, .pm_details, .pm_details .time, .pm_details .pm_page {
+  width: 100%; }
+
+.wh {
+  width: 100%;
+  float: left;
+  position: relative; }
+
+li {
+  list-style: none; }
+
+.bd {
+  border-bottom: 1px solid #e2e2e2; }
+
+.pm_order {
+  padding: 0 14px;
+  border-top: 1px solid #f3f3f3;
+  border-bottom: 1px solid #f3f3f3;
+  margin-bottom: 21px; }
+  .pm_order .noorder {
+    margin: 150px 0;
+    font-size: 16px;
+    line-height: 16px;
+    color: #808080;
+    text-align: center; }
+  .pm_order .phead {
+    border-bottom: 1px solid #f3f3f3; }
+    .pm_order .phead .number {
+      font-size: 14px;
+      line-height: 14px;
+      color: #808080;
+      padding: 15px 0; }
+    .pm_order .phead .state {
+      float: right;
+      font-size: 14px;
+      line-height: 14px;
+      color: #ef5b70;
+      padding: 15px 0; }
+  .pm_order .pbody {
+    position: relative; }
+    .pm_order .pbody .ppic {
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      left: 0;
+      top: 20px; }
+    .pm_order .pbody .pcontent {
+      padding: 20px 0 20px 90px; }
+      .pm_order .pbody .pcontent .hone {
+        font-size: 16px;
+        line-height: 16px;
+        color: #000;
+        margin: 0 0 10px 0; }
+      .pm_order .pbody .pcontent .htext {
+        line-height: 18px;
+        font-size: 14px;
+        color: #000;
+        margin-bottom: 5px; }
+      .pm_order .pbody .pcontent .hmoney {
+        font-size: 14px;
+        color: #000;
+        line-height: 18px; }
+
+.pm_details .phead {
+  padding: 16px 0; }
+.pm_details .time {
+  margin-bottom: 10px; }
+  .pm_details .time span {
+    float: left;
+    font-size: 14px;
+    line-height: 14px;
+    color: #808080;
+    margin-right: 10px; }
+.pm_details .time:last-child {
+  margin-bottom: 0; }
+.pm_details .pm_page {
+  padding: 15px 14px;
+  border-top: 1px solid #f3f3f3;
+  border-bottom: 1px solid #f3f3f3;
+  margin-bottom: 21px; }
+  .pm_details .pm_page p {
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 10px;
+    line-height: 19px; }
+    .pm_details .pm_page p span {
+      color: #808080; }
+  .pm_details .pm_page p:last-child {
+    margin-bottom: 0; }
+
+.pm_btn {
+  height: 48px;
+  line-height: 48px;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  background: #ef5b70;
+  width: 100%;
+  float: left; }
+
+/*# sourceMappingURL=Aorder.css.map */

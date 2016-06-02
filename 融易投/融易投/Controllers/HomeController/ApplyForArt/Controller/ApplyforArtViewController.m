@@ -1235,7 +1235,7 @@
     }];
     */
     
-    NSString *url = @"releaseArtworkDynamic.do";
+    NSString *url = @"applyArtMaster.do";
     
     [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
 

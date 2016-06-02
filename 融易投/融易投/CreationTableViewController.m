@@ -163,10 +163,11 @@ static NSString *ID = @"creationCell";
      */
     
     DetailCreationH5WebController *H5VC = [[DetailCreationH5WebController alloc] init];
-//    CreationModel *model = self.models[indexPath.row];
-//    creationDetailsVC.artworkId = model.ID;
     
-//    creationDetailsVC.title = model.title;
+    CreationModel *model = self.models[indexPath.row];
+    H5VC.artWorkId = model.ID;
+    H5VC.title = model.title;
+    
     [self.navigationController pushViewController:H5VC animated:YES];
     
 }
