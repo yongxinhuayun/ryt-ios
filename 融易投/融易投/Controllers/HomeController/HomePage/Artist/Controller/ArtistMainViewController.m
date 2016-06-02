@@ -7,6 +7,7 @@
 //
 
 #import "ArtistMainViewController.h"
+#import "ArtworkFinishedController.h"
 
 #import "ArtistMainCell.h"
 
@@ -264,6 +265,8 @@ static NSString *ID = @"ArtistMainCell";
 }
 //创作完成事件
 -(void)FinishCreation:(UIButton *)sender indexPath:(NSIndexPath *)indexPath{
+    
+    
     if ([sender.titleLabel.text isEqualToString:@"提交项目"]) {
         //提交项目
         ArtworkListModel *step = self.models[indexPath.row];
@@ -272,7 +275,13 @@ static NSString *ID = @"ArtistMainCell";
         //创作完成
         sender.superview.hidden = YES;
         ArtworkListModel *model = self.models[indexPath.row];
-        [self loadChangeData:model AndStep:@"23" AndIndexPath:indexPath];
+        
+        ArtworkFinishedController * vc = [[ArtworkFinishedController alloc] init];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];
+        
+        [self presentViewController:navController animated:YES completion:nil];
+        
+//        [self loadChangeData:model AndStep:@"23" AndIndexPath:indexPath];
     }
 }
 
@@ -331,7 +340,9 @@ static NSString *ID = @"ArtistMainCell";
         CGPoint currentTouchPosition = [touch locationInView:self.tableView];
         NSIndexPath *indexPath= [self.tableView indexPathForRowAtPoint:currentTouchPosition];
         ArtworkListModel *model = self.models[indexPath.row];
+        
         [self loadChangeData:model AndStep:@"23" AndIndexPath:indexPath];
+        
     }
 }
 
