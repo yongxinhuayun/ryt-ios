@@ -10,4 +10,5 @@
 
 @interface ArtworkFinishedController : UITableViewController
 
+@property(nonatomic,copy) NSString *artworkId;
 @end

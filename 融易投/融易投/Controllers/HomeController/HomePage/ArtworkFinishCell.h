@@ -10,13 +10,14 @@
 
 @protocol ArtworkFinishCellDelegate <NSObject>
 
--(void)deleteImage;
+-(void)deleteImage:(NSIndexPath *)indexPath;
 
 @end
 
 @interface ArtworkFinishCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (nonatomic,strong) NSIndexPath *indexPath;
 @property (weak,nonatomic) id<ArtworkFinishCellDelegate> delegate;
 
 @end

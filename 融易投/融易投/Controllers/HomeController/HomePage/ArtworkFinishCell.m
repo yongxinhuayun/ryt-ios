@@ -16,8 +16,8 @@
 }
 
 - (IBAction)deleteImage:(UIButton *)sender {
-    if ([self.delegate respondsToSelector:@selector(deleteImage)]) {
-        [self.delegate deleteImage];
+    if ([self.delegate respondsToSelector:@selector(deleteImage:)]) {
+        [self.delegate deleteImage:self.indexPath];
     }
 }
 

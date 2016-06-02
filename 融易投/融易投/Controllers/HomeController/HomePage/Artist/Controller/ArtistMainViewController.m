@@ -277,6 +277,7 @@ static NSString *ID = @"ArtistMainCell";
         ArtworkListModel *model = self.models[indexPath.row];
         
         ArtworkFinishedController * vc = [[ArtworkFinishedController alloc] init];
+        vc.artworkId = model.ID;
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];
         
         [self presentViewController:navController animated:YES completion:nil];
