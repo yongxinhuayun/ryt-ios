@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创作详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="shop2016/css/swiper.min.css?t=20160413">
+    <link rel="stylesheet" href="shop2016/css/layout.css?t=20160413">
+</head>
+<body>
+
+<div class="tz2016" style="padding-bottom: 51px">
+
+
+    <!--<div class="header">-->
+    <!--<a href="" class="chevron chevron-left"></a>-->
+    <!--&lt;!&ndash;@TODO&ndash;&gt;-->
+    <!--<h1>周源</h1>-->
+    <!--</div>-->
+    <!--//End--模块--header-->
+    <div class="swiper-container">
+        <div class="swiper-wrapper" id="mainPicture">
+            <!--<div class="swiper-slide"><a href=""><img class="itam-img"-->
+            <!--src="http://s.amazeui.org/media/i/demos/bing-2.jpg" alt=""><span>逐鹿顺意铜雕</span></a>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <!--//End--模块--轮播图-->
+    <div class="man" id="mainInfo">
+        <div class="bd">
+            <div class="page">
+                <!--<div class="mp">-->
+                <!--<div class="pic"><a onclick="redirectUser('{{=it.masterid}}')" ><img src="{{=it.headUrl}}" alt=""></a></div>-->
+                <!--<div class="n-page"><span class="name">{{=it.masterName}}</span><strong></strong><span-->
+                <!--class="rank">{{=it.title}}</span></div>-->
+                <!--</div>-->
+                <!--<div class="t-page">-->
+                <!--<div class="wh">-->
+                <!--<i></i>-->
+                <!--<span>{{=it.brief}}</span>-->
+                <!--<em></em>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div style="border-bottom-width: 0" class="bd">
+            <!--{{ if(it.step==22){ }}-->
+            <!--<div class="predict"><span>延迟至：</span><span>{{=it.auctionStartDatetime}}</span></div>-->
+            <!--{{ } else { }}-->
+            <!--<div class="predict"><span>预计完成时间：</span><span>{{=it.auctionStartDatetime}}</span><span>敬请期待</span>-->
+            <!--</div>-->
+            <!--{{ } }}-->
+        </div>
+    </div>
+
+
+    <!------------------------------------------------------------项目基本信息end---------------------------------------------------------------->
+
+    <!--//End--模块--人物投资信息-->
+    <div class="com-nav">
+        <div style="width: 100%" class="tabs-nav swiper-container-horizontal swiper-container-free-mode">
+            <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                <div name="artWorkProject" class="swiper-slide active swiper-slide-active">项目进度</div>
+                <div name="artWorkView" class="swiper-slide swiper-slide-next">项目详情</div>
+                <div name="artWorkComment" class="swiper-slide">用户评价</div>
+                <div name="artWorkInvestRecord" class="swiper-slide">投资记录</div>
+            </div>
+        </div>
+        <div id="tabs-container" class="swiper-container-horizontal">
+            <div class="swiper-wrapper">
+                <div id="XMJD" class="swiper-slide swiper-slide-active">
+                    <div class="b-box">
+                        <div class="timeline" id="rz">
+                            <!--<div class="title">-->
+                            <!--<div class="l-icon rz-icon"></div>-->
+                            <!--<div class="r-txt">-->
+                            <!--<span class="head">融资</span>-->
+                            <!--<span class="month">{{=getDateStr(it.investStartDatetime)}}</span>-->
+                            <!--<span class="alltime">{{=getTimeStr(it.investStartDatetime)}}</span>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="page">-->
+                            <!--<span class="p-head">{{=(new Date().getTime())-(it.investStartDatetime)}}天前</span>-->
+                            <!--<p>项目审核通过发起融资，共有{{=it.artworkInvestsSize}}位用户投资。</p>-->
+                            <!--</div>-->
+                        </div>
+                        <div class="timeline cz" id="cz">
+                            <!--<div class="title">-->
+                            <!--<div class="l-icon rz-icon"></div>-->
+                            <!--<div class="r-txt">-->
+                            <!--<span class="head">创作</span>-->
+                            <!--<span class="month">{{=getDateStr(it.investEndDatetime)}}</span>-->
+                            <!--<span class="alltime">{{=getTimeStr(it.investEndDatetime)}}</span>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="page">-->
+                            <!--<p>预计作品创作完成还有{{=getDayNums(it.auctionStartDatetime-it.investEndDatetime)}}天。</p>-->
+                            <!--</div>-->
+                        </div>
+                        <div class="timeline dt" id="dt">
+                            <div class="title">
+                                <div class="l-icon rz-icon"></div>
+                                <div class="r-txt">
+                                    <span class="head">动态</span>
+                                </div>
+                            </div>
+                            <!--<div class="page">-->
+                            <!--<div class="tm-box fl wb" style="margin-top:-42px;">-->
+                            <!--<span class="month" style="margin-right:11px;">{{=getDateStr(it.messageList[0].createDatetime)}}</span>-->
+                            <!--<span class="alltime">{{=getTimeStr(it.messageList[0].createDatetime)}}</span>-->
+                            <!--</div>-->
+                            <!--<div class="list">-->
+                            <!--<div class="messageContent">-->
+                            <!--{{=it.messageList[0].content}}-->
+                            <!--</div>-->
+                            <!--<div class="p-all" style="width: 100%;float: left">-->
+                            <!--{{ for (var i = 0 ; i < it.messageList[0].artworkCommentList.length ; i++) {-->
+                            <!--var comment = it.messageList[0].artworkCommentList[i];-->
+                            <!--if( typeof comment.fatherComment != "undefined" && comment.fatherComment-->
+                            <!--!=null){-->
+                            <!--}}-->
+                            <!--<p class="p-list"><a onclick="redirectUser('{{=comment.creator.id}}')">{{if(comment.creator.id== getCurrentUserId()){-->
+                            <!--}}我的{{ } else{ }} {{=comment.creator.name}} {{ } }}</a>回复<a-->
+                            <!--onclick="redirectUser('{{=comment.fatherComment.creator.id}}')">{{=comment.fatherComment.creator.name}}</a>：<span>{{=comment.content}}</span>-->
+                            <!--</p>-->
+                            <!--{{ }else{ }}-->
+                            <!--<p class="p-list"><a onclick="redirectUser('{{=comment.creator.id}}')">{{=comment.creator.name}}</a>：<span>{{=comment.content}}</span>-->
+                            <!--</p>-->
+                            <!--{{ } }}-->
+                            <!--{{ } }}-->
+                            <!--<div class="hideCommentList" style="display: none;">-->
+                            <!--{{ for (var i = 5 ; i < it.messageList[0].artworkCommentList.length ; i++) {-->
+                            <!--var comment = it.messageList[0].artworkCommentList[i];-->
+                            <!--if( typeof comment.fatherComment != "undefined" && comment.fatherComment-->
+                            <!--!=null){-->
+                            <!--}}-->
+                            <!--<p class="p-list"><a onclick="redirectUser('{{=comment.creator.id}}')">{{ if(comment.creator.id== getCurrentUserId())-->
+                            <!--{ }}我的{{ }else{ }} {{=comment.creator.name}} {{ } }}</a>回复<a-->
+                            <!--onclick="redirectUser('{{=comment.fatherComment.creator.id}}')">{{=comment.fatherComment.creator.name}}</a>：<span>{{=comment.content}}</span>-->
+                            <!--</p>-->
+                            <!--{{ }else{ }}-->
+                            <!--<p class="p-list"><a onclick="redirectUser('{{=comment.creator.id}}')">{{=comment.creator.name}}</a>：<span>{{=comment.content}}</span>-->
+                            <!--</p>-->
+                            <!--{{ } }}-->
+                            <!--{{ } }}-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<a id="addList" style="font-size: 14px;color:#666"-->
+                            <!--onclick="$('.hideCommentList').show();$(this).hide();tabsHeight();">查看所有评论</a>-->
+                            <!--</div>-->
+                            <!--<div class="hideMessageList" style="display: none;">-->
+                            <!--{{-->
+                            <!--for(var k = 1 ; k < it.messageList.length ; k++){-->
+                            <!--var message = it.messageList[k];-->
+                            <!--}}-->
+                            <!--&lt;!&ndash;<div class="page">&ndash;&gt;-->
+                            <!--<div class="tm-box fl wb" style="margin-top: 15px;">-->
+                            <!--<span class="month" style="margin-right:11px;">{{=getDateStr(message.createDatetime)}}</span>-->
+                            <!--<span class="alltime">{{=getTimeStr(message.createDatetime)}}</span>-->
+                            <!--</div>-->
+                            <!--<div class="list">-->
+                            <!--<div class="messageContent">-->
+                            <!--{{=message.content}}-->
+                            <!--</div>-->
+                            <!--<div class="p-all" style="width: 100%;float: left">-->
+                            <!--{{ for (var i = 0 ; i < message.artworkCommentList.length ; i++) {-->
+                            <!--var comment = message.artworkCommentList[i];-->
+                            <!--if( typeof comment.fatherComment != "undefined" && comment.fatherComment-->
+                            <!--!=null){-->
+                            <!--}}-->
+                            <!--<p class="p-list"><a onclick="redirectUser('{{=comment.creator.id}}')">{{if(comment.creator.id== getCurrentUserId()){-->
+                            <!--}}我的{{ } else{ }} {{=comment.creator.name}} {{ } }}</a>回复<a-->
+                            <!--onclick="redirectUser('{{=comment.fatherComment.creator.id}}')">{{=comment.fatherComment.creator.name}}</a>：<span>{{=comment.content}}</span>-->
+                            <!--</p>-->
+                            <!--{{ }else{ }}-->
+                            <!--<p class="p-list"><a onclick="redirectUser('{{=comment.creator.id}}')">{{=comment.creator.name}}</a>：<span>{{=comment.content}}</span>-->
+                            <!--</p>-->
+                            <!--{{ } }}-->
+                            <!--{{ } }}-->
+                            <!--<div class="hideCommentList{{=message.id}}" style="display: none;">-->
+                            <!--{{ for (var i = 5 ; i < message.artworkCommentList.length ; i++) {-->
+                            <!--var comment = message.artworkCommentList[i];-->
+                            <!--if( typeof comment.fatherComment != "undefined" && comment.fatherComment-->
+                            <!--!=null){-->
+                            <!--}}-->
+                            <!--<p class="p-list"><a onclick="redirectUser('{{=comment.creator.id}}')">{{if(comment.creator.id==-->
+                            <!--getCurrentUserId()){ }}我的{{ } else{ }} {{=comment.creator.name}} {{-->
+                            <!--} }}</a>回复<a-->
+                            <!--onclick="redirectUser('{{=comment.fatherComment.creator.id}}')">{{=comment.fatherComment.creator.name}}</a>：<span>{{=comment.content}}</span>-->
+                            <!--</p>-->
+                            <!--{{ }else{ }}-->
+                            <!--<p class="p-list"><a onclick="redirectUser('{{=comment.creator.id}}')">{{=comment.creator.name}}</a>：<span>{{=comment.content}}</span>-->
+                            <!--</p>-->
+                            <!--{{ } }}-->
+                            <!--{{ } }}-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<a style="font-size: 14px;color:#666"-->
+                            <!--onclick="$('.hideCommentList{{=message.id}}').show();$(this).hide();tabsHeight();">查看所有评论</a>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--{{ } }}-->
+                            <!--</div>-->
+                            <!--<div class="button">-->
+                            <!--<a onclick="$('.hideMessageList').show();$(this).hide();tabsHeight();">查看更多动态</a>-->
+                            <!--</div>-->
+                            <!--</div>-->
+
+                        </div>
+                        <div class="timeline pm" id="pm">
+                            <!--<div class="title">-->
+                            <!--<div class="l-icon rz-icon"></div>-->
+                            <!--<div class="r-txt">-->
+                            <!--<span class="head">拍卖</span>-->
+                            <!--<span class="month">{{=getDateStr(it.auctionStartDatetime)}}</span>-->
+                            <!--<span class="alltime">08:50{{=getTimeStr(it.auctionStartDatetime)}}</span>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide-next" id="artWorkView">
+                    <div class="details">
+                        <h5>项目介绍</h5>
+                        <div class="content">
+                            <p>{{=it.description}}</p>
+                            {{ for (var i = 0 ; i < it.artworkAttachmentList.length ; i++){ }}
+                            <a href=""><img src="{{=it.artworkAttachmentList[i].fileName}}" alt=""></a>
+                            {{ } }}
+                        </div>
+                    </div>
+                    <div class="details">
+                        <h5>创作过程说明</h5>
+                        <div class="content">
+                            {{=it.make_instru}}
+                        </div>
+                    </div>
+                    <div class="details">
+                        <h5>融资解惑</h5>
+                        <div class="content">
+                            {{=it.financing_aq}}
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="discuss">
+                        <ul id="userComment">
+                            <!--{{-->
+                            <!--for(var i = 0 ; i < it.commentList.length ; i++){-->
+                            <!--var comment = it.commentList[i];-->
+
+                            <!--if( typeof comment.fatherComment != "undefined" && comment.fatherComment!=null){-->
+
+                            <!--}}-->
+                            <!--<li>-->
+                            <!--<div class="pic"><a onclick="redirectUser('{{=comment.creator.id}}')"><img src="{{=comment.creator.pictureUrl}}" alt=""></a></div>-->
+                            <!--<div class="box">-->
+                            <!--<div class="name"><span>{{=comment.creator.name}}</span><span class="time">{{=getTimeStr(comment.createDatetime)}}</span>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash;回复&ndash;&gt;-->
+                            <!--<div class="content">-->
+                            <!--<div class="reply">-->
+                            <!--<p>回复 <a onclick="redirectUser('{{=comment.fatherComment.creator.id}}')">{{=comment.fatherComment.creator.name}}</a>：<span>{{=comment.content}}</span>-->
+                            <!--</p>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</li>-->
+                            <!--{{ }else{ }}-->
+                            <!--<li>-->
+                            <!--<div class="pic"><a onclick="redirectUser('{{=comment.creator.id}}')"><img src="{{=comment.creator.pictureUrl}}" alt=""></a></div>-->
+                            <!--<div class="box">-->
+                            <!--<div class="name"><span>{{=comment.creator.name}}</span><span class="time">{{=getTimeStr(comment.createDatetime)}}</span>-->
+                            <!--</div>-->
+                            <!--<div class="content">{{=comment.content}}</div>-->
+                            <!--</div>-->
+                            <!--</li>-->
+                            <!--{{ } }}-->
+
+                            <!--{{ } }}-->
+
+                        </ul>
+                    </div>
+                </div>
+                <!--投资记录-->
+                <div date="投资记录" class="swiper-slide">
+                    <div class="investor-new">
+                        <div class="title"><strong>投资明星榜</strong></div>
+                        <ul id="topThree">
+                            <!--{{-->
+                            <!--var invest1 = it.topThreeList[1];-->
+                            <!--}}-->
+                            <!--<li class="no2" id="N2">-->
+                            <!--<p class="img"><img src="{{=invest1.creator.pictureUrl}}" alt=""></p>-->
+                            <!--<p class="name">{{=invest1.creator.name}}</p>-->
+                            <!--<p class="time">{{=getTimeStr(invest1.createDatetime)}}</p>-->
+                            <!--<p class="info">投资了</p>-->
+                            <!--<p class="price">¥ {{=parseInt(invest1.price)}}</p>-->
+                            <!--</li>-->
+
+                            <!--{{-->
+                            <!--var invest0 = it.topThreeList[0];-->
+                            <!--}}-->
+                            <!--<li class="no1" id="N1">-->
+                            <!--<p class="img"><img src="{{=invest0.creator.pictureUrl}}" alt=""></p>-->
+                            <!--<p class="name">{{=invest0.creator.name}}</p>-->
+                            <!--<p class="time">{{=getTimeStr(invest0.createDatetime)}}</p>-->
+                            <!--<p class="info">投资了</p>-->
+                            <!--<p class="price">¥ {{=parseInt(invest0.price)}}</p>-->
+                            <!--</li>-->
+                            <!--{{-->
+                            <!--var invest2 = it.topThreeList[2];-->
+                            <!--}}-->
+                            <!--<li class="no3" id="N3">-->
+                            <!--<p class="img"><img src="{{=invest2.creator.pictureUrl}}" alt=""></p>-->
+                            <!--<p class="name">{{=invest2.creator.name}}</p>-->
+                            <!--<p class="time">{{=getTimeStr(invest2.createDatetime)}}</p>-->
+                            <!--<p class="info">投资了</p>-->
+                            <!--<p class="price">¥ {{=parseInt(invest2.price)}}</p>-->
+                            <!--</li>-->
+                        </ul>
+                    </div>
+                    <div class="com-invest">
+                        <div class="title">最新投资记录</div>
+                        <ul id="investList">
+                            <!--{{-->
+                            <!--for (var i = 0 ; i< it.investList ; i++) {-->
+
+                            <!--var investTemp = it.investList[i];-->
+
+                            <!--}}-->
+
+                            <!--<li>-->
+                            <!--<span><img src="{{=investTemp.creator.pictureUrl}}" alt=""><strong>{{=dealUsername(investTemp.creator.username,3,4)}}</strong></span>-->
+                            <!--<span><strong>投资了</strong>&nbsp;<b>{{=parseInt(investTemp.price)}}元</b></span>-->
+                            <!--<span>{{=getTimeStr(investTemp.createDatetime)}}</span>-->
+                            <!--</li>-->
+                            <!--{{ } }}-->
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--//End--模块--滑动导航-->
+</div>
+<!--<div style="z-index: 100" class="down-app">-->
+<!--<div class="logo">-->
+<!--<div class="text">-->
+<!--<p class="fz12">融艺投</p>-->
+<!--<p class="fz10">走进艺术如此容易</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="links">-->
+<!--<a href="" title="下载APP">下载APP</a>-->
+<!--<a href="" title="注 册">注 册</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--//End--底部下载app-->
+<script src="shop2016/js/jquery-1.12.4.min.js"></script>
+<script src="shop2016/js/swiper.min.js"></script>
+<script src="shop2016/js/system.js"></script>
+<script src="shop2016/js/local/common.js"></script>
+<script src="shop2016/js/local/creation/model.js"></script>
+<script src="shop2016/js/local/creation/view.js"></script>
+<script src="shop2016/js/local/creation/controller.js"></script>
+
+<script>
+
+
+    $().ready(function () {
+        initPage();
+        document.addEventListener('touchend', touch, false);
+        function touch() {
+            if ($(document).scrollTop() + $(window).height() >= $(document).height()) {
+                loadDataAction();
+            }
+        }
+    })
+
+
+    swiperContainerOption.onSlideChangeEnd = function () {
+//        获得当前active的对象标识
+        refreshPageEntity();   //刷新当前页面的分页信息，获得列表的页面触发的时候需要从新加载数据（从新获取第一页的数据）
+        var activeTab = $(".active");
+        if (typeof activeTab != "undefined") {
+            //页面总共分为四个部分 1.项目进度，2.项目详情，3.用户评价，4.投资记录，每个部分有个相应的初始化执行方法
+            switch (activeTab.attr("name")) {
+                case "artWorkProject":
+                    artWorkProjectPanelAction();
+                    break;
+                case "artWorkView" :
+                    artWorkViewPanelAction();
+                    break;
+                case "artWorkComment" :
+                    artWorkCommentPanelAction();
+                    break;
+                case "artWorkInvestRecord" :
+                    artWorkInvestRecordPanelAction();
+            }
+        }
+    }
+
+    //从app中获取的服务端请求接口的必要参数  需要传递一个密钥参数
+    function getParamObject(artWorkId,currentUserId,signmsg,timestamp) {
+        //alert(artWorkId+currentUserId+signmsg+timestamp);
+        //var e = document.getElementById("js_shouw_text");
+        //e.options.add(new Option("OC调用JS中的有参方法", 4));
+        
+    }
+    //从app中获取当前用户id
+    function getCurrentUserId() {
+        return getParamObject()["currentUserId"];
+    }
+
+
+    function redirectUser(userid) {
+        //console.log("test");
+        window.location.href = "rongyitou://jumpToUserHome_?imhfp1yr4636pj49"
+    }
+
+    hostName = "http://192.168.1.43";                           //服务器域名
+    RequestUrl = {
+        investTab: "/app/investorArtWorkInvest.do",
+        commentTab: "/app/investorArtWorkComment.do",
+        artWorkViewTab: "/app/investorArtWorkView.do",
+        initPage: "/app/artWorkCreationView.do"
+    }//接口对象
+
+</script>
+
+
+</body>
+</html>

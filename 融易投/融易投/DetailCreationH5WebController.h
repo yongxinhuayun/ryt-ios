@@ -10,4 +10,6 @@
 
 @interface DetailCreationH5WebController : UIViewController
 
+@property (nonatomic ,strong)NSString *artWorkId;
+
 @end

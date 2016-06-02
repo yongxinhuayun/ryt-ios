@@ -7,13 +7,14 @@
 //
 
 #import "DetailCreationH5WebController.h"
-
-#import <WebKit/WebKit.h>
+#import "NSObject+Extension.h"
+#import "PageInfoModel.h"
+#import <MJExtension.h>
+#import "ArtistUserHomeViewController.h"
+#import "CommonUserHomeViewController.h"
 
 @interface DetailCreationH5WebController () <UIWebViewDelegate>
-@property (weak, nonatomic) IBOutlet UIWebView *webView; 
-
-
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 @end
 
 @implementation DetailCreationH5WebController
@@ -30,17 +31,48 @@
 //    NSURL *url = [[NSBundle mainBundle] URLForResource:@"A2创作详情.html" withExtension:nil];
 //    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
     
-    NSString * bundlePath = [[ NSBundle mainBundle] pathForResource: @ "src-H5" ofType :@ "bundle"];
-    NSString *Path= [bundlePath stringByAppendingPathComponent :@"A2.html?wordId=123443535"];
-    NSString *jsPath = [bundlePath stringByAppendingPathComponent:@"shop2016"];
-    NSString *htmlStr = [NSString stringWithContentsOfFile:Path encoding:NSUTF8StringEncoding error:nil];
-    [self.webView loadHTMLString:htmlStr baseURL:[NSURL URLWithString:jsPath]];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"H5/A2.html" withExtension:nil];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+    
+//    NSString * bundlePath = [[ NSBundle mainBundle] pathForResource: @"H5" ofType :@""];
+//    NSString *Path= [bundlePath stringByAppendingPathComponent :@"A2.html"];
+//    NSString *jsPath = [bundlePath stringByAppendingPathComponent:@"H5/shop2016"];
+//    NSString *htmlStr = [NSString stringWithContentsOfFile:Path encoding:NSUTF8StringEncoding error:nil];
+//    [self.webView loadHTMLString:htmlStr baseURL:[NSURL URLWithString:jsPath]];
+    
+
     
     //让webView 自适应
     self.webView.scalesPageToFit = YES;
     
     //设置webView的代理
     self.webView.delegate = self;
+}
+#pragma mark -<UIWebViewDelegate>
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    
+    UserMyModel *model = TakeLoginUserModel;
+    NSString *currentUserId = model.ID;
+    NSString *artWorkId = self.artWorkId;
+    NSString *timestamp = [MyMD5 timestamp];
+    NSString *appkey = MD5key;
+    NSString *signmsg = [NSString stringWithFormat:@"artWorkId=%@&currentUserId=%@&timestamp=%@&key=%@",artWorkId,currentUserId,timestamp,appkey];
+    NSString *signmsgMD5 = [MyMD5 md5:signmsg];
+    
+    
+//    //方式一:给JS传递参数
+//    NSDictionary *json = @{
+//                           @"currentUserId" : currentUserId,
+//                           @"artWorkId" : artWorkId,
+//                           @"timestamp" : timestamp,
+//                           @"signmsg"   : signmsgMD5
+//                           };
+//    NSString *js1 = [NSString stringWithFormat:@"getParamObject1('%@')",json];
+//    [self.webView stringByEvaluatingJavaScriptFromString:js1];
+    
+    //方式二:给JS传递参数
+    NSString *js2 = [NSString stringWithFormat:@"getParamObject2('%@','%@','%@','%@');",artWorkId,currentUserId,signmsgMD5,timestamp];
+    [self.webView stringByEvaluatingJavaScriptFromString:js2];
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
@@ -51,53 +83,88 @@
     NSLog(@"%@",request.URL.absoluteString);
     
     NSString *urlStr = request.URL.absoluteString;
+    //rongyitou://jumpToUserHome_?skldjflksdjflk
     
     NSString *format = @"rongyitou://";
     if ([urlStr hasPrefix:format]) {
-        
-        
         NSString *str = [urlStr substringFromIndex:format.length];
-        
-        
         NSArray *subStrArray = [str componentsSeparatedByString:@"?"];
         NSLog(@"%@",subStrArray);
-        
-        //9.1 此时的方法名是正确的
-        //        (
-        //         "callWithNumber_andContext_",
-        //         "18681537032&love"
-        //         )
+        /*
+         (
+         "jumpToUserHome_",
+         skldjflksdjflk
+         )
+         */
         
         NSString *methodStr = [[subStrArray firstObject] stringByReplacingOccurrencesOfString:@"_" withString:@":"];
         
         //把方法名封装成方法
         SEL selector = NSSelectorFromString(methodStr);
         
-        //9.2 修改参数,因为中间有&符号,所以根据这个符号分离参数
-        
         NSString *paramStr = [subStrArray lastObject];
-        NSArray *subParamArray = [paramStr componentsSeparatedByString:@"&"];
-        NSLog(@"%@",subParamArray);
-        //        (
-        //        18681537032,
-        //        love
-        //        )
+        NSLog(@"%@",paramStr);
         
-        //        [self performSelector:selector withObject:[subParamArray firstObject] withObject:[subParamArray lastObject]];
+        //skldjflksdjflk
         
-        //9.3 运行程序,发现能传递2个参数,并且执行额方法
-        //但是当html中传递的是---方法名是传递2个参数的方法,后面传递的是一个参数,不能运行成功
-        //所以添加容错处理
-        
-        if (subParamArray.count == 2) {
-            [self performSelector:selector withObject:[subParamArray firstObject] withObject:[subParamArray lastObject]];
-        }else{
-            [self performSelector:selector withObject:[subParamArray firstObject] withObject:nil];
-        }
+        //分类中可以传递多个参数,这里不需要,因为主需要传递一个参数
+//        [self performSelector:selector withObjects:subParamArray];
+        [self performSelector:selector withObject:paramStr withObject:nil];
         
         return NO;
     }
+    
     return YES;
+}
+
+-(void)jumpToUserHome:(NSString *)userId
+{
+    NSLog(@"跳转到%@主页",userId);
+    
+    // 3.设置请求体
+    NSDictionary *json = @{
+                           @"userId":userId
+                           };
+    
+    NSString *url = @"user.do";
+    
+    [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
+        
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
+        
+        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+        
+        PageInfoModel *model = [PageInfoModel mj_objectWithKeyValues:modelDict[@"data"]];
+        
+
+        
+        //保存模型,赋值给控制器
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            //艺术家用户
+            if (model.user.master) {
+                
+                ArtistUserHomeViewController *artistHomeVC = [[ArtistUserHomeViewController alloc] init];
+                
+                artistHomeVC.userId = userId;
+                artistHomeVC.title = model.user.name;
+                
+                [self.navigationController pushViewController:artistHomeVC animated:YES];
+                
+            }else{ //普通用户
+                
+                CommonUserHomeViewController *myHomeVC = [[CommonUserHomeViewController alloc] init];
+                
+                myHomeVC.userId = userId;
+                myHomeVC.title = model.user.name;
+                
+                [self.navigationController pushViewController:myHomeVC animated:YES];
+            }
+            
+        }];
+        
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
