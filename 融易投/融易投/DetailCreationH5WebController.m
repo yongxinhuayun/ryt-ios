@@ -31,7 +31,7 @@
 //    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
     
     NSString * bundlePath = [[ NSBundle mainBundle] pathForResource: @ "src-H5" ofType :@ "bundle"];
-    NSString *Path= [bundlePath stringByAppendingPathComponent :@"A2.html"];
+    NSString *Path= [bundlePath stringByAppendingPathComponent :@"A2.html?wordId=123443535"];
     NSString *jsPath = [bundlePath stringByAppendingPathComponent:@"shop2016"];
     NSString *htmlStr = [NSString stringWithContentsOfFile:Path encoding:NSUTF8StringEncoding error:nil];
     [self.webView loadHTMLString:htmlStr baseURL:[NSURL URLWithString:jsPath]];

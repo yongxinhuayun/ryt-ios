@@ -32,6 +32,7 @@
 #import "ReleaseViewController.h"
 
 #import "FocusMyViewController.h"
+#import "FansMyViewController.h"
 
 #import "MeHeaderView.h"
 
@@ -204,9 +205,21 @@ static BOOL firstUpdate = YES;
     
     self.meheaderView.fansBlcok = ^{
         
-//        FocusViewController *focusVC = [[FocusViewController alloc] init];
-//        [weakself.navigationController pushViewController:focusVC animated:YES];
+        RYTLoginManager *manger = [RYTLoginManager shareInstance];
         
+        if ([manger isVisitor]) {
+            
+            [manger showLoginViewIfNeed];
+            
+            return;
+        }
+        
+        //从我的跳过去的userId就是当前登录的用户
+        FansMyViewController *fansVC = [[FansMyViewController alloc] init];
+        UserMyModel *model = TakeLoginUserModel;
+        fansVC.userId =  model.ID;
+        
+        [weakself.navigationController pushViewController:fansVC animated:YES];
     };
     
 }

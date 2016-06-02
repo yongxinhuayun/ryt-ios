@@ -21,6 +21,7 @@
 -(void)awakeFromNib{
 
     [self FocusBtnClick:nil];
+    [self FansBtnClick:nil];
 }
 
 -(void)setModel:(PageInfoModel *)model{

@@ -20,7 +20,6 @@
 		212EEE8F1CE048C500F94B30 /* CommonUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE8C1CE048C500F94B30 /* CommonUserHomeViewController.m */; };
 		2137E9A11CFC390900F201D6 /* DetailCreationH5WebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2137E99F1CFC390900F201D6 /* DetailCreationH5WebController.m */; };
 		2137E9A21CFC390900F201D6 /* DetailCreationH5WebController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2137E9A01CFC390900F201D6 /* DetailCreationH5WebController.xib */; };
-		2137EB0C1CFD363700F201D6 /* FocusBasicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2137EB0B1CFD363700F201D6 /* FocusBasicTableViewController.m */; };
 		215C965E1CED56AC0084C319 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 215C965A1CED56AC0084C319 /* libWeChatSDK.a */; };
 		215C965F1CED56AC0084C319 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 215C965B1CED56AC0084C319 /* read_me.txt */; };
 		215C96631CED56FD0084C319 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215C96611CED56FD0084C319 /* TencentOpenAPI.framework */; };
@@ -216,6 +215,17 @@
 		21D54B8D1CB660970088D386 /* ArtistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D54B8B1CB660970088D386 /* ArtistTableViewCell.xib */; };
 		21D54B921CB739E60088D386 /* AuctionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D54B911CB739E60088D386 /* AuctionTableViewCell.xib */; };
 		21D54BCF1CB796CD0088D386 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21D54BCE1CB796CD0088D386 /* messages.plist */; };
+		21ECC1FE1CFFC5460024EFD4 /* FocusBasicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ECC1F31CFFC5460024EFD4 /* FocusBasicTableViewController.m */; };
+		21ECC1FF1CFFC5460024EFD4 /* FocusMyArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ECC1F51CFFC5460024EFD4 /* FocusMyArtistTableViewController.m */; };
+		21ECC2001CFFC5460024EFD4 /* FocusMyUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ECC1F71CFFC5460024EFD4 /* FocusMyUserTableViewController.m */; };
+		21ECC2011CFFC5460024EFD4 /* FocusMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ECC1F91CFFC5460024EFD4 /* FocusMyViewController.m */; };
+		21ECC2021CFFC5460024EFD4 /* FocusMyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ECC1FC1CFFC5460024EFD4 /* FocusMyTableViewCell.m */; };
+		21ECC2031CFFC5460024EFD4 /* FocusMyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21ECC1FD1CFFC5460024EFD4 /* FocusMyTableViewCell.xib */; };
+		21ECC2061CFFC5A40024EFD4 /* FansMyArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ECC2051CFFC5A40024EFD4 /* FansMyArtistTableViewController.m */; };
+		21ECC2091CFFC5F00024EFD4 /* FansMyUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ECC2081CFFC5F00024EFD4 /* FansMyUserTableViewController.m */; };
+		21ECC20C1CFFC6200024EFD4 /* FansMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ECC20B1CFFC6200024EFD4 /* FansMyViewController.m */; };
+		21ECC2101CFFC7B80024EFD4 /* FansTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ECC20E1CFFC7B80024EFD4 /* FansTableViewCell.m */; };
+		21ECC2111CFFC7B80024EFD4 /* FansTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21ECC20F1CFFC7B80024EFD4 /* FansTableViewCell.xib */; };
 		8177F8DB1CE4DC0F005D2259 /* TimeAxisTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8177F8DA1CE4DC0F005D2259 /* TimeAxisTableViewController.m */; };
 		8177F8E41CE4E1CD005D2259 /* CreationTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8177F8E21CE4E1CD005D2259 /* CreationTimeCell.m */; };
 		8177F8E51CE4E1CD005D2259 /* CreationTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8177F8E31CE4E1CD005D2259 /* CreationTimeCell.xib */; };
@@ -585,11 +595,6 @@
 		E2D524301CDF958C0024887A /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D5242C1CDF958C0024887A /* NotificationController.m */; };
 		E2D524311CDF958C0024887A /* NotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D5242E1CDF958C0024887A /* NotificationTableViewCell.m */; };
 		E2D524321CDF958C0024887A /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D5242F1CDF958C0024887A /* NotificationTableViewCell.xib */; };
-		E2D5243D1CDF99430024887A /* FocusMyArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524381CDF99430024887A /* FocusMyArtistTableViewController.m */; };
-		E2D5243E1CDF99430024887A /* FocusMyUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D5243A1CDF99430024887A /* FocusMyUserTableViewController.m */; };
-		E2D5243F1CDF99430024887A /* FocusMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D5243C1CDF99430024887A /* FocusMyViewController.m */; };
-		E2D524431CDF994C0024887A /* FocusMyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524411CDF994C0024887A /* FocusMyTableViewCell.m */; };
-		E2D524441CDF994C0024887A /* FocusMyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D524421CDF994C0024887A /* FocusMyTableViewCell.xib */; };
 		E2D5244B1CDF99C70024887A /* ApplyforArtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D524491CDF99C70024887A /* ApplyforArtViewController.m */; };
 		E2D5244C1CDF99C70024887A /* ApplyforArtViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D5244A1CDF99C70024887A /* ApplyforArtViewController.storyboard */; };
 		E2D524601CDF9B6C0024887A /* PayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D5245E1CDF9B6C0024887A /* PayTableViewController.m */; };
@@ -707,8 +712,6 @@
 		2137E99E1CFC390900F201D6 /* DetailCreationH5WebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCreationH5WebController.h; sourceTree = "<group>"; };
 		2137E99F1CFC390900F201D6 /* DetailCreationH5WebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCreationH5WebController.m; sourceTree = "<group>"; };
 		2137E9A01CFC390900F201D6 /* DetailCreationH5WebController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCreationH5WebController.xib; sourceTree = "<group>"; };
-		2137EB0A1CFD363700F201D6 /* FocusBasicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusBasicTableViewController.h; sourceTree = "<group>"; };
-		2137EB0B1CFD363700F201D6 /* FocusBasicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusBasicTableViewController.m; sourceTree = "<group>"; };
 		215C965A1CED56AC0084C319 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		215C965B1CED56AC0084C319 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
 		215C965C1CED56AC0084C319 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -1047,6 +1050,26 @@
 		21D54B8B1CB660970088D386 /* ArtistTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistTableViewCell.xib; sourceTree = "<group>"; };
 		21D54B911CB739E60088D386 /* AuctionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionTableViewCell.xib; sourceTree = "<group>"; };
 		21D54BCE1CB796CD0088D386 /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
+		21ECC1F21CFFC5460024EFD4 /* FocusBasicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusBasicTableViewController.h; sourceTree = "<group>"; };
+		21ECC1F31CFFC5460024EFD4 /* FocusBasicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusBasicTableViewController.m; sourceTree = "<group>"; };
+		21ECC1F41CFFC5460024EFD4 /* FocusMyArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusMyArtistTableViewController.h; sourceTree = "<group>"; };
+		21ECC1F51CFFC5460024EFD4 /* FocusMyArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusMyArtistTableViewController.m; sourceTree = "<group>"; };
+		21ECC1F61CFFC5460024EFD4 /* FocusMyUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusMyUserTableViewController.h; sourceTree = "<group>"; };
+		21ECC1F71CFFC5460024EFD4 /* FocusMyUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusMyUserTableViewController.m; sourceTree = "<group>"; };
+		21ECC1F81CFFC5460024EFD4 /* FocusMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusMyViewController.h; sourceTree = "<group>"; };
+		21ECC1F91CFFC5460024EFD4 /* FocusMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusMyViewController.m; sourceTree = "<group>"; };
+		21ECC1FB1CFFC5460024EFD4 /* FocusMyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusMyTableViewCell.h; sourceTree = "<group>"; };
+		21ECC1FC1CFFC5460024EFD4 /* FocusMyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusMyTableViewCell.m; sourceTree = "<group>"; };
+		21ECC1FD1CFFC5460024EFD4 /* FocusMyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FocusMyTableViewCell.xib; sourceTree = "<group>"; };
+		21ECC2041CFFC5A40024EFD4 /* FansMyArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FansMyArtistTableViewController.h; sourceTree = "<group>"; };
+		21ECC2051CFFC5A40024EFD4 /* FansMyArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FansMyArtistTableViewController.m; sourceTree = "<group>"; };
+		21ECC2071CFFC5F00024EFD4 /* FansMyUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FansMyUserTableViewController.h; sourceTree = "<group>"; };
+		21ECC2081CFFC5F00024EFD4 /* FansMyUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FansMyUserTableViewController.m; sourceTree = "<group>"; };
+		21ECC20A1CFFC6200024EFD4 /* FansMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FansMyViewController.h; sourceTree = "<group>"; };
+		21ECC20B1CFFC6200024EFD4 /* FansMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FansMyViewController.m; sourceTree = "<group>"; };
+		21ECC20D1CFFC7B80024EFD4 /* FansTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FansTableViewCell.h; sourceTree = "<group>"; };
+		21ECC20E1CFFC7B80024EFD4 /* FansTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FansTableViewCell.m; sourceTree = "<group>"; };
+		21ECC20F1CFFC7B80024EFD4 /* FansTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FansTableViewCell.xib; sourceTree = "<group>"; };
 		8177F8D91CE4DC0F005D2259 /* TimeAxisTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeAxisTableViewController.h; sourceTree = "<group>"; };
 		8177F8DA1CE4DC0F005D2259 /* TimeAxisTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeAxisTableViewController.m; sourceTree = "<group>"; };
 		8177F8E11CE4E1CD005D2259 /* CreationTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreationTimeCell.h; sourceTree = "<group>"; };
@@ -1523,15 +1546,6 @@
 		E2D5242D1CDF958C0024887A /* NotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationTableViewCell.h; sourceTree = "<group>"; };
 		E2D5242E1CDF958C0024887A /* NotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationTableViewCell.m; sourceTree = "<group>"; };
 		E2D5242F1CDF958C0024887A /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
-		E2D524371CDF99430024887A /* FocusMyArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusMyArtistTableViewController.h; sourceTree = "<group>"; };
-		E2D524381CDF99430024887A /* FocusMyArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusMyArtistTableViewController.m; sourceTree = "<group>"; };
-		E2D524391CDF99430024887A /* FocusMyUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusMyUserTableViewController.h; sourceTree = "<group>"; };
-		E2D5243A1CDF99430024887A /* FocusMyUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusMyUserTableViewController.m; sourceTree = "<group>"; };
-		E2D5243B1CDF99430024887A /* FocusMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusMyViewController.h; sourceTree = "<group>"; };
-		E2D5243C1CDF99430024887A /* FocusMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusMyViewController.m; sourceTree = "<group>"; };
-		E2D524401CDF994C0024887A /* FocusMyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusMyTableViewCell.h; sourceTree = "<group>"; };
-		E2D524411CDF994C0024887A /* FocusMyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusMyTableViewCell.m; sourceTree = "<group>"; };
-		E2D524421CDF994C0024887A /* FocusMyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FocusMyTableViewCell.xib; sourceTree = "<group>"; };
 		E2D524481CDF99C70024887A /* ApplyforArtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyforArtViewController.h; sourceTree = "<group>"; };
 		E2D524491CDF99C70024887A /* ApplyforArtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyforArtViewController.m; sourceTree = "<group>"; };
 		E2D5244A1CDF99C70024887A /* ApplyforArtViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ApplyforArtViewController.storyboard; sourceTree = "<group>"; };
@@ -2451,6 +2465,72 @@
 			name = "艺术家排行";
 			sourceTree = "<group>";
 		};
+		21ECC1ED1CFFC5460024EFD4 /* HomeFans */ = {
+			isa = PBXGroup;
+			children = (
+				21ECC1EE1CFFC5460024EFD4 /* Controller */,
+				21ECC1EF1CFFC5460024EFD4 /* View */,
+			);
+			path = HomeFans;
+			sourceTree = "<group>";
+		};
+		21ECC1EE1CFFC5460024EFD4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				21ECC2041CFFC5A40024EFD4 /* FansMyArtistTableViewController.h */,
+				21ECC2051CFFC5A40024EFD4 /* FansMyArtistTableViewController.m */,
+				21ECC2071CFFC5F00024EFD4 /* FansMyUserTableViewController.h */,
+				21ECC2081CFFC5F00024EFD4 /* FansMyUserTableViewController.m */,
+				21ECC20A1CFFC6200024EFD4 /* FansMyViewController.h */,
+				21ECC20B1CFFC6200024EFD4 /* FansMyViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		21ECC1EF1CFFC5460024EFD4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21ECC20D1CFFC7B80024EFD4 /* FansTableViewCell.h */,
+				21ECC20E1CFFC7B80024EFD4 /* FansTableViewCell.m */,
+				21ECC20F1CFFC7B80024EFD4 /* FansTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		21ECC1F01CFFC5460024EFD4 /* HomeFocus */ = {
+			isa = PBXGroup;
+			children = (
+				21ECC1F11CFFC5460024EFD4 /* Controller */,
+				21ECC1FA1CFFC5460024EFD4 /* View */,
+			);
+			path = HomeFocus;
+			sourceTree = "<group>";
+		};
+		21ECC1F11CFFC5460024EFD4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				21ECC1F21CFFC5460024EFD4 /* FocusBasicTableViewController.h */,
+				21ECC1F31CFFC5460024EFD4 /* FocusBasicTableViewController.m */,
+				21ECC1F41CFFC5460024EFD4 /* FocusMyArtistTableViewController.h */,
+				21ECC1F51CFFC5460024EFD4 /* FocusMyArtistTableViewController.m */,
+				21ECC1F61CFFC5460024EFD4 /* FocusMyUserTableViewController.h */,
+				21ECC1F71CFFC5460024EFD4 /* FocusMyUserTableViewController.m */,
+				21ECC1F81CFFC5460024EFD4 /* FocusMyViewController.h */,
+				21ECC1F91CFFC5460024EFD4 /* FocusMyViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		21ECC1FA1CFFC5460024EFD4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21ECC1FB1CFFC5460024EFD4 /* FocusMyTableViewCell.h */,
+				21ECC1FC1CFFC5460024EFD4 /* FocusMyTableViewCell.m */,
+				21ECC1FD1CFFC5460024EFD4 /* FocusMyTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B084BF39CB86E631C5631222 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -3334,43 +3414,8 @@
 				E2D5247B1CDF9C0C0024887A /* Address */,
 				E2D5244D1CDF9AE10024887A /* Wallet */,
 				E2D524451CDF99A10024887A /* ApplyForArt */,
-				E2D524341CDF98CD0024887A /* Fans */,
 			);
 			path = HomeController;
-			sourceTree = "<group>";
-		};
-		E2D524341CDF98CD0024887A /* Fans */ = {
-			isa = PBXGroup;
-			children = (
-				E2D524351CDF98F70024887A /* Controller */,
-				E2D524361CDF98F70024887A /* View */,
-			);
-			path = Fans;
-			sourceTree = "<group>";
-		};
-		E2D524351CDF98F70024887A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				E2D5243B1CDF99430024887A /* FocusMyViewController.h */,
-				E2D5243C1CDF99430024887A /* FocusMyViewController.m */,
-				2137EB0A1CFD363700F201D6 /* FocusBasicTableViewController.h */,
-				2137EB0B1CFD363700F201D6 /* FocusBasicTableViewController.m */,
-				E2D524371CDF99430024887A /* FocusMyArtistTableViewController.h */,
-				E2D524381CDF99430024887A /* FocusMyArtistTableViewController.m */,
-				E2D524391CDF99430024887A /* FocusMyUserTableViewController.h */,
-				E2D5243A1CDF99430024887A /* FocusMyUserTableViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		E2D524361CDF98F70024887A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E2D524401CDF994C0024887A /* FocusMyTableViewCell.h */,
-				E2D524411CDF994C0024887A /* FocusMyTableViewCell.m */,
-				E2D524421CDF994C0024887A /* FocusMyTableViewCell.xib */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		E2D524451CDF99A10024887A /* ApplyForArt */ = {
@@ -3530,6 +3575,8 @@
 			children = (
 				E2D524FB1CDFA2B90024887A /* HomePageController */,
 				E2D524FC1CDFA2B90024887A /* HomePageView */,
+				21ECC1ED1CFFC5460024EFD4 /* HomeFans */,
+				21ECC1F01CFFC5460024EFD4 /* HomeFocus */,
 				E2D524D81CDFA1850024887A /* Editing */,
 				21C413121CE2D23500F1029C /* Artist */,
 				E2D5248D1CDF9EBE0024887A /* NormalUser */,
@@ -4173,6 +4220,7 @@
 				21C4144D1CE2D2B200F1029C /* ReleaseVideoViewController.xib in Resources */,
 				E22892A01CDF03F400483F18 /* d_nu@2x.png in Resources */,
 				E2322B141CEC0AAB002730E7 /* NormalCommentsCell.xib in Resources */,
+				21ECC2031CFFC5460024EFD4 /* FocusMyTableViewCell.xib in Resources */,
 				21C414161CE2D23500F1029C /* picture3.png in Resources */,
 				21D54B921CB739E60088D386 /* AuctionTableViewCell.xib in Resources */,
 				2137E9A21CFC390900F201D6 /* DetailCreationH5WebController.xib in Resources */,
@@ -4197,7 +4245,6 @@
 				E22893CD1CDF049500483F18 /* lxh_xiudada.png in Resources */,
 				E22893671CDF049500483F18 /* lxh_beicui.gif in Resources */,
 				E22893B01CDF049500483F18 /* lxh_qiaoqiao@2x.png in Resources */,
-				E2D524441CDF994C0024887A /* FocusMyTableViewCell.xib in Resources */,
 				E22893B31CDF049500483F18 /* lxh_qiubite@2x.png in Resources */,
 				E2487B151CEAA63300484C5D /* TopRecordTCell.xib in Resources */,
 				E22892991CDF03F400483F18 /* d_kelian@2x.png in Resources */,
@@ -4233,6 +4280,7 @@
 				2168EAE71CBFA05000B7E037 /* FinanceDetailSecondCell.xib in Resources */,
 				E228938B1CDF049500483F18 /* lxh_holdzhu.gif in Resources */,
 				E22892B11CDF03F400483F18 /* d_weiqu@2x.png in Resources */,
+				21ECC2111CFFC7B80024EFD4 /* FansTableViewCell.xib in Resources */,
 				E2729AF71CD8B983006C0617 /* RecordTableViewCell.xib in Resources */,
 				E22892BC1CDF03F400483F18 /* d_zuiyou@2x.png in Resources */,
 				E2D522731CDF90680024887A /* WeiXinController.xib in Resources */,
@@ -4453,6 +4501,7 @@
 				E2D522371CDF8C5F0024887A /* ArtworkAttachmentListModel.m in Sources */,
 				212EEE8D1CE048C500F94B30 /* CommonUserHeaderView.m in Sources */,
 				2168EAE31CBFA05000B7E037 /* FinanceDetailFirstCell.m in Sources */,
+				21ECC1FE1CFFC5460024EFD4 /* FocusBasicTableViewController.m in Sources */,
 				E2322B1A1CEC24FE002730E7 /* MessageResultModel.m in Sources */,
 				E2F1C81C1CE983B000D4B1B4 /* DetailFinanceViewController.m in Sources */,
 				21C4140D1CE2D23500F1029C /* WHC_PhotoListCell.m in Sources */,
@@ -4475,7 +4524,6 @@
 				218D2B3C1CACB2F9004553B9 /* CommonNavigationController.m in Sources */,
 				E2D524E61CDFA19A0024887A /* EditingNickNameViewController.m in Sources */,
 				E2D5221D1CDF8A3A0024887A /* HMEmotionAttachment.m in Sources */,
-				E2D5243D1CDF99430024887A /* FocusMyArtistTableViewController.m in Sources */,
 				E2D521AF1CDF783B0024887A /* MasterMyModel.m in Sources */,
 				21C413FE1CE2D23500F1029C /* JKAssetsCollectionFooterView.m in Sources */,
 				E2322B0E1CEC07CB002730E7 /* CommentsTableController.m in Sources */,
@@ -4492,6 +4540,7 @@
 				E2D521B21CDF783B0024887A /* UserMyModel.m in Sources */,
 				E266FFB01CF5521800006EA2 /* MoreInvestorCell.m in Sources */,
 				E22890411CDEFDD900483F18 /* UIView+Frame.m in Sources */,
+				21ECC2091CFFC5F00024EFD4 /* FansMyUserTableViewController.m in Sources */,
 				21C413DE1CE2D23500F1029C /* ArtistMainViewController.m in Sources */,
 				21C413E91CE2D23500F1029C /* AGImagePickerController.m in Sources */,
 				E2D5249E1CDF9F0B0024887A /* TouGuoViewController.m in Sources */,
@@ -4504,6 +4553,7 @@
 				21D54B1F1CB4D99E0088D386 /* CreationTableViewCell.m in Sources */,
 				218A3EE91CEC70D300700283 /* MeTableViewCell.m in Sources */,
 				E2F1C8061CE5C3F800D4B1B4 /* Progress.m in Sources */,
+				21ECC2001CFFC5460024EFD4 /* FocusMyUserTableViewController.m in Sources */,
 				E22A9A221CED59E2002520E7 /* PrivateLetterCell.m in Sources */,
 				E2D5227E1CDF90FD0024887A /* CompleteUserInfoController.m in Sources */,
 				E22890381CDEFDD900483F18 /* NSDate+Interval.m in Sources */,
@@ -4543,6 +4593,7 @@
 				21C413E01CE2D23500F1029C /* ArtistWorksViewController.m in Sources */,
 				E2D522901CDF91AA0024887A /* LognController.m in Sources */,
 				21C413E31CE2D23500F1029C /* ReleasePicViewController.m in Sources */,
+				21ECC20C1CFFC6200024EFD4 /* FansMyViewController.m in Sources */,
 				E228903A1CDEFDD900483F18 /* NSString+Emoji.m in Sources */,
 				21C414471CE2D23500F1029C /* ArtistWorksCell.m in Sources */,
 				21AB0ABF1CC50A4D00B7BA03 /* JPSlideBar+ScrollViewDelegate.m in Sources */,
@@ -4551,6 +4602,7 @@
 				E2D812FD1CD0780100A52172 /* TopView.m in Sources */,
 				E228903D1CDEFDD900483F18 /* UIImage+Antialias.m in Sources */,
 				2187B9431CCDF14000B92435 /* UIScrollView+ty_swizzle.m in Sources */,
+				21ECC2021CFFC5460024EFD4 /* FocusMyTableViewCell.m in Sources */,
 				21C413EE1CE2D23500F1029C /* AGIPCGridItem.m in Sources */,
 				E2D525071CDFA2FF0024887A /* IdeaRetroactionViewController.m in Sources */,
 				21C4143B1CE2D23500F1029C /* imageViewController.m in Sources */,
@@ -4566,7 +4618,6 @@
 				E2F281F31CE55E4600E10330 /* PMTimeCell.m in Sources */,
 				21C4143E1CE2D23500F1029C /* ReleaseViewController.m in Sources */,
 				21C4141F1CE2D23500F1029C /* ShowImageView.m in Sources */,
-				E2D524431CDF994C0024887A /* FocusMyTableViewCell.m in Sources */,
 				21C4143A1CE2D23500F1029C /* HMComposeViewController.m in Sources */,
 				2168EAE61CBFA05000B7E037 /* FinanceDetailSecondCell.m in Sources */,
 				21D54B8C1CB660970088D386 /* ArtistTableViewCell.m in Sources */,
@@ -4577,7 +4628,6 @@
 				E2D521B11CDF783B0024887A /* UserBriefMyModel.m in Sources */,
 				21C4142A1CE2D23500F1029C /* DSComposePhotoViewCell.m in Sources */,
 				2187B93F1CCDF14000B92435 /* TYBasePageTabBar.m in Sources */,
-				E2D5243E1CDF99430024887A /* FocusMyUserTableViewController.m in Sources */,
 				E2D557BE1CD21D04003F0F4A /* DetailCreationViewController.m in Sources */,
 				E228904B1CDEFE4400483F18 /* HttpRequstTool.m in Sources */,
 				21C413F91CE2D23500F1029C /* LocationViewController.m in Sources */,
@@ -4590,6 +4640,7 @@
 				21C4142B1CE2D23500F1029C /* HMEmotionGridView.m in Sources */,
 				E2729AF61CD8B983006C0617 /* RecordTableViewCell.m in Sources */,
 				21AB0AE21CC5152C00B7BA03 /* TopTabMenuItem.m in Sources */,
+				21ECC1FF1CFFC5460024EFD4 /* FocusMyArtistTableViewController.m in Sources */,
 				E228903B1CDEFDD900483F18 /* NSString+Extension.m in Sources */,
 				21C413FD1CE2D23500F1029C /* JKAssets.m in Sources */,
 				E2D522841CDF914A0024887A /* RegViewController.m in Sources */,
@@ -4614,7 +4665,6 @@
 				21C413F61CE2D23500F1029C /* ImagePickerChooseCell.m in Sources */,
 				E2D524E81CDFA19A0024887A /* EditingSignatureViewController.m in Sources */,
 				21C413DF1CE2D23500F1029C /* ArtistUserHomeViewController.m in Sources */,
-				E2D5243F1CDF99430024887A /* FocusMyViewController.m in Sources */,
 				E2D5221C1CDF8A3A0024887A /* HMEmotion.m in Sources */,
 				211C394A1CB36B1500DAD827 /* FinanceTableViewCell.m in Sources */,
 				21C414031CE2D23500F1029C /* JKImagePickerController.m in Sources */,
@@ -4635,6 +4685,7 @@
 				E2F281F81CE565A500E10330 /* FinanceTimeCell.m in Sources */,
 				21C08BC81CB01BC3002328D3 /* SettingTableViewController.m in Sources */,
 				E2DDB0E81CAB66DB007438E4 /* main.m in Sources */,
+				21ECC2011CFFC5460024EFD4 /* FocusMyViewController.m in Sources */,
 				21AB0B811CC787C700B7BA03 /* InvestorArtWorkViewController.m in Sources */,
 				21C414361CE2D23500F1029C /* ComposeProjectViewController.m in Sources */,
 				E2D524791CDF9BB00024887A /* WithdrawTableViewController.m in Sources */,
@@ -4647,6 +4698,7 @@
 				E228903E1CDEFDD900483F18 /* UIImage+Image.m in Sources */,
 				E2729AFE1CD8B9A7006C0617 /* UserCommonCell.m in Sources */,
 				E2487B141CEAA63300484C5D /* TopRecordTCell.m in Sources */,
+				21ECC2101CFFC7B80024EFD4 /* FansTableViewCell.m in Sources */,
 				215C96CE1CEEAF090084C319 /* NewFeatureCell.m in Sources */,
 				21AB0AC71CC50A4D00B7BA03 /* JPTableViewCell.m in Sources */,
 				21C413EB1CE2D23500F1029C /* AGIPCAlbumsController.m in Sources */,
@@ -4679,12 +4731,12 @@
 				E2D5225C1CDF8CEC0024887A /* ArtworkMessageCreatorModel.m in Sources */,
 				E2D5219E1CDF77C00024887A /* FromUserModel.m in Sources */,
 				21AB0AA31CC4F69C00B7BA03 /* XiangqingViewController.m in Sources */,
-				2137EB0C1CFD363700F201D6 /* FocusBasicTableViewController.m in Sources */,
 				21C413E51CE2D23500F1029C /* ArtWorkIdModel.m in Sources */,
 				218D2B461CACB325004553B9 /* MainTableViewController.m in Sources */,
 				E22890371CDEFDD900483F18 /* NSCalendar+Init.m in Sources */,
 				E2D5225B1CDF8CEC0024887A /* ArtworkCommentListModel.m in Sources */,
 				21C414311CE2D23500F1029C /* HMEmotionToolbar.m in Sources */,
+				21ECC2061CFFC5A40024EFD4 /* FansMyArtistTableViewController.m in Sources */,
 				E2D522491CDF8C6E0024887A /* authorModel.m in Sources */,
 				E2D813021CD09A7800A52172 /* CycleView.m in Sources */,
 				2187B9421CCDF14000B92435 /* TYTitlePageTabBar.m in Sources */,

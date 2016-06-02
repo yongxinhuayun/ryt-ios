@@ -18,6 +18,7 @@
 #import "PrivateLetterViewController.h"
 #import "EditingInfoViewController.h"
 #import "FocusMyViewController.h"
+#import "FansMyViewController.h"
 #import <MJExtension.h>
 
 #import "PageInfoModel.h"
@@ -181,9 +182,60 @@
     
     self.meheaderView.fansBlcok = ^{
         
-        //        FocusViewController *focusVC = [[FocusViewController alloc] init];
-        //        [weakself.navigationController pushViewController:focusVC animated:YES];
+        RYTLoginManager *manger = [RYTLoginManager shareInstance];
         
+        if ([manger isVisitor]) {
+            
+            [manger showLoginViewIfNeed];
+            
+            return;
+        }
+        
+        if ([[[RYTLoginManager shareInstance] takeUser].ID isEqualToString:weakself.userId]) {
+            
+            //从我的跳过去的userId就是当前登录的用户
+            FansMyViewController *fansVC = [[FansMyViewController alloc] init];
+            UserMyModel *model = TakeLoginUserModel;
+            fansVC.userId =  model.ID;
+            [weakself.navigationController pushViewController:fansVC animated:YES];
+            
+        }else{
+            
+            //从其他用户跳过去
+             FansMyViewController *fansVC = [[FansMyViewController alloc] init];
+            fansVC.userId =  weakself.userId;
+            [weakself.navigationController pushViewController:fansVC animated:YES];
+            
+        }
+    };
+    
+    self.HeaderView.fansBlcok = ^{
+        
+        RYTLoginManager *manger = [RYTLoginManager shareInstance];
+        
+        if ([manger isVisitor]) {
+            
+            [manger showLoginViewIfNeed];
+            
+            return;
+        }
+        
+        if ([[[RYTLoginManager shareInstance] takeUser].ID isEqualToString:weakself.userId]) {
+            
+            //从我的跳过去的userId就是当前登录的用户
+            FansMyViewController *fansVC = [[FansMyViewController alloc] init];
+            UserMyModel *model = TakeLoginUserModel;
+            fansVC.userId =  model.ID;
+            [weakself.navigationController pushViewController:fansVC animated:YES];
+            
+        }else{
+            
+            ///从其他用户跳过去
+            FansMyViewController *fansVC = [[FansMyViewController alloc] init];
+            fansVC.userId =  weakself.userId;
+            [weakself.navigationController pushViewController:fansVC animated:YES];
+            
+        }
     };
     
 }
