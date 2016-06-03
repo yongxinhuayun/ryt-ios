@@ -541,6 +541,8 @@
 		E2CAC8081CFFE8DA0061516E /* HMPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7FA1CFFE8DA0061516E /* HMPreviewViewController.m */; };
 		E2CAC8091CFFE8DA0061516E /* HMSelectCounterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7FC1CFFE8DA0061516E /* HMSelectCounterButton.m */; };
 		E2CAC80A1CFFE8DA0061516E /* HMViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7FE1CFFE8DA0061516E /* HMViewerViewController.m */; };
+		E2CAC80E1D013EF20061516E /* ZhiFuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC80C1D013EF20061516E /* ZhiFuViewController.m */; };
+		E2CAC80F1D013EF30061516E /* ZhiFuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2CAC80D1D013EF20061516E /* ZhiFuViewController.xib */; };
 		E2D05B721CB38C8C00B0F690 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B711CB38C8C00B0F690 /* CoreTelephony.framework */; };
 		E2D05B741CB38CB100B0F690 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B731CB38CB100B0F690 /* SystemConfiguration.framework */; };
 		E2D05B761CB38CD000B0F690 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B751CB38CD000B0F690 /* libz.tbd */; };
@@ -1474,6 +1476,9 @@
 		E2CAC7FC1CFFE8DA0061516E /* HMSelectCounterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSelectCounterButton.m; sourceTree = "<group>"; };
 		E2CAC7FD1CFFE8DA0061516E /* HMViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMViewerViewController.h; sourceTree = "<group>"; };
 		E2CAC7FE1CFFE8DA0061516E /* HMViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMViewerViewController.m; sourceTree = "<group>"; };
+		E2CAC80B1D013EF20061516E /* ZhiFuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhiFuViewController.h; sourceTree = "<group>"; };
+		E2CAC80C1D013EF20061516E /* ZhiFuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhiFuViewController.m; sourceTree = "<group>"; };
+		E2CAC80D1D013EF20061516E /* ZhiFuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZhiFuViewController.xib; sourceTree = "<group>"; };
 		E2D05B711CB38C8C00B0F690 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		E2D05B731CB38CB100B0F690 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E2D05B751CB38CD000B0F690 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -3598,6 +3603,9 @@
 				E2D5245D1CDF9B6C0024887A /* PayTableViewController.h */,
 				E2D5245E1CDF9B6C0024887A /* PayTableViewController.m */,
 				E2D5245F1CDF9B6C0024887A /* PayTableViewController.storyboard */,
+				E2CAC80B1D013EF20061516E /* ZhiFuViewController.h */,
+				E2CAC80C1D013EF20061516E /* ZhiFuViewController.m */,
+				E2CAC80D1D013EF20061516E /* ZhiFuViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4395,6 +4403,7 @@
 				21C413F41CE2D23500F1029C /* choose.png in Resources */,
 				E228939B1CDF049500483F18 /* lxh_kunsile.png in Resources */,
 				E22892A11CDF03F400483F18 /* d_numa@2x.png in Resources */,
+				E2CAC80F1D013EF30061516E /* ZhiFuViewController.xib in Resources */,
 				21C413E61CE2D23500F1029C /* addPictures.png in Resources */,
 				E2D524611CDF9B6C0024887A /* PayTableViewController.storyboard in Resources */,
 				E22893D01CDF049500483F18 /* lxh_xuyuan.png in Resources */,
@@ -4754,6 +4763,7 @@
 				21C413EE1CE2D23500F1029C /* AGIPCGridItem.m in Sources */,
 				E2CAC8061CFFE8DA0061516E /* HMImagePickerController.m in Sources */,
 				E2D525071CDFA2FF0024887A /* IdeaRetroactionViewController.m in Sources */,
+				E2CAC80E1D013EF20061516E /* ZhiFuViewController.m in Sources */,
 				21C4143B1CE2D23500F1029C /* imageViewController.m in Sources */,
 				E2D5223A1CDF8C5F0024887A /* AuthorDetailModel.m in Sources */,
 				21C414641CE4112F00F1029C /* FaBuHeaderView.m in Sources */,

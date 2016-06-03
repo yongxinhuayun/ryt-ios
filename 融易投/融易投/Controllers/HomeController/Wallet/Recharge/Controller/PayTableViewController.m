@@ -9,6 +9,7 @@
 #import "PayTableViewController.h"
 
 #import "BeeCloud.h"
+#import "ZhiFuViewController.h"
 
 @interface PayTableViewController () <UIAlertViewDelegate,BeeCloudDelegate>
 
@@ -82,6 +83,10 @@
                            @"type" : type,
                            @"artWorkId":artWorkId 
                            };
+    // 创建一个组
+    dispatch_group_t group = dispatch_group_create();
+    // 添加当前操作到组中
+    dispatch_group_enter(group);
     
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
         
@@ -92,28 +97,27 @@
         NSString *url = modelDict[@"url"];
         
         SSLog(@"%@",url);
-        
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
 
-            self.url = url;
-        }];
+        self.url = url;
+
+        //// 从组中移除一个操作
+        dispatch_group_leave(group);
 
     }];
     
-    UIViewController *webVC = [[UIViewController alloc] init];
-    webVC.view.frame = self.view.bounds;
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        // 6.回到主线程更新UI
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"更新UI %@", [NSThread currentThread]);
+
+            ZhiFuViewController *zhifuVC = [[ZhiFuViewController alloc] init];
+            zhifuVC.url = self.url;
+            
+            [self presentViewController:zhifuVC animated:YES completion:nil];
+        });
+    });
     
-    UIWebView *webView = [[UIWebView alloc] init];
-    [webVC.view addSubview:webView];
-    //创建请求
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.url]];
     
-    [webView loadRequest:request];
-    
-    //让webView 自适应
-    webView.scalesPageToFit = YES;
-    
-    [self presentViewController:webVC animated:YES completion:nil];
     
     
 //    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
