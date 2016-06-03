@@ -225,7 +225,7 @@
                         </variation>
                     </view>
                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="denglu_fenggexian750" translatesAutoresizingMaskIntoConstraints="NO" id="Pp8-Ch-kVG">
-                        <rect key="frame" x="0.0" y="341" width="337" height="1"/>
+                        <rect key="frame" x="20" y="341" width="297" height="1"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="yqK-5k-VQX"/>
                         </constraints>
@@ -259,7 +259,7 @@
                 <constraints>
                     <constraint firstItem="T5k-uh-2YO" firstAttribute="leading" secondItem="ZKs-1y-Dbt" secondAttribute="trailing" id="0Ig-wu-FQz"/>
                     <constraint firstItem="T5k-uh-2YO" firstAttribute="leading" secondItem="tJt-5I-kGI" secondAttribute="trailing" constant="20" id="1Ta-Uy-bZ2"/>
-                    <constraint firstItem="Pp8-Ch-kVG" firstAttribute="leading" secondItem="iMM-fH-j3e" secondAttribute="leading" id="2fK-nu-RG7"/>
+                    <constraint firstItem="Pp8-Ch-kVG" firstAttribute="leading" secondItem="iMM-fH-j3e" secondAttribute="leading" constant="20" id="2fK-nu-RG7"/>
                     <constraint firstItem="Kro-U8-9bu" firstAttribute="top" secondItem="dfR-6x-S4I" secondAttribute="bottom" constant="10" id="5TM-0Q-L8C"/>
                     <constraint firstItem="T5k-uh-2YO" firstAttribute="centerY" secondItem="Kro-U8-9bu" secondAttribute="centerY" id="8dx-n8-dcF"/>
                     <constraint firstItem="tJt-5I-kGI" firstAttribute="leading" secondItem="Kro-U8-9bu" secondAttribute="trailing" constant="10" id="FnI-DM-LH9"/>
@@ -286,7 +286,7 @@
                     <constraint firstItem="TEb-eW-6j4" firstAttribute="leading" secondItem="PTK-Kp-1mj" secondAttribute="leading" id="phg-3u-cLQ"/>
                     <constraint firstItem="TEb-eW-6j4" firstAttribute="top" secondItem="PTK-Kp-1mj" secondAttribute="bottom" constant="20" id="qpi-zw-pcp"/>
                     <constraint firstItem="dfR-6x-S4I" firstAttribute="top" secondItem="iMM-fH-j3e" secondAttribute="top" constant="10" id="wIh-52-Ji5"/>
-                    <constraint firstAttribute="trailing" secondItem="Pp8-Ch-kVG" secondAttribute="trailing" id="xB1-GG-JZD"/>
+                    <constraint firstAttribute="trailing" secondItem="Pp8-Ch-kVG" secondAttribute="trailing" constant="20" id="xB1-GG-JZD"/>
                     <constraint firstItem="PTK-Kp-1mj" firstAttribute="leading" secondItem="iMM-fH-j3e" secondAttribute="leading" constant="20" id="zXr-a8-2AS"/>
                 </constraints>
                 <variation key="default">

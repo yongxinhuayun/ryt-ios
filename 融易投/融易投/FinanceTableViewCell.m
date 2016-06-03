@@ -118,15 +118,9 @@
 
 //把系统的分割线去除,然后把控制器的的颜色改成要设置分割线的颜色
 -(void)setFrame:(CGRect)frame
-{
-//    frame.size.height -= 1;
-    
+{    
     //设置每个cell之间有个10的间距
-    frame.size.height -= SSMargin;
-    //设置每个cell离屏幕间距为10
-//    frame.origin.x += SSMargin;
-    //因为x向右移动了10,所以cell的左边距离屏幕为10,但是为了保证cell的右边为10,应该设置为2 * 10.因为cell向右移动了10,所以屏幕的右边还是有10的cell,所以为了保证cell的右边距离屏幕为10,应该为2倍的间距
-//    frame.size.width -= 2 * SSMargin;
+    frame.size.height -= 1;
     
     [super setFrame:frame];
 }

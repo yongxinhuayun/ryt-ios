@@ -83,7 +83,7 @@
                            @"type" : type,
                            @"artWorkId":artWorkId 
                            };
-    
+    /*
     // 创建一个组
     dispatch_group_t group = dispatch_group_create();
     // 添加当前操作到组中
@@ -116,9 +116,9 @@
             [self.navigationController pushViewController:zhifuVC animated:YES];
         });
     });
+    */
     
     
-    /*
     // 创建一个组
     dispatch_group_t group = dispatch_group_create();
     // 添加当前操作到组中
@@ -171,7 +171,7 @@
                 [self.navigationController pushViewController:zhifuVC animated:YES];
             });
         });
-     */
+    
 }
 
 //微信、支付宝、银联、百度钱包

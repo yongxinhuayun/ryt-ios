@@ -24,12 +24,13 @@
 #import "UIImageView+WebCache.h"
 #import "UIScrollView+UITouch.h"
 
-@interface ComposeProjectViewController ()<UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIScrollViewDelegate>
+@interface ComposeProjectViewController ()<UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIScrollViewDelegate,MBProgressHUDDelegate>
 
 @property (strong, nonatomic) UIScrollView *scrollView;
 
 @property (strong,nonatomic) FabuProjectView *composeProjectView;
 @property (strong,nonatomic) NSString *createPath;
+@property(nonatomic,strong) MBProgressHUD *progressHUD;
 
 @property (nonatomic, strong) NSMutableArray *imageArray;
 
@@ -37,6 +38,16 @@
 @end
 
 @implementation ComposeProjectViewController
+
+
+-(MBProgressHUD *)progressHUD{
+    if (!_progressHUD) {
+        _progressHUD = [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication] keyWindow] animated:YES];
+        self.progressHUD.delegate = self;
+        _progressHUD.mode = MBProgressHUDModeDeterminate;
+    }
+    return _progressHUD;
+}
 
 -(UIScrollView *)scrollView{
 
@@ -499,6 +510,20 @@ BOOL isPop = NO;
         
     } showHUDView:nil progress:^(id progress) {
         
+        NSProgress *p = (NSProgress *)progress;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            float total = p.totalUnitCount;
+            float completed = p.completedUnitCount;
+            float i = completed / total;
+            self.progressHUD.progress = i;
+            if (i == 1) {
+                self.progressHUD.labelText = [NSString stringWithFormat:@"发布成功"];
+                self.progressHUD.mode = MBProgressHUDModeCustomView;
+                [self.progressHUD hide:YES afterDelay:1];
+            }
+        });
+        
     } success:^(id respondObj) {
         
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
@@ -507,14 +532,13 @@ BOOL isPop = NO;
         //{"artworkId":"imyapayc1rttrjbz","resultCode":"0","resultMsg":"成功"}
         
         ArtWorkIdModel *artWorkId = [ArtWorkIdModel mj_objectWithKeyValues:respondObj];
-        
-        [SVProgressHUD showInfoWithStatus:@"发布成功"];
-        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+//        [SVProgressHUD showInfoWithStatus:@"发布成功"];
+//        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
-            [SVProgressHUD dismiss];
+//            [SVProgressHUD dismiss];
             
             UIStoryboard *releaseStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
             ReleaseViewController *releaseVC = [releaseStoryBoard instantiateInitialViewController];

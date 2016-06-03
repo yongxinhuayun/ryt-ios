@@ -18,6 +18,7 @@
 #import "SSTextField.h"
 #import "BQLAuthEngine.h"
 #import "CompleteUserInfoController.h"
+#import "ProtocolWebViewController.h"
 
 @interface RegViewController () <UITextFieldDelegate>
 {
@@ -285,7 +286,10 @@
 //弹出用户协议
 - (IBAction)protocolBtnClick:(UIButton *)btn {
     
-    
+    ProtocolWebViewController *protocol = [[ProtocolWebViewController alloc] init];
+    protocol.title = @"用户协议";
+    protocol.URLForResource = @"UserProtocol.html";
+    [self.navigationController pushViewController:protocol animated:YES];
 }
 
 //用户是否已读用户协议按钮

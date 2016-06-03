@@ -23,6 +23,11 @@
 		2135696D1D002FC70096E14C /* sH5 in Resources */ = {isa = PBXBuildFile; fileRef = 2135696C1D002FC70096E14C /* sH5 */; };
 		2137E9A11CFC390900F201D6 /* DetailCreationH5WebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2137E99F1CFC390900F201D6 /* DetailCreationH5WebController.m */; };
 		2137E9A21CFC390900F201D6 /* DetailCreationH5WebController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2137E9A01CFC390900F201D6 /* DetailCreationH5WebController.xib */; };
+		2157540F1D0171660018DB7C /* AuctionProtocol.html in Resources */ = {isa = PBXBuildFile; fileRef = 2157540D1D0171660018DB7C /* AuctionProtocol.html */; };
+		215754101D0171660018DB7C /* UserProtocol.html in Resources */ = {isa = PBXBuildFile; fileRef = 2157540E1D0171660018DB7C /* UserProtocol.html */; };
+		215754141D0171F20018DB7C /* ProtocolWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 215754121D0171F20018DB7C /* ProtocolWebViewController.m */; };
+		215754151D0171F20018DB7C /* ProtocolWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 215754131D0171F20018DB7C /* ProtocolWebViewController.xib */; };
+		215754171D017CC70018DB7C /* ArtistCooperateProtocol.html in Resources */ = {isa = PBXBuildFile; fileRef = 215754161D017CC70018DB7C /* ArtistCooperateProtocol.html */; };
 		215C965E1CED56AC0084C319 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 215C965A1CED56AC0084C319 /* libWeChatSDK.a */; };
 		215C965F1CED56AC0084C319 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 215C965B1CED56AC0084C319 /* read_me.txt */; };
 		215C96631CED56FD0084C319 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215C96611CED56FD0084C319 /* TencentOpenAPI.framework */; };
@@ -741,6 +746,12 @@
 		2137E99E1CFC390900F201D6 /* DetailCreationH5WebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCreationH5WebController.h; sourceTree = "<group>"; };
 		2137E99F1CFC390900F201D6 /* DetailCreationH5WebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCreationH5WebController.m; sourceTree = "<group>"; };
 		2137E9A01CFC390900F201D6 /* DetailCreationH5WebController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCreationH5WebController.xib; sourceTree = "<group>"; };
+		2157540D1D0171660018DB7C /* AuctionProtocol.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AuctionProtocol.html; sourceTree = "<group>"; };
+		2157540E1D0171660018DB7C /* UserProtocol.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = UserProtocol.html; sourceTree = "<group>"; };
+		215754111D0171F20018DB7C /* ProtocolWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolWebViewController.h; sourceTree = "<group>"; };
+		215754121D0171F20018DB7C /* ProtocolWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolWebViewController.m; sourceTree = "<group>"; };
+		215754131D0171F20018DB7C /* ProtocolWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProtocolWebViewController.xib; sourceTree = "<group>"; };
+		215754161D017CC70018DB7C /* ArtistCooperateProtocol.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ArtistCooperateProtocol.html; sourceTree = "<group>"; };
 		215C965A1CED56AC0084C319 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		215C965B1CED56AC0084C319 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
 		215C965C1CED56AC0084C319 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -2781,6 +2792,9 @@
 		E22890421CDEFE0700483F18 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				2157540D1D0171660018DB7C /* AuctionProtocol.html */,
+				2157540E1D0171660018DB7C /* UserProtocol.html */,
+				215754161D017CC70018DB7C /* ArtistCooperateProtocol.html */,
 				E228904D1CDEFE6A00483F18 /* PrefixHeader.pch */,
 				E22890431CDEFE4400483F18 /* GlobeConst.h */,
 				E22890441CDEFE4400483F18 /* GlobeConst.m */,
@@ -3423,6 +3437,9 @@
 				E2D522811CDF914A0024887A /* RegViewController.h */,
 				E2D522821CDF914A0024887A /* RegViewController.m */,
 				E2D522831CDF914A0024887A /* RegViewController.xib */,
+				215754111D0171F20018DB7C /* ProtocolWebViewController.h */,
+				215754121D0171F20018DB7C /* ProtocolWebViewController.m */,
+				215754131D0171F20018DB7C /* ProtocolWebViewController.xib */,
 			);
 			path = RegisterController;
 			sourceTree = "<group>";
@@ -4245,6 +4262,7 @@
 				E2D524E51CDFA19A0024887A /* EditingInfoViewController.storyboard in Resources */,
 				E22893BB1CDF049500483F18 /* lxh_shuaishuaishou.png in Resources */,
 				E22893DB1CDF049500483F18 /* lxh_zhenjing.gif in Resources */,
+				215754101D0171660018DB7C /* UserProtocol.html in Resources */,
 				E2729AE71CD8B923006C0617 /* IntroduceTableViewCell.xib in Resources */,
 				E22892841CDF03F400483F18 /* d_beishang@2x.png in Resources */,
 				21AB0AC41CC50A4D00B7BA03 /* CollectViewTestVC.xib in Resources */,
@@ -4263,6 +4281,7 @@
 				E22892B71CDF03F400483F18 /* d_youhengheng@2x.png in Resources */,
 				E22892BF1CDF03F400483F18 /* f_hufen@2x.png in Resources */,
 				E22893D61CDF049500483F18 /* lxh_zana.png in Resources */,
+				215754151D0171F20018DB7C /* ProtocolWebViewController.xib in Resources */,
 				E22893D51CDF049500483F18 /* lxh_zana.gif in Resources */,
 				E22893AA1CDF049500483F18 /* lxh_paishou.gif in Resources */,
 				E22893C71CDF049500483F18 /* lxh_xiangyixiang.png in Resources */,
@@ -4299,6 +4318,7 @@
 				E22893D31CDF049500483F18 /* lxh_youyali.png in Resources */,
 				E22893911CDF049500483F18 /* lxh_jiujie.gif in Resources */,
 				E22892811CDF03F400483F18 /* d_aini@2x.png in Resources */,
+				2157540F1D0171660018DB7C /* AuctionProtocol.html in Resources */,
 				E22893D41CDF049500483F18 /* lxh_youyali@2x.png in Resources */,
 				E22892861CDF03F400483F18 /* d_bizui@2x.png in Resources */,
 				E228937B1CDF049500483F18 /* lxh_deyidexiao@2x.png in Resources */,
@@ -4473,6 +4493,7 @@
 				21B99BAA1CF6F9AD00E682F8 /* ShareViewHUD.xib in Resources */,
 				E22892A51CDF03F400483F18 /* d_shengbing@2x.png in Resources */,
 				E22892CE1CDF03F400483F18 /* info.plist in Resources */,
+				215754171D017CC70018DB7C /* ArtistCooperateProtocol.html in Resources */,
 				E22892C61CDF03F400483F18 /* h_buyao@2x.png in Resources */,
 				E2D5244C1CDF99C70024887A /* ApplyforArtViewController.storyboard in Resources */,
 				E22892911CDF03F400483F18 /* d_haixiu@2x.png in Resources */,
@@ -4832,6 +4853,7 @@
 				21C414071CE2D23500F1029C /* JKUtil.m in Sources */,
 				21C414011CE2D23500F1029C /* JKAssetsThumbnailView.m in Sources */,
 				E2E8422D1CE1739F0047D86C /* FinanceFooterView.m in Sources */,
+				215754141D0171F20018DB7C /* ProtocolWebViewController.m in Sources */,
 				21C414431CE2D23500F1029C /* ArtistMainCell.m in Sources */,
 				E2D524311CDF958C0024887A /* NotificationTableViewCell.m in Sources */,
 				21C414211CE2D23500F1029C /* UIButton+AGIPC.m in Sources */,

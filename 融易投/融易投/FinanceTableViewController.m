@@ -58,7 +58,6 @@ static NSString *ID = @"financeCell";
     self.lastPageNum = @"1";
     self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSStatusMaxH + SSTitlesViewH, 0, SSTabBarH, 0);
     self.tableView.contentInset = UIEdgeInsetsMake(SSNavMaxY, 0, SSTabBarH, 0);
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"FinanceTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
     [FinanceModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         return @{
@@ -68,6 +67,11 @@ static NSString *ID = @"financeCell";
     }];
     //设置刷新控件
     [self setUpRefresh];
+    //设置全屏灰色的分割线
+    //使用设置setFrame的方法
+    //先要把系统的分割线去除,然后把控制器的背景改成要设置分割线的颜色即可,然后在设置cell的setFrame方法中,在系统计算好的cell的高度之前让cell的高度减一,然后在赋值给系统的算好的frame
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.view.backgroundColor = [UIColor colorWithRed:(250)/255.0 green:(250)/255.0 blue:(250)/255.0 alpha:1.0];
 }
 
 -(void)setUpRefresh{
