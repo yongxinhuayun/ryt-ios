@@ -42,7 +42,7 @@ static NSString *ID = @"artistCell";
      self.lastPageNum = @"1";
     self.tableView.contentInset = UIEdgeInsetsMake(SSTitlesViewH, 0, SSTabBarH, 0);
 //    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, SSTabBarH, 0);
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"ArtistTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
     //设置刷新控件
@@ -50,6 +50,15 @@ static NSString *ID = @"artistCell";
     //添加顶部Header
     [self setUpSubTitlesView];
     [self loadNewData];
+    //去除多余的线
+    [self improveTableView];
+}
+-(void)improveTableView
+{
+    self.tableView.tableFooterView = [[UIView alloc]init];  //删除多余的行
+    if ([self respondsToSelector:@selector(setSeparatorInset:)]) {  //防止分割线显示不
+        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated{

@@ -31,7 +31,7 @@
 //    NSURL *url = [[NSBundle mainBundle] URLForResource:@"A2创作详情.html" withExtension:nil];
 //    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
     
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"H5/A2.html" withExtension:nil];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"sH5/A2.html" withExtension:nil];
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
     
 //    NSString * bundlePath = [[ NSBundle mainBundle] pathForResource: @"H5" ofType :@""];
@@ -40,10 +40,9 @@
 //    NSString *htmlStr = [NSString stringWithContentsOfFile:Path encoding:NSUTF8StringEncoding error:nil];
 //    [self.webView loadHTMLString:htmlStr baseURL:[NSURL URLWithString:jsPath]];
     
-
-    
     //让webView 自适应
     self.webView.scalesPageToFit = YES;
+//    self.webView.scrollView.scrollEnabled = NO;
     
     //设置webView的代理
     self.webView.delegate = self;
@@ -71,8 +70,7 @@
 //    [self.webView stringByEvaluatingJavaScriptFromString:js1];
     
     //方式二:给JS传递参数
-//    NSString *js2 = [NSString stringWithFormat:@"getParamObject('%@','%@','%@','%@');",artWorkId,currentUserId,signmsgMD5,timestamp];
-    NSString *js2 = [NSString stringWithFormat:@"sendParam('%@','%@','%@','%@');",artWorkId,currentUserId,signmsgMD5,timestamp];
+    NSString *js2 = [NSString stringWithFormat:@"initPage('%@','%@','%@','%@');",artWorkId,currentUserId,signmsgMD5,timestamp];
     [self.webView stringByEvaluatingJavaScriptFromString:js2];
 }
 

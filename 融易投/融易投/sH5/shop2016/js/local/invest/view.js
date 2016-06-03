@@ -17,7 +17,7 @@ function getArtWorkBaseInfoMainHtml(it /**/) {
     }
     out += ' ';
     if (it.step == "30" || it.step == "31") {
-        out += ' <span class="time" onload="countDown(\'';
+        out += ' <span class="time" onload="countDown(this,\'';
         if (it.step == "30") {
             out += '' + (it.auctionStartDatetime);
         } else {
@@ -42,7 +42,7 @@ function getArtWorkScheduleInvestHtml(it /**/) {
 }
 //获得项目进度（创作）的view
 function getArtWorkScheduleCreateHtml(it /**/) {
-    var out = ' <div class="title"> <div class="l-icon rz-icon"></div> <div class="r-txt"> <span class="head">创作</span> <span class="month">' + (getDateStr(it.investEndDatetime)) + '</span> <span class="alltime">' + (getTimeStr(it.investEndDatetime)) + '</span> </div> </div> <div class="page"> <p>预计作品创作完成还有' + (getDayNums(it.auctionStartDatetime - it.investEndDatetime)) + '天。</p> </div>';
+    var out = ' <div class="title"> <div class="l-icon rz-icon"></div> <div class="r-txt"> <span class="head">创作</span> <span class="month">' + (getDateStr(it.investEndDatetime)) + '</span> <span class="alltime">' + (getTimeStr(it.investEndDatetime)) + '</span> </div> </div> <div class="page"> <p>预计作品创作完成还有' + (getDayNums(it.creationEndDatetime - new Date().getTime())) + '天。</p> </div>';
     return out;
 }
 //获得项目进度（拍卖）的view
@@ -157,28 +157,50 @@ function getArtWorkAuctionBiddingHtml(it /**/) {
     return out;
 }
 
-//拍卖前
-function getPreBottomButtonHtml(it /**/) {
-    var out = '';
-    if (it.step == "30") {
-        out += '<div class="pm_btm_bar"> <a class="links" onclick="redirectComment(\'' + (getCurrentUserId()) + '\')" title="评论">评论</a> <a class="links" id="btn_pay" title="缴纳保证金">缴纳保证金</a></div><!--//End--底部悬浮--><div id="btn_pay_pannel" class="pm_pay_lay"> <div class="main"> <em class="close"></em> <div class="p1"> <p> <span>保证金</span><span class="price">¥' + (getDepositPrice(it.startingPrice)) + '</span> </p> </div> <div class="p2">保证金将直接从您的个人账户中冻结，若竞拍不成功在72小时之内释放保证金。</div> <div class="p3"><i id="radio" class="active"></i>竞拍需同意融艺投竞拍协议<a onclick="redirectProtocol()">《融艺投竞拍协议》</a></div> <a onclick="submitDepositPrice(\'' + (it.startingPrice) + '\')" class="submit">提交保证金</a> </div></div><!--//End--缴纳保证金--><div class="pm_dialog"> <div class="content"> <div class="close"></div> <div class="info"> <p>很遗憾地告诉您，您的个人账户余额不足。只需充值起拍金额的10 %，就可以参与拍卖了。</p> </div> <a onclick="redirectPay()" class="btn" title="去充值">去充值</a> </div></div>';
+
+function getArtWorkAuctionBiddingTopThreeHtml(it /**/) {
+    var out = ' <h5>实时出价</h5> <ul> ';
+    for (var i = 0; i < 3; i++) {
+        var bidding = it.artWorkBiddingList[i];
+        out += ' <li> <i class="rank rank1"></i> <span><img src="' + (bidding.creator.pictureUrl) + '" alt=""><strong>' + (dealUsername(bidding.creator.username)) + '</strong></span> <span><strong>出价了</strong> <b>' + (parseInt(bidding.price)) + '元</b></span> <span>' + (getDateStr(bidding.createDatetime)) + '</span> </li> ';
     }
+    out += ' </ul>';
     return out;
 }
 
+//拍卖前
+// function getPreBottomButtonHtml(it /**/) {
+//     var out = ' ';
+//     if (it.step == "30") {
+//         out += ' <div class="pm_btm_bar"> <a class="links" onclick="redirectComment(\'' + (getCurrentUserId()) + '\')" title="评论">评论</a> <a class="links" id="btn_pay" title="缴纳保证金">缴纳保证金</a> </div> <!--//End--底部悬浮--> <div id="btn_pay_pannel" class="pm_pay_lay"> <div class="main"> <em class="close"></em> <div class="p1"> <p> <span>保证金</span><span class="price">¥' + (getDepositPrice(it.startingPrice)) + '</span> </p> </div> <div class="p2">若竞拍不成功在72小时之内释放保证金。</div> <div class="p3"><i id="radio" class="active"></i>竞拍需同意融艺投竞拍协议<a onclick="redirectProtocol()">《融艺投竞拍协议》</a> </div> <a onclick="submitDepositPrice(\'' + (it.startingPrice) + '\')" class="submit">提交保证金</a> </div> </div> <!--//End--缴纳保证金--> ';
+//     }
+//     return out;
+// }
+function getPreBottomButtonHtml(it /**/) { var out=' '; if(it.step == "30"){ out+=' <div class="pm_btm_bar"> <a class="links" onclick="redirectComment(\''+(getCurrentUserId())+'\')" title="评论">评论</a> <a class="links" id="btn_pay" title="缴纳保证金">缴纳保证金</a> </div> <!--//End--底部悬浮--> <div id="btn_pay_pannel" class="pm_pay_lay"> <div class="main"> <em class="close"></em> <div class="p1"> <p> <span>保证金</span><span class="price">¥'+(getDepositPrice(it.startingPrice))+'</span> </p> </div> <div class="p2">若竞拍不成功在72小时之内释放保证金。</div> <div class="p3"><i id="radio" class="active"></i>竞拍需同意融艺投竞拍协议<a onclick="redirectProtocol()">《融艺投竞拍协议》</a> </div> <a onclick="submitDepositPrice(\''+(it.startingPrice)+'\')" class="submit">提交保证金</a> </div> </div> <!--//End--缴纳保证金--> '; } return out; }
 //拍卖中
 function getBeingBottomButtonHtml(it /**/) {
     var out = '';
     if (it.step == "31") {
-        out += '<div class="pm_btm_bar" style="z-index:120;"> <div class="bid"> <a id="bid-link" onclick="bid()">出价</a> <span class="num addsub" data-option=\'{"upLimit":-1,"inputName":"auctionPrice","downLimit":' + (getCurrentAuctionPrice(it.currentAuctionPrice)) + ' ,"defaultValue":' + (getCurrentAuctionPrice(it.currentAuctionPrice)) + ' }\' onload="ChooseCountComponent()"> <!--<em class="sub"></em>--> <!--<input disabled="true" type="text" value="2000">--> <!--<em class="add"></em>--> </span> <a onclick="redirectComment(\'' + (getCurrentUserId()) + '\')">评论</a> </div></div><!--//End--出价部分--><!--<<<点击出价后的提示框 出价成功和出价失败都会弹出提示框>>>--><div id="alert"></div><!--//End--点击出价后的提示框-->';
+        out += '<div class="pm_btm_bar" style="z-index:120;"> <div class="bid"> <a id="bid-link" onclick="bid()">出价</a> <span class="num addsub" data-option=\'{"step":"' + getAuctionPrice(it.startingPrice) + '","upLimit":"-1","inputName":"auctionPrice","downLimit":"' + (getCurrentAuctionPrice(it.currentAuctionPrice)) + '" ,"defaultValue":"' + (getCurrentAuctionPrice(it.currentAuctionPrice)) + '" }\' onload="ChooseCountComponent()"> <!--<em class="sub"></em>--> <!--<input disabled="true" type="text" value="2000">--> <!--<em class="add"></em>--> </span> <a onclick="redirectComment(\'' + (getCurrentUserId()) + '\')">评论</a> </div></div><!--//End--出价部分--><!--<<<点击出价后的提示框 出价成功和出价失败都会弹出提示框>>>--><div id="alert"></div><!--//End--点击出价后的提示框-->';
     }
     return out;
 }
 //拍卖后
 function getAfterBottomButtonHtml(it /**/) {
-    var out = '';
+    var out = ' ';
     if (it.step == "32" && it.winner.id == getCurrentUserId()) {
-        out += '<div id="btn_pay_pannel" class="pm_pay_lay"> <div class="main"> <em class="close"></em> <div class="p1"> <p> <span>尾款金额</span><span class="price">¥' + (getCurrentFinalPrice()) + '</span> </p> </div> <div class="p2">尾款金额将直接从您的个人账户当中扣除。</div> <div class="p3"><i id="radio2" class="active"></i>竞拍需同意融艺投竞拍协议<a onclick="redirectProtocol()">《融艺投竞拍协议》</a> </div> <a onclick="redirectPay()" class="submit">去付尾款</a> </div></div>';
+        out += ' <div id="btn_pay_pannel" class="pm_pay_lay"> <div class="main"> <em class="close"></em> <div class="p1"> <p> <span>尾款金额</span><span class="price">¥' + (getCurrentFinalPrice()) + '</span> </p> </div> <div class="p2">尾款金额将直接从您的个人账户当中扣除。</div> <div class="p3"><i id="radio2" class="active"></i>竞拍需同意融艺投竞拍协议<a onclick="redirectProtocol()">《融艺投竞拍协议》</a> </div> <a onclick="submitRestPrice()" class="submit">去付尾款</a> </div> </div> ';
     }
+    return out;
+}
+//弹出框
+function getAlertHtml(it /**/) {
+    var out = ' <div id="pm-bid-tips" class="pm-bid-tips"> ';
+    if (it.status == "0") {
+        out += ' <p>出价成功！</p> ';
+    } else {
+        out += ' <p>出价金额需大于当前金额,当前金额为20000元</p> ';
+    }
+    out += ' </div>';
     return out;
 }

@@ -60,6 +60,15 @@ static NSString *ID = @"fansCell";
     
     //去除多余的线
     [self improveTableView];
+    
+    //跟新我的界面的数据控制器
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFocusAndFansNotification) name:UpdateFocusAndFansNotification object:nil];
+}
+
+-(void)updateFocusAndFansNotification{
+    
+    //获取用户信息数据
+    [self loadNewData];
 }
 -(void)improveTableView
 {

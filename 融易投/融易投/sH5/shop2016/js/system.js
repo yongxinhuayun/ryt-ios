@@ -112,24 +112,24 @@ $(function () {
     })();
     //拍卖详情
     (function () {
-        var btnPay=$('#btn_pay'),
-            btnPayPannel=$('#btn_pay_pannel');
-        btnPay.click(function () {
+        var ParentDiv = $("#bottomButton");
+        var btnPay = $('#btn_pay');
+        var click = function () {
+            var btnPayPannel = $('#btn_pay_pannel');
             btnPayPannel.addClass('jshow');
             btnPayPannel.find('.close').click(function () {
                 btnPayPannel.removeClass('jshow');
             })
             return false;
-        });
-        $('#radio').click(function () {
+        };
+        ParentDiv.on("click", "#btn_pay", click);
+        var click2 = function () {
             $(this).toggleClass('active');
-        });
+        }
+        ParentDiv.on("click", "#radio", click2);
 
-        if($('div').hasClass('pm_btm_bar')){
+        if ($('div').hasClass('pm_btm_bar')) {
             //$('body').css('margin-bottom','60px')
         }
-
-
-
     })();
 })

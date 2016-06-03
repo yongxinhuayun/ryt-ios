@@ -140,10 +140,18 @@
     
     //5.设置体验按钮的frame
 //    self.startButton.center = CGPointMake(self.bounds.size.width * 0.5, self.bounds.size.height * 0.95);
-    self.startButton.center = CGPointMake(self.width * 0.8, self.height * 0.1);
     
-    self.registerButton.center = CGPointMake(self.width * 0.3, self.height * 0.85);
-    self.lognButton.center = CGPointMake(self.width * 0.7, self.height * 0.85);
+    if (iPhone6 || iPhone6P) {
+        self.startButton.center = CGPointMake(self.width * 0.8, self.height * 0.1);
+        self.registerButton.center = CGPointMake(self.width * 0.3, self.height * 0.85);
+        self.lognButton.center = CGPointMake(self.width * 0.7, self.height * 0.85);
+    }else {
+        
+        self.startButton.center = CGPointMake(self.width * 0.8, self.height * 0.1);
+        self.registerButton.center = CGPointMake(self.width * 0.25, self.height * 0.85);
+        self.lognButton.center = CGPointMake(self.width * 0.75, self.height * 0.85);
+    }
+   
 }
 
 //3.实现方法
