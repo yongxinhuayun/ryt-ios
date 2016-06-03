@@ -57,7 +57,7 @@ static NSString *ID = @"financeCell";
     [super viewDidLoad];
     self.lastPageNum = @"1";
     self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSStatusMaxH + SSTitlesViewH, 0, SSTabBarH, 0);
-    self.tableView.contentInset = UIEdgeInsetsMake(67, 0, 50, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(SSNavMaxY, 0, SSTabBarH, 0);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"FinanceTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
     [FinanceModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
