@@ -33,6 +33,7 @@ typedef enum {
 /**
  *  POST上传文件
  */
+-(void)uploadDataWithServerUrl:(NSString *)server_url parameters:(id)parameters constructingBodyWithBlock:(constructingBodyWithBlock)constructingBodyWithBlock showHUDView:(UIView *)view progress:(updateProgressBlock )progressBlock success:(requstSuccessBlock )successBlock;
 -(void)handlerNetworkingPOSTRequstWithServerUrl:(NSString *)server_url  Parameters:(id )param constructingBodyWithBlock:(constructingBodyWithBlock)constructingBodyWithBlock showHUDView:(UIView *)view progress:(updateProgressBlock )progressBlock success:(requstSuccessBlock )successBlock;
 
 -(void)handlerNetworkingGETRequstWithServerUrl:(NSString *)server_url  Parameters:(NSDictionary *)param showHUDView:(UIView *)view  success:(requstSuccessBlock )successBlock;

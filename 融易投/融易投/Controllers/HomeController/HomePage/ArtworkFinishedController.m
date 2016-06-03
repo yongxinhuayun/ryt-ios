@@ -11,12 +11,20 @@
 #import "AddImageCell.h"
 #import "UITableView+Improve.h"
 #import "HMImagePickerController.h"
+#import "ResultModel.h"
 
-@interface ArtworkFinishedController ()<AddImageCellDelegate,HMImagePickerControllerDelegate>
+#import "SettingFooterView.h"
+#import <MJExtension.h>
+
+@interface ArtworkFinishedController ()<AddImageCellDelegate,HMImagePickerControllerDelegate,ArtworkFinishCellDelegate>
 /// 选中照片数组
-@property (nonatomic) NSArray *images;
+@property (nonatomic,strong) NSMutableArray<UIImage *> *images;
 /// 选中资源素材数组，用于定位已经选择的照片
-@property (nonatomic) NSArray *selectedAssets;
+@property (nonatomic,strong) NSMutableArray *selectedAssets;
+
+@property(nonatomic,strong) SettingFooterView *commitBtnView;
+// 通过监听count变化，改变按钮的状态
+@property(nonatomic,assign) NSInteger imageCount;
 @end
 
 @implementation ArtworkFinishedController
@@ -34,12 +42,50 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"上传照片";
-    
+    self.imageCount = 0;
+    [self addCloseBtn];
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"ArtworkFinishCell" bundle:nil] forCellReuseIdentifier:@"ArtworkFinishCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"AddImageCell" bundle:nil] forCellReuseIdentifier:@"AddImageCell"];
     [self.tableView improveTableView];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self addObserver:self forKeyPath: @"imageCount"options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld  context:nil];
+}
+
+-(void)addCloseBtn{
+    //设置导航条按钮
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightButton.width = 44;
+    rightButton.height = 44;
+    [rightButton setImage:[UIImage imageNamed:@"zhuce_guanbi"] forState:(UIControlStateNormal)];
+    [rightButton setImage:[UIImage imageNamed:@"zhuce_guanbi"] forState:(UIControlStateHighlighted)];
+//    [rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [rightButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+//    [rightButton setTitle:@"发送" forState:UIControlStateNormal];
+    //运行程序,发现按钮没有出现导航条上面,因为没有设置尺寸
+    [rightButton sizeToFit];
+    [rightButton addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem = rightBarButton;
+}
+
+-(void)close{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)dealloc{
+    [self removeObserver:self forKeyPath:@"imageCount"];
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
+    
+    if (self.images.count != 3) {
+        self.commitBtnView.tuiChuBtn.backgroundColor = [UIColor colorWithRed:227.0 / 255.0 green:227.0 / 255.0 blue:227.0 / 255.0 alpha:1.0];
+        self.commitBtnView.tuiChuBtn.userInteractionEnabled = NO;
+    }else{
+        self.commitBtnView.tuiChuBtn.backgroundColor = [UIColor colorWithRed:239.0 / 255.0 green:91.0 / 255.0 blue:112.0 / 255.0 alpha:1.0];
+        self.commitBtnView.tuiChuBtn.userInteractionEnabled = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,12 +120,20 @@
     return 40;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 60;
+}
+
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (self.images.count > indexPath.row) {
         UIImage *img = self.images[indexPath.row];
         ArtworkFinishCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArtworkFinishCell"];
         cell.imgView.image = img;
+        cell.indexPath = indexPath;
+        cell.delegate = self;
         return cell;
     }else{
         AddImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AddImageCell"];
@@ -88,13 +142,21 @@
     }
 }
 
+-(void)deleteImage:(NSIndexPath *)indexPath{
+    [self.images removeObjectAtIndex:indexPath.row];
+    self.imageCount = self.imageCount - 1;
+    [self.selectedAssets removeObjectAtIndex:indexPath.row];
+    [self.tableView reloadData];
+    [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height -self.tableView.bounds.size.height) animated:YES];
+}
+
 -(void)clickAddPhotoBtn{
     NSLog(@"添加图片");
     HMImagePickerController *picker = [[HMImagePickerController alloc] initWithSelectedAssets:self.selectedAssets];
     // 设置图像选择代理
     picker.pickerDelegate = self;
     // 设置目标图片尺寸
-    picker.targetSize = CGSizeMake(600, 600);
+    picker.targetSize = CGSizeMake(355, 223);
     // 设置最大选择照片数量
     picker.maxPickerCount = 3;
     
@@ -107,24 +169,27 @@
                selectedAssets:(NSArray<PHAsset *> *)selectedAssets {
     
     // 记录图像，方便在 CollectionView 显示
-    self.images = images;
+//    self.images = images;
+    self.images = [NSMutableArray arrayWithArray:images];
+    self.imageCount = self.images.count;
     // 记录选中资源集合，方便再次选择照片定位
-    self.selectedAssets = selectedAssets;
+//    self.selectedAssets = selectedAssets;
+    self.selectedAssets = [NSMutableArray arrayWithArray:selectedAssets];
     
     [self.tableView reloadData];
-    
+    [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height -self.tableView.bounds.size.height) animated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [self cellHeight];
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return self.commitBtnView;
 }
 
--(CGFloat)cellHeight{
-    if (self.images.count <= 3 && self.images.count > 0) {
-        return 233;
-    }else{
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row > self.imageCount - 1 || self.imageCount == 0) {
         return 88;
+    }else{
+        return 233;
     }
 }
 
@@ -138,6 +203,69 @@
             scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
         }
     }
+}
+
+-(void)clickCommitBtn{
+    NSString *bundle = [[NSBundle mainBundle] bundlePath];
+    // 上传图片
+    NSMutableArray *tempArray = [NSMutableArray array];
+    for (int count = 0; count < self.images.count;count++) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyyMMddHHmmssSSS";
+        NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(count)];
+        NSLog(@"%@",fileName);
+        [tempArray addObject:fileName];
+    }
+    NSArray *file = tempArray.copy;
+    NSDictionary *json = @{
+                           @"file" : file,
+                           @"artworkId" : self.artworkId
+                           };
+    [[HttpRequstTool shareInstance] uploadDataWithServerUrl:@"artworkComplete.do" parameters:json constructingBodyWithBlock:^(id formData) {
+        
+        for (int i = 0; i < self.images.count; i++) {
+            UIImage *image  =  self.images[i];
+            NSData *data = UIImageJPEGRepresentation(image, 1.0);
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            formatter.dateFormat = @"yyyyMMddHHmmssSSS";
+            
+            NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(i)];
+            [formData appendPartWithFileData:data name:@"file" fileName:fileName mimeType:@"application/octet-stream"];
+        }
+        
+    } showHUDView:self.view progress:^(NSProgress * _Nonnull progress) {
+        
+    } success:^(id respondObj) {
+        NSString *str = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",str);
+        ResultModel *result = [ResultModel mj_objectWithKeyValues:respondObj];
+        if ([result.resultMsg isEqualToString:@"成功"]) {
+            
+            [MBProgressHUD showSuccess:@"创作完成"];
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
+        }
+    }];
+}
+
+-(NSMutableArray<UIImage *> *)images{
+    if (!_images) {
+        _images = [NSMutableArray arrayWithCapacity:3];
+    }
+    return _images;
+}
+
+-(SettingFooterView *)commitBtnView{
+    if (!_commitBtnView) {
+        _commitBtnView.backgroundColor = [UIColor whiteColor];
+        _commitBtnView = [SettingFooterView settingFooterView];
+        [_commitBtnView.tuiChuBtn setTitle:@"提交" forState:(UIControlStateNormal)];
+        [_commitBtnView.tuiChuBtn addTarget:self action:@selector(clickCommitBtn) forControlEvents:(UIControlEventTouchUpInside)];
+        _commitBtnView.tuiChuBtn.backgroundColor = [UIColor colorWithRed:227.0 / 255.0 green:227.0 / 255.0 blue:227.0 / 255.0 alpha:1.0];
+        _commitBtnView.tuiChuBtn.userInteractionEnabled = NO;
+    }
+    return _commitBtnView;
 }
 
 /*

@@ -18,8 +18,6 @@
 		212EEE8D1CE048C500F94B30 /* CommonUserHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE891CE048C500F94B30 /* CommonUserHeaderView.m */; };
 		212EEE8E1CE048C500F94B30 /* CommonUserHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE8A1CE048C500F94B30 /* CommonUserHeaderView.xib */; };
 		212EEE8F1CE048C500F94B30 /* CommonUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE8C1CE048C500F94B30 /* CommonUserHomeViewController.m */; };
-		2135696A1D00266F0096E14C /* ZhiFuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213569681D00266F0096E14C /* ZhiFuViewController.m */; };
-		2135696B1D00266F0096E14C /* ZhiFuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 213569691D00266F0096E14C /* ZhiFuViewController.xib */; };
 		2135696D1D002FC70096E14C /* sH5 in Resources */ = {isa = PBXBuildFile; fileRef = 2135696C1D002FC70096E14C /* sH5 */; };
 		2137E9A11CFC390900F201D6 /* DetailCreationH5WebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2137E99F1CFC390900F201D6 /* DetailCreationH5WebController.m */; };
 		2137E9A21CFC390900F201D6 /* DetailCreationH5WebController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2137E9A01CFC390900F201D6 /* DetailCreationH5WebController.xib */; };
@@ -548,6 +546,8 @@
 		E2CAC8081CFFE8DA0061516E /* HMPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7FA1CFFE8DA0061516E /* HMPreviewViewController.m */; };
 		E2CAC8091CFFE8DA0061516E /* HMSelectCounterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7FC1CFFE8DA0061516E /* HMSelectCounterButton.m */; };
 		E2CAC80A1CFFE8DA0061516E /* HMViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7FE1CFFE8DA0061516E /* HMViewerViewController.m */; };
+		E2CAC8131D0155A60061516E /* ZhiFuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC8111D0155A60061516E /* ZhiFuViewController.m */; };
+		E2CAC8141D0155A60061516E /* ZhiFuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2CAC8121D0155A60061516E /* ZhiFuViewController.xib */; };
 		E2D05B721CB38C8C00B0F690 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B711CB38C8C00B0F690 /* CoreTelephony.framework */; };
 		E2D05B741CB38CB100B0F690 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B731CB38CB100B0F690 /* SystemConfiguration.framework */; };
 		E2D05B761CB38CD000B0F690 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D05B751CB38CD000B0F690 /* libz.tbd */; };
@@ -739,9 +739,6 @@
 		212EEE8A1CE048C500F94B30 /* CommonUserHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonUserHeaderView.xib; sourceTree = "<group>"; };
 		212EEE8B1CE048C500F94B30 /* CommonUserHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUserHomeViewController.h; sourceTree = "<group>"; };
 		212EEE8C1CE048C500F94B30 /* CommonUserHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUserHomeViewController.m; sourceTree = "<group>"; };
-		213569671D00266F0096E14C /* ZhiFuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhiFuViewController.h; sourceTree = "<group>"; };
-		213569681D00266F0096E14C /* ZhiFuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhiFuViewController.m; sourceTree = "<group>"; };
-		213569691D00266F0096E14C /* ZhiFuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZhiFuViewController.xib; sourceTree = "<group>"; };
 		2135696C1D002FC70096E14C /* sH5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sH5; sourceTree = "<group>"; };
 		2137E99E1CFC390900F201D6 /* DetailCreationH5WebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCreationH5WebController.h; sourceTree = "<group>"; };
 		2137E99F1CFC390900F201D6 /* DetailCreationH5WebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCreationH5WebController.m; sourceTree = "<group>"; };
@@ -1490,6 +1487,9 @@
 		E2CAC7FC1CFFE8DA0061516E /* HMSelectCounterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSelectCounterButton.m; sourceTree = "<group>"; };
 		E2CAC7FD1CFFE8DA0061516E /* HMViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMViewerViewController.h; sourceTree = "<group>"; };
 		E2CAC7FE1CFFE8DA0061516E /* HMViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMViewerViewController.m; sourceTree = "<group>"; };
+		E2CAC8101D0155A60061516E /* ZhiFuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhiFuViewController.h; sourceTree = "<group>"; };
+		E2CAC8111D0155A60061516E /* ZhiFuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhiFuViewController.m; sourceTree = "<group>"; };
+		E2CAC8121D0155A60061516E /* ZhiFuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZhiFuViewController.xib; sourceTree = "<group>"; };
 		E2D05B711CB38C8C00B0F690 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		E2D05B731CB38CB100B0F690 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E2D05B751CB38CD000B0F690 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -3613,9 +3613,9 @@
 				E2D5245D1CDF9B6C0024887A /* PayTableViewController.h */,
 				E2D5245E1CDF9B6C0024887A /* PayTableViewController.m */,
 				E2D5245F1CDF9B6C0024887A /* PayTableViewController.storyboard */,
-				213569671D00266F0096E14C /* ZhiFuViewController.h */,
-				213569681D00266F0096E14C /* ZhiFuViewController.m */,
-				213569691D00266F0096E14C /* ZhiFuViewController.xib */,
+				E2CAC8101D0155A60061516E /* ZhiFuViewController.h */,
+				E2CAC8111D0155A60061516E /* ZhiFuViewController.m */,
+				E2CAC8121D0155A60061516E /* ZhiFuViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4489,7 +4489,6 @@
 				E22892CD1CDF03F400483F18 /* h_ye@2x.png in Resources */,
 				E22892D21CDF03F400483F18 /* o_fahongbao@2x.png in Resources */,
 				E22892DF1CDF03F400483F18 /* w_shachenbao@2x.png in Resources */,
-				2135696B1D00266F0096E14C /* ZhiFuViewController.xib in Resources */,
 				21B99BAA1CF6F9AD00E682F8 /* ShareViewHUD.xib in Resources */,
 				E22892A51CDF03F400483F18 /* d_shengbing@2x.png in Resources */,
 				E22892CE1CDF03F400483F18 /* info.plist in Resources */,
@@ -4514,6 +4513,7 @@
 				E22893B41CDF049500483F18 /* lxh_qiuguanzhu.gif in Resources */,
 				E22893C41CDF049500483F18 /* lxh_xianghumobai.png in Resources */,
 				E22893A81CDF049500483F18 /* lxh_oye.png in Resources */,
+				E2CAC8141D0155A60061516E /* ZhiFuViewController.xib in Resources */,
 				E22893651CDF049500483F18 /* .DS_Store in Resources */,
 				E22893A41CDF049500483F18 /* lxh_meigui.png in Resources */,
 				E228938D1CDF049500483F18 /* lxh_holdzhu@2x.png in Resources */,
@@ -4704,6 +4704,7 @@
 				E266FFB01CF5521800006EA2 /* MoreInvestorCell.m in Sources */,
 				E22890411CDEFDD900483F18 /* UIView+Frame.m in Sources */,
 				21ECC2091CFFC5F00024EFD4 /* FansMyUserTableViewController.m in Sources */,
+				E2CAC8131D0155A60061516E /* ZhiFuViewController.m in Sources */,
 				21C413DE1CE2D23500F1029C /* ArtistMainViewController.m in Sources */,
 				21C413E91CE2D23500F1029C /* AGImagePickerController.m in Sources */,
 				E2D5249E1CDF9F0B0024887A /* TouGuoViewController.m in Sources */,
@@ -4764,7 +4765,6 @@
 				E228903A1CDEFDD900483F18 /* NSString+Emoji.m in Sources */,
 				E2CAC7DB1CFFD72A0061516E /* ArtworkFinishedController.m in Sources */,
 				21C414471CE2D23500F1029C /* ArtistWorksCell.m in Sources */,
-				2135696A1D00266F0096E14C /* ZhiFuViewController.m in Sources */,
 				21AB0ABF1CC50A4D00B7BA03 /* JPSlideBar+ScrollViewDelegate.m in Sources */,
 				E2A38A3B1CF1626500EAB0D3 /* RYTLoginManager.m in Sources */,
 				E2CAC8091CFFE8DA0061516E /* HMSelectCounterButton.m in Sources */,
@@ -5075,8 +5075,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: haojie shi (VUR439VZ7R)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5113,9 +5113,10 @@
 					"$(PROJECT_DIR)/融易投/3rd/JPush/JPushLIB",
 					"$(PROJECT_DIR)/融易投/3rd/WXPay/WeChatSDK_1.5",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "beadd937-265c-46f8-852b-19ef56b77481";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/TOM/Desktop/ryt-ios/融易投/融易投/JPushLIB";
@@ -5128,8 +5129,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Developer ID Application: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: haojie shi (VUR439VZ7R)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5166,9 +5167,10 @@
 					"$(PROJECT_DIR)/融易投/3rd/JPush/JPushLIB",
 					"$(PROJECT_DIR)/融易投/3rd/WXPay/WeChatSDK_1.5",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "beadd937-265c-46f8-852b-19ef56b77481";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/TOM/Desktop/ryt-ios/融易投/融易投/JPushLIB";

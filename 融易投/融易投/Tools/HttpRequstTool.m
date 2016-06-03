@@ -160,6 +160,32 @@ static  NSString *basePath = @"http://192.168.1.75:8080/app/";
 /**
  *  POST上传文件
  */
+-(void)uploadDataWithServerUrl:(NSString *)server_url parameters:(id)parameters constructingBodyWithBlock:(constructingBodyWithBlock)constructingBodyWithBlock showHUDView:(UIView *)view progress:(updateProgressBlock )progressBlock success:(requstSuccessBlock )successBlock{
+    NSString *timestamp = [MyMD5 timestamp];
+    NSString *appkey = MD5key;
+    NSMutableString *strM = [NSMutableString string];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    NSLog(@"%@",dict);
+    if([[dict allKeys] containsObject:@"file"]){
+        [dict removeObjectForKey:@"file"];
+    }
+    NSLog(@"%@",dict);
+    [dict setValue:timestamp forKey:@"timestamp"];
+    [strM appendString:[self appendStringWithDictionary:dict]];
+    [strM appendFormat:@"&key=%@",appkey];
+    NSString *signmsgMD5 = [MyMD5 md5:strM];
+    NSDictionary *temp = @{
+                           @"timestamp" : timestamp,
+                           @"signmsg"   : signmsgMD5
+                           };
+    NSMutableDictionary *parDictionary = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    [parDictionary addEntriesFromDictionary:temp];
+    [self handlerNetworkingPOSTRequstWithServerUrl:server_url Parameters:parDictionary constructingBodyWithBlock:constructingBodyWithBlock showHUDView:view progress:progressBlock success:successBlock];
+}
+
+/**
+ *  POST上传文件
+ */
 -(void)handlerNetworkingPOSTRequstWithServerUrl:(NSString *)server_url  Parameters:(id )param constructingBodyWithBlock:(constructingBodyWithBlock)constructingBodyWithBlock showHUDView:(UIView *)view progress:(updateProgressBlock )progressBlock success:(requstSuccessBlock )successBlock{
     if (!server_url){
         return;

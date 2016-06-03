@@ -294,20 +294,12 @@
         NSString *followType = self.model.user.master ? @"2" : @"1";
         NSDictionary *json = [ NSDictionary dictionary];
         if (![userId isEqualToString:followId]) {
-            if (![self.model.artUserFollowId isEqualToString:@""]) {
-                json = @{
-                         @"identifier" :identifier,
-                         //                     @"followType" : followType,
-                         @"artUserFollowId" : self.model.artUserFollowId
-                         };
-            }else{
-                json = @{
-                         @"userId" : userId,
-                         @"followId" : followId,
-                         @"identifier" :identifier,
-                         @"followType" : followType,
-                         };
-            }
+            json = @{
+                     @"userId" : userId,
+                     @"followId" : followId,
+                     @"identifier" :identifier,
+                     @"followType" : followType,
+                     };
             [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"changeFollowStatus.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
                 NSString *str = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
                 NSLog(@"%@",str);
@@ -315,6 +307,8 @@
                 NSString *resultCode = result[@"resultCode"];
                 if ([resultCode isEqualToString:@"0"]) {
                     self.HeaderView.focusBtn.selected = !self.HeaderView.focusBtn.selected;
+                    NSString *flag = result[@"flag"];
+                    self.model.followed = [flag isEqualToString:@"1"] ? YES : NO;
                 }
             }];
         }

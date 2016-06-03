@@ -404,9 +404,17 @@
     }
 
     //从app中获取的服务端请求接口的必要参数  需要传递一个密钥参数
+<<<<<<< HEAD:融易投/融易投/H5/A2.html
+    function getParamObject(artWorkId,currentUserId,signmsg,timestamp) {
+        alert(artWorkId+currentUserId+signmsg+timestamp);
+        var e = document.getElementById("js_shouw_text");
+        e.options.add(new Option("OC调用JS中的有参方法", 4));
+        
+=======
     function getParamObject() {
         return PageVariable.param;
 //        return {artWorkId: "qydeyugqqiugd2", currentUserId: "", signmsg: "", timestamp: ""}
+>>>>>>> b27244e1f74f5772beb5443e3ccc47057dc38b8f:融易投/融易投/sH5/A2.html
     }
     //从app中获取当前用户id
     function getCurrentUserId() {
