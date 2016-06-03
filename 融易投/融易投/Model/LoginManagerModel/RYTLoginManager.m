@@ -119,7 +119,6 @@
     NSFileManager *mgr = [NSFileManager defaultManager];
     [mgr removeItemAtPath:filePath error:nil];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userId"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"registrationID"];
 }
 
 

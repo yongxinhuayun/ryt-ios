@@ -222,11 +222,9 @@
                                        @"password":self.passwordTextField.text,
                                        };
                 [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"userBinding.do" parameters:json showHUDView:nil andBlock:^(id respondObj) {
-//                    NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-//                    NSLog(@"返回结果:%@",jsonStr);
-                    // TODO
+                    NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+                    NSLog(@"返回结果:%@",jsonStr);
                 }];
-
             }
             //在主线程刷新UI数据
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
