@@ -126,7 +126,7 @@
                         <constraint firstAttribute="height" constant="15" id="QV9-X4-6WF"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zhuce_fenggexian750" translatesAutoresizingMaskIntoConstraints="NO" id="3UZ-Bk-vFm">
+                <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zhuce_fenggexian750" translatesAutoresizingMaskIntoConstraints="NO" id="3UZ-Bk-vFm">
                     <rect key="frame" x="0.0" y="233" width="327" height="1"/>
                     <color key="backgroundColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>

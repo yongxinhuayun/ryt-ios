@@ -69,9 +69,21 @@
     
     SSLog(@"%@",model.flag);
     
-    //如果是自己看自己的关注,那么都是已经关注过的,所以直接显示关注状态
+    //当查看别人列表中,含有自己时,让关注按钮隐藏
     UserMyModel *userModel = TakeLoginUserModel;
     NSString *userId = userModel.ID;
+    if ([userId isEqualToString:self.model.artUserFollowed.follower.ID]) {
+        self.focusBtn.hidden = YES;
+    }else{
+        self.focusBtn.hidden = NO;
+    }
+    
+    //因为后台返回的数据有时候可能为nil,当nil时即为关注,1为关注,2为未关注
+    if (model.flag == nil) {
+        model.flag = @"1";
+    }
+    
+    //如果是自己看自己的关注,那么都是已经关注过的,所以直接显示关注状态
     if ([userId isEqualToString:model.artUserFollowed.user.ID]) {
         
         self.focusBtn.selected = YES;
@@ -105,7 +117,7 @@
             self.model.flag = @"1";
         }
         
-        NSString *identifier = self.model.flag ? @"1" : @"2";
+        NSString *identifier = [self.model.flag isEqualToString:@"1"] ? @"1" : @"0";
         // followType 1:艺术家 2:普通用户
         NSString *followType = self.model.artUserFollowed.follower.master ? @"1" : @"2";
         NSDictionary *json = [ NSDictionary dictionary];
@@ -115,7 +127,8 @@
         NSString *otherID = self.model.artUserFollowed.user.ID;
         if (![userId isEqualToString:otherID]) {
             
-            if (![self.model.artUserFollowed.ID isEqualToString:@""]) {
+            if ([self.model.flag isEqualToString:@"1"]) { //如果flag为1即为已经关注过的,再次点击关注按钮即为取消关注
+                SSLog(@"%@",identifier);
                 json = @{ //取消关注
                          @"userId" : userId,
                          @"followId" : followId,
@@ -123,6 +136,7 @@
                          @"followType" : followType,
                          };
             }else{ //关注
+                SSLog(@"%@",identifier);
                 json = @{
                          @"userId" : userId,
                          @"followId" : followId,
@@ -148,15 +162,19 @@
             if ([resultCode isEqualToString:@"0"]) {
                 sender.selected = !sender.selected;
                 
+                //发送通知,刷新tableView的数据
+                [[NSNotificationCenter defaultCenter] postNotificationName:UpdateFocusAndFansNotification object:self];
+                
                 //发送通知,修改我的界面的数据
                 [[NSNotificationCenter defaultCenter] postNotificationName:UpdateMeViewDataControllerNotification object:self];
             }
         }];
     }
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+//    [super setSelected:selected animated:animated];
     
     // Configure the view for the selected state
 }

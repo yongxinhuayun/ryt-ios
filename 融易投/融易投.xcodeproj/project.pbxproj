@@ -20,6 +20,7 @@
 		212EEE8F1CE048C500F94B30 /* CommonUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE8C1CE048C500F94B30 /* CommonUserHomeViewController.m */; };
 		2135696A1D00266F0096E14C /* ZhiFuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213569681D00266F0096E14C /* ZhiFuViewController.m */; };
 		2135696B1D00266F0096E14C /* ZhiFuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 213569691D00266F0096E14C /* ZhiFuViewController.xib */; };
+		2135696D1D002FC70096E14C /* sH5 in Resources */ = {isa = PBXBuildFile; fileRef = 2135696C1D002FC70096E14C /* sH5 */; };
 		2137E9A11CFC390900F201D6 /* DetailCreationH5WebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2137E99F1CFC390900F201D6 /* DetailCreationH5WebController.m */; };
 		2137E9A21CFC390900F201D6 /* DetailCreationH5WebController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2137E9A01CFC390900F201D6 /* DetailCreationH5WebController.xib */; };
 		215C965E1CED56AC0084C319 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 215C965A1CED56AC0084C319 /* libWeChatSDK.a */; };
@@ -227,7 +228,6 @@
 		21ECC20C1CFFC6200024EFD4 /* FansMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ECC20B1CFFC6200024EFD4 /* FansMyViewController.m */; };
 		21ECC2101CFFC7B80024EFD4 /* FansTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ECC20E1CFFC7B80024EFD4 /* FansTableViewCell.m */; };
 		21ECC2111CFFC7B80024EFD4 /* FansTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21ECC20F1CFFC7B80024EFD4 /* FansTableViewCell.xib */; };
-		21ECC3531CFFDB570024EFD4 /* H5 in Resources */ = {isa = PBXBuildFile; fileRef = 21ECC3521CFFDB570024EFD4 /* H5 */; };
 		21ECC3591CFFE3010024EFD4 /* NSObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 21ECC3581CFFE3010024EFD4 /* NSObject+Extension.m */; };
 		8177F8DB1CE4DC0F005D2259 /* TimeAxisTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8177F8DA1CE4DC0F005D2259 /* TimeAxisTableViewController.m */; };
 		8177F8E41CE4E1CD005D2259 /* CreationTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8177F8E21CE4E1CD005D2259 /* CreationTimeCell.m */; };
@@ -737,6 +737,7 @@
 		213569671D00266F0096E14C /* ZhiFuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhiFuViewController.h; sourceTree = "<group>"; };
 		213569681D00266F0096E14C /* ZhiFuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhiFuViewController.m; sourceTree = "<group>"; };
 		213569691D00266F0096E14C /* ZhiFuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZhiFuViewController.xib; sourceTree = "<group>"; };
+		2135696C1D002FC70096E14C /* sH5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sH5; sourceTree = "<group>"; };
 		2137E99E1CFC390900F201D6 /* DetailCreationH5WebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCreationH5WebController.h; sourceTree = "<group>"; };
 		2137E99F1CFC390900F201D6 /* DetailCreationH5WebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCreationH5WebController.m; sourceTree = "<group>"; };
 		2137E9A01CFC390900F201D6 /* DetailCreationH5WebController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCreationH5WebController.xib; sourceTree = "<group>"; };
@@ -1098,7 +1099,6 @@
 		21ECC20D1CFFC7B80024EFD4 /* FansTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FansTableViewCell.h; sourceTree = "<group>"; };
 		21ECC20E1CFFC7B80024EFD4 /* FansTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FansTableViewCell.m; sourceTree = "<group>"; };
 		21ECC20F1CFFC7B80024EFD4 /* FansTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FansTableViewCell.xib; sourceTree = "<group>"; };
-		21ECC3521CFFDB570024EFD4 /* H5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = H5; sourceTree = "<group>"; };
 		21ECC3571CFFE3010024EFD4 /* NSObject+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Extension.h"; sourceTree = "<group>"; };
 		21ECC3581CFFE3010024EFD4 /* NSObject+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Extension.m"; sourceTree = "<group>"; };
 		8177F8D91CE4DC0F005D2259 /* TimeAxisTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeAxisTableViewController.h; sourceTree = "<group>"; };
@@ -2558,12 +2558,12 @@
 		21ECC1EE1CFFC5460024EFD4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				21ECC20A1CFFC6200024EFD4 /* FansMyViewController.h */,
+				21ECC20B1CFFC6200024EFD4 /* FansMyViewController.m */,
 				21ECC2041CFFC5A40024EFD4 /* FansMyArtistTableViewController.h */,
 				21ECC2051CFFC5A40024EFD4 /* FansMyArtistTableViewController.m */,
 				21ECC2071CFFC5F00024EFD4 /* FansMyUserTableViewController.h */,
 				21ECC2081CFFC5F00024EFD4 /* FansMyUserTableViewController.m */,
-				21ECC20A1CFFC6200024EFD4 /* FansMyViewController.h */,
-				21ECC20B1CFFC6200024EFD4 /* FansMyViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2592,12 +2592,12 @@
 			children = (
 				21ECC1F21CFFC5460024EFD4 /* FocusBasicTableViewController.h */,
 				21ECC1F31CFFC5460024EFD4 /* FocusBasicTableViewController.m */,
+				21ECC1F81CFFC5460024EFD4 /* FocusMyViewController.h */,
+				21ECC1F91CFFC5460024EFD4 /* FocusMyViewController.m */,
 				21ECC1F41CFFC5460024EFD4 /* FocusMyArtistTableViewController.h */,
 				21ECC1F51CFFC5460024EFD4 /* FocusMyArtistTableViewController.m */,
 				21ECC1F61CFFC5460024EFD4 /* FocusMyUserTableViewController.h */,
 				21ECC1F71CFFC5460024EFD4 /* FocusMyUserTableViewController.m */,
-				21ECC1F81CFFC5460024EFD4 /* FocusMyViewController.h */,
-				21ECC1F91CFFC5460024EFD4 /* FocusMyViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3161,13 +3161,6 @@
 				E2A38A3A1CF1626500EAB0D3 /* RYTLoginManager.m */,
 			);
 			path = LoginManagerModel;
-			sourceTree = "<group>";
-		};
-		E2CAC6B01CFED4BB0061516E /* HTML5 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HTML5;
 			sourceTree = "<group>";
 		};
 		E2CAC7E61CFFE8CD0061516E /* HMImagePicker */ = {
@@ -3889,10 +3882,9 @@
 				E2288E481CDEFB0500483F18 /* 3rd */,
 				E2288E4E1CDEFB3200483F18 /* Model */,
 				E22892131CDF01B400483F18 /* Controllers */,
-				E2CAC6B01CFED4BB0061516E /* HTML5 */,
-				21ECC3521CFFDB570024EFD4 /* H5 */,
 				218D2B371CACB2E3004553B9 /* Main */,
 				E2DDB19A1CABA64E007438E4 /* Controller */,
+				2135696C1D002FC70096E14C /* sH5 */,
 				E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */,
 				E236C3231CB4E27E009DCBF0 /* PushConfig.plist */,
 				218D2B5B1CACB5B9004553B9 /* Launch Screen.storyboard */,
@@ -4390,7 +4382,6 @@
 				E22893CD1CDF049500483F18 /* lxh_xiudada.png in Resources */,
 				E22893671CDF049500483F18 /* lxh_beicui.gif in Resources */,
 				E22893B01CDF049500483F18 /* lxh_qiaoqiao@2x.png in Resources */,
-				21ECC3531CFFDB570024EFD4 /* H5 in Resources */,
 				E22893B31CDF049500483F18 /* lxh_qiubite@2x.png in Resources */,
 				E2487B151CEAA63300484C5D /* TopRecordTCell.xib in Resources */,
 				E22892991CDF03F400483F18 /* d_kelian@2x.png in Resources */,
@@ -4434,6 +4425,7 @@
 				21C4142F1CE2D23500F1029C /* HMEmotionPopView.xib in Resources */,
 				E22893AE1CDF049500483F18 /* lxh_qiaoqiao.gif in Resources */,
 				E22893CE1CDF049500483F18 /* lxh_xiudada@2x.png in Resources */,
+				2135696D1D002FC70096E14C /* sH5 in Resources */,
 				E2D521F71CDF7A0C0024887A /* provinces.plist in Resources */,
 				E22892DC1CDF03F400483F18 /* o_zhaoxiangji@2x.png in Resources */,
 				E22892931CDF03F400483F18 /* d_hehe@2x.png in Resources */,

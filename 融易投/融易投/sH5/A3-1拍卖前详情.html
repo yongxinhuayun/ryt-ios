@@ -14,7 +14,7 @@
         <h1>逐鹿顺意铜雕</h1>
     </div>
     <!--//End--模块--header-->
-    <div class="swiper-container">
+    <div class="swiper-container" id="mainPicture">
         <!--<div class="swiper-wrapper">-->
         <!--<div class="swiper-slide">-->
         <!--<a href=""><img class="itam-img" src="http://s.amazeui.org/media/i/demos/bing-2.jpg"-->
@@ -39,7 +39,7 @@
             <!--<em>拍卖结束</em>-->
             <!--{{ } }}-->
             <!--{{ if(it.step=="30" || it.step=="31") { }}-->
-            <!--<span class="time" onload="countDown('{{ if(it.step=="30"){ }}{{=it.auctionStartDatetime}}{{ }else{ }}{{=it.auctionEndDatetime}}{{ } }}')"><em class="num" id="hh">01</em><em class="str">小时</em><em class="num"-->
+            <!--<span class="time" onload="countDown(this,'{{ if(it.step=="30"){ }}{{=it.auctionStartDatetime}}{{ }else{ }}{{=it.auctionEndDatetime}}{{ } }}')"><em class="num" id="hh">01</em><em class="str">小时</em><em class="num"-->
             <!--id="mm">30</em><em-->
             <!--class="str">分</em><em class="num" id="ss">59</em><em class="str">秒</em>-->
             <!--</span>-->
@@ -88,18 +88,19 @@
         <!--//End---->
 
         <div class="com-invest pm_com-invest" id="currentAuctionTopThreeRecord">
-            <h5>实时出价</h5>
-            <ul>
-                {{ for(var i = 0 ; i<3 ; i++){
-                var bidding = it.artWorkBiddingList[i];
-                }}
-                <li>
-                    <i class="rank rank1"></i>
-                    <span><img src="{{=bidding.creator.pictureUrl}}" alt=""><strong>{{=dealUsername(bidding.creator.username)}}</strong></span>
-                    <span><strong>出价了</strong>&nbsp;<b>{{=parseInt(bidding.price)}}元</b></span>
-                    <span>{{=getDateStr(bidding.createDatetime)}}</span>
-                </li>
-            </ul>
+            <!--<h5>实时出价</h5>-->
+            <!--<ul>-->
+            <!--{{ for(var i = 0 ; i<3 ; i++){-->
+            <!--var bidding = it.artWorkBiddingList[i];-->
+            <!--}}-->
+            <!--<li>-->
+            <!--<i class="rank rank1"></i>-->
+            <!--<span><img src="{{=bidding.creator.pictureUrl}}" alt=""><strong>{{=dealUsername(bidding.creator.username)}}</strong></span>-->
+            <!--<span><strong>出价了</strong>&nbsp;<b>{{=parseInt(bidding.price)}}元</b></span>-->
+            <!--<span>{{=getDateStr(bidding.createDatetime)}}</span>-->
+            <!--</li>-->
+            <!--{{ } }}-->
+            <!--</ul>-->
 
         </div>
 
@@ -167,7 +168,7 @@
                             <!--</div>-->
                             <!--</div>-->
                             <!--<div class="page">-->
-                            <!--<p>预计作品创作完成还有{{=getDayNums(it.auctionStartDatetime-it.investEndDatetime)}}天。</p>-->
+                            <!--<p>预计作品创作完成还有{{=getDayNums(it.creationEndDatetime-it.investEndDatetime)}}天。</p>-->
                             <!--</div>-->
                         </div>
                         <div class="timeline dt" id="dt">
@@ -451,87 +452,85 @@
 <!--//End--余额不足提示-->
 
 <!--拍卖前-->
-{{ if(it.step == "30"){ }}
-<div class="pm_btm_bar">
-    <a class="links" onclick="redirectComment('{{=getCurrentUserId()}}')" title="评论">评论</a>
-    <a class="links" id="btn_pay" title="缴纳保证金">缴纳保证金</a>
+
+<div id="bottomButton">
+
+
+    <!--{{ if(it.step == "30"){ }}-->
+    <!--<div class="pm_btm_bar">-->
+    <!--<a class="links" onclick="redirectComment('{{=getCurrentUserId()}}')" title="评论">评论</a>-->
+    <!--<a class="links" id="btn_pay" title="缴纳保证金">缴纳保证金</a>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;//End&#45;&#45;底部悬浮&ndash;&gt;-->
+    <!--<div id="btn_pay_pannel" class="pm_pay_lay">-->
+    <!--<div class="main">-->
+    <!--<em class="close"></em>-->
+    <!--<div class="p1">-->
+    <!--<p>-->
+    <!--<span>保证金</span><span class="price">¥{{=getDepositPrice(it.startingPrice)}}</span>-->
+    <!--</p>-->
+    <!--</div>-->
+    <!--<div class="p2">若竞拍不成功在72小时之内释放保证金。</div>-->
+    <!--<div class="p3"><i id="radio" class="active"></i>竞拍需同意融艺投竞拍协议<a onclick="redirectProtocol()">《融艺投竞拍协议》</a>-->
+    <!--</div>-->
+    <!--<a onclick="submitDepositPrice('{{=it.startingPrice}}')" class="submit">提交保证金</a>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;//End&#45;&#45;缴纳保证金&ndash;&gt;-->
+    <!--{{ } }}-->
+
+    <!--{{ if(it.step == "31"){ }}-->
+    <!--<div class="pm_btm_bar" style="z-index:120;">-->
+    <!--<div class="bid">-->
+    <!--<a id="bid-link" onclick="bid()">出价</a>-->
+    <!--<span class="num addsub"-->
+    <!--data-option='{"upLimit":-1,"inputName":"auctionPrice","downLimit":{{=getCurrentAuctionPrice(it.currentAuctionPrice)}} ,"defaultValue":{{=getCurrentAuctionPrice(it.currentAuctionPrice)}} }'-->
+    <!--onload="ChooseCountComponent()">-->
+    <!--&lt;!&ndash;<em class="sub"></em>&ndash;&gt;-->
+    <!--&lt;!&ndash;<input disabled="true" type="text" value="2000">&ndash;&gt;-->
+    <!--&lt;!&ndash;<em class="add"></em>&ndash;&gt;-->
+    <!--</span>-->
+    <!--<a onclick="redirectComment('{{=getCurrentUserId()}}')">评论</a>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;//End&#45;&#45;出价部分&ndash;&gt;-->
+
+
+    <!--&lt;!&ndash;<<<点击出价后的提示框 出价成功和出价失败都会弹出提示框>>>&ndash;&gt;-->
+    <!--<div id="alert">-->
+    <!--<div id="pm-bid-tips" class="pm-bid-tips">-->
+    <!--{{ if(it.status=="0"){ }}-->
+    <!--<p>出价成功！</p>-->
+    <!--{{ } else { }}-->
+    <!--<p>出价金额需大于当前金额,当前金额为20000元</p>-->
+    <!--{{ } }}-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;//End&#45;&#45;点击出价后的提示框&ndash;&gt;-->
+
+    <!--{{ } }}-->
+
+    <!--{{ if(it.step == "32" && it.winner.id == getCurrentUserId()){ }}-->
+
+    <!--<div id="btn_pay_pannel" class="pm_pay_lay">-->
+    <!--<div class="main">-->
+    <!--<em class="close"></em>-->
+    <!--<div class="p1">-->
+    <!--<p>-->
+    <!--<span>尾款金额</span><span class="price">¥{{=getCurrentFinalPrice()}}</span>-->
+    <!--</p>-->
+    <!--</div>-->
+    <!--<div class="p2">尾款金额将直接从您的个人账户当中扣除。</div>-->
+    <!--<div class="p3"><i id="radio2" class="active"></i>竞拍需同意融艺投竞拍协议<a onclick="redirectProtocol()">《融艺投竞拍协议》</a>-->
+    <!--</div>-->
+    <!--<a onclick="submitRestPrice()" class="submit">去付尾款</a>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--{{ } }}-->
+    <!--&lt;!&ndash;//End&#45;&#45;余额不足提示&ndash;&gt;-->
+
 </div>
-<!--//End--底部悬浮-->
-<div id="btn_pay_pannel" class="pm_pay_lay">
-    <div class="main">
-        <em class="close"></em>
-        <div class="p1">
-            <p>
-                <span>保证金</span><span class="price">¥{{=getDepositPrice(it.startingPrice)}}</span>
-            </p>
-        </div>
-        <div class="p2">保证金将直接从您的个人账户中冻结，若竞拍不成功在72小时之内释放保证金。</div>
-        <div class="p3"><i id="radio" class="active"></i>竞拍需同意融艺投竞拍协议<a onclick="redirectProtocol()">《融艺投竞拍协议》</a></div>
-        <a onclick="submitDepositPrice('{{=it.startingPrice}}')" class="submit">提交保证金</a>
-    </div>
-</div>
-<!--//End--缴纳保证金-->
-<div class="pm_dialog">
-    <div class="content">
-        <div class="close"></div>
-        <div class="info">
-            <p>很遗憾地告诉您，您的个人账户余额不足。只需充值起拍金额的10 %，就可以参与拍卖了。</p>
-        </div>
-        <a onclick="redirectPay()" class="btn" title="去充值">去充值</a>
-    </div>
-</div>
-
-{{ } }}
-
-{{ if(it.step == "31"){ }}
-<div class="pm_btm_bar" style="z-index:120;">
-    <div class="bid">
-        <a id="bid-link" onclick="bid()">出价</a>
-        <span class="num addsub"
-              data-option='{"upLimit":-1,"inputName":"auctionPrice","downLimit":{{=getCurrentAuctionPrice(it.currentAuctionPrice)}} ,"defaultValue":{{=getCurrentAuctionPrice(it.currentAuctionPrice)}} }'
-              onload="ChooseCountComponent()">
-            <!--<em class="sub"></em>-->
-            <!--<input disabled="true" type="text" value="2000">-->
-            <!--<em class="add"></em>-->
-        </span>
-        <a onclick="redirectComment('{{=getCurrentUserId()}}')">评论</a>
-    </div>
-</div>
-<!--//End--出价部分-->
-
-
-<!--<<<点击出价后的提示框 出价成功和出价失败都会弹出提示框>>>-->
-<div id="alert">
-    <div id="pm-bid-tips" class="pm-bid-tips">
-        {{ }}
-        <p>出价成功！</p>
-        <p>出价金额需大于当前金额,当前金额为20000元</p>
-    </div>
-</div>
-<!--//End--点击出价后的提示框-->
-
-{{ } }}
-
-{{ if(it.step == "32" && it.winner.id == getCurrentUserId()){ }}
-
-<div id="btn_pay_pannel" class="pm_pay_lay">
-    <div class="main">
-        <em class="close"></em>
-        <div class="p1">
-            <p>
-                <span>尾款金额</span><span class="price">¥{{=getCurrentFinalPrice()}}</span>
-            </p>
-        </div>
-        <div class="p2">尾款金额将直接从您的个人账户当中扣除。</div>
-        <div class="p3"><i id="radio2" class="active"></i>竞拍需同意融艺投竞拍协议<a onclick="redirectProtocol()">《融艺投竞拍协议》</a>
-        </div>
-        <a onclick="redirectPay()" class="submit">去付尾款</a>
-    </div>
-</div>
-
-{{ } }}
-<!--//End--余额不足提示-->
-
 
 <script src="shop2016/js/jquery.min.js"></script>
 <script src="shop2016/js/swiper.min.js"></script>
@@ -542,6 +541,16 @@
 <script src="shop2016/js/local/invest/controller.js"></script>
 <script>
 
+    hostName = "http://localhost";                           //服务器域名
+    RequestUrl = {
+        commentTab: "/app/investorArtWorkComment.do",
+        artWorkViewTab: "/app/investorArtWorkView.do",
+        initPage: "/app/artWorkAuctionView.do",
+        auctionTab: "",    //拍卖纪录接口
+        pay: "",    //支付接口
+        bid: "",   //出价接口
+        viewNum: ""   //获得浏览次数接口
+    }//接口对象
 
     $().ready(function () {
         initPage();
@@ -580,49 +589,67 @@
         }
     }
 
-    //从app中获取的服务端请求接口的必要参数  需要传递一个密钥参数
     function getParamObject() {
         return {artWorkId: "qydeyugqqiugd2", currentUserId: "", signmsg: "", timestamp: ""}
-    }
-    //从app中获取当前用户id
+    }              //从app中获取的服务端请求接口的必要参数  需要传递一个密钥参数
     function getCurrentUserId() {
         return getParamObject()["currentUserId"];
-    }
-
-
+    }            //获得当前用户的id
     function redirectUser(userid) {
         console.log("test");
 //        window.location.href = "rongyitou://userid:skldjflksdjflk"
-    }
+    }          //@TODO 跳转到用户的个人主页
+    function redirectPay(price, type) {
+        console.log("pay");
+        //去充值 去付尾款
+    }      //@TODO 跳转到付款的页面
+    function redirectComment(userid) {
+        //跳转评论
+    }       //@TODO 跳转到评论
 
     function submitDepositPrice(price) {
-        //交保证金
-    }
-
-    hostName = "http://192.168.1.43";                           //服务器域名
-    RequestUrl = {
-        commentTab: "/app/investorArtWorkComment.do",
-        artWorkViewTab: "/app/investorArtWorkView.do",
-        initPage: "/app/artWorkAuctionView.do",
-        auctionTab: ""
-    }//接口对象
-
+        var depositPrice = getDepositPrice(price);
+        redirectPay();
+    }    //提交保证金
+    function getDepositPrice(startingPrice) {
+        return parseInt(startingPrice * 0.1);
+    }//@TODO 计算保证金
     function getAuctionPrice(price) {
-
-    }
-
-    function redirectPay() {
-        //去充值 去付尾款
-    }
-
-    function redirectComment(userid) {
-
-    }
-
+        //计算加价幅度
+        if (price <= 499) {
+            return 10;
+        } else if (price >= 500 && price <= 999) {
+            return 50;
+        } else if (price >= 1000 && price <= 4999) {
+            return 100;
+        } else if (price >= 5000 && price <= 9999) {
+            return 200;
+        } else if (price >= 10000 && price <= 29999) {
+            return 500;
+        } else if (price >= 30000 && price <= 99999) {
+            return 1000;
+        } else if (price >= 100000) {
+            return 2000;
+        }
+    }       //计算加价幅度
+    function submitRestPrice() {
+        redirectPay();
+    }            //@TODO 付尾款
+    function getCurrentFinalPrice() {
+        //获得竞拍得主应付尾款
+    }       //@TODO 计算尾款金额
     function bid() {
         //验证出价金额，创建拍卖纪录，更新实时拍卖的信息，出价的信息也需要跟着改
-    }
+        //需要返回当前最新的竞价记录
+        redirectPay();
+    }                        //@TODO 出价
 
+    //获得当前出价的价格
+    function getCurrentAuctionPrice(currentAuctionPrice) {
+        return currentAuctionPrice + getAuctionPrice(PageVariable.startingPrice)
+    } //获得当前出价的价格
+
+    //-------------------------------------------------------components---------------------------------------------------------
 
     var ChooseCountComponent = function () {
         var parentDiv = $(".addsub");
@@ -652,7 +679,7 @@
             if (typeof componentOption["inputName"] == "string") {
                 options["inputName"] = componentOption["inputName"];
             }
-            if (typeof componentOption["inputName"] == "string") {
+            if (typeof componentOption["step"] == "string") {
                 options["step"] = componentOption["step"];
             }
         }
@@ -660,15 +687,15 @@
         if (options["inputStatus"] == 1) {
             disabled = "disabled";
         }
-        var html = '<em class="sub"></em> <input class="ipt-txt" name="' + options["inputName"] + '" ' + disabled + ' type="text" value="2000"> <em class="add"></em>'
+        var html = '<em class="sub"></em> <input class="ipt-txt" name="' + options["inputName"] + '" ' + disabled + ' type="text" value="' + options["defaultValue"] + '"> <em class="add"></em>'
 //        var html = '<div class="opt"><a class="sub" title="减" ></a><input name="' + options["inputName"] + '" ' + disabled + ' class="ipt-txt" type="text" value="' + options["defaultValue"] + '" /><a class="add" title="加" ></a></div>'
         //加号的事件
         var addAction = function (e) {
             var inputElement = $(e.target).parent().find(".ipt-txt");
             var actionOptions = options;
             var currentValue = Number(inputElement.val());
-            if (Number(currentValue) < actionOptions["upLimit"] || actionOptions["upLimit"] == -1) {
-                currentValue += options["step"];
+            if (actionOptions["upLimit"] == -1 || Number(currentValue) < actionOptions["upLimit"]) {
+                currentValue += Number(options["step"]);
                 inputElement.val(currentValue);
             }
         }
@@ -676,19 +703,16 @@
             var inputElement = $(e.target).parent().find(".ipt-txt");
             var actionOptions = options;
             var currentValue = Number(inputElement.val());
-            if (Number(currentValue) > actionOptions["downLimit"] || actionOptions["upLimit"] == -1) {
-                currentValue -= options["step"];
+            if (actionOptions["downLimit"] == -1 || Number(currentValue) > actionOptions["downLimit"]) {
+                currentValue -= Number(options["step"]);
                 inputElement.val(currentValue);
             }
         }
         parentDiv.on("click", ".add", addAction);
         parentDiv.on("click", ".sub", subAction);
         parentDiv.html(html);
-    }
+    } //加价组件
 
-    function getCurrentFinalPrice() {
-        //获得竞拍得主应付尾款
-    }
 
 </script>
 </body>

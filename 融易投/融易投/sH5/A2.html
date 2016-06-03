@@ -371,7 +371,7 @@
 
 
     $().ready(function () {
-        initPage();
+//        initPage();
         document.addEventListener('touchend', touch, false);
         function touch() {
             if ($(document).scrollTop() + $(window).height() >= $(document).height()) {
@@ -403,21 +403,10 @@
         }
     }
 
-var param = new Object();
-
-function sendParam(artWorkId,currentUserId,signmsg,timestamp){
-    param.artWorkId = artWorkId;
-    param.currentUserId = currentUserId;
-    param.signmsg = signmsg;
-    param.timestamp = timestamp;
-    alert("sendParam: "+param.artWorkId);
-}
-
     //从app中获取的服务端请求接口的必要参数  需要传递一个密钥参数
     function getParamObject() {
-        alert("getParamObject: "+param.artWorkId);
-        return param;
-        
+        return PageVariable.param;
+//        return {artWorkId: "qydeyugqqiugd2", currentUserId: "", signmsg: "", timestamp: ""}
     }
     //从app中获取当前用户id
     function getCurrentUserId() {
@@ -427,7 +416,7 @@ function sendParam(artWorkId,currentUserId,signmsg,timestamp){
 
     function redirectUser(userid) {
         //console.log("test");
-        window.location.href = "rongyitou://jumpToUserHome_?imhfp1yr4636pj49"
+        window.location.href = "rongyitou://jumpToUserHome_?"+userid;
     }
 
     hostName = "http://192.168.1.43";                           //服务器域名

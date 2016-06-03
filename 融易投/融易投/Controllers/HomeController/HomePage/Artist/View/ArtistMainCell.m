@@ -63,7 +63,7 @@
     if ([model.author.ID isEqualToString:userModel.ID]) {
         
         //当艺术家看自己的项目时
-        model.step = @"22";
+//        model.step = @"22";
         if ([model.step isEqualToString:@"10"]) {
             
             self.stepBtn.hidden = NO;
@@ -119,47 +119,39 @@
             [self.btn1 setTitle:@"提交项目" forState:UIControlStateNormal];
             [self.btn2 setTitle:@"编辑项目" forState:UIControlStateNormal];
             
+        }else if ([model.step isEqualToString:@"30"]) {
+            
+            self.stepBtn.hidden = NO;
+            [self.stepBtn setTitle:@"拍卖前" forState:UIControlStateNormal];
+        }else if ([model.step isEqualToString:@"32"]) {
+            
+            self.stepBtn.hidden = NO;
+            [self.stepBtn setTitle:@"拍卖中" forState:UIControlStateNormal];
+        }else if ([model.step isEqualToString:@"32"]) {
+            
+            self.stepBtn.hidden = NO;
+            [self.stepBtn setTitle:@"拍卖结束" forState:UIControlStateNormal];
+        }else if ([model.step isEqualToString:@"33"]) {
+            
+            self.stepBtn.hidden = NO;
+            [self.stepBtn setTitle:@"流拍" forState:UIControlStateNormal];
+        }else if ([model.step isEqualToString:@"34"]) {
+            
+            self.stepBtn.hidden = NO;
+            [self.stepBtn setTitle:@"待支付尾款" forState:UIControlStateNormal];
+        }else if ([model.step isEqualToString:@"35"]) {
+            
+            self.stepBtn.hidden = NO;
+            [self.stepBtn setTitle:@"待发放" forState:UIControlStateNormal];
+        }else if ([model.step isEqualToString:@"36"]) {
+            
+            self.stepBtn.hidden = NO;
+            [self.stepBtn setTitle:@"已发送" forState:UIControlStateNormal];
         }else {
         
             self.stepBtn.hidden = YES;
             self.bottomView.hidden = YES;
         }
-        
-        /*
-         else if ([model.step isEqualToString:@"30"]) {
-         
-         self.stepBtn.hidden = NO;
-         [self.stepBtn setTitle:@"拍卖前" forState:UIControlStateNormal];
-         }else if ([model.step isEqualToString:@"32"]) {
-         
-         self.stepBtn.hidden = NO;
-         [self.stepBtn setTitle:@"拍卖中" forState:UIControlStateNormal];
-         }else if ([model.step isEqualToString:@"32"]) {
-         
-         self.stepBtn.hidden = NO;
-         [self.stepBtn setTitle:@"拍卖结束" forState:UIControlStateNormal];
-         }else if ([model.step isEqualToString:@"33"]) {
-         
-         self.stepBtn.hidden = NO;
-         [self.stepBtn setTitle:@"流拍" forState:UIControlStateNormal];
-         }else if ([model.step isEqualToString:@"34"]) {
-         
-         self.stepBtn.hidden = NO;
-         [self.stepBtn setTitle:@"待支付尾款" forState:UIControlStateNormal];
-         }else if ([model.step isEqualToString:@"35"]) {
-         
-         self.stepBtn.hidden = NO;
-         [self.stepBtn setTitle:@"待发放" forState:UIControlStateNormal];
-         }else if ([model.step isEqualToString:@"36"]) {
-         
-         self.stepBtn.hidden = NO;
-         [self.stepBtn setTitle:@"已发送" forState:UIControlStateNormal];
-         }else{
-         
-         self.stepBtn.hidden = YES;
-         [self.stepBtn setTitle:@"" forState:UIControlStateNormal];
-         }
-         */
     }else{ //别人看自己
     
         //当其他用户看艺术家主页项目时
@@ -180,11 +172,16 @@
             self.stepBtn.hidden = NO;
             self.bottomView.hidden = YES;
             [self.stepBtn setTitle:@"创作阶段" forState:UIControlStateNormal];
+        }else if ([model.step isEqualToString:@"30"]||[model.step isEqualToString:@"31"]||[model.step isEqualToString:@"32"]){
+            
+            self.stepBtn.hidden = NO;
+            self.bottomView.hidden = YES;
+            [self.stepBtn setTitle:@"拍卖阶段" forState:UIControlStateNormal];
         }else {
 
             self.stepBtn.hidden = YES;
-             self.bottomView.hidden = YES;
-            [self.stepBtn setTitle:@"" forState:UIControlStateNormal];   
+            self.bottomView.hidden = YES;
+//            [self.stepBtn setTitle:@"" forState:UIControlStateNormal];   
         }
     }
 }

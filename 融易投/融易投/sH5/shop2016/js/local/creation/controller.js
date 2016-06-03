@@ -1,7 +1,14 @@
 /**
  * Created by Administrator on 2016/5/31 0031.
  */
-function initPage() {
+//页面的初始化和渲染页面(统一调配函数)
+function initPage(artWorkId, currentUserId, signmsg, timestamp) {
+    var param = new Object();
+    param.artWorkId = artWorkId;
+    param.currentUserId = currentUserId;
+    param.signmsg = signmsg;
+    param.timestamp = timestamp;
+    PageVariable.param = param;
     getArtWorkBaseInfoData(getArtWorkBaseInfo);
     getArtWorkDetailData(getArtWorkDetail);
 }
@@ -18,7 +25,6 @@ function getArtWorkBaseInfo() {
     $("#cz").html(getArtWorkScheduleCreateHtml(artWorkProject));
     $("#pm").html(getArtWorkScheduleAuctionHtml(artWorkProject));
     $("#dt").append(getArtWorkScheduleMessageHtml(artWorkProject));
-    $("#auctionMessage").html(getArtWorkBaseInfoAuctionMessageHtml(artWorkInfo));
     tabsHeight();
 }
 //获得项目详情的controller
@@ -38,14 +44,14 @@ function getArtWorkComment() {
     pageEntity.pageIndex = pageEntity.pageIndex + 1;
     tabsHeight();
 }
-
-function getArtWorkAuctionBidding() {
-    var artWorkAuction = PageVariable.artWorkAuction;
-    $("#auctionNum").html(artWorkAuction.auctionNum + "人参与拍卖");
+//获得项目投资记录的controller
+function getArtWorkInvestRecord() {
+    var artWorkInvestRecord = PageVariable.artWorkInvestRecord;
+    $("#topThree").html(getArtWorkInvestRecordTopHtml(artWorkInvestRecord));
     if (pageEntity.pageIndex == 1) {
-        $("#auctionList").html(getArtWorkAuctionBiddingHtml(artWorkAuction));
+        $("#investList").html(getArtWorkInvestRecordListHtml(artWorkInvestRecord));
     } else {
-        $("#auctionList").append(getArtWorkAuctionBiddingHtml(artWorkAuction));
+        $("#investList").append(getArtWorkInvestRecordListHtml(artWorkInvestRecord));
     }
     pageEntity.pageIndex = pageEntity.pageIndex + 1;
     tabsHeight();
@@ -61,7 +67,7 @@ function getArtWorkBaseInfoData(callback) {
             var artWork = obj["artwork"];
             var masterLevel = "";
             var auctionStartDatetime = new Date();
-            auctionStartDatetime.setTime(artWork.auctionStartDatetime);
+            auctionStartDatetime.setTime(artWork.investEndDatetime);
             var auctionStartDatetimeStr = auctionStartDatetime.format("MM月dd日");
             switch (artWork.author.master.level) {
                 case "1":
@@ -89,7 +95,7 @@ function getArtWorkBaseInfoData(callback) {
 function getArtWorkDetailData(callback) {
     var success = function (data) {
         ajaxSuccessFunctionTemplage(function (dataTemp) {
-            var obj = dataTemp["object"];
+            var obj = dataTemp["object"]
             PageVariable.artWorkView = new ArtWorkView(obj.artworkAttachmentList, obj.artWork.description, obj.artworkdirection.make_instru, obj.artworkdirection.financing_aq);
         }, data, callback);
     }
@@ -103,7 +109,7 @@ function getArtWorkCommentData(callback) {
             var obj = dataTemp["object"];
             PageVariable.artWorkComment = new ArtWorkComment(obj.artworkCommentList);
         }, data, callback)
-    };
+    }
     var param = getParamObject();
     param.pageIndex = pageEntity.pageIndex;
     param.pageSize = pageEntity.pageSize;
@@ -111,18 +117,18 @@ function getArtWorkCommentData(callback) {
     ajaxRequest(hostName + RequestUrl.commentTab, param, success, function () {
     }, "post");
 }
-//拍卖纪录
-function getArtWorkAuctionData(callback) {
+//获得项目融资记录的数据
+function getArtWorkInvestRecordData(callback) {
     var success = function (data) {
         ajaxSuccessFunctionTemplage(function (dataTemp) {
             var obj = dataTemp["object"];
-            PageVariable.artWorkAuction = new ArtWorkAuction(obj.artWorkBiddingList);
+            PageVariable.artWorkInvestRecord = new ArtWorkInvestRecord(obj.artworkInvestList, obj.artworkInvestTopList);
         }, data, callback)
-    };
+    }
     var param = getParamObject();
     param.pageIndex = pageEntity.pageIndex;
     param.pageSize = pageEntity.pageSize;
-    ajaxRequest(hostName + RequestUrl.auctionTab, param, success, function () {
+    ajaxRequest(hostName + RequestUrl.investTab, param, success, function () {
     }, "post");
 }
 
@@ -139,15 +145,16 @@ function artWorkCommentPanelAction() {
         getArtWorkCommentData(getArtWorkComment);
     }
 }                   //页面滑到用户评价时候的action
+function artWorkInvestRecordPanelAction() {
+    //初始化页面分页信息
+    getArtWorkInvestRecordData(getArtWorkInvestRecord); //页面从新加载评论的数据
+    loadDataAction = function () {
+        getArtWorkInvestRecordData(getArtWorkInvestRecord);
+    }
+
+}              //页面滑到投资记录时候的action
 function artWorkViewPanelAction() {
     loadDataAction = function () {
         console.log("bottom");
     }
 }                      //页面滑到项目详情时候的action
-function artWorkAuctionPanelAction() {
-    //初始化页面分页信息
-    getArtWorkAuctionData(getArtWorkAuctionBidding); //页面从新加载拍卖的数据
-    loadDataAction = function () {
-        getArtWorkAuctionData(getArtWorkAuctionBidding);
-    }
-}                   //页面滑到拍卖纪录时候的action

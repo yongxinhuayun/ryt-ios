@@ -51,6 +51,12 @@ function getDateStr(times) {
     date.setTime(times);
     return date.format("MM月dd日");
 }
+
+function getDateFormatStr(times, format) {
+    var date = new Date();
+    date.setTime(times);
+    return date.format(format);
+}
 //获得时间字符串
 function getTimeStr(times) {
     var date = new Date();
@@ -123,9 +129,48 @@ function redirectProtocol() {
 //去支付
 function pay(price, type, currentUserId) {
     //首先需要验证余额是否充足
+    //这里的支付只负责余额的操作，真正的余额充值的操作
+}
+function timeEnd() {
+    //倒计时结束之后从新加载页面
 }
 
-//倒计时工具
 function countDown(timestamp) {
+    var time_start = new Date().getTime(); //设定当前时间
+    var time_end = new Date(timestamp).getTime(); //设定目标时间
+    // 计算时间差
+    var time_distance = time_end - time_start;
 
+    if (time_distance < 0) {
+        timeEnd();
+    } else {
+        // 时
+        var int_hour = Math.floor(time_distance / 3600000)
+        time_distance -= int_hour * 3600000;
+        // 分
+        var int_minute = Math.floor(time_distance / 60000)
+        time_distance -= int_minute * 60000;
+        // 秒
+        var int_second = Math.floor(time_distance / 1000)
+        // 时分秒为单数时、前面加零
+        if (int_hour < 10) {
+            int_hour = "0" + int_hour;
+        }
+        if (int_minute < 10) {
+            int_minute = "0" + int_minute;
+        }
+        if (int_second < 10) {
+            int_second = "0" + int_second;
+        }
+        // 显示时间
+        $("#hh").html(int_hour);
+        $("#mm").html(int_minute);
+        $("#ss").html(int_second);
+        // 设置定时器
+        setTimeout(function () {
+            countDown( timestamp)
+        }, 1000);
+    }
 }
+
+

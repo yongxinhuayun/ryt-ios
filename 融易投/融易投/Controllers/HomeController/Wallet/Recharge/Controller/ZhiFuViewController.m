@@ -8,9 +8,9 @@
 
 #import "ZhiFuViewController.h"
 
-@interface ZhiFuViewController ()
+@interface ZhiFuViewController ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-
+@property (strong, nonatomic) UIActivityIndicatorView *displayView;
 @end
 
 @implementation ZhiFuViewController
@@ -28,31 +28,23 @@
 {
     //设置导航条标题
     self.navigationItem.title = @"支付";
-    
-    //右边
-    UIImage *image = [UIImage imageNamed:@"denglu_guanbi"];
-    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithImage:image style:0 target:self action:@selector(btnClick)];
-    
-    self.navigationItem.rightBarButtonItem = barButtonItem;
-}
-
--(void)btnClick{
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)setupWebView{
-    
-    NSURL *url = [NSURL URLWithString:self.url];
-    
+    NSString *urlStr = [self.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString:urlStr];
+
+    SSLog(@"%@",url);
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 
     //让webView 自适应
     self.webView.scalesPageToFit = YES;
-    self.webView.hidden = YES;
+    self.webView.scrollView.scrollEnabled = NO;
+//    self.webView.hidden = YES;
+    
+//    self.webView.delegate = self;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
