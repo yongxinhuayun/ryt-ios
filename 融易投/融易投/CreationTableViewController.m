@@ -49,10 +49,8 @@ static NSString *ID = @"creationCell";
     [super viewDidLoad];
     self.lastpageIndex = @"1";
     //同样,tabBar的高度我们也可能项目中都会用到,写在常量文件中
-    self.tableView.contentInset = UIEdgeInsetsMake(SSStatusMaxH + SSTitlesViewH, 0, SSTabBarH, 0);
-    //运行程序,发现滚动条上部分被标题栏和导航栏挡住了,这样会对会用造成一定的假象,造成对内容的多少判断不准确
     self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSStatusMaxH + SSTitlesViewH, 0, SSTabBarH, 0);
-    self.tableView.contentInset = UIEdgeInsetsMake(67, 0, 50, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(SSNavMaxY, 0, SSTabBarH, 0);
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"CreationTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
     [CreationModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
