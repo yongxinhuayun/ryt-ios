@@ -23,6 +23,8 @@
 @property (nonatomic,strong) NSMutableArray *selectedAssets;
 
 @property(nonatomic,strong) SettingFooterView *commitBtnView;
+// 通过监听count变化，改变按钮的状态
+@property(nonatomic,assign) NSInteger imageCount;
 @end
 
 @implementation ArtworkFinishedController
@@ -40,28 +42,48 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"上传照片";
-    
+    self.imageCount = 0;
+    [self addCloseBtn];
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"ArtworkFinishCell" bundle:nil] forCellReuseIdentifier:@"ArtworkFinishCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"AddImageCell" bundle:nil] forCellReuseIdentifier:@"AddImageCell"];
     [self.tableView improveTableView];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self addObserver:self forKeyPath: @"images"options:  context:nil];
-//    [self.images addObserver:self forKeyPath:@"count" options:0 context:nil];
+    [self addObserver:self forKeyPath: @"imageCount"options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld  context:nil];
+}
+
+-(void)addCloseBtn{
+    //设置导航条按钮
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightButton.width = 44;
+    rightButton.height = 44;
+    [rightButton setImage:[UIImage imageNamed:@"zhuce_guanbi"] forState:(UIControlStateNormal)];
+    [rightButton setImage:[UIImage imageNamed:@"zhuce_guanbi"] forState:(UIControlStateHighlighted)];
+//    [rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [rightButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+//    [rightButton setTitle:@"发送" forState:UIControlStateNormal];
+    //运行程序,发现按钮没有出现导航条上面,因为没有设置尺寸
+    [rightButton sizeToFit];
+    [rightButton addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem = rightBarButton;
+}
+
+-(void)close{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)dealloc{
-    [self removeObserver:self forKeyPath:@"images"];
+    [self removeObserver:self forKeyPath:@"imageCount"];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
-    NSLog(@"%ld",self.images.count);
     
-    if (self.images.count == 3) {
-        self.commitBtnView.backgroundColor = [UIColor grayColor];
+    if (self.images.count != 3) {
+        self.commitBtnView.tuiChuBtn.backgroundColor = [UIColor colorWithRed:227.0 / 255.0 green:227.0 / 255.0 blue:227.0 / 255.0 alpha:1.0];
         self.commitBtnView.tuiChuBtn.userInteractionEnabled = NO;
     }else{
-        self.commitBtnView.backgroundColor = [UIColor colorWithRed:239.0 / 255.0 green:91.0 / 255.0 blue:112.0 / 255.0 alpha:1.0];
+        self.commitBtnView.tuiChuBtn.backgroundColor = [UIColor colorWithRed:239.0 / 255.0 green:91.0 / 255.0 blue:112.0 / 255.0 alpha:1.0];
         self.commitBtnView.tuiChuBtn.userInteractionEnabled = YES;
     }
 }
@@ -98,6 +120,12 @@
     return 40;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 60;
+}
+
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (self.images.count > indexPath.row) {
@@ -116,9 +144,10 @@
 
 -(void)deleteImage:(NSIndexPath *)indexPath{
     [self.images removeObjectAtIndex:indexPath.row];
+    self.imageCount = self.imageCount - 1;
     [self.selectedAssets removeObjectAtIndex:indexPath.row];
     [self.tableView reloadData];
-    
+    [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height -self.tableView.bounds.size.height) animated:YES];
 }
 
 -(void)clickAddPhotoBtn{
@@ -142,12 +171,13 @@
     // 记录图像，方便在 CollectionView 显示
 //    self.images = images;
     self.images = [NSMutableArray arrayWithArray:images];
+    self.imageCount = self.images.count;
     // 记录选中资源集合，方便再次选择照片定位
 //    self.selectedAssets = selectedAssets;
     self.selectedAssets = [NSMutableArray arrayWithArray:selectedAssets];
     
     [self.tableView reloadData];
-    
+    [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height -self.tableView.bounds.size.height) animated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -156,17 +186,12 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [self cellHeight];
-}
-
--(CGFloat)cellHeight{
-    if (self.images.count <= 3 && self.images.count > 0) {
-        return 233;
-    }else{
+    if (indexPath.row > self.imageCount - 1 || self.imageCount == 0) {
         return 88;
+    }else{
+        return 233;
     }
 }
-
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if (scrollView == self.tableView)
@@ -181,6 +206,7 @@
 }
 
 -(void)clickCommitBtn{
+    NSString *bundle = [[NSBundle mainBundle] bundlePath];
     // 上传图片
     NSMutableArray *tempArray = [NSMutableArray array];
     for (int count = 0; count < self.images.count;count++) {
@@ -197,25 +223,24 @@
                            };
     [[HttpRequstTool shareInstance] uploadDataWithServerUrl:@"artworkComplete.do" parameters:json constructingBodyWithBlock:^(id formData) {
         
-        NSInteger imgCount = 0;
         for (int i = 0; i < self.images.count; i++) {
             UIImage *image  =  self.images[i];
             NSData *data = UIImageJPEGRepresentation(image, 1.0);
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             formatter.dateFormat = @"yyyyMMddHHmmssSSS";
             
-            NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(imgCount)];
+            NSString *fileName = [NSString stringWithFormat:@"%@%@.png",[formatter stringFromDate:[NSDate date]],@(i)];
             [formData appendPartWithFileData:data name:@"file" fileName:fileName mimeType:@"application/octet-stream"];
-            imgCount++;
         }
         
-    } showHUDView:nil progress:^(NSProgress * _Nonnull progress) {
+    } showHUDView:self.view progress:^(NSProgress * _Nonnull progress) {
         
     } success:^(id respondObj) {
         NSString *str = [[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"%@",str);
         ResultModel *result = [ResultModel mj_objectWithKeyValues:respondObj];
         if ([result.resultMsg isEqualToString:@"成功"]) {
+            
             [MBProgressHUD showSuccess:@"创作完成"];
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 [self dismissViewControllerAnimated:YES completion:nil];
@@ -233,10 +258,11 @@
 
 -(SettingFooterView *)commitBtnView{
     if (!_commitBtnView) {
+        _commitBtnView.backgroundColor = [UIColor whiteColor];
         _commitBtnView = [SettingFooterView settingFooterView];
         [_commitBtnView.tuiChuBtn setTitle:@"提交" forState:(UIControlStateNormal)];
         [_commitBtnView.tuiChuBtn addTarget:self action:@selector(clickCommitBtn) forControlEvents:(UIControlEventTouchUpInside)];
-        _commitBtnView.backgroundColor = [UIColor grayColor];
+        _commitBtnView.tuiChuBtn.backgroundColor = [UIColor colorWithRed:227.0 / 255.0 green:227.0 / 255.0 blue:227.0 / 255.0 alpha:1.0];
         _commitBtnView.tuiChuBtn.userInteractionEnabled = NO;
     }
     return _commitBtnView;

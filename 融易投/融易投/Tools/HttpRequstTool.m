@@ -165,6 +165,11 @@ static  NSString *basePath = @"http://192.168.1.75:8080/app/";
     NSString *appkey = MD5key;
     NSMutableString *strM = [NSMutableString string];
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    NSLog(@"%@",dict);
+    if([[dict allKeys] containsObject:@"file"]){
+        [dict removeObjectForKey:@"file"];
+    }
+    NSLog(@"%@",dict);
     [dict setValue:timestamp forKey:@"timestamp"];
     [strM appendString:[self appendStringWithDictionary:dict]];
     [strM appendFormat:@"&key=%@",appkey];
