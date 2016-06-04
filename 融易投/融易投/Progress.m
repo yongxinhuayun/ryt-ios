@@ -17,7 +17,7 @@
 {
     self = [super init];
     if (self) {
-        self.backgroundColor = [UIColor colorWithRed:102.0 / 255.0 green:102.0 / 255.0 blue:102.0 / 255.0 alpha:1.0];
+        self.backgroundColor = [UIColor colorWithRed:191.0 / 255.0 green:193.0 / 255.0 blue:194.0 / 255.0 alpha:0.5];
     }
     return self;
 }
