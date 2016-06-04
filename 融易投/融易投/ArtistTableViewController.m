@@ -108,8 +108,8 @@ static NSString *ID = @"artistCell";
                            @"pageNum" : pageNum,
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"getArtistTopList.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-        //        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        //        NSLog(@"返回结果:%@",jsonStr);
+                NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+                NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         self.models = [ArtistModel mj_objectArrayWithKeyValuesArray:modelDict[@"ArtistTopList"]];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
