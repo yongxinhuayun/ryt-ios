@@ -30,19 +30,20 @@
 
 #import "ProjectDetailsModel.h"
 #import "ArtworkModel.h"
+#import "ArtWorkModel.h"
 #import "ArtWorkIdModel.h"
 #import "ArtworkdirectionModel.h"
 #import "ArtworkAttachmentListModel.h"
 
 @interface ReleaseViewController ()
-<UITextViewDelegate,UIGestureRecognizerDelegate>
+<UITextViewDelegate,UIGestureRecognizerDelegate,MBProgressHUDDelegate>
 
 @property (nonatomic,weak)UITextView *reportStateTextView;
 @property (nonatomic,weak)UILabel *pLabel;
 @property (nonatomic,weak)UIButton *addPictureButton;
 @property (nonatomic,weak)ImagePickerChooseView *IPCView;
 @property (nonatomic,strong)AGImagePickerController *imagePicker;
-
+@property(nonatomic,strong) MBProgressHUD *progressHUD;
 @property (nonatomic,strong) UIView *headView;
 @property (nonatomic,strong)UILabel *nameLabel;
 
@@ -61,15 +62,26 @@
 static NSString *ID1 = @"ReleaseProjectCell1";
 static NSString *ID2 = @"ReleaseProjectCell2";
 
+-(MBProgressHUD *)progressHUD{
+    if (!_progressHUD) {
+        _progressHUD = [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication] keyWindow] animated:YES];
+        self.progressHUD.delegate = self;
+        _progressHUD.mode = MBProgressHUDModeDeterminate;
+    }
+    return _progressHUD;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //设置导航条
     [self setUpNavBar];
     
+    [self setupDicToModel];
+    
     //删除多余的分割线
     [self.tableView improveTableView];
-
+    
     //添加手势,隐藏键盘
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismiss:)];
     
@@ -85,6 +97,11 @@ static NSString *ID2 = @"ReleaseProjectCell2";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ReleaseProjectCell2" bundle:nil] forCellReuseIdentifier:ID2];
     
+    
+}
+
+-(void)setupDicToModel{
+    
     [ArtworkModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         
         return @{
@@ -92,7 +109,6 @@ static NSString *ID2 = @"ReleaseProjectCell2";
                  @"ID"          :@"id",
                  };
     }];
-    
     
     [ProjectDetailsModel mj_setupObjectClassInArray:^NSDictionary *{
         return @{
@@ -151,12 +167,17 @@ static NSString *ID2 = @"ReleaseProjectCell2";
         
         //获取网络的数据进行赋值
         self.reportStateTextView.text = self.projectModel.artWork.descriptions;
-        
+        pLabel.hidden = [self.reportStateTextView.text length];
+        NSLog(@"%@",self.projectModel.artWork.descriptions);
+        NSLog(@"%@",self.projectModel.artwork.descriptions);
         self.cell1.textView.text = self.projectModel.artworkdirection.make_instru;
-        
+        self.cell1.placeholderLabel.hidden = [self.cell1.textView.text length];
+        NSLog(@"%@",self.projectModel.artworkdirection.make_instru);
         self.cell2.textView.text = self.projectModel.artworkdirection.financing_aq;
+        self.cell2.placeholderLabel.hidden = [self.cell2.textView.text length];
+        NSLog(@"%@",self.projectModel.artworkdirection.financing_aq);
         
-        SSLog(@"%zd",self.imageArray.count);
+        NSLog(@"%zd",self.imageArray.count);
         
         NSInteger imageCount1 = [self.imageArray count];
         NSInteger imageCount2 = self.imagePickerArray.count;
@@ -203,7 +224,7 @@ static NSString *ID2 = @"ReleaseProjectCell2";
         headView.frame = CGRectMake(0, 0, screenWidth, self.headViewHeight);
         
         self.tableView.tableHeaderView = headView;
-
+        
     }else {
         
         NSInteger imageCount = [self.imagePickerArray count];
@@ -241,13 +262,13 @@ static NSString *ID2 = @"ReleaseProjectCell2";
         self.tableView.tableHeaderView = headView;
     }
     
-    self.headView.backgroundColor = [UIColor redColor];
+    //    self.headView.backgroundColor = [UIColor redColor];
     
-//    SSLog(@"%f",headView.y);
-//    SSLog(@"%f",headView.height);
+    //    SSLog(@"%f",headView.y);
+    //    SSLog(@"%f",headView.height);
     
-//     self.tableView.tableHeaderView = headView;
-   }
+    //     self.tableView.tableHeaderView = headView;
+}
 
 
 
@@ -258,23 +279,23 @@ static NSString *ID2 = @"ReleaseProjectCell2";
         [self.reportStateTextView resignFirstResponder];
     }
     
-//    self.tableView.scrollEnabled = NO;
+    //    self.tableView.scrollEnabled = NO;
     [self initImagePickerChooseView];
 }
 
 #pragma mark - gesture method
 -(void)tapImageViewBtn:(UITapGestureRecognizer *)tap
 {
-//    self.navigationController.navigationBarHidden = YES;
+    //    self.navigationController.navigationBarHidden = YES;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ReleaseViewController" bundle:[NSBundle mainBundle]];
     ShowImageViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ShowImage"];
     
     
     vc.clickTag = tap.view.tag;
     
-//    NSMutableArray *array = [NSMutableArray array];
-//    [array addObjectsFromArray:self.imageArray];
-//    [array addObjectsFromArray:self.imagePickerArray];
+    //    NSMutableArray *array = [NSMutableArray array];
+    //    [array addObjectsFromArray:self.imageArray];
+    //    [array addObjectsFromArray:self.imagePickerArray];
     
     
     vc.imageViews = self.imagePickerArray;
@@ -403,8 +424,8 @@ static NSString *ID2 = @"ReleaseProjectCell2";
 -(void)textViewDidChange:(UITextView *)textView
 {
     self.pLabel.hidden = [textView.text length];
-     self.pLabel.hidden = [textView.text length];
-     self.pLabel.hidden = [textView.text length];
+    self.pLabel.hidden = [textView.text length];
+    self.pLabel.hidden = [textView.text length];
 }
 
 
@@ -425,12 +446,12 @@ static NSString *ID2 = @"ReleaseProjectCell2";
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+    
     return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     return 1;
 }
 
@@ -441,17 +462,14 @@ static NSString *ID2 = @"ReleaseProjectCell2";
     ReleaseProjectCell1 *cell1 = [tableView dequeueReusableCellWithIdentifier:ID1];
     self.cell1 = cell1;
     ReleaseProjectCell2 *cell2 = [tableView dequeueReusableCellWithIdentifier:ID2];
-     self.cell2 = cell2;
-
+    self.cell2 = cell2;
+    
     if (indexPath.section == 0) {
-
-
         return cell1;
-        
-    } else {
-        
-         return cell2;
-        
+    }else if (indexPath.section == 1) {
+        return cell2;
+    }else{
+        return nil;
     }
 }
 
@@ -481,7 +499,7 @@ static NSString *ID2 = @"ReleaseProjectCell2";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -491,11 +509,11 @@ static NSString *ID2 = @"ReleaseProjectCell2";
     
     if (self.projectModel) {
         
-         [self sendChangeImage];
+        [self sendChangeImage];
         
     }else {
-    
-         [self sendStatusWithImage];
+        
+        [self sendStatusWithImage];
     }
 }
 
@@ -503,9 +521,12 @@ static NSString *ID2 = @"ReleaseProjectCell2";
 {
     //参数
     NSString *description = self.reportStateTextView.text;
+    NSString *make_instru = self.cell1.textView.text;
+    NSString *financing_aq = self.cell2.textView.text;
+    NSString *artworkId = self.artWorkIdModel.artworkId;
+//    NSString *artworkId = @"imyt7yax314lpzzj";
     
     NSMutableArray *tempArray = [NSMutableArray array];
-    
     NSInteger imageCount1 = [self.imageArray count];
     NSInteger imageCount2 = self.imagePickerArray.count;
     NSInteger imageCount = imageCount1 + imageCount2;
@@ -524,23 +545,10 @@ static NSString *ID2 = @"ReleaseProjectCell2";
     
     NSArray *file = tempArray.copy;
     
-    NSString *make_instru = self.cell1.textView.text;
-    
-    NSString *financing_aq = self.cell2.textView.text;
-    
-    NSString *artworkId = self.artWorkIdModel.artworkId;
-//    NSString *artworkId = @"imyt7yax314lpzzj";
-    
     NSString *timestamp = [MyMD5 timestamp];
-    
     NSString *appkey = MD5key;
-    
-    
     NSString *signmsg = [NSString stringWithFormat:@"artworkId=%@&timestamp=%@&key=%@",artworkId,timestamp,appkey];
-    
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSString *url = @"http://192.168.1.75:8001/app/initNewArtWork2.do";
     
     // 3.设置请求体
     NSDictionary *json = @{
@@ -553,15 +561,9 @@ static NSString *ID2 = @"ReleaseProjectCell2";
                            @"signmsg"   : signmsgMD5
                            };
     
-    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
+    NSString *url = @"initNewArtWork2.do";
     
-    // 设置请求格式
-    manger.requestSerializer = [AFJSONRequestSerializer serializer];
-    // 设置返回格式
-    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
-    
-    [manger POST:url parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
         
         NSInteger imgCount1 = 0;
         
@@ -583,7 +585,7 @@ static NSString *ID2 = @"ReleaseProjectCell2";
             
             imgCount1++;
             
-            NSLog(@"%ld",imgCount1);
+            //            NSLog(@"%@",imgCount1);
             
         }
         
@@ -607,37 +609,34 @@ static NSString *ID2 = @"ReleaseProjectCell2";
             
             imgCount2++;
             
-            NSLog(@"%ld",imgCount2);
-            
+            //            NSLog(@"%@",imgCount2);
         }
+    } showHUDView:nil progress:^(id progress) {
+        NSProgress *p = (NSProgress *)progress;
         
-    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        
-        SSLog(@"---%@---%@",[responseObject class],aString);
-        
-        [SVProgressHUD showInfoWithStatus:@"发布成功"];
-        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            float total = p.totalUnitCount;
+            float completed = p.completedUnitCount;
+            float i = completed / total;
+            self.progressHUD.progress = i;
+            if (i == 1) {
+                self.progressHUD.labelText = [NSString stringWithFormat:@"发布成功"];
+                self.progressHUD.mode = MBProgressHUDModeCustomView;
+                [self.progressHUD hide:YES afterDelay:1];
+            }
+        });
+    } success:^(id respondObj) {
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
-            [SVProgressHUD dismiss];
-            
             [self.navigationController popViewControllerAnimated:NO];
             
         }];
-        
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        SSLog(@"%@",error);
-        
-        [SVProgressHUD showInfoWithStatus:@"发布失败,请重新发布"];
-        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-        
     }];
+    
     
 }
 
@@ -662,18 +661,23 @@ static NSString *ID2 = @"ReleaseProjectCell2";
         NSLog(@"%@",fileName);
         
         [tempArray addObject:fileName];
-
+        
         count++;
-}
+    }
     
     NSArray *file = tempArray.copy;
-
+    
     NSString *make_instru = self.cell1.textView.text;
+    
+    NSLog(@"%@",make_instru);
+    
     
     NSString *financing_aq = self.cell2.textView.text;
     
-//    NSString *artworkId = self.artWorkIdModel.artworkId;
-     NSString *artworkId = @"imyt7yax314lpzzj";
+    NSLog(@"%@",financing_aq);
+    
+    //    NSString *artworkId = self.artWorkIdModel.artworkId;
+    NSString *artworkId = @"imyt7yax314lpzzj";
     
     NSString *timestamp = [MyMD5 timestamp];
     
@@ -683,8 +687,6 @@ static NSString *ID2 = @"ReleaseProjectCell2";
     NSString *signmsg = [NSString stringWithFormat:@"artworkId=%@&timestamp=%@&key=%@",artworkId,timestamp,appkey];
     
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
-    
-    NSString *url = @"http://192.168.1.75:8001/app/initNewArtWork2.do";
     
     // 3.设置请求体
     NSDictionary *json = @{
@@ -696,20 +698,13 @@ static NSString *ID2 = @"ReleaseProjectCell2";
                            @"timestamp" : timestamp,
                            @"signmsg"   : signmsgMD5
                            };
+    NSString *url = @"initNewArtWork2.do";
     
-    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
-    
-    // 设置请求格式
-    manger.requestSerializer = [AFJSONRequestSerializer serializer];
-    // 设置返回格式
-    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
-    
-    [manger POST:url parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
         
         NSInteger imgCount = 0;
         
-         for (int i = 0; i < self.imagePickerArray.count; i++) {
+        for (int i = 0; i < self.imagePickerArray.count; i++) {
             
             UIImage *image  =  [UIImage imageWithCGImage:((ALAsset *)[self.imagePickerArray objectAtIndex:i]).thumbnail];
             
@@ -726,16 +721,25 @@ static NSString *ID2 = @"ReleaseProjectCell2";
             [formData appendPartWithFileData:data name:@"file" fileName:fileName mimeType:@"application/octet-stream"];
             
             imgCount++;
-            
-            NSLog(@"%ld",imgCount);
-            
         }
+    } showHUDView:nil progress:^(id progress) {
+        NSProgress *p = (NSProgress *)progress;
         
-    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            float total = p.totalUnitCount;
+            float completed = p.completedUnitCount;
+            float i = completed / total;
+            self.progressHUD.progress = i;
+            if (i == 1) {
+                self.progressHUD.labelText = [NSString stringWithFormat:@"发布成功"];
+                self.progressHUD.mode = MBProgressHUDModeCustomView;
+                [self.progressHUD hide:YES afterDelay:1];
+            }
+        });
+    } success:^(id respondObj) {
         
-        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        
-        SSLog(@"---%@---%@",[responseObject class],aString);
+        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+        NSLog(@"返回结果:%@",jsonStr);
         
         [SVProgressHUD showInfoWithStatus:@"发布成功"];
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
@@ -746,19 +750,8 @@ static NSString *ID2 = @"ReleaseProjectCell2";
             [SVProgressHUD dismiss];
             
             [self.navigationController popViewControllerAnimated:NO];
-            
         }];
-        
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        SSLog(@"%@",error);
-        
-        [SVProgressHUD showInfoWithStatus:@"发布失败,请重新发布"];
-        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-
     }];
-    
 }
 
 - (void)didReceiveMemoryWarning {
