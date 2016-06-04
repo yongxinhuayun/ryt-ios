@@ -25,10 +25,12 @@
 }
 
 -(void)setProjectModel:(ProjectDetailsModel *)projectModel{
-
+    
     _projectModel = projectModel;
     
-    self.projectTextField.text = projectModel.artwork.title;
+    self.projectTextField.text = projectModel.artWork.title;
+    
+    NSLog(@"%@",projectModel.artWork.title);
     
     self.progectTextView.text = projectModel.artWork.brief;
     
@@ -44,11 +46,11 @@
     
     [self.imageView sd_setImageWithURL:pictureUrlURL placeholderImage:[UIImage imageNamed:@"defaultBackground"]];
     
-//    NSString *cacheImageKey = [[SDWebImageManager sharedManager] cacheKeyForURL:pictureUrlURL];
-//    if (cacheImageKey.length) {
-//        NSString *cacheImagePath = [[SDImageCache sharedImageCache] defaultCachePathForKey:cacheImageKey];
-//        SSLog(@"%@",cacheImagePath);
-//    }
+    //    NSString *cacheImageKey = [[SDWebImageManager sharedManager] cacheKeyForURL:pictureUrlURL];
+    //    if (cacheImageKey.length) {
+    //        NSString *cacheImagePath = [[SDImageCache sharedImageCache] defaultCachePathForKey:cacheImageKey];
+    //        SSLog(@"%@",cacheImagePath);
+    //    }
     
 }
 

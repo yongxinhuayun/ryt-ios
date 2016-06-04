@@ -50,7 +50,7 @@
 }
 
 -(UIScrollView *)scrollView{
-
+    
     if (_scrollView == nil) {
         
         _scrollView = [[UIScrollView alloc] init];
@@ -61,7 +61,7 @@
 BOOL isPop = NO;
 
 -(void)viewWillAppear:(BOOL)animated{
-
+    
     [super viewWillAppear:animated];
     
     if (isPop) {
@@ -79,7 +79,7 @@ BOOL isPop = NO;
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.scrollView.frame = CGRectMake(0, 0, SSScreenW, SSScreenH);
-
+    
     
     FabuProjectView *composeProjectView = [FabuProjectView composeProjectView];
     composeProjectView.frame = CGRectMake(0, 0, SSScreenW, SSScreenH + 200);
@@ -99,10 +99,10 @@ BOOL isPop = NO;
     self.scrollView.delegate = self;
     self.scrollView.scrollEnabled = YES;
     
-//    [self.view addSubview:nextBtn];
-//    [self.view bringSubviewToFront:nextBtn];
-//    [self.view insertSubview:nextBtn belowSubview:self.view];
-//    [self.scrollView addSubview:nextBtn];
+    //    [self.view addSubview:nextBtn];
+    //    [self.view bringSubviewToFront:nextBtn];
+    //    [self.view insertSubview:nextBtn belowSubview:self.view];
+    //    [self.scrollView addSubview:nextBtn];
     
     [composeProjectView.nextBtn addTarget:self action:@selector(nextBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -138,42 +138,42 @@ BOOL isPop = NO;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-
+    
 }
 
 // 添加输入控件
 - (void)setupTextView
 {
     //让textView在左上角出现光标
-//    self.automaticallyAdjustsScrollViewInsets = false;
+    //    self.automaticallyAdjustsScrollViewInsets = false;
     
     //设置placeholderLabel隐藏
     self.composeProjectView.placeholderLabel.hidden = [self.composeProjectView.progectTextView.text length];
     
     //添加边框
-//    self.progectTextView.layer.backgroundColor = [[UIColor clearColor] CGColor];
-//    
-//    self.progectTextView.layer.borderColor = [[UIColor colorWithRed:226.0/255.0 green:226.0/255.0 blue:226.0/255.0 alpha:1.0]CGColor];
-//    
-//    self.progectTextView.layer.borderWidth = 1.0;
-//    
-//    self.progectTextView.layer.cornerRadius = 8.0f;
-//    
-//    [self.progectTextView.layer setMasksToBounds:YES];
+    //    self.progectTextView.layer.backgroundColor = [[UIColor clearColor] CGColor];
+    //
+    //    self.progectTextView.layer.borderColor = [[UIColor colorWithRed:226.0/255.0 green:226.0/255.0 blue:226.0/255.0 alpha:1.0]CGColor];
+    //
+    //    self.progectTextView.layer.borderWidth = 1.0;
+    //
+    //    self.progectTextView.layer.cornerRadius = 8.0f;
+    //
+    //    [self.progectTextView.layer setMasksToBounds:YES];
     
     
     self.composeProjectView.progectTextView.delegate = self;
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-
+    
     [self.composeProjectView.projectTextField resignFirstResponder];
     [self.composeProjectView.progectTextView resignFirstResponder];
     [self.composeProjectView.projecTotaltTextField resignFirstResponder];
     [self.composeProjectView.projectTimeTextField resignFirstResponder];
 }
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-
+    
     [self.composeProjectView.projectTextField resignFirstResponder];
     [self.composeProjectView.progectTextView resignFirstResponder];
     [self.composeProjectView.projecTotaltTextField resignFirstResponder];
@@ -283,9 +283,9 @@ BOOL isPop = NO;
             [imageArray addObject:image];
             
             NSString *cacheImageKey = [[SDWebImageManager sharedManager] cacheKeyForURL:pictureUrlURL];
-
+            
             if (cacheImageKey.length) {
-
+                
                 NSString *cacheImagePath = [[SDImageCache sharedImageCache] defaultCachePathForKey:cacheImageKey];
                 SSLog(@"%@",cacheImagePath);
             }
@@ -301,7 +301,7 @@ BOOL isPop = NO;
 
 
 -(BOOL)panduanWeiKong {
-
+    
     BOOL isSpace = YES;
     
     //判断是否填写了项目标题
@@ -348,7 +348,7 @@ BOOL isPop = NO;
         
         isSpace = NO;
     }
-
+    
     return isSpace;
 }
 
@@ -356,10 +356,6 @@ BOOL isPop = NO;
 {
     
     //参数
-    //    NSString *projectTitle =  self.projectTextField.text;
-    //
-    //    NSString *title = [projectTitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
     NSString *title =  self.composeProjectView.projectTextField.text;
     NSString *brief = self.composeProjectView.progectTextView.text;
     NSString *duration = self.composeProjectView.projectTimeTextField.text;
@@ -373,7 +369,7 @@ BOOL isPop = NO;
     if (self.projectModel) {
         
         artWorkId = self.projectModel.artWork.ID;
-//       artWorkId = @"imyt7yax314lpzzj";
+//        artWorkId = @"imyt7yax314lpzzj";
     }else{
         
         artWorkId = @"";
@@ -386,18 +382,18 @@ BOOL isPop = NO;
         
         NSURL *pictureUrlURL = [NSURL URLWithString:pictureUrlStr];
         
-    
+        
         NSString *cacheImageKey = [[SDWebImageManager sharedManager] cacheKeyForURL:pictureUrlURL];
         if (cacheImageKey.length) {
             
-           picture_url = [[SDImageCache sharedImageCache] defaultCachePathForKey:cacheImageKey];
+            picture_url = [[SDImageCache sharedImageCache] defaultCachePathForKey:cacheImageKey];
         }
-
+        
     }else {
-    
+        
         picture_url = self.createPath;
     }
-
+    
     
     NSString *investGoalMoney = self.composeProjectView.projecTotaltTextField.text;
     
@@ -405,8 +401,6 @@ BOOL isPop = NO;
     NSString *appkey = MD5key;
     
     NSString *signmsg = [NSString stringWithFormat:@"duration=%@&investGoalMoney=%@&timestamp=%@&title=%@&userId=%@&key=%@",duration,investGoalMoney,timestamp,title,userId,appkey];
-    
-    NSLog(@"%@",signmsg);
     
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
     
@@ -423,76 +417,76 @@ BOOL isPop = NO;
                            };
     
     /*
-    NSString *url = @"http://192.168.1.75:8001/app/initNewArtWork.do";
-    
-    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
-    
-    // 设置请求格式
-    manger.requestSerializer = [AFJSONRequestSerializer serializer];
-    // 设置返回格式
-    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
-    
-    [manger POST:url parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        
-        if (self.createPath) {
-            
-             [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"picture_url" fileName:@"picture_url.jpg" mimeType:@"application/octet-stream" error:nil];
-        }else {
-        
-            [formData appendPartWithFileURL:[NSURL fileURLWithPath:picture_url] name:@"picture_url" fileName:@"picture_url.jpg" mimeType:@"application/octet-stream" error:nil];
-        }
-        
-    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        
-        NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        
-        SSLog(@"%@",aString);
-        //{"artworkId":"imyapayc1rttrjbz","resultCode":"0","resultMsg":"成功"}
-        
-        ArtWorkIdModel *artWorkId = [ArtWorkIdModel mj_objectWithKeyValues:responseObject];
-        
-        [SVProgressHUD showInfoWithStatus:@"发布成功"];
-        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-        
-        //在主线程刷新UI数据
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
-            [SVProgressHUD dismiss];
-            
-            UIStoryboard *releaseStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
-            ReleaseViewController *releaseVC = [releaseStoryBoard instantiateInitialViewController];
-            isPop = YES;
-            
-            //发起新项目传递的artWorkId
-            releaseVC.artWorkIdModel = artWorkId;
-            //编辑项目传递的模型
-            releaseVC.projectModel = self.projectModel;
-            
-            //传递图片数组
-            releaseVC.imageArray = self.imageArray;
-            
-            [self.navigationController pushViewController:releaseVC animated:YES];
-    
-        }];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        SSLog(@"%@",error);
-        
-//        [SVProgressHUD showSuccessWithStatus:@"发布失败 " maskType:SVProgressHUDMaskTypeBlack];
-        
-        [SVProgressHUD showInfoWithStatus:@"发布失败"];
-        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-        
-        //在主线程刷新UI数据
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
-            [SVProgressHUD dismiss];
-            
-        }];
-    }];
+     NSString *url = @"http://192.168.1.75:8001/app/initNewArtWork.do";
+     
+     AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
+     
+     // 设置请求格式
+     manger.requestSerializer = [AFJSONRequestSerializer serializer];
+     // 设置返回格式
+     manger.responseSerializer = [AFHTTPResponseSerializer serializer];
+     
+     
+     [manger POST:url parameters:json constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+     
+     if (self.createPath) {
+     
+     [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.createPath] name:@"picture_url" fileName:@"picture_url.jpg" mimeType:@"application/octet-stream" error:nil];
+     }else {
+     
+     [formData appendPartWithFileURL:[NSURL fileURLWithPath:picture_url] name:@"picture_url" fileName:@"picture_url.jpg" mimeType:@"application/octet-stream" error:nil];
+     }
+     
+     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+     
+     
+     NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+     
+     SSLog(@"%@",aString);
+     //{"artworkId":"imyapayc1rttrjbz","resultCode":"0","resultMsg":"成功"}
+     
+     ArtWorkIdModel *artWorkId = [ArtWorkIdModel mj_objectWithKeyValues:responseObject];
+     
+     [SVProgressHUD showInfoWithStatus:@"发布成功"];
+     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+     
+     //在主线程刷新UI数据
+     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+     
+     [SVProgressHUD dismiss];
+     
+     UIStoryboard *releaseStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
+     ReleaseViewController *releaseVC = [releaseStoryBoard instantiateInitialViewController];
+     isPop = YES;
+     
+     //发起新项目传递的artWorkId
+     releaseVC.artWorkIdModel = artWorkId;
+     //编辑项目传递的模型
+     releaseVC.projectModel = self.projectModel;
+     
+     //传递图片数组
+     releaseVC.imageArray = self.imageArray;
+     
+     [self.navigationController pushViewController:releaseVC animated:YES];
+     
+     }];
+     
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+     
+     SSLog(@"%@",error);
+     
+     //        [SVProgressHUD showSuccessWithStatus:@"发布失败 " maskType:SVProgressHUDMaskTypeBlack];
+     
+     [SVProgressHUD showInfoWithStatus:@"发布失败"];
+     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+     
+     //在主线程刷新UI数据
+     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+     
+     [SVProgressHUD dismiss];
+     
+     }];
+     }];
      
      */
     
@@ -532,13 +526,13 @@ BOOL isPop = NO;
         //{"artworkId":"imyapayc1rttrjbz","resultCode":"0","resultMsg":"成功"}
         
         ArtWorkIdModel *artWorkId = [ArtWorkIdModel mj_objectWithKeyValues:respondObj];
-//        [SVProgressHUD showInfoWithStatus:@"发布成功"];
-//        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        //        [SVProgressHUD showInfoWithStatus:@"发布成功"];
+        //        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
         
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
-//            [SVProgressHUD dismiss];
+            //            [SVProgressHUD dismiss];
             
             UIStoryboard *releaseStoryBoard = [UIStoryboard storyboardWithName:NSStringFromClass([ReleaseViewController class]) bundle:nil];
             ReleaseViewController *releaseVC = [releaseStoryBoard instantiateInitialViewController];
@@ -555,7 +549,7 @@ BOOL isPop = NO;
             [self.navigationController pushViewController:releaseVC animated:YES];
             
         }];
-
+        
     }];
 }
 
@@ -576,11 +570,7 @@ BOOL isPop = NO;
     //    SSLog(@"%@",selctedImage);
     
     UIImage *newImage = [self drawImageWith:selctedImage imageWidth:SSScreenW - 2 * SSMargin];
-    //    NSLog(@"newImage = %d",);
     
-    
-    //    NSData *data = UIImagePNGRepresentation(newImage);
-    //    NSString *filename = @"image";
     self.composeProjectView.imageView.contentMode = UIViewContentModeScaleToFill;
     self.composeProjectView.imageView.image = newImage;
     

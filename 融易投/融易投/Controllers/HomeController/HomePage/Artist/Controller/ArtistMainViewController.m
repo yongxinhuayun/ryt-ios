@@ -86,7 +86,8 @@ static NSString *ID = @"ArtistMainCell";
     
     [ArtworkModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         return @{
-                 @"ID":@"id",
+                 @"descriptions":@"description",
+                 @"ID":@"id"
                  };
     }];
     
@@ -242,7 +243,8 @@ static NSString *ID = @"ArtistMainCell";
         ComposeProjectViewController *releaseProject = [[ComposeProjectViewController alloc] init];
         //获取点击的编辑项目的项目信息
         NSString *currentUserId = cellModel.author.ID;
-        NSString *artWorkId = cellModel.ID;
+                NSString *artWorkId = cellModel.ID;
+//        NSString *artWorkId = @"imyt7yax314lpzzj";
         NSString *urlStr = @"investorArtWorkView.do";
         NSDictionary *json = @{
                                @"artWorkId" : artWorkId,
@@ -250,8 +252,8 @@ static NSString *ID = @"ArtistMainCell";
                                };
         [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
             
-            //            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-            //            NSLog(@"返回结果:%@",jsonStr);
+            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+            NSLog(@"返回结果:%@",jsonStr);
             NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
             ProjectDetailsModel *project = [ProjectDetailsModel mj_objectWithKeyValues:modelDict[@"object"]];
             //在主线程刷新UI数据
@@ -283,7 +285,7 @@ static NSString *ID = @"ArtistMainCell";
         
         [self presentViewController:navController animated:YES completion:nil];
         
-//        [self loadChangeData:model AndStep:@"23" AndIndexPath:indexPath];
+        //        [self loadChangeData:model AndStep:@"23" AndIndexPath:indexPath];
     }
 }
 
@@ -322,10 +324,10 @@ static NSString *ID = @"ArtistMainCell";
         [MBProgressHUD showError:@"项目可以编辑"];
     }else if ([model.step isEqualToString:@"30"]||[model.step isEqualToString:@"31"]||[model.step isEqualToString:@"32"]){
         //调到拍卖详情页
-//        DetailCreationViewController *creationDetailsVC = [[DetailCreationViewController alloc] init];
-//        creationDetailsVC.artworkId = model.ID;
-//        creationDetailsVC.title = model.title;
-//        [self.navigationController pushViewController:creationDetailsVC animated:YES];
+        //        DetailCreationViewController *creationDetailsVC = [[DetailCreationViewController alloc] init];
+        //        creationDetailsVC.artworkId = model.ID;
+        //        creationDetailsVC.title = model.title;
+        //        [self.navigationController pushViewController:creationDetailsVC animated:YES];
     }else {
         [MBProgressHUD showError:@"拍卖即将开始"];
     }
