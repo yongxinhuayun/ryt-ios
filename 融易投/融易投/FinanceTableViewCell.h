@@ -12,5 +12,5 @@
 @interface FinanceTableViewCell : UITableViewCell
 +(instancetype) financeCell;
 @property (nonatomic, strong) FinanceModel *model;
-@property (nonatomic,strong) Progress *progress;
+@property (weak, nonatomic) IBOutlet Progress *progressView;
 @end

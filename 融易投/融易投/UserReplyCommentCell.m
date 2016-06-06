@@ -48,7 +48,7 @@
     
     CGFloat x = CGRectGetMaxX(self.replyName.frame);
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
-    paragraphStyle.firstLineHeadIndent = x - 70;
+    paragraphStyle.firstLineHeadIndent = x - 55;
     paragraphStyle.alignment = NSTextAlignmentJustified;
     NSDictionary *attributes = @{ NSFontAttributeName:[UIFont systemFontOfSize:14], NSParagraphStyleAttributeName:paragraphStyle, NSForegroundColorAttributeName:[UIColor colorWithRed:76./255. green:75./255. blue:71./255. alpha:1]};
     NSString *appendString = [NSString stringWithFormat:@":%@",model.content];

@@ -15,24 +15,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-10-13" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJu-0C-2vm">
-                        <rect key="frame" x="299" y="26" width="75" height="17"/>
+                        <rect key="frame" x="299" y="16" width="75" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CR6-SX-Pbq">
-                        <rect key="frame" x="70" y="20.5" width="56" height="29"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CR6-SX-Pbq">
+                        <rect key="frame" x="52" y="10" width="56" height="29"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <state key="normal" title="艺术人生"/>
+                        <state key="normal" title="艺术人生">
+                            <color key="titleColor" red="0.066666666666666666" green="0.50980392156862742" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
                         <connections>
                             <action selector="clickUserIcon:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gH4-8o-qye"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTi-q0-9A8">
-                        <rect key="frame" x="10" y="10" width="50" height="50"/>
+                        <rect key="frame" x="10" y="10" width="32" height="32"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="JHf-aO-7Sj"/>
-                            <constraint firstAttribute="width" constant="50" id="haN-Hu-zW0"/>
+                            <constraint firstAttribute="height" constant="32" id="JHf-aO-7Sj"/>
+                            <constraint firstAttribute="width" constant="32" id="haN-Hu-zW0"/>
                         </constraints>
                         <state key="normal" backgroundImage="defaultBackground"/>
                         <connections>
@@ -40,14 +42,13 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="原来铜雕是一门高深的技艺，之前从来没有关注过，真心觉得中国的非遗文化值得我们去传承。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBV-wP-PPh">
-                        <rect key="frame" x="70" y="60" width="304.5" height="33.5"/>
+                        <rect key="frame" x="52" y="49" width="322" height="34"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="0.87175358952702697" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="0.87175358952702697" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="CR6-SX-Pbq" firstAttribute="centerY" secondItem="fTi-q0-9A8" secondAttribute="centerY" id="0hn-tS-i4S"/>
                     <constraint firstItem="FBV-wP-PPh" firstAttribute="leading" secondItem="CR6-SX-Pbq" secondAttribute="leading" id="4SY-8e-ko5"/>
                     <constraint firstItem="fTi-q0-9A8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="BqT-92-n6U"/>
                     <constraint firstItem="FBV-wP-PPh" firstAttribute="top" secondItem="CR6-SX-Pbq" secondAttribute="bottom" constant="10" id="cAM-KH-0ge"/>
@@ -55,6 +56,7 @@
                     <constraint firstItem="FBV-wP-PPh" firstAttribute="trailing" secondItem="rJu-0C-2vm" secondAttribute="trailing" id="hdt-JL-cxk"/>
                     <constraint firstItem="rJu-0C-2vm" firstAttribute="centerY" secondItem="CR6-SX-Pbq" secondAttribute="centerY" id="jeQ-uc-dfh"/>
                     <constraint firstAttribute="trailing" secondItem="rJu-0C-2vm" secondAttribute="trailing" constant="10" id="ln5-Gg-xKJ"/>
+                    <constraint firstItem="CR6-SX-Pbq" firstAttribute="top" secondItem="fTi-q0-9A8" secondAttribute="top" id="q1H-4A-xhk"/>
                     <constraint firstAttribute="bottom" secondItem="FBV-wP-PPh" secondAttribute="bottom" constant="10" id="wHP-BW-cjt"/>
                     <constraint firstItem="CR6-SX-Pbq" firstAttribute="leading" secondItem="fTi-q0-9A8" secondAttribute="trailing" constant="10" id="wW1-bK-6ji"/>
                 </constraints>

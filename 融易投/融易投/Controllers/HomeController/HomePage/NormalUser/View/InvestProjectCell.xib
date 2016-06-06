@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="325" height="374"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="325" height="373.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="325" height="374"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UuT-t9-qSG">
@@ -58,7 +58,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PM8-Nh-GSy" customClass="CommonButton">
-                        <rect key="frame" x="268" y="329" width="43" height="20"/>
+                        <rect key="frame" x="252" y="329" width="43" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <state key="normal" title="100" image="dianzanqian">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,7 +92,6 @@
                     <constraint firstItem="emL-zO-iic" firstAttribute="centerY" secondItem="Y24-Wd-AST" secondAttribute="centerY" id="EDK-ej-udt"/>
                     <constraint firstItem="fVd-Bi-z7O" firstAttribute="top" secondItem="E6D-fs-4QV" secondAttribute="bottom" constant="21" id="GgW-VW-6Fk"/>
                     <constraint firstItem="Y24-Wd-AST" firstAttribute="leading" secondItem="UuT-t9-qSG" secondAttribute="leading" id="OxP-M4-20c"/>
-                    <constraint firstItem="PM8-Nh-GSy" firstAttribute="trailing" secondItem="UuT-t9-qSG" secondAttribute="trailing" id="P8Z-p2-Qi5"/>
                     <constraint firstItem="emL-zO-iic" firstAttribute="trailing" secondItem="UuT-t9-qSG" secondAttribute="trailing" id="Sjs-OF-aWt"/>
                     <constraint firstItem="UuT-t9-qSG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="TL5-Sf-ZXf"/>
                     <constraint firstItem="43d-p7-b3p" firstAttribute="centerY" secondItem="fVd-Bi-z7O" secondAttribute="centerY" id="Uzw-rC-403"/>
@@ -107,6 +106,7 @@
                     <constraint firstItem="43d-p7-b3p" firstAttribute="leading" secondItem="WWm-of-p9Y" secondAttribute="trailing" constant="5" id="oJ3-yg-jE2"/>
                     <constraint firstItem="E6D-fs-4QV" firstAttribute="top" secondItem="Y24-Wd-AST" secondAttribute="bottom" constant="10" id="oju-DW-dVB"/>
                     <constraint firstItem="WWm-of-p9Y" firstAttribute="centerY" secondItem="fVd-Bi-z7O" secondAttribute="centerY" id="yp9-sw-Lip"/>
+                    <constraint firstAttribute="trailing" secondItem="PM8-Nh-GSy" secondAttribute="trailing" constant="30" id="yyO-oY-1xr"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

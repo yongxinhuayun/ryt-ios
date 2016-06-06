@@ -126,7 +126,6 @@
          [self.dianzanBtn setTitle:@"0" forState:UIControlStateNormal];
     }
     [self.dianzanBtn setTitle:[NSString stringWithFormat:@"%ld",self.model.praise] forState:UIControlStateNormal];
-
 }
 
 /****************************************实现点赞功能***************************************** */
@@ -139,6 +138,7 @@
         
         //1. 按钮变成选中图片
         [button setImage:[UIImage imageNamed:@"dianzanqian"] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
         //2. 点赞数加一,直接修改模型中的数据,因为模型中的顶是个字符串,所以需要拼接
         self.model.num = [NSString stringWithFormat:@"%zd",self.model.praise - 1];
         self.model.is_zan = NO;
@@ -163,8 +163,9 @@
         //1. 按钮变成选中图片
         [button setImage:[UIImage imageNamed:@"dianzanhou"] forState:UIControlStateNormal];
         //2. 点赞数加一,直接修改模型中的数据,因为模型中的顶是个字符串,所以需要拼接
-        self.model.num = [NSString stringWithFormat:@"%zd",self.model.num.integerValue + 1];
-        
+        self.model.num = [NSString stringWithFormat:@"%zd",self.model.praise + 1];
+        [button setTitleColor:[UIColor colorWithRed:240.0 / 255.0 green:90.0 / 255.0 blue:72.0 / 255.0 alpha:1.0] forState:(UIControlStateSelected)];
+        button.selected = YES;
         self.model.is_zan = YES;
     }
     
@@ -178,6 +179,25 @@
 }
 
 -(void)zanToLoad{
+    RYTLoginManager *manager =  [RYTLoginManager shareInstance];
+    if ([manager showLoginViewIfNeed]) {
+    }else{
+        NSString *userId = [[RYTLoginManager shareInstance] takeUser].ID;
+        NSString *urlStr = @"artworkPraise.do";
+        NSDictionary *json = @{
+                               @"artworkId" : self.model.ID,
+                               @"currentUserId": userId,
+                               };
+        [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:nil andBlock:^(id respondObj) {
+            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+            NSLog(@"返回结果:%@",jsonStr);
+            NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+            NSString *str = modelDict[@"resultMsg"];
+            if ([str isEqualToString:@"成功"]){
+            }
+        }];
+    }
+
 
     /*
      NSString *userId = @"18701526255";

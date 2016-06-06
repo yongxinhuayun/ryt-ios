@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="412" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GR1-To-ebr" id="e7M-H2-HkN">
-                <rect key="frame" x="0.0" y="0.0" width="412" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="412" height="59.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbP-a9-chi">
@@ -26,7 +26,7 @@
                         </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="投资者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Hb-Bb-Lxh">
-                        <rect key="frame" x="208" y="21" width="46" height="17"/>
+                        <rect key="frame" x="202" y="21" width="58" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -41,15 +41,15 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38a-Cn-UDo">
-                        <rect key="frame" x="159" y="8" width="44" height="44"/>
+                        <rect key="frame" x="165" y="14" width="32" height="32"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="44" id="Iyy-eO-Pux"/>
-                            <constraint firstAttribute="height" constant="44" id="OQC-Pc-YZ8"/>
+                            <constraint firstAttribute="width" constant="32" id="Iyy-eO-Pux"/>
+                            <constraint firstAttribute="height" constant="32" id="OQC-Pc-YZ8"/>
                         </constraints>
                         <state key="normal" backgroundImage="defaultBackground"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="22"/>
+                                <integer key="value" value="16"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
