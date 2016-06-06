@@ -52,7 +52,13 @@
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-        NSString *money = [NSString stringWithFormat:@"%@%@",textField.text,string];
+    NSLog(@"%ld,,%ld",range.length,range.location);
+    NSString *money = [NSString string];
+    if (range.length) {
+        money = [textField.text substringToIndex:textField.text.length - 1];
+    }else{
+        money = [NSString stringWithFormat:@"%@%@",textField.text,string];
+    }
         [self.TZBtn setTitle:[NSString stringWithFormat:@"投资%@元",money] forState:(UIControlStateNormal)];
     return YES;
 }

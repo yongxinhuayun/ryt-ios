@@ -52,6 +52,7 @@
     [imgView sd_setImageWithURL:[NSURL URLWithString:iconStr] placeholderImage:[UIImage imageNamed:@"defaultBackground"]];
     [self.userIcon setBackgroundImage:imgView.image forState:(UIControlStateNormal)];
     self.userName.text = investorModel.truename;
+    [self.userName sizeToFit];
     self.priceLabel.text = [NSString stringWithFormat:@"%ld 元",investorModel.price];
 }
 

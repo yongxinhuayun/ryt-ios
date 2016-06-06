@@ -38,6 +38,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"IntroduceTableViewCell" bundle:nil] forCellReuseIdentifier:@"IntroduceCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"InstructionCell" bundle:nil] forCellReuseIdentifier:@"InstructionCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.estimatedRowHeight = 500;
     [self improveTableView];
     //替换模型中对应的key
@@ -155,16 +156,30 @@
 
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-
-        if (section == 0) {
-            return @"项目介绍";
-        }else if (section == 1){
-            return @"创作过程说明";
-        }else{
-            return @"融资解惑";
-        }
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+            if (section == 0) {
+                return [self headerView:@"项目介绍"];
+            }else if (section == 1){
+                  return [self headerView:@"创作过程说明"];
+            }else{
+                  return [self headerView:@"融资解惑"];
+            }
 }
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 40;
+}
+
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//
+//        if (section == 0) {
+//            return [self headerView:@"项目介绍"];
+//        }else if (section == 1){
+//            return @"创作过程说明";
+//        }else{
+//            return @"融资解惑";
+//        }
+//}
 
 -(void)improveTableView
 {
@@ -173,6 +188,18 @@
     if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {  //防止分割线显示不
         [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     }
+}
+
+-(UIView *)headerView:(NSString *)title{
+    UIView *hView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SSScreenW, 40)];
+    hView.backgroundColor = [UIColor whiteColor];
+    UILabel *label = [[UILabel alloc] initWithFrame:hView.bounds];
+    label.x = 12;
+    label.text = title;
+    label.textColor = [UIColor blackColor];
+    label.backgroundColor = [UIColor whiteColor];
+    [hView addSubview:label];
+    return hView;
 }
 
 //-----------------------联动-----------------------
