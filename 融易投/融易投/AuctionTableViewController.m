@@ -226,7 +226,7 @@ static NSString *ID = @"auctionCell";
     DetailAuctionH5Controller *H5VC = [[DetailAuctionH5Controller alloc] init];
     
     AuctionModel *model = self.models[indexPath.row];
-    H5VC.artWorkId = model.ID;
+    H5VC.artWorkId = @"qydeyugqqiugd2";
     H5VC.step = model.step;
     H5VC.title = model.title;
     
