@@ -4169,7 +4169,7 @@
 				TargetAttributes = {
 					E2DDB0E21CAB66DB007438E4 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 68Y8JTBJWD;
+						DevelopmentTeam = KUU889667N;
 					};
 					E2DDB0FB1CAB66DB007438E4 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -5116,7 +5116,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "abeecbc3-6611-4526-9a33-d2c49a0f551f";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/TOM/Desktop/ryt-ios/融易投/融易投/JPushLIB";
@@ -5170,7 +5170,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "abeecbc3-6611-4526-9a33-d2c49a0f551f";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/TOM/Desktop/ryt-ios/融易投/融易投/JPushLIB";

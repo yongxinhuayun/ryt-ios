@@ -31,11 +31,8 @@
 }
 
 -(void)setupWebView{
-    NSString *urlStr = [self.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURL *url = [NSURL URLWithString:urlStr];
-
-    SSLog(@"%@",url);
-    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+    
+    [self.webView loadRequest:[NSURLRequest requestWithURL:self.url]];
 
     //让webView 自适应
     self.webView.scalesPageToFit = YES;

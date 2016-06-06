@@ -10,6 +10,6 @@
 
 @interface ZhiFuViewController : UIViewController
 
-@property (strong, nonatomic) NSString *url;
+@property (strong, nonatomic) NSURL *url;
 
 @end

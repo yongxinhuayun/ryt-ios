@@ -16,7 +16,7 @@
 @property (strong, nonatomic) BCBaseResp *orderList;
 @property (strong, nonatomic) NSString *billTitle;
 
-@property (strong, nonatomic) NSString *url;
+@property (strong, nonatomic) NSURL *url;
 @end
 
 @implementation PayTableViewController
@@ -83,7 +83,7 @@
                            @"type" : type,
                            @"artWorkId":artWorkId 
                            };
-    /*
+    
     // 创建一个组
     dispatch_group_t group = dispatch_group_create();
     // 添加当前操作到组中
@@ -97,9 +97,14 @@
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         NSString *url = modelDict[@"url"];
         
-        SSLog(@"%@",url);
+        NSArray *subStrArray = [url componentsSeparatedByString:@"pay="];
+        NSString *preStr = [subStrArray firstObject];
+        NSString *lastStr = [subStrArray lastObject]; //这个需要转义
+        NSString *str = [lastStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *preUrl = [NSString stringWithFormat:@"%@pay=%@",preStr,str];
+        NSURL *zhifubaourl = [NSURL URLWithString:preUrl];
 
-        self.url = url;
+        self.url = zhifubaourl;
 
         //// 从组中移除一个操作
         dispatch_group_leave(group);
@@ -108,7 +113,6 @@
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         // 6.回到主线程更新UI
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"更新UI %@", [NSThread currentThread]);
 
             ZhiFuViewController *zhifuVC = [[ZhiFuViewController alloc] init];
             zhifuVC.url = self.url;
@@ -116,62 +120,6 @@
             [self.navigationController pushViewController:zhifuVC animated:YES];
         });
     });
-    */
-    
-    
-    // 创建一个组
-    dispatch_group_t group = dispatch_group_create();
-    // 添加当前操作到组中
-    dispatch_group_enter(group);
-    
-    [[HttpRequstTool shareInstance] handlerNetworkingPOSTRequstWithServerUrl:url Parameters:json constructingBodyWithBlock:^(id formData) {
-        
-        NSData *data1 =[userId dataUsingEncoding:NSUTF8StringEncoding];
-        [formData appendPartWithFileData:data1 name:@"userId" fileName:@"userId" mimeType:@"application/octet-stream"];
-        
-        NSData *data2 =[money dataUsingEncoding:NSUTF8StringEncoding];
-        [formData appendPartWithFileData:data2 name:@"money" fileName:@"money" mimeType:@"application/octet-stream"];
-        
-        NSData *data3 =[action dataUsingEncoding:NSUTF8StringEncoding];
-        [formData appendPartWithFileData:data3 name:@"action" fileName:@"action" mimeType:@"application/octet-stream"];
-        
-        NSData *data4 =[type dataUsingEncoding:NSUTF8StringEncoding];
-        [formData appendPartWithFileData:data4 name:@"type" fileName:@"type" mimeType:@"application/octet-stream"];
-        
-        NSData *data5 =[artWorkId dataUsingEncoding:NSUTF8StringEncoding];
-        [formData appendPartWithFileData:data5 name:@"artWorkId" fileName:@"artWorkId" mimeType:@"application/octet-stream"];
-
-    } showHUDView:nil progress:^(id progress) {
-        
-    } success:^(id respondObj) {
-        
-        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        NSLog(@"返回结果:%@",jsonStr);
-
-//        NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-//        NSString *url = modelDict[@"url"];
-
-//        SSLog(@"%@",url);
-
-        self.url = jsonStr;
-
-        //// 从组中移除一个操作
-        dispatch_group_leave(group);
-        
-        }];
-    
-        dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-            // 6.回到主线程更新UI
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"更新UI %@", [NSThread currentThread]);
-
-                ZhiFuViewController *zhifuVC = [[ZhiFuViewController alloc] init];
-                zhifuVC.url = self.url;
-
-                [self.navigationController pushViewController:zhifuVC animated:YES];
-            });
-        });
-    
 }
 
 //微信、支付宝、银联、百度钱包

@@ -14,6 +14,7 @@
 #import "ImagePickerChooseView.h"
 #import "AGImagePickerController.h"
 #import "ShowImageViewController.h"
+#import "ProtocolWebViewController.h"
 
 
 #import "cityField.h"
@@ -494,6 +495,7 @@
     }
     [querenInfoBtn setTitle:@"《融艺投艺术家协议》" forState:UIControlStateNormal];
     [querenInfoBtn setTitleColor:SSColor(239, 91, 112) forState:UIControlStateNormal];
+    [querenInfoBtn addTarget:self action:@selector(protocolBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     if (iPhone4 || iPhone5) {
         querenInfoBtn.titleLabel.font = [UIFont systemFontOfSize:10];
     }else{
@@ -510,6 +512,15 @@
 
     
     self.tableView.tableHeaderView = headView;
+}
+
+//弹出用户协议
+- (void)protocolBtnClick:(UIButton *)btn {
+    
+    ProtocolWebViewController *protocol = [[ProtocolWebViewController alloc] init];
+    protocol.title = @"融艺投艺术家协议";
+    protocol.URLForResource = @"ArtistCooperateProtocol.html";
+    [self.navigationController pushViewController:protocol animated:YES];
 }
 
 #pragma mark - addPicture
@@ -1316,10 +1327,9 @@
             float i = completed / total;
             self.progressHUD.progress = i;
             if (i == 1) {
-                self.progressHUD.labelText = [NSString stringWithFormat:@"发布成功"];
+                self.progressHUD.labelText = [NSString stringWithFormat:@"申请成功"];
                 self.progressHUD.mode = MBProgressHUDModeCustomView;
                 [self.progressHUD hide:YES afterDelay:1];
-                [self.navigationController popViewControllerAnimated:YES];
             }
         });
     } success:^(id respondObj) {
@@ -1331,7 +1341,8 @@
         //保存模型,赋值给控制器
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
-            [MBProgressHUD showSuccess:@"申请成功"];
+            //发送通知,修改我的界面的数据
+            [[NSNotificationCenter defaultCenter] postNotificationName:UpdateMeViewDataControllerNotification object:self];
             
             [self.navigationController popViewControllerAnimated:YES];
         }];

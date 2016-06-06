@@ -46,9 +46,6 @@ static NSString *ID = @"InvestProjectCell";
 
     self.lastPageIndex = @"1";
     
-    //    self.tableView.contentInset = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, 0, 0);
-    //    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(SSNavMaxY + SSTitlesViewH, 0, 0, 0);
-    
     //注册创建cell ,这样注册就不用在XIB设置ID
     [self.tableView registerNib:[UINib nibWithNibName:@"InvestProjectCell" bundle:nil] forCellReuseIdentifier:ID];
     
@@ -128,7 +125,7 @@ static NSString *ID = @"InvestProjectCell";
             
             self.models = model.artworks;
             
-            if (self.models.count) {
+            if (self.models.count > 0) {
                 
                 [self.tableView reloadData];
                 
@@ -169,7 +166,7 @@ static NSString *ID = @"InvestProjectCell";
     
     NSString *pageSize = @"20";
     NSString *pageIndex = [NSString stringWithFormat:@"%d",newPageIndex];
-    
+    NSLog(@"%@",pageIndex);
     NSString *url = @"my.do";
 
     // 3.设置请求体
@@ -243,7 +240,11 @@ static NSString *ID = @"InvestProjectCell";
         
     }else if ([model.step isEqualToString:@"11"]){
         
-        [MBProgressHUD showError:@"审核审核中,请您耐心等待"];
+        [MBProgressHUD showError:@"审核中,请您耐心等待"];
+        
+    }else if ([model.step isEqualToString:@"12"]){
+        
+        [MBProgressHUD showError:@"审核中,请您耐心等待"];
         
     }else if ([model.step isEqualToString:@"13"]){
         
