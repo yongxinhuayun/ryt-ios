@@ -12,9 +12,12 @@
 #import <MJExtension.h>
 #import "ArtistUserHomeViewController.h"
 #import "CommonUserHomeViewController.h"
+#import "PostCommentController.h"
+#import "ZhiFuViewController.h"
 
 @interface DetailAuctionH5Controller () <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) NSURL *url;
 @end
 
 @implementation DetailAuctionH5Controller
@@ -55,6 +58,7 @@
     
     UserMyModel *model = TakeLoginUserModel;
     NSString *currentUserId = model.ID;
+//    NSString *artWorkId = @"qydeyugqqiugd2";
     NSString *artWorkId = self.artWorkId;
     NSString *timestamp = [MyMD5 timestamp];
     NSString *appkey = MD5key;
@@ -117,6 +121,54 @@
         return NO;
     }
     
+    //"comment://jumpToCommentUser_andCommentArtWorkId_?"+userid + "&qydeyugqqiugd2"
+    NSString *href = @"comment://";
+    if ([urlStr hasPrefix:href]) {
+        
+        NSString *str = [urlStr substringFromIndex:href.length];
+        
+        NSArray *subStrArray = [str componentsSeparatedByString:@"?"];
+        NSLog(@"%@",subStrArray);
+        
+        NSString *methodStr = [[subStrArray firstObject] stringByReplacingOccurrencesOfString:@"_" withString:@":"];
+        
+        //把方法名封装成方法
+        SEL selector = NSSelectorFromString(methodStr);
+        
+        
+        NSString *paramStr = [subStrArray lastObject];
+        NSArray *subParamArray = [paramStr componentsSeparatedByString:@"&"];
+        NSLog(@"%@",subParamArray);        
+        
+        [self performSelector:selector withObjects:subParamArray];
+        
+        return NO;
+    }
+    
+    //"comment://jumpToCommentUser_andCommentArtWorkId_?"+userid + "&qydeyugqqiugd2"
+    NSString *pay = @"pay://";
+    if ([urlStr hasPrefix:pay]) {
+        
+        NSString *str = [urlStr substringFromIndex:pay.length];
+        
+        NSArray *subStrArray = [str componentsSeparatedByString:@"?"];
+        NSLog(@"%@",subStrArray);
+        
+        NSString *methodStr = [[subStrArray firstObject] stringByReplacingOccurrencesOfString:@"_" withString:@":"];
+        
+        //把方法名封装成方法
+        SEL selector = NSSelectorFromString(methodStr);
+        
+        
+        NSString *paramStr = [subStrArray lastObject];
+        NSArray *subParamArray = [paramStr componentsSeparatedByString:@"&"];
+        NSLog(@"%@",subParamArray);
+        
+        [self performSelector:selector withObjects:subParamArray];
+        
+        return NO;
+    }
+    
     return YES;
 }
 
@@ -139,9 +191,7 @@
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
         PageInfoModel *model = [PageInfoModel mj_objectWithKeyValues:modelDict[@"data"]];
-        
-        
-        
+
         //保存模型,赋值给控制器
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             //艺术家用户
@@ -163,11 +213,85 @@
                 
                 [self.navigationController pushViewController:myHomeVC animated:YES];
             }
+        }];
+    }];
+}
+
+-(void)jumpToCommentUser:(NSString *)userId andCommentArtWorkId:(NSString *)artWorkId {
+
+    NSLog(@"跳转到%@评论界面",artWorkId);
+    
+    RYTLoginManager *manager =  [RYTLoginManager shareInstance];
+    if ([manager showLoginViewIfNeed]) {
+    }else{
+        PostCommentController * postComment = [[PostCommentController alloc] init];
+        postComment.title = @"评论";
+        postComment.artworkId = artWorkId;
+        postComment.currentUserId = userId;
+        [self.navigationController pushViewController:postComment animated:YES];
+    }
+    
+}
+
+-(void)jumpToPayUser:(NSString *)userId andPayArtWorkId:(NSString *)artWorkId andPayMoney:(NSString *)money  andPayAction:(NSString *)action andPayType:(NSString *)type{
+    
+    NSLog(@"跳转到支付界面支付");
+    
+    NSLog(@"%@---%@----%@-----%@-----%@",userId,artWorkId,money,action,type);
+    
+    RYTLoginManager *manager =  [RYTLoginManager shareInstance];
+    if ([manager showLoginViewIfNeed]) {
+    }else{
+        
+        //参数
+        NSString *url = @"pay/main.do";
+        
+        NSDictionary *json = @{
+                               @"userId":userId,
+                               @"money": money,
+                               @"action" : action,
+                               @"type" : type,
+                               @"artWorkId":artWorkId
+                               };
+        
+        // 创建一个组
+        dispatch_group_t group = dispatch_group_create();
+        // 添加当前操作到组中
+        dispatch_group_enter(group);
+        
+        [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:nil andBlock:^(id respondObj) {
             
+            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+            NSLog(@"返回结果:%@",jsonStr);
+            
+            NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
+            NSString *url = modelDict[@"url"];
+            
+            NSArray *subStrArray = [url componentsSeparatedByString:@"pay="];
+            NSString *preStr = [subStrArray firstObject];
+            NSString *lastStr = [subStrArray lastObject]; //这个需要转义
+            NSString *str = [lastStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSString *preUrl = [NSString stringWithFormat:@"%@pay=%@",preStr,str];
+            NSURL *zhifubaourl = [NSURL URLWithString:preUrl];
+            
+            self.url = zhifubaourl;
+            
+            //// 从组中移除一个操作
+            dispatch_group_leave(group);
         }];
         
-    }];
-    
+        dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+            // 6.回到主线程更新UI
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                ZhiFuViewController *zhifuVC = [[ZhiFuViewController alloc] init];
+                zhifuVC.url = self.url;
+                
+                [self.navigationController pushViewController:zhifuVC animated:YES];
+            });
+        });
+
+    }
 }
 
 - (void)didReceiveMemoryWarning {

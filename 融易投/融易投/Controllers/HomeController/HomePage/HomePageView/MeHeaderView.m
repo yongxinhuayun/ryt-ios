@@ -82,9 +82,9 @@
     //用户签名
     self.signature.text = model.user.userBrief.signer;
     //用户关注数
-    self.guanzhuNum.text = [NSString stringWithFormat:@"%zd",model.followNum];
+    self.guanzhuNum.text = [NSString stringWithFormat:@"%zd",model.num];
     //用户粉丝数
-    self.fansNum.text = [NSString stringWithFormat:@"%zd",model.num];
+    self.fansNum.text = [NSString stringWithFormat:@"%zd",model.followNum];
     //投资金额
     self.sumInvestment.text = [NSString stringWithFormat:@"%zd",model.sumInvestment];
     //投资收益

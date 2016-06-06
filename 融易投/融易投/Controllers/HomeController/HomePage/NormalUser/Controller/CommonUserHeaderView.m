@@ -39,9 +39,11 @@
     //用户签名
     self.userNickNameLabel.text = self.model.user.userBrief.signer;
     //用户关注数
-    self.guanzhuLabel.text = [NSString stringWithFormat:@"%zd",self.model.followNum];
+    self.guanzhuLabel.text = [NSString stringWithFormat:@"%zd",self.model.num];
+    NSLog(@"%zd",self.model.followNum);
     //用户粉丝数
-    self.fansLabel.text = [NSString stringWithFormat:@"%zd",self.model.num];
+    self.fansLabel.text = [NSString stringWithFormat:@"%zd",self.model.followNum];
+    NSLog(@"%zd",self.model.followNum);
     //投资金额
     self.inverstMoneyLabel.text = [NSString stringWithFormat:@"%zd",self.model.sumInvestment];
     //投资收益

@@ -118,8 +118,8 @@
             [self editingSex];
         }else if (indexPath.row == 3){
             
-//            AddressViewController *addressVC = [[AddressViewController alloc] init];
-//            [self.navigationController pushViewController:addressVC animated:YES];
+            AddressViewController *addressVC = [[AddressViewController alloc] init];
+            [self.navigationController pushViewController:addressVC animated:YES];
         }
     
     }

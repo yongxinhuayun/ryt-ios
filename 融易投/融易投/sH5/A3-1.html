@@ -392,17 +392,9 @@
                 </div>
                 <div date="拍卖纪录" class="swiper-slide">
                     <div class="com-invest">
-                        <h5 id="auctionNum">{{=it.auctionNum}}人参与拍卖</h5>
+                        <h5 id="auctionNum"></h5>
                         <ul id="auctionList">
-                            {{ for (var i = 0 ;i < it.artWorkBiddingList.length ; i++){
-                            var bidding = it.artWorkBiddingList[i];
-                            }}
-                            <li>
-                                <span><img src="{{=bidding.creator.pictureUrl}}" alt=""><strong>{{=dealUsername(bidding.creator.username,3,4)}}</strong></span>
-                                <span><strong>出价了</strong>&nbsp;<b>{{=parseInt(bidding.price)}}元</b></span>
-                                <span>{{=getTimeStr(bidding.createDatetime)}}</span>
-                            </li>
-                            {{ } }}
+
                         </ul>
 
                     </div>
@@ -623,8 +615,8 @@
     }
 
     function getParamObject() {
-        return {artWorkId: "qydeyugqqiugd2", currentUserId: "imhfp1yr4636pj49", signmsg: "", timestamp: ""}
-        //return PageVariable.param;
+        //return {artWorkId: "qydeyugqqiugd2", currentUserId: "imhfp1yr4636pj49", signmsg: "", timestamp: ""}
+        return PageVariable.param;
     }              //从app中获取的服务端请求接口的必要参数  需要传递一个密钥参数
     function getCurrentUserId() {
         return getParamObject()["currentUserId"];
@@ -634,18 +626,22 @@
         window.location.href = "rongyitou://jumpToUserHome_?"+userid;
 //        window.location.href = "rongyitou://userid:skldjflksdjflk"
     }          //@TODO 跳转到用户的个人主页
-    function redirectPay(price, type) {
-        console.log("pay");
-        //去充值 去付尾款
+    function redirectPay(price, action) {
+        //alert("redirectPay");
+        var artWorkId = getParamObject()["artWorkId"];
+        var currentUserId = getCurrentUserId();
+        var type = "1"; //alipay
+        window.location.href = "pay://jumpToPayUser_andPayArtWorkId_andPayMoney_andPayAction_andPayType_?"+currentUserId + "&qydeyugqqiugd2" +"&" + price +"&" + action +"&" + type;
     }      //@TODO 跳转到付款的页面
     function redirectComment(userid) {
         //跳转评论
+         window.location.href = "comment://jumpToCommentUser_andCommentArtWorkId_?"+userid + "&qydeyugqqiugd2";
     }       //@TODO 跳转到评论
 
     function submitDepositPrice(price) {
         if ($("#radio").attr("class") == "active") {
             var depositPrice = getDepositPrice(price);
-            redirectPay();
+            redirectPay(price,"payMargin");
         } else {
             getAlert("请阅读协议！");
         }
@@ -672,7 +668,8 @@
         }
     }       //计算加价幅度
     function submitRestPrice() {
-        redirectPay();
+        //redirectPay();
+        redirectPay(100,"payMargin");
     }            //@TODO 付尾款
     function getCurrentFinalPrice() {
 //        当前拍卖价格 - 起拍价格 * 0.1
