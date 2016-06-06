@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *userIcon;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *userInfo;
-@property (weak, nonatomic) IBOutlet UIView *progressView;
+
 @property (weak, nonatomic) IBOutlet UILabel *progressPercent;
 @property (weak, nonatomic) IBOutlet UILabel *targetMoney;
 @property (weak, nonatomic) IBOutlet UILabel *endTime;
@@ -37,10 +37,10 @@
 }
 
 -(void)awakeFromNib{
-    Progress *progress = [[Progress alloc] init];
-    progress.frame = self.progressView.bounds;
-    self.progress = progress;
-    [self.progressView addSubview:progress];
+//    Progress *progress = [[Progress alloc] init];
+//    progress.frame = self.progressView.bounds;
+//    self.progress = progress;
+//    [self.progressView addSubview:progress];
 }
 
 -(void)setModel:(FinanceModel *)model{
@@ -106,7 +106,7 @@
     float money = model.investsMoney;
     float p = money / total;
     NSInteger percent = p * 100;
-    self.progress.progress = p;
+    self.progressView.progress = p;
     self.progressPercent.text = [NSString stringWithFormat:@"%ld%%",percent];
     
     self.userName.text = model.author.name;
