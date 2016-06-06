@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="shop2016/css/swiper.min.css?t=20160413">
+    <link rel="stylesheet" href="shop2016/css/layout.css?t=20160413">
+    <link rel="stylesheet" href="shop2016/css/aorder.css?t=20160413">
+</head>
+<body>
+<div class="tz2016" style="padding-bottom:51px">
+    <div class="header ">
+        <a href="" class="chevron chevron-left"></a>
+        <h1>订单详情</h1>
+    </div>
+    <!--//End--模块--人物投资信息-->
+    <div id="orderV" class="pm_details" style="padding-top: 12px;">
+        <!--<div class="pm_order">-->
+        <!--<div class="phead">-->
+        <!--<div class="time">-->
+        <!--<span>拍卖成功时间：</span><span>{{=getDateFormatStr(it.createDatetime,"yy-MM-dd")}}</span><span>{{=getDateFormatStr(it.createDatetime,"hh:mm:ss")}}</span>-->
+        <!--</div>-->
+        <!--<div class="time"><span>拍卖订单编号：</span><span>{{=it.id}}</span></div>-->
+        <!--{{ if(it.type == 2){ }}-->
+        <!--<div class="time"><span>拍卖运单编号：</span><span>运单号暂无</span></div>-->
+        <!--{{ } }}-->
+        <!--</div>-->
+        <!--<div class="pbody">-->
+        <!--<div class="ppic"><a href=""><img src="{{=it.artwork.picture_url}}" alt=""></a></div>-->
+        <!--<div class="pcontent">-->
+        <!--<div class="hone">{{=it.artwork.title}}</div>-->
+        <!--<div class="htext">{{=it.artwork.brief}}</div>-->
+        <!--<div class="hmoney">￥<span>{{=it.amount}}</span></div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--{{if(it.type!="0"){ }}-->
+        <!--<div class="pm_page">-->
+        <!--<p>收货人：<span>{{=it.consumerAddress.consignee}}</span></p>-->
+        <!--<p>联系方式：<span>{{=it.consumerAddress.phone}}</span></p>-->
+        <!--<p>收货地址：<span>{{=it.consumerAddress.province.name+it.consumerAddress.city.name+it.consumerAddress.district.name}}</span>-->
+        <!--</p>-->
+        <!--</div>-->
+        <!--{{ } }}-->
+        <!--{{if(it.payStatus=="0"){ }}-->
+        <!--<div class="pm_page">-->
+        <!--<p>支付方式：<span>-->
+        <!--{{if(it.payWay=="0"){ }}账户余额-->
+        <!--{{ }else if(it.payWay=="1"){ }}支付宝-->
+        <!--{{ }else if(it.payWay=="2"){ }}微信-->
+        <!--{{ } }}-->
+        <!--</span></p>-->
+        <!--<p>拍品金额：<span>￥{{=it.amount}}</span></p>-->
+        <!--<p>运费：<span>包邮</span></p>-->
+        <!--<p>实付金额：<span>￥{{=it.amount}}</span></p>-->
+        <!--</div>-->
+        <!--{{ } }}-->
+        <!--{{ if(it.type!="2"){ }}-->
+        <!--<div class="fl wb" style="padding:0 14px">-->
+        <!--{{if(it.type=="0"){ }}-->
+        <!--<a onclick="submitPayRest('{{=it.finalPayment}}')" class="pm_btn">去&nbsp;付&nbsp;尾&nbsp;款</a>-->
+        <!--{{ }else { }}-->
+        <!--<a onclick="redirectConfirm('{{=it.id}}')" class="pm_btn">确&nbsp;认&nbsp;收&nbsp;货</a>-->
+        <!--{{ } }}-->
+        <!--</div>-->
+        <!--{{ } }}-->
+    </div>
+</div>
+<!--//End--底部下载app-->
+<script src="shop2016/js/jquery.min.js"></script>
+<script src="shop2016/js/swiper.min.js"></script>
+<script src="shop2016/js/system.js"></script>
+<script src="shop2016/js/local/common.js"></script>
+<script>
+    var swiperContainerOption = {};
+
+
+    hostName = "http://192.168.1.43";                           //服务器域名
+    RequestUrl = {
+        orderTab: "/app/viewOrder.do"
+    }//接口对象
+
+    var PageVariable = {};
+
+    $().ready(function () {
+        initPage();
+        document.addEventListener('touchend', touch, false);
+        function touch() {
+            if ($(document).scrollTop() + $(window).height() >= $(document).height()) {
+                loadDataAction();
+            }
+        }
+    })
+
+    function initPage(currentUserId, signmsg, timestamp, artWorkOrderId) {
+//        var param = new Object();
+//        param.currentUserId = currentUserId;
+//        param.signmsg = signmsg;
+//        param.timestamp = timestamp;
+//        param.artWorkOrderId = artWorkOrderId;
+//        PageVariable.param = param;
+        getAuctionOrderData(getAuctionOrder);
+    }
+
+
+    function getParamObject() {
+        return {
+            artWorkId: "qydeyugqqiugd2",
+            currentUserId: "imhfp1yr4636pj49",
+            signmsg: "",
+            timestamp: "",
+            artWorkOrderId: "123"
+        }
+//        return PageVariable.param;
+    }              //从app中获取的服务端请求接口的必要参数  需要传递一个密钥参数
+    function getCurrentUserId() {
+        return getParamObject()["currentUserId"];
+    }            //获得当前用户的id
+    function redirectUser(userid) {
+        console.log("test");
+        window.location.href = "rongyitou://jumpToUserHome_?" + userid;
+    }          // 跳转到用户的个人主页
+
+
+    function submitPayRest(price) {
+        redirectPay(price, "weikuan");
+    }
+
+    function redirectConfirm(orderId) {
+
+    }
+
+    function redirectPay(price, type) {
+
+    }
+
+    function getAuctionOrderData(callback) {
+        var success = function (data) {
+            ajaxSuccessFunctionTemplage(function (dataTemp) {
+                var obj = dataTemp;
+                PageVariable.order = obj.auctionOrder;
+            }, data, callback, function () {
+            });
+        }
+        var param = getParamObject();
+        ajaxRequest(hostName + RequestUrl.orderTab, param, success, function () {
+        }, "post");
+    }
+
+    function getAuctionOrder() {
+        $("#orderV").html(getAuctionOrderHtml(PageVariable.order));
+        tabsHeight();
+    }
+
+
+
+    function getAuctionOrderHtml(it /**/) {
+        var out = ' <div class="pm_order"> <div class="phead"> <div class="time"> <span>拍卖成功时间：</span><span>' + (getDateFormatStr(it.createDatetime, "yyyy-MM-dd")) + '</span><span>' + (getDateFormatStr(it.createDatetime, "hh:mm:ss")) + '</span> </div> <div class="time"><span>拍卖订单编号：</span><span>' + (it.id) + '</span></div> ';
+        if (it.type == 2) {
+            out += ' <div class="time"><span>拍卖运单编号：</span><span>运单号暂无</span></div> ';
+        }
+        out += ' </div> <div class="pbody"> <div class="ppic"><a href=""><img src="' + (it.artwork.picture_url) + '" alt=""></a></div> <div class="pcontent"> <div class="hone">' + (it.artwork.title) + '</div> <div class="htext">' + (it.artwork.brief) + '</div> <div class="hmoney">￥<span>' + (it.amount) + '</span></div> </div> </div> </div> ';
+        if (it.type != "0") {
+            out += ' <div class="pm_page"> <p>收货人：<span>' + (it.consumerAddress.consignee) + '</span></p> <p>联系方式：<span>' + (it.consumerAddress.phone) + '</span></p> <p>收货地址：<span>' + (it.consumerAddress.province.name + it.consumerAddress.city.name + it.consumerAddress.district.name) + '</span> </p> </div> ';
+        }
+        out += ' ';
+        if (it.payStatus == "0") {
+            out += ' <div class="pm_page"> <p>支付方式：<span> ';
+            if (it.payWay == "0") {
+                out += '账户余额 ';
+            } else if (it.payWay == "1") {
+                out += '支付宝 ';
+            } else if (it.payWay == "2") {
+                out += '微信 ';
+            }
+            out += ' </span></p> <p>拍品金额：<span>￥' + (it.amount) + '</span></p> <p>运费：<span>包邮</span></p> <p>实付金额：<span>￥' + (it.amount) + '</span></p> </div> ';
+        }
+        out += ' ';
+        if (it.type != "2") {
+            out += ' <div class="fl wb" style="padding:0 14px"> ';
+            if (it.type == "0") {
+                out += ' <a onclick="submitPayRest(\'' + (it.finalPayment) + '\')" class="pm_btn">去 付 尾 款</a> ';
+            } else {
+                out += ' <a onclick="redirectConfirm(\'' + (it.id) + '\')" class="pm_btn">确 认 收 货</a> ';
+            }
+            out += ' </div> ';
+        }
+        return out;
+    }
+
+
+</script>
+</body>
+</html>
