@@ -11,6 +11,7 @@ function initPage(artWorkId, currentUserId, signmsg, timestamp) {
     refreshPageEntity();
     getArtWorkBaseInfoData(getArtWorkBaseInfo);
     getArtWorkDetailData(getArtWorkDetail);
+    getArtWorkAuctionData(getArtWorkAuctionBidding);
 }
 
 function getAuctionTimeResult() {
@@ -35,6 +36,7 @@ function getArtWorkBaseInfo() {
     $("#pm").html(getArtWorkScheduleAuctionHtml(artWorkProject));
     $("#dt").append(getArtWorkScheduleMessageHtml(artWorkProject));
     $("#auctionMessage").html(getArtWorkBaseInfoAuctionMessageHtml(artWorkInfo));
+    $("#winner").html(getArtWorkAuctionWinnerHtml(artWorkInfo));
     getBottomButton();
     getAuctionTimeResult();
     tabsHeight();
@@ -59,7 +61,7 @@ function getArtWorkComment() {
 
 function getArtWorkAuctionBidding() {
     var artWorkAuction = PageVariable.artWorkAuction;
-    $("#auctionNum").html(artWorkAuction.auctionNum + "人参与拍卖");
+    $("#auctionNum").html(PageVariable.auctionNum + "人参与拍卖");
     if (pageEntity.pageIndex == 1) {
         $("#auctionList").html(getArtWorkAuctionBiddingHtml(artWorkAuction));
     } else {
@@ -83,7 +85,9 @@ function getBottomButton() {
     ChooseCountComponent();
 }
 
-
+function getAlert(content) {
+    $("#bottomButton").append(getAlertHtml(content));
+}
 //获得项目的基本信息
 function getArtWorkBaseInfoData(callback) {
     var success = function (data) {
@@ -94,7 +98,6 @@ function getArtWorkBaseInfoData(callback) {
             var masterLevel = "";
             var auctionStartDatetime = new Date();
             auctionStartDatetime.setTime(artWork.auctionStartDatetime);
-            var auctionStartDatetimeStr = auctionStartDatetime.format("MM月dd日");
             switch (artWork.author.master.level) {
                 case "1":
                     masterLevel = "国家级";
@@ -150,10 +153,9 @@ function getArtWorkCommentData(callback) {
 function getArtWorkAuctionData(callback) {
     var success = function (data) {
         ajaxSuccessFunctionTemplage(function (dataTemp) {
-            var obj = dataTemp["object"];
-            PageVariable.artWorkAuction = new ArtWorkAuction(obj.artWorkBiddingList);
-            PageVariable.auctionNum = obj.artWorkBiddingList.length;
-
+            var obj = dataTemp;
+            PageVariable.artWorkAuction = new ArtWorkAuction(obj.artworkBiddingList, obj.biddingTopThree);
+            PageVariable.auctionNum = obj.artworkBiddingList.length;
         }, data, callback)
     };
     var param = getParamObject();
@@ -189,3 +191,19 @@ function artWorkAuctionPanelAction() {
     }
 }                   //页面滑到拍卖纪录时候的action
 
+function getAlert(content, callback) {
+    $(".pm_dialog").remove();
+    var out = ' <div class="pm_dialog"> <div class="content" style="height: auto;"> <div class="close"></div> <div class="info" style="text-align: center;padding-bottom: 25px;height: auto"> <p>' + content + '</p> </div> ';
+    out += '<a id="confirm" class="btn" title="去充值" style="margin-top: 10px;margin-bottom: 10px;">确认</a> </div> </div>';
+    var ParentDiv2 = $("#dialog");
+    var dailogClick = function () {
+        $('.pm_dialog').remove();
+    }
+    if (typeof callback == "function") {
+        ParentDiv2.on("click", "#confirm", callback);
+    } else {
+        ParentDiv2.on("click", "#confirm", dailogClick);
+    }
+    ParentDiv2.html(out);
+    // return out;
+}

@@ -64,12 +64,19 @@ function getTimeStr(times) {
     return date.format("hh:mm");
 }
 //异步请求处理模板
-function ajaxSuccessFunctionTemplage(dataDealFunction, data, callback) {
-    if (appInterfaceReturnDataCheck(data)) {
-        dataDealFunction(data);
-        if (typeof callback == "function") {
-            callback();
-        }
+function ajaxSuccessFunctionTemplage(dataDealFunction, data, callback, dealError) {
+    switch (data["resultCode"]) {
+        case "0" :
+            dataDealFunction(data);
+            if (typeof callback == "function") {
+                callback();
+            }
+            break;
+        default :
+            if (typeof dealError == "function") {
+                dealError(data);
+            }
+            break;
     }
 }
 //app服务端接口返回数据处理模板
@@ -168,7 +175,7 @@ function countDown(timestamp) {
         $("#ss").html(int_second);
         // 设置定时器
         setTimeout(function () {
-            countDown( timestamp)
+            countDown(timestamp)
         }, 1000);
     }
 }

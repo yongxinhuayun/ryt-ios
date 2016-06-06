@@ -59,7 +59,8 @@
     
     NSURL *picture_urlURL = [NSURL URLWithString:picture_urlStr];
     
-    [self.bgImageView sd_setImageWithURL:picture_urlURL placeholderImage:[UIImage imageNamed:@"defaultBackground"]];
+//    [self.bgImageView sd_setImageWithURL:picture_urlURL placeholderImage:[UIImage imageNamed:@"defaultBackground"]];
+    [self.bgImageView sd_setImageWithURL:picture_urlURL placeholderImage:nil];
     
     
 //    model.step = @"30";

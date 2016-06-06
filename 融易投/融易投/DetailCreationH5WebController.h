@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class CreationModel;
 @interface DetailCreationH5WebController : UIViewController
-
+@property (nonatomic ,strong)CreationModel *model;
 @property (nonatomic ,strong)NSString *artWorkId;
 
 @end

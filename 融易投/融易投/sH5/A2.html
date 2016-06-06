@@ -371,7 +371,7 @@
 
 
     $().ready(function () {
-//        initPage();
+       initPage();
         document.addEventListener('touchend', touch, false);
         function touch() {
             if ($(document).scrollTop() + $(window).height() >= $(document).height()) {
@@ -404,17 +404,9 @@
     }
 
     //从app中获取的服务端请求接口的必要参数  需要传递一个密钥参数
-
-    function getParamObject(artWorkId,currentUserId,signmsg,timestamp) {
-        alert(artWorkId+currentUserId+signmsg+timestamp);
-        var e = document.getElementById("js_shouw_text");
-        e.options.add(new Option("OC调用JS中的有参方法", 4));
-        
-
     function getParamObject() {
-        return PageVariable.param;
-//        return {artWorkId: "qydeyugqqiugd2", currentUserId: "", signmsg: "", timestamp: ""}
-
+        //return PageVariable.param;
+       return {artWorkId: "qydeyugqqiugd2", currentUserId: "", signmsg: "", timestamp: ""}
     }
     //从app中获取当前用户id
     function getCurrentUserId() {
@@ -424,6 +416,7 @@
 
     function redirectUser(userid) {
         //console.log("test");
+//        window.location.href = "rongyitou://userid:skldjflksdjflk"
         window.location.href = "rongyitou://jumpToUserHome_?"+userid;
     }
 

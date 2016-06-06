@@ -165,8 +165,8 @@ static NSString *ID = @"creationCell";
      */
     
     DetailCreationH5WebController *H5VC = [[DetailCreationH5WebController alloc] init];
-    
     CreationModel *model = self.models[indexPath.row];
+    H5VC.model = model;
     H5VC.artWorkId = model.ID;
     H5VC.title = model.title;
     

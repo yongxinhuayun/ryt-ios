@@ -68,11 +68,11 @@
         <div class="pm_msg" id="auctionMessage">
             <!--<ul>-->
             <!--<li class="">-->
-            <!--<p><span>{{=it.auctionNum}}</span>次</p>-->
+            <!--<p><span>{{=PageVariable.auctionNum}}</span>次</p>-->
             <!--<p>有效出价</p>-->
             <!--</li>-->
             <!--<li class="">-->
-            <!--<p><span>{{=it.viewNum}}</span>次</p>-->
+            <!--<p><span>{{=PageVariable.viewNum}}</span>次</p>-->
             <!--<p>浏览次数</p>-->
             <!--</li>-->
             <!--<li class="">-->
@@ -88,6 +88,7 @@
         <!--//End---->
 
         <div class="com-invest pm_com-invest" id="currentAuctionTopThreeRecord">
+
             <!--<h5>实时出价</h5>-->
             <!--<ul>-->
             <!--{{ for(var i = 0 ; i<3 ; i++){-->
@@ -95,13 +96,34 @@
             <!--}}-->
             <!--<li>-->
             <!--<i class="rank rank1"></i>-->
-            <!--<span><img src="{{=bidding.creator.pictureUrl}}" alt=""><strong>{{=dealUsername(bidding.creator.username)}}</strong></span>-->
+            <!--<span><img src="{{=bidding.creator.pictureUrl}}" alt=""><strong>{{=dealUsername(bidding.creator.username,3,4)}}</strong></span>-->
             <!--<span><strong>出价了</strong>&nbsp;<b>{{=parseInt(bidding.price)}}元</b></span>-->
             <!--<span>{{=getDateStr(bidding.createDatetime)}}</span>-->
             <!--</li>-->
             <!--{{ } }}-->
             <!--</ul>-->
 
+
+        </div>
+
+        <div id="winner">
+            <!--{{-->
+            <!--if(it.step=="32"){-->
+            <!--}}-->
+            <!--<div class="pm_end_user">-->
+            <!--<div class="title">-->
+            <!--<p>-->
+            <!--<span>拍品得主</span>-->
+            <!--<span>{{=it.winner.name}}</span>-->
+            <!--</p>-->
+            <!--</div>-->
+            <!--<div class="info">-->
+            <!--<span>成交金额： {{=it.currentAuctionPrice}} 元</span>-->
+            <!--<span>参拍人数： {{=PageVariable.auctionNum}} 人</span>-->
+            <!--</div>-->
+
+            <!--</div>-->
+            <!--{{ } }}-->
         </div>
 
     </div>
@@ -372,15 +394,15 @@
                     <div class="com-invest">
                         <h5 id="auctionNum">{{=it.auctionNum}}人参与拍卖</h5>
                         <ul id="auctionList">
-                            <!--{{ for (var i = 0 ;i < it.artWorkBiddingList.length ; i++){-->
-                            <!--var bidding = it.artWorkBiddingList[i];-->
-                            <!--}}-->
-                            <!--<li>-->
-                            <!--<span><img src="{{=bidding.creator.headUrl}}" alt=""><strong>{{=dealUsername(bidding.creator.username)}}</strong></span>-->
-                            <!--<span><strong>出价了</strong>&nbsp;<b>{{=parseInt(bidding.price)}}元</b></span>-->
-                            <!--<span>{{=getTimeStr(bidding.createDatetime)}}</span>-->
-                            <!--</li>-->
-                            <!--{{ } }}-->
+                            {{ for (var i = 0 ;i < it.artWorkBiddingList.length ; i++){
+                            var bidding = it.artWorkBiddingList[i];
+                            }}
+                            <li>
+                                <span><img src="{{=bidding.creator.pictureUrl}}" alt=""><strong>{{=dealUsername(bidding.creator.username,3,4)}}</strong></span>
+                                <span><strong>出价了</strong>&nbsp;<b>{{=parseInt(bidding.price)}}元</b></span>
+                                <span>{{=getTimeStr(bidding.createDatetime)}}</span>
+                            </li>
+                            {{ } }}
                         </ul>
 
                     </div>
@@ -459,7 +481,11 @@
     <!--{{ if(it.step == "30"){ }}-->
     <!--<div class="pm_btm_bar">-->
     <!--<a class="links" onclick="redirectComment('{{=getCurrentUserId()}}')" title="评论">评论</a>-->
+    <!--{{ if(PageVariable.isSubmitDepositPrice == "0"){ }}-->
+    <!--<a class="links" title="缴纳保证金">已缴纳保证金</a>-->
+    <!--{{ }else{ }}-->
     <!--<a class="links" id="btn_pay" title="缴纳保证金">缴纳保证金</a>-->
+    <!--{{ } }}-->
     <!--</div>-->
     <!--&lt;!&ndash;//End&#45;&#45;底部悬浮&ndash;&gt;-->
     <!--<div id="btn_pay_pannel" class="pm_pay_lay">-->
@@ -496,25 +522,18 @@
     <!--&lt;!&ndash;//End&#45;&#45;出价部分&ndash;&gt;-->
 
 
-    <!--&lt;!&ndash;<<<点击出价后的提示框 出价成功和出价失败都会弹出提示框>>>&ndash;&gt;-->
-    <!--<div id="alert">-->
+    <!--<<<点击出价后的提示框 出价成功和出价失败都会弹出提示框>>>-->
     <!--<div id="pm-bid-tips" class="pm-bid-tips">-->
-    <!--{{ if(it.status=="0"){ }}-->
     <!--<p>出价成功！</p>-->
-    <!--{{ } else { }}-->
-    <!--<p>出价金额需大于当前金额,当前金额为20000元</p>-->
-    <!--{{ } }}-->
     <!--</div>-->
-    <!--</div>-->
-    <!--&lt;!&ndash;//End&#45;&#45;点击出价后的提示框&ndash;&gt;-->
+    <!--//End--点击出价后的提示框-->
 
     <!--{{ } }}-->
 
     <!--{{ if(it.step == "32" && it.winner.id == getCurrentUserId()){ }}-->
 
-    <!--<div id="btn_pay_pannel" class="pm_pay_lay">-->
+    <!--<div id="btn_pay_pannel" class="pm_pay_lay jshow">-->
     <!--<div class="main">-->
-    <!--<em class="close"></em>-->
     <!--<div class="p1">-->
     <!--<p>-->
     <!--<span>尾款金额</span><span class="price">¥{{=getCurrentFinalPrice()}}</span>-->
@@ -532,6 +551,21 @@
 
 </div>
 
+<div id="dialog">
+
+
+    <!--<div class="pm_dialog">-->
+    <!--<div class="content">-->
+    <!--<div class="close"></div>-->
+    <!--<div class="info">-->
+    <!--<p>很遗憾地告诉您，您的个人账户余额不足。只需充值起拍金额的10 %，就可以参与拍卖了。</p>-->
+    <!--</div>-->
+    <!--<a href="" class="btn" title="去充值">确认</a>-->
+    <!--</div>-->
+    <!--</div>-->
+
+</div>
+
 <script src="shop2016/js/jquery.min.js"></script>
 <script src="shop2016/js/swiper.min.js"></script>
 <script src="shop2016/js/system.js"></script>
@@ -541,19 +575,18 @@
 <script src="shop2016/js/local/invest/controller.js"></script>
 <script>
 
-    hostName = "http://localhost";                           //服务器域名
+    hostName = "http://192.168.1.43";                           //服务器域名
     RequestUrl = {
         commentTab: "/app/investorArtWorkComment.do",
         artWorkViewTab: "/app/investorArtWorkView.do",
         initPage: "/app/artWorkAuctionView.do",
-        auctionTab: "",    //拍卖纪录接口
+        auctionTab: "/app/plistArtworkBidding.do",    //拍卖纪录接口
         pay: "",    //支付接口
-        bid: "",   //出价接口
-        viewNum: ""   //获得浏览次数接口
+        bid: "/app/artworkBid.do",   //出价接口
     }//接口对象
 
     $().ready(function () {
-        initPage();
+        //initPage();
         document.addEventListener('touchend', touch, false);
         function touch() {
             if ($(document).scrollTop() + $(window).height() >= $(document).height()) {
@@ -590,13 +623,15 @@
     }
 
     function getParamObject() {
-        return {artWorkId: "qydeyugqqiugd2", currentUserId: "", signmsg: "", timestamp: ""}
+        return {artWorkId: "qydeyugqqiugd2", currentUserId: "imhfp1yr4636pj49", signmsg: "", timestamp: ""}
+        //return PageVariable.param;
     }              //从app中获取的服务端请求接口的必要参数  需要传递一个密钥参数
     function getCurrentUserId() {
         return getParamObject()["currentUserId"];
     }            //获得当前用户的id
     function redirectUser(userid) {
-        console.log("test");
+        //console.log("test");
+        window.location.href = "rongyitou://jumpToUserHome_?"+userid;
 //        window.location.href = "rongyitou://userid:skldjflksdjflk"
     }          //@TODO 跳转到用户的个人主页
     function redirectPay(price, type) {
@@ -608,12 +643,16 @@
     }       //@TODO 跳转到评论
 
     function submitDepositPrice(price) {
-        var depositPrice = getDepositPrice(price);
-        redirectPay();
+        if ($("#radio").attr("class") == "active") {
+            var depositPrice = getDepositPrice(price);
+            redirectPay();
+        } else {
+            getAlert("请阅读协议！");
+        }
     }    //提交保证金
     function getDepositPrice(startingPrice) {
         return parseInt(startingPrice * 0.1);
-    }//@TODO 计算保证金
+    }//计算保证金
     function getAuctionPrice(price) {
         //计算加价幅度
         if (price <= 499) {
@@ -636,13 +675,43 @@
         redirectPay();
     }            //@TODO 付尾款
     function getCurrentFinalPrice() {
+//        当前拍卖价格 - 起拍价格 * 0.1
+        return PageVariable.artWorkInfo.currentAuctionPrice - (PageVariable.startingPrice * 0.1)
         //获得竞拍得主应付尾款
-    }       //@TODO 计算尾款金额
+    }       //计算尾款金额
     function bid() {
-        //验证出价金额，创建拍卖纪录，更新实时拍卖的信息，出价的信息也需要跟着改
-        //需要返回当前最新的竞价记录
-        redirectPay();
-    }                        //@TODO 出价
+        var newPrice = $("input[name=auctionPrice]").val();
+
+        var success = function (data) {
+            ajaxSuccessFunctionTemplage(function (dataTemp) {
+                $("input[name=auctionPrice]").val(getCurrentAuctionPrice(dataTemp.artWorkBidding.price));
+                PageVariable.artWorkInfo.currentAuctionPrice = dataTemp.artWorkBidding.price;
+                $('#pm-bid-tips').fadeIn('fast').delay(1000).fadeOut('fast');
+            }, data, function () {
+                getArtWorkAuctionData(getArtWorkAuctionBidding);
+            }, function (dataTemp) {
+                switch (dataTemp["resultCode"]) {
+                    case 10012 :
+                        getAlert("有人出了更高的价格！", function () {
+                            refreshPageEntity();
+                            getArtWorkAuctionData(getArtWorkAuctionBidding);
+                            $('.pm_dialog').remove();
+                        });
+                        break;
+                    default:
+                        getAlert(dataTemp["resultMsg"], function () {
+                            refreshPageEntity();
+                            getArtWorkAuctionData(getArtWorkAuctionBidding);
+                            $('.pm_dialog').remove();
+                        })
+                }
+            })
+        }
+        var requestParam = getParamObject();
+        requestParam.price = Number(newPrice);
+        ajaxRequest(hostName + RequestUrl.bid, requestParam, success, function () {
+        }, "post");
+    }                        // 出价
 
     //获得当前出价的价格
     function getCurrentAuctionPrice(currentAuctionPrice) {

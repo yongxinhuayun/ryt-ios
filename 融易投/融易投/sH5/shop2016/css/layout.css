@@ -779,7 +779,7 @@ body {
     bottom: 13px;
     font-size: 16px;
     line-height: 16px;
-    color: white; }
+    color: #fff; }
 .tz2016 .man {
   padding: 0 14px;
   border-bottom: 1px solid #e2e2e2;
@@ -831,7 +831,7 @@ body {
         .tz2016 .man .page .mp .n-page .name, .tz2016 .man .page .mp .n-page .rank {
           font-size: 15px;
           line-height: 15px;
-          color: black; }
+          color: #000; }
         .tz2016 .man .page .mp .n-page strong {
           margin: 3px 8px 0;
           background: #000;
@@ -920,12 +920,12 @@ body {
     .tz2016 .man .money .yet-money p {
       font-size: 13px;
       line-height: 13px;
-      color: #666666;
+      color: #666;
       font-weight: bold; }
       .tz2016 .man .money .yet-money p span {
         font-size: 14px;
         line-height: 14px;
-        color: black;
+        color: #000;
         font-weight: bold; }
   .tz2016 .man .money .plan-money .line {
     width: 84%;
@@ -959,7 +959,7 @@ body {
   .tz2016 .man .money .plan-money .num {
     font-size: 14px;
     line-height: 14px;
-    color: black;
+    color: #000;
     font-weight: bold; }
   .tz2016 .man .money .msg {
     margin-top: 17px;
@@ -967,11 +967,11 @@ body {
     .tz2016 .man .money .msg .a-money {
       font-size: 14px;
       line-height: 14px;
-      color: black; }
+      color: #000; }
     .tz2016 .man .money .msg .txt {
       font-size: 13px;
       line-height: 13px;
-      color: gray;
+      color: #808080;
       margin-top: 5px; }
     .tz2016 .man .money .msg .aim {
       width: 33%;
@@ -986,7 +986,7 @@ body {
     padding: 14px 0;
     font-size: 14px;
     line-height: 14px;
-    color: black; }
+    color: #000; }
     .tz2016 .man .predict span {
       padding-right: 5px; }
   .tz2016 .man .investor {
@@ -994,7 +994,7 @@ body {
     .tz2016 .man .investor h5 {
       font-size: 15px;
       line-height: 15px;
-      color: #333333;
+      color: #333;
       margin-bottom: 15px; }
 .tz2016 .flow {
   padding: 0 14px; }
@@ -1007,7 +1007,7 @@ body {
       padding: 20px 0;
       font-size: 14px;
       line-height: 14px;
-      color: #333333; }
+      color: #333; }
     .tz2016 .flow .flow-explain p {
       font-size: 12px;
       color: #666;
@@ -1021,7 +1021,7 @@ body {
     padding: 20px 0;
     font-size: 14px;
     line-height: 14px;
-    color: black;
+    color: #000;
     border-bottom: 1px solid #e2e2e2;
     margin-bottom: 22px;
     font-weight: normal; }
@@ -1044,7 +1044,7 @@ body {
       top: 0;
       font-size: 14px;
       line-height: 14px;
-      color: black; }
+      color: #000; }
     .tz2016 .details .content .list .answer {
       padding-left: 8%; }
       .tz2016 .details .content .list .answer p {
@@ -1108,7 +1108,7 @@ body {
       .tz2016 .b-box .timeline .title .r-txt span {
         font-size: 15px;
         line-height: 15px;
-        color: black; }
+        color: #000; }
       .tz2016 .b-box .timeline .title .r-txt span:nth-child(1) {
         padding-right: 32px; }
       .tz2016 .b-box .timeline .title .r-txt span:nth-child(2) {
@@ -1130,7 +1130,7 @@ body {
         .tz2016 .b-box .timeline .page .list p span {
           font-size: 14px;
           line-height: 14px;
-          color: #666666; }
+          color: #666; }
       .tz2016 .b-box .timeline .page .list img {
         margin: 10px 0; }
       .tz2016 .b-box .timeline .page .p-head {
@@ -1152,7 +1152,7 @@ body {
         .tz2016 .b-box .timeline .page p span {
           font-size: 12px;
           line-height: 12px;
-          color: #666666; }
+          color: #666; }
       .tz2016 .b-box .timeline .page img {
         margin: 10px 0; }
       .tz2016 .b-box .timeline .page .button {
@@ -1301,7 +1301,7 @@ html, body {
   top: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
   z-index: -1;
   -webkit-transition: all .3s ease;
   transition: all .3s ease; }
@@ -1418,6 +1418,15 @@ html, body {
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 200; }
+  .pm_dialog .close {
+    background: url(../images/icon-btn.png) no-repeat 0 -229px;
+    -webkit-background-size: 24px;
+    background-size: 24px;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 6px;
+    right: 6px; }
   .pm_dialog .content {
     width: 60%;
     padding: 0 19px;
@@ -1497,3 +1506,25 @@ html, body {
       padding-left: 6%;
       float: right;
       text-align: left; }
+
+.pm-bid-tips {
+  width: 100%;
+  height: 36px;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  margin-top: -18px;
+  z-index: 300;
+  text-align: center;
+  display: none; }
+  .pm-bid-tips p {
+    padding: 0 20px;
+    line-height: 36px;
+    font-size: 12px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    display: inline-block; }
+
+/*# sourceMappingURL=layout.css.map */

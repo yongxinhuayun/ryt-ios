@@ -15,6 +15,11 @@
 
 @implementation FinanceFooterView
 
++(instancetype)FinanceFooterView
+{
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
+}
+
 - (void)drawRect:(CGRect)rect {
 //    self.widthConstraint.constant = 0;
 //    self.widthConstraint.constant = 170;

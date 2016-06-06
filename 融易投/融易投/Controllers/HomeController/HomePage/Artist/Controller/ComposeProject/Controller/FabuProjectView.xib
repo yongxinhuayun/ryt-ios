@@ -19,7 +19,6 @@
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="toE-l7-g4N" customClass="HMEmotionTextView">
                     <rect key="frame" x="10" y="106" width="355" height="64"/>
-                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="Lpt-4P-SXD"/>
                     </constraints>

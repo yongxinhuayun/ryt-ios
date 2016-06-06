@@ -7,20 +7,12 @@
 //
 
 #import "MeHeaderView.h"
-
-
-
-
 #import "UIImageView+WebCache.h"
-
-
-
 
 @interface MeHeaderView ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *guanzhuNum;
-
 @property (weak, nonatomic) IBOutlet UILabel *fansNum;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *signature;
@@ -90,9 +82,9 @@
     //用户签名
     self.signature.text = model.user.userBrief.signer;
     //用户关注数
-    self.guanzhuNum.text = [NSString stringWithFormat:@"%zd",model.num];
+    self.guanzhuNum.text = [NSString stringWithFormat:@"%zd",model.followNum];
     //用户粉丝数
-    self.fansNum.text = [NSString stringWithFormat:@"%zd",model.followNum];
+    self.fansNum.text = [NSString stringWithFormat:@"%zd",model.num];
     //投资金额
     self.sumInvestment.text = [NSString stringWithFormat:@"%zd",model.sumInvestment];
     //投资收益

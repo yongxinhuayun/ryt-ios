@@ -300,14 +300,16 @@ static NSString *ID = @"ArtistMainCell";
     
     ArtworkListModel *model = self.models[indexPath.row];
     
+    //12 15 20
+    //33 去掉
+    //34 拍卖结束页
+    //35 36 去掉
     if ([model.step isEqualToString:@"10"]){
         [MBProgressHUD showError:@"审核待审核,请您耐心等待"];
     }else if ([model.step isEqualToString:@"11"]){
         [MBProgressHUD showError:@"审核审核中,请您耐心等待"];
-    }else if ([model.step isEqualToString:@"12"]){
-        [MBProgressHUD showError:@"审核审核通过,请您耐心等待"];
     }else if ([model.step isEqualToString:@"13"]){
-        [MBProgressHUD showError:@"审核未通过,请您耐心等待"];
+        [MBProgressHUD showError:@"审核未通过"];
     }else if ([model.step isEqualToString:@"14"]){
         //跳转融资详情页
         DetailFinanceViewController *detail = [[DetailFinanceViewController alloc] init];
@@ -322,15 +324,14 @@ static NSString *ID = @"ArtistMainCell";
         [self.navigationController pushViewController:creationDetailsVC animated:YES];
     }else if([model.step isEqualToString:@"100"]) {
         [MBProgressHUD showError:@"项目可以编辑"];
-    }else if ([model.step isEqualToString:@"30"]||[model.step isEqualToString:@"31"]||[model.step isEqualToString:@"32"]){
+    }else if ([model.step isEqualToString:@"30"]||[model.step isEqualToString:@"31"]||[model.step isEqualToString:@"32"] || [model.step isEqualToString:@"34"]){
         //调到拍卖详情页
         //        DetailCreationViewController *creationDetailsVC = [[DetailCreationViewController alloc] init];
         //        creationDetailsVC.artworkId = model.ID;
         //        creationDetailsVC.title = model.title;
         //        [self.navigationController pushViewController:creationDetailsVC animated:YES];
-    }else {
-        [MBProgressHUD showError:@"拍卖即将开始"];
     }
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

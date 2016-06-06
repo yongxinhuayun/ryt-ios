@@ -33,19 +33,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="A2创作详情.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="A2创作详情.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/A2创作详情.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="837">
-              <caret line="376" column="44" selection-start-line="376" selection-start-column="44" selection-end-line="376" selection-end-column="44" />
+            <state relative-caret-position="3429">
+              <caret line="338" column="29" selection-start-line="338" selection-start-column="29" selection-end-line="338" selection-end-column="29" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#2;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#3;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="e#21683#22459#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="A3-1拍卖前详情.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/A3-1拍卖前详情.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2985">
+              <caret line="573" column="56" selection-start-line="573" selection-start-column="56" selection-end-line="573" selection-end-column="56" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#3;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="e#28891#29152#0" expanded="false" />
+                <element signature="e#29213#30137#0" expanded="false" />
+                <element signature="e#30169#30321#0" expanded="false" />
+                <element signature="e#30402#30459#0" expanded="false" />
+                <element signature="e#30517#30622#0" expanded="false" />
+                <element signature="e#30689#30743#0" expanded="false" />
+                <element signature="e#30803#30825#0" expanded="false" />
+                <element signature="e#30886#31087#0" expanded="false" />
+                <element signature="e#31240#31775#0" expanded="false" />
+                <element signature="e#31822#31852#0" expanded="false" />
+                <element signature="e#31912#32067#0" expanded="false" />
+                <element signature="e#32102#33615#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -54,40 +81,9 @@
       <file leaf-file-name="controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shop2016/js/local/creation/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+            <state relative-caret-position="1701">
+              <caret line="63" column="57" selection-start-line="63" selection-start-column="57" selection-end-line="63" selection-end-column="57" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="A3-1拍卖前详情.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/A3-1拍卖前详情.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1416">
-              <caret line="158" column="35" selection-start-line="158" selection-start-column="35" selection-end-line="158" selection-end-column="35" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#3;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="e#27714#28000#0" expanded="false" />
-                <element signature="e#28034#28295#0" expanded="false" />
-                <element signature="e#28356#29280#0" expanded="false" />
-                <element signature="e#29312#29411#0" expanded="false" />
-                <element signature="e#29492#29549#0" expanded="false" />
-                <element signature="e#29607#29712#0" expanded="false" />
-                <element signature="e#29779#29833#0" expanded="false" />
-                <element signature="e#29893#29915#0" expanded="false" />
-                <element signature="e#29976#30057#0" expanded="false" />
-                <element signature="e#30113#30166#0" expanded="false" />
-                <element signature="e#30216#30751#0" expanded="false" />
-                <element signature="e#30798#30828#0" expanded="false" />
-                <element signature="e#30888#30916#0" expanded="false" />
-                <element signature="e#30957#31057#0" expanded="false" />
-                <element signature="e#31166#31254#0" expanded="false" />
-                <element signature="e#31441#34488#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -95,28 +91,74 @@
       <file leaf-file-name="system.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shop2016/js/system.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="64" column="28" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+            <state relative-caret-position="332">
+              <caret line="118" column="40" selection-start-line="118" selection-start-column="35" selection-end-line="118" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="swiper.min.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shop2016/js/swiper.min.js">
+      <file leaf-file-name="Aorder.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop2016/css/Aorder.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="14" column="102" selection-start-line="14" selection-start-column="102" selection-end-line="14" selection-end-column="102" />
+            <state relative-caret-position="54">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery-1.12.4.min.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shop2016/js/jquery-1.12.4.min.js">
+      <file leaf-file-name="view.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop2016/js/local/invest/view.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="2" column="354" selection-start-line="2" selection-start-column="354" selection-end-line="2" selection-end-column="354" />
+            <state relative-caret-position="875">
+              <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc;n#getArtWorkBaseInfoPictureHtml#0" expanded="false" />
+                <element signature="n#!!block;n#getArtWorkBaseInfoPictureHtml#0" expanded="false" />
+                <element signature="n#!!block;n#getArtWorkBaseInfoMainHtml#0" expanded="false" />
+                <element signature="n#!!block;n#getArtWorkScheduleInvestHtml#0" expanded="false" />
+                <element signature="n#!!block;n#getArtWorkScheduleAuctionHtml#0" expanded="false" />
+                <element signature="n#!!block;n#getArtWorkScheduleMessageHtml#0" expanded="false" />
+                <element signature="n#!!block;n#getArtWorkDetailHtml#0" expanded="false" />
+                <element signature="n#!!block;n#getArtWorkCommentHtml#0" expanded="false" />
+                <element signature="e#12702#12707#0" expanded="false" />
+                <element signature="n#!!block;n#getPreBottomButtonHtml#0" expanded="false" />
+                <marker date="1464943131916" expanded="true" signature="3734:3751" ph="..." />
+                <marker date="1464943131916" expanded="true" signature="3781:3799" ph="..." />
+                <marker date="1464943131916" expanded="true" signature="4071:4094" ph="..." />
+                <marker date="1464943131916" expanded="true" signature="5089:5103" ph="..." />
+                <marker date="1464943131916" expanded="true" signature="6099:6125" ph="..." />
+                <marker date="1464943131916" expanded="true" signature="6251:6265" ph="..." />
+                <marker date="1464943131916" expanded="true" signature="6442:6459" ph="..." />
+                <marker date="1464943131916" expanded="true" signature="6489:6507" ph="..." />
+                <marker date="1464943131916" expanded="true" signature="6749:6772" ph="..." />
+                <marker date="1464943131916" expanded="true" signature="7831:7845" ph="..." />
+                <marker date="1464943131916" expanded="true" signature="8872:8898" ph="..." />
+                <marker date="1464943131916" expanded="true" signature="14707:14719" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="model.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop2016/js/local/invest/model.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1134">
+              <caret line="46" column="1" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
+              <folding>
+                <element signature="e#0#54#0" expanded="false" />
+                <element signature="e#1857#1906#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop2016/js/local/invest/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="27">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -135,73 +177,29 @@
       <file leaf-file-name="controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shop2016/js/local/invest/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+            <state relative-caret-position="594">
+              <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
               <folding>
                 <element signature="n#!!doc;n#initPage#0" expanded="false" />
                 <element signature="n#!!block;n#getAuctionTimeResult#0" expanded="false" />
-                <element signature="n#!!block;n#getArtWorkBaseInfo#0" expanded="false" />
                 <element signature="n#!!block;n#getArtWorkDetail#0" expanded="false" />
                 <element signature="n#!!block;n#getArtWorkComment#0" expanded="false" />
-                <element signature="n#!!block;n#getArtWorkAuctionBidding#0" expanded="false" />
                 <element signature="n#!!block;n#getArtWorkAuctionBiddingTopThree#0" expanded="false" />
                 <element signature="n#!!block;n#getBottomButton#0" expanded="false" />
+                <element signature="n#!!block;n#getAlert#0" expanded="false" />
                 <element signature="n#!!block;n#getArtWorkBaseInfoData#0" expanded="false" />
                 <element signature="n#!!block;n#getArtWorkDetailData#0" expanded="false" />
                 <element signature="n#!!block;n#getArtWorkCommentData#0" expanded="false" />
                 <element signature="n#!!block;n#getArtWorkAuctionData#0" expanded="false" />
                 <element signature="n#!!block;n#artWorkProjectPanelAction#0" expanded="false" />
-                <element signature="e#6708#6746#0" expanded="false" />
+                <element signature="e#6837#6875#0" expanded="false" />
                 <element signature="n#!!block;n#artWorkCommentPanelAction#0" expanded="false" />
                 <element signature="n#!!block;n#artWorkViewPanelAction#0" expanded="false" />
                 <element signature="n#!!block;n#artWorkAuctionPanelAction#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="model.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shop2016/js/local/invest/model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-              <folding>
-                <element signature="e#0#54#0" expanded="false" />
-                <element signature="e#1857#1906#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shop2016/js/local/invest/view.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="178" column="23" selection-start-line="178" selection-start-column="23" selection-end-line="178" selection-end-column="23" />
-              <folding>
-                <element signature="n#!!doc;n#getArtWorkBaseInfoPictureHtml#0" expanded="false" />
-                <element signature="n#!!block;n#getArtWorkBaseInfoPictureHtml#0" expanded="false" />
-                <element signature="n#!!block;n#getArtWorkBaseInfoMainHtml#0" expanded="false" />
-                <element signature="n#!!block;n#getArtWorkScheduleInvestHtml#0" expanded="false" />
-                <element signature="n#!!block;n#getArtWorkScheduleAuctionHtml#0" expanded="false" />
-                <element signature="n#!!block;n#getArtWorkScheduleMessageHtml#0" expanded="false" />
-                <element signature="n#!!block;n#getArtWorkDetailHtml#0" expanded="false" />
-                <element signature="n#!!block;n#getArtWorkCommentHtml#0" expanded="false" />
-                <element signature="n#!!block;n#getArtWorkAuctionBiddingHtml#0" expanded="false" />
-                <element signature="n#!!block;n#getArtWorkAuctionBiddingTopThreeHtml#0" expanded="false" />
-                <element signature="n#!!block;n#getAlertHtml#0" expanded="false" />
-                <marker date="1464849773612" expanded="true" signature="3714:3731" ph="..." />
-                <marker date="1464849773612" expanded="true" signature="3761:3779" ph="..." />
-                <marker date="1464849773612" expanded="true" signature="4051:4074" ph="..." />
-                <marker date="1464849773612" expanded="true" signature="5069:5083" ph="..." />
-                <marker date="1464849773612" expanded="true" signature="6079:6105" ph="..." />
-                <marker date="1464849773612" expanded="true" signature="6231:6245" ph="..." />
-                <marker date="1464849773612" expanded="true" signature="6422:6439" ph="..." />
-                <marker date="1464849773612" expanded="true" signature="6469:6487" ph="..." />
-                <marker date="1464849773612" expanded="true" signature="6729:6752" ph="..." />
-                <marker date="1464849773612" expanded="true" signature="7811:7825" ph="..." />
-                <marker date="1464849773612" expanded="true" signature="8852:8878" ph="..." />
-                <marker date="1464849773612" expanded="true" signature="13882:13894" ph="..." />
+                <element signature="n#!!block;n#getAlert#1" expanded="false" />
+                <marker date="1464943213079" expanded="true" signature="7711:7724" ph="..." />
+                <marker date="1464943213079" expanded="true" signature="7778:7830" ph="..." />
+                <marker date="1464943213079" expanded="true" signature="7925:7962" ph="..." />
               </folding>
             </state>
           </provider>
@@ -233,14 +231,15 @@
         <option value="$PROJECT_DIR$/shop2016/js/local/creation/view.js" />
         <option value="$PROJECT_DIR$/shop2016/js/local/invest/app.js" />
         <option value="$PROJECT_DIR$/页面交互" />
-        <option value="$PROJECT_DIR$/shop2016/js/local/common.js" />
-        <option value="$PROJECT_DIR$/shop2016/js/local/invest/model.js" />
-        <option value="$PROJECT_DIR$/shop2016/js/local/invest/view.js" />
-        <option value="$PROJECT_DIR$/A3-1拍卖前详情.html" />
-        <option value="$PROJECT_DIR$/shop2016/js/system.js" />
-        <option value="$PROJECT_DIR$/shop2016/js/local/invest/controller.js" />
         <option value="$PROJECT_DIR$/shop2016/js/local/creation/controller.js" />
         <option value="$PROJECT_DIR$/A2创作详情.html" />
+        <option value="$PROJECT_DIR$/A3-3拍卖结束详情.html" />
+        <option value="$PROJECT_DIR$/shop2016/js/local/common.js" />
+        <option value="$PROJECT_DIR$/shop2016/js/local/invest/model.js" />
+        <option value="$PROJECT_DIR$/shop2016/js/system.js" />
+        <option value="$PROJECT_DIR$/shop2016/js/local/invest/view.js" />
+        <option value="$PROJECT_DIR$/shop2016/js/local/invest/controller.js" />
+        <option value="$PROJECT_DIR$/A3-1拍卖前详情.html" />
       </list>
     </option>
   </component>
@@ -290,7 +289,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -415,9 +414,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src-H5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src-H5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shop2016" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -433,11 +450,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\src-H5\shop2016\css" />
       <recent name="C:\Users\Administrator\Desktop\src-H5" />
       <recent name="C:\Users\Administrator\Desktop\src-H5\shop2016" />
       <recent name="C:\Users\Administrator\Desktop\src-H5\shop2016\upload" />
       <recent name="C:\Users\Administrator\Desktop\src-H5\shop2016\js" />
-      <recent name="C:\Users\Administrator\Desktop\src-H5\shop2016\images" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.A3-a拍卖详情.html">
@@ -542,27 +559,25 @@
       <workItem from="1464745058279" duration="28847000" />
       <workItem from="1464839954445" duration="7840000" />
       <workItem from="1464852952255" duration="252000" />
-      <workItem from="1464853309456" duration="4090000" />
+      <workItem from="1464853309456" duration="29338000" />
+      <workItem from="1464942699273" duration="583000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143377000" />
+    <option name="totallyTimeSpent" value="169208000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1936" height="1176" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="0" width="1936" height="1176" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -571,11 +586,14 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.100855745" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34896812" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294621" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -597,7 +615,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -616,7 +634,6 @@
             <element signature="n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="e#21683#22459#0" expanded="false" />
           </folding>
         </state>
@@ -647,7 +664,6 @@
             <element signature="n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="e#21683#22459#0" expanded="false" />
           </folding>
         </state>
@@ -678,7 +694,6 @@
             <element signature="n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="e#21683#22459#0" expanded="false" />
           </folding>
         </state>
@@ -709,7 +724,6 @@
             <element signature="n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="e#21683#22459#0" expanded="false" />
           </folding>
         </state>
@@ -740,7 +754,6 @@
             <element signature="n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="e#21683#22459#0" expanded="false" />
           </folding>
         </state>
@@ -771,7 +784,6 @@
             <element signature="n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="e#21683#22459#0" expanded="false" />
           </folding>
         </state>
@@ -801,13 +813,13 @@
     </entry>
     <entry file="file://D:/Documents/Tencent Files/283673756/FileRecv/layout.css" />
     <entry file="file://$PROJECT_DIR$/shop2016/css/login.css.map">
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
         </state>
-      </provider>
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shop2016/css/artist.css">
@@ -824,13 +836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop2016/css/Aorder.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shop2016/upload/exp2.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -841,13 +846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop2016/js/local/creation/model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -894,119 +892,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/页面交互">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop2016/js/local/invest/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/A3拍卖流程.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="474">
           <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/A3-a拍卖详情.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/A3-3拍卖结束详情.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8964">
-          <caret line="332" column="33" selection-start-line="332" selection-start-column="33" selection-end-line="332" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/A3-2拍卖中详情.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3186">
-          <caret line="332" column="14" selection-start-line="332" selection-start-column="14" selection-end-line="332" selection-end-column="14" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop2016/js/local/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
-          <folding>
-            <element signature="n#!!block;n#ajaxRequest#0" expanded="false" />
-            <element signature="e#603#1350#0" expanded="false" />
-            <element signature="n#!!block;n#ajaxSuccessFunctionTemplage#0" expanded="false" />
-            <element signature="n#!!block;n#tabsHeight#0" expanded="false" />
-            <element signature="n#!!block;n#dealUsername#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop2016/js/local/invest/model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#54#0" expanded="false" />
-            <element signature="e#1857#1906#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop2016/js/local/invest/view.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="178" column="23" selection-start-line="178" selection-start-column="23" selection-end-line="178" selection-end-column="23" />
-          <folding>
-            <element signature="n#!!doc;n#getArtWorkBaseInfoPictureHtml#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkBaseInfoPictureHtml#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkBaseInfoMainHtml#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkScheduleInvestHtml#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkScheduleAuctionHtml#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkScheduleMessageHtml#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkDetailHtml#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkCommentHtml#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkAuctionBiddingHtml#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkAuctionBiddingTopThreeHtml#0" expanded="false" />
-            <element signature="n#!!block;n#getAlertHtml#0" expanded="false" />
-            <marker date="1464849773612" expanded="true" signature="3714:3731" ph="..." />
-            <marker date="1464849773612" expanded="true" signature="3761:3779" ph="..." />
-            <marker date="1464849773612" expanded="true" signature="4051:4074" ph="..." />
-            <marker date="1464849773612" expanded="true" signature="5069:5083" ph="..." />
-            <marker date="1464849773612" expanded="true" signature="6079:6105" ph="..." />
-            <marker date="1464849773612" expanded="true" signature="6231:6245" ph="..." />
-            <marker date="1464849773612" expanded="true" signature="6422:6439" ph="..." />
-            <marker date="1464849773612" expanded="true" signature="6469:6487" ph="..." />
-            <marker date="1464849773612" expanded="true" signature="6729:6752" ph="..." />
-            <marker date="1464849773612" expanded="true" signature="7811:7825" ph="..." />
-            <marker date="1464849773612" expanded="true" signature="8852:8878" ph="..." />
-            <marker date="1464849773612" expanded="true" signature="13882:13894" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop2016/js/system-bak.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1026,89 +915,202 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop2016/js/system.js">
+    <entry file="file://$PROJECT_DIR$/shop2016/js/local/creation/model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="64" column="28" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+        <state relative-caret-position="335">
+          <caret line="41" column="16" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/A3-1拍卖前详情.html">
+    <entry file="file://$PROJECT_DIR$/页面交互">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1416">
-          <caret line="158" column="35" selection-start-line="158" selection-start-column="35" selection-end-line="158" selection-end-column="35" />
+        <state relative-caret-position="162">
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/A3-2拍卖中详情.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="330" column="0" selection-start-line="330" selection-start-column="0" selection-end-line="330" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/A3-a拍卖详情.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="344" column="0" selection-start-line="344" selection-start-column="0" selection-end-line="352" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/A3-3拍卖结束详情.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="60" column="31" selection-start-line="60" selection-start-column="31" selection-end-line="60" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop2016/js/local/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="57" column="31" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
           <folding>
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#27714#28000#0" expanded="false" />
-            <element signature="e#28034#28295#0" expanded="false" />
-            <element signature="e#28356#29280#0" expanded="false" />
-            <element signature="e#29312#29411#0" expanded="false" />
-            <element signature="e#29492#29549#0" expanded="false" />
-            <element signature="e#29607#29712#0" expanded="false" />
-            <element signature="e#29779#29833#0" expanded="false" />
-            <element signature="e#29893#29915#0" expanded="false" />
-            <element signature="e#29976#30057#0" expanded="false" />
-            <element signature="e#30113#30166#0" expanded="false" />
-            <element signature="e#30216#30751#0" expanded="false" />
-            <element signature="e#30798#30828#0" expanded="false" />
-            <element signature="e#30888#30916#0" expanded="false" />
-            <element signature="e#30957#31057#0" expanded="false" />
-            <element signature="e#31166#31254#0" expanded="false" />
-            <element signature="e#31441#34488#0" expanded="false" />
+            <element signature="n#!!block;n#ajaxRequest#0" expanded="false" />
+            <element signature="e#603#1350#0" expanded="false" />
+            <element signature="n#!!block;n#tabsHeight#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop2016/js/local/invest/controller.js">
+    <entry file="file://$PROJECT_DIR$/shop2016/js/local/invest/model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        <state relative-caret-position="1134">
+          <caret line="46" column="1" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
           <folding>
-            <element signature="n#!!doc;n#initPage#0" expanded="false" />
-            <element signature="n#!!block;n#getAuctionTimeResult#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkBaseInfo#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkDetail#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkComment#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkAuctionBidding#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkAuctionBiddingTopThree#0" expanded="false" />
-            <element signature="n#!!block;n#getBottomButton#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkBaseInfoData#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkDetailData#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkCommentData#0" expanded="false" />
-            <element signature="n#!!block;n#getArtWorkAuctionData#0" expanded="false" />
-            <element signature="n#!!block;n#artWorkProjectPanelAction#0" expanded="false" />
-            <element signature="e#6708#6746#0" expanded="false" />
-            <element signature="n#!!block;n#artWorkCommentPanelAction#0" expanded="false" />
-            <element signature="n#!!block;n#artWorkViewPanelAction#0" expanded="false" />
-            <element signature="n#!!block;n#artWorkAuctionPanelAction#0" expanded="false" />
+            <element signature="e#0#54#0" expanded="false" />
+            <element signature="e#1857#1906#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop2016/js/system-bak.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop2016/css/Aorder.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shop2016/js/local/creation/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        <state relative-caret-position="1701">
+          <caret line="63" column="57" selection-start-line="63" selection-start-column="57" selection-end-line="63" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop2016/js/local/invest/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/A2创作详情.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="837">
-          <caret line="376" column="44" selection-start-line="376" selection-start-column="44" selection-end-line="376" selection-end-column="44" />
+        <state relative-caret-position="3429">
+          <caret line="338" column="29" selection-start-line="338" selection-start-column="29" selection-end-line="338" selection-end-column="29" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="e#21683#22459#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop2016/js/system.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="118" column="40" selection-start-line="118" selection-start-column="35" selection-end-line="118" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop2016/js/local/invest/view.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="875">
+          <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc;n#getArtWorkBaseInfoPictureHtml#0" expanded="false" />
+            <element signature="n#!!block;n#getArtWorkBaseInfoPictureHtml#0" expanded="false" />
+            <element signature="n#!!block;n#getArtWorkBaseInfoMainHtml#0" expanded="false" />
+            <element signature="n#!!block;n#getArtWorkScheduleInvestHtml#0" expanded="false" />
+            <element signature="n#!!block;n#getArtWorkScheduleAuctionHtml#0" expanded="false" />
+            <element signature="n#!!block;n#getArtWorkScheduleMessageHtml#0" expanded="false" />
+            <element signature="n#!!block;n#getArtWorkDetailHtml#0" expanded="false" />
+            <element signature="n#!!block;n#getArtWorkCommentHtml#0" expanded="false" />
+            <element signature="e#12702#12707#0" expanded="false" />
+            <element signature="n#!!block;n#getPreBottomButtonHtml#0" expanded="false" />
+            <marker date="1464943131916" expanded="true" signature="3734:3751" ph="..." />
+            <marker date="1464943131916" expanded="true" signature="3781:3799" ph="..." />
+            <marker date="1464943131916" expanded="true" signature="4071:4094" ph="..." />
+            <marker date="1464943131916" expanded="true" signature="5089:5103" ph="..." />
+            <marker date="1464943131916" expanded="true" signature="6099:6125" ph="..." />
+            <marker date="1464943131916" expanded="true" signature="6251:6265" ph="..." />
+            <marker date="1464943131916" expanded="true" signature="6442:6459" ph="..." />
+            <marker date="1464943131916" expanded="true" signature="6489:6507" ph="..." />
+            <marker date="1464943131916" expanded="true" signature="6749:6772" ph="..." />
+            <marker date="1464943131916" expanded="true" signature="7831:7845" ph="..." />
+            <marker date="1464943131916" expanded="true" signature="8872:8898" ph="..." />
+            <marker date="1464943131916" expanded="true" signature="14707:14719" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop2016/js/local/invest/controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
+          <folding>
+            <element signature="n#!!doc;n#initPage#0" expanded="false" />
+            <element signature="n#!!block;n#getAuctionTimeResult#0" expanded="false" />
+            <element signature="n#!!block;n#getArtWorkDetail#0" expanded="false" />
+            <element signature="n#!!block;n#getArtWorkComment#0" expanded="false" />
+            <element signature="n#!!block;n#getArtWorkAuctionBiddingTopThree#0" expanded="false" />
+            <element signature="n#!!block;n#getBottomButton#0" expanded="false" />
+            <element signature="n#!!block;n#getAlert#0" expanded="false" />
+            <element signature="n#!!block;n#getArtWorkBaseInfoData#0" expanded="false" />
+            <element signature="n#!!block;n#getArtWorkDetailData#0" expanded="false" />
+            <element signature="n#!!block;n#getArtWorkCommentData#0" expanded="false" />
+            <element signature="n#!!block;n#getArtWorkAuctionData#0" expanded="false" />
+            <element signature="n#!!block;n#artWorkProjectPanelAction#0" expanded="false" />
+            <element signature="e#6837#6875#0" expanded="false" />
+            <element signature="n#!!block;n#artWorkCommentPanelAction#0" expanded="false" />
+            <element signature="n#!!block;n#artWorkViewPanelAction#0" expanded="false" />
+            <element signature="n#!!block;n#artWorkAuctionPanelAction#0" expanded="false" />
+            <element signature="n#!!block;n#getAlert#1" expanded="false" />
+            <marker date="1464943213079" expanded="true" signature="7711:7724" ph="..." />
+            <marker date="1464943213079" expanded="true" signature="7778:7830" ph="..." />
+            <marker date="1464943213079" expanded="true" signature="7925:7962" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/A3-1拍卖前详情.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2985">
+          <caret line="573" column="56" selection-start-line="573" selection-start-column="56" selection-end-line="573" selection-end-column="56" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#28891#29152#0" expanded="false" />
+            <element signature="e#29213#30137#0" expanded="false" />
+            <element signature="e#30169#30321#0" expanded="false" />
+            <element signature="e#30402#30459#0" expanded="false" />
+            <element signature="e#30517#30622#0" expanded="false" />
+            <element signature="e#30689#30743#0" expanded="false" />
+            <element signature="e#30803#30825#0" expanded="false" />
+            <element signature="e#30886#31087#0" expanded="false" />
+            <element signature="e#31240#31775#0" expanded="false" />
+            <element signature="e#31822#31852#0" expanded="false" />
+            <element signature="e#31912#32067#0" expanded="false" />
+            <element signature="e#32102#33615#0" expanded="false" />
           </folding>
         </state>
       </provider>
