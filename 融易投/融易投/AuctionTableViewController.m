@@ -7,6 +7,7 @@
 //
 
 #import "AuctionTableViewController.h"
+#import "DetailAuctionH5Controller.h"
 
 #import "AuctionModel.h"
 #import "authorModel.h"
@@ -74,6 +75,7 @@ static NSString *ID = @"auctionCell";
     [AuctionModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
         
         return @{
+                 @"ID" :@"id",
                  @"descriptions":@"description",
                  };
     }];
@@ -131,11 +133,9 @@ static NSString *ID = @"auctionCell";
     
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:url parameters:json showHUDView:self.view andBlock:^(id respondObj) {
         
-        
         NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
         NSLog(@"返回结果:%@",jsonStr);
-        
-        
+    
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
         NSLog(@"%@",modelDict);
@@ -219,6 +219,21 @@ static NSString *ID = @"auctionCell";
     SSLog(@"%ld-------%f",(long)indexPath.row,model.cellH);
     
     return  model.cellH;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailAuctionH5Controller *H5VC = [[DetailAuctionH5Controller alloc] init];
+    
+    AuctionModel *model = self.models[indexPath.row];
+    H5VC.artWorkId = model.ID;
+    H5VC.step = model.step;
+    H5VC.title = model.title;
+    
+    SSLog(@"%@---%@---%@",model.ID,model.step,model.title);
+    
+    [self.navigationController pushViewController:H5VC animated:YES];
+    
 }
 
 @end

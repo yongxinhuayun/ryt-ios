@@ -41,8 +41,9 @@ var ArtWorkComment = function (commentList) {
 }
 //投资记录（投资记录tab页专用）
 
-var ArtWorkAuction = function (artWorkBiddingList, auctionNum) {
+var ArtWorkAuction = function (artWorkBiddingList, biddingTopThree) {
     this.artWorkBiddingList = artWorkBiddingList;
+    this.biddingTopThree = biddingTopThree;
 }
 
 var PageVariable = {

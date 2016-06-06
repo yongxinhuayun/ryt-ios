@@ -11,6 +11,9 @@
 
 @interface AuctionModel : NSObject
 
+/** id */
+@property (nonatomic ,strong) NSString *ID;
+
 /** 项目背景图 */
 @property (nonatomic ,strong) NSString *picture_url;
 

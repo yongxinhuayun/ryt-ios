@@ -3,12 +3,12 @@
  */
 //页面的初始化和渲染页面(统一调配函数)
 function initPage(artWorkId, currentUserId, signmsg, timestamp) {
-    var param = new Object();
-    param.artWorkId = artWorkId;
-    param.currentUserId = currentUserId;
-    param.signmsg = signmsg;
-    param.timestamp = timestamp;
-    PageVariable.param = param;
+    // var param = new Object();
+    // param.artWorkId = artWorkId;
+    // param.currentUserId = currentUserId;
+    // param.signmsg = signmsg;
+    // param.timestamp = timestamp;
+    // PageVariable.param = param;
     getArtWorkBaseInfoData(getArtWorkBaseInfo);
     getArtWorkDetailData(getArtWorkDetail);
 }

@@ -1,51 +1,51 @@
 //
-//  DetailCreationH5WebController.m
+//  DetailAuctionH5Controller.m
 //  融易投
 //
-//  Created by efeiyi on 16/5/30.
+//  Created by efeiyi on 16/6/6.
 //  Copyright © 2016年 融艺投. All rights reserved.
 //
 
-#import "DetailCreationH5WebController.h"
+#import "DetailAuctionH5Controller.h"
 #import "NSObject+Extension.h"
 #import "PageInfoModel.h"
-#import "CreationModel.h"
 #import <MJExtension.h>
 #import "ArtistUserHomeViewController.h"
 #import "CommonUserHomeViewController.h"
-#import "PostCommentController.h"
-#import "investmentController.h"
-#import "FinanceFooterView.h"
 
-@interface DetailCreationH5WebController () <UIWebViewDelegate,FinanceFooterViewDelegate>
+@interface DetailAuctionH5Controller () <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @end
 
-@implementation DetailCreationH5WebController
+@implementation DetailAuctionH5Controller
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.navigationController.navigationBarHidden = NO;
     [self setupWebView];
-    [self setupFooterView];
 }
--(void)setupFooterView{
-    
-    FinanceFooterView *footerView= [FinanceFooterView FinanceFooterView];
-    footerView.widthConstraint.constant = 0;
-    footerView.delegate = self;
-    footerView.frame = CGRectMake(0, CGRectGetMaxY(self.webView.frame), SSScreenW, 49);
-    [self.view addSubview:footerView];
-}
+
 -(void)setupWebView{
     
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"sH5/A2.html" withExtension:nil];
+//    if ([self.step isEqualToString:@"30"]) {
+//        NSURL *url = [[NSBundle mainBundle] URLForResource:@"sH5/A3-1.html" withExtension:nil];
+//        [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+//    }else if([self.step isEqualToString:@"30"]){
+//        NSURL *url = [[NSBundle mainBundle] URLForResource:@"sH5/A3-2.html" withExtension:nil];
+//        [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+//    }else{
+//        NSURL *url = [[NSBundle mainBundle] URLForResource:@"sH5/A3-3.html" withExtension:nil];
+//        [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+//        
+//    }
+    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"sH5/A3-1.html" withExtension:nil];
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
     
     //让webView 自适应
     self.webView.scalesPageToFit = YES;
-
+    
     
     //设置webView的代理
     self.webView.delegate = self;
@@ -62,16 +62,16 @@
     NSString *signmsgMD5 = [MyMD5 md5:signmsg];
     
     /*
-    //方式一:给JS传递参数
-    NSDictionary *json = @{
-                           @"currentUserId" : currentUserId,
-                           @"artWorkId" : artWorkId,
-                           @"timestamp" : timestamp,
-                           @"signmsg"   : signmsgMD5
-                           };
-    NSString *js1 = [NSString stringWithFormat:@"getParamObject1('%@')",json];
-    [self.webView stringByEvaluatingJavaScriptFromString:js1];
-    */
+     //方式一:给JS传递参数
+     NSDictionary *json = @{
+     @"currentUserId" : currentUserId,
+     @"artWorkId" : artWorkId,
+     @"timestamp" : timestamp,
+     @"signmsg"   : signmsgMD5
+     };
+     NSString *js1 = [NSString stringWithFormat:@"getParamObject1('%@')",json];
+     [self.webView stringByEvaluatingJavaScriptFromString:js1];
+     */
     
     //方式二:给JS传递参数
     NSString *js2 = [NSString stringWithFormat:@"initPage('%@','%@','%@','%@');",artWorkId,currentUserId,signmsgMD5,timestamp];
@@ -111,7 +111,7 @@
         //skldjflksdjflk
         
         //分类中可以传递多个参数,这里不需要,因为主需要传递一个参数
-//        [self performSelector:selector withObjects:subParamArray];
+        //        [self performSelector:selector withObjects:subParamArray];
         [self performSelector:selector withObject:paramStr withObject:nil];
         
         return NO;
@@ -139,6 +139,8 @@
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         
         PageInfoModel *model = [PageInfoModel mj_objectWithKeyValues:modelDict[@"data"]];
+        
+        
         
         //保存模型,赋值给控制器
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -168,65 +170,10 @@
     
 }
 
-//跳转到评论页面
--(void)jumpPLController{
-    RYTLoginManager *manager =  [RYTLoginManager shareInstance];
-    if ([manager showLoginViewIfNeed]) {
-    }else{
-        PostCommentController * postComment = [[PostCommentController alloc] init];
-        postComment.title = @"评论";
-        postComment.artworkId = self.artWorkId;
-        postComment.currentUserId = [manager takeUser].ID;
-        [self.navigationController pushViewController:postComment animated:YES];
-    }
-}
-
-//点赞
--(void)clickZan:(UIButton *)zan{
-    RYTLoginManager *manager =  [RYTLoginManager shareInstance];
-    if ([manager showLoginViewIfNeed]) {
-    }else{
-        NSString *userId = [[RYTLoginManager shareInstance] takeUser].ID;
-        NSString *urlStr = @"artworkPraise.do";
-        NSDictionary *json = @{
-                               @"artworkId" : self.artWorkId,
-                               @"currentUserId": userId,
-                               };
-        [[HttpRequstTool shareInstance] loadData:POST serverUrl:urlStr parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-            NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-            NSLog(@"返回结果:%@",jsonStr);
-            NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
-            NSString *str = modelDict[@"resultMsg"];
-            if ([str isEqualToString:@"成功"]){
-                [self addNumToZan:zan];
-            }
-        }];
-    }
-}
--(void)addNumToZan:(UIButton *)zan{
-    UILabel *numLabel = [[UILabel alloc] initWithFrame:zan.frame];
-    numLabel.center = zan.center;
-    numLabel.textAlignment = NSTextAlignmentCenter;
-    numLabel.text = @"+1";
-    numLabel.textColor = [UIColor colorWithRed:1.0 green:0 blue:0 alpha:0.7];
-    [zan addSubview:numLabel];
-    [UIView animateWithDuration:0.6 animations:^{
-        CGFloat x = numLabel.centerX;
-        CGPoint p = CGPointMake(x, 0);
-        numLabel.center = p;
-        numLabel.alpha = 0;
-    } completion:^(BOOL finished) {
-        [numLabel removeFromSuperview];
-    }];
-    NSString *zanNum = [NSString stringWithFormat:@" %ld",self.model.praiseNUm + 1];
-    [zan setTitle:zanNum forState:(UIControlStateNormal)];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-
+    
 }
-
 
 
 @end

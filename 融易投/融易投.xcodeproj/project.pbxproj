@@ -18,7 +18,6 @@
 		212EEE8D1CE048C500F94B30 /* CommonUserHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE891CE048C500F94B30 /* CommonUserHeaderView.m */; };
 		212EEE8E1CE048C500F94B30 /* CommonUserHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE8A1CE048C500F94B30 /* CommonUserHeaderView.xib */; };
 		212EEE8F1CE048C500F94B30 /* CommonUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE8C1CE048C500F94B30 /* CommonUserHomeViewController.m */; };
-		2135696D1D002FC70096E14C /* sH5 in Resources */ = {isa = PBXBuildFile; fileRef = 2135696C1D002FC70096E14C /* sH5 */; };
 		2137E9A11CFC390900F201D6 /* DetailCreationH5WebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2137E99F1CFC390900F201D6 /* DetailCreationH5WebController.m */; };
 		2137E9A21CFC390900F201D6 /* DetailCreationH5WebController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2137E9A01CFC390900F201D6 /* DetailCreationH5WebController.xib */; };
 		2157540F1D0171660018DB7C /* AuctionProtocol.html in Resources */ = {isa = PBXBuildFile; fileRef = 2157540D1D0171660018DB7C /* AuctionProtocol.html */; };
@@ -80,6 +79,9 @@
 		21AB0B581CC605F500B7BA03 /* XCLSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B571CC605F500B7BA03 /* XCLSegmentView.m */; };
 		21AB0B811CC787C700B7BA03 /* InvestorArtWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AB0B7F1CC787C700B7BA03 /* InvestorArtWorkViewController.m */; };
 		21AB0B821CC787C700B7BA03 /* InvestorArtWorkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AB0B801CC787C700B7BA03 /* InvestorArtWorkViewController.xib */; };
+		21B1001C1D0513BB00AA734F /* DetailAuctionH5Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B1001A1D0513BB00AA734F /* DetailAuctionH5Controller.m */; };
+		21B1001D1D0513BB00AA734F /* DetailAuctionH5Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B1001B1D0513BB00AA734F /* DetailAuctionH5Controller.xib */; };
+		21B1001F1D051EF900AA734F /* sH5 in Resources */ = {isa = PBXBuildFile; fileRef = 21B1001E1D051EF900AA734F /* sH5 */; };
 		21B12A201CF59D8A00485B47 /* WXLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B12A1F1CF59D8A00485B47 /* WXLoginModel.m */; };
 		21B99BA21CF6AB7200E682F8 /* SSProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B99BA11CF6AB7200E682F8 /* SSProgressView.m */; };
 		21B99BA51CF6E22800E682F8 /* UIScrollView+UITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B99BA41CF6E22800E682F8 /* UIScrollView+UITouch.m */; };
@@ -739,7 +741,6 @@
 		212EEE8A1CE048C500F94B30 /* CommonUserHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonUserHeaderView.xib; sourceTree = "<group>"; };
 		212EEE8B1CE048C500F94B30 /* CommonUserHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUserHomeViewController.h; sourceTree = "<group>"; };
 		212EEE8C1CE048C500F94B30 /* CommonUserHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUserHomeViewController.m; sourceTree = "<group>"; };
-		2135696C1D002FC70096E14C /* sH5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sH5; sourceTree = "<group>"; };
 		2137E99E1CFC390900F201D6 /* DetailCreationH5WebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCreationH5WebController.h; sourceTree = "<group>"; };
 		2137E99F1CFC390900F201D6 /* DetailCreationH5WebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCreationH5WebController.m; sourceTree = "<group>"; };
 		2137E9A01CFC390900F201D6 /* DetailCreationH5WebController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCreationH5WebController.xib; sourceTree = "<group>"; };
@@ -849,6 +850,10 @@
 		21AB0B7E1CC787C700B7BA03 /* InvestorArtWorkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorArtWorkViewController.h; sourceTree = "<group>"; };
 		21AB0B7F1CC787C700B7BA03 /* InvestorArtWorkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorArtWorkViewController.m; sourceTree = "<group>"; };
 		21AB0B801CC787C700B7BA03 /* InvestorArtWorkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvestorArtWorkViewController.xib; sourceTree = "<group>"; };
+		21B100191D0513BB00AA734F /* DetailAuctionH5Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailAuctionH5Controller.h; sourceTree = "<group>"; };
+		21B1001A1D0513BB00AA734F /* DetailAuctionH5Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailAuctionH5Controller.m; sourceTree = "<group>"; };
+		21B1001B1D0513BB00AA734F /* DetailAuctionH5Controller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailAuctionH5Controller.xib; sourceTree = "<group>"; };
+		21B1001E1D051EF900AA734F /* sH5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sH5; sourceTree = "<group>"; };
 		21B12A1E1CF59D8A00485B47 /* WXLoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXLoginModel.h; sourceTree = "<group>"; };
 		21B12A1F1CF59D8A00485B47 /* WXLoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXLoginModel.m; sourceTree = "<group>"; };
 		21B99BA01CF6AB7200E682F8 /* SSProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSProgressView.h; sourceTree = "<group>"; };
@@ -3901,7 +3906,7 @@
 				E22892131CDF01B400483F18 /* Controllers */,
 				218D2B371CACB2E3004553B9 /* Main */,
 				E2DDB19A1CABA64E007438E4 /* Controller */,
-				2135696C1D002FC70096E14C /* sH5 */,
+				21B1001E1D051EF900AA734F /* sH5 */,
 				E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */,
 				E236C3231CB4E27E009DCBF0 /* PushConfig.plist */,
 				218D2B5B1CACB5B9004553B9 /* Launch Screen.storyboard */,
@@ -4067,6 +4072,9 @@
 		E2DDB1A81CABA739007438E4 /* 详情 */ = {
 			isa = PBXGroup;
 			children = (
+				21B100191D0513BB00AA734F /* DetailAuctionH5Controller.h */,
+				21B1001A1D0513BB00AA734F /* DetailAuctionH5Controller.m */,
+				21B1001B1D0513BB00AA734F /* DetailAuctionH5Controller.xib */,
 			);
 			name = "详情";
 			sourceTree = "<group>";
@@ -4271,6 +4279,7 @@
 				E22893C51CDF049500483F18 /* lxh_xianghumobai@2x.png in Resources */,
 				E22892BA1CDF03F400483F18 /* d_zhuakuang@2x.png in Resources */,
 				E22893821CDF049500483F18 /* lxh_haobang.gif in Resources */,
+				21B1001F1D051EF900AA734F /* sH5 in Resources */,
 				E22892C51CDF03F400483F18 /* f_zhi@2x.png in Resources */,
 				E2288DF71CDC290C00483F18 /* UserReplyCommentCell.xib in Resources */,
 				21D54B861CB6585B0088D386 /* InvestorTableViewCell.xib in Resources */,
@@ -4445,7 +4454,6 @@
 				21C4142F1CE2D23500F1029C /* HMEmotionPopView.xib in Resources */,
 				E22893AE1CDF049500483F18 /* lxh_qiaoqiao.gif in Resources */,
 				E22893CE1CDF049500483F18 /* lxh_xiudada@2x.png in Resources */,
-				2135696D1D002FC70096E14C /* sH5 in Resources */,
 				E2D521F71CDF7A0C0024887A /* provinces.plist in Resources */,
 				E22892DC1CDF03F400483F18 /* o_zhaoxiangji@2x.png in Resources */,
 				E22892931CDF03F400483F18 /* d_hehe@2x.png in Resources */,
@@ -4554,6 +4562,7 @@
 				E22893921CDF049500483F18 /* lxh_jiujie.png in Resources */,
 				E228936B1CDF049500483F18 /* lxh_beidian.png in Resources */,
 				E22893B81CDF049500483F18 /* lxh_quntiweiguan.png in Resources */,
+				21B1001D1D0513BB00AA734F /* DetailAuctionH5Controller.xib in Resources */,
 				E22893BA1CDF049500483F18 /* lxh_shuaishuaishou.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4628,6 +4637,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2D812EF1CCF85D500A52172 /* BaseScrollViewController.m in Sources */,
+				21B1001C1D0513BB00AA734F /* DetailAuctionH5Controller.m in Sources */,
 				E2A38A371CEEA45100EAB0D3 /* PrivateLetterModel.m in Sources */,
 				E2729AFD1CD8B9A7006C0617 /* UserCommentViewController.m in Sources */,
 				21AB0AC21CC50A4D00B7BA03 /* UIColor+JPExtension.m in Sources */,
@@ -5114,7 +5124,7 @@
 					"$(PROJECT_DIR)/融易投/3rd/WXPay/WeChatSDK_1.5",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -5168,7 +5178,7 @@
 					"$(PROJECT_DIR)/融易投/3rd/WXPay/WeChatSDK_1.5",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";

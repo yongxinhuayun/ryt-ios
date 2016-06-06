@@ -18,4 +18,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *zan;
 @property(nonatomic,weak) id<FinanceFooterViewDelegate> delegate;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
++(instancetype)FinanceFooterView;
 @end

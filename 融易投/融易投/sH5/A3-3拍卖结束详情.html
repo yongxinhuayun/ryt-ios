@@ -71,12 +71,12 @@
             <div class="title">
                 <p>
                     <span>拍品得主</span>
-                    <span>喵星人</span>
+                    <span>{{=it.winner.name}}</span>
                 </p>
             </div>
             <div class="info">
-                <span>成交金额： 5000 元</span>
-                <span>参拍人数： 1000 人</span>
+                <span>成交金额： {{=it.currentAuctionPrice}} 元</span>
+                <span>参拍人数： {{=PageVariable.auctionNum}} 人</span>
             </div>
 
         </div>

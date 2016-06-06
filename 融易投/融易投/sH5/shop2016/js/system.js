@@ -128,8 +128,23 @@ $(function () {
         }
         ParentDiv.on("click", "#radio", click2);
 
-        if ($('div').hasClass('pm_btm_bar')) {
-            //$('body').css('margin-bottom','60px')
+
+        //通用弹窗
+        var ParentDiv2 = $("#dialog");
+        var dailogClick = function () {
+            $('.pm_dialog').fadeOut(100)
         }
+        ParentDiv2.on("click", ".close", dailogClick);
+        // var pmDialog = $('.pm_dialog');
+        // pmDialog.find('.close').click(function () {
+        //     pmDialog.fadeOut(100);
+        // });
+
+        //拍卖详情中--->点击出价提示框
+        // var pmBidTips = $('#pm-bid-tips');
+        // $('#bid-link').click(function () {
+        //     pmBidTips.fadeIn('fast').delay(3000).fadeOut('fast');
+        //     return false;
+        // });
     })();
 })
