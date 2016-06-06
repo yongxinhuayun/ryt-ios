@@ -167,7 +167,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 40;
+    return 35;
 }
 
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -193,11 +193,14 @@
 -(UIView *)headerView:(NSString *)title{
     UIView *hView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SSScreenW, 40)];
     hView.backgroundColor = [UIColor whiteColor];
+    hView.width  = SSScreenW;
     UILabel *label = [[UILabel alloc] initWithFrame:hView.bounds];
+    
     label.x = 12;
     label.text = title;
-    label.textColor = [UIColor blackColor];
-    label.backgroundColor = [UIColor whiteColor];
+    label.font = [UIFont systemFontOfSize:15];
+    
+    label.textColor = [UIColor colorWithRed:51.0 / 255.0 green:51.0 / 255.0 blue:51.0 / 255.0 alpha:1.0];
     [hView addSubview:label];
     return hView;
 }

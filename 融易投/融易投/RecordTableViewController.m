@@ -23,6 +23,8 @@
 
 @property(nonatomic,strong) NSMutableArray *artTopList;
 @property (nonatomic, strong) NSMutableArray *artList;
+@property(nonatomic,strong ) UIView *baseView;
+@property(nonatomic,strong) UITableView *baseTableView;
 /** 用来加载下一页数据 */
 @property (nonatomic, strong) NSString *lastPageIndex;
 
@@ -96,10 +98,32 @@
         self.artTopList = model.artworkInvestTopList;
         //在主线程刷新UI数据
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.tableView reloadData];
+            
+            if (self.artList.count > 0) {
+                [self.tableView reloadData];
+            }else{
+                [self dataNilView];
+            }
         }];
-        [self.tableView improveTableView];
     }];
+    [self.tableView improveTableView];
+}
+
+-(void)dataNilView{
+    self.baseTableView = self.tableView;
+    UIView *v = [[UIView alloc] initWithFrame:self.view.bounds];
+    v.backgroundColor = [UIColor whiteColor];
+    UILabel *lable = [[UILabel alloc] init];
+    lable.text = @"暂无数据";
+    lable.font = [UIFont systemFontOfSize:14];
+    lable.center = v.center;
+    lable.y = 20;
+    lable.centerX = v.centerX - 20;
+    [lable sizeToFit];
+    lable.textColor = [UIColor colorWithRed:119.0 / 255.0 green:119.0 / 255.0 blue:119.0 / 255.0 alpha:1.0];
+    [v addSubview:lable];
+    self.baseView = v;
+    self.view = self.baseView;
 }
 
 -(void)loadMoreData{

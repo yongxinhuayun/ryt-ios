@@ -29,6 +29,8 @@
 
 @interface UserCommentViewController ()<ArtworkCommentListModelDelegate>
 @property (nonatomic, strong) NSMutableArray *models;
+@property (nonatomic,strong) UITableView *baseTableView;
+@property (nonatomic,strong) UIView *baseView;
 /** 用来加载下一页数据 */
 @property (nonatomic, strong) NSString *lastPageNum;
 
@@ -105,9 +107,31 @@ static NSString *ID = @"userCommentCell";
             NSLog(@"model : %@,%@ \n",m.ID,m.content);
         }
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            if (self.models.count > 0) {
+            [self.tableView reloadData];
+            }else{
+                [self dataNilView];
+            }
             [self.tableView reloadData];
         }];
     }];
+}
+
+-(void)dataNilView{
+    self.baseTableView = self.tableView;
+    UIView *v = [[UIView alloc] initWithFrame:self.view.bounds];
+    v.backgroundColor = [UIColor whiteColor];
+    UILabel *lable = [[UILabel alloc] init];
+    lable.text = @"暂无数据";
+    lable.font = [UIFont systemFontOfSize:14];
+    lable.center = v.center;
+    lable.y = 20;
+    lable.centerX = v.centerX - 20;
+    [lable sizeToFit];
+    lable.textColor = [UIColor colorWithRed:119.0 / 255.0 green:119.0 / 255.0 blue:119.0 / 255.0 alpha:1.0];
+    [v addSubview:lable];
+    self.baseView = v;
+    self.view = self.baseView;
 }
 
 -(void)loadMoreData{
