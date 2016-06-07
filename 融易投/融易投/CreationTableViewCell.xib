@@ -88,10 +88,16 @@
                             <constraint firstAttribute="width" constant="10" id="fdg-Ha-8md"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="denglu_fenggexian750" translatesAutoresizingMaskIntoConstraints="NO" id="SvF-fI-HQp">
+                    <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="denglu_fenggexian750" translatesAutoresizingMaskIntoConstraints="NO" id="SvF-fI-HQp">
                         <rect key="frame" x="20" y="319" width="310" height="1"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="bbm-GI-5kd"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="denglu_fenggexian750" translatesAutoresizingMaskIntoConstraints="NO" id="zvo-7R-pws">
+                        <rect key="frame" x="0.0" y="399" width="350" height="1"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Wbo-Uh-UTR"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -103,6 +109,7 @@
                     <constraint firstAttribute="trailing" secondItem="SvF-fI-HQp" secondAttribute="trailing" constant="20" id="5DH-F8-SLa"/>
                     <constraint firstItem="fSD-eM-89f" firstAttribute="leading" secondItem="TZ7-49-D7U" secondAttribute="leading" constant="20" id="GmG-MU-INm"/>
                     <constraint firstItem="fSD-eM-89f" firstAttribute="top" secondItem="TZ7-49-D7U" secondAttribute="top" constant="130" id="OKs-ZV-Aed"/>
+                    <constraint firstItem="zvo-7R-pws" firstAttribute="top" secondItem="IAP-4M-x1O" secondAttribute="bottom" constant="25" id="PAp-OM-7cI"/>
                     <constraint firstItem="F6v-BY-mzU" firstAttribute="leading" secondItem="baO-2g-BCU" secondAttribute="leading" id="PDI-lW-drL"/>
                     <constraint firstItem="uuh-zb-gcA" firstAttribute="top" secondItem="tXB-O7-fl8" secondAttribute="bottom" constant="20" id="Pc9-bU-ZmW"/>
                     <constraint firstItem="YyJ-bO-fGj" firstAttribute="leading" secondItem="eU0-Rx-MWv" secondAttribute="trailing" constant="5" id="TFa-ZV-nEp"/>
@@ -120,10 +127,12 @@
                     <constraint firstItem="4W3-pU-Ubt" firstAttribute="leading" secondItem="fSD-eM-89f" secondAttribute="leading" id="l2E-NJ-jjS"/>
                     <constraint firstItem="OTc-UJ-3NL" firstAttribute="top" secondItem="uuh-zb-gcA" secondAttribute="top" id="nN3-vX-PKd"/>
                     <constraint firstItem="tXB-O7-fl8" firstAttribute="leading" secondItem="TZ7-49-D7U" secondAttribute="leading" id="pgA-Z0-Rcw"/>
+                    <constraint firstAttribute="trailing" secondItem="zvo-7R-pws" secondAttribute="trailing" id="qA7-ie-ZMd"/>
                     <constraint firstItem="SvF-fI-HQp" firstAttribute="leading" secondItem="TZ7-49-D7U" secondAttribute="leading" constant="20" id="rRR-xp-hYS"/>
                     <constraint firstItem="tXB-O7-fl8" firstAttribute="top" secondItem="TZ7-49-D7U" secondAttribute="top" constant="10" id="svY-j4-9GJ"/>
                     <constraint firstItem="eU0-Rx-MWv" firstAttribute="centerY" secondItem="OTc-UJ-3NL" secondAttribute="centerY" id="uD9-HP-z8K"/>
                     <constraint firstItem="YyJ-bO-fGj" firstAttribute="leading" secondItem="OTc-UJ-3NL" secondAttribute="trailing" constant="20" id="vKz-um-Qs9"/>
+                    <constraint firstItem="zvo-7R-pws" firstAttribute="leading" secondItem="TZ7-49-D7U" secondAttribute="leading" id="w6m-qu-Iad"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">

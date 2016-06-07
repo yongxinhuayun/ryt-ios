@@ -18,6 +18,7 @@
 		212EEE8D1CE048C500F94B30 /* CommonUserHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE891CE048C500F94B30 /* CommonUserHeaderView.m */; };
 		212EEE8E1CE048C500F94B30 /* CommonUserHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212EEE8A1CE048C500F94B30 /* CommonUserHeaderView.xib */; };
 		212EEE8F1CE048C500F94B30 /* CommonUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212EEE8C1CE048C500F94B30 /* CommonUserHomeViewController.m */; };
+		2130D8231D069C9D0010F475 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2130D8221D069C9D0010F475 /* Info.plist */; };
 		2137E9A11CFC390900F201D6 /* DetailCreationH5WebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2137E99F1CFC390900F201D6 /* DetailCreationH5WebController.m */; };
 		2137E9A21CFC390900F201D6 /* DetailCreationH5WebController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2137E9A01CFC390900F201D6 /* DetailCreationH5WebController.xib */; };
 		2157540F1D0171660018DB7C /* AuctionProtocol.html in Resources */ = {isa = PBXBuildFile; fileRef = 2157540D1D0171660018DB7C /* AuctionProtocol.html */; };
@@ -675,7 +676,6 @@
 		E2DDB0F31CAB66DB007438E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */; };
 		E2DDB1011CAB66DB007438E4 /* ___Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB1001CAB66DB007438E4 /* ___Tests.m */; };
 		E2DDB10C1CAB66DB007438E4 /* ___UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DDB10B1CAB66DB007438E4 /* ___UITests.m */; };
-		E2E430E91CEAC22E00DE1CE9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2E430E81CEAC22E00DE1CE9 /* Info.plist */; };
 		E2E430EC1CEB23F600DE1CE9 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E430EB1CEB23F600DE1CE9 /* MessageModel.m */; };
 		E2E8422D1CE1739F0047D86C /* FinanceFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E8422C1CE1739F0047D86C /* FinanceFooterView.m */; };
 		E2E8422F1CE173B20047D86C /* FinanceFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E8422E1CE173B20047D86C /* FinanceFooterView.xib */; };
@@ -743,6 +743,7 @@
 		212EEE8A1CE048C500F94B30 /* CommonUserHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonUserHeaderView.xib; sourceTree = "<group>"; };
 		212EEE8B1CE048C500F94B30 /* CommonUserHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUserHomeViewController.h; sourceTree = "<group>"; };
 		212EEE8C1CE048C500F94B30 /* CommonUserHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUserHomeViewController.m; sourceTree = "<group>"; };
+		2130D8221D069C9D0010F475 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2137E99E1CFC390900F201D6 /* DetailCreationH5WebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCreationH5WebController.h; sourceTree = "<group>"; };
 		2137E99F1CFC390900F201D6 /* DetailCreationH5WebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCreationH5WebController.m; sourceTree = "<group>"; };
 		2137E9A01CFC390900F201D6 /* DetailCreationH5WebController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCreationH5WebController.xib; sourceTree = "<group>"; };
@@ -1714,7 +1715,6 @@
 		E2DDB1071CAB66DB007438E4 /* 融易投UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "融易投UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2DDB10B1CAB66DB007438E4 /* ___UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "___UITests.m"; sourceTree = "<group>"; };
 		E2DDB10D1CAB66DB007438E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2E430E81CEAC22E00DE1CE9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2E430EA1CEB23F600DE1CE9 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
 		E2E430EB1CEB23F600DE1CE9 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
 		E2E8422B1CE1739F0047D86C /* FinanceFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceFooterView.h; sourceTree = "<group>"; };
@@ -3941,9 +3941,9 @@
 				E2DDB19A1CABA64E007438E4 /* Controller */,
 				21B1001E1D051EF900AA734F /* sH5 */,
 				E2DDB0F21CAB66DB007438E4 /* Assets.xcassets */,
+				2130D8221D069C9D0010F475 /* Info.plist */,
 				E236C3231CB4E27E009DCBF0 /* PushConfig.plist */,
 				218D2B5B1CACB5B9004553B9 /* Launch Screen.storyboard */,
-				E2E430E81CEAC22E00DE1CE9 /* Info.plist */,
 				21D54BCE1CB796CD0088D386 /* messages.plist */,
 				E2DDB0E61CAB66DB007438E4 /* Supporting Files */,
 				E2DDB0E71CAB66DB007438E4 /* main.m */,
@@ -4255,7 +4255,6 @@
 				E22893A21CDF049500483F18 /* lxh_leiliumanmian@2x.png in Resources */,
 				E22893B11CDF049500483F18 /* lxh_qiubite.gif in Resources */,
 				E22893C31CDF049500483F18 /* lxh_xianghumobai.gif in Resources */,
-				E2E430E91CEAC22E00DE1CE9 /* Info.plist in Resources */,
 				21AB0AC61CC50A4D00B7BA03 /* JPBaseTableViewController.xib in Resources */,
 				E22893731CDF049500483F18 /* lxh_buhaoyisi.gif in Resources */,
 				21C413FB1CE2D23500F1029C /* JKImagePickerController.strings in Resources */,
@@ -4297,6 +4296,7 @@
 				E228937E1CDF049500483F18 /* lxh_geijin@2x.png in Resources */,
 				21C413FC1CE2D23500F1029C /* ImagesPicker.xcassets in Resources */,
 				E22892DB1CDF03F400483F18 /* o_yinyue@2x.png in Resources */,
+				2130D8231D069C9D0010F475 /* Info.plist in Resources */,
 				E22892D41CDF03F400483F18 /* o_ganbei@2x.png in Resources */,
 				E22893741CDF049500483F18 /* lxh_buhaoyisi.png in Resources */,
 				21C4140F1CE2D23500F1029C /* WHC_CameraVC.xib in Resources */,
@@ -5159,7 +5159,7 @@
 					"$(PROJECT_DIR)/融易投/3rd/WXPay/WeChatSDK_1.5",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.efeiyi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryte4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -5213,7 +5213,7 @@
 					"$(PROJECT_DIR)/融易投/3rd/WXPay/WeChatSDK_1.5",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.efeiyi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryte4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";

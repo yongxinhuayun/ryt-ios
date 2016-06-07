@@ -85,14 +85,14 @@
     self.userInfo.text = model.author.username;
 }
 
-//把系统的分割线去除,然后把控制器的的颜色改成要设置分割线的颜色
--(void)setFrame:(CGRect)frame
-{
-    //设置每个cell之间有个10的间距
-    frame.size.height -= 1;
-    
-    [super setFrame:frame];
-}
+////把系统的分割线去除,然后把控制器的的颜色改成要设置分割线的颜色
+//-(void)setFrame:(CGRect)frame
+//{
+//    //设置每个cell之间有个10的间距
+//    frame.size.height -= 1;
+//    
+//    [super setFrame:frame];
+//}
 
 
 @end
