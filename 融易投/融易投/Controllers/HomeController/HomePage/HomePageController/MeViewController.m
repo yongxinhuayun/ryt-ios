@@ -42,7 +42,7 @@
 #import "CommonUserHomeViewController.h"
 
 #import "ArtistUserHomeViewController.h"
-
+#import "AuctionOrderH5Controller.h"
 #import "MeTableViewCell.h"
 #import "BQLAuthEngine.h"
 #import "ShareViewHUD.h"
@@ -523,12 +523,9 @@ static BOOL firstUpdate = YES;
         
     }else if (indexPath.row == 2){
         
-        CommonUserHomeViewController *myHomeVC = [[CommonUserHomeViewController alloc] init];
-        
-        UserMyModel *model = TakeLoginUserModel;
-        myHomeVC.userId =  model.ID;
-        myHomeVC.title = @"拍卖订单";
-        [self.navigationController pushViewController:myHomeVC animated:YES];
+        AuctionOrderH5Controller *ordereVC = [[AuctionOrderH5Controller alloc] init];
+        ordereVC.title = @"拍卖订单";
+        [self.navigationController pushViewController:ordereVC animated:YES];
         
     }else if (indexPath.row == 3){
         

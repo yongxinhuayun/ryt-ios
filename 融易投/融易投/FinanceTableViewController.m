@@ -73,7 +73,7 @@ static NSString *ID = @"financeCell";
     //使用设置setFrame的方法
     //先要把系统的分割线去除,然后把控制器的背景改成要设置分割线的颜色即可,然后在设置cell的setFrame方法中,在系统计算好的cell的高度之前让cell的高度减一,然后在赋值给系统的算好的frame
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.view.backgroundColor = [UIColor colorWithRed:(229)/255.0 green:(230)/255.0 blue:(231)/255.0 alpha:1.0];
+//    self.view.backgroundColor = [UIColor colorWithRed:(228)/255.0 green:(228)/255.0 blue:(228)/255.0 alpha:1.0];
     
 }
 
@@ -101,8 +101,8 @@ static NSString *ID = @"financeCell";
                            @"pageNum" : pageNum,
                            };
     [[HttpRequstTool shareInstance] loadData:POST serverUrl:@"investorIndex.do" parameters:json showHUDView:self.view andBlock:^(id respondObj) {
-        //                NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
-        //                NSLog(@"返回结果:%@",jsonStr);
+                        NSString *jsonStr=[[NSString alloc] initWithData:respondObj encoding:NSUTF8StringEncoding];
+                       NSLog(@"返回结果:%@",jsonStr);
         NSDictionary *modelDict = [NSJSONSerialization JSONObjectWithData:respondObj options:kNilOptions error:nil];
         self.models = [FinanceModel mj_objectArrayWithKeyValuesArray:modelDict[@"objectList"]];
         //在主线程刷新UI数据

@@ -82,6 +82,8 @@
 		21B1001C1D0513BB00AA734F /* DetailAuctionH5Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B1001A1D0513BB00AA734F /* DetailAuctionH5Controller.m */; };
 		21B1001D1D0513BB00AA734F /* DetailAuctionH5Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B1001B1D0513BB00AA734F /* DetailAuctionH5Controller.xib */; };
 		21B1001F1D051EF900AA734F /* sH5 in Resources */ = {isa = PBXBuildFile; fileRef = 21B1001E1D051EF900AA734F /* sH5 */; };
+		21B100251D059F6D00AA734F /* AuctionOrderH5Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B100241D059F6D00AA734F /* AuctionOrderH5Controller.m */; };
+		21B100271D059F8300AA734F /* AuctionOrderH5Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B100261D059F8300AA734F /* AuctionOrderH5Controller.xib */; };
 		21B12A201CF59D8A00485B47 /* WXLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B12A1F1CF59D8A00485B47 /* WXLoginModel.m */; };
 		21B99BA21CF6AB7200E682F8 /* SSProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B99BA11CF6AB7200E682F8 /* SSProgressView.m */; };
 		21B99BA51CF6E22800E682F8 /* UIScrollView+UITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B99BA41CF6E22800E682F8 /* UIScrollView+UITouch.m */; };
@@ -854,6 +856,9 @@
 		21B1001A1D0513BB00AA734F /* DetailAuctionH5Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailAuctionH5Controller.m; sourceTree = "<group>"; };
 		21B1001B1D0513BB00AA734F /* DetailAuctionH5Controller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailAuctionH5Controller.xib; sourceTree = "<group>"; };
 		21B1001E1D051EF900AA734F /* sH5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sH5; sourceTree = "<group>"; };
+		21B100231D059F6D00AA734F /* AuctionOrderH5Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionOrderH5Controller.h; sourceTree = "<group>"; };
+		21B100241D059F6D00AA734F /* AuctionOrderH5Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionOrderH5Controller.m; sourceTree = "<group>"; };
+		21B100261D059F8300AA734F /* AuctionOrderH5Controller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionOrderH5Controller.xib; sourceTree = "<group>"; };
 		21B12A1E1CF59D8A00485B47 /* WXLoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXLoginModel.h; sourceTree = "<group>"; };
 		21B12A1F1CF59D8A00485B47 /* WXLoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXLoginModel.m; sourceTree = "<group>"; };
 		21B99BA01CF6AB7200E682F8 /* SSProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSProgressView.h; sourceTree = "<group>"; };
@@ -2117,6 +2122,33 @@
 				E2AAF0381CE1C7B40009FD19 /* PostCommentController.xib */,
 			);
 			name = "用户评论";
+			sourceTree = "<group>";
+		};
+		21B100201D059F0000AA734F /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				21B100211D059F0000AA734F /* Controller */,
+				21B100221D059F0000AA734F /* View */,
+			);
+			name = Order;
+			path = HomePage/Order;
+			sourceTree = "<group>";
+		};
+		21B100211D059F0000AA734F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				21B100231D059F6D00AA734F /* AuctionOrderH5Controller.h */,
+				21B100241D059F6D00AA734F /* AuctionOrderH5Controller.m */,
+				21B100261D059F8300AA734F /* AuctionOrderH5Controller.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		21B100221D059F0000AA734F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		21B12A1D1CF59D5E00485B47 /* WXLoginModel */ = {
@@ -3559,6 +3591,7 @@
 			isa = PBXGroup;
 			children = (
 				E2D524871CDF9E380024887A /* HomePage */,
+				21B100201D059F0000AA734F /* Order */,
 				E2D5247B1CDF9C0C0024887A /* Address */,
 				E2D5244D1CDF9AE10024887A /* Wallet */,
 				E2D524451CDF99A10024887A /* ApplyForArt */,
@@ -4177,7 +4210,7 @@
 				TargetAttributes = {
 					E2DDB0E21CAB66DB007438E4 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 68Y8JTBJWD;
+						DevelopmentTeam = KUU889667N;
 					};
 					E2DDB0FB1CAB66DB007438E4 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -4560,6 +4593,7 @@
 				E22893661CDF049500483F18 /* info.plist in Resources */,
 				21C414421CE2D23500F1029C /* CollectionViewCell.xib in Resources */,
 				E22893921CDF049500483F18 /* lxh_jiujie.png in Resources */,
+				21B100271D059F8300AA734F /* AuctionOrderH5Controller.xib in Resources */,
 				E228936B1CDF049500483F18 /* lxh_beidian.png in Resources */,
 				E22893B81CDF049500483F18 /* lxh_quntiweiguan.png in Resources */,
 				21B1001D1D0513BB00AA734F /* DetailAuctionH5Controller.xib in Resources */,
@@ -4879,6 +4913,7 @@
 				E2D521B01CDF783B0024887A /* PageInfoListMyModel.m in Sources */,
 				21AB0AE41CC5152C00B7BA03 /* UIColor+RandomColor.m in Sources */,
 				E2D812FA1CD077BD00A52172 /* FinanceViewController.m in Sources */,
+				21B100251D059F6D00AA734F /* AuctionOrderH5Controller.m in Sources */,
 				215EED2C1CB010A500A5957B /* ArtistTableViewController.m in Sources */,
 				E2D5225F1CDF8CEC0024887A /* UserCommentObjectModel.m in Sources */,
 				215EED291CB0108F00A5957B /* InvestorTableViewController.m in Sources */,
@@ -5085,8 +5120,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Developer: haojie shi (VUR439VZ7R)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: haojie shi (VUR439VZ7R)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5109,7 +5144,7 @@
 					"/ryt-ios/融易投/融易投/alipay",
 				);
 				INFOPLIST_FILE = "融易投/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5124,7 +5159,7 @@
 					"$(PROJECT_DIR)/融易投/3rd/WXPay/WeChatSDK_1.5",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.efeiyi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -5139,8 +5174,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yongxinhuayun Culture development co.ltd (68Y8JTBJWD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5163,7 +5198,7 @@
 					"/ryt-ios/融易投/融易投/alipay",
 				);
 				INFOPLIST_FILE = "融易投/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5178,7 +5213,7 @@
 					"$(PROJECT_DIR)/融易投/3rd/WXPay/WeChatSDK_1.5",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.ryt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yxh.efeiyi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";

@@ -51,6 +51,8 @@
     CGFloat backX = startX;
     CGFloat backY = fY;
     CGContextAddLineToPoint(ref, backX, backY);
+
+    CGContextSetFillColorWithColor(ref, [UIColor colorWithRed:(239.0/255.0) green:(91.0/255.0) blue:(112.0/255.0) alpha:1].CGColor);
     
 //    闭合
     CGContextClosePath(ref);

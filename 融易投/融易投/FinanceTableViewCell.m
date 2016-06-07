@@ -106,7 +106,7 @@
     float money = model.investsMoney;
     float p = money / total;
     NSInteger percent = p * 100;
-    self.progressView.progress = p;
+    self.progressView.progress = 0.5;
     self.progressPercent.text = [NSString stringWithFormat:@"%ld%%",percent];
     
     self.userName.text = model.author.name;
